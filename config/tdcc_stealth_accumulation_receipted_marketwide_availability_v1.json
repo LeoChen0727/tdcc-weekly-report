@@ -1,0 +1,2409 @@
+{
+  "evidence_policy": "GitHub job實際checkout或successful push並綁定完整commit SHA的時間收據，提供整棵tree的available_no_later_than；不是只信commit日期。只允許同tree真正存在且有效日不晚於signal_date的blob；嚴格早於next session 08:30 Asia/Taipei。未查得收據不等於從未可得。未來entry/exit價格不是decision PIT輸入。",
+  "receipts": [
+    {
+      "id": "A_pages_checkout",
+      "ref": "af71f09d64aabbbadf9481940590dce21cd8e263",
+      "available_no_later_than": "2026-06-16T08:07:13.219088+08:00",
+      "source_timestamp_verbatim": "2026-06-16T00:07:13.2190883Z",
+      "signal_dates": [
+        "20260615"
+      ],
+      "run_id": "27584757733",
+      "job_id": "81552601461",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27584757733/job/81552601461",
+      "evidence": "git log -1 --format emitted full A after checkout; entire tree available before 2026-06-16 08:30 +08. Verified in protected pilot event_1808_20260615_lineage.md and coordinator source audit."
+    },
+    {
+      "id": "source_receipt_20260616",
+      "ref": "1e26d264192d95fd902810403f7a6880b52ea63b",
+      "available_no_later_than": "2026-06-16T22:31:28.5758827Z",
+      "source_timestamp_verbatim": "2026-06-16T22:31:28.5758827Z",
+      "signal_dates": [
+        "20260616"
+      ],
+      "run_id": "27652425046",
+      "job_id": "81779288263",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27652425046/job/81779288263",
+      "evidence": "Coordinator retrieved exact full SHA checkout in this job; matching daily raw blob exists."
+    },
+    {
+      "id": "source_receipt_20260617",
+      "ref": "7d75eb3c4bc0daea09b968caa6ca9b860c00b0e6",
+      "available_no_later_than": "2026-06-17T20:32:06.2353597Z",
+      "source_timestamp_verbatim": "2026-06-17T20:32:06.2353597Z",
+      "signal_dates": [
+        "20260617"
+      ],
+      "run_id": "27717829026",
+      "job_id": "81995231784",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27717829026/job/81995231784",
+      "evidence": "Coordinator retrieved exact full SHA checkout in this job; matching daily raw blob exists."
+    },
+    {
+      "id": "price_continuity_checkout_3262680",
+      "ref": "3262680df463448610a790e9c82a1e627a4fc159",
+      "available_no_later_than": "2026-06-18T21:11:15.745277+08:00",
+      "source_timestamp_verbatim": "2026-06-18T13:11:15.7452777Z",
+      "signal_dates": [
+        "20260618"
+      ],
+      "run_id": "27761785624",
+      "job_id": "82137813547",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27761785624/job/82137813547",
+      "evidence": "Coordinator directly retrieved run metadata, job metadata and job log: checkout exact full 3262680 at timestamp; run success at 13:31:15Z. Receipt permits later decisions but does not retroactively repair June15 decision inputs."
+    },
+    {
+      "id": "source_receipt_20260622",
+      "ref": "b4a8b8346e83cf96c265aa3cf6b46ac7e6ecbf0b",
+      "available_no_later_than": "2026-06-22T14:49:17.8469016Z",
+      "source_timestamp_verbatim": "2026-06-22T14:49:17.8469016Z",
+      "signal_dates": [
+        "20260622"
+      ],
+      "run_id": "27960542775",
+      "job_id": "82740548663",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27960542775/job/82740548663",
+      "evidence": "Coordinator verified exact full SHA checkout or successful push with full artifact SHA log, and both same-day price aliases exist with matching blob. June26 receipted tree still has latest raw TDCC June18; do not borrow a later June26 batch."
+    },
+    {
+      "id": "source_receipt_20260623",
+      "ref": "7c25a3d9c4d213b87649c8243fdfc90dbc69dc91",
+      "available_no_later_than": "2026-06-23T16:29:56.8690568Z",
+      "source_timestamp_verbatim": "2026-06-23T16:29:56.8690568Z",
+      "signal_dates": [
+        "20260623"
+      ],
+      "run_id": "28040810257",
+      "job_id": "83006314544",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28040810257/job/83006314544",
+      "evidence": "Coordinator verified exact full SHA checkout or successful push with full artifact SHA log, and both same-day price aliases exist with matching blob. June26 receipted tree still has latest raw TDCC June18; do not borrow a later June26 batch."
+    },
+    {
+      "id": "source_receipt_20260624",
+      "ref": "c26b6d30b9db14343c531cd3e97b06ce1a36d36a",
+      "available_no_later_than": "2026-06-24T11:51:24.5623044Z",
+      "source_timestamp_verbatim": "2026-06-24T11:51:24.5623044Z",
+      "signal_dates": [
+        "20260624"
+      ],
+      "run_id": "28095428186",
+      "job_id": "83183623978",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28095428186/job/83183623978",
+      "evidence": "Coordinator verified exact full SHA checkout or successful push with full artifact SHA log, and both same-day price aliases exist with matching blob. June26 receipted tree still has latest raw TDCC June18; do not borrow a later June26 batch."
+    },
+    {
+      "id": "source_receipt_20260626",
+      "ref": "919cf972a1a34b8e73bf386dbe5c2d8d414caccc",
+      "available_no_later_than": "2026-06-27T15:52:51.2751305Z",
+      "source_timestamp_verbatim": "2026-06-27T15:52:51.2751305Z",
+      "signal_dates": [
+        "20260626"
+      ],
+      "run_id": "28294097577",
+      "job_id": "83830943011",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28294097577/job/83830943011",
+      "evidence": "Coordinator verified exact full SHA checkout or successful push with full artifact SHA log, and both same-day price aliases exist with matching blob. June26 receipted tree still has latest raw TDCC June18; do not borrow a later June26 batch."
+    },
+    {
+      "id": "source_receipt_20260629",
+      "ref": "0dfb2d7ae37e3a1b5d685de95ae78dad66850252",
+      "available_no_later_than": "2026-06-29T14:15:19.6399404Z",
+      "source_timestamp_verbatim": "2026-06-29T14:15:19.6399404Z",
+      "signal_dates": [
+        "20260629"
+      ],
+      "run_id": "28377597077",
+      "job_id": "84071271587",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28377597077/job/84071271587",
+      "evidence": "Coordinator verified exact full SHA checkout or successful push with full artifact SHA log, and both same-day price aliases exist with matching blob. June26 receipted tree still has latest raw TDCC June18; do not borrow a later June26 batch."
+    },
+    {
+      "id": "source_receipt_20260630",
+      "ref": "103c8702b991e4c13616c24d971c0bd611ddcf03",
+      "available_no_later_than": "2026-06-30T20:45:39.0406057Z",
+      "source_timestamp_verbatim": "2026-06-30T20:45:39.0406057Z",
+      "signal_dates": [
+        "20260630"
+      ],
+      "run_id": "28474637267",
+      "job_id": "84395990446",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28474637267/job/84395990446",
+      "evidence": "Coordinator verified exact full SHA checkout or successful push with full artifact SHA log, and both same-day price aliases exist with matching blob. June26 receipted tree still has latest raw TDCC June18; do not borrow a later June26 batch."
+    },
+    {
+      "id": "source_receipt_20260701",
+      "ref": "cd03425cd2801a9967186fc6717b662a2eba9cc7",
+      "available_no_later_than": "2026-07-01T14:50:57.5165068Z",
+      "source_timestamp_verbatim": "2026-07-01T14:50:57.5165068Z",
+      "signal_dates": [
+        "20260701"
+      ],
+      "run_id": "28525511051",
+      "job_id": "84560755614",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28525511051/job/84560755614",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260702",
+      "ref": "4e42a7da0d8a915d07986e84cecd3b8a46dc86fd",
+      "available_no_later_than": "2026-07-02T23:17:56.3106544Z",
+      "source_timestamp_verbatim": "2026-07-02T23:17:56.3106544Z",
+      "signal_dates": [
+        "20260702"
+      ],
+      "run_id": "28627005930",
+      "job_id": "84895625456",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28627005930/job/84895625456",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260703",
+      "ref": "b4adbf53b252954ba28bcd4368ec028dc7f46d93",
+      "available_no_later_than": "2026-07-05T23:49:07.0383328Z",
+      "source_timestamp_verbatim": "2026-07-05T23:49:07.0383328Z",
+      "signal_dates": [
+        "20260703"
+      ],
+      "run_id": "28759109675",
+      "job_id": "85271217551",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28759109675/job/85271217551",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260706",
+      "ref": "a88d15cb9c05a9334a5e8381ef3c5af434167744",
+      "available_no_later_than": "2026-07-06T20:53:38.4510931Z",
+      "source_timestamp_verbatim": "2026-07-06T20:53:38.4510931Z",
+      "signal_dates": [
+        "20260706"
+      ],
+      "run_id": "28822476308",
+      "job_id": "85477364246",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28822476308/job/85477364246",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260707",
+      "ref": "d45b19f60ef9ed254201010e52a9e6c93b252d80",
+      "available_no_later_than": "2026-07-07T15:47:19.8293962Z",
+      "source_timestamp_verbatim": "2026-07-07T15:47:19.8293962Z",
+      "signal_dates": [
+        "20260707"
+      ],
+      "run_id": "28878461574",
+      "job_id": "85659845641",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28878461574/job/85659845641",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260708",
+      "ref": "8eeac5e4b0dd39994e3780a5b384d99fa38c3bb8",
+      "available_no_later_than": "2026-07-08T12:04:10.3390234Z",
+      "source_timestamp_verbatim": "2026-07-08T12:04:10.3390234Z",
+      "signal_dates": [
+        "20260708"
+      ],
+      "run_id": "28940229993",
+      "job_id": "85860345545",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/28940229993/job/85860345545",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260709",
+      "ref": "f660fb72facc3733f2eab29be556fbfbbc02d73b",
+      "available_no_later_than": "2026-07-12T12:46:54.1625066Z",
+      "source_timestamp_verbatim": "2026-07-12T12:46:54.1625066Z",
+      "signal_dates": [
+        "20260709"
+      ],
+      "run_id": "29193198400",
+      "job_id": "86651395038",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29193198400/job/86651395038",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260713",
+      "ref": "9e9b223b834cbbece14c1a05afef5343c766b1eb",
+      "available_no_later_than": "2026-07-13T22:35:12.2586747Z",
+      "source_timestamp_verbatim": "2026-07-13T22:35:12.2586747Z",
+      "signal_dates": [
+        "20260713"
+      ],
+      "run_id": "29289017050",
+      "job_id": "86948644036",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29289017050/job/86948644036",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260715",
+      "ref": "f712f86ba2ae81adfe44c00a8f240af379d96004",
+      "available_no_later_than": "2026-07-15T13:41:56.8332459Z",
+      "source_timestamp_verbatim": "2026-07-15T13:41:56.8332459Z",
+      "signal_dates": [
+        "20260715"
+      ],
+      "run_id": "29418524163",
+      "job_id": "87363388318",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29418524163/job/87363388318",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260716",
+      "ref": "52dd1e9e82dadd1484359f671f252f70b286ed0b",
+      "available_no_later_than": "2026-07-16T11:46:34.7099811Z",
+      "source_timestamp_verbatim": "2026-07-16T11:46:34.7099811Z",
+      "signal_dates": [
+        "20260716"
+      ],
+      "run_id": "29494370283",
+      "job_id": "87608290669",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29494370283/job/87608290669",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "july17_pages_checkout_a45c1a25",
+      "ref": "a45c1a25e7e03fb8040d903339045892742cb3c0",
+      "available_no_later_than": "2026-07-18T08:16:30.954904+08:00",
+      "source_timestamp_verbatim": "2026-07-18T00:16:30.9549048Z",
+      "signal_dates": [
+        "20260717"
+      ],
+      "run_id": "29622620883",
+      "job_id": "88020498085",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29622620883/job/88020498085",
+      "evidence": "Coordinator directly retrieved exact-tree git log full SHA at timestamp; before July20 08:30. Only actual matching blobs in a45 tree may be decision inputs."
+    },
+    {
+      "id": "july30_pages_checkout_5f1eb82b",
+      "ref": "5f1eb82b8e1c515ed666e1e24e23cbe081881218",
+      "available_no_later_than": "2026-07-30T08:38:56.7930558Z",
+      "source_timestamp_verbatim": "2026-07-30T08:38:56.7930558Z",
+      "signal_dates": [
+        "20260730"
+      ],
+      "run_id": "30527441800",
+      "job_id": "90821564276",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/30527441800/job/90821564276",
+      "evidence": "2026-09-10 主線與獨立檢查者直接讀取 GitHub job metadata 與 log；第112行 sparse-checkout disable，第221–222行 git log -1 --format=%H 印出完整 SHA；時間為臺北2026-07-30 16:38:56.7930558，早於2026-07-31 08:30。當日價格2,119列、四碼非零股票1,945、日期一致、無重複、同日兩份價格alias bytes一致。該tree最後四批TDCC為20260626/20260703/20260709/20260717；沒有20260724批次，不能借用未來版本補齊。",
+      "retrieved_log_stdout_bytes": 62913,
+      "retrieved_log_stdout_sha256": "f5357b3c96105bbc58b046ad134bafd7b252da2143d7d4432a8dcc2a4760fbe2",
+      "verified_log_lines": [
+        112,
+        221,
+        222
+      ]
+    },
+    {
+      "id": "source_receipt_20260811",
+      "ref": "e59e4f5c481ec1ae93c75327cab6abf0d853b567",
+      "available_no_later_than": "2026-08-11T12:09:20.9155238Z",
+      "source_timestamp_verbatim": "2026-08-11T12:09:20.9155238Z",
+      "signal_dates": [
+        "20260811"
+      ],
+      "run_id": "31487442357",
+      "job_id": "93766923703",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/31487442357/job/93766923703",
+      "evidence": "Coordinator directly verified exact SHA checkout or successful new-output push with full SHA, and corresponding raw daily price plus TDCC tree existence. July9 next actual session is July13 because July10 exceptional closure; closure evidence limitations remain separately disclosed."
+    },
+    {
+      "id": "source_receipt_20260814",
+      "ref": "7d47662490326fc3e76cfb2aee41608effa27638",
+      "available_no_later_than": "2026-08-14T12:45:24.7301986Z",
+      "source_timestamp_verbatim": "2026-08-14T12:45:24.7301986Z",
+      "signal_dates": [
+        "20260814"
+      ],
+      "run_id": "31800589544",
+      "job_id": "94768844324",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/31800589544/job/94768844324",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260817",
+      "ref": "39330602f2587c684be7254ed214bf8f2e34a23a",
+      "available_no_later_than": "2026-08-17T12:41:25.4525508Z",
+      "source_timestamp_verbatim": "2026-08-17T12:41:25.4525508Z",
+      "signal_dates": [
+        "20260817"
+      ],
+      "run_id": "32030207509",
+      "job_id": "95388289469",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32030207509/job/95388289469",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260818",
+      "ref": "23694af339c400642e9a68214fef9ee75566af8c",
+      "available_no_later_than": "2026-08-18T12:40:30.7162087Z",
+      "source_timestamp_verbatim": "2026-08-18T12:40:30.7162087Z",
+      "signal_dates": [
+        "20260818"
+      ],
+      "run_id": "32137150021",
+      "job_id": "95711057748",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32137150021/job/95711057748",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260819",
+      "ref": "477e6acf72453281e3ebb5919561e31aa4ea60e0",
+      "available_no_later_than": "2026-08-19T12:39:49.8492320Z",
+      "source_timestamp_verbatim": "2026-08-19T12:39:49.8492320Z",
+      "signal_dates": [
+        "20260819"
+      ],
+      "run_id": "32252976413",
+      "job_id": "96068063281",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32252976413/job/96068063281",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260820",
+      "ref": "623ab1b132d788d4ad5a1dd0e4ac2af7cd41aa54",
+      "available_no_later_than": "2026-08-20T12:38:47.8563897Z",
+      "source_timestamp_verbatim": "2026-08-20T12:38:47.8563897Z",
+      "signal_dates": [
+        "20260820"
+      ],
+      "run_id": "32369172461",
+      "job_id": "96425505885",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32369172461/job/96425505885",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260821",
+      "ref": "dfa489b518d1f82512d4cfc927e7f31b526b7c05",
+      "available_no_later_than": "2026-08-21T12:33:07.1420635Z",
+      "source_timestamp_verbatim": "2026-08-21T12:33:07.1420635Z",
+      "signal_dates": [
+        "20260821"
+      ],
+      "run_id": "32482172915",
+      "job_id": "96770735562",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32482172915/job/96770735562",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260824",
+      "ref": "17e8c224065a903142f438f9b8e303a97ba6d7a9",
+      "available_no_later_than": "2026-08-24T12:38:52.3170678Z",
+      "source_timestamp_verbatim": "2026-08-24T12:38:52.3170678Z",
+      "signal_dates": [
+        "20260824"
+      ],
+      "run_id": "32727427582",
+      "job_id": "97431783317",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32727427582/job/97431783317",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260825",
+      "ref": "6ebb740e85df3633f7f5294c6bda73b046a41d4c",
+      "available_no_later_than": "2026-08-25T12:33:46.0405016Z",
+      "source_timestamp_verbatim": "2026-08-25T12:33:46.0405016Z",
+      "signal_dates": [
+        "20260825"
+      ],
+      "run_id": "32847922027",
+      "job_id": "97801863677",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32847922027/job/97801863677",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260826",
+      "ref": "05b2f8c3cd82e987fb04963e5b14e2393247c5c1",
+      "available_no_later_than": "2026-08-26T12:36:27.0871953Z",
+      "source_timestamp_verbatim": "2026-08-26T12:36:27.0871953Z",
+      "signal_dates": [
+        "20260826"
+      ],
+      "run_id": "32968877739",
+      "job_id": "98177672588",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/32968877739/job/98177672588",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260827",
+      "ref": "0835de535ccefef05a10014e8411b0db7befc6bb",
+      "available_no_later_than": "2026-08-27T12:38:40.1061685Z",
+      "source_timestamp_verbatim": "2026-08-27T12:38:40.1061685Z",
+      "signal_dates": [
+        "20260827"
+      ],
+      "run_id": "33072187540",
+      "job_id": "98517011334",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33072187540/job/98517011334",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260828",
+      "ref": "93efa5ced334b5edf71fb1ea2301290b8c68c2ba",
+      "available_no_later_than": "2026-08-28T12:38:28.9683180Z",
+      "source_timestamp_verbatim": "2026-08-28T12:38:28.9683180Z",
+      "signal_dates": [
+        "20260828"
+      ],
+      "run_id": "33171350388",
+      "job_id": "98849035019",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33171350388/job/98849035019",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260831",
+      "ref": "b79632781470a5c9de86f74544f1f4d18684f579",
+      "available_no_later_than": "2026-08-31T12:33:42.6767777Z",
+      "source_timestamp_verbatim": "2026-08-31T12:33:42.6767777Z",
+      "signal_dates": [
+        "20260831"
+      ],
+      "run_id": "33392097562",
+      "job_id": "99487902072",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33392097562/job/99487902072",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260901",
+      "ref": "861914bc6f1a92749e39e0fd64549d2a33262578",
+      "available_no_later_than": "2026-09-01T12:40:00.7268382Z",
+      "source_timestamp_verbatim": "2026-09-01T12:40:00.7268382Z",
+      "signal_dates": [
+        "20260901"
+      ],
+      "run_id": "33508061363",
+      "job_id": "99856784247",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33508061363/job/99856784247",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260902",
+      "ref": "188d751f929450bcb658223394b90d36583660e3",
+      "available_no_later_than": "2026-09-02T12:37:17.0274809Z",
+      "source_timestamp_verbatim": "2026-09-02T12:37:17.0274809Z",
+      "signal_dates": [
+        "20260902"
+      ],
+      "run_id": "33630303824",
+      "job_id": "100247811137",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33630303824/job/100247811137",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260903",
+      "ref": "86c12c9b9192e860912c4ab6416edc92014162b2",
+      "available_no_later_than": "2026-09-03T12:34:08.7099304Z",
+      "source_timestamp_verbatim": "2026-09-03T12:34:08.7099304Z",
+      "signal_dates": [
+        "20260903"
+      ],
+      "run_id": "33755612249",
+      "job_id": "100649188810",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33755612249/job/100649188810",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260904",
+      "ref": "884536eb1e3c3a53d08efb7f23a2b944c789da18",
+      "available_no_later_than": "2026-09-04T12:34:06.7434368Z",
+      "source_timestamp_verbatim": "2026-09-04T12:34:06.7434368Z",
+      "signal_dates": [
+        "20260904"
+      ],
+      "run_id": "33873120386",
+      "job_id": "101023614595",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/33873120386/job/101023614595",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    },
+    {
+      "id": "source_receipt_20260907",
+      "ref": "be2e7fdeac1dc531d28ee9a4c29af45a2d58aca3",
+      "available_no_later_than": "2026-09-07T12:36:36.4786386Z",
+      "source_timestamp_verbatim": "2026-09-07T12:36:36.4786386Z",
+      "signal_dates": [
+        "20260907"
+      ],
+      "run_id": "34122237756",
+      "job_id": "101742704195",
+      "url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/34122237756/job/101742704195",
+      "evidence": "Coordinator directly verified successful new-output push and exact full SHA (packet raw URL or full SHA resolution); for Aug14-Sep7, manifest in pushed tree equals pinned 7ef manifest bytes. Later downstream run failure does not invalidate already successful source push."
+    }
+  ],
+  "calendar_sources": [
+    "7ef37a966280201a5ee236856306fdb513de7092:config/twse_non_trading_days.csv",
+    "7ef37a966280201a5ee236856306fdb513de7092:data/market_calendar/exceptional_non_trading_days.csv"
+  ],
+  "calendar_status": "repository_schedule_with_official_source_urls; outcome scheduling, not proof of historical calendar publication",
+  "calendar_complete_coverage_verified": false,
+  "corporate_action_coverage_verified": false,
+  "executable_status": "positive official-source OHLC with fixed slippage simulation; no assertion of brokerage fills, auction order capacity or complete suspension/action audit",
+  "negative_receipt_audits": [
+    {
+      "signal_date": "20260720",
+      "run_id": "29738493876",
+      "job_id": "88340026410",
+      "source": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/29738493876/job/88340026410",
+      "finding": "validator import pandas failed with ModuleNotFoundError at 2026-07-20T11:33:18Z; dependency install, price fetch/history/candidate/commit/push all skipped; old base checkout ef54f44f5d69889894fe987b4c9ac7cc2bb86623 at11:32:22.1436022Z does not provide new July20 raw-price availability."
+    },
+    {
+      "signal_date": "20260802",
+      "run_id": "30709923240",
+      "job_id": "91395760953",
+      "finding": "closed_scheduled/weekend; daily-full job91395761411 skipped; closure-only push 2026-08-01T17:22:43.9106291Z does not provide new price receipt. This date is not a trading-session coverage row."
+    },
+    {
+      "signal_date": "20260625",
+      "run_id": "28183264634",
+      "job_id": "83478354458",
+      "tested_refs": [
+        "df71c50e5fb9506d409dcb13154832755f1f082e",
+        "95e45002972a6ce5888ccb1bd1fc08a821ee55bc"
+      ],
+      "times_UTC": [
+        "2026-06-25T16:00:17.5909327Z",
+        "2026-06-25T16:14:24.2666893Z"
+      ],
+      "finding": "Neither checked checkout nor pushed tree contains either June25 raw price alias. Source missing in these tested trees only, not proof no original publication ever existed."
+    },
+    {
+      "signal_date": "20260625",
+      "run_id": "28167080099",
+      "job_id": "83421634149",
+      "finding": "Additional night run logged Saved raw June25 at 2026-06-25T11:34:20.6031093Z, then stock7631 June04 history missing error before push; download artifact expired. This proves processing occurred, not recoverable exact marketwide input bytes."
+    },
+    {
+      "signal_date": "20260714",
+      "run_id": "29328838242",
+      "job_id": "87072128846",
+      "finding": "Night run freshness=July14 passed, then operation-row validation failed without push; download artifacts expired, exact payload not recovered. Do not claim no data existed."
+    },
+    {
+      "signal_date": "20260810",
+      "run_id": "31388308841",
+      "job_id": "93453760632",
+      "finding": "Earlier repair only targeted August07 and did no repair; checked two candidate base trees have no August10 raw; no exact August10 input version pinned."
+    },
+    {
+      "signal_date": "20260812",
+      "run_id": "31596733427",
+      "job_id": "94113978700",
+      "artifact_id": "9141660266",
+      "artifact_zip_bytes": 63514,
+      "artifact_zip_sha256": "91f79f30939fb8a84cb277821a61635b334635a0240da8e353c10b3a6a6fe1cf",
+      "finding": "Raw repair completed around20:39 +08, but source bundle market_status unknown prevented commit. Coordinator inspected unexpired artifact in memory:11 repair summaries/stock_price_history_manifest files, only latest_close/volume and stock5291 check, not full rawOHLC. No ZIP written. Exact full marketwide input unavailable from this tested artifact, not proof historical data absent."
+    },
+    {
+      "signal_date": "20260813",
+      "run_id": "31700319763",
+      "job_id": "94447634414",
+      "artifact_id": "9181194149",
+      "artifact_zip_bytes": 63605,
+      "artifact_zip_sha256": "930f31985bf0a3ca7039c768a4e132413d39aebefd03602b89286fab49413801",
+      "finding": "Raw repair completed around20:37 +08, but source bundle market_status unknown prevented commit. Coordinator inspected unexpired artifact in memory:11 repair summaries/stock_price_history_manifest files, no full rawOHLC. No ZIP written. Exact full marketwide input unavailable from this tested artifact, not proof historical data absent."
+    }
+  ],
+  "decision_calendar_policy": "Use only historical closure-event prefix date<=signal_date for raw-date validation; no future closure events affect decision rows. Annual June19 closure was verified by coordinator against official TWSE 2026 table; July10 source event timestamp July9 20:26 +08 and repo first_observed July14 are disclosed. Full official event coverage remains unverified. All actually excluded closed-date filenames are counted per receipt to expose any effect.",
+  "tdcc_july9_coverage_audit": {
+    "ref": "a45c1a25e7e03fb8040d903339045892742cb3c0",
+    "dates": [
+      "20260618",
+      "20260626",
+      "20260703",
+      "20260709"
+    ],
+    "rows": [
+      1972,
+      1970,
+      1972,
+      80
+    ],
+    "four_batch_intersection": 80,
+    "july9_blob_oid": "20d9021e1b5cf5e10886f09fcff2740391cdc6e3",
+    "july9_sha256": "adaf0b16a9ad2d71b14ceaef84e8d3c3155547a45762996b2e07a2d9dda93953",
+    "finding": "actual historical CSV subset, not model rejection; no duplicate or blank codes"
+  },
+  "retained_anomaly_candidates": [
+    {
+      "signal_date": "20260615",
+      "stock_id": "1310",
+      "horizon": "5",
+      "net_return_pct": "15.733244884798030134255730785014949873952043149440",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "1617",
+      "horizon": "10",
+      "net_return_pct": "37.400788269595673590435600026478479228764617540158",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260701"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "1617",
+      "horizon": "20",
+      "net_return_pct": "43.714610050036612639449052106469831665972619659071",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "1710",
+      "horizon": "10",
+      "net_return_pct": "31.809702784170096911159368618934949599714776520922",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260701"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2332",
+      "horizon": "5",
+      "net_return_pct": "12.997365991224742504169320955400791634159085540867",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2332",
+      "horizon": "20",
+      "net_return_pct": "37.801665842957003053865025555366819066047665293740",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2351",
+      "horizon": "5",
+      "net_return_pct": "16.647247951389549612082502713353750625638185864863",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2369",
+      "horizon": "5",
+      "net_return_pct": "18.676926362431699646610387754533589812240387104907",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2379",
+      "horizon": "5",
+      "net_return_pct": "24.486579880881282633785317461079500173790809634732",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2379",
+      "horizon": "10",
+      "net_return_pct": "28.517278606787774973110869458573979631472703844574",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260701"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2543",
+      "horizon": "5",
+      "net_return_pct": "-17.531003057061116633917700090711242128165320308824",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2603",
+      "horizon": "5",
+      "net_return_pct": "-17.022387043084007309089705688006024824265109885007",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2634",
+      "horizon": "20",
+      "net_return_pct": "35.153312814084967725902677651346041761927213859372",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "2645",
+      "horizon": "20",
+      "net_return_pct": "34.320360600608615608293698593968078373852776907371",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "3588",
+      "horizon": "5",
+      "net_return_pct": "24.472486528692798394836626719829519476386327487145",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "3591",
+      "horizon": "5",
+      "net_return_pct": "15.016116509943220892856515597294700448502458981475",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "4722",
+      "horizon": "5",
+      "net_return_pct": "20.908408993868994744265701774733186348153238957325",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6226",
+      "horizon": "5",
+      "net_return_pct": "21.778981353843159832310274644632388119004565247359",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6226",
+      "horizon": "10",
+      "net_return_pct": "95.572205154350769929372460935916252442772232268109",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260701"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6226",
+      "horizon": "20",
+      "net_return_pct": "102.02407171614378501982598542040008757490492446664",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6505",
+      "horizon": "20",
+      "net_return_pct": "47.809608055015332884592653109667202573637719197754",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6695",
+      "horizon": "5",
+      "net_return_pct": "24.292091620680200136293385231829766549608955998033",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6831",
+      "horizon": "5",
+      "net_return_pct": "12.861220153142248268842404908790682894360854202659",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "6831",
+      "horizon": "10",
+      "net_return_pct": "19.616997415830340594794239005443646307051468714790",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260701"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "7795",
+      "horizon": "10",
+      "net_return_pct": "57.549621105490998767096076461726473451890716540559",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260701"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "7795",
+      "horizon": "20",
+      "net_return_pct": "46.612292037010631910537340575127280253577642003859",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "8021",
+      "horizon": "5",
+      "net_return_pct": "14.250108407978897077386275733176853625668609770810",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260615",
+      "stock_id": "8081",
+      "horizon": "5",
+      "net_return_pct": "13.690007053282487721628115284202811146512154649373",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260616",
+      "exit_date": "20260624"
+    },
+    {
+      "signal_date": "20260616",
+      "stock_id": "1444",
+      "horizon": 10,
+      "net_return_pct": "40.653371142656614367542846792999615114673187076909",
+      "entry_date": "20260617",
+      "exit_date": "20260702"
+    },
+    {
+      "signal_date": "20260616",
+      "stock_id": "2923",
+      "horizon": 20,
+      "net_return_pct": "41.512977640161741462805772857176698336511737872965",
+      "entry_date": "20260617",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260616",
+      "stock_id": "6672",
+      "horizon": 5,
+      "net_return_pct": "29.970041757040532654061655777197555502836992551254",
+      "entry_date": "20260617",
+      "exit_date": "20260625"
+    },
+    {
+      "signal_date": "20260616",
+      "stock_id": "6672",
+      "horizon": 10,
+      "net_return_pct": "33.561614586250633729130717076740147710169275592394",
+      "entry_date": "20260617",
+      "exit_date": "20260702"
+    },
+    {
+      "signal_date": "20260616",
+      "stock_id": "6770",
+      "horizon": 5,
+      "net_return_pct": "17.758502006512072909254357929653265753673599739746",
+      "entry_date": "20260617",
+      "exit_date": "20260625"
+    },
+    {
+      "signal_date": "20260616",
+      "stock_id": "7631",
+      "horizon": 5,
+      "net_return_pct": "25.469221039890812119083330661306753546518107699358",
+      "entry_date": "20260617",
+      "exit_date": "20260625"
+    },
+    {
+      "signal_date": "20260618",
+      "stock_id": "1444",
+      "horizon": "5",
+      "net_return_pct": "14.418076034505902883263506687108329035403169399679",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260622",
+      "exit_date": "20260629"
+    },
+    {
+      "signal_date": "20260618",
+      "stock_id": "1444",
+      "horizon": "10",
+      "net_return_pct": "28.491779060484241315237281070502539900099617778594",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260622",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260618",
+      "stock_id": "2413",
+      "horizon": "5",
+      "net_return_pct": "-18.972620484341282204327364973444310389163972807281",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260622",
+      "exit_date": "20260629"
+    },
+    {
+      "signal_date": "20260618",
+      "stock_id": "2923",
+      "horizon": "20",
+      "net_return_pct": "45.340897478332006030861607945255483051314074750306",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260622",
+      "exit_date": "20260721"
+    },
+    {
+      "signal_date": "20260618",
+      "stock_id": "7631",
+      "horizon": "5",
+      "net_return_pct": "32.539202226614645050449500805856206956808411056862",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260622",
+      "exit_date": "20260629"
+    },
+    {
+      "signal_date": "20260622",
+      "stock_id": "2236",
+      "horizon": 10,
+      "net_return_pct": "33.617323288893491136317007261130863100246509909638",
+      "entry_date": "20260623",
+      "exit_date": "20260707"
+    },
+    {
+      "signal_date": "20260622",
+      "stock_id": "6658",
+      "horizon": 5,
+      "net_return_pct": "24.821637963555891798468707019183879979826401337039",
+      "entry_date": "20260623",
+      "exit_date": "20260630"
+    },
+    {
+      "signal_date": "20260622",
+      "stock_id": "8046",
+      "horizon": 5,
+      "net_return_pct": "34.368435768241045720637302632958822888173563461278",
+      "entry_date": "20260623",
+      "exit_date": "20260630"
+    },
+    {
+      "signal_date": "20260622",
+      "stock_id": "8046",
+      "horizon": 20,
+      "net_return_pct": "47.975365972619885793613232013511615079381012925712",
+      "entry_date": "20260623",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260623",
+      "stock_id": "6213",
+      "horizon": 10,
+      "net_return_pct": "26.349410895231644353466145761639246530073218546998",
+      "entry_date": "20260624",
+      "exit_date": "20260708"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "1314",
+      "horizon": 5,
+      "net_return_pct": "29.101611142884972240190410065959205692321908895876",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "1326",
+      "horizon": 5,
+      "net_return_pct": "23.291961027728000967605119923360548117328528771634",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "1467",
+      "horizon": 5,
+      "net_return_pct": "31.674796214600825387789953038280916465063327166643",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "1709",
+      "horizon": 5,
+      "net_return_pct": "16.850587927117853016102039679460811693351887556189",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "1710",
+      "horizon": 5,
+      "net_return_pct": "30.770372363196228763766753580032907874126363926808",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "2103",
+      "horizon": 5,
+      "net_return_pct": "18.570677809762114627681195322306738538608124448302",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "2231",
+      "horizon": 5,
+      "net_return_pct": "38.926577400858692874712903315002466568627646234913",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "2427",
+      "horizon": 5,
+      "net_return_pct": "17.071775154417411979429384808951272981487784163902",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "2497",
+      "horizon": 5,
+      "net_return_pct": "17.930763707880071510297015464607162451968478825048",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "2634",
+      "horizon": 5,
+      "net_return_pct": "19.417108268219984921888302385465185959511485756347",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "2645",
+      "horizon": 5,
+      "net_return_pct": "35.710881947408689904082245857285391466424873130662",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "3055",
+      "horizon": 5,
+      "net_return_pct": "65.878755258459492426090024512272808450754877097339",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "3055",
+      "horizon": 10,
+      "net_return_pct": "81.381442665792155269649839887251575595685239442885",
+      "entry_date": "20260629",
+      "exit_date": "20260714"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "3532",
+      "horizon": 5,
+      "net_return_pct": "18.129568795346601562187167948225303663891652547408",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "3532",
+      "horizon": 10,
+      "net_return_pct": "48.389359816814696543634127225603213962031386204872",
+      "entry_date": "20260629",
+      "exit_date": "20260714"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "3605",
+      "horizon": 5,
+      "net_return_pct": "17.744903761673572406403967167362414385744435416886",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "4590",
+      "horizon": 5,
+      "net_return_pct": "28.968896922439650510765183211763659591583497439633",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "6133",
+      "horizon": 5,
+      "net_return_pct": "25.447033732898788986966781884885655977367529784646",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "6164",
+      "horizon": 5,
+      "net_return_pct": "22.156006903835246719211437288533375056228119927246",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "6719",
+      "horizon": 5,
+      "net_return_pct": "18.341125246814220179845918892967688129239407217906",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "6753",
+      "horizon": 5,
+      "net_return_pct": "23.920257218450150664602214001462928884210700479660",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "6928",
+      "horizon": 5,
+      "net_return_pct": "18.027126794492673115635394388171680530069825324088",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260626",
+      "stock_id": "8222",
+      "horizon": 5,
+      "net_return_pct": "24.697656643428753179531920973143414808231827050312",
+      "entry_date": "20260629",
+      "exit_date": "20260706"
+    },
+    {
+      "signal_date": "20260629",
+      "stock_id": "2481",
+      "horizon": 5,
+      "net_return_pct": "24.598343441259727412424934734713068029951935502805",
+      "entry_date": "20260630",
+      "exit_date": "20260707"
+    },
+    {
+      "signal_date": "20260629",
+      "stock_id": "3189",
+      "horizon": 5,
+      "net_return_pct": "-19.903388962913922455271684793529208715828651984847",
+      "entry_date": "20260630",
+      "exit_date": "20260707"
+    },
+    {
+      "signal_date": "20260629",
+      "stock_id": "3518",
+      "horizon": 5,
+      "net_return_pct": "18.323214157587675324899780051189293019684711523841",
+      "entry_date": "20260630",
+      "exit_date": "20260707"
+    },
+    {
+      "signal_date": "20260629",
+      "stock_id": "8039",
+      "horizon": 10,
+      "net_return_pct": "28.628012088268722564850582425538113682507920718471",
+      "entry_date": "20260630",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260702",
+      "stock_id": "6415",
+      "horizon": 10,
+      "net_return_pct": "-29.542603411192416046545423810727729387824798376390",
+      "entry_date": "20260703",
+      "exit_date": "20260720"
+    },
+    {
+      "signal_date": "20260702",
+      "stock_id": "6505",
+      "horizon": 10,
+      "net_return_pct": "33.146397131578351966242227800853908908997764891070",
+      "entry_date": "20260703",
+      "exit_date": "20260720"
+    },
+    {
+      "signal_date": "20260702",
+      "stock_id": "6861",
+      "horizon": 10,
+      "net_return_pct": "-34.211364700943973557422469645628567242190905393918",
+      "entry_date": "20260703",
+      "exit_date": "20260720"
+    },
+    {
+      "signal_date": "20260703",
+      "stock_id": "6405",
+      "horizon": 10,
+      "net_return_pct": "-33.484789517594770109935998544731100838647584534695",
+      "entry_date": "20260706",
+      "exit_date": "20260721"
+    },
+    {
+      "signal_date": "20260703",
+      "stock_id": "6416",
+      "horizon": 5,
+      "net_return_pct": "17.028479782389797966998047245140919787079130496688",
+      "entry_date": "20260706",
+      "exit_date": "20260714"
+    },
+    {
+      "signal_date": "20260703",
+      "stock_id": "6957",
+      "horizon": 5,
+      "net_return_pct": "17.025414685095793362666914010096129422243555757145",
+      "entry_date": "20260706",
+      "exit_date": "20260714"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "3093",
+      "horizon": 5,
+      "net_return_pct": "-26.190352372527751153981308200387214508829405027216",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "3093",
+      "horizon": 10,
+      "net_return_pct": "-31.087338609350429202419086790938447392378223347526",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "3685",
+      "horizon": 5,
+      "net_return_pct": "30.120917254988907801682384786707029150890910179007",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "4513",
+      "horizon": 5,
+      "net_return_pct": "33.584602815955668261614216339576075446436086138967",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "4513",
+      "horizon": 10,
+      "net_return_pct": "36.274225691444708562183630091379620589652920088074",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "4760",
+      "horizon": 5,
+      "net_return_pct": "-19.580361164469195140872615855380799950173208664474",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "4924",
+      "horizon": 5,
+      "net_return_pct": "-22.508070323477987263970480443651471865960619138369",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "5386",
+      "horizon": 10,
+      "net_return_pct": "-40.536870332867583061451832313399726562831440863315",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "5475",
+      "horizon": 5,
+      "net_return_pct": "-20.267893930323388210458954062411686088015039349681",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "5475",
+      "horizon": 10,
+      "net_return_pct": "-31.466223434491451664046179615443752648687084384838",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "6127",
+      "horizon": 5,
+      "net_return_pct": "-19.525128698275971675839673859850480067497264272851",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "6127",
+      "horizon": 10,
+      "net_return_pct": "-31.473362865344168020911512675418531061842648616620",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "6683",
+      "horizon": 10,
+      "net_return_pct": "-31.613003798613880518353085622692534538069904410158",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "8383",
+      "horizon": 5,
+      "net_return_pct": "37.072377026803507530010724497043031592836582265108",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "8383",
+      "horizon": 10,
+      "net_return_pct": "27.761224467076320492894183077978861295327638480953",
+      "entry_date": "20260707",
+      "exit_date": "20260722"
+    },
+    {
+      "signal_date": "20260706",
+      "stock_id": "8421",
+      "horizon": 5,
+      "net_return_pct": "23.096060655041194073964606347212472752798610854546",
+      "entry_date": "20260707",
+      "exit_date": "20260715"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "2923",
+      "horizon": 5,
+      "net_return_pct": "31.738392545866894919494964430930679027141568020815",
+      "entry_date": "20260708",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "3577",
+      "horizon": 10,
+      "net_return_pct": "31.740679710445201259794613642973091754428971301567",
+      "entry_date": "20260708",
+      "exit_date": "20260723"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "3675",
+      "horizon": 5,
+      "net_return_pct": "-24.846231273604524786107160256255859537312499100016",
+      "entry_date": "20260708",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "3675",
+      "horizon": 10,
+      "net_return_pct": "-37.529911484526158615581188414900375356725058400171",
+      "entry_date": "20260708",
+      "exit_date": "20260723"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "5488",
+      "horizon": 5,
+      "net_return_pct": "17.482561177195086377337698116876802904093605159952",
+      "entry_date": "20260708",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "6505",
+      "horizon": 5,
+      "net_return_pct": "35.219351832271267051152052333715992814384080424521",
+      "entry_date": "20260708",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "6533",
+      "horizon": 5,
+      "net_return_pct": "17.514397219635436993883026468410478014973427192833",
+      "entry_date": "20260708",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260707",
+      "stock_id": "6934",
+      "horizon": 5,
+      "net_return_pct": "16.980977466684896915595462742197858630740900144555",
+      "entry_date": "20260708",
+      "exit_date": "20260716"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "1526",
+      "horizon": 5,
+      "net_return_pct": "18.442677492700759718270146532709750366803598819948",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "2327",
+      "horizon": 5,
+      "net_return_pct": "-24.204565698968961205520010861743155519606044820729",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "2327",
+      "horizon": 10,
+      "net_return_pct": "-30.385309268580934326099924139111739404273363054231",
+      "entry_date": "20260709",
+      "exit_date": "20260724"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "2375",
+      "horizon": 5,
+      "net_return_pct": "-25.019063043618510094049625789415672801313911586735",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "2375",
+      "horizon": 10,
+      "net_return_pct": "-33.855200395380638534144787733423926848297120659005",
+      "entry_date": "20260709",
+      "exit_date": "20260724"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "2426",
+      "horizon": 5,
+      "net_return_pct": "-26.314693240454031327037293535034254509002992414132",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "2478",
+      "horizon": 5,
+      "net_return_pct": "-22.316203761058304871832133945161342658370931543200",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "3236",
+      "horizon": 5,
+      "net_return_pct": "-23.854736645634616026807154450263020550361090091974",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "3236",
+      "horizon": 10,
+      "net_return_pct": "-33.855200395380638534144787733423926848297120659005",
+      "entry_date": "20260709",
+      "exit_date": "20260724"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "3257",
+      "horizon": 5,
+      "net_return_pct": "-20.124248691743137158420379829871304519930228295807",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "3550",
+      "horizon": 5,
+      "net_return_pct": "-24.325864859121916967030053762815509529831451601404",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "4534",
+      "horizon": 5,
+      "net_return_pct": "25.755538458022524610615304780374874639483741725813",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "4956",
+      "horizon": 5,
+      "net_return_pct": "-21.760905254908348372502378575639073047287618119927",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "4989",
+      "horizon": 5,
+      "net_return_pct": "-30.151091617521954292056895846495666751801759415909",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "4989",
+      "horizon": 10,
+      "net_return_pct": "-35.310385986682264486393602403288600457634584004507",
+      "entry_date": "20260709",
+      "exit_date": "20260724"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "6271",
+      "horizon": 5,
+      "net_return_pct": "-21.782169011236522072415875203213925146821255303561",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "6799",
+      "horizon": 5,
+      "net_return_pct": "-20.432645939028612012293193439328489564829609534198",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "8016",
+      "horizon": 5,
+      "net_return_pct": "-20.515072744028834541031131477980012935348640791914",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "8039",
+      "horizon": 5,
+      "net_return_pct": "33.561614586250633729130717076740147710169275592394",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "8042",
+      "horizon": 5,
+      "net_return_pct": "-23.062111837141850510524700701901783175339614898274",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "8042",
+      "horizon": 10,
+      "net_return_pct": "-32.270893818024486163705141930631685575202440914310",
+      "entry_date": "20260709",
+      "exit_date": "20260724"
+    },
+    {
+      "signal_date": "20260708",
+      "stock_id": "8438",
+      "horizon": 5,
+      "net_return_pct": "-19.399025639025149157173286939313747338726837281020",
+      "entry_date": "20260709",
+      "exit_date": "20260717"
+    },
+    {
+      "signal_date": "20260709",
+      "stock_id": "3511",
+      "horizon": 5,
+      "net_return_pct": "-21.412119281640362614825490376345259621739153258224",
+      "entry_date": "20260713",
+      "exit_date": "20260720"
+    },
+    {
+      "signal_date": "20260709",
+      "stock_id": "5299",
+      "horizon": 5,
+      "net_return_pct": "-24.016161454193508516098824908770735966981317357032",
+      "entry_date": "20260713",
+      "exit_date": "20260720"
+    },
+    {
+      "signal_date": "20260709",
+      "stock_id": "8105",
+      "horizon": 5,
+      "net_return_pct": "-21.361182692285870257261025416404001919642132339039",
+      "entry_date": "20260713",
+      "exit_date": "20260720"
+    },
+    {
+      "signal_date": "20260713",
+      "stock_id": "3090",
+      "horizon": 5,
+      "net_return_pct": "-28.928087771771237118831083146219790786996804136666",
+      "entry_date": "20260714",
+      "exit_date": "20260721"
+    },
+    {
+      "signal_date": "20260713",
+      "stock_id": "3090",
+      "horizon": 10,
+      "net_return_pct": "-43.101973401332528861514342917628949319504563995450",
+      "entry_date": "20260714",
+      "exit_date": "20260728"
+    },
+    {
+      "signal_date": "20260713",
+      "stock_id": "3624",
+      "horizon": 5,
+      "net_return_pct": "-29.814448045993385713078924571613637554593870831559",
+      "entry_date": "20260714",
+      "exit_date": "20260721"
+    },
+    {
+      "signal_date": "20260713",
+      "stock_id": "3624",
+      "horizon": 10,
+      "net_return_pct": "-46.569414794089574162211898573769677874344288905873",
+      "entry_date": "20260714",
+      "exit_date": "20260728"
+    },
+    {
+      "signal_date": "20260713",
+      "stock_id": "6243",
+      "horizon": 5,
+      "net_return_pct": "33.159925519825819793103256273501831476454480778582",
+      "entry_date": "20260714",
+      "exit_date": "20260721"
+    },
+    {
+      "signal_date": "20260713",
+      "stock_id": "6727",
+      "horizon": 5,
+      "net_return_pct": "-23.457728995814602016020215503585112565169811899487",
+      "entry_date": "20260714",
+      "exit_date": "20260721"
+    },
+    {
+      "signal_date": "20260717",
+      "stock_id": "6504",
+      "horizon": "5",
+      "net_return_pct": "12.446159327852914491953860853179324357894894879692",
+      "reason": "outside_Q1_Q3_plus_3IQR_descriptive_candidate",
+      "disposition": "unresolved_anomaly_candidate",
+      "primary_row_retained": "True",
+      "exclusion_allowed_only_as_sensitivity": "True",
+      "entry_date": "20260720",
+      "exit_date": "20260727"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "2351",
+      "horizon": 10,
+      "net_return_pct": "28.192133747005665141790190144957168320556907749362",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "2615",
+      "horizon": 5,
+      "net_return_pct": "20.486108743876202898179819379538514093324230042462",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "2615",
+      "horizon": 10,
+      "net_return_pct": "30.102370944091674490992293226731728833167008966039",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "2723",
+      "horizon": 10,
+      "net_return_pct": "27.656267835968284568160180195638363401474880660519",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3008",
+      "horizon": 5,
+      "net_return_pct": "25.434044808304369977960055152447792480165483032753",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3008",
+      "horizon": 10,
+      "net_return_pct": "42.158584116078285975021395839440831477520880770453",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3388",
+      "horizon": 5,
+      "net_return_pct": "26.981683191584082814080067993241720680120959722527",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3388",
+      "horizon": 10,
+      "net_return_pct": "31.336896334275069577263950282398992986405922971317",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3508",
+      "horizon": 5,
+      "net_return_pct": "25.399515917090872779017173255383805350103375417303",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3532",
+      "horizon": 5,
+      "net_return_pct": "22.390766742457451708879151417133408712363718780613",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3532",
+      "horizon": 10,
+      "net_return_pct": "31.145225513657073079359988334768477217736158693392",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3625",
+      "horizon": 5,
+      "net_return_pct": "-27.117730823543335174901592173888772227393336627547",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "3631",
+      "horizon": 5,
+      "net_return_pct": "19.845079810712239844796230131607453184820370694702",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "5321",
+      "horizon": 5,
+      "net_return_pct": "26.698222264243920793409714143711363141301378593812",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "5321",
+      "horizon": 10,
+      "net_return_pct": "44.721490501833548962613067845844951419148476112087",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "5515",
+      "horizon": 5,
+      "net_return_pct": "22.288323667646791988419602059855420466034876582321",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "5608",
+      "horizon": 5,
+      "net_return_pct": "18.518838881997149384211557815537332439058060252636",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6103",
+      "horizon": 10,
+      "net_return_pct": "30.832171421340330221445818161176741301758068120239",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6187",
+      "horizon": 5,
+      "net_return_pct": "22.149476628341886857935450954549682258923005952828",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6214",
+      "horizon": 5,
+      "net_return_pct": "23.848042616341496730648483107522682422156964640220",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6214",
+      "horizon": 10,
+      "net_return_pct": "25.582609039539556908948882030597229795016305881679",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6538",
+      "horizon": 5,
+      "net_return_pct": "27.946758831157653744558314636861798066172741351521",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6538",
+      "horizon": 10,
+      "net_return_pct": "41.643409254336410411730353540546742506676872932232",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6588",
+      "horizon": 10,
+      "net_return_pct": "29.389172347304958220508345179777227378188718984236",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "6830",
+      "horizon": 10,
+      "net_return_pct": "27.133366353336604620121224064137689931044023873435",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "7792",
+      "horizon": 5,
+      "net_return_pct": "23.114675393114101825156314444562561963008262515336",
+      "entry_date": "20260812",
+      "exit_date": "20260819"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "7792",
+      "horizon": 10,
+      "net_return_pct": "30.155895996186485465069933814875498782383085154861",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260811",
+      "stock_id": "8103",
+      "horizon": 10,
+      "net_return_pct": "39.543396935395864802501237774282236110005145078121",
+      "entry_date": "20260812",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260814",
+      "stock_id": "1815",
+      "horizon": 10,
+      "net_return_pct": "34.956728225554019765011037930997955704684100590901",
+      "entry_date": "20260817",
+      "exit_date": "20260831"
+    },
+    {
+      "signal_date": "20260814",
+      "stock_id": "5314",
+      "horizon": 5,
+      "net_return_pct": "59.416399047088236341864528440231097652137838411724",
+      "entry_date": "20260817",
+      "exit_date": "20260824"
+    },
+    {
+      "signal_date": "20260814",
+      "stock_id": "5314",
+      "horizon": 10,
+      "net_return_pct": "100.66399880053064714360570013455662641527839800077",
+      "entry_date": "20260817",
+      "exit_date": "20260831"
+    },
+    {
+      "signal_date": "20260817",
+      "stock_id": "4747",
+      "horizon": 10,
+      "net_return_pct": "-52.313504713090377319588700750618818110649630807207",
+      "entry_date": "20260818",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260817",
+      "stock_id": "4939",
+      "horizon": 5,
+      "net_return_pct": "18.762490775906716621915326865947523663867189868514",
+      "entry_date": "20260818",
+      "exit_date": "20260825"
+    },
+    {
+      "signal_date": "20260817",
+      "stock_id": "4939",
+      "horizon": 10,
+      "net_return_pct": "44.270752393047071377528939609819097784139919631068",
+      "entry_date": "20260818",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260818",
+      "stock_id": "3362",
+      "horizon": 5,
+      "net_return_pct": "17.203943159062377334234674367090936637227909007728",
+      "entry_date": "20260819",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260818",
+      "stock_id": "6949",
+      "horizon": 5,
+      "net_return_pct": "40.793930586975497977320380395997641422910414597261",
+      "entry_date": "20260819",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260818",
+      "stock_id": "8111",
+      "horizon": 5,
+      "net_return_pct": "16.876040402290724938749668647179373293742885881428",
+      "entry_date": "20260819",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260818",
+      "stock_id": "8111",
+      "horizon": 10,
+      "net_return_pct": "39.086129076869336219945088545864550150186238027120",
+      "entry_date": "20260819",
+      "exit_date": "20260902"
+    },
+    {
+      "signal_date": "20260818",
+      "stock_id": "8162",
+      "horizon": 5,
+      "net_return_pct": "17.498722732356039240776790305384688085225329491249",
+      "entry_date": "20260819",
+      "exit_date": "20260826"
+    },
+    {
+      "signal_date": "20260819",
+      "stock_id": "2221",
+      "horizon": 5,
+      "net_return_pct": "39.127877363851626842654102493042529805931432298070",
+      "entry_date": "20260820",
+      "exit_date": "20260827"
+    },
+    {
+      "signal_date": "20260819",
+      "stock_id": "2221",
+      "horizon": 10,
+      "net_return_pct": "70.646123040112920323094509089991842858481582510368",
+      "entry_date": "20260820",
+      "exit_date": "20260903"
+    },
+    {
+      "signal_date": "20260819",
+      "stock_id": "2426",
+      "horizon": 5,
+      "net_return_pct": "28.133442014830821877037703976295093578632984177944",
+      "entry_date": "20260820",
+      "exit_date": "20260827"
+    },
+    {
+      "signal_date": "20260819",
+      "stock_id": "2426",
+      "horizon": 10,
+      "net_return_pct": "26.011148979388489423587804117474470910663907835452",
+      "entry_date": "20260820",
+      "exit_date": "20260903"
+    },
+    {
+      "signal_date": "20260819",
+      "stock_id": "3259",
+      "horizon": 5,
+      "net_return_pct": "37.380198292843072882468811556139198949441891004596",
+      "entry_date": "20260820",
+      "exit_date": "20260827"
+    },
+    {
+      "signal_date": "20260819",
+      "stock_id": "6669",
+      "horizon": 10,
+      "net_return_pct": "-61.839538689642676077391223692359957797094492687887",
+      "entry_date": "20260820",
+      "exit_date": "20260903"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "2351",
+      "horizon": 5,
+      "net_return_pct": "30.563292626151129706640027509711287251369557160728",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "3049",
+      "horizon": 5,
+      "net_return_pct": "19.011993351800554016620498614958448753462603878116",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "3605",
+      "horizon": 5,
+      "net_return_pct": "19.242689195483527780188524865891728204675374224821",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "4764",
+      "horizon": 5,
+      "net_return_pct": "17.320811620989554637897218913583390412439822717381",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "4956",
+      "horizon": 5,
+      "net_return_pct": "20.396568738457409170608378977831817879577408455654",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "5543",
+      "horizon": 5,
+      "net_return_pct": "23.608094261132431739316927923164036702244755768484",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "6668",
+      "horizon": 5,
+      "net_return_pct": "21.401566352511256023750718810258965537693350560016",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260820",
+      "stock_id": "6830",
+      "horizon": 5,
+      "net_return_pct": "21.561329495070588458251994538923354975416610224116",
+      "entry_date": "20260821",
+      "exit_date": "20260828"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "1312",
+      "horizon": 5,
+      "net_return_pct": "30.999532911541552872658718970530683353181533178756",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "3017",
+      "horizon": 5,
+      "net_return_pct": "19.340617276059271216172631655568470607040644736928",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "3228",
+      "horizon": 5,
+      "net_return_pct": "28.022192783134247998429443096598851261360411627732",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "3555",
+      "horizon": 5,
+      "net_return_pct": "27.122036740127835317190486074825890588428971233475",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "4529",
+      "horizon": 5,
+      "net_return_pct": "27.835838503493293071285163284374424115846068792494",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "4977",
+      "horizon": 5,
+      "net_return_pct": "22.987986764839125225574535308164886016447541274663",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "6727",
+      "horizon": 5,
+      "net_return_pct": "26.296368747825697914914703642699949620047044752751",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "6805",
+      "horizon": 5,
+      "net_return_pct": "34.947202764781465133463535740291363528250963655512",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260824",
+      "stock_id": "7828",
+      "horizon": 5,
+      "net_return_pct": "19.722087284361044253197934202502692404582211607201",
+      "entry_date": "20260825",
+      "exit_date": "20260901"
+    },
+    {
+      "signal_date": "20260825",
+      "stock_id": "3141",
+      "horizon": 5,
+      "net_return_pct": "35.234401931362187654505348366938067368378832077308",
+      "entry_date": "20260826",
+      "exit_date": "20260902"
+    },
+    {
+      "signal_date": "20260825",
+      "stock_id": "4127",
+      "horizon": 5,
+      "net_return_pct": "-21.010452863959680527392722025620714465193087711807",
+      "entry_date": "20260826",
+      "exit_date": "20260902"
+    },
+    {
+      "signal_date": "20260825",
+      "stock_id": "4576",
+      "horizon": 5,
+      "net_return_pct": "20.656091741089589005554985189784495246573593973775",
+      "entry_date": "20260826",
+      "exit_date": "20260902"
+    },
+    {
+      "signal_date": "20260826",
+      "stock_id": "6272",
+      "horizon": 5,
+      "net_return_pct": "21.195692946438640154209392096036539097582174488722",
+      "entry_date": "20260827",
+      "exit_date": "20260903"
+    },
+    {
+      "signal_date": "20260828",
+      "stock_id": "5274",
+      "horizon": 5,
+      "net_return_pct": "21.974311363028889689674462927280157928020232873054",
+      "entry_date": "20260831",
+      "exit_date": "20260907"
+    }
+  ],
+  "anomaly_source_audit": {
+    "status": "unresolved_anomaly_candidate_no_primary_deletion",
+    "stocks": [
+      "6226",
+      "7795"
+    ],
+    "interval": "20260612..20260717",
+    "repo_session_coverage_each": 24,
+    "unique_price_keys": true,
+    "ohlc_logic_violations": 0,
+    "official_spotcheck_url": "https://www.twse.com.tw/exchangeReport/MI_INDEX?date=20260630&response=html&type=ALLBUT0999",
+    "official_spotcheck_by": "coordinator direct source read",
+    "official_spotcheck_date": "20260630",
+    "corporate_action_full_coverage_verified": false,
+    "findings": "6226 June23-July2 eight-session rise, not a single-day doubling; locked OHLC dates June25/July1/July2 need execution-capacity caveat. No unsupported absence-of-CA claim."
+  },
+  "receipt_freeze": {
+    "signal_date_count": 40,
+    "scope": "原39日收據保留，僅追加已核實20260730。其他日期未固定歷史版本不得產生selector輸入；20260908與20260909目前亦無本版本收據。",
+    "source": "user_approval_20260910_tdcc_stealth_receipted_marketwide_replay",
+    "prior_receipt_count": 39,
+    "new_receipt_dates": [
+      "20260730"
+    ],
+    "prior_sealed_source_manifest_sha256": "4309735726e9e76e8a0633042fd53ba0641afa82637dc1e610a22ba5b3a08595"
+  },
+  "corporate_action_followup": {
+    "event_id": "TWSE:6669:2025_earnings_stock_dividend:exright_20260902",
+    "stock_id": "6669",
+    "announced_new_shares_per_1000": "1982.79460",
+    "exright_date": "20260902",
+    "record_date": "20260908",
+    "delivery_date": null,
+    "new_share_tradable_date": null,
+    "original_publication_version_chain_verified": false,
+    "applied_to_return": false,
+    "reference_source_manifest_sha256": "2a06065fe26baaf64927e582629fb91588d7a5147552dd82f67e3d692c87ea09",
+    "note": "已知事實只作揭露；未將股利/增股資料套入報酬或認定公司行動已完整。"
+  },
+  "prior_candidate_ledger_binding": {
+    "path": "F:\\CodexStorage\\retained-evidence\\taiwan-stock-recommendation\\tdcc-stealth-marketwide-pit-research\\anomaly_candidates.csv",
+    "sha256": "e832c3eefcdd1339cc67ab4692c2b7b0166022bf6ac460a631769e38ca6c49a2",
+    "rows": 200,
+    "retained_union_keys": 200,
+    "policy": "carry every earlier unresolved anomaly candidate across sample expansion; never remove from primary; historical absent trades remain represented_in_current_proxy_trade=False"
+  }
+}
