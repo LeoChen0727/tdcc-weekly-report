@@ -102,6 +102,11 @@ writer 必須拒絕第六個檔名、遺漏檔、任意相對路徑、跳脫路�
 來源或目的地；只可寫 exact 五個已登錄名稱。CSV／JSON 使用穩定序列化，manifest
 綁定最終 bytes，不以可變 `latest` 取代版本化證據。
 
+CLI 同時執行既有 `model_owned_artifact_guard` 與本帳本的全工作樹 snapshot guard：
+前者檢查登錄的必要保護產物存在且不漂移，後者禁止五個新產物以外的 Git mapping
+或實體檔案改變。缺少必要保護產物的 sparse 工作區必須在 build／write 前阻擋；
+不得為了本地執行而略過 sentinel、補造保護產物或展開受保護目錄。CI 保持唯讀驗證。
+
 ## 驗證與執行
 
 獨立 validator
@@ -115,6 +120,13 @@ synthetic regression 覆蓋 ex 日進場、可交易日前／同日／後日出�
 負值與非有限數值、來源及產物竄改、strict lock、五檔 writer 與 validator 獨立性。
 合成結果不得當成真實交易績效。
 
-CI 僅新增本帳本的 validator、synthetic regression 與產物無漂移檢查，不新增
-producer workflow 或排程。完整交付仍需正常 PR checks、main 合併與合併後官方
+CI 僅執行本帳本的 validator、synthetic regression 與產物無漂移檢查，不執行 producer。
+另依使用者追加授權建立專屬手動 workflow
+`.github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml`，唯一輸入
+`run_tdcc_stealth_accumulation_corporate_action_ledger` 為 boolean、預設 `false`，
+沒有排程、push 或 PR 觸發。未選取時只有固定 no-op，不 checkout、不讀寫產物；
+選取時固定讀取已釘選來源、執行專屬 producer 與獨立 validator，僅 stage 五個
+版本化帳本檔案，保留前後保護檢查與正常非強制推送。本次交付只 dispatch `false`
+檢查 no-op 行為，不啟用 producer。既有其他研究 workflows 與 Apps Script 排程不變。
+完整交付仍需正常 PR checks、main 合併與合併後官方
 `validation_profile=all` 證據；分支或本地通過不代表正式模型已可採用。

@@ -387,6 +387,7 @@ TDCC_RECEIPTED_REPLAY_EXACT_PATHS = frozenset({
 
 
 TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS = frozenset({
+    ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml",
     "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
     "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
     "tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py",
@@ -426,7 +427,7 @@ def test_tdcc_corporate_action_ledger_paths_select_exact_research_domains(path: 
 @pytest.mark.parametrize("path", (
     "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger_unregistered.py",
     "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_unregistered_v1.csv",
-    ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml",
+    ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger_unregistered.yml",
 ))
 def test_tdcc_corporate_action_ledger_unregistered_paths_fail_closed(path: str) -> None:
     with pytest.raises(scope.ScopeDetectionError):

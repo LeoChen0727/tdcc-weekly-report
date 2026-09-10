@@ -53,6 +53,7 @@ FORBIDDEN_STAGE_SNIPPETS = {
 
 SHARED_DATA_INPUT = "run_shared_model_research_data_refresh"
 MODEL_PR_VALIDATION_DOMAINS = {
+    "tdcc_stealth_accumulation_corporate_action_ledger": pr_scope.SHARED_MODEL_RESEARCH,
     "price_pullback_23ema": pr_scope.SHARED_MODEL_RESEARCH,
     "hot_theme_pullback": pr_scope.SHARED_MODEL_RESEARCH,
     "pullback_short_reclaim": pr_scope.SHARED_MODEL_RESEARCH,
@@ -74,6 +75,7 @@ MODEL_PR_VALIDATION_DOMAINS = {
     "volume_range_breakout_v2": pr_scope.VOLUME_V2_RESEARCH,
 }
 MODEL_WORKFLOW_VALIDATORS = {
+    "tdcc_stealth_accumulation_corporate_action_ledger": "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
     "tdcc_stealth_accumulation_receipted_marketwide_replay": "scripts/validate_tdcc_stealth_accumulation_receipted_marketwide_replay.py",
     "tdcc_stealth_accumulation_price_pit_audit": "scripts/validate_tdcc_stealth_accumulation_price_pit.py",
     "tdcc_stealth_accumulation_operation_replay": "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
@@ -103,6 +105,23 @@ TDCC_STEALTH_FIELD_CONTRACT_REPLAY_FETCH_COMMAND = (
     "git fetch --no-tags --depth=1 origin "
     f"{TDCC_STEALTH_FIELD_CONTRACT_REPLAY_SOURCE_REF}"
 )
+
+CORPORATE_ACTION_LEDGER_MODEL_ID = "tdcc_stealth_accumulation_corporate_action_ledger"
+CORPORATE_ACTION_LEDGER_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml"
+CORPORATE_ACTION_LEDGER_INPUT = "run_tdcc_stealth_accumulation_corporate_action_ledger"
+CORPORATE_ACTION_LEDGER_SOURCE_REF = "3fe40157cf4b333ef03a1447e45c310d197cbc5b"
+CORPORATE_ACTION_LEDGER_FETCH_COMMAND = "git fetch --no-tags origin " + CORPORATE_ACTION_LEDGER_SOURCE_REF
+CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND = "python scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py"
+CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND = "python scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py"
+CORPORATE_ACTION_LEDGER_STAGE_GLOB = "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_*_v1.*"
+CORPORATE_ACTION_LEDGER_ARTIFACTS = (
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md",
+)
+CORPORATE_ACTION_LEDGER_STAGE_COMMANDS = tuple(f"git add {path}" for path in CORPORATE_ACTION_LEDGER_ARTIFACTS)
 
 RECEIPTED_REPLAY_MODEL_ID = "tdcc_stealth_accumulation_receipted_marketwide_replay"
 RECEIPTED_REPLAY_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml"
@@ -314,6 +333,7 @@ LEGACY_WORKFLOW_PATH = ".github/workflows/research_backtest_pipeline.yml"
 PRICE_PIT_WORKFLOW_PATH = ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml"
 PRICE_PIT_WORKFLOW = ROOT / PRICE_PIT_WORKFLOW_PATH
 WORKFLOW_WRITER_JOBS = {
+    CORPORATE_ACTION_LEDGER_WORKFLOW_PATH: "tdcc-stealth-accumulation-corporate-action-ledger",
     LEGACY_WORKFLOW_PATH: "research-backtest-pipeline",
     PRICE_PIT_WORKFLOW_PATH: "tdcc-stealth-accumulation-price-pit-audit",
     OPERATION_REPLAY_WORKFLOW_PATH: "tdcc-stealth-accumulation-operation-replay",
@@ -553,7 +573,9 @@ def validate_registry_contract(
             errors.append(f"duplicate {attribute} in model research workflow registry")
     for row in rows:
         expected_path = (
-            PRICE_PIT_WORKFLOW_PATH
+            CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+            if row.model_id == CORPORATE_ACTION_LEDGER_MODEL_ID
+            else PRICE_PIT_WORKFLOW_PATH
             if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID
             else OPERATION_REPLAY_WORKFLOW_PATH
             if row.model_id == OPERATION_REPLAY_MODEL_ID
@@ -566,6 +588,13 @@ def validate_registry_contract(
                 f"model-owned producer registered to wrong workflow: {row.model_id}; "
                 f"expected={expected_path}; observed={row.workflow_path}"
             )
+        if row.model_id == CORPORATE_ACTION_LEDGER_MODEL_ID and (
+            row.workflow_input != CORPORATE_ACTION_LEDGER_INPUT
+            or row.producer != CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND.removeprefix("python ")
+            or (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob)
+            != (CORPORATE_ACTION_LEDGER_STAGE_GLOB, "", "")
+        ):
+            errors.append("corporate-action ledger registry must retain its exact input, producer and five-file family")
         if row.model_id == TDCC_STEALTH_PRICE_PIT_AUDIT_MODEL_ID and (
             row.workflow_input != PRICE_PIT_INPUT
             or (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob)
@@ -605,7 +634,8 @@ def validate_workflow_job_contract(
         errors.append("research writers must retain their shared non-cancelling concurrency lock")
     inputs = _dispatch_inputs(text)
     expected_inputs = (
-        {PRICE_PIT_INPUT} if workflow_path == PRICE_PIT_WORKFLOW_PATH
+        {CORPORATE_ACTION_LEDGER_INPUT} if workflow_path == CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+        else {PRICE_PIT_INPUT} if workflow_path == PRICE_PIT_WORKFLOW_PATH
         else {OPERATION_REPLAY_INPUT} if workflow_path == OPERATION_REPLAY_WORKFLOW_PATH
         else {RECEIPTED_REPLAY_INPUT} if workflow_path == RECEIPTED_REPLAY_WORKFLOW_PATH
         else LEGACY_WORKFLOW_INPUTS
@@ -665,7 +695,7 @@ def validate_workflow_job_contract(
         errors.append("no-op step must contain only the fixed bash printf")
 
     env = _children(writer["env"], 6)
-    if workflow_path in (PRICE_PIT_WORKFLOW_PATH, OPERATION_REPLAY_WORKFLOW_PATH, RECEIPTED_REPLAY_WORKFLOW_PATH):
+    if workflow_path in (PRICE_PIT_WORKFLOW_PATH, OPERATION_REPLAY_WORKFLOW_PATH, RECEIPTED_REPLAY_WORKFLOW_PATH, CORPORATE_ACTION_LEDGER_WORKFLOW_PATH):
         if set(env) != {"TARGET_BRANCH", "ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"}:
             errors.append("price/PIT writer env must contain only its single-input selection and target")
         for name in ("ANY_RESEARCH_SELECTED", "MODEL_RESEARCH_SELECTED"):
@@ -865,7 +895,56 @@ def validate_workflow_job_contract(
             )
             if runs[publish_indices[0]] != expected_publish:
                 errors.append("receipted replay publish must retain its nine-file fail-closed contract")
+    if workflow_path == CORPORATE_ACTION_LEDGER_WORKFLOW_PATH:
+        errors.extend(_validate_corporate_action_ledger_steps(steps, runs, static_indices, publish_indices))
     return errors
+
+
+def _validate_corporate_action_ledger_steps(steps, runs, static_indices, publish_indices):
+    """Exact new ledger slice; never substitute other models' source or artifacts."""
+    errors = []
+    checkouts = [step for step in steps if _scalar(step, "uses") == "actions/checkout@v6"]
+    if len(checkouts) != 1 or _scalar(_children(checkouts[0]["with"], 10), "fetch-depth") != "0":
+        errors.append("corporate-action ledger requires complete source history for the pinned v1 artifacts")
+    expected_run = (
+        CORPORATE_ACTION_LEDGER_FETCH_COMMAND,
+        CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND,
+        CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND,
+    )
+    indices = [i for i, lines in enumerate(runs) if expected_run[1] in lines]
+    if len(indices) != 1 or runs[indices[0]] != expected_run:
+        errors.append("corporate-action ledger must fetch its fixed v1 ref, build and independently validate in order")
+    all_stage = tuple(line for lines in runs for line in lines if line.startswith("git add"))
+    if all_stage != CORPORATE_ACTION_LEDGER_STAGE_COMMANDS:
+        errors.append("corporate-action ledger must stage only its exact five v1 artifacts")
+    expected_scripts = Counter(STATIC_VALIDATOR_COMMANDS + expected_run[1:] + READ_ONLY_POST_RUN_COMMANDS)
+    actual_scripts = Counter(line for lines in runs for line in lines if re.match(r"python(?:3)?\s+scripts/", line))
+    if actual_scripts != expected_scripts:
+        errors.append("corporate-action ledger may invoke only its own producer and exact read-only validators")
+    if static_indices and runs[static_indices[0]] != STATIC_VALIDATOR_COMMANDS:
+        errors.append("corporate-action ledger prerequisites must remain read-only")
+    if len(steps) != 9:
+        errors.append("corporate-action ledger must retain exactly nine guarded writer steps")
+    if len(publish_indices) == 1:
+        expected_publish = (
+            PUBLISH_FAIL_CLOSED_SHELL,
+            'git config user.name "github-actions"',
+            'git config user.email "github-actions@github.com"',
+            *CORPORATE_ACTION_LEDGER_STAGE_COMMANDS,
+            "git status --short",
+            *PUBLISH_NO_CHANGE_GUARD.splitlines(),
+            PUBLISH_COMMIT, PUBLISH_PUSH,
+        )
+        if runs[publish_indices[0]] != expected_publish:
+            errors.append("corporate-action ledger publish must retain its exact five-file fail-closed contract")
+    return errors
+
+
+def validate_corporate_action_ledger_workflow_contract(text):
+    return validate_workflow_text(
+        text, load_registry(), load_model_owned_producers(),
+        workflow_path=CORPORATE_ACTION_LEDGER_WORKFLOW_PATH,
+    )
 
 
 def workflow_input_defaults(text: str) -> dict[str, str]:
@@ -1003,7 +1082,8 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
         }
         for path in (
             row.producer,
-            f"tests/test_{row.model_id}_scope_probe.py",
+            (f"tests/test_{row.model_id}.py" if row.model_id == CORPORATE_ACTION_LEDGER_MODEL_ID
+             else f"tests/test_{row.model_id}_scope_probe.py"),
         ):
             try:
                 domains = pr_scope.domains_for_path(path)
@@ -1033,6 +1113,33 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
                 errors.append("receipted replay CI checks must remain unconditional within the shared research job")
         if RECEIPTED_REPLAY_PRODUCER_COMMAND in text:
             errors.append("receipted replay CI must not execute its producer")
+    if any(row.model_id == CORPORATE_ACTION_LEDGER_MODEL_ID for row in rows):
+        shared = text.split("\n  shared_model_research:", 1)[-1].split("\n  volume_v2_research:", 1)[0]
+        required = (
+            CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND,
+            "python -m pytest -q -p no:cacheprovider tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py",
+            "git --no-replace-objects diff --exit-code HEAD -- " + " ".join(CORPORATE_ACTION_LEDGER_ARTIFACTS),
+        )
+        for command in required:
+            if shared.count(command) != 1 or text.count(command) != 1:
+                errors.append("corporate-action ledger CI must retain its exact read-only check: " + command)
+            if [line.strip() for line in shared.splitlines()].count(command) != 1:
+                errors.append("corporate-action ledger CI command must execute exactly without masking: " + command)
+            blocks = [block for block in workflow_step_blocks(shared) if command in block]
+            if len(blocks) != 1 or any("        if:" in block or "continue-on-error:" in block for block in blocks):
+                errors.append("corporate-action ledger CI checks must remain unconditional within shared research")
+        if CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND in text:
+            errors.append("corporate-action ledger CI must not execute its producer")
+        try:
+            steps = _workflow_steps(_workflow_fields(shared, 4)["steps"])
+            ledger_steps = [step for step in steps if CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND in "\n".join(_run_lines(step))]
+            if len(ledger_steps) != 1 or _run_lines(ledger_steps[0]) != required:
+                errors.append("corporate-action ledger CI must contain only its exact three read-only commands")
+            elif (set(ledger_steps[0]) != {"name", "env", "run"}
+                  or _children(ledger_steps[0]["env"], 10) != {"PYTHONDONTWRITEBYTECODE": WorkflowField('"1"', "")}):
+                errors.append("corporate-action ledger CI must retain its unconditional bytecode-free step")
+        except (KeyError, ValueError) as exc:
+            errors.append(f"invalid corporate-action ledger CI step contract: {exc}")
     return errors
 
 
@@ -1432,6 +1539,10 @@ def validate_workflow_text(
             workflow_path == RECEIPTED_REPLAY_WORKFLOW_PATH
             and line.strip() == RECEIPTED_REPLAY_FETCH_COMMAND
         )
+        and not (
+            workflow_path == CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+            and line.strip() == CORPORATE_ACTION_LEDGER_FETCH_COMMAND
+        )
     ]
     if branch_sync_lines != [pre_run_sync]:
         errors.append(
@@ -1605,7 +1716,7 @@ def validate_workflow_text(
                 "model-owned workflow entrypoint requires at least one non-empty "
                 f"stage allowlist: {row.model_id}"
             )
-        for stage_glob in (() if row.model_id in (OPERATION_REPLAY_MODEL_ID, RECEIPTED_REPLAY_MODEL_ID) else stage_globs):
+        for stage_glob in (() if row.model_id in (OPERATION_REPLAY_MODEL_ID, RECEIPTED_REPLAY_MODEL_ID, CORPORATE_ACTION_LEDGER_MODEL_ID) else stage_globs):
             suffix = "" if workflow_path == PRICE_PIT_WORKFLOW_PATH else " || true"
             stage_command = f"git add {stage_glob}{suffix}"
             if stage_command not in text:

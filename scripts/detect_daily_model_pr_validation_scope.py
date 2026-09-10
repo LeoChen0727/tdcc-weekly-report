@@ -529,6 +529,7 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_anomalies_v1.csv',
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_report_v1.md',
         "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
+        ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml",
         "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
         "tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py",
         "config/tdcc_stealth_accumulation_corporate_action_ledger_v1.json",

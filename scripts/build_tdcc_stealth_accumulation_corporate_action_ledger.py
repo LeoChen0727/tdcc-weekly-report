@@ -16,7 +16,11 @@ from pathlib import Path
 import re
 import subprocess
 
-from model_research_artifact_guard import load_ownership_rules, validate_changed_paths
+from model_research_artifact_guard import (
+    load_ownership_rules,
+    model_owned_artifact_guard,
+    validate_changed_paths,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "tdcc_stealth_accumulation"
@@ -324,7 +328,13 @@ def main(argv=None):
     parser.add_argument("--repository-root", type=Path, default=ROOT)
     args = parser.parse_args(argv)
     root = args.repository_root.resolve()
-    with artifact_guard(root):
+    with artifact_guard(root), model_owned_artifact_guard(
+        OWNER_ID,
+        PRODUCER,
+        root=root,
+        registry_path=root / "config/model_research_artifact_ownership.csv",
+        sentinel_registry_path=root / "config/model_research_protected_sentinels.csv",
+    ):
         payloads = build(root)
         write_outputs(root, payloads)
     print(f"{OWNER_ID}: artifacts=5 research_only=True verified_total_returns=0")

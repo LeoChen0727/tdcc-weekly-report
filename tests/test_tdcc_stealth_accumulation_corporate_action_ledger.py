@@ -9,6 +9,7 @@ import ast
 import base64
 import copy
 import csv
+from contextlib import contextmanager
 import hashlib
 import importlib.util
 import io
@@ -38,13 +39,18 @@ def module(prefix):
         "build": "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
         "validate": "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
     }
-    path = ROOT / paths[prefix]
-    spec = importlib.util.spec_from_file_location(f"{prefix}_ca_ledger_test", path)
-    loaded = importlib.util.module_from_spec(spec)
     previous_path = list(sys.path)
     try:
         sys.path.insert(0, str(ROOT / "scripts"))
-        spec.loader.exec_module(loaded)
+        if prefix == "build":
+            import build_tdcc_stealth_accumulation_corporate_action_ledger as loaded
+
+            loaded = importlib.reload(loaded)
+        else:
+            path = ROOT / paths[prefix]
+            spec = importlib.util.spec_from_file_location(f"{prefix}_ca_ledger_test", path)
+            loaded = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(loaded)
     finally:
         sys.path[:] = previous_path
     return loaded
@@ -699,3 +705,157 @@ def test_git_checkout_filter_probe_detects_missing_or_overridden_lf_rules(checko
     assert b"\r\n" in filtered
     assert hashlib.sha256(filtered).hexdigest() != hashlib.sha256(original).hexdigest()
     assert run("ls-files", "--stage") == b""
+
+
+@pytest.fixture
+def guarded_main_root(producer, writer_root, monkeypatch):
+    """Only Git plumbing is replaced; both real guards inspect physical files."""
+    sentinel = writer_root / "protected/mature.csv"
+    sentinel.parent.mkdir()
+    sentinel.write_bytes(b"stock_id,unchanged\n9999,True\n")
+    registry = writer_root / "config/model_research_protected_sentinels.csv"
+    registry.write_text(
+        "sentinel_id,artifact_glob,owner,sentinel_class,required\n"
+        "synthetic_mature,protected/mature.csv,another_model,mature_model,True\n",
+        encoding="utf-8", newline="\n",
+    )
+    guard_module = sys.modules[producer.model_owned_artifact_guard.__module__]
+
+    def status_paths(root):
+        return {path.relative_to(root).as_posix() for path in root.rglob("*") if path.is_file()}
+
+    def immutable_empty_git_mapping(root, *arguments):
+        assert arguments in (("ls-tree", "-r", "-z", "HEAD"), ("ls-files", "--stage", "-z"))
+        return b""
+
+    monkeypatch.setattr(guard_module, "_git_status_paths", status_paths)
+    monkeypatch.setattr(producer, "git", immutable_empty_git_mapping)
+    payloads = {name: b"synthetic guarded writer\n" for name in OUTPUT_NAMES}
+    return writer_root, sentinel, payloads
+
+
+def test_main_build_and_write_are_nested_inside_both_actual_guards(producer, guarded_main_root, monkeypatch):
+    root, sentinel, payloads = guarded_main_root
+    original = sentinel.read_bytes()
+    local_guard = producer.artifact_guard
+    model_guard = producer.model_owned_artifact_guard
+    write = producer.write_outputs
+    entered, sequence = set(), []
+
+    @contextmanager
+    def observed_local_guard(actual_root):
+        assert actual_root == root.resolve()
+        with local_guard(actual_root):
+            entered.add("local")
+            sequence.append("local_enter")
+            yield
+            sequence.append("local_exit")
+            entered.remove("local")
+
+    @contextmanager
+    def observed_model_guard(owner, producer_path, **kwargs):
+        assert entered == {"local"}
+        assert owner == STEM
+        assert producer_path == "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py"
+        assert kwargs == {
+            "root": root.resolve(),
+            "registry_path": root.resolve() / "config/model_research_artifact_ownership.csv",
+            "sentinel_registry_path": root.resolve() / "config/model_research_protected_sentinels.csv",
+        }
+        with model_guard(owner, producer_path, **kwargs):
+            entered.add("model")
+            sequence.append("model_enter")
+            yield
+            sequence.append("model_exit")
+            entered.remove("model")
+
+    def guarded_build(actual_root):
+        assert actual_root == root.resolve()
+        assert entered == {"local", "model"}
+        sequence.append("build")
+        return payloads
+
+    def guarded_write(actual_root, actual_payloads):
+        assert entered == {"local", "model"}
+        assert actual_payloads == payloads
+        sequence.append("write")
+        write(actual_root, actual_payloads)
+
+    monkeypatch.setattr(producer, "artifact_guard", observed_local_guard)
+    monkeypatch.setattr(producer, "model_owned_artifact_guard", observed_model_guard)
+    monkeypatch.setattr(producer, "build", guarded_build)
+    monkeypatch.setattr(producer, "write_outputs", guarded_write)
+    assert producer.main(["--repository-root", str(root)]) == 0
+    assert sequence == ["local_enter", "model_enter", "build", "write", "model_exit", "local_exit"]
+    assert entered == set()
+    assert sentinel.read_bytes() == original
+    for name in OUTPUT_NAMES:
+        assert (root / OUT_REL / name).read_bytes() == payloads[name]
+
+
+def test_missing_required_sentinel_blocks_main_before_build_or_write(producer, guarded_main_root, monkeypatch):
+    root, sentinel, _ = guarded_main_root
+    sentinel.unlink()
+    calls = []
+    monkeypatch.setattr(producer, "build", lambda *args: calls.append("build"))
+    monkeypatch.setattr(producer, "write_outputs", lambda *args: calls.append("write"))
+    with pytest.raises(RuntimeError, match="required protected sentinel has no files"):
+        producer.main(["--repository-root", str(root)])
+    assert calls == []
+    assert not (root / OUT_REL).exists()
+
+
+def exception_chain_text(error):
+    messages, seen = [], set()
+    while error is not None and id(error) not in seen:
+        seen.add(id(error))
+        messages.append(str(error))
+        error = error.__cause__ or error.__context__
+    return "\n".join(messages)
+
+
+@pytest.mark.parametrize("mutate_during", ["build", "write"])
+def test_main_sentinel_hash_drift_is_rejected_by_both_guards(
+    producer, guarded_main_root, monkeypatch, mutate_during,
+):
+    root, sentinel, payloads = guarded_main_root
+    write = producer.write_outputs
+
+    def drift_build(actual_root):
+        if mutate_during == "build":
+            sentinel.write_bytes(b"unapproved sentinel drift\n")
+        return payloads
+
+    def drift_write(actual_root, actual_payloads):
+        if mutate_during == "write":
+            sentinel.write_bytes(b"unapproved sentinel drift\n")
+        write(actual_root, actual_payloads)
+
+    monkeypatch.setattr(producer, "build", drift_build)
+    monkeypatch.setattr(producer, "write_outputs", drift_write)
+    with pytest.raises(ValueError, match="Git mapping") as failed:
+        producer.main(["--repository-root", str(root)])
+    details = exception_chain_text(failed.value)
+    assert "protected sentinel hash drift" in details
+    assert "unregistered artifact change: protected/mature.csv" in details
+
+
+@pytest.mark.parametrize("existing", [False, True])
+def test_main_forbids_non_allowlisted_physical_writes_without_touching_sentinel(
+    producer, guarded_main_root, monkeypatch, existing,
+):
+    root, sentinel, payloads = guarded_main_root
+    original = sentinel.read_bytes()
+    outside = root / "outside-ledger-allowlist.txt"
+    if existing:
+        outside.write_bytes(b"preexisting user data\n")
+
+    def outside_write_build(actual_root):
+        outside.write_bytes(b"unapproved addition or overwrite\n")
+        return payloads
+
+    monkeypatch.setattr(producer, "build", outside_write_build)
+    with pytest.raises(ValueError, match="Git mapping") as failed:
+        producer.main(["--repository-root", str(root)])
+    assert "unregistered artifact change: outside-ledger-allowlist.txt" in exception_chain_text(failed.value)
+    assert sentinel.read_bytes() == original
