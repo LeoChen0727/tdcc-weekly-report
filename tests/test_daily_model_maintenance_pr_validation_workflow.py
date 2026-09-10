@@ -322,6 +322,8 @@ SHARED_VALIDATION_COMMANDS = (
     "python scripts/validate_tdcc_stealth_accumulation_price_pit.py",
     TDCC_FIELD_CONTRACT_VALIDATOR_COMMAND,
     "python scripts/validate_tdcc_stealth_accumulation_operation_replay.py --source-ref 7ef37a966280201a5ee236856306fdb513de7092 --artifact-source-ref 2244a0a36c4542cd62948b50f12ef98ade50e1df",
+    "python scripts/validate_tdcc_stealth_accumulation_receipted_marketwide_replay.py",
+    "git --no-replace-objects diff --exit-code -- output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_*_v1.*",
 )
 
 VOLUME_VALIDATION_COMMANDS = (

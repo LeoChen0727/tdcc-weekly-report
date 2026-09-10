@@ -1023,11 +1023,14 @@ def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list
         required = (
             RECEIPTED_REPLAY_VALIDATOR_COMMAND,
             "python -m pytest -q tests/test_tdcc_stealth_accumulation_receipted_marketwide_replay.py tests/test_tdcc_stealth_accumulation_receipted_marketwide_workflow.py",
-            "git diff --exit-code -- " + RECEIPTED_REPLAY_STAGE_GLOB,
+            "git --no-replace-objects diff --exit-code -- " + RECEIPTED_REPLAY_STAGE_GLOB,
         )
         for command in required:
             if shared.count(command) != 1 or text.count(command) != 1:
                 errors.append("receipted replay CI must retain its exact read-only validator, tests and drift check: " + command)
+            blocks = [block for block in workflow_step_blocks(shared) if command in block]
+            if len(blocks) != 1 or any("        if:" in block or "continue-on-error:" in block for block in blocks):
+                errors.append("receipted replay CI checks must remain unconditional within the shared research job")
         if RECEIPTED_REPLAY_PRODUCER_COMMAND in text:
             errors.append("receipted replay CI must not execute its producer")
     return errors

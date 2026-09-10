@@ -124,10 +124,10 @@ def test_receipted_ci_validates_without_running_producer():
     assert workflow.RECEIPTED_REPLAY_PRODUCER_COMMAND not in text
     assert f"tests/test_{MODEL}.py" in text
     assert "tests/test_tdcc_stealth_accumulation_receipted_marketwide_workflow.py" in text
-    assert "git diff --exit-code -- " + workflow.RECEIPTED_REPLAY_STAGE_GLOB in text
+    assert "git --no-replace-objects diff --exit-code -- " + workflow.RECEIPTED_REPLAY_STAGE_GLOB in text
 
 
-@pytest.mark.parametrize("mutation", ("missing_validator", "missing_tests", "missing_drift_check", "execute_producer"))
+@pytest.mark.parametrize("mutation", ("missing_validator", "missing_tests", "missing_drift_check", "skip_tests", "execute_producer"))
 def test_receipted_ci_rejects_missing_checks_or_producer_execution(mutation):
     text = workflow.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
     if mutation == "missing_validator":
@@ -135,7 +135,11 @@ def test_receipted_ci_rejects_missing_checks_or_producer_execution(mutation):
     elif mutation == "missing_tests":
         text = text.replace("tests/test_tdcc_stealth_accumulation_receipted_marketwide_workflow.py", "")
     elif mutation == "missing_drift_check":
-        text = text.replace("git diff --exit-code -- " + workflow.RECEIPTED_REPLAY_STAGE_GLOB, "echo skipped")
+        text = text.replace("git --no-replace-objects diff --exit-code -- " + workflow.RECEIPTED_REPLAY_STAGE_GLOB, "echo skipped")
+    elif mutation == "skip_tests":
+        marker = "      - name: Test TDCC receipted marketwide replay v1 and verify artifact stability\n"
+        assert marker in text
+        text = text.replace(marker, marker + "        if: false\n")
     else:
         text += "\n          " + workflow.RECEIPTED_REPLAY_PRODUCER_COMMAND + "\n"
     assert workflow.validate_pr_workflow_text(text, workflow.load_registry())
