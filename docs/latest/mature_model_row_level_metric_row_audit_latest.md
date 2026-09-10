@@ -2,24 +2,25 @@
 
 - audit_id: `mature_model_row_level_metric_contract_audit_20260711`
 - audit_version: `v2`
-- generated_at: `2026-09-09 19:42:48 Asia/Taipei`
-- stock operation rows audited: `688`
+- generated_at: `2026-09-10 19:46:17 Asia/Taipei`
+- stock operation rows audited: `698`
 
 ## Model Counts
 
 | model_id | rows | ready metric | explicit unavailable | invalid | baseline misuse |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `price_pullback_23ema` | 586 | 184 | 402 | 0 | 0 |
-| `revenue_unreacted_range` | 10 | 0 | 10 | 0 | 0 |
+| `price_pullback_23ema` | 594 | 188 | 406 | 0 | 0 |
+| `revenue_unreacted_range` | 12 | 0 | 12 | 0 | 0 |
 | `volume_range_breakout_v2_high_position_volume_attack` | 20 | 18 | 2 | 0 | 0 |
-| `volume_range_breakout_v2_low_position_volume_attack` | 30 | 0 | 30 | 0 | 0 |
+| `volume_range_breakout_v2_low_position_volume_attack` | 32 | 0 | 32 | 0 | 0 |
 | `volume_range_breakout_v2_mid_position_momentum_attack` | 20 | 0 | 20 | 0 | 0 |
-| `w_bottom_right_side` | 22 | 0 | 22 | 0 | 0 |
+| `w_bottom_right_side` | 20 | 0 | 20 | 0 | 0 |
 
 ## Row Evidence
 
 | model_id | section | stock | row metric | scope | validation | baseline policy |
 | --- | --- | --- | --- | --- | --- | --- |
+| `volume_range_breakout_v2_low_position_volume_attack` | confirmed_operation | 5201 凱衛 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 2402 毅嘉 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 3629 地心引力 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 3664 安瑞-KY | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -35,6 +36,7 @@
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 7709 榮田 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 7772 耀穎 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 6983 華洋精機 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `volume_range_breakout_v2_low_position_volume_attack` | confirmed_operation | 5201 凱衛 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 2402 毅嘉 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 3629 地心引力 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_low_position_volume_attack` | active_operation | 3664 安瑞-KY | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -70,20 +72,20 @@
 | `volume_range_breakout_v2_mid_position_momentum_attack` | active_operation | 3555 博士旺 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_mid_position_momentum_attack` | active_operation | 6168 宏齊 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_mid_position_momentum_attack` | active_operation | 6727 亞泰金屬 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `volume_range_breakout_v2_high_position_volume_attack` | confirmed_operation | 6620 漢達 | `high_pos_base_plus_signal_body_le3` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 2033 佳大 | `high_pos_base_plus_ma20_gt_ma60` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6226 光鼎 | `high_pos_base_plus_ma20_gt_ma60` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6538 倉和 | `high_pos_base_plus_volume_lt2` | single_add_score | pass | pass_formal_row_metric_selected |
+| `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6620 漢達 | `high_pos_base_plus_signal_body_le3` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 2491 吉祥全 | `high_pos_base_plus_kdj_overheated` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 4939 亞電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 2455 全新 | `high_pos_base_plus_kdj_overheated` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 3406 玉晶光 | `high_pos_base_plus_kdj_overheated` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6141 柏承 | `high_pos_base_plus_kdj_overheated` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 7788 松川精密 | `pdf_combo__not_limit_up_like` | exact_combo | pass | pass_formal_row_metric_selected |
-| `volume_range_breakout_v2_high_position_volume_attack` | confirmed_operation | 6620 漢達 | `high_pos_base_plus_signal_body_le3` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 2033 佳大 | `high_pos_base_plus_ma20_gt_ma60` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6226 光鼎 | `high_pos_base_plus_ma20_gt_ma60` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6538 倉和 | `high_pos_base_plus_volume_lt2` | single_add_score | pass | pass_formal_row_metric_selected |
+| `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 6620 漢達 | `high_pos_base_plus_signal_body_le3` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 2491 吉祥全 | `high_pos_base_plus_kdj_overheated` | single_add_score | pass | pass_formal_row_metric_selected |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 4939 亞電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `volume_range_breakout_v2_high_position_volume_attack` | active_operation | 2455 全新 | `high_pos_base_plus_kdj_overheated` | single_add_score | pass | pass_formal_row_metric_selected |
@@ -97,7 +99,6 @@
 | `w_bottom_right_side` | active_operation | 2348 海悅 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 2641 正德 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 2646 星宇航空 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `w_bottom_right_side` | active_operation | 2913 農林 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 3293 鈊象 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 4114 健喬 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 6199 天品 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -108,33 +109,33 @@
 | `w_bottom_right_side` | active_operation | 2348 海悅 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 2641 正德 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 2646 星宇航空 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `w_bottom_right_side` | active_operation | 2913 農林 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 3293 鈊象 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 4114 健喬 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `w_bottom_right_side` | active_operation | 6199 天品 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | confirmed_operation | 1609 大亞 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 2354 鴻準 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 3380 明泰 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 3701 大眾控 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | confirmed_operation | 3714 富采 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 5285 界霖 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 2882 國泰金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 2885 元大金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 2352 佳世達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 2460 建通 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 3024 憶聲 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 3715 定穎投控 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 6239 力成 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 2890 永豐金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 5864 致和證 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 6199 天品 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 6547 高端疫苗 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1102 亞泥 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1216 統一 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1229 聯華 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 1304 台聚 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 1305 華夏 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 1304 台聚 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 1305 華夏 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1308 亞聚 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1310 台苯 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 1313 聯成 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 1313 聯成 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1314 中石化 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1316 上曜 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1319 東陽 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1402 遠東新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1409 新纖 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1434 福懋 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 1440 南紡 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 1440 南紡 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1455 集盛 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1503 士電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1504 東元 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -148,6 +149,7 @@
 | `price_pullback_23ema` | active_operation | 1597 直得 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1605 華新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1608 華榮 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 1609 大亞 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1708 東鹼 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1709 和益 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1717 長興 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -189,7 +191,8 @@
 | `price_pullback_23ema` | active_operation | 2340 台亞 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2342 茂矽 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2344 華邦電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2353 宏碁 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2353 宏碁 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 2354 鴻準 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2355 敬鵬 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2356 英業達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2357 華碩 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -212,16 +215,16 @@
 | `price_pullback_23ema` | active_operation | 2408 南亞科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2412 中華電 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2428 興勤 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2436 偉詮電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 2436 偉詮電 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2442 新美齊 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2449 京元電子 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2451 創見 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2461 光群雷 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2465 麗臺 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 2467 志聖 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2467 志聖 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2474 可成 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2476 鉅祥 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2481 強茂 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2481 強茂 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2484 希華 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2485 兆赫 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2489 瑞軒 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
@@ -237,14 +240,12 @@
 | `price_pullback_23ema` | active_operation | 2543 皇昌 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2603 長榮 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2605 新興 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2606 裕民 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2607 榮運 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2609 陽明 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2610 華航 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2610 華航 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2611 志信 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2612 中航 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2613 中櫃 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 2617 台航 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2618 長榮航 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2633 台灣高鐵 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2634 漢翔 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -258,6 +259,8 @@
 | `price_pullback_23ema` | active_operation | 2845 遠東銀 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2852 第一保 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2867 三商壽 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 2882 國泰金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2885 元大金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2886 兆豐金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2891 中信金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2897 王道銀行 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
@@ -279,7 +282,7 @@
 | `price_pullback_23ema` | active_operation | 3044 健鼎 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3045 台灣大 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3048 益登 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 3049 精金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3049 精金 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3056 富華新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3062 建漢 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3066 李洲 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -298,21 +301,22 @@
 | `price_pullback_23ema` | active_operation | 3339 泰谷 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3362 先進光 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3376 新日興 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 3437 榮創 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 3380 明泰 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3437 榮創 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3450 聯鈞 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3455 由田 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3491 昇達科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 3532 台勝科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3545 敦泰 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3550 聯穎 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 3624 光頡 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3661 世芯-KY | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3665 貿聯-KY | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 3673 TPK-KY | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3673 TPK-KY | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3689 湧德 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3701 大眾控 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3706 神達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3707 漢磊 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3711 日月光投控 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 3714 富采 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 4108 懷特 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 4142 國光生 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 4147 中裕 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -336,6 +340,7 @@
 | `price_pullback_23ema` | active_operation | 4979 華星光 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 4989 榮科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 5009 榮剛 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 5285 界霖 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 5289 宜鼎 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 5309 系統電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 5328 華容 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -365,7 +370,6 @@
 | `price_pullback_23ema` | active_operation | 6177 達麗 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6187 萬潤 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6190 萬泰科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 6196 帆宣 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6197 佳必琪 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6207 雷科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6244 茂迪 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -398,36 +402,37 @@
 | `price_pullback_23ema` | active_operation | 8299 群聯 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 8358 金居 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 8422 可寧衛* | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 9105 泰金寶-DR | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 9105 泰金寶-DR | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9904 寶成 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9907 統一實 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9921 巨大 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 9933 中鼎 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9941 裕融 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 9945 潤泰新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | confirmed_operation | 1609 大亞 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 2354 鴻準 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 3380 明泰 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 3701 大眾控 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | confirmed_operation | 3714 富采 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 5285 界霖 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 2882 國泰金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | confirmed_operation | 2885 元大金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 2352 佳世達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 2460 建通 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 3024 憶聲 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 3715 定穎投控 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 6239 力成 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 2890 永豐金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 5864 致和證 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | confirmed_operation | 6199 天品 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | confirmed_operation | 6547 高端疫苗 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1102 亞泥 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1216 統一 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1229 聯華 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 1304 台聚 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 1305 華夏 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 1304 台聚 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 1305 華夏 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1308 亞聚 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1310 台苯 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 1313 聯成 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 1313 聯成 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1314 中石化 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1316 上曜 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1319 東陽 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1402 遠東新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1409 新纖 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1434 福懋 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 1440 南紡 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 1440 南紡 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1455 集盛 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1503 士電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1504 東元 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -441,6 +446,7 @@
 | `price_pullback_23ema` | active_operation | 1597 直得 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1605 華新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1608 華榮 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 1609 大亞 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 1708 東鹼 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1709 和益 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 1717 長興 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -482,7 +488,8 @@
 | `price_pullback_23ema` | active_operation | 2340 台亞 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2342 茂矽 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2344 華邦電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2353 宏碁 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2353 宏碁 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 2354 鴻準 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2355 敬鵬 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2356 英業達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2357 華碩 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -505,16 +512,16 @@
 | `price_pullback_23ema` | active_operation | 2408 南亞科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2412 中華電 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2428 興勤 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2436 偉詮電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 2436 偉詮電 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2442 新美齊 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2449 京元電子 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2451 創見 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2461 光群雷 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2465 麗臺 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 2467 志聖 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2467 志聖 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2474 可成 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2476 鉅祥 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2481 強茂 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2481 強茂 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2484 希華 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2485 兆赫 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2489 瑞軒 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
@@ -530,14 +537,12 @@
 | `price_pullback_23ema` | active_operation | 2543 皇昌 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2603 長榮 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2605 新興 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2606 裕民 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2607 榮運 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2609 陽明 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 2610 華航 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2610 華航 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2611 志信 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2612 中航 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2613 中櫃 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 2617 台航 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2618 長榮航 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2633 台灣高鐵 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2634 漢翔 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -551,6 +556,8 @@
 | `price_pullback_23ema` | active_operation | 2845 遠東銀 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 2852 第一保 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2867 三商壽 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 2882 國泰金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 2885 元大金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2886 兆豐金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2891 中信金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 2897 王道銀行 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
@@ -572,7 +579,7 @@
 | `price_pullback_23ema` | active_operation | 3044 健鼎 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3045 台灣大 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3048 益登 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 3049 精金 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3049 精金 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3056 富華新 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3062 建漢 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3066 李洲 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -591,21 +598,22 @@
 | `price_pullback_23ema` | active_operation | 3339 泰谷 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3362 先進光 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3376 新日興 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 3437 榮創 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 3380 明泰 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3437 榮創 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3450 聯鈞 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3455 由田 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3491 昇達科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 3532 台勝科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3545 敦泰 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3550 聯穎 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 3624 光頡 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3661 世芯-KY | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 3665 貿聯-KY | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
-| `price_pullback_23ema` | active_operation | 3673 TPK-KY | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3673 TPK-KY | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3689 湧德 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
+| `price_pullback_23ema` | active_operation | 3701 大眾控 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3706 神達 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3707 漢磊 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 3711 日月光投控 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 3714 富采 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 4108 懷特 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 4142 國光生 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 4147 中裕 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -629,6 +637,7 @@
 | `price_pullback_23ema` | active_operation | 4979 華星光 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 4989 榮科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 5009 榮剛 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 5285 界霖 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 5289 宜鼎 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 5309 系統電 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 5328 華容 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -658,7 +667,6 @@
 | `price_pullback_23ema` | active_operation | 6177 達麗 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6187 萬潤 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6190 萬泰科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 6196 帆宣 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6197 佳必琪 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6207 雷科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 6244 茂迪 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -691,7 +699,7 @@
 | `price_pullback_23ema` | active_operation | 8299 群聯 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 8358 金居 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `price_pullback_23ema` | active_operation | 8422 可寧衛* | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
-| `price_pullback_23ema` | active_operation | 9105 泰金寶-DR | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `price_pullback_23ema` | active_operation | 9105 泰金寶-DR | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9904 寶成 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9907 統一實 | `price_pullback_23ema__technical_strength_rsi60_macd_positive` | exact_combo | pass | pass_formal_row_metric_selected |
 | `price_pullback_23ema` | active_operation | 9921 巨大 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
@@ -703,8 +711,10 @@
 | `revenue_unreacted_range` | active_operation | 6870 騰雲 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 3374 精材 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 6907 雅特力-KY | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `revenue_unreacted_range` | confirmed_operation | 2305 全友 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 1326 台化 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 3055 蔚華科 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 6870 騰雲 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 3374 精材 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
 | `revenue_unreacted_range` | active_operation | 6907 雅特力-KY | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |
+| `revenue_unreacted_range` | confirmed_operation | 2305 全友 | `unavailable_no_approved_add_score_metric` |  | pass | pass_adapter_explicitly_blocks_baseline_fallback |

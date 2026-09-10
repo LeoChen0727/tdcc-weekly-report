@@ -1151,7 +1151,7 @@
 4552,力達-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4554,橙的,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 4555,氣立,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
-4556,旭然,其他業,其他業,非主流,,,,,,
+4556,旭然,其他,其他,非主流,,,,,,
 4557,永新-KY,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 4558,寶緯,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4560,強信-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1398,7 +1398,7 @@
 5703,亞都麗緻,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5704,老爺知,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5706,鳳凰,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
-5864,致和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+5864,致和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 5871,中租-KY,租賃金融 / 企業融資,租賃金融 / 企業融資,非主流,,,,,,
 5876,上海商銀,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 5878,台名,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -2156,6 +2156,7 @@
 7821,神數,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 7822,倍利科,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 7823,奧義賽博-KY創,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
+7825,和亞智慧,權證/衍生商品,權證/衍生商品,非主流,,,,,,
 7827,漢康-KY創,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 7828,創新服務,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 7835,永悅健康-創,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
@@ -2332,7 +2333,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
+9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
