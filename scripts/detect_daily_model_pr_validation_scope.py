@@ -410,6 +410,7 @@ REVENUE_MARKERS = (
 FINANCIAL_STATEMENT_MARKERS = ("financial_statement",)
 
 MODEL_LIKE_MARKERS = (
+    "tdcc_stealth_accumulation_corporate_action_ledger",
     "daily_model",
     "daily_alpha",
     "revenue_unreacted_range",
@@ -527,6 +528,16 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_blocked_v1.csv',
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_anomalies_v1.csv',
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_report_v1.md',
+        "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
+        "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
+        "tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py",
+        "config/tdcc_stealth_accumulation_corporate_action_ledger_v1.json",
+        "docs/specs/tdcc_stealth_accumulation_corporate_action_ledger_v1.md",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_source_manifest_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md",
         "scripts/build_tdcc_stealth_accumulation_operation_replay.py",
         "scripts/validate_tdcc_stealth_accumulation_operation_replay.py",
         "tests/test_tdcc_stealth_accumulation_operation_replay.py",

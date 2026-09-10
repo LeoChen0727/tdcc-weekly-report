@@ -1,0 +1,73 @@
+{
+  "artifact_version": "tdcc_stealth_accumulation_corporate_action_ledger_v1",
+  "artifacts": {
+    "tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv": {
+      "bytes": 424056,
+      "sha256": "b369dfaac5bdb9bae8899ed269416a0cb767ab545abdca0e2350d65be39cfdb9"
+    },
+    "tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv": {
+      "bytes": 2385,
+      "sha256": "4e960713c84eaaae0c19df3de1c12a774ad4c1caa53f23fadef355a42207fbe9"
+    },
+    "tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv": {
+      "bytes": 197085,
+      "sha256": "9b506efee6cf0b20aead47854771c916352cedac4ab7a69e35c368108936d9dd"
+    },
+    "tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md": {
+      "bytes": 2663,
+      "sha256": "ace1148ac05ce2d7ed4c58140849a4ad92180cd8fc6dce84c2325c59e17def45"
+    }
+  },
+  "contract_sha256": "78bfd1c8fd6da0f95ae6659218144b79add312048da807d8dceeb75e02b2aa7f",
+  "counts": {
+    "blocked": 471,
+    "events": 5,
+    "positions": 90,
+    "signals": 59,
+    "source_blocked": 381,
+    "trades": 90,
+    "verified_total_return_positions": 0
+  },
+  "document_sha256s": {
+    "mops_5386_distribution.json": "efa0a4ac3e72f4e311f1501fbb074e2c60975434a8cc5cad3bae5ed6e15fffc2",
+    "mops_6669_distribution_record_notice_20260819.html": "57068d16af54eccf4ce2b408d6c6935ead7fe66b581779f0876fffc328997bc7",
+    "mops_6669_exright_schedule.json": "312075a32a13d68e79d3c0ff21129c31cbe2c8e0edee45f1a0b8c429f7311440",
+    "mops_6669_fractional_current.json": "338083156d68b3642e94a31d49e58425848c715d812d67cd236aad9fdead7326",
+    "mops_6669_stock_dividend_adjustment.json": "c8ea5b46d7eecf048e03089f97a74385cbb88090a2153753f6fbaa969c19f711",
+    "tpex_4747_resumption_notice.html": "cda435fc7a711ef1978530491f6fcfb5a7ef41c31bf7c42f956e4fda84ed9575",
+    "tpex_4747_suspension_notice.html": "5e707074b9fbd6823648dbffad8d399851d7ef6508667746881436d14ab08fc0",
+    "tpex_5386_capital_detail.json": "891b7a76e09de72859b3db93f06720b1b073e324c443cb77d9f47d9eb9cf98dd",
+    "tpex_6461_suspension_notice.html": "0ade8ce633a477fe9a3f94e1a9f1d4402e66d3f61a1a2451922bdaa24e0e5b70",
+    "tpex_exdaily_20260720.json": "d6ef30477e5c23ecf1379ec67aebad92aee9ad37e059cd396a5d0665ffd0046f",
+    "tpex_revivt_20260909.json": "32952d53a54ffaf219f3b33780299ca15fd2a0d583d2055cf3402a28cc3fefaf"
+  },
+  "formal_use": false,
+  "model_id": "tdcc_stealth_accumulation",
+  "ownership_id": "tdcc_stealth_accumulation_corporate_action_ledger",
+  "promotion_evidence_allowed": false,
+  "schema_version": 1,
+  "source_files": {
+    "blocked": {
+      "bytes": 25035468,
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_blocked_v1.csv",
+      "sha256": "a47e9f5419ef2910b555cb84afd6b962451bc8d8d8c067f43b71d1c55f8ade0f"
+    },
+    "signals": {
+      "bytes": 30673697,
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_signals_v1.csv",
+      "sha256": "56154ab073a0d7b1717494a1562e6ca313b6c855dfc07a1ea8001ed43b896b22"
+    },
+    "source_manifest": {
+      "bytes": 1659738,
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_source_manifest_v1.json",
+      "sha256": "65ba9a496d2de3895280747ab8635d9d3a59ba87c1cc5a98d8e450cda0861fc0"
+    },
+    "trades": {
+      "bytes": 30532546,
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_trades_v1.csv",
+      "sha256": "98849b77e38c40cc79fd138ffb499b9c0ed8138070923d57df4c91e03391fa2e"
+    }
+  },
+  "source_ref": "3fe40157cf4b333ef03a1447e45c310d197cbc5b",
+  "total_return_verified": false
+}
