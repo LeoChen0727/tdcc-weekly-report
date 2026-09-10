@@ -386,15 +386,52 @@ TDCC_RECEIPTED_REPLAY_EXACT_PATHS = frozenset({
 })
 
 
+TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS = frozenset({
+    ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml",
+    "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
+    "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
+    "tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py",
+    "config/tdcc_stealth_accumulation_corporate_action_ledger_v1.json",
+    "docs/specs/tdcc_stealth_accumulation_corporate_action_ledger_v1.md",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md",
+})
+
+
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
-        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS | TDCC_RECEIPTED_REPLAY_EXACT_PATHS
+        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
+        | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
     )
-    for path in sorted(FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS | TDCC_RECEIPTED_REPLAY_EXACT_PATHS):
+    for path in sorted(
+        FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
+        | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
+    ):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
             {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
         )
+
+
+@pytest.mark.parametrize("path", sorted(TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS))
+def test_tdcc_corporate_action_ledger_paths_select_exact_research_domains(path: str) -> None:
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset(
+        {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
+    )
+
+
+@pytest.mark.parametrize("path", (
+    "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger_unregistered.py",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_unregistered_v1.csv",
+    ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger_unregistered.yml",
+))
+def test_tdcc_corporate_action_ledger_unregistered_paths_fail_closed(path: str) -> None:
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
 
 
 def test_tdcc_price_pit_workflow_only_diff_runs_exact_research_domains(

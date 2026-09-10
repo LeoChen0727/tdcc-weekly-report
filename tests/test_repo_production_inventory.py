@@ -37,6 +37,7 @@ def assert_transition_safe_artifact_writer_count(
     expected_count += int(inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW in workflow_paths)
     expected_count += int(inventory.TDCC_OPERATION_REPLAY_WORKFLOW in workflow_paths)
     expected_count += int(inventory.TDCC_RECEIPTED_REPLAY_WORKFLOW in workflow_paths)
+    expected_count += int(inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW in workflow_paths)
     assert writer_count == expected_count
 
 
@@ -57,6 +58,7 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
     assert set(inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST) == {
         inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW,
         inventory.TDCC_OPERATION_REPLAY_WORKFLOW, inventory.TDCC_RECEIPTED_REPLAY_WORKFLOW,
+        inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW,
     }
     assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[inventory.DAILY_WORKFLOW] == expected_paths
 
@@ -124,6 +126,101 @@ def test_operation_replay_workflow_has_no_cross_model_writer_allowance() -> None
     assert "scripts/build_model_data_independence_audit.py" not in expected
     assert_transition_safe_artifact_writer_count(15, {workflow})
 
+
+
+def test_corporate_action_ledger_workflow_has_exact_invocations_and_stage_scope() -> None:
+    workflow = inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW
+    expected = {
+        "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
+        "scripts/validate_apps_script_workflow_triggers.py",
+        "scripts/validate_daily_model_background_data_registry.py",
+        "scripts/validate_daily_model_research_parity.py",
+        "scripts/validate_formal_model_evidence_pins.py",
+        "scripts/validate_model_data_independence.py",
+        "scripts/validate_model_research_artifact_ownership.py",
+        "scripts/validate_model_research_shared_utilities.py",
+        "scripts/validate_model_research_workflow_isolation.py",
+        "scripts/validate_repo_production_inventory.py",
+        "scripts/validate_research_production_boundaries.py",
+        "scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py",
+    }
+    assert inventory.WORKFLOW_ALLOWED_OWNERS[workflow] == set()
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[workflow] == expected
+    assert inventory.workflow_invocations(workflow) == expected
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    inventory.validate_workflow_invocations(rows, {workflow}, errors)
+    inventory.validate_production_artifact_writer_auth(rows, {workflow}, errors)
+    inventory.validate_allowed_stage_patterns({workflow: rows[workflow]}, errors)
+    assert errors == []
+    assert rows[workflow].owner == "research_backtest"
+    assert rows[workflow].allowed_stage_patterns == (
+        "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_source_manifest_v1.json",
+        "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv",
+        "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv",
+        "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv",
+        "git add output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md",
+    )
+    assert_transition_safe_artifact_writer_count(15, {workflow})
+
+
+@pytest.mark.parametrize(
+    "producer",
+    (
+        "scripts/build_model_data_independence_audit.py",
+        "scripts/build_tdcc_stealth_accumulation_research.py",
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py",
+        inventory.REVENUE_READINESS_FORMAL_SYNC_PRODUCER,
+    ),
+)
+def test_corporate_action_ledger_rejects_other_writers(monkeypatch, producer: str) -> None:
+    workflow = inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    assert errors == []
+    invocations = inventory.workflow_invocations(workflow) | {producer}
+    monkeypatch.setattr(inventory, "workflow_invocations", lambda _path: invocations)
+    inventory.validate_workflow_invocations(rows, {workflow}, errors)
+    assert any(
+        f"invokes {producer} owned by" in error and "allowed owners are []" in error
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize(
+    ("removed_line", "expected_error"),
+    (
+        (inventory.PRODUCTION_ARTIFACT_WRITE_SSH_KEY, "must use secrets."),
+        (inventory.PRODUCTION_ARTIFACT_PERSIST_CREDENTIALS, "must set persist-credentials: true"),
+    ),
+)
+def test_corporate_action_ledger_writer_keeps_checkout_auth_guards(
+    removed_line: str, expected_error: str,
+) -> None:
+    workflow = inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW
+    text = (ROOT / workflow).read_text(encoding="utf-8")
+    jobs = inventory.workflow_job_blocks(text)
+    writers = [(name, block) for name, block in jobs.items() if inventory.is_artifact_push_job(block)]
+    assert len(writers) == 1
+    job_name, block = writers[0]
+    line = f"          {removed_line}\n"
+    assert block.count(line) == 1
+    errors: list[str] = []
+    inventory.validate_artifact_push_job(
+        workflow, job_name, block.replace(line, "", 1), errors,
+    )
+    assert len(errors) == 1
+    assert expected_error in errors[0]
+
+
+def test_corporate_action_ledger_writer_count_rejects_extra_workflow() -> None:
+    workflow = inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW
+    rogue = ".github/workflows/corporate_action_ledger_extra_writer.yml"
+    assert_transition_safe_artifact_writer_count(15, {workflow})
+    with pytest.raises(AssertionError):
+        assert_transition_safe_artifact_writer_count(15, {rogue})
+    with pytest.raises(AssertionError):
+        assert_transition_safe_artifact_writer_count(16, {workflow, rogue})
 
 
 def test_revenue_readiness_formal_sync_is_exactly_registered_and_guarded() -> None:

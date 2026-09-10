@@ -1120,6 +1120,196 @@ def test_operation_replay_rejects_wrong_sources_and_cross_family_writes(mutation
     assert _errors(text, validator.OPERATION_REPLAY_WORKFLOW_PATH)
 
 
+def test_corporate_action_ledger_workflow_is_manual_fixed_source_and_exact_five() -> None:
+    path = validator.CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+    text, rows, _ = _inputs(path)
+    assert _errors(text, path) == []
+    assert validator.validate_corporate_action_ledger_workflow_contract(text) == []
+    assert validator.CORPORATE_ACTION_LEDGER_MODEL_ID == "tdcc_stealth_accumulation_corporate_action_ledger"
+    assert validator.CORPORATE_ACTION_LEDGER_SOURCE_REF == "3fe40157cf4b333ef03a1447e45c310d197cbc5b"
+    assert validator.workflow_input_defaults(text) == {validator.CORPORATE_ACTION_LEDGER_INPUT: "false"}
+    roots = validator._workflow_fields(text, 0)
+    assert set(validator._children(roots["on"], 2)) == {"workflow_dispatch"}
+    registered = [row for row in rows if row.workflow_path == path]
+    assert len(registered) == 1
+    row = registered[0]
+    assert row.model_id == validator.CORPORATE_ACTION_LEDGER_MODEL_ID
+    assert row.workflow_input == validator.CORPORATE_ACTION_LEDGER_INPUT
+    assert row.default_enabled is False and row.formal_sync_allowed is False
+    assert (row.latest_stage_glob, row.history_stage_glob, row.docs_stage_glob) == (
+        validator.CORPORATE_ACTION_LEDGER_STAGE_GLOB, "", "",
+    )
+    prefix = "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_"
+    expected = tuple(prefix + suffix for suffix in (
+        "source_manifest_v1.json", "events_v1.csv", "positions_v1.csv", "blocked_v1.csv", "report_v1.md",
+    ))
+    assert validator.CORPORATE_ACTION_LEDGER_ARTIFACTS == expected
+    actual_stage = tuple(line.strip() for line in text.splitlines() if line.strip().startswith("git add"))
+    assert actual_stage == tuple(f"git add {name}" for name in expected)
+    assert actual_stage == validator.CORPORATE_ACTION_LEDGER_STAGE_COMMANDS
+    for command in (validator.CORPORATE_ACTION_LEDGER_FETCH_COMMAND,
+                    validator.CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND,
+                    validator.CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND):
+        assert [line.strip() for line in text.splitlines()].count(command) == 1
+    assert validator.MODEL_DATA_AUDIT_BUILD_COMMAND not in text
+
+
+@pytest.mark.parametrize("suffix", (
+    "source_manifest_v1.json", "events_v1.csv", "positions_v1.csv", "blocked_v1.csv", "report_v1.md",
+))
+def test_corporate_action_ledger_cannot_omit_any_one_of_five_artifacts(suffix: str) -> None:
+    path = validator.CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+    text, _, _ = _inputs(path)
+    command = (
+        "git add output/research/tdcc_stealth_accumulation/"
+        "tdcc_stealth_accumulation_corporate_action_ledger_" + suffix
+    )
+    assert command in text
+    mutated = text.replace(command, "echo intentionally-missing-ledger-artifact", 1)
+    assert validator.validate_corporate_action_ledger_workflow_contract(mutated)
+    assert _errors(mutated, path)
+
+
+@pytest.mark.parametrize("mutation", (
+    "schedule", "push_trigger", "default_true", "wrong_source_ref", "missing_fetch",
+    "cross_model_producer", "duplicate_producer", "missing_validator", "validator_before_producer",
+    "producer_guard_omitted", "producer_guard_false", "masked_producer", "masked_validator", "extra_artifact",
+    "broad_stage", "old_family_artifact", "missing_prerequisite_guard", "global_audit_write",
+    "noop_checkout", "noop_producer", "noop_write_permissions", "shallow_source_checkout",
+))
+def test_corporate_action_ledger_rejects_meaningful_workflow_boundary_mutations(mutation: str) -> None:
+    path = validator.CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+    text, _, _ = _inputs(path)
+    producer = validator.CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND
+    check = validator.CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND
+    fetch = validator.CORPORATE_ACTION_LEDGER_FETCH_COMMAND
+    stage = validator.CORPORATE_ACTION_LEDGER_STAGE_COMMANDS[0]
+    if mutation == "schedule":
+        mutated = text.replace("on:\n", "on:\n  schedule:\n    - cron: '0 0 * * *'\n", 1)
+    elif mutation == "push_trigger":
+        mutated = text.replace("on:\n", "on:\n  push:\n    branches: [main]\n", 1)
+    elif mutation == "default_true":
+        mutated = _mutate_input(text, validator.CORPORATE_ACTION_LEDGER_INPUT, "default", "true")
+    elif mutation == "wrong_source_ref":
+        mutated = text.replace(fetch, fetch.replace(validator.CORPORATE_ACTION_LEDGER_SOURCE_REF, "HEAD"), 1)
+    elif mutation == "missing_fetch":
+        mutated = text.replace(fetch, "echo missing-fixed-ref-fetch", 1)
+    elif mutation == "cross_model_producer":
+        foreign = "python " + FOUR_MODEL_ENTRYPOINT_CONTRACT["hot_theme_pullback"][1]
+        mutated = text.replace(producer, foreign, 1)
+    elif mutation == "duplicate_producer":
+        mutated = text.replace(producer, producer + "\n          " + producer, 1)
+    elif mutation == "missing_validator":
+        mutated = text.replace(check, "echo missing-independent-ledger-validator", 1)
+    elif mutation == "validator_before_producer":
+        original_order = producer + "\n          " + check
+        assert original_order in text
+        mutated = text.replace(original_order, check + "\n          " + producer, 1)
+    elif mutation in ("producer_guard_omitted", "producer_guard_false"):
+        block = next(block for block in validator.workflow_step_blocks(text) if producer in block)
+        guard = "        if: " + validator.workflow_selection_condition([validator.CORPORATE_ACTION_LEDGER_INPUT]) + "\n"
+        assert guard in block
+        replacement = "" if mutation == "producer_guard_omitted" else "        if: false\n"
+        mutated = text.replace(block, block.replace(guard, replacement, 1), 1)
+    elif mutation == "masked_producer":
+        mutated = text.replace(producer, producer + " || true", 1)
+    elif mutation == "masked_validator":
+        mutated = text.replace(check, check + " || true", 1)
+    elif mutation == "extra_artifact":
+        mutated = text.replace(stage, stage + "\n          git add output/latest/unapproved.csv", 1)
+    elif mutation == "broad_stage":
+        mutated = text.replace(stage, "git add " + validator.CORPORATE_ACTION_LEDGER_STAGE_GLOB, 1)
+    elif mutation == "old_family_artifact":
+        mutated = text.replace(stage, validator.RECEIPTED_REPLAY_STAGE_COMMANDS[0], 1)
+    elif mutation == "missing_prerequisite_guard":
+        guard = next(command for command in validator.STATIC_VALIDATOR_COMMANDS
+                     if "validate_model_research_artifact_ownership" in command)
+        mutated = text.replace("          " + guard + "\n", "", 1)
+    elif mutation == "global_audit_write":
+        mutated = text.replace(check, validator.MODEL_DATA_AUDIT_BUILD_COMMAND + "\n          " + check, 1)
+    elif mutation == "noop_checkout":
+        marker = "      - name: No research selected\n"
+        mutated = text.replace(marker, marker + "        uses: actions/checkout@v6\n", 1)
+    elif mutation == "noop_producer":
+        mutated = text.replace(validator.NO_OP_RUN, producer, 1)
+    elif mutation == "shallow_source_checkout":
+        mutated = text.replace("          fetch-depth: 0", "          fetch-depth: 1", 1)
+    else:
+        mutated = text.replace("    permissions: {}", "    permissions:\n      contents: write", 1)
+    assert mutated != text, mutation
+    assert _errors(mutated, path), mutation
+
+
+@pytest.mark.parametrize("selected", [False, True])
+def test_corporate_action_ledger_only_explicit_true_enters_writer(selected: bool) -> None:
+    path = validator.CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+    text, _, _ = _inputs(path)
+    root = validator._workflow_fields(text, 0)
+    jobs = validator._children(root["jobs"], 2)
+    writer = validator._children(jobs[validator.WORKFLOW_WRITER_JOBS[path]], 4)
+    noop = validator._children(jobs["no-op"], 4)
+    inputs = {validator.CORPORATE_ACTION_LEDGER_INPUT: "true" if selected else "false"}
+    assert _dispatch_condition_value(validator._scalar(writer, "if"), inputs) is selected
+    assert _dispatch_condition_value(validator._scalar(noop, "if"), inputs) is (not selected)
+    steps = validator._workflow_steps(noop["steps"])
+    assert len(steps) == 1
+    assert validator._run_lines(steps[0]) == (validator.NO_OP_RUN,)
+    assert "uses" not in steps[0]
+
+
+def test_corporate_action_ledger_registry_cannot_expand_stage_scope() -> None:
+    path = validator.CORPORATE_ACTION_LEDGER_WORKFLOW_PATH
+    text, rows, owned = _inputs(path)
+    index = next(index for index, row in enumerate(rows) if row.model_id == validator.CORPORATE_ACTION_LEDGER_MODEL_ID)
+    rows[index] = replace(rows[index], latest_stage_glob="output/research/tdcc_stealth_accumulation/*")
+    assert validator.validate_workflow_text(text, rows, owned, workflow_path=path)
+
+
+def test_corporate_action_ledger_registered_workflow_cannot_be_absent() -> None:
+    texts = _workflow_texts()
+    del texts[validator.CORPORATE_ACTION_LEDGER_WORKFLOW_PATH]
+    assert any("missing research workflow" in error for error in validator.validate_workflow_texts(
+        texts, validator.load_registry(), validator.load_model_owned_producers(),
+    ))
+
+
+def test_corporate_action_ledger_ci_validates_without_running_producer() -> None:
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
+    assert validator.validate_pr_workflow_text(text, validator.load_registry()) == []
+    assert validator.CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND not in text
+    block = next(block for block in validator.workflow_step_blocks(text)
+                 if validator.CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND in block)
+    assert "        if:" not in block
+    assert "continue-on-error:" not in block
+    assert "PYTHONDONTWRITEBYTECODE:" in block
+
+
+@pytest.mark.parametrize("mutation", (
+    "producer_inserted", "validator_removed", "tests_removed", "drift_removed",
+    "step_if", "continue_on_error", "masked_validator", "masked_drift",
+))
+def test_corporate_action_ledger_ci_readonly_checks_cannot_be_bypassed(mutation: str) -> None:
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
+    check = validator.CORPORATE_ACTION_LEDGER_VALIDATOR_COMMAND
+    tests = "python -m pytest -q -p no:cacheprovider tests/test_" + validator.CORPORATE_ACTION_LEDGER_MODEL_ID + ".py"
+    drift = "git --no-replace-objects diff --exit-code HEAD -- " + " ".join(validator.CORPORATE_ACTION_LEDGER_ARTIFACTS)
+    if mutation == "producer_inserted":
+        mutated = text.replace(check, validator.CORPORATE_ACTION_LEDGER_PRODUCER_COMMAND + "\n          " + check, 1)
+    elif mutation in ("validator_removed", "tests_removed", "drift_removed"):
+        command = {"validator_removed": check, "tests_removed": tests, "drift_removed": drift}[mutation]
+        mutated = text.replace(command, "echo removed-required-ledger-ci-check", 1)
+    elif mutation in ("step_if", "continue_on_error"):
+        block = next(block for block in validator.workflow_step_blocks(text) if check in block)
+        marker = block.splitlines()[0] + "\n"
+        inserted = "        if: false\n" if mutation == "step_if" else "        continue-on-error: true\n"
+        mutated = text.replace(block, block.replace(marker, marker + inserted, 1), 1)
+    else:
+        command = check if mutation == "masked_validator" else drift
+        mutated = text.replace(command, command + " || true", 1)
+    assert mutated != text
+    assert validator.validate_pr_workflow_text(mutated, validator.load_registry()), mutation
+
+
 
 def test_aggregate_registry_cannot_move_price_back_or_drop_an_owned_model() -> None:
     rows = validator.load_registry()

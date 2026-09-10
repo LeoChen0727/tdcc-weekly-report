@@ -1500,6 +1500,10 @@ def test_apps_script_research_dispatch_workflow_only_contract_is_fail_closed() -
         ("run_tdcc_stealth_accumulation_price_pit_audit", ".github/workflows/unregistered.yml"),
         ("run_market_timing", ".github/workflows/unregistered.yml"),
         ("run_tdcc_stealth_accumulation_price_pit_audit", ".github/workflows/../workflows/tdcc_stealth_accumulation_price_pit_audit.yml"),
+        ("run_tdcc_stealth_accumulation_corporate_action_ledger", ".github/workflows/research_backtest_pipeline.yml"),
+        ("run_tdcc_stealth_accumulation_corporate_action_ledger", ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml"),
+        ("run_tdcc_stealth_accumulation_corporate_action_ledger", ".github/workflows/../workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml"),
+        ("run_market_timing", ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml"),
     ],
 )
 def test_apps_script_research_dispatch_registry_rejects_wrong_paths(
@@ -1518,12 +1522,16 @@ def test_apps_script_research_dispatch_registry_rejects_wrong_paths(
 
 
 @pytest.mark.parametrize("activation_mode", ["required", "when_declared"])
+@pytest.mark.parametrize("input_name", [
+    "run_tdcc_stealth_accumulation_price_pit_audit",
+    "run_tdcc_stealth_accumulation_corporate_action_ledger",
+])
 def test_apps_script_research_dispatch_audit_cannot_be_gas_eligible(
-    tmp_path: Path, apps_script_research_workflows, activation_mode: str,
+    tmp_path: Path, apps_script_research_workflows, activation_mode: str, input_name: str,
 ) -> None:
     validator = validate_apps_script_workflow_triggers
     registry = apps_script_research_workflows
-    registry[validator.TDCC_PRICE_PIT_AUDIT_INPUT]["activation_mode"] = activation_mode
+    registry[input_name]["activation_mode"] = activation_mode
     path = tmp_path / "registry.csv"
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(next(iter(registry.values()))))
@@ -1546,12 +1554,15 @@ def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_
         errors, registry=registry, apps_inputs=set(apps_inputs), guarded_inputs=guarded,
     )
     assert errors == []
-    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path, validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH, validator.TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH}
+    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path, validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH, validator.TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH, validator.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW_PATH}
     assert observed[validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH] == {validator.TDCC_OPERATION_REPLAY_INPUT}
     assert registry[validator.TDCC_OPERATION_REPLAY_INPUT]["activation_mode"] == "workflow_only"
     assert observed[validator.TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH] == {validator.TDCC_RECEIPTED_REPLAY_INPUT}
     assert registry[validator.TDCC_RECEIPTED_REPLAY_INPUT]["activation_mode"] == "workflow_only"
     assert validator.TDCC_RECEIPTED_REPLAY_INPUT not in apps_inputs | dict.fromkeys(guarded)
+    assert observed[validator.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW_PATH] == {validator.TDCC_CORPORATE_ACTION_LEDGER_INPUT}
+    assert registry[validator.TDCC_CORPORATE_ACTION_LEDGER_INPUT]["activation_mode"] == "workflow_only"
+    assert validator.TDCC_CORPORATE_ACTION_LEDGER_INPUT not in apps_inputs | dict.fromkeys(guarded)
     assert len(observed[validator.RESEARCH_WORKFLOW_PATH]) == 25
     assert observed[audit_path] == {audit_input}
     assert audit_input not in observed[validator.RESEARCH_WORKFLOW_PATH]
@@ -1565,6 +1576,7 @@ def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_
         (".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml", "run_tdcc_stealth_accumulation_price_pit_audit"),
         (".github/workflows/tdcc_stealth_accumulation_operation_replay.yml", "run_tdcc_stealth_accumulation_operation_replay"),
         (".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml", "run_tdcc_stealth_accumulation_receipted_marketwide_replay"),
+        (".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml", "run_tdcc_stealth_accumulation_corporate_action_ledger"),
     ],
 )
 @pytest.mark.parametrize(
@@ -1609,16 +1621,20 @@ def test_apps_script_research_dispatch_scoped_workflow_only_negative_cases(
     assert any(workflow_path in error and expected_error in error for error in errors)
 
 
+@pytest.mark.parametrize(("workflow_path", "input_name"), [
+    (".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml", "run_tdcc_stealth_accumulation_price_pit_audit"),
+    (".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml", "run_tdcc_stealth_accumulation_corporate_action_ledger"),
+])
 def test_apps_script_research_dispatch_new_workflow_rejects_other_scopes(
-    apps_script_research_workflows,
+    apps_script_research_workflows, workflow_path: str, input_name: str,
 ) -> None:
     validator = validate_apps_script_workflow_triggers
     apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
     kwargs = {
-        "workflow_path": validator.TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH,
-        "workflow_input_names": {validator.TDCC_PRICE_PIT_AUDIT_INPUT},
-        "workflow_input_defaults": {validator.TDCC_PRICE_PIT_AUDIT_INPUT: "false"},
-        "workflow_input_types": {validator.TDCC_PRICE_PIT_AUDIT_INPUT: "boolean"},
+        "workflow_path": workflow_path,
+        "workflow_input_names": {input_name},
+        "workflow_input_defaults": {input_name: "false"},
+        "workflow_input_types": {input_name: "boolean"},
         "apps_inputs": set(apps_inputs), "guarded_inputs": guarded,
         "registry": apps_script_research_workflows,
     }
@@ -1667,11 +1683,15 @@ def test_apps_script_research_dispatch_required_and_guarded_checks_survive_split
     assert any("missing required Apps Script inputs" in error for error in errors)
 
 
+@pytest.mark.parametrize("workflow_path", [
+    ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
+    ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml",
+])
 def test_apps_script_research_dispatch_missing_new_workflow_fails_closed(
-    apps_script_research_workflows,
+    apps_script_research_workflows, workflow_path: str,
 ) -> None:
     validator = validate_apps_script_workflow_triggers
-    (validator.WORKFLOW_DIR / "tdcc_stealth_accumulation_price_pit_audit.yml").unlink()
+    (validator.WORKFLOW_DIR / Path(workflow_path).name).unlink()
     apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
     errors: list[str] = []
     validator.validate_research_workflow_registries(
@@ -1680,7 +1700,7 @@ def test_apps_script_research_dispatch_missing_new_workflow_fails_closed(
     )
     assert len(errors) == 1
     assert "Research workflow unavailable" in errors[0]
-    assert validator.TDCC_PRICE_PIT_AUDIT_WORKFLOW_PATH in errors[0]
+    assert workflow_path in errors[0]
 
 
 def test_apps_script_research_dispatch_main_validates_both_workflows(
@@ -1709,6 +1729,97 @@ def test_apps_script_research_dispatch_main_validates_both_workflows(
         ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
         ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml",
         ".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml",
+        ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml",
+    ]
+
+
+def test_tdcc_corporate_action_ledger_is_exact_manual_workflow_only_registration() -> None:
+    validator = validate_apps_script_workflow_triggers
+    input_name = "run_tdcc_stealth_accumulation_corporate_action_ledger"
+    workflow_path = ".github/workflows/tdcc_stealth_accumulation_corporate_action_ledger.yml"
+    workflow_name = Path(workflow_path).name
+    registry = validator.load_research_dispatch_registry()
+    assert registry[input_name] == {
+        "workflow_path": workflow_path,
+        "workflow_input": input_name,
+        "dispatch_value": "true",
+        "activation_mode": "workflow_only",
+        "owner": "tdcc_stealth_accumulation_corporate_action_ledger",
+        "producer": "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
+        "notes": "Manual-only corporate-action ledger v1; forbidden from Apps Script dispatch",
+    }
+    assert validator.research_input_workflow_path(input_name) == workflow_path
+    assert validator.workflow_inputs(workflow_name) == {input_name}
+    assert validator.workflow_dispatch_input_property(workflow_name, input_name, "type") == "boolean"
+    assert validator.workflow_dispatch_input_property(workflow_name, input_name, "default") == "false"
+    apps_inputs, guarded_inputs = validator.apps_script_research_dispatch_inputs()
+    assert input_name not in apps_inputs and input_name not in guarded_inputs
+    assert workflow_name not in validator.apps_script_dispatches()
+    assert workflow_name not in validator.EXPECTED_DISPATCHES
+    apps_text = validator.APPS_SCRIPT.read_text(encoding="utf-8")
+    assert input_name not in apps_text and workflow_name not in apps_text
+    text = (ROOT / workflow_path).read_text(encoding="utf-8")
+    assert "\n  schedule:" not in text
+    assert "\n  push:" not in text
+    assert "\n  pull_request:" not in text
+    no_op = text.split("  no-op:\n", 1)[1].split("  tdcc-stealth-accumulation-corporate-action-ledger:\n", 1)[0]
+    assert no_op == (
+        "    if: ${{ !(github.event.inputs.run_tdcc_stealth_accumulation_corporate_action_ledger == 'true') }}\n"
+        "    runs-on: ubuntu-latest\n"
+        "    permissions: {}\n"
+        "    steps:\n"
+        "      - name: No research selected\n"
+        "        shell: bash\n"
+        "        run: printf 'No research selected; no repository checkout or artifact writes.\\n'\n\n"
+    )
+
+
+@pytest.mark.parametrize("activation_mode", ["required", "when_declared"])
+def test_tdcc_corporate_action_ledger_in_memory_registry_cannot_enable_gas(
+    apps_script_research_workflows, activation_mode: str,
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    registry = apps_script_research_workflows
+    registry[validator.TDCC_CORPORATE_ACTION_LEDGER_INPUT]["activation_mode"] = activation_mode
+    apps_inputs, guarded = validator.apps_script_research_dispatch_inputs()
+    errors: list[str] = []
+    validator.validate_research_workflow_registries(
+        errors, registry=registry, apps_inputs=set(apps_inputs), guarded_inputs=guarded,
+    )
+    assert any("corporate-action ledger input must remain workflow_only" in error for error in errors)
+
+
+def test_tdcc_corporate_action_ledger_direct_apps_script_dispatch_is_rejected(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str],
+) -> None:
+    validator = validate_apps_script_workflow_triggers
+    actual = validator.apps_script_dispatches()
+    changed = {**actual, Path(validator.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW_PATH).name: {
+        validator.TDCC_CORPORATE_ACTION_LEDGER_INPUT: "true",
+    }}
+    monkeypatch.setattr(validator, "apps_script_dispatches", lambda: changed)
+    assert validator.main() == 1
+    assert "Workflow-only TDCC corporate-action ledger must not be dispatched by Apps Script" in capsys.readouterr().out
+
+
+def test_tdcc_corporate_action_ledger_registration_keeps_existing_apps_script_schedules() -> None:
+    validator = validate_apps_script_workflow_triggers
+    assert validator.EXPECTED_DISPATCHES == {
+        "daily_full_pipeline.yml", "repair_recent_daily_price_gaps.yml",
+        "repair_tdcc_monthly_history_gaps.yml", "individual_stock_data_refresh.yml",
+        "tdcc_weekly.yml", "event_catalyst_update.yml", "weekly_theme_review.yml",
+        "research_backtest_pipeline.yml",
+    }
+    assert validator.SCHEDULED_WORKFLOW_DISPATCHES == [
+        ("triggerEventCatalystUpdate morning", {0, 1, 2, 3, 4, 5, 6}, 8 * 60 + 10),
+        ("triggerTdccHistoryGapRepair", {2}, 9 * 60 + 30),
+        ("triggerTdccWeeklyReport", {6}, 15 * 60 + 30),
+        ("triggerEventCatalystUpdate evening", {0, 1, 2, 3, 4, 5, 6}, 18 * 60 + 10),
+        ("triggerDailyStockMonitor", {1, 2, 3, 4, 5}, 19 * 60 + 30),
+        ("triggerEveningDataOnlyRepair", {1, 2, 3, 4, 5}, 20 * 60 + 30),
+        ("triggerWeeklyThemeReview", {0}, 19 * 60 + 30),
+        ("triggerResearchBacktestPipeline", {0}, 21 * 60 + 10),
+        ("triggerIndividualStockDataRefresh", {0, 1, 2, 3, 4, 5, 6}, 22 * 60 + 20),
     ]
 
 

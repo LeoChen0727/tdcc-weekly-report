@@ -326,6 +326,52 @@ SHARED_VALIDATION_COMMANDS = (
     "git --no-replace-objects diff --exit-code -- output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_*_v1.*",
 )
 
+TDCC_CORPORATE_ACTION_LEDGER_STEP = (
+    "Validate TDCC corporate-action ledger v1 without producing artifacts"
+)
+TDCC_CORPORATE_ACTION_LEDGER_TARGETS = (
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md",
+)
+TDCC_CORPORATE_ACTION_LEDGER_VALIDATOR = (
+    "python scripts/validate_tdcc_stealth_accumulation_corporate_action_ledger.py"
+)
+TDCC_CORPORATE_ACTION_LEDGER_TEST = (
+    "python -m pytest -q -p no:cacheprovider "
+    "tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py"
+)
+TDCC_CORPORATE_ACTION_LEDGER_DIFF = (
+    "git --no-replace-objects diff --exit-code HEAD -- "
+    + " ".join(TDCC_CORPORATE_ACTION_LEDGER_TARGETS)
+)
+TDCC_CORPORATE_ACTION_LEDGER_COMMANDS = (
+    TDCC_CORPORATE_ACTION_LEDGER_VALIDATOR,
+    TDCC_CORPORATE_ACTION_LEDGER_TEST,
+    TDCC_CORPORATE_ACTION_LEDGER_DIFF,
+)
+
+
+def tdcc_corporate_action_ledger_step_contract_ok(text: str) -> bool:
+    step = job_step("shared_model_research", TDCC_CORPORATE_ACTION_LEDGER_STEP, text)
+    if (
+        not step
+        or active_field(step, "if") is not None
+        or active_field(step, "continue-on-error") is not None
+        or run_commands(active_field(step, "run") or "")
+        != TDCC_CORPORATE_ACTION_LEDGER_COMMANDS
+    ):
+        return False
+    runs = workflow_run_text(text)
+    return (
+        all(runs.count(command) == 1 for command in TDCC_CORPORATE_ACTION_LEDGER_COMMANDS)
+        and "build_tdcc_stealth_accumulation_corporate_action_ledger.py" not in runs
+        and re.search(r'(?m)^          PYTHONDONTWRITEBYTECODE: "1"$', step) is not None
+    )
+
+
 VOLUME_VALIDATION_COMMANDS = (
     "python scripts/validate_volume_breakout_watch.py --latest-only",
     "python scripts/validate_volume_attack_theme_layer.py",
@@ -415,12 +461,20 @@ def domain_workload_contract_ok(text: str) -> bool:
             )
         )
         exact_step_commands = step_workload_commands if job_id == "volume_v2_research" else step_commands
+        expected_job_commands = expected_commands
+        if job_id == "shared_model_research":
+            if not tdcc_corporate_action_ledger_step_contract_ok(text):
+                return False
+            expected_job_commands += (
+                TDCC_CORPORATE_ACTION_LEDGER_VALIDATOR,
+                TDCC_CORPORATE_ACTION_LEDGER_DIFF,
+            )
         if (
             not step
             or active_field(step, "if") is not None
             or active_field(step, "continue-on-error") is not None
             or exact_step_commands != expected_commands
-            or workload_commands != expected_commands
+            or workload_commands != expected_job_commands
         ):
             return False
     all_runs = workflow_run_text(text)
@@ -2051,3 +2105,30 @@ def test_dfkai_replay_job_validator_rejects_disabled_glyph_assertion() -> None:
     )
 
     assert any("canary glyphs are missing" in error for error in errors)
+
+
+def test_tdcc_corporate_action_ledger_ci_is_validate_only_with_exact_five_artifacts() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert len(TDCC_CORPORATE_ACTION_LEDGER_TARGETS) == 5
+    assert all("*" not in path for path in TDCC_CORPORATE_ACTION_LEDGER_TARGETS)
+    assert tdcc_corporate_action_ledger_step_contract_ok(text)
+    assert domain_workload_contract_ok(text)
+
+
+@pytest.mark.parametrize("old,new", (
+    (TDCC_CORPORATE_ACTION_LEDGER_VALIDATOR, "python scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py"),
+    (TDCC_CORPORATE_ACTION_LEDGER_TEST, "echo skipped-corporate-action-tests"),
+    (TDCC_CORPORATE_ACTION_LEDGER_DIFF, "echo skipped-corporate-action-diff"),
+    (TDCC_CORPORATE_ACTION_LEDGER_TARGETS[0], "output/research/tdcc_stealth_accumulation/*"),
+    ('          PYTHONDONTWRITEBYTECODE: "1"', '          PYTHONDONTWRITEBYTECODE: "0"'),
+    ("      - name: " + TDCC_CORPORATE_ACTION_LEDGER_STEP,
+     "      - name: " + TDCC_CORPORATE_ACTION_LEDGER_STEP + "\n        if: false"),
+    ("      - name: " + TDCC_CORPORATE_ACTION_LEDGER_STEP,
+     "      - name: " + TDCC_CORPORATE_ACTION_LEDGER_STEP + "\n        continue-on-error: true"),
+))
+def test_tdcc_corporate_action_ledger_ci_rejects_weakened_checks(old: str, new: str) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert old in text
+    mutated = text.replace(old, new, 1)
+    assert not tdcc_corporate_action_ledger_step_contract_ok(mutated)
+    assert not domain_workload_contract_ok(mutated)
