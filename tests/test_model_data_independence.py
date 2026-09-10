@@ -1428,11 +1428,20 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 39
-    assert rows[-4]["migration_id"] == (
+    assert len(rows) == 40
+    receipted_migration = rows[-1]
+    assert receipted_migration['migration_id'] == 'tdcc_stealth_accumulation_receipted_marketwide_replay_20260910'
+    assert receipted_migration['changed_data_families'] == 'tdcc_stealth_accumulation_receipted_marketwide_replay_outputs'
+    assert receipted_migration['previous_contract_sha256s'] == 'NEW'
+    assert receipted_migration['new_contract_sha256s'] == '92f315b19da9ea7ab1b2b63fac01408e25fb189838cc5b26ac89579d145b712b'
+    assert receipted_migration['affected_models'] == 'tdcc_stealth_accumulation'
+    assert receipted_migration['user_approval_reference'] == 'user_approval_20260910_tdcc_stealth_receipted_marketwide_replay'
+    assert receipted_migration['migration_status'] == 'validated_user_approved_migration'
+    assert data_migration_row_sha256(receipted_migration) == '6b94a4d7cc1c5b66bb8623b85ba878f763ddac726a1ec626805d189258493f7a'
+    assert rows[-5]["migration_id"] == (
         "tdcc_stealth_accumulation_historical_selector_replay_20260908"
     )
-    field_contract_migration = rows[-3]
+    field_contract_migration = rows[-4]
     assert field_contract_migration["migration_id"] == (
         "tdcc_stealth_accumulation_field_contract_replay_20260908"
     )
@@ -1452,14 +1461,14 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert field_contract_migration["migration_status"] == (
         "validated_user_approved_migration"
     )
-    audit_migration = rows[-2]
+    audit_migration = rows[-3]
     assert audit_migration["migration_id"] == "tdcc_stealth_accumulation_price_pit_audit_20260908"
     assert audit_migration["changed_data_families"] == "tdcc_stealth_accumulation_price_pit_audit"
     assert audit_migration["previous_contract_sha256s"] == "NEW"
     assert audit_migration["new_contract_sha256s"] == "51453013429b0304f6479feeb57f5b3a62dfdd747153e35ed3257d9b2f531d5c"
     assert audit_migration["affected_models"] == "tdcc_stealth_accumulation"
     assert audit_migration["user_approval_reference"] == "user_authorized_tdcc_stealth_price_anomaly_pit_audit_20260908"
-    operation_replay_migration = rows[-1]
+    operation_replay_migration = rows[-2]
     assert operation_replay_migration["migration_id"] == (
         "tdcc_stealth_accumulation_operation_replay_20260909"
     )

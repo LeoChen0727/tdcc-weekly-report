@@ -1546,9 +1546,12 @@ def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_
         errors, registry=registry, apps_inputs=set(apps_inputs), guarded_inputs=guarded,
     )
     assert errors == []
-    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path, validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH}
+    assert set(observed) == {validator.RESEARCH_WORKFLOW_PATH, audit_path, validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH, validator.TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH}
     assert observed[validator.TDCC_OPERATION_REPLAY_WORKFLOW_PATH] == {validator.TDCC_OPERATION_REPLAY_INPUT}
     assert registry[validator.TDCC_OPERATION_REPLAY_INPUT]["activation_mode"] == "workflow_only"
+    assert observed[validator.TDCC_RECEIPTED_REPLAY_WORKFLOW_PATH] == {validator.TDCC_RECEIPTED_REPLAY_INPUT}
+    assert registry[validator.TDCC_RECEIPTED_REPLAY_INPUT]["activation_mode"] == "workflow_only"
+    assert validator.TDCC_RECEIPTED_REPLAY_INPUT not in apps_inputs | dict.fromkeys(guarded)
     assert len(observed[validator.RESEARCH_WORKFLOW_PATH]) == 25
     assert observed[audit_path] == {audit_input}
     assert audit_input not in observed[validator.RESEARCH_WORKFLOW_PATH]
@@ -1561,6 +1564,7 @@ def test_apps_script_research_dispatch_two_workflow_scopes(apps_script_research_
         (".github/workflows/research_backtest_pipeline.yml", "run_hot_theme_pullback_research"),
         (".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml", "run_tdcc_stealth_accumulation_price_pit_audit"),
         (".github/workflows/tdcc_stealth_accumulation_operation_replay.yml", "run_tdcc_stealth_accumulation_operation_replay"),
+        (".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml", "run_tdcc_stealth_accumulation_receipted_marketwide_replay"),
     ],
 )
 @pytest.mark.parametrize(
@@ -1704,6 +1708,7 @@ def test_apps_script_research_dispatch_main_validates_both_workflows(
         ".github/workflows/research_backtest_pipeline.yml",
         ".github/workflows/tdcc_stealth_accumulation_price_pit_audit.yml",
         ".github/workflows/tdcc_stealth_accumulation_operation_replay.yml",
+        ".github/workflows/tdcc_stealth_accumulation_receipted_marketwide_replay.yml",
     ]
 
 
