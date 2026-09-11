@@ -175,6 +175,10 @@ jobs:
           python scripts/validate_git_worktree_safety.py
           python scripts/validate_repo_code_isolation_policy.py
 
+      - name: 來源修復回歸測試
+        run: |
+          python -m pytest tests/test_backfill_official_daily_price.py tests/test_historical_tpex_price_repair.py -q
+
       - name: Run current repository core regression tests
         run: |
           python -m pytest \

@@ -184,6 +184,16 @@ The semantic integrity validator additionally enforces:
   decision-layer report tokens, raw operation slug leakage, and shared model
   score profiles.
 
+- 2025 年 9 月歷史上櫃行情的手動離線驗收：
+  `scripts/repair_historical_tpex_prices.py` 僅管理
+  [17 日修復說明](tpex_historical_price_repair.md) 所列日期，預設只讀，
+  不下載或重寫行情。合併後執行
+  `python scripts/repair_historical_tpex_prices.py --verify-ref origin/main`，
+  從 main Git objects 核對官方原文、修訂 SHA 及上市實體列保留。
+  此 CLI 不直接接入 workflow；CI 的 focused regression 另實際呼叫
+  `repair.validate(root)` 驗收相同 17 日資料。現在回查的歷史版本不等於
+  首次發布 PIT 已驗證，不改寫舊研究產物或結論。
+
 The advanced integrity validator adds the next layer of executable contracts:
 
 - External daily report archive contract:

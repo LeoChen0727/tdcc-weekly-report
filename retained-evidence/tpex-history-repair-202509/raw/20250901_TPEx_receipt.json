@@ -1,0 +1,13 @@
+{
+  "requested_date": "20250901",
+  "market": "TPEx",
+  "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc?date=2025/09/01&type=EW&response=json",
+  "requested_at": "2026-09-11T04:33:51.266487+00:00",
+  "retrieved_at": "2026-09-11T04:33:51.752216+00:00",
+  "status_code": 200,
+  "final_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc?date=2025/09/01&type=EW&response=json",
+  "sha256": "9ad0b9524603ee8ddd434c93a2c34388225389caba0d553a33d7afe99ba70d29",
+  "bytes": 140122,
+  "current_retrieval_of_historical_data": true,
+  "original_publication_version_verified": false
+}

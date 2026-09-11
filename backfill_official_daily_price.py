@@ -1,4 +1,6 @@
+import hashlib
 import io
+import re
 import time
 import requests
 import pandas as pd
@@ -9,10 +11,6 @@ from pathlib import Path
 
 DATA_DIR = Path("data/daily_price")
 OUTPUT_DIR = Path("output")
-
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_DIR.mkdir(exist_ok=True)
-
 
 # Keep enough price history for 180D chart windows plus D+20 model validation.
 # This is intentionally larger than the daily report window; it is used by the
@@ -133,100 +131,89 @@ def fetch_twse_daily_price(date_str):
     return result.reset_index(drop=True)
 
 
-def extract_tpex_table_from_json(data):
-    """
-    TPEx DAILY_CLOSE_quotes 回傳格式是 dict，真正資料在 tables 裡。
-    這裡從 tables 中找出包含股票代號、名稱、收盤等欄位的表格。
-    """
-    tables = data.get("tables", [])
-
-    if not isinstance(tables, list) or not tables:
-        return pd.DataFrame()
-
-    for table in tables:
-        fields = table.get("fields") or table.get("field") or []
-        rows = table.get("data") or table.get("aaData") or []
-
-        if not fields or not rows:
-            continue
-
-        df = pd.DataFrame(rows, columns=fields)
-
-        columns = set(df.columns)
-
-        possible_code_cols = ["代號", "證券代號"]
-        possible_name_cols = ["名稱", "證券名稱"]
-
-        code_col = next((c for c in possible_code_cols if c in columns), None)
-        name_col = next((c for c in possible_name_cols if c in columns), None)
-
-        required = [code_col, name_col, "開盤", "最高", "最低", "收盤", "成交股數"]
-
-        if code_col and name_col and all(c in columns for c in required if c):
-            return df
-
-    return pd.DataFrame()
+def _tpex_response_date(value):
+    if isinstance(value, str) and re.fullmatch(r"[0-9]{8}", value):
+        return datetime.strptime(value, "%Y%m%d").strftime("%Y%m%d")
+    if isinstance(value, str) and re.fullmatch(r"[0-9]{3,4}/[0-9]{2}/[0-9]{2}", value):
+        year, month, day = value.split("/")
+        year = int(year) + (1911 if len(year) == 3 else 0)
+        return datetime(year, int(month), int(day)).strftime("%Y%m%d")
+    raise ValueError(f"TPEx missing or invalid response date: {value!r}")
 
 
-def fetch_tpex_daily_price(date_str):
-    """
-    抓 TPEx 上櫃每日收盤行情。
-    使用 DAILY_CLOSE_quotes + o=json + 指定日期。
-    """
-    roc_date = f"{int(date_str[:4]) - 1911}/{date_str[4:6]}/{date_str[6:8]}"
+def parse_tpex_daily_price(payload: dict, date_str: str) -> pd.DataFrame:
+    """Parse the official OTC table; reject ambiguous dates and identities."""
+    if not re.fullmatch(r"[0-9]{8}", date_str):
+        raise ValueError(f"TPEx invalid requested date: {date_str!r}")
+    requested_date = datetime.strptime(date_str, "%Y%m%d").strftime("%Y%m%d")
+    if not isinstance(payload, dict) or payload.get("stat") != "ok":
+        raise ValueError("TPEx response is not an ok payload")
+    if _tpex_response_date(payload.get("date")) != requested_date:
+        raise ValueError(f"TPEx response date mismatch for {date_str}")
 
-    url = "https://www.tpex.org.tw/web/stock/aftertrading/DAILY_CLOSE_quotes/stk_quote_result.php"
-    params = {
-        "l": "zh-tw",
-        "d": roc_date,
-        "o": "json",
-    }
+    tables = payload.get("tables")
+    if not isinstance(tables, list):
+        raise ValueError("TPEx missing tables")
+    matches = [
+        table for table in tables
+        if isinstance(table, dict)
+        and table.get("title") == "上櫃股票每日收盤行情(不含定價)"
+    ]
+    if len(matches) != 1:
+        raise ValueError("TPEx expected exactly one official OTC table")
+    table = matches[0]
+    if _tpex_response_date(table.get("date")) != requested_date:
+        raise ValueError(f"TPEx table date mismatch for {date_str}")
 
-    headers = {"User-Agent": "Mozilla/5.0"}
-
-    try:
-        r = requests.get(url, params=params, headers=headers, timeout=30)
-        r.encoding = "utf-8"
-        data = r.json()
-    except Exception as e:
-        print(f"TPEx {date_str}: request/json failed {e}")
-        return pd.DataFrame()
-
-    if not isinstance(data, dict):
-        print(f"TPEx {date_str}: json is not dict")
-        return pd.DataFrame()
-
-    df = extract_tpex_table_from_json(data)
-
-    if df.empty:
-        print(f"TPEx {date_str}: no usable table")
-        return pd.DataFrame()
-
-    code_col = "代號" if "代號" in df.columns else "證券代號"
-    name_col = "名稱" if "名稱" in df.columns else "證券名稱"
-
-    turnover_col = "成交金額(元)" if "成交金額(元)" in df.columns else None
-
-    if turnover_col is None:
-        turnover_col = "成交金額" if "成交金額" in df.columns else None
+    fields = [str(field).strip() for field in table.get("fields", [])]
+    required = {"代號", "名稱", "開盤", "最高", "最低", "收盤", "成交股數", "成交金額(元)"}
+    if len(fields) != len(set(fields)) or not required.issubset(fields):
+        raise ValueError("TPEx missing or duplicate price fields")
+    df = pd.DataFrame(table["data"], columns=fields)
+    codes = df["代號"].astype(str).str.strip()
+    duplicates = codes[codes.duplicated(keep=False)]
+    if not duplicates.empty:
+        raise ValueError(f"TPEx duplicate raw security code: {duplicates.tolist()}")
+    # Filter the complete source code before numeric cleanup; never truncate it.
+    df = df.loc[codes.apply(is_common_stock_ticker).astype(bool)].copy()
 
     result = pd.DataFrame({
         "date": date_str,
-        "ticker": df[code_col].astype(str).str.extract(r"(\d{4})")[0],
-        "name": df[name_col].astype(str),
+        "ticker": codes.loc[df.index],
+        "name": df["名稱"].astype(str),
         "market": "otc",
         "open": df["開盤"].apply(normalize_number),
         "high": df["最高"].apply(normalize_number),
         "low": df["最低"].apply(normalize_number),
         "close": df["收盤"].apply(normalize_number),
         "volume": df["成交股數"].apply(normalize_number),
-        "turnover": df[turnover_col].apply(normalize_number) if turnover_col else None,
+        "turnover": df["成交金額(元)"].apply(normalize_number),
     })
 
+    # Keep the existing close/volume eligibility; missing OHLC is never filled.
     result = result.dropna(subset=["ticker", "close", "volume"])
-    result = result[result["ticker"].apply(is_common_stock_ticker)].copy()
-
     return result.reset_index(drop=True)
+
+
+def fetch_tpex_daily_price(date_str):
+    url = "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc"
+    params = {
+        "date": datetime.strptime(date_str, "%Y%m%d").strftime("%Y/%m/%d"),
+        "type": "EW",
+        "response": "json",
+    }
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    try:
+        r = requests.get(url, params=params, headers=headers, timeout=30)
+        r.raise_for_status()
+        r.encoding = "utf-8"
+        data = r.json()
+    except Exception as e:
+        print(f"TPEx {date_str}: request/json failed {e}")
+        return pd.DataFrame()
+
+    return parse_tpex_daily_price(data, date_str)
 
 
 def fetch_combined_daily_price(date_str):
@@ -239,7 +226,10 @@ def fetch_combined_daily_price(date_str):
     combined = pd.concat([twse_df, tpex_df], ignore_index=True)
 
     if not combined.empty:
-        combined = combined.drop_duplicates(subset=["date", "ticker"], keep="last")
+        duplicates = combined.duplicated(subset=["date", "ticker"], keep=False)
+        if duplicates.any():
+            identities = combined.loc[duplicates, ["date", "ticker", "market"]]
+            raise ValueError(f"Duplicate or cross-market daily identity: {identities.to_dict('records')}")
 
     return twse_df, tpex_df, combined
 
@@ -271,8 +261,25 @@ def is_valid_trading_day_data(twse_df, tpex_df, combined):
     return True, "valid"
 
 
+def _tpex_batch_signature(frame):
+    columns = ["ticker", "name", "market", "open", "high", "low", "close", "volume", "turnover"]
+    otc = frame.loc[frame["market"] == "otc", columns].copy()
+    if otc.empty:
+        return None
+    otc["ticker"] = otc["ticker"].astype(str)
+    for column in columns[3:]:
+        otc[column] = pd.to_numeric(otc[column], errors="raise").astype(float)
+    # Canonicalize only row order and numeric dtypes for existing CSV comparisons.
+    batch = otc.sort_values("ticker").to_csv(index=False, float_format="%.17g")
+    return hashlib.sha256(batch.encode("utf-8")).hexdigest()
+
+
 def main():
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(exist_ok=True)
     today = datetime.now()
+    existing_dates = sorted(path.stem for path in DATA_DIR.glob("????????.csv") if path.stem.isdigit())
+    seen_tpex_batches = {}
 
     success_dates = []
     invalid_dates = []
@@ -298,6 +305,23 @@ def main():
 
             valid, reason = is_valid_trading_day_data(twse_df, tpex_df, combined)
 
+            if valid:
+                signature = _tpex_batch_signature(tpex_df)
+                if signature in seen_tpex_batches:
+                    valid = False
+                    reason = f"TPEx exact batch repeats {seen_tpex_batches[signature]} on {date_str}"
+                else:
+                    previous_date = next((day for day in reversed(existing_dates) if day < date_str), None)
+                    if previous_date:
+                        previous = pd.read_csv(
+                            DATA_DIR / f"{previous_date}.csv",
+                            dtype={"date": str, "ticker": str},
+                            float_precision="round_trip",
+                        )
+                        if signature == _tpex_batch_signature(previous):
+                            valid = False
+                            reason = f"TPEx exact batch repeats existing {previous_date} on {date_str}"
+
             row_stats.append({
                 "date": date_str,
                 "twse_rows": len(twse_df),
@@ -313,6 +337,7 @@ def main():
                 continue
 
             combined.to_csv(output_path, index=False, encoding="utf-8-sig")
+            seen_tpex_batches[signature] = date_str
             success_dates.append(date_str)
 
             print(
@@ -365,7 +390,7 @@ def main():
 {stats_df.head(80).to_markdown(index=False) if not stats_df.empty else "無"}
 """
 
-    Path("output/official_price_backfill_latest.md").write_text(report, encoding="utf-8")
+    (OUTPUT_DIR / "official_price_backfill_latest.md").write_text(report, encoding="utf-8")
 
     print("Backfill finished.")
     print(f"Success: {len(success_dates)}")
