@@ -1,15 +1,15 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-09-10 19:40:42 Asia/Taipei
+- generated_at: 2026-09-11 19:39:11 Asia/Taipei
 - total_rows: 2385
-- mainstream_count: 1071
-- non_mainstream_count: 897
-- effective_mainstream_count: 1071
-- effective_non_mainstream_count: 1314
+- mainstream_count: 1072
+- non_mainstream_count: 896
+- effective_mainstream_count: 1072
+- effective_non_mainstream_count: 1313
 - mainstream_conflict_count: 9
 - dual_report_membership_count: 9
-- mainstream_report_eligible_count: 1071
-- non_mainstream_report_eligible_count: 1323
+- mainstream_report_eligible_count: 1072
+- non_mainstream_report_eligible_count: 1322
 - unknown_count: 417
 - manual_override_count: 5
 - authorized_seed_count: 129
@@ -217,7 +217,7 @@
 |       2231 | 為升           | 汽車工業       | 車用電子            | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
 |       2233 | 宇隆           | 汽車工業       | 機器人自動化          | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
 |       2634 | 漢翔           | 航運業        | 軍工無人機           | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
-|       8033 | 雷虎           | 其他業        | 軍工無人機           | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       8033 | 雷虎           | 其他         | 軍工無人機           | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
 
 ## Needs Review
 |   stock_id | stock_name   | industry         | primary_theme    | theme_mainstream_label   | taxonomy_source           |
