@@ -54,7 +54,23 @@ DOMAIN_OUTPUTS = {
 # outside this tuple fast-pass without starting domain jobs. A narrow
 # MODEL_LIKE_MARKERS safety net catches newly named Daily Model paths and fails
 # closed until their domain is declared.
+TPEX_HISTORY_REPAIR_PATTERNS = (
+    "backfill_official_daily_price.py",
+    "scripts/repair_historical_tpex_prices.py",
+    "tests/test_backfill_official_daily_price.py",
+    "tests/test_historical_tpex_price_repair.py",
+    "config/tpex_historical_price_repair_202509.csv",
+    "docs/tpex_historical_price_repair.md",
+    "retained-evidence/tpex-history-repair-202509/*",
+    *(f"data/daily_price/{date}.csv" for date in (
+        "20250901", "20250902", "20250903", "20250904", "20250905", "20250909",
+        "20250910", "20250911", "20250917", "20250918", "20250919", "20250922",
+        "20250923", "20250924", "20250925", "20250926", "20250930",
+    )),
+)
+
 WATCHED_PATH_PATTERNS = (
+    *TPEX_HISTORY_REPAIR_PATTERNS,
     ".github/workflows/daily_full_pipeline.yml",
     ".github/workflows/daily_model_maintenance_pr_validation.yml",
     ".github/workflows/daily_pdf_replay_pr_validation.yml",
@@ -682,6 +698,8 @@ def is_revenue_registry_row(row: Mapping[str, str]) -> bool:
 def domains_for_path(value: str) -> frozenset[str]:
     path = normalize_path(value)
     lowered = path.lower()
+    if any(matches_pattern(path, pattern) for pattern in TPEX_HISTORY_REPAIR_PATTERNS):
+        return frozenset({REPO_CURRENT_CONTRACTS})
     watched = is_watched_path(path)
     model_like = is_model_like_path(path)
     if not watched and not model_like:

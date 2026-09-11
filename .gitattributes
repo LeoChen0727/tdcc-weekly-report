@@ -5,6 +5,24 @@
 *.xlsx binary
 *.parquet binary
 *.duckdb binary
+retained-evidence/tpex-history-repair-202509/raw/*_raw.json -text
+data/daily_price/20250901.csv text eol=lf
+data/daily_price/20250902.csv text eol=lf
+data/daily_price/20250903.csv text eol=lf
+data/daily_price/20250904.csv text eol=lf
+data/daily_price/20250905.csv text eol=lf
+data/daily_price/20250909.csv text eol=lf
+data/daily_price/20250910.csv text eol=lf
+data/daily_price/20250911.csv text eol=lf
+data/daily_price/20250917.csv text eol=lf
+data/daily_price/20250918.csv text eol=lf
+data/daily_price/20250919.csv text eol=lf
+data/daily_price/20250922.csv text eol=lf
+data/daily_price/20250923.csv text eol=lf
+data/daily_price/20250924.csv text eol=lf
+data/daily_price/20250925.csv text eol=lf
+data/daily_price/20250926.csv text eol=lf
+data/daily_price/20250930.csv text eol=lf
 data/market_abnormal_status/bundles/** -text
 output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_source_manifest_v1.json text eol=lf
 output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_coverage_v1.csv text eol=lf
