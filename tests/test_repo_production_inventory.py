@@ -59,6 +59,7 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
         inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW,
         inventory.TDCC_OPERATION_REPLAY_WORKFLOW, inventory.TDCC_RECEIPTED_REPLAY_WORKFLOW,
         inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW,
+        ".github/workflows/daily_model_maintenance_pr_validation.yml",
     }
     assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[inventory.DAILY_WORKFLOW] == expected_paths
 
@@ -68,6 +69,24 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
     for path in expected_paths:
         assert rows[path].owner == "model_governance"
         assert rows[path].allowed_workflows == (inventory.DAILY_WORKFLOW,)
+
+
+def test_daily_model_pr_allows_only_exact_tpex_offline_validator(monkeypatch) -> None:
+    workflow = ".github/workflows/daily_model_maintenance_pr_validation.yml"
+    target = "scripts/repair_historical_tpex_prices.py"
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[workflow] == {target}
+    assert "official_price_data" not in inventory.WORKFLOW_ALLOWED_OWNERS[workflow]
+    errors: list[str] = []
+    rows = inventory.load_inventory(errors)
+    monkeypatch.setattr(inventory, "workflow_invocations", lambda _path: {target})
+    inventory.validate_workflow_invocations(rows, {workflow}, errors)
+    assert not errors
+    unrelated = next(path for path, row in sorted(rows.items())
+                     if row.owner == "official_price_data" and row.kind == "python"
+                     and row.status == "active" and path != target)
+    monkeypatch.setattr(inventory, "workflow_invocations", lambda _path: {unrelated})
+    inventory.validate_workflow_invocations(rows, {workflow}, errors)
+    assert any("allowed owners" in error for error in errors)
 
 
 def test_price_pit_workflow_allows_only_its_owner_and_read_only_validators(monkeypatch) -> None:
