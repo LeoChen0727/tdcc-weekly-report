@@ -71,7 +71,7 @@ def test_authorized_dates_scope_selects_only_repository_contracts():
 def test_read_only_workflow_runs_repair_validation_and_regressions():
     path = Path(__file__).resolve().parents[1] / ".github/workflows/daily_model_maintenance_pr_validation.yml"
     text = path.read_text(encoding="utf-8")
-    assert "python scripts/repair_historical_tpex_prices.py\n" in text
+    assert "python scripts/repair_historical_tpex_prices.py" not in text
     assert "tests/test_backfill_official_daily_price.py" in text
     assert "tests/test_historical_tpex_price_repair.py" in text
     assert "--apply" not in text

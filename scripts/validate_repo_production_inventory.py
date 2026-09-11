@@ -288,9 +288,6 @@ WORKFLOW_ALLOWED_OWNERS = {
 }
 
 WORKFLOW_EXACT_INVOCATION_ALLOWLIST = {
-    ".github/workflows/daily_model_maintenance_pr_validation.yml": {
-        "scripts/repair_historical_tpex_prices.py",
-    },
     TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW: {
         "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
         "scripts/validate_apps_script_workflow_triggers.py",
