@@ -42,6 +42,13 @@ objects 驗收，不需完整 checkout 資料樹。驗證逐日從官方原文�
 `--collect` 只收指定 17 日原文；`--apply --source-ref <ref>` 才寫修訂檔，
 已有本機目標若與 source ref 不同會拒絕覆寫。每次整批重建與重複檢查通過後才寫入。
 
-PR 與合併後使用 `Daily Model Maintenance PR Validation` 的
-`repo-current-contracts` 執行上述離線驗證及測試。合併後採
-`workflow_dispatch`、`validation_profile=all`；不派送正式產報 workflow。
+PR 與合併後的 `Daily Model Maintenance PR Validation` 在
+`repo-current-contracts` 執行 focused pytest。當中的
+`test_registered_repair_replays_official_raw` 直接呼叫 `repair.validate(root)`，
+實際核對 repo 的 17 日原文、雜湊、修訂資料及上市列；CI 不執行修復 CLI，
+也不執行 `--collect` 或 `--apply`。
+
+手動 CLI 登錄於 [production inventory 操作說明](repo_production_inventory.md)。
+合併後採 main `workflow_dispatch`、`validation_profile=all`，再以手動
+`python scripts/repair_historical_tpex_prices.py --verify-ref origin/main` 驗收
+main 的實際資料；不派送正式產報 workflow。
