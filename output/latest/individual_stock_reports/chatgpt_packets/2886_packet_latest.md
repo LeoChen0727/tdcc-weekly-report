@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:40 Asia/Taipei
+- generated_at: 2026-09-12 15:43:01 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 50.8
-- high: 50.9
+- date: 20260911
+- open: 49.4
+- high: 51.9
 - low: 49.4
-- close: 49.55
-- volume: 31950981
-- ma5: 49.2
-- ema23_primary: 48.26
-- distance_to_ema23_pct: 2.68
-- ma20: 47.85
-- ma60: 47.51
-- ma120: 43.66
-- return_5d: 2.8
-- return_20d: -2.65
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 3.55
-- distance_to_high_60_pct: -7.73
+- close: 51.7
+- volume: 35912878
+- ma5: 50.54
+- ema23_primary: 49.08
+- distance_to_ema23_pct: 5.35
+- ma20: 48.37
+- ma60: 48.05
+- ma120: 44.14
+- return_5d: 4.34
+- return_20d: 9.19
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 6.88
+- distance_to_high_60_pct: -3.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,51.9,51.9,50.2,51,23274176,49.25,3.55,49.39,45.33,0.69
-20260811,50.7,50.9,49.35,49.4,32199270,49.26,0.28,49.51,45.5,0.94
-20260812,49.4,49.45,48.55,48.7,31601725,49.22,-1.05,49.65,45.65,0.92
-20260813,46.9,46.9,44.95,45.85,71796604,48.94,-6.31,49.61,45.73,1.99
-20260814,45.85,47.5,45.7,47.35,50705240,48.8,-2.98,49.6,45.85,1.41
 20260817,47,47.05,45.6,46.6,53106734,48.62,-4.16,49.52,45.96,1.46
 20260818,46.85,47.3,46.15,46.9,41758491,48.48,-3.25,49.43,46.08,1.13
 20260819,46.9,47.05,46.3,47.05,25322496,48.36,-2.71,49.38,46.2,0.69
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,48.25,49.1,48.05,49,33784817,47.93,2.23,47.91,47.29,0.97
 20260903,49,50.8,48.9,50.4,37830876,48.14,4.7,47.92,47.41,1.08
 20260904,50.8,50.9,49.4,49.55,31950981,48.26,2.68,47.85,47.51,0.9
+20260907,50.4,50.4,49.3,50.2,20349647,48.42,3.68,47.81,47.62,0.58
+20260908,49.85,50.7,49.75,50.6,24420363,48.6,4.12,47.87,47.74,0.7
+20260909,50,50.5,49.6,50.3,14872293,48.74,3.2,47.95,47.85,0.44
+20260910,49.6,50.4,49.5,49.9,20888846,48.84,2.17,48.15,47.94,0.66
+20260911,49.4,51.9,49.4,51.7,35912878,49.08,5.35,48.37,48.05,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 83.38
-- over_600_ratio: 82.77
-- over_800_ratio: 82.28
+- as_of_date: 20260911
+- over_400_ratio: 83.37
+- over_600_ratio: 82.76
+- over_800_ratio: 82.26
 - over_1000_ratio: 81.86
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.02
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,82.75,0.13,81.63,0.14,81.28,0.14,6,True,True
 20260626,82.94,0.19,81.84,0.21,81.48,0.2,7,True,True
 20260703,83.07,0.13,81.97,0.13,81.6,0.12,8,True,True
 20260709,83.04,-0.03,81.93,-0.04,81.56,-0.04,0,False,False
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,83.25,-0.04,82.15,-0.03,81.76,-0.04,0,False,False
 20260828,83.17,-0.08,82.08,-0.07,81.66,-0.1,0,False,False
 20260904,83.38,0.21,82.28,0.2,81.86,0.2,1,True,True
+20260911,83.37,-0.01,82.26,-0.02,81.86,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/09/03 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:張傳章 4.舊任者簡歷:兆豐金融控股股份有限公司總經理 5.新任者姓名:張傳章 6.新任者簡歷:兆豐金融控股股份有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 職務調整 8.異動原因:原暫代董事長調整為董事長 9.新任生效日期:115/09/03 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/09/03 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:張傳章 4.舊任者簡歷:兆豐金融控股股份有限公司總經理 5.新任者姓名:張傳章 6.新任者簡歷:兆豐金融控股股份有限公司總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 職務調整 8.異動原因:原暫代董事長調整為董事長 9.新任生效日期:115/09/03 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2886 | 兆豐金 | 6 | 6 | 5 | 6 | 13 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 2886 | 兆豐金 | 11 | 11 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2886 | 兆豐金 | 9 | 0 | 3421070.0 | 0.0 |  | call_inflow |
+| 20260911 | 2886 | 兆豐金 | 12 | 0 | 2028680.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

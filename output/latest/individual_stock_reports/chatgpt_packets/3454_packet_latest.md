@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3454 晶睿
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:02 Asia/Taipei
+- generated_at: 2026-09-12 15:43:22 Asia/Taipei
 - stock_id: 3454
 - stock_name: 晶睿
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260318
 - price_rows: 231
-- current_main_price_date: 20260904
+- current_main_price_date: 20260911
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing

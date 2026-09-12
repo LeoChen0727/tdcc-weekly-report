@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:02 Asia/Taipei
+- generated_at: 2026-09-12 15:44:20 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 213
-- high: 214.5
-- low: 207.5
-- close: 212
-- volume: 5818105
-- ma5: 213.4
-- ema23_primary: 208.62
-- distance_to_ema23_pct: 1.62
-- ma20: 206.95
-- ma60: 217.5
-- ma120: 202.05
-- return_5d: -3.2
-- return_20d: 6.27
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.44
-- distance_to_high_60_pct: -24.15
+- date: 20260911
+- open: 212
+- high: 213
+- low: 209.5
+- close: 211.5
+- volume: 4963308
+- ma5: 212.7
+- ema23_primary: 210.09
+- distance_to_ema23_pct: 0.67
+- ma20: 207.93
+- ma60: 217.28
+- ma120: 205.36
+- return_5d: -0.24
+- return_20d: 1.68
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.72
+- distance_to_high_60_pct: -24.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,203,213,202.5,207.5,6452667,209.65,-1.02,208.6,221.62,1.11
-20260811,210,210,203,204.5,4516538,209.22,-2.25,207.57,221.41,0.8
-20260812,206.5,217,206,211,7267147,209.37,0.78,206.25,221.28,1.28
-20260813,214.5,224,213,213,7864871,209.67,1.59,205,221.32,1.35
-20260814,216,216.5,207.5,208,5192323,209.53,-0.73,204.68,221.34,0.91
 20260817,208,210.5,206.5,208,2869251,209.4,-0.67,204.53,221.2,0.52
 20260818,208,208.5,199.5,199.5,6262729,208.58,-4.35,203.7,220.82,1.11
 20260819,194,201,192.5,199.5,5509629,207.82,-4,202.5,220.29,0.97
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,221.5,228,215,216,12909857,208.25,3.72,206.22,217.35,1.91
 20260903,217,217.5,208.5,209,9652799,208.31,0.33,206.32,217.36,1.37
 20260904,213,214.5,207.5,212,5818105,208.62,1.62,206.95,217.5,0.81
+20260907,214.5,217,212.5,213,4565595,208.98,1.92,207.22,217.62,0.65
+20260908,217.5,218.5,208,209,7134116,208.99,0.01,207.45,217.42,0.99
+20260909,210,215.5,210,213,5082628,209.32,1.76,207.55,217.27,0.72
+20260910,215,225,213.5,217,18438387,209.96,3.35,207.75,217.32,2.43
+20260911,212,213,209.5,211.5,4963308,210.09,0.67,207.93,217.28,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 45.93
-- over_600_ratio: 42.17
-- over_800_ratio: 38.14
-- over_1000_ratio: 36.16
-- over_400_change_1w: -1.56
-- over_800_change_1w: -1.59
-- over_1000_change_1w: -2.19
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 46.21
+- over_600_ratio: 42.55
+- over_800_ratio: 39.15
+- over_1000_ratio: 36.99
+- over_400_change_1w: 0.28
+- over_800_change_1w: 1.01
+- over_1000_change_1w: 0.83
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,48.55,-0.25,40.92,-0.63,39.47,-0.28,0,False,False
 20260626,51.6,3.05,44.17,3.25,42.13,2.66,1,True,True
 20260703,52.53,0.93,44.63,0.46,42.6,0.47,2,True,True
 20260709,52.38,-0.15,44.68,0.05,42.12,-0.48,3,False,True
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,48.44,-1.03,40.88,-1.37,39.46,-1.21,0,False,False
 20260828,47.49,-0.95,39.73,-1.15,38.35,-1.11,0,False,False
 20260904,45.93,-1.56,38.14,-1.59,36.16,-2.19,0,False,False
+20260911,46.21,0.28,39.15,1.01,36.99,0.83,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6257 | 矽格 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6257 | 矽格 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6257 | 矽格 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 6257 | 矽格 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6257 | 矽格 | 130 | 8 | 5706560.0 | 0.0 |  | no_signal |
+| 20260911 | 6257 | 矽格 | 133 | 8 | 12667690.0 | 54390.0 | 232.9 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

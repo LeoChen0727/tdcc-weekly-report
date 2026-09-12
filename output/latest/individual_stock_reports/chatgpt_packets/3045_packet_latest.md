@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:47 Asia/Taipei
+- generated_at: 2026-09-12 15:43:08 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 41
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 42
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 117.5
-- high: 118
-- low: 116.5
-- close: 118
-- volume: 5076578
-- ma5: 116.7
-- ema23_primary: 114.5
-- distance_to_ema23_pct: 3.06
-- ma20: 113.6
-- ma60: 114.35
-- ma120: 112.99
-- return_5d: 2.16
-- return_20d: 5.83
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 3.87
-- distance_to_high_60_pct: -2.88
+- date: 20260911
+- open: 119
+- high: 121
+- low: 119
+- close: 121
+- volume: 5785236
+- ma5: 119.1
+- ema23_primary: 116.18
+- distance_to_ema23_pct: 4.14
+- ma20: 116.08
+- ma60: 114.32
+- ma120: 113.4
+- return_5d: 2.54
+- return_20d: 12.04
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 4.24
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,111.5,111.5,109.5,110.5,9703119,112.43,-1.72,111.75,114.45,0.73
-20260811,110.5,110.5,109,109.5,14377890,112.19,-2.4,111.78,114.37,1.11
-20260812,109.5,110,109,109.5,6681107,111.97,-2.2,111.8,114.29,0.52
-20260813,109,109.5,108,108.5,15607342,111.68,-2.84,111.7,114.16,1.22
-20260814,108.5,108.5,107.5,108,9531259,111.37,-3.03,111.55,114.04,0.81
 20260817,108,111.5,108,111,18636430,111.34,-0.31,111.5,114,1.58
 20260818,110.5,111.5,110,111,8689461,111.31,-0.28,111.45,113.98,0.76
 20260819,112,113.5,111.5,113.5,26629390,111.49,1.8,111.5,114.02,2.17
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,115.5,116,114.5,116,5665186,113.84,1.9,112.9,114.33,0.5
 20260903,116,118,115.5,118,13130153,114.18,3.34,113.28,114.35,1.13
 20260904,117.5,118,116.5,118,5076578,114.5,3.06,113.6,114.35,0.44
+20260907,118,118,116.5,117,4447140,114.71,2,113.92,114.32,0.39
+20260908,116.5,118,116.5,118,4457218,114.98,2.62,114.35,114.29,0.41
+20260909,117.5,119.5,117,119.5,8127829,115.36,3.59,114.85,114.29,0.75
+20260910,119,120,119,120,4119530,115.75,3.67,115.42,114.28,0.4
+20260911,119,121,119,121,5785236,116.18,4.14,116.08,114.32,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 92.67
-- over_600_ratio: 91.73
-- over_800_ratio: 90.97
-- over_1000_ratio: 90.09
-- over_400_change_1w: 0.16
-- over_800_change_1w: 0.15
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260911
+- over_400_ratio: 92.79
+- over_600_ratio: 91.8
+- over_800_ratio: 91.14
+- over_1000_ratio: 90.24
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.15
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,92.5,0.13,90.95,0.12,90.32,0.21,3,True,True
 20260626,92.66,0.16,91.1,0.15,90.38,0.06,4,True,True
 20260703,92.81,0.15,91.25,0.15,90.49,0.11,5,True,True
 20260709,92.62,-0.19,91.09,-0.16,90.35,-0.14,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,92.27,0.36,90.56,0.42,89.76,0.27,1,True,True
 20260828,92.51,0.24,90.82,0.26,90.07,0.31,2,True,True
 20260904,92.67,0.16,90.97,0.15,90.09,0.02,3,True,True
+20260911,92.79,0.12,91.14,0.17,90.24,0.15,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/03 1.召開法人說明會之日期：115/09/03 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加高盛證券所舉辦之「2026 Asia Leaders Conference」，會中說明115年第二季法說會簡報與其他已公開發佈之財務數字、經營績效等相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | 1.事實發生日:115/09/10 2.公司名稱:台灣大哥大股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 115年8月份自結合併營收167.8億元，營業利益20.2億元，稅後淨利13.9億元，稅後EPS 為0.46元。115年累計前八個月自結合併營收1,321.6億元，營業利益160.2億元，稅後 淨利為114.8億元，稅後EPS為3.78元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3045 | 台灣大 | 11 | 1 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3045 | 台灣大 | 16 | 6 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260911 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

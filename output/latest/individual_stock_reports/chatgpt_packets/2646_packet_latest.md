@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:34 Asia/Taipei
+- generated_at: 2026-09-12 15:42:56 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 20.7
-- high: 20.85
-- low: 20.5
-- close: 20.65
-- volume: 3332509
-- ma5: 20.71
-- ema23_primary: 20.93
-- distance_to_ema23_pct: -1.35
-- ma20: 20.84
-- ma60: 21.13
-- ma120: 20.93
-- return_5d: -0.96
-- return_20d: -3.05
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -0.92
-- distance_to_high_60_pct: -8.02
+- date: 20260911
+- open: 20.2
+- high: 20.3
+- low: 20.15
+- close: 20.2
+- volume: 4532460
+- ma5: 20.43
+- ema23_primary: 20.75
+- distance_to_ema23_pct: -2.65
+- ma20: 20.81
+- ma60: 21.1
+- ma120: 20.88
+- return_5d: -2.18
+- return_20d: -0.98
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -2.92
+- distance_to_high_60_pct: -10.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,21.15,21.15,20.55,20.75,11937552,21.28,-2.49,21.37,20.98,1.97
-20260811,20.8,20.8,20.6,20.75,4619356,21.24,-2.28,21.35,20.99,0.77
-20260812,20.65,20.7,20.45,20.55,5954409,21.18,-2.97,21.31,21,0.98
-20260813,20.55,20.6,20.35,20.4,5574137,21.11,-3.38,21.25,21,0.92
-20260814,20.4,20.45,20.2,20.4,5058719,21.05,-3.11,21.21,21,0.84
 20260817,20.4,20.75,20.25,20.75,3702980,21.03,-1.32,21.19,21.01,0.63
 20260818,20.7,20.9,20.7,20.8,5529984,21.01,-1,21.13,21.01,0.99
 20260819,20.75,21,20.4,20.9,4379336,21,-0.48,21.1,21.02,0.81
@@ -168,17 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,20.7,20.7,20.5,20.65,2568845,20.98,-1.58,20.9,21.12,0.59
 20260903,20.65,20.75,20.55,20.7,2731941,20.96,-1.23,20.88,21.12,0.64
 20260904,20.7,20.85,20.5,20.65,3332509,20.93,-1.35,20.84,21.13,0.77
+20260907,20.75,20.75,20.45,20.5,3157420,20.9,-1.89,20.83,21.14,0.81
+20260908,21.9,21.9,20.55,20.6,6487081,20.87,-1.3,20.82,21.14,1.63
+20260909,20.6,20.65,20.45,20.55,3134821,20.84,-1.41,20.82,21.13,0.82
+20260910,20.5,20.8,20.25,20.3,6709374,20.8,-2.4,20.82,21.11,1.72
+20260911,20.2,20.3,20.15,20.2,4532460,20.75,-2.65,20.81,21.1,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 65.51
-- over_600_ratio: 64.7
-- over_800_ratio: 64.37
-- over_1000_ratio: 63.72
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.16
-- over_1000_change_1w: -0.25
+- as_of_date: 20260911
+- over_400_ratio: 65.36
+- over_600_ratio: 64.53
+- over_800_ratio: 64.25
+- over_1000_ratio: 63.63
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.12
+- over_1000_change_1w: -0.09
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,64.93,0.07,63.82,0.16,63.26,0.13,1,True,True
 20260626,65.08,0.15,64,0.18,63.38,0.12,2,True,True
 20260703,65.07,-0.01,63.99,-0.01,63.35,-0.03,0,False,False
 20260709,65.08,0.01,63.98,-0.01,63.33,-0.02,1,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,65.56,0.16,64.39,0.17,63.8,0.14,1,True,True
 20260828,65.61,0.05,64.53,0.14,63.97,0.17,2,True,True
 20260904,65.51,-0.1,64.37,-0.16,63.72,-0.25,0,False,False
+20260911,65.36,-0.15,64.25,-0.12,63.63,-0.09,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/03 2.公司名稱:星宇航空股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司以自購方式取得1架A350客機。 6.因應措施:本案已於108/3/15董事會決議通過。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/08 2.公司名稱:星宇航空股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定， 公告本公司國內第一次及第二次無擔保轉換公司債代收價款行庫及存儲專戶行庫等 相關事宜。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期：115/09/08 (2)代收價款行庫： 國內第一次無擔保轉換公司債：第一銀行世貿分行 國內第二次無擔保轉換公司債：第一銀行世貿分行 (3)存儲專戶行庫： 國內第一次無擔保轉換公司債：元大銀行營業部 國內第二次無擔保轉換公司債：臺灣銀行臺北分行；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2646 | 星宇航空 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2646 | 星宇航空 | 7 | 7 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2646 | 星宇航空 | 6 | 0 | 82370.0 | 0.0 |  | no_signal |
+| 20260911 | 2646 | 星宇航空 | 6 | 0 | 256840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

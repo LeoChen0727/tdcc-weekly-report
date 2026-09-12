@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8131 福懋科
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:50 Asia/Taipei
+- generated_at: 2026-09-12 15:45:06 Asia/Taipei
 - stock_id: 8131
 - stock_name: 福懋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 61.2
-- high: 61.9
-- low: 60.1
-- close: 61.4
-- volume: 1123218
-- ma5: 62.34
-- ema23_primary: 63.15
-- distance_to_ema23_pct: -2.77
-- ma20: 62.99
-- ma60: 67.79
-- ma120: 66.29
-- return_5d: -2.07
-- return_20d: -2.07
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.53
-- distance_to_high_60_pct: -29.51
+- date: 20260911
+- open: 60.7
+- high: 61.1
+- low: 60.3
+- close: 60.3
+- volume: 1652441
+- ma5: 61.92
+- ema23_primary: 62.7
+- distance_to_ema23_pct: -3.82
+- ma20: 62.32
+- ma60: 66.82
+- ma120: 66.07
+- return_5d: -1.79
+- return_20d: -7.52
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -3.24
+- distance_to_high_60_pct: -30.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,63.3,65.5,63.3,64.6,4019383,65.46,-1.32,65.44,69.28,0.56
-20260811,63.8,64.2,62,63.2,2342853,65.28,-3.18,64.85,69.25,0.34
-20260812,63.6,65.1,63.6,64.1,2897713,65.18,-1.65,63.99,69.26,0.45
-20260813,65.2,66.9,64.7,66,5214124,65.25,1.15,63.47,69.36,0.91
-20260814,66.9,67.4,64.7,65.2,4448514,65.24,-0.07,63.27,69.43,0.82
 20260817,65.2,65.8,63.6,64,1618057,65.14,-1.75,63.12,69.46,0.31
 20260818,64.2,65.8,62.1,62.2,1870761,64.89,-4.15,62.85,69.42,0.37
 20260819,60.8,61.7,60,61,1544509,64.57,-5.53,62.31,69.35,0.32
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,62.8,63.4,62.6,62.6,801443,63.57,-1.52,63.25,68.04,0.33
 20260903,63.2,63.9,60.5,60.5,1739477,63.31,-4.44,63.06,67.88,0.77
 20260904,61.2,61.9,60.1,61.4,1123218,63.15,-2.77,62.99,67.79,0.53
+20260907,62,63,61.6,61.9,1190124,63.05,-1.82,62.86,67.68,0.6
+20260908,62.8,63.6,61.8,61.9,1898288,62.95,-1.67,62.8,67.51,0.97
+20260909,63.2,65.6,63.2,63.5,8925029,63,0.8,62.77,67.31,3.94
+20260910,62.8,63.3,61.9,62,2036948,62.91,-1.45,62.56,67.07,0.97
+20260911,60.7,61.1,60.3,60.3,1652441,62.7,-3.82,62.32,66.82,0.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 71.2
-- over_600_ratio: 70.25
-- over_800_ratio: 69.3
-- over_1000_ratio: 68.91
-- over_400_change_1w: -0.58
-- over_800_change_1w: -0.07
-- over_1000_change_1w: 0.38
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 70.96
+- over_600_ratio: 69.75
+- over_800_ratio: 68.96
+- over_1000_ratio: 68.35
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.56
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,73.24,0.3,71.45,0.51,70.83,0.11,1,True,True
 20260626,73.23,-0.01,71.47,0.02,70.91,0.08,2,False,True
 20260703,72.47,-0.76,70.51,-0.96,70.11,-0.8,0,False,False
 20260709,73.62,1.15,71.52,1.01,71.3,1.19,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,71.78,-0.34,69.67,-0.48,68.45,-0.91,0,False,False
 20260828,71.78,0,69.37,-0.3,68.53,0.08,1,False,True
 20260904,71.2,-0.58,69.3,-0.07,68.91,0.38,2,False,True
+20260911,70.96,-0.24,68.96,-0.34,68.35,-0.56,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8131 | 福懋科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8131 | 福懋科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期: 115/06/25 2.除權、息類別（請填入「除權」、「除息」或「除權息」）: 除息 3.普通股發放股利種類及金額:每股分派新台幣1元 4.除權（息）交易日:115/07/15 5.最後過戶日:115/07/16 6.停止過戶起始日期:115/07/17 7.停止過戶截止日期:115/07/21 8.除權（息）基準日:115/07/21 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/19 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8131 | 福懋科 | 1 | 1 | 3 | 6 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 8131 | 福懋科 | 6 | 6 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8131 | 福懋科 | 46 | 1 | 137140.0 | 0.0 |  | no_signal |
+| 20260911 | 8131 | 福懋科 | 45 | 1 | 107890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:28 Asia/Taipei
+- generated_at: 2026-09-12 15:43:47 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 341
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 346
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 50.1
-- high: 50.6
-- low: 49.6
-- close: 50.3
-- volume: 4973396
-- ma5: 49.44
-- ema23_primary: 48.8
-- distance_to_ema23_pct: 3.07
-- ma20: 49.27
-- ma60: 48.1
-- ma120: 45.7
-- return_5d: 10.19
-- return_20d: 0.8
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 2.1
-- distance_to_high_60_pct: -8.55
+- date: 20260911
+- open: 47.6
+- high: 49.15
+- low: 47.6
+- close: 48.85
+- volume: 3338500
+- ma5: 49.05
+- ema23_primary: 48.86
+- distance_to_ema23_pct: -0.03
+- ma20: 48.66
+- ma60: 48.48
+- ma120: 45.81
+- return_5d: -2.88
+- return_20d: -5.15
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -11.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,50.2,50.3,49.4,50,5341877,48.51,3.08,48.58,45.99,0.57
-20260811,50,52.3,49.6,51.6,15188059,48.76,5.81,48.88,46.16,1.56
-20260812,52.1,55,51.9,52.6,20458651,49.08,7.16,49.16,46.34,1.94
-20260813,53,53.1,51.3,51.6,10357351,49.29,4.68,49.37,46.51,0.95
-20260814,51.6,51.7,50.5,51.5,6432404,49.48,4.09,49.67,46.68,0.6
 20260817,51.9,52,49.5,50.1,11732088,49.53,1.15,49.75,46.81,1.1
 20260818,50.1,50.8,49.75,50.4,4233566,49.6,1.61,49.74,46.92,0.43
 20260819,49.8,50.7,49.7,50.7,3005171,49.69,2.03,49.76,47.05,0.33
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,50.6,51.9,49.6,51.5,16192430,48.63,5.91,49.27,47.93,1.73
 20260903,51.9,52.4,49.05,49.1,11725611,48.67,0.89,49.25,48,1.21
 20260904,50.1,50.6,49.6,50.3,4973396,48.8,3.07,49.27,48.1,0.54
+20260907,51,51,49.35,50.6,6183590,48.95,3.37,49.3,48.21,0.67
+20260908,50.5,50.8,49.15,49.15,5671156,48.97,0.37,49.17,48.29,0.65
+20260909,49.25,49.45,48.3,48.3,6089749,48.91,-1.25,48.96,48.35,0.76
+20260910,48.5,48.65,47.4,48.35,5118797,48.87,-1.06,48.8,48.41,0.66
+20260911,47.6,49.15,47.6,48.85,3338500,48.86,-0.03,48.66,48.48,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 61.21
-- over_600_ratio: 59.14
-- over_800_ratio: 57.88
-- over_1000_ratio: 56.8
-- over_400_change_1w: 0.79
-- over_800_change_1w: 0.48
-- over_1000_change_1w: 0.55
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 60.83
+- over_600_ratio: 58.73
+- over_800_ratio: 57.22
+- over_1000_ratio: 56.67
+- over_400_change_1w: -0.38
+- over_800_change_1w: -0.66
+- over_1000_change_1w: -0.13
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,60.11,0.02,57.34,-0.14,55.97,-0.17,3,False,False
 20260626,59.9,-0.21,57.01,-0.33,55.43,-0.54,0,False,False
 20260703,60.09,0.19,57.06,0.05,56.06,0.63,1,True,True
 20260709,59.77,-0.32,56.57,-0.49,55.74,-0.32,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,60.84,-0.28,57.75,-0.3,56.93,-0.1,0,False,False
 20260828,60.42,-0.42,57.4,-0.35,56.25,-0.68,0,False,False
 20260904,61.21,0.79,57.88,0.48,56.8,0.55,1,True,True
+20260911,60.83,-0.38,57.22,-0.66,56.67,-0.13,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4763 | 材料*-KY | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/08/31 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利新台幣3,016,897,344元 4.除權（息）交易日:115/09/16 5.最後過戶日:115/09/17 6.停止過戶起始日期:115/09/18 7.停止過戶截止日期:115/09/22 8.除權（息）基準日:115/09/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/10/14 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:   本公司嗣後如因股本變動以致影響流通在外股份數，而使股東配股配息率因此   發生變動及其他相關未盡事宜，授權董事長調整配股配息率，屆時將另行公告。；calendar event: ex_dividend on 20260916; status=confirmed; proximity=within_14d |
+| 20260911 | 4763 | 材料*-KY | pattern | 型態觀察 | 53.0 |  |  | base_building |  | call_inflow | stale_signal | 1.董事會、股東會決議或公司決定日期:115/08/31 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:  現金股利新台幣3,016,897,344元 4.除權（息）交易日:115/09/16 5.最後過戶日:115/09/17 6.停止過戶起始日期:115/09/18 7.停止過戶截止日期:115/09/22 8.除權（息）基準日:115/09/22 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/10/14 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:   本公司嗣後如因股本變動以致影響流通在外股份數，而使股東配股配息率因此   發生變動及其他相關未盡事宜，授權董事長調整配股配息率，屆時將另行公告。；calendar event: ex_dividend on 20260916; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4763 | 材料*-KY | 4 | 2 | 4 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 4763 | 材料*-KY | 1 | 1 | 2 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4763 | 材料*-KY | 59 | 1 | 2436010.0 | 0.0 |  | no_signal |
+| 20260911 | 4763 | 材料*-KY | 58 | 1 | 2724950.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

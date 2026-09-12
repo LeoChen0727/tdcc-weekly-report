@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009827 玉山未來全球算力
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:43 Asia/Taipei
+- generated_at: 2026-09-12 15:42:07 Asia/Taipei
 - stock_id: 009827
 - stock_name: 玉山未來全球算力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 3
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 8
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 10.05
-- high: 10.2
-- low: 10.04
-- close: 10.2
-- volume: 16071928
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20260911
+- open: 10.04
+- high: 10.04
+- low: 10
+- close: 10.03
+- volume: 5184771
+- ma5: 10.15
+- ema23_primary: 10
+- distance_to_ema23_pct: 0.26
+- ma20: 10.1
+- ma60: 10.1
+- ma120: 10.1
+- return_5d: -1.67
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -0.68
+- distance_to_high_60_pct: -2.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +151,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,10,10.01,9.9,9.9,41906544,,,,,
 20260903,9.99,9.99,9.92,9.93,15723796,,,,,
 20260904,10.05,10.2,10.04,10.2,16071928,,,,,
+20260907,10.28,10.28,10.16,10.19,8448180,,,,,
+20260908,10.16,10.17,10.13,10.15,7199873,9.97,1.85,10.07,10.07,0.4
+20260909,10.2,10.27,10.2,10.25,6725299,9.99,2.61,10.1,10.1,0.42
+20260910,10.14,10.14,10.08,10.14,4815906,10,1.38,10.11,10.11,0.33
+20260911,10.04,10.04,10,10.03,5184771,10,0.26,10.1,10.1,0.39
 ```
 
 ## Latest TDCC Snapshot

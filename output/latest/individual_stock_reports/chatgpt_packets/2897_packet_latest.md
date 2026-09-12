@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2897 王道銀行
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:41 Asia/Taipei
+- generated_at: 2026-09-12 15:43:02 Asia/Taipei
 - stock_id: 2897
 - stock_name: 王道銀行
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 10.95
+- date: 20260911
+- open: 10.8
 - high: 11
-- low: 10.8
-- close: 10.85
-- volume: 4659233
-- ma5: 10.68
-- ema23_primary: 10.41
-- distance_to_ema23_pct: 4.25
-- ma20: 10.32
-- ma60: 10.38
-- ma120: 10.24
-- return_5d: 4.83
-- return_20d: 6.9
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 5.11
-- distance_to_high_60_pct: -1.36
+- low: 10.75
+- close: 11
+- volume: 3621275
+- ma5: 10.87
+- ema23_primary: 10.57
+- distance_to_ema23_pct: 4.04
+- ma20: 10.51
+- ma60: 10.41
+- ma120: 10.28
+- return_5d: 1.38
+- return_20d: 9.45
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 4.66
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,10.2,10.2,10.05,10.15,2571777,10.28,-1.24,10.29,10.31,0.44
-20260811,10.15,10.2,10.1,10.15,4007127,10.27,-1.14,10.27,10.31,0.7
-20260812,10.1,10.15,10.05,10.1,2639935,10.25,-1.49,10.25,10.31,0.47
-20260813,10.15,10.15,10.05,10.15,2558432,10.24,-0.92,10.23,10.31,0.46
-20260814,10.15,10.15,10.05,10.05,2922186,10.23,-1.74,10.21,10.31,0.54
 20260817,10.05,10.2,10.05,10.2,3721890,10.23,-0.25,10.21,10.32,0.72
 20260818,10.15,10.15,10.05,10.15,1421906,10.22,-0.68,10.19,10.32,0.29
 20260819,10.1,10.2,10.05,10.15,1637632,10.21,-0.62,10.17,10.32,0.38
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,10.6,10.7,10.4,10.7,9951222,10.32,3.7,10.25,10.37,2.49
 20260903,10.7,11,10.7,10.9,16173535,10.37,5.14,10.29,10.38,3.49
 20260904,10.95,11,10.8,10.85,4659233,10.41,4.25,10.32,10.38,0.98
+20260907,10.9,10.95,10.7,10.75,7811549,10.44,3.01,10.35,10.39,1.55
+20260908,10.75,10.95,10.7,10.95,3694946,10.48,4.5,10.39,10.4,0.74
+20260909,10.85,10.9,10.8,10.85,2058193,10.51,3.24,10.43,10.4,0.41
+20260910,10.85,10.9,10.75,10.8,2623489,10.53,2.53,10.46,10.41,0.53
+20260911,10.8,11,10.75,11,3621275,10.57,4.04,10.51,10.41,0.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 86.47
-- over_600_ratio: 84.65
-- over_800_ratio: 83.33
-- over_1000_ratio: 82.43
-- over_400_change_1w: 0.37
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.45
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 86.45
+- over_600_ratio: 84.67
+- over_800_ratio: 83.31
+- over_1000_ratio: 82.38
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,85.56,0.09,82.32,-0.07,81.18,-0.15,3,False,False
 20260626,85.58,0.02,82.45,0.13,81.21,0.03,4,True,True
 20260703,85.53,-0.05,82.39,-0.06,81.3,0.09,5,False,True
 20260709,85.62,0.09,82.49,0.1,81.41,0.11,6,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,85.92,0.06,82.73,0.16,81.74,0.2,4,True,True
 20260828,86.1,0.18,82.91,0.18,81.98,0.24,5,True,True
 20260904,86.47,0.37,83.33,0.42,82.43,0.45,6,True,True
+20260911,86.45,-0.02,83.31,-0.02,82.38,-0.05,7,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2897 | 王道銀行 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | 1.提報董事會或經董事會決議日期:115/08/19 2.審計委員會通過日期:115/08/18 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):115/01/01~115/06/30 4.1月1日累計至本期止利息淨收益(仟元):1,695,791 5.1月1日累計至本期止淨收益(仟元):6,454,412 6.1月1日累計至本期止稅前淨利(損) (仟元):3,237,113 7.1月1日累計至本期止本期淨利(淨損) (仟元):2,669,326 8.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):1,625,874 9.1月1日累計至本期止基本每股盈餘(損失) (元):0.54 10.期末總資產(仟元):738,762,815 11.期末總負債(仟元):672,870,014 12.期末歸屬於母公司業主之權益(仟元):45,240,014 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2897 | 王道銀行 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:王道商業銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:如主旨 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):                                                單位:新台幣仟元                                       8月        累計1~8月 --------------------------------------------------------------- 合併稅前損益                       442,928       4,200,223 合併稅後損益                       395,697       3,511,499 個體稅前損益                       253,868       2,368,260 個體稅後損益                       249,485       2,168,683 稅後基本EPS(元)                                       0.73 2026年8月底每股淨值14.75元；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2897 | 王道銀行 | 2 | 1 | 4 | 7 | 12 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260911 | 2897 | 王道銀行 | 7 | 4 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

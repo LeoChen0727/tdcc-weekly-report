@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:32 Asia/Taipei
+- generated_at: 2026-09-12 15:44:49 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 347
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 352
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 35.3
-- high: 35.65
-- low: 34.85
-- close: 35.2
-- volume: 406928
-- ma5: 35.58
-- ema23_primary: 36.53
-- distance_to_ema23_pct: -3.65
-- ma20: 35.87
-- ma60: 41.35
-- ma120: 53.51
-- return_5d: -1.81
-- return_20d: -2.49
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -1.85
-- distance_to_high_60_pct: -40.94
+- date: 20260911
+- open: 31.95
+- high: 31.95
+- low: 29.35
+- close: 29.35
+- volume: 2234014
+- ma5: 33.33
+- ema23_primary: 35.31
+- distance_to_ema23_pct: -16.88
+- ma20: 35.12
+- ma60: 39.46
+- ma120: 51.6
+- return_5d: -16.62
+- return_20d: -18.25
+- volume_ratio: 4.04
+- distance_to_ma20_pct_auxiliary: -16.42
+- distance_to_high_60_pct: -46.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,36.6,37.6,36.4,36.95,521874,39.81,-7.19,38.79,48.57,1.04
-20260811,36.5,36.8,35.3,36.3,803145,39.52,-8.15,38.56,48.31,1.59
-20260812,36.5,37.25,36.35,36.6,303866,39.28,-6.82,38.33,48.07,0.61
-20260813,36.45,37.4,35.65,35.9,571987,39,-7.94,38.09,47.79,1.11
-20260814,35.95,36.25,35.75,35.9,308064,38.74,-7.33,37.91,47.53,0.63
 20260817,36.2,36.75,35.9,36.45,304067,38.55,-5.44,37.72,47.24,0.63
 20260818,36.35,37.3,35.35,35.4,709296,38.29,-7.54,37.48,46.9,1.4
 20260819,35.4,35.4,34.6,34.8,318997,38,-8.41,37.17,46.56,0.63
@@ -168,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,36.15,36.35,35.05,36.1,571991,36.75,-1.78,35.93,42.16,1.22
 20260903,36.2,36.2,35.5,35.55,322249,36.65,-3.01,35.91,41.74,0.73
 20260904,35.3,35.65,34.85,35.2,406928,36.53,-3.65,35.87,41.35,0.95
+20260907,35.35,35.8,35.15,35.5,383134,36.45,-2.6,35.79,41,0.91
+20260908,36.2,36.2,35.2,35.2,306767,36.34,-3.14,35.74,40.65,0.78
+20260909,35.2,35.2,33.9,34,990910,36.15,-5.94,35.61,40.26,2.3
+20260910,33.3,33.3,31.95,32.6,1099365,35.85,-9.07,35.44,39.88,2.41
+20260911,31.95,31.95,29.35,29.35,2234014,35.31,-16.88,35.12,39.46,4.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 46.26
-- over_600_ratio: 42.29
-- over_800_ratio: 40.46
-- over_1000_ratio: 38.04
-- over_400_change_1w: 0.48
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260911
+- over_400_ratio: 45.42
+- over_600_ratio: 42.15
+- over_800_ratio: 40.21
+- over_1000_ratio: 36.64
+- over_400_change_1w: -0.84
+- over_800_change_1w: -0.25
+- over_1000_change_1w: -1.4
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,60.19,-0.85,58.17,0.11,56.83,0.11,2,False,True
 20260626,57.06,-3.13,54.13,-4.04,52.79,-4.04,0,False,False
 20260703,54,-3.06,48.72,-5.41,46.16,-6.63,0,False,False
 20260709,48.64,-5.36,41.73,-6.99,37.9,-8.26,0,False,False
@@ -199,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,46.72,-0.07,40.47,0.05,37.99,0.05,6,False,True
 20260828,45.78,-0.94,40.49,0.02,38.07,0.08,7,False,True
 20260904,46.26,0.48,40.46,-0.03,38.04,-0.03,8,False,False
+20260911,45.42,-0.84,40.21,-0.25,36.64,-1.4,0,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +213,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6994 | 富威電力 | 1 | 0 | 110.0 | 0.0 |  | no_signal |
+| 20260911 | 6994 | 富威電力 | 1 | 0 | 3100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

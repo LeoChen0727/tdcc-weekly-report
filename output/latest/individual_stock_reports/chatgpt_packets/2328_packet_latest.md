@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2328 廣宇
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:16 Asia/Taipei
+- generated_at: 2026-09-12 15:42:38 Asia/Taipei
 - stock_id: 2328
 - stock_name: 廣宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 46.3
-- high: 46.7
-- low: 45.8
-- close: 46.6
-- volume: 1003854
-- ma5: 46.9
-- ema23_primary: 46.04
-- distance_to_ema23_pct: 1.21
-- ma20: 46
-- ma60: 47.33
-- ma120: 48.42
-- return_5d: 0
-- return_20d: 3.21
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 1.3
-- distance_to_high_60_pct: -14.5
+- date: 20260911
+- open: 45.6
+- high: 46.45
+- low: 45.5
+- close: 46
+- volume: 1183172
+- ma5: 46.08
+- ema23_primary: 46.06
+- distance_to_ema23_pct: -0.12
+- ma20: 45.95
+- ma60: 46.83
+- ma120: 48.41
+- return_5d: -1.29
+- return_20d: 0.99
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 0.11
+- distance_to_high_60_pct: -15.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,45.45,47.1,45.4,47.05,3203581,45.55,3.3,44.93,50.06,1.08
-20260811,47,47,45.65,46.1,1808852,45.59,1.12,44.86,49.98,0.64
-20260812,46.1,46.85,46.1,46.5,1647385,45.67,1.82,44.68,49.89,0.61
-20260813,46.9,47.85,46.25,46.3,2350931,45.72,1.27,44.53,49.81,0.86
-20260814,46.3,46.75,45.3,45.55,2394589,45.71,-0.34,44.49,49.73,0.91
 20260817,45.9,46.25,45,45.4,1491687,45.68,-0.61,44.51,49.62,0.58
 20260818,45.5,45.55,43.9,43.9,1846796,45.53,-3.58,44.38,49.44,0.72
 20260819,43.5,47,43.45,46,7207652,45.57,0.94,44.33,49.26,2.55
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,47.55,48.7,47.3,47.8,2814892,46.01,3.89,45.9,47.53,1.09
 20260903,48.4,48.55,45.75,45.8,2193699,45.99,-0.42,45.93,47.41,0.87
 20260904,46.3,46.7,45.8,46.6,1003854,46.04,1.21,46,47.33,0.44
+20260907,47.2,47.3,45.8,46,1592227,46.04,-0.09,45.95,47.24,0.72
+20260908,46.9,47.4,46,46,1908851,46.04,-0.08,45.95,47.15,0.87
+20260909,46.15,46.55,46.1,46.3,1223229,46.06,0.52,45.94,47.03,0.56
+20260910,46,46.6,45.55,46.1,1105719,46.06,0.08,45.92,46.94,0.52
+20260911,45.6,46.45,45.5,46,1183172,46.06,-0.12,45.95,46.83,0.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 40.95
-- over_600_ratio: 39.45
-- over_800_ratio: 37.96
-- over_1000_ratio: 36.75
-- over_400_change_1w: 0.38
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 40.98
+- over_600_ratio: 39.79
+- over_800_ratio: 38.21
+- over_1000_ratio: 37.19
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.25
+- over_1000_change_1w: 0.44
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,41.41,0.02,38.73,0.46,37.74,0.82,1,True,True
 20260626,41.46,0.05,38.6,-0.13,37.74,0,2,False,False
 20260703,40.39,-1.07,37.66,-0.94,36.62,-1.12,0,False,False
 20260709,40.2,-0.19,37.59,-0.07,36.24,-0.38,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,40.31,-0.12,37.68,-0.13,36.12,-0.29,0,False,False
 20260828,40.57,0.26,37.87,0.19,36.49,0.37,1,False,True
 20260904,40.95,0.38,37.96,0.09,36.75,0.26,2,True,True
+20260911,40.98,0.03,38.21,0.25,37.19,0.44,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2328 | 廣宇 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:自民國115/8/31至民國115/8/31 2.本次新增（減少）投資方式: 本公司透過第三地區投資事業比利時 MAGNAX BV 以現金投資邁格能傳動技術（江蘇）有限公司 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:投審司核准 民國115年8月28日 5.交易單位數量、每單位價格及交易總金額: 交易總金額：歐元9,021,760 元(預計總投資金額) 6.大陸被投資公司之公司名稱: 邁格能傳動技術（江蘇）有限公司 7.前開大陸被投資公司之實收資本額: 歐元800,000 元 8.前開大陸被投資公司本次擬新增資本額: 歐元9,021,760元 9.前開大陸被投資公司主要營業項目: 機械傳動設備製造、產業用機械設備維修及安裝、其他電子零組件製造批發等 10.前開大陸被投資公司最近年度財務報表會計師意見型態: 不適用 11.前開大陸被投資公司最近年度財務報表權益總額: 不適用 12.前開大陸被投資公司最近年度財務報表損益金額: 不適用 13.迄目前為止，對前開大陸被投資公司之實際投資金額: 歐元9,235,040元 14.交易相對人及其與公司之關係: 現金增資不適用；母子公司 15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉 之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額: 現金增資；不適用 16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得 及處分日期、價格及交易當時與公司之關係: 不適用 17.處分利益（或損失）: 不適用 18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項: 由比利時MAGNAX BV 以現金直接投資邁格能傳動技術（江蘇）有限公司 19.本次交易之決定方式、價格決定之參考依據及決策單位: Magnax BV 董事會 20.經紀人: 無 21.取得或處分之具體目的: 長期投資 22.本次交易表示異議董事之意見: 無 23.本次交易為關係人交易:否 24.監察人承認或審計委員會同意日期: 不適用，第三地直接投資 25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）: 美金215,251,777.89元 26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 實收資本額之比率: 132.26% 27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 總資產之比率: 27.18% 28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 歸屬於母公司業主之權益之比率: 46.91% 29.迄目前為止，實際赴大陸地區投資總額: 美金204,439,393.06元 30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率: 125.62% 31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率: 25.82% 32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率: 44.55% 33.最近三年度認列投資大陸損益金額: 112年度：新台幣886,345仟元 113年度：新台幣770,869仟元 114年度：新台幣465,291仟元 34.最近三年度獲利匯回金額: 112年度：新台幣517,097仟元 113年度：新台幣      0仟元 114年度：新台幣987,582仟元 35.本次交易會計師出具非合理性意見:不適用 36.會計師事務所名稱: 不適用 37.會計師姓名: 不適用 38.會計師開業證書字號: 不適用 39.前已就同一件事件發布重大訊息日期: 不適用 40.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2328 | 廣宇 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:自民國115/8/31至民國115/8/31 2.本次新增（減少）投資方式: 本公司透過第三地區投資事業比利時 MAGNAX BV 以現金投資邁格能傳動技術（江蘇）有限公司 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:投審司核准 民國115年8月28日 5.交易單位數量、每單位價格及交易總金額: 交易總金額：歐元9,021,760 元(預計總投資金額) 6.大陸被投資公司之公司名稱: 邁格能傳動技術（江蘇）有限公司 7.前開大陸被投資公司之實收資本額: 歐元800,000 元 8.前開大陸被投資公司本次擬新增資本額: 歐元9,021,760元 9.前開大陸被投資公司主要營業項目: 機械傳動設備製造、產業用機械設備維修及安裝、其他電子零組件製造批發等 10.前開大陸被投資公司最近年度財務報表會計師意見型態: 不適用 11.前開大陸被投資公司最近年度財務報表權益總額: 不適用 12.前開大陸被投資公司最近年度財務報表損益金額: 不適用 13.迄目前為止，對前開大陸被投資公司之實際投資金額: 歐元9,235,040元 14.交易相對人及其與公司之關係: 現金增資不適用；母子公司 15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉 之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額: 現金增資；不適用 16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得 及處分日期、價格及交易當時與公司之關係: 不適用 17.處分利益（或損失）: 不適用 18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項: 由比利時MAGNAX BV 以現金直接投資邁格能傳動技術（江蘇）有限公司 19.本次交易之決定方式、價格決定之參考依據及決策單位: Magnax BV 董事會 20.經紀人: 無 21.取得或處分之具體目的: 長期投資 22.本次交易表示異議董事之意見: 無 23.本次交易為關係人交易:否 24.監察人承認或審計委員會同意日期: 不適用，第三地直接投資 25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）: 美金215,251,777.89元 26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 實收資本額之比率: 132.26% 27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 總資產之比率: 27.18% 28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表 歸屬於母公司業主之權益之比率: 46.91% 29.迄目前為止，實際赴大陸地區投資總額: 美金204,439,393.06元 30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率: 125.62% 31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率: 25.82% 32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率: 44.55% 33.最近三年度認列投資大陸損益金額: 112年度：新台幣886,345仟元 113年度：新台幣770,869仟元 114年度：新台幣465,291仟元 34.最近三年度獲利匯回金額: 112年度：新台幣517,097仟元 113年度：新台幣      0仟元 114年度：新台幣987,582仟元 35.本次交易會計師出具非合理性意見:不適用 36.會計師事務所名稱: 不適用 37.會計師姓名: 不適用 38.會計師開業證書字號: 不適用 39.前已就同一件事件發布重大訊息日期: 不適用 40.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2328 | 廣宇 | 1 | 1 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2328 | 廣宇 | 6 | 6 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2328 | 廣宇 | 34 | 1 | 479410.0 | 0.0 |  | no_signal |
+| 20260911 | 2328 | 廣宇 | 34 | 1 | 27980.0 | 75500.0 | 0.37 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

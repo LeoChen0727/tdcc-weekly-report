@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6446 藥華藥
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:07 Asia/Taipei
+- generated_at: 2026-09-12 15:44:24 Asia/Taipei
 - stock_id: 6446
 - stock_name: 藥華藥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: high
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 1360
-- high: 1370
-- low: 1310
-- close: 1310
-- volume: 3488695
-- ma5: 1334
-- ema23_primary: 1373.88
-- distance_to_ema23_pct: -4.65
-- ma20: 1424.25
-- ma60: 1272.6
-- ma120: 998.99
-- return_5d: -15.21
-- return_20d: 5.65
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -8.02
-- distance_to_high_60_pct: -20.36
+- date: 20260911
+- open: 1300
+- high: 1315
+- low: 1280
+- close: 1280
+- volume: 2676454
+- ma5: 1335
+- ema23_primary: 1359.04
+- distance_to_ema23_pct: -5.82
+- ma20: 1399.25
+- ma60: 1303.25
+- ma120: 1027.41
+- return_5d: -2.29
+- return_20d: -14.67
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -8.52
+- distance_to_high_60_pct: -22.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,1200,1360,1190,1330,4265061,1205.54,10.32,1192,1099.22,1.33
-20260811,1330,1460,1330,1460,5613829,1226.74,19.01,1205,1109.78,1.7
-20260812,1465,1550,1415,1440,6003196,1244.51,15.71,1211,1120.35,1.72
-20260813,1475,1510,1430,1445,3404968,1261.22,14.57,1220.25,1131.17,0.99
-20260814,1440,1525,1440,1500,4016154,1281.12,17.09,1235.5,1143.02,1.16
 20260817,1505,1545,1405,1410,4986375,1291.86,9.14,1247.25,1153.22,1.4
 20260818,1430,1430,1345,1400,5232513,1300.87,7.62,1258.5,1163.05,1.4
 20260819,1410,1435,1370,1400,2584371,1309.13,6.94,1269.5,1172.38,0.69
@@ -168,17 +169,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,1335,1345,1280,1305,3641430,1382.39,-5.6,1417.75,1261.2,0.8
 20260903,1315,1375,1315,1350,3196968,1379.69,-2.15,1420.75,1267.2,0.73
 20260904,1360,1370,1310,1310,3488695,1373.88,-4.65,1424.25,1272.6,0.79
+20260907,1315,1350,1285,1325,4821947,1369.81,-3.27,1424,1279.12,1.08
+20260908,1345,1450,1345,1405,4860872,1372.74,2.35,1421.25,1286.72,1.1
+20260909,1395,1405,1340,1345,4564007,1370.43,-1.86,1416.5,1293.27,1.05
+20260910,1330,1335,1300,1320,2750274,1366.23,-3.38,1410.25,1298.75,0.64
+20260911,1300,1315,1280,1280,2676454,1359.04,-5.82,1399.25,1303.25,0.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 56.82
-- over_600_ratio: 51.37
-- over_800_ratio: 46.31
-- over_1000_ratio: 42.57
-- over_400_change_1w: -0.85
-- over_800_change_1w: -0.78
-- over_1000_change_1w: -1.39
+- as_of_date: 20260911
+- over_400_ratio: 56.57
+- over_600_ratio: 51.23
+- over_800_ratio: 46.16
+- over_1000_ratio: 42.36
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.21
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +193,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,56.49,0.26,47.14,-0.11,43.88,-0.14,7,False,False
 20260626,57.31,0.82,47.26,0.12,44.72,0.84,8,True,True
 20260703,57.87,0.56,46.91,-0.35,44.14,-0.58,9,False,False
 20260709,57.64,-0.23,46.97,0.06,43.64,-0.5,10,False,True
@@ -199,18 +204,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,57.71,-0.21,47.27,-0.26,43.93,-0.26,0,False,False
 20260828,57.67,-0.04,47.09,-0.18,43.96,0.03,1,False,True
 20260904,56.82,-0.85,46.31,-0.78,42.57,-1.39,0,False,False
+20260911,56.57,-0.25,46.16,-0.15,42.36,-0.21,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6446 | 藥華藥 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：15 時 45 分 3.召開法人說明會之地點：台北市松山區復興北路99號2樓 4.法人說明會擇要訊息：本公司受邀參加寬量國際舉辦之法說會「Healthcare Corporate Day」，說明本公司之營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 6446 | 藥華藥 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：15 時 45 分 3.召開法人說明會之地點：台北市松山區復興北路99號2樓 4.法人說明會擇要訊息：本公司受邀參加寬量國際舉辦之法說會「Healthcare Corporate Day」，說明本公司之營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6446 | 藥華藥 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：15 時 45 分 3.召開法人說明會之地點：台北市松山區復興北路99號2樓 4.法人說明會擇要訊息：本公司受邀參加寬量國際舉辦之法說會「Healthcare Corporate Day」，說明本公司之營運概況。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6446 | 藥華藥 | 6 | 3 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 6446 | 藥華藥 | 11 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

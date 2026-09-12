@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:31 Asia/Taipei
+- generated_at: 2026-09-12 15:43:50 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,8 +101,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 118
-- high: 120.5
-- low: 116
-- close: 120
-- volume: 1945505
-- ma5: 119.9
-- ema23_primary: 123.17
-- distance_to_ema23_pct: -2.57
-- ma20: 120.9
-- ma60: 145.01
-- ma120: 144.14
-- return_5d: -2.04
-- return_20d: 0
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -0.74
-- distance_to_high_60_pct: -47.48
+- date: 20260911
+- open: 115
+- high: 116
+- low: 112
+- close: 112.5
+- volume: 2474731
+- ma5: 117.7
+- ema23_primary: 121.11
+- distance_to_ema23_pct: -7.11
+- ma20: 118.95
+- ma60: 139.62
+- ma120: 145.16
+- return_5d: -6.25
+- return_20d: -8.54
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -5.42
+- distance_to_high_60_pct: -50.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,120.5,127.5,120.5,127.5,4728599,136.4,-6.53,133.15,165.22,0.63
-20260811,125,127.5,122.5,125,2985939,135.45,-7.72,131.43,164.73,0.42
-20260812,126.5,127.5,125,125.5,2324862,134.62,-6.78,129.28,164.35,0.35
-20260813,127.5,131.5,126,126.5,4264618,133.95,-5.56,127.78,163.96,0.66
-20260814,129.5,130.5,122,123,3940889,133.04,-7.54,126.88,163.26,0.63
 20260817,123.5,128,121,125.5,3892377,132.41,-5.22,126.38,162.32,0.65
 20260818,124,125,118,118,3335871,131.21,-10.07,125.22,160.97,0.57
 20260819,115.5,119.5,114.5,116.5,4261748,129.98,-10.37,123.9,159.26,0.74
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,121.5,123,120,120.5,1426053,124.22,-3,121.4,146.65,0.4
 20260903,121.5,123,115,115,2315891,123.46,-6.85,120.9,145.66,0.75
 20260904,118,120.5,116,120,1945505,123.17,-2.57,120.9,145.01,0.66
+20260907,122,125,118.5,122.5,3275935,123.11,-0.5,120.65,144.18,1.15
+20260908,124.5,124.5,117.5,118,2625723,122.69,-3.82,120.3,143.22,0.93
+20260909,118.5,120.5,117.5,119,1860693,122.38,-2.76,119.97,141.98,0.66
+20260910,117.5,118,116,116.5,1609909,121.89,-4.42,119.47,140.88,0.6
+20260911,115,116,112,112.5,2474731,121.11,-7.11,118.95,139.62,0.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 62.62
-- over_600_ratio: 61.63
-- over_800_ratio: 60.07
-- over_1000_ratio: 58.86
-- over_400_change_1w: 0.14
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.23
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 62.94
+- over_600_ratio: 61.99
+- over_800_ratio: 60.13
+- over_1000_ratio: 59.36
+- over_400_change_1w: 0.32
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.5
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,67.27,-1.4,64.43,-1.23,63.27,-1.57,0,False,False
 20260626,65.44,-1.83,62.56,-1.87,61.39,-1.88,0,False,False
 20260703,65.25,-0.19,62.04,-0.52,61.06,-0.33,0,False,False
 20260709,62.61,-2.64,59.75,-2.29,58.77,-2.29,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,62.48,0.17,59.97,0,58.78,-0.23,2,False,False
 20260828,62.48,0,60.09,0.12,59.09,0.31,3,False,True
 20260904,62.62,0.14,60.07,-0.02,58.86,-0.23,4,False,False
+20260911,62.94,0.32,60.13,0.06,59.36,0.5,5,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4919 | 新唐 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:副執行長 2.發生變動日期:115/07/01 3.舊任者姓名、級職及簡歷:木下 嘉隆 副執行長 4.新任者姓名、級職及簡歷:無 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/07/01 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4919 | 新唐 | 1 | 1 | 2 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4919 | 新唐 | 104 | 4 | 4651070.0 | 24990.0 | 186.12 | call_put_bullish |
+| 20260911 | 4919 | 新唐 | 102 | 4 | 1477120.0 | 81400.0 | 18.15 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

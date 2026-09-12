@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:39 Asia/Taipei
+- generated_at: 2026-09-12 15:43:01 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 36.4
-- high: 36.7
-- low: 35.95
-- close: 36.7
-- volume: 42802542
-- ma5: 35.38
-- ema23_primary: 32.68
-- distance_to_ema23_pct: 12.31
-- ma20: 32.4
-- ma60: 30.68
-- ma120: 26.22
-- return_5d: 12.06
-- return_20d: 18.96
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 13.29
-- distance_to_high_60_pct: -0.14
+- date: 20260911
+- open: 36.95
+- high: 37.85
+- low: 36.75
+- close: 37.85
+- volume: 44415166
+- ma5: 37.21
+- ema23_primary: 34.29
+- distance_to_ema23_pct: 10.39
+- ma20: 33.88
+- ma60: 31.38
+- ma120: 26.93
+- return_5d: 3.13
+- return_20d: 19.59
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 11.73
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,31,31.05,30.35,31.05,30373456,30.13,3.05,30.29,27.9,0.62
-20260811,30.8,31.2,30.65,31.05,21437999,30.21,2.79,30.36,28.05,0.45
-20260812,31,31.4,30.55,31.2,29200840,30.29,3.01,30.41,28.22,0.62
-20260813,31.4,31.5,30.85,31.5,34357307,30.39,3.65,30.46,28.38,0.74
-20260814,31.25,31.75,30.95,31.65,58718628,30.5,3.79,30.55,28.55,1.26
 20260817,31.5,31.65,30.9,31.4,52124434,30.57,2.71,30.64,28.72,1.14
 20260818,31.1,31.35,30.85,30.95,50381336,30.6,1.14,30.7,28.87,1.09
 20260819,30.7,30.85,30.3,30.4,41106180,30.59,-0.61,30.7,29.02,0.91
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,34.85,35.6,34.6,35.5,47214212,31.98,10.99,31.84,30.42,1.08
 20260903,35.65,36.75,35.6,35.9,60617343,32.31,11.11,32.1,30.53,1.36
 20260904,36.4,36.7,35.95,36.7,42802542,32.68,12.31,32.4,30.68,0.94
+20260907,37.1,37.45,36.3,36.95,51314316,33.03,11.86,32.69,30.83,1.11
+20260908,36.9,37.6,36.75,37.3,34505752,33.39,11.72,33,30.99,0.73
+20260909,37.05,37.25,36,36.75,52826646,33.67,9.15,33.28,31.12,1.09
+20260910,36.45,37.4,36.45,37.2,41645435,33.96,9.53,33.56,31.25,0.86
+20260911,36.95,37.85,36.75,37.85,44415166,34.29,10.39,33.88,31.38,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 69.04
-- over_600_ratio: 67.31
-- over_800_ratio: 66.23
-- over_1000_ratio: 65.27
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.26
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 69.14
+- over_600_ratio: 67.44
+- over_800_ratio: 66.34
+- over_1000_ratio: 65.36
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,67.69,0.1,64.86,0.11,63.93,0.06,4,True,True
 20260626,67.59,-0.1,64.72,-0.14,63.78,-0.15,0,False,False
 20260703,67.26,-0.33,64.28,-0.44,63.32,-0.46,0,False,False
 20260709,67.7,0.44,64.75,0.47,63.82,0.5,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,68.55,0,65.64,0,64.66,-0.02,0,False,False
 20260828,68.83,0.28,65.99,0.35,65.01,0.35,1,True,True
 20260904,69.04,0.21,66.23,0.24,65.27,0.26,2,True,True
+20260911,69.14,0.1,66.34,0.11,65.36,0.09,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2883 | 凱基金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件， 如股息率等）: 「中華開發參號大健康創業投資有限合夥」（名稱暫定，下稱「開發參號大健康基金」） 之有限合夥權益。 2.事實發生日:115/08/31 3.交易單位數量、每單位價格及交易總金額: 標的物為有限合夥權益，無交易數量及每單位價格；交易金額中華開發資本管理顧問股 份有限公司（下稱「資本管顧」）以基金出資總額1%（含）為上限、中華開發創業投資股 份有限公司（下稱「開發創投」）以基金出資總額30%（含）為上限，二者合計以基金出 資總額31%（含）或新臺幣9.3億元（含）孰低者為上限參與投資。 4.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司 之關係人者，得免揭露其姓名）: 交易相對人：擬新設立之「開發參號大健康基金」； 與公司之關係：該基金設立後為財報關係人。 5.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及 前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之 關係、前次移轉日期及移轉金額: 無前次移轉。 6.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告 關係人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 7.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分 債權如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人 之債權帳面金額: 不適用。 8.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表 說明認列情形）: 不適用。 9.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要 約定事項: 依基金相關協議之約定。 10.本次交易之決定方式、價格決定之參考依據及決策單位: 本次交易之決定方式、價格決定之參考依據：依基金相關協議之約定；決策單位： 董事會。 11.取得或處分有價證券標的公司每股淨值:不適用 12.有價證券標的公司私募參考價格與每股交易金額差距達20%以上:不適用 13.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、 持股比例及權利受限情形（如質押情形）: 標的為有限合夥權益，故無交易數量；累積持有本交易證券(含本次交易)之金額及出資 比例：資本管顧以基金出資總額1%（含）為上限、開發創投以基金出資總額30%（含） 為上限，二者合計以基金出資總額31%（含）或新臺幣9.3億元（含）孰低者為上限； 權利受限情形：無。 14.迄目前為止，私募有價證券投資（含本次交易）占公司最近期財 務報表中總資產及歸屬於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 資本管顧、開發創投: 占總資產比例：0.03%、0.62%；占母公司業主之權益比例：0.03%、0.74%；最近期財 務報告營運資金：不適用。 15.經理人及經紀費用: 不適用。 16.取得或處分之具體目的或用途: 投資業務發展需要。 17.本次交易表示異議董事之意見: 無。 18.本次交易為關係人交易: 是 19.董事會通過日期: 20260831 20.監察人承認或審計委員會同意日期: 不適用，依金融控股公司法第45條程序辦理。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.其他敘明事項: 前於114年3月7日公告投資開發參號大健康基金，相關投資條件經開發創投及資本管顧董 事會重新檢視後有所調整，二者合計投資上限更新為基金出資總額31%（含）或新臺幣9.3 億元（含）孰低者，爰依規定辦理公告更新。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2883 | 凱基金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | continued_2_3d | 1.主管機關核准減資日期:115/09/07 2.辦理資本變更登記完成日期:115/09/07 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:   (1)收回已發行限制員工權利新股註銷減資前：本公司實收資本額為新臺幣        185,569,894,140元，發行股數為18,556,989,414股。   (2)收回已發行限制員工權利新股註銷減資後：本公司實收資本額為新臺幣        185,567,548,490元，發行股數為18,556,754,849股（減資普通股234,565股）。   (3)收回已發行限制員工權利新股註銷對本公司每股淨值無影響。 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:本公司於115年9月9日收到經濟部變更登記核准函，特此公告。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2883 | 凱基金 | 2 | 2 | 4 | 9 | 18 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260911 | 2883 | 凱基金 | 2 | 2 | 3 | 7 | 16 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2883 | 凱基金 | 27 | 0 | 8801360.0 | 0.0 |  | no_signal |
+| 20260911 | 2883 | 凱基金 | 31 | 0 | 7774890.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:49 Asia/Taipei
+- generated_at: 2026-09-12 15:43:10 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,6 +104,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +118,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 3245
-- high: 3315
-- low: 2980
-- close: 3170
-- volume: 5284000
-- ma5: 3328
-- ema23_primary: 2890.11
-- distance_to_ema23_pct: 9.68
-- ma20: 2966.75
-- ma60: 2296.42
-- ma120: 2337.79
-- return_5d: -4.08
-- return_20d: 37.53
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 6.85
-- distance_to_high_60_pct: -11.94
+- date: 20260911
+- open: 2800
+- high: 2825
+- low: 2735
+- close: 2810
+- volume: 2482000
+- ma5: 2885
+- ema23_primary: 2885.01
+- distance_to_ema23_pct: -2.6
+- ma20: 3040.75
+- ma60: 2349.83
+- ma120: 2395.75
+- return_5d: -11.36
+- return_20d: 10.63
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -7.59
+- distance_to_high_60_pct: -21.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,2500,2535,2420,2535,2999000,1970.82,28.63,1814.25,2191.25,1.01
-20260811,2420,2485,2415,2480,1071000,2013.25,23.18,1842,2188.33,0.37
-20260812,2560,2725,2560,2725,1179000,2072.56,31.48,1890.5,2188.58,0.41
-20260813,2840,2845,2640,2665,1670000,2121.93,25.59,1942.75,2191.5,0.58
-20260814,2700,2700,2470,2540,1256000,2156.77,17.77,1995.75,2190.83,0.44
 20260817,2670,2790,2625,2790,1340000,2209.54,26.27,2063.5,2194.75,0.48
 20260818,2850,3065,2775,2925,5245000,2269.16,28.9,2134,2198.33,1.75
 20260819,2750,2900,2650,2680,5057000,2303.4,16.35,2184.75,2194.25,1.57
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,3425,3565,3375,3395,3191000,2841.46,19.48,2886.25,2270.5,0.88
 20260903,3425,3485,3110,3120,3924000,2864.67,8.91,2923.5,2281,1.09
 20260904,3245,3315,2980,3170,5284000,2890.11,9.68,2966.75,2296.42,1.47
+20260907,3220,3220,3000,3070,3448000,2905.1,5.68,2993.5,2311.5,0.96
+20260908,3115,3150,2825,2865,3764000,2901.76,-1.27,3012.75,2322.67,1.01
+20260909,3085,3150,2820,2850,4728000,2897.45,-1.64,3019,2331.25,1.21
+20260910,2820,2930,2755,2830,2921000,2891.83,-2.14,3027.25,2340.42,0.73
+20260911,2800,2825,2735,2810,2482000,2885.01,-2.6,3040.75,2349.83,0.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 48.93
-- over_600_ratio: 44.32
-- over_800_ratio: 39.67
-- over_1000_ratio: 33.53
-- over_400_change_1w: 0.98
-- over_800_change_1w: 0.9
-- over_1000_change_1w: -1
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260911
+- over_400_ratio: 48.55
+- over_600_ratio: 42.58
+- over_800_ratio: 39.31
+- over_1000_ratio: 33.06
+- over_400_change_1w: -0.38
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.47
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,44.41,1.47,37.26,0.51,31.62,1.57,6,True,True
 20260626,45.25,0.84,36.79,-0.47,32.02,0.4,7,False,True
 20260703,46.86,1.61,37.28,0.49,34.48,2.46,8,True,True
 20260709,47.27,0.41,39.06,1.78,35.33,0.85,9,True,True
@@ -198,17 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,47.48,0.65,39.75,1.61,33.53,-1.89,3,False,True
 20260828,47.95,0.47,38.77,-0.98,34.53,1,4,False,True
 20260904,48.93,0.98,39.67,0.9,33.53,-1,5,False,True
+20260911,48.55,-0.38,39.31,-0.36,33.06,-0.47,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | 1.董事會或股東會決議日期:115/08/26 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣22.7億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及外部融資等 6.具體目的:因應客戶訂單需求，維持公司未來營運持續成長的動能 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3081 | 聯亞 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/08/26 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣22.7億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及外部融資等 6.具體目的:因應客戶訂單需求，維持公司未來營運持續成長的動能 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/08/26 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣22.7億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及外部融資等 6.具體目的:因應客戶訂單需求，維持公司未來營運持續成長的動能 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3081 | 聯亞 | 2 | 2 | 2 | 6 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260911 | 3081 | 聯亞 | 7 | 7 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

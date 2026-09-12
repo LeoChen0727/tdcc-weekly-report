@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2905 三商
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:41 Asia/Taipei
+- generated_at: 2026-09-12 15:43:02 Asia/Taipei
 - stock_id: 2905
 - stock_name: 三商
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 347
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 352
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 18.25
-- high: 18.35
-- low: 17.95
-- close: 18.15
-- volume: 1543732
-- ma5: 17.81
-- ema23_primary: 17.27
-- distance_to_ema23_pct: 5.07
-- ma20: 17.36
-- ma60: 16.15
-- ma120: 15.09
-- return_5d: 4.01
-- return_20d: 10.67
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.57
-- distance_to_high_60_pct: -2.68
+- date: 20260911
+- open: 18.2
+- high: 18.6
+- low: 18
+- close: 18.5
+- volume: 1630561
+- ma5: 18.21
+- ema23_primary: 17.61
+- distance_to_ema23_pct: 5.04
+- ma20: 17.78
+- ma60: 16.41
+- ma120: 15.24
+- return_5d: 1.93
+- return_20d: 8.19
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 4.05
+- distance_to_high_60_pct: -0.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,16.5,16.55,16.3,16.5,641490,16.04,2.85,16.11,14.99,0.49
-20260811,16.6,16.6,16.3,16.4,496990,16.07,2.03,16.16,15.05,0.39
-20260812,16.4,16.5,16.3,16.4,479803,16.1,1.86,16.2,15.1,0.38
-20260813,16.35,16.35,15.8,16.2,1328671,16.11,0.57,16.23,15.15,1.05
-20260814,16.25,17.1,16.25,17.1,2937418,16.19,5.61,16.33,15.21,2.17
 20260817,17.7,18.65,17.6,18.1,4979451,16.35,10.7,16.46,15.29,3.2
 20260818,18.05,18.2,17.75,17.75,1971529,16.47,7.79,16.55,15.36,1.27
 20260819,17.75,17.85,17.4,17.45,1646695,16.55,5.45,16.63,15.42,1.05
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,17.35,17.9,17.3,17.8,1552082,17.1,4.07,17.17,16.02,1.06
 20260903,17.8,18.5,17.8,18.2,2924093,17.19,5.85,17.27,16.09,1.9
 20260904,18.25,18.35,17.95,18.15,1543732,17.27,5.07,17.36,16.15,0.97
+20260907,18.25,18.3,17.9,17.9,1487962,17.33,3.31,17.43,16.21,0.91
+20260908,17.9,18.4,17.65,18.25,1332893,17.4,4.86,17.52,16.26,0.8
+20260909,18.3,18.3,17.9,18.05,1035374,17.46,3.39,17.6,16.31,0.61
+20260910,18,18.45,17.9,18.35,1317427,17.53,4.67,17.71,16.36,0.78
+20260911,18.2,18.6,18,18.5,1630561,17.61,5.04,17.78,16.41,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 84.44
-- over_600_ratio: 82.95
-- over_800_ratio: 81.62
-- over_1000_ratio: 81.24
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 9
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 84.5
+- over_600_ratio: 83.01
+- over_800_ratio: 81.81
+- over_1000_ratio: 81.26
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 10
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,83.92,-0.03,81.13,0.03,80.36,0.11,7,False,True
 20260626,83.97,0.05,81.23,0.1,80.45,0.09,8,True,True
 20260703,83.97,0,81.19,-0.04,80.33,-0.12,0,False,False
 20260709,84.02,0.05,81.39,0.2,80.37,0.04,1,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,84.3,-0.02,81.6,0.05,80.98,0.13,7,False,True
 20260828,84.35,0.05,81.63,0.03,81.01,0.03,8,False,True
 20260904,84.44,0.09,81.62,-0.01,81.24,0.23,9,False,True
+20260911,84.5,0.06,81.81,0.19,81.26,0.02,10,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2905 | 三商 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:法務長及永續長 2.發生變動日期:115/08/31 3.舊任者姓名、級職及簡歷:許(清爭)心／本公司法務長及永續長 4.新任者姓名、級職及簡歷:不適用 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭任 6.異動原因:辭任 7.生效日期:115/09/01 8.其他應敘明事項:新任法務長及永續長待董事會決議通過委任後，另行公告。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2905 | 三商 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：Webex線上視訊會議 4.法人說明會擇要訊息：說明本公司營運概況 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2905 | 三商 | 8 | 1 | 5 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 2905 | 三商 | 13 | 6 | 5 | 10 | 16 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

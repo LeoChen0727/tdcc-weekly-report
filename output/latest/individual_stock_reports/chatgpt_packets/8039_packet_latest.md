@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:45 Asia/Taipei
+- generated_at: 2026-09-12 15:45:01 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 307
-- high: 321
-- low: 295.5
-- close: 297.5
-- volume: 40392394
-- ma5: 310
-- ema23_primary: 279.34
-- distance_to_ema23_pct: 6.5
-- ma20: 284.35
-- ma60: 210.66
-- ma120: 172.58
-- return_5d: -13.39
-- return_20d: 25.26
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 4.62
-- distance_to_high_60_pct: -18.27
+- date: 20260911
+- open: 272
+- high: 280
+- low: 270.5
+- close: 272
+- volume: 22099927
+- ma5: 291.6
+- ema23_primary: 282.88
+- distance_to_ema23_pct: -3.85
+- ma20: 297.7
+- ma60: 222.95
+- ma120: 179.78
+- return_5d: -8.57
+- return_20d: -0.18
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -8.63
+- distance_to_high_60_pct: -25.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,250,254,224.5,226,44723032,196.99,14.73,205.03,165.3,1.42
-20260811,226,229,215,216,13319589,198.57,8.78,206.55,166.5,0.45
-20260812,215,231,210.5,227,30336296,200.94,12.97,208.82,167.94,1.05
-20260813,228,249.5,227.5,249.5,22824959,204.99,21.71,211.32,169.88,0.78
-20260814,259.5,274,246.5,272.5,55936944,210.61,29.38,215.32,172.31,1.92
 20260817,274,286.5,253,259,32146039,214.65,20.66,218.62,174.31,1.15
 20260818,258,284.5,258,277.5,31881009,219.88,26.2,221.9,176.42,1.1
 20260819,270,284,266,271.5,42064679,224.19,21.11,223.82,178.45,1.42
@@ -168,17 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,319,325,311,313.5,22914063,276.29,13.47,277.5,205.19,0.6
 20260903,316,318.5,291,293,39244963,277.69,5.52,281.35,207.85,1.02
 20260904,307,321,295.5,297.5,40392394,279.34,6.5,284.35,210.66,1.01
+20260907,324,327,306,327,22298940,283.31,15.42,289.4,213.84,0.57
+20260908,327.5,327.5,294.5,294.5,40437247,284.24,3.61,293.32,216.26,1
+20260909,294.5,299,282,289.5,33308686,284.68,1.69,296.45,218.62,0.82
+20260910,287.5,295,273.5,275,23501063,283.87,-3.13,297.73,220.85,0.58
+20260911,272,280,270.5,272,22099927,282.88,-3.85,297.7,222.95,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 63.61
-- over_600_ratio: 60.48
-- over_800_ratio: 58.62
-- over_1000_ratio: 57.97
-- over_400_change_1w: -5.7
-- over_800_change_1w: -6.35
-- over_1000_change_1w: -4.99
+- as_of_date: 20260911
+- over_400_ratio: 58.8
+- over_600_ratio: 55.6
+- over_800_ratio: 52.64
+- over_1000_ratio: 50.92
+- over_400_change_1w: -4.81
+- over_800_change_1w: -5.98
+- over_1000_change_1w: -7.05
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,57.92,1.87,51.33,2.48,49.35,2.89,1,True,True
 20260626,58.27,0.35,51.97,0.64,50.36,1.01,2,True,True
 20260703,58.28,0.01,51.37,-0.6,50.02,-0.34,3,False,False
 20260709,58.29,0.01,51.8,0.43,50.2,0.18,4,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,68.56,0.23,62.69,0.63,61.39,0.32,3,False,True
 20260828,69.31,0.75,64.97,2.28,62.96,1.57,4,True,True
 20260904,63.61,-5.7,58.62,-6.35,57.97,-4.99,0,False,False
+20260911,58.8,-4.81,52.64,-5.98,50.92,-7.05,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8039 | 台虹 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:不分配股利。 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 8039 | 台虹 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:不分配股利。 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8039 | 台虹 | 1 | 1 | 1 | 6 | 12 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 8039 | 台虹 | 3 | 3 | 3 | 4 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8039 | 台虹 | 105 | 3 | 15582920.0 | 1215700.0 | 12.82 | put_inflow |
+| 20260911 | 8039 | 台虹 | 102 | 3 | 6218380.0 | 1252660.0 | 4.96 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:40 Asia/Taipei
+- generated_at: 2026-09-12 15:42:04 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 81
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 86
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 11
-- high: 11.05
-- low: 10.99
-- close: 11.02
-- volume: 1019454
-- ma5: 10.88
-- ema23_primary: 10.56
-- distance_to_ema23_pct: 4.4
-- ma20: 10.68
-- ma60: 9.68
-- ma120: 9.16
-- return_5d: -0.36
-- return_20d: 13.84
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 3.22
-- distance_to_high_60_pct: -2.56
+- date: 20260911
+- open: 10.6
+- high: 10.6
+- low: 10.5
+- close: 10.52
+- volume: 510952
+- ma5: 10.72
+- ema23_primary: 10.61
+- distance_to_ema23_pct: -0.84
+- ma20: 10.8
+- ma60: 9.88
+- ma120: 9.25
+- return_5d: -4.54
+- return_20d: 3.65
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -2.57
+- distance_to_high_60_pct: -6.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,10,10.13,10,10.12,6629268,9.41,7.49,9.43,8.77,6.7
-20260811,10.22,10.35,10.2,10.26,3308210,9.49,8.17,9.48,8.83,2.97
-20260812,10.3,10.31,10.26,10.28,2494867,9.55,7.63,9.53,8.89,2.05
-20260813,10.28,10.37,10.28,10.37,2477298,9.62,7.8,9.57,8.96,1.91
-20260814,10.37,10.37,10.14,10.15,1738667,9.66,5.03,9.62,9.01,1.3
 20260817,10.15,10.15,10.05,10.05,638322,9.7,3.65,9.65,9.05,0.48
 20260818,10.12,10.16,10.06,10.12,1381442,9.73,3.99,9.7,9.09,1.01
 20260819,10.16,10.23,10.16,10.17,1028904,9.77,4.12,9.74,9.12,0.74
@@ -168,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,10.8,10.91,10.78,10.86,823977,10.47,3.71,10.54,9.59,0.45
 20260903,11.02,11.03,10.97,10.97,662746,10.51,4.35,10.61,9.63,0.36
 20260904,11,11.05,10.99,11.02,1019454,10.56,4.4,10.68,9.68,0.57
+20260907,11,11,10.86,10.88,341497,10.58,2.81,10.71,9.72,0.23
+20260908,10.83,10.85,10.82,10.85,338455,10.6,2.32,10.74,9.77,0.26
+20260909,10.8,10.8,10.72,10.75,627550,10.62,1.26,10.77,9.8,0.51
+20260910,10.73,10.73,10.61,10.62,1082636,10.62,0.03,10.78,9.84,0.93
+20260911,10.6,10.6,10.5,10.52,510952,10.61,-0.84,10.8,9.88,0.46
 ```
 
 ## Latest TDCC Snapshot

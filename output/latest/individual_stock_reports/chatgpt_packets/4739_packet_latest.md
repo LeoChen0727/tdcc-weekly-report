@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4739 康普
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:27 Asia/Taipei
+- generated_at: 2026-09-12 15:43:46 Asia/Taipei
 - stock_id: 4739
 - stock_name: 康普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 83.4
-- high: 84
-- low: 81.7
-- close: 83.6
-- volume: 589799
-- ma5: 84.88
-- ema23_primary: 85.99
-- distance_to_ema23_pct: -2.78
-- ma20: 86.17
-- ma60: 94.84
-- ma120: 94.11
-- return_5d: -5.64
-- return_20d: -0.71
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -2.98
-- distance_to_high_60_pct: -36.18
+- date: 20260911
+- open: 76.9
+- high: 79.8
+- low: 76
+- close: 78.1
+- volume: 1307360
+- ma5: 79.58
+- ema23_primary: 83.65
+- distance_to_ema23_pct: -6.63
+- ma20: 84.16
+- ma60: 91.36
+- ma120: 94.05
+- return_5d: -6.58
+- return_20d: -12.44
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -7.2
+- distance_to_high_60_pct: -38.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,85.3,88.8,85.3,87,2562481,87.12,-0.14,82.53,101.47,1.4
-20260811,87,88.7,86.2,87.4,1529199,87.15,0.29,82.34,101.32,0.89
-20260812,87.7,89.2,86.6,87,1650883,87.13,-0.15,82.09,101.21,0.95
-20260813,87.6,88.4,86.9,87.5,1245609,87.16,0.39,81.94,101.09,0.71
-20260814,87.5,91.4,86.3,89.2,2301225,87.33,2.14,82.2,101.05,1.33
 20260817,88.8,92.4,88.8,90.2,1649574,87.57,3,82.69,100.98,0.99
 20260818,91.3,91.9,87,87,1920171,87.52,-0.6,82.9,100.74,1.14
 20260819,85.2,87,82.6,83.3,1754598,87.17,-4.44,82.92,100.36,1.02
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,84.6,86.5,84.1,85.4,1240855,86.56,-1.34,86.45,96.33,0.75
 20260903,86.1,86.1,82.1,82.3,1167720,86.2,-4.53,86.19,95.53,0.71
 20260904,83.4,84,81.7,83.6,589799,85.99,-2.78,86.17,94.84,0.4
+20260907,84.3,84.9,82.5,82.5,662251,85.7,-3.73,85.94,94.16,0.47
+20260908,82.6,82.8,81.6,82.1,667204,85.4,-3.86,85.67,93.5,0.49
+20260909,77.5,78.8,74.8,77.6,4652983,84.75,-8.43,85.2,92.75,3.1
+20260910,77.6,79.4,76,77.6,1739135,84.15,-7.78,84.71,92.11,1.14
+20260911,76.9,79.8,76,78.1,1307360,83.65,-6.63,84.16,91.36,0.89
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 38.77
-- over_600_ratio: 34.58
-- over_800_ratio: 30.9
-- over_1000_ratio: 30.15
-- over_400_change_1w: -0.6
-- over_800_change_1w: -0.64
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 38.14
+- over_600_ratio: 33.98
+- over_800_ratio: 30.83
+- over_1000_ratio: 30.83
+- over_400_change_1w: -0.63
+- over_800_change_1w: -0.07
+- over_1000_change_1w: 0.68
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,44.33,-1.62,36.66,-0.93,35.15,-2.44,7,False,False
 20260626,42.34,-1.99,32.9,-3.76,32.17,-2.98,0,False,False
 20260703,42.79,0.45,32.87,-0.03,32.12,-0.05,1,False,False
 20260709,42.71,-0.08,32.41,-0.46,31.71,-0.41,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,38.6,-1.03,31.01,-0.47,28.95,-0.29,0,False,False
 20260828,39.37,0.77,31.54,0.53,30.08,1.13,1,False,True
 20260904,38.77,-0.6,30.9,-0.64,30.15,0.07,2,False,True
+20260911,38.14,-0.63,30.83,-0.07,30.83,0.68,3,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 4739 | 康普 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/09 1.召開法人說明會之日期：115/09/09 2.召開法人說明會之時間：16 時 00 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號) 4.法人說明會擇要訊息：就本公司已公開之財務業務資訊作說明。 5.其他應敘明事項：完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 4739 | 康普 | 3 | 3 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4739 | 康普 | 45 | 0 | 414930.0 | 0.0 |  | no_signal |
+| 20260911 | 4739 | 康普 | 45 | 0 | 1278040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

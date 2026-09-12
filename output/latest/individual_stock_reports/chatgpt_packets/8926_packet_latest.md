@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:59 Asia/Taipei
+- generated_at: 2026-09-12 15:45:15 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 56.7
-- high: 57.7
-- low: 56.6
-- close: 57.5
-- volume: 1959811
-- ma5: 56.6
-- ema23_primary: 58.16
-- distance_to_ema23_pct: -1.14
-- ma20: 56.62
-- ma60: 65.88
-- ma120: 59.22
-- return_5d: 1.23
-- return_20d: -7.26
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 1.55
-- distance_to_high_60_pct: -31.79
+- date: 20260911
+- open: 58.2
+- high: 58.9
+- low: 57.2
+- close: 58
+- volume: 3258492
+- ma5: 58.22
+- ema23_primary: 58.19
+- distance_to_ema23_pct: -0.33
+- ma20: 57.07
+- ma60: 64.42
+- ma120: 59.7
+- return_5d: 0.87
+- return_20d: 2.29
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 1.63
+- distance_to_high_60_pct: -31.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,58,58.2,55.8,57,14590472,64.39,-11.48,63.23,68.91,2.81
-20260811,56,56.2,54.7,55.8,7907754,63.67,-12.37,62.66,68.82,1.57
-20260812,56.2,57.2,56,56.8,3668988,63.1,-9.99,62.11,68.81,0.74
-20260813,57.2,57.3,55.8,55.8,4075234,62.49,-10.71,61.55,68.79,0.82
-20260814,56.2,56.7,55.6,56.7,3872310,62.01,-8.56,61.11,68.73,0.79
 20260817,56.7,57.5,56.2,56.6,2576457,61.56,-8.06,60.74,68.66,0.53
 20260818,56.4,56.8,55.8,56,2376990,61.1,-8.34,60.28,68.58,0.5
 20260819,56,57.1,55.4,55.8,3134150,60.66,-8,59.84,68.47,0.66
@@ -168,17 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,56.5,56.9,56,56.3,1266847,58.37,-3.55,57.19,66.45,0.35
 20260903,56.7,57.5,56.4,56.6,2059074,58.22,-2.79,56.84,66.17,0.59
 20260904,56.7,57.7,56.6,57.5,1959811,58.16,-1.14,56.62,65.88,0.59
+20260907,58.1,58.2,57.4,57.9,3270402,58.14,-0.41,56.66,65.58,1.19
+20260908,58.2,58.3,57.1,57.2,1903278,58.06,-1.49,56.73,65.3,0.78
+20260909,57.3,59.6,57.3,59.3,5880983,58.17,1.95,56.86,65.08,2.3
+20260910,59.6,60.1,58.4,58.7,8631847,58.21,0.84,57.01,64.78,3.11
+20260911,58.2,58.9,57.2,58,3258492,58.19,-0.33,57.07,64.42,1.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 57.23
-- over_600_ratio: 54.73
-- over_800_ratio: 53.02
-- over_1000_ratio: 51.85
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.03
+- as_of_date: 20260911
+- over_400_ratio: 57.17
+- over_600_ratio: 54.51
+- over_800_ratio: 52.85
+- over_1000_ratio: 51.67
+- over_400_change_1w: -0.06
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.18
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,61.47,0.33,57.34,0.23,55.86,0.43,3,True,True
 20260626,61.22,-0.25,56.87,-0.47,55.62,-0.24,0,False,False
 20260703,59.99,-1.23,55.71,-1.16,54.56,-1.06,0,False,False
 20260709,60.39,0.4,56.15,0.44,54.9,0.34,1,True,True
@@ -199,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,56.98,-0.14,52.97,-0.23,51.91,-0.23,0,False,False
 20260828,57.33,0.35,53.05,0.08,51.88,-0.03,1,False,True
 20260904,57.23,-0.1,53.02,-0.03,51.85,-0.03,0,False,False
+20260911,57.17,-0.06,52.85,-0.17,51.67,-0.18,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/08/31 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:郭芳楠 4.舊任者簡歷:星能股份有限公司董事長 5.新任者姓名:郭芳楠 6.新任者簡歷:星能股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:改選 9.新任生效日期:115/08/31 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/08/31 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:郭芳楠 4.舊任者簡歷:星能股份有限公司董事長 5.新任者姓名:郭芳楠 6.新任者簡歷:星能股份有限公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:改選 9.新任生效日期:115/08/31 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8926 | 台汽電 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 8926 | 台汽電 | 7 | 7 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8926 | 台汽電 | 6 | 0 | 199530.0 | 0.0 |  | no_signal |
+| 20260911 | 8926 | 台汽電 | 6 | 0 | 448420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

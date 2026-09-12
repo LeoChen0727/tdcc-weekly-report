@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:00 Asia/Taipei
+- generated_at: 2026-09-12 15:44:18 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 83
-- high: 87.4
-- low: 81.2
-- close: 84.8
-- volume: 3448628
-- ma5: 81.02
-- ema23_primary: 72.85
-- distance_to_ema23_pct: 16.41
-- ma20: 72
-- ma60: 69.19
-- ma120: 66.53
-- return_5d: 13.83
-- return_20d: 54.18
-- volume_ratio: 2.02
-- distance_to_ma20_pct_auxiliary: 17.79
-- distance_to_high_60_pct: -7.83
+- date: 20260911
+- open: 87.3
+- high: 91
+- low: 87
+- close: 87.5
+- volume: 3482253
+- ma5: 86.88
+- ema23_primary: 77.81
+- distance_to_ema23_pct: 12.45
+- ma20: 78.57
+- ma60: 70
+- ma120: 68.45
+- return_5d: 3.18
+- return_20d: 38.23
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 11.37
+- distance_to_high_60_pct: -5.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,55.5,56.8,55.5,56,224198,59.34,-5.62,56.41,72.08,0.48
-20260811,58.2,61.5,57.7,59.8,864139,59.37,0.72,56.15,71.88,1.86
-20260812,59.7,62.5,59.1,61.2,702047,59.53,2.81,55.98,71.68,1.49
-20260813,61.2,64.5,61.2,62.6,548889,59.78,4.71,55.96,71.52,1.16
-20260814,63.7,63.7,62.4,63.3,348359,60.08,5.37,56.2,71.24,0.78
 20260817,62.8,67.3,62.8,67,703981,60.65,10.47,56.77,70.97,1.6
 20260818,66.2,66.5,64,65.3,530365,61.04,6.98,57.22,70.62,1.2
 20260819,62.6,68.5,62.6,65.6,603088,61.42,6.81,57.58,70.31,1.34
@@ -166,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,77.3,85,74.5,85,2874505,71.05,19.64,69.35,69.18,2.38
 20260903,89.9,92,79.6,79.6,7047769,71.76,10.92,70.5,69.1,4.56
 20260904,83,87.4,81.2,84.8,3448628,72.85,16.41,72,69.19,2.02
+20260907,85.6,92.8,82.5,88.8,5449926,74.18,19.71,73.64,69.4,2.77
+20260908,89,89,84.6,84.6,2150301,75.05,12.73,74.88,69.54,1.06
+20260909,83.9,86.5,83.9,84.5,1063067,75.83,11.43,76.04,69.62,0.52
+20260910,83.6,90.1,83.3,89,2271503,76.93,15.69,77.36,69.85,1.06
+20260911,87.3,91,87,87.5,3482253,77.81,12.45,78.57,70,1.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 39.44
-- over_600_ratio: 33.7
-- over_800_ratio: 30.25
-- over_1000_ratio: 25.81
-- over_400_change_1w: -0.34
-- over_800_change_1w: -0.78
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 42.26
+- over_600_ratio: 36.41
+- over_800_ratio: 30.66
+- over_1000_ratio: 26.19
+- over_400_change_1w: 2.82
+- over_800_change_1w: 0.41
+- over_1000_change_1w: 0.38
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,38.67,-0.32,31.84,1.08,24.5,0,4,False,True
 20260626,38.3,-0.37,31.92,0.08,24.5,0,5,False,True
 20260703,39.68,1.38,31.25,-0.67,25.9,1.4,6,False,True
 20260709,38.58,-1.1,31.03,-0.22,25.73,-0.17,0,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,37.87,0.97,29.85,0,24.5,0,2,False,False
 20260828,39.78,1.91,31.03,1.18,25.66,1.16,3,True,True
 20260904,39.44,-0.34,30.25,-0.78,25.81,0.15,4,False,True
+20260911,42.26,2.82,30.66,0.41,26.19,0.38,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6224 | 聚鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司受邀參加凱基證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 6224 | 聚鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：公告本公司受邀參加凱基證券舉辦之線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6224 | 聚鼎 | 3 | 1 | 4 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260911 | 6224 | 聚鼎 | 2 | 2 | 3 | 7 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

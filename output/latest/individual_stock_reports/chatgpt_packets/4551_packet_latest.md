@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:23 Asia/Taipei
+- generated_at: 2026-09-12 15:43:42 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 165
-- high: 173
-- low: 164
-- close: 171.5
-- volume: 2021752
-- ma5: 165.1
-- ema23_primary: 166.77
-- distance_to_ema23_pct: 2.83
-- ma20: 164.03
-- ma60: 188.46
-- ma120: 164.07
-- return_5d: 5.86
-- return_20d: 2.39
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 4.56
-- distance_to_high_60_pct: -41.17
+- date: 20260911
+- open: 156.5
+- high: 159.5
+- low: 155
+- close: 157
+- volume: 486821
+- ma5: 162.9
+- ema23_primary: 165.25
+- distance_to_ema23_pct: -4.99
+- ma20: 162.78
+- ma60: 187.99
+- ma120: 165.73
+- return_5d: -8.45
+- return_20d: -3.09
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -3.55
+- distance_to_high_60_pct: -46.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,169.5,174,163.5,174,1011671,179.96,-3.31,176.62,184.1,0.95
-20260811,171,171,157,157,2810382,178.04,-11.82,174.07,184.2,2.6
-20260812,157.5,172.5,157,172.5,1652649,177.58,-2.86,172.62,184.65,1.51
-20260813,174,182,174,174,3294831,177.28,-1.85,171.43,185.12,2.7
-20260814,176,176,160.5,162,2594189,176.01,-7.96,170.12,185.34,2
 20260817,163,173,162,170.5,1646015,175.55,-2.88,169.68,185.54,1.26
 20260818,170.5,173.5,163,163.5,811164,174.55,-6.33,168.72,185.68,0.62
 20260819,160.5,164,158,161,875837,173.42,-7.16,167.68,185.74,0.67
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,166,169,163.5,166,796657,166.83,-0.5,164.28,187.61,0.6
 20260903,168,169,161,161,831133,166.34,-3.21,163.82,187.89,0.63
 20260904,165,173,164,171.5,2021752,166.77,2.83,164.03,188.46,1.49
+20260907,172.5,173,166.5,167.5,1610154,166.83,0.4,163.7,188.94,1.16
+20260908,168,168,162,163,976163,166.51,-2.11,164,189.12,0.76
+20260909,164.5,169.5,164.5,168,1012289,166.64,0.82,163.78,189.14,0.8
+20260910,165.5,166,158.5,159,1300492,166,-4.22,163.03,188.73,1.12
+20260911,156.5,159.5,155,157,486821,165.25,-4.99,162.78,187.99,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 79.17
-- over_600_ratio: 74.39
-- over_800_ratio: 73.09
-- over_1000_ratio: 71.56
-- over_400_change_1w: -0.21
-- over_800_change_1w: -0.15
-- over_1000_change_1w: 0.69
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260911
+- over_400_ratio: 78.65
+- over_600_ratio: 74.27
+- over_800_ratio: 72.46
+- over_1000_ratio: 70.93
+- over_400_change_1w: -0.52
+- over_800_change_1w: -0.63
+- over_1000_change_1w: -0.63
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,81.28,2.08,76.44,1.12,74.22,1.22,3,True,True
 20260626,82.61,1.33,79.91,3.47,78.33,4.11,4,True,True
 20260703,82.48,-0.13,78.94,-0.97,76.54,-1.79,5,False,False
 20260709,82.73,0.25,79.36,0.42,77.04,0.5,6,False,True
@@ -199,24 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,79.47,-0.46,73.42,-0.37,71.13,-1.14,1,False,False
 20260828,79.38,-0.09,73.24,-0.18,70.87,-0.26,0,False,False
 20260904,79.17,-0.21,73.09,-0.15,71.56,0.69,1,False,True
+20260911,78.65,-0.52,72.46,-0.63,70.93,-0.63,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4551 | 智伸科 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:GLOBAL ADVANCE TECHNOLOGY LIMITED (2)與提供背書保證公司之關係: 100%間接投資之子公司。 (3)背書保證之限額(仟元):14,807,726 (4)原背書保證之餘額(仟元):3,166,380 (5)本次新增背書保證之金額(仟元):1,453,950 (6)迄事實發生日止背書保證餘額(仟元):4,620,330 (7)被背書保證公司實際動支金額(仟元):1,091,361 (8)本次新增背書保證之原因: 協助該子公司取得銀行授信額度 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):2,964,584 (2)累積盈虧金額(仟元):2,011,754 5.解除背書保證責任之: (1)條件: 合約到期日 (2)日期: 依合約規定 6.背書保證之總限額(仟元): 18,509,658 7.迄事實發生日為止，背書保證餘額(仟元): 4,684,950 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 50.62 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 88.37 10.其他應敘明事項: 1.最近期財務報表係115年第2季財報 2.匯率以115.07.31台灣銀行美金對台幣中間價32.31為準；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 4551 | 智伸科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:GLOBAL ADVANCE TECHNOLOGY LIMITED (2)與提供背書保證公司之關係: 100%間接投資之子公司。 (3)背書保證之限額(仟元):14,807,726 (4)原背書保證之餘額(仟元):3,166,380 (5)本次新增背書保證之金額(仟元):1,453,950 (6)迄事實發生日止背書保證餘額(仟元):4,620,330 (7)被背書保證公司實際動支金額(仟元):1,091,361 (8)本次新增背書保證之原因: 協助該子公司取得銀行授信額度 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):2,964,584 (2)累積盈虧金額(仟元):2,011,754 5.解除背書保證責任之: (1)條件: 合約到期日 (2)日期: 依合約規定 6.背書保證之總限額(仟元): 18,509,658 7.迄事實發生日為止，背書保證餘額(仟元): 4,684,950 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 50.62 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 88.37 10.其他應敘明事項: 1.最近期財務報表係115年第2季財報 2.匯率以115.07.31台灣銀行美金對台幣中間價32.31為準；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 4551 | 智伸科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/08/10 2.被背書保證之: (1)公司名稱:GLOBAL ADVANCE TECHNOLOGY LIMITED (2)與提供背書保證公司之關係: 100%間接投資之子公司。 (3)背書保證之限額(仟元):14,807,726 (4)原背書保證之餘額(仟元):3,166,380 (5)本次新增背書保證之金額(仟元):1,453,950 (6)迄事實發生日止背書保證餘額(仟元):4,620,330 (7)被背書保證公司實際動支金額(仟元):1,091,361 (8)本次新增背書保證之原因: 協助該子公司取得銀行授信額度 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):2,964,584 (2)累積盈虧金額(仟元):2,011,754 5.解除背書保證責任之: (1)條件: 合約到期日 (2)日期: 依合約規定 6.背書保證之總限額(仟元): 18,509,658 7.迄事實發生日為止，背書保證餘額(仟元): 4,684,950 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 50.62 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 88.37 10.其他應敘明事項: 1.最近期財務報表係115年第2季財報 2.匯率以115.07.31台灣銀行美金對台幣中間價32.31為準；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4551 | 智伸科 | 1 | 1 | 2 | 3 | 7 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4551 | 智伸科 | 33 | 0 | 3771820.0 | 0.0 |  | call_strong_inflow |
+| 20260911 | 4551 | 智伸科 | 33 | 0 | 2059390.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

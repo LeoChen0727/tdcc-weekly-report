@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2885 元大金
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:40 Asia/Taipei
+- generated_at: 2026-09-12 15:43:01 Asia/Taipei
 - stock_id: 2885
 - stock_name: 元大金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 68.9
-- high: 70
+- date: 20260911
+- open: 69.6
+- high: 70.3
 - low: 68.5
-- close: 69.8
-- volume: 20306355
-- ma5: 67.42
-- ema23_primary: 65.88
-- distance_to_ema23_pct: 5.95
-- ma20: 65.87
-- ma60: 66.05
-- ma120: 59.27
-- return_5d: 9.06
-- return_20d: 3.1
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 5.97
-- distance_to_high_60_pct: -3.46
+- close: 70
+- volume: 17923620
+- ma5: 70.04
+- ema23_primary: 67.34
+- distance_to_ema23_pct: 3.95
+- ma20: 66.15
+- ma60: 66.51
+- ma120: 60.33
+- return_5d: 0.29
+- return_20d: 0.43
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 5.82
+- distance_to_high_60_pct: -3.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,68.6,69,67.8,68.2,20144057,66.18,3.05,65.5,63.91,0.59
-20260811,67.6,69,67.5,68.4,12044165,66.36,3.07,65.59,64.14,0.37
-20260812,68.9,69.4,67.9,68.6,12235826,66.55,3.08,65.67,64.38,0.38
-20260813,69.2,70,68.4,69.7,19010154,66.81,4.32,65.82,64.63,0.6
-20260814,70.5,70.5,69.1,69.7,22972077,67.05,3.95,66.06,64.87,0.76
 20260817,69.7,69.9,67.8,68.3,26400971,67.16,1.7,66.33,65.1,0.92
 20260818,65.2,66.1,63.6,64,46680070,66.89,-4.33,66.46,65.25,1.68
 20260819,63.9,63.9,62.1,62.5,44748181,66.53,-6.05,66.43,65.35,1.61
@@ -167,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,66.2,66.7,65.7,66.7,18145744,65.25,2.22,65.69,65.86,0.78
 20260903,66.5,69.4,66.3,68.5,36417623,65.52,4.54,65.77,65.92,1.53
 20260904,68.9,70,68.5,69.8,20306355,65.88,5.95,65.87,66.05,0.84
+20260907,70.9,70.9,69.1,70.2,20843675,66.24,5.98,65.97,66.19,0.86
+20260908,70.2,70.8,69.8,70.6,15507453,66.6,6,66.08,66.3,0.64
+20260909,70.4,70.7,69,69.7,21174099,66.86,4.25,66.14,66.38,0.85
+20260910,69,70.2,69,69.7,15088213,67.1,3.88,66.14,66.45,0.61
+20260911,69.6,70.3,68.5,70,17923620,67.34,3.95,66.15,66.51,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 82.8
-- over_600_ratio: 81.66
-- over_800_ratio: 80.86
-- over_1000_ratio: 80.09
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.2
+- as_of_date: 20260911
+- over_400_ratio: 82.96
+- over_600_ratio: 81.8
+- over_800_ratio: 81.01
+- over_1000_ratio: 80.26
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.15
 - over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,83.14,0.06,81.3,0.04,80.64,0.03,1,True,True
 20260626,83.03,-0.11,81.17,-0.13,80.5,-0.14,0,False,False
 20260703,82.97,-0.06,81.08,-0.09,80.43,-0.07,0,False,False
 20260709,83.12,0.15,81.27,0.19,80.56,0.13,1,True,True
@@ -198,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,82.68,-0.4,80.71,-0.47,79.98,-0.42,0,False,False
 20260828,82.61,-0.07,80.66,-0.05,79.92,-0.06,0,False,False
 20260904,82.8,0.19,80.86,0.2,80.09,0.17,1,True,True
+20260911,82.96,0.16,81.01,0.15,80.26,0.17,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.股東臨時會日期:115/09/03 2.重要決議事項:通過續聘PricewaterhouseCoopers(Cambodia) Ltd. 為2026年至2029年之查核簽證會計師事務所 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 2885 | 元大金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.股東臨時會日期:115/09/03 2.重要決議事項:通過續聘PricewaterhouseCoopers(Cambodia) Ltd. 為2026年至2029年之查核簽證會計師事務所 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2885 | 元大金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:元大金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司及重要子公司自行結算115年8月份獲利情形                      8月份                 累積至8月份 　　　　　　 ------------------ ------------------------------- 　             合併    母公司      合併    母公司 　             稅前    業主稅後    稅前    業主稅後    稅後每股 　　　　　　  (億元)   (億元)     (億元)   (億元)      盈餘(元) 　           -------- ---------- --------- ---------  ---------- 元大金控      89.60     70.10     632.76   499.41       3.60 元大證券      56.37     45.06     416.61   338.35       4.75 元大銀行      18.55     15.32     128.49   107.59       1.17 元大期貨       4.39      3.45      29.34    23.27       6.32 元大人壽       3.08      3.55      31.22    27.99       0.96 元大投信       7.97      6.39      52.48    42.18      18.59 註：累計8月未適用外匯價格變動準備金之EPS(元) 元大金控：3.69 元大人壽：1.39   以上資料係本公司自行結算結果，尚未經會計師查核簽證。  6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2885 | 元大金 | 15 | 2 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 2885 | 元大金 | 20 | 6 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2885 | 元大金 | 15 | 0 | 4529010.0 | 0.0 |  | call_inflow |
+| 20260911 | 2885 | 元大金 | 15 | 0 | 3850840.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

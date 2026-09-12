@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:39 Asia/Taipei
+- generated_at: 2026-09-12 15:43:00 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 43.75
-- high: 44
-- low: 43.15
-- close: 44
-- volume: 12694801
-- ma5: 42.75
-- ema23_primary: 41.22
-- distance_to_ema23_pct: 6.74
-- ma20: 40.86
-- ma60: 39.98
-- ma120: 36.74
-- return_5d: 9.32
-- return_20d: -0.9
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 7.68
-- distance_to_high_60_pct: -2.55
+- date: 20260911
+- open: 44.75
+- high: 45.9
+- low: 44.6
+- close: 45.85
+- volume: 18673673
+- ma5: 44.9
+- ema23_primary: 42.54
+- distance_to_ema23_pct: 7.79
+- ma20: 41.64
+- ma60: 40.65
+- ma120: 37.22
+- return_5d: 4.2
+- return_20d: 17.71
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 10.11
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,44.7,44.85,43.35,44,25602739,41.62,5.71,41.75,37.48,0.9
-20260811,43.6,44.2,43.4,43.65,24845327,41.79,4.45,41.97,37.67,0.88
-20260812,43.9,43.95,42.85,43.2,30304400,41.91,3.08,42.19,37.85,1.05
-20260813,41.5,41.55,38.3,39.1,72458281,41.68,-6.18,42.17,37.97,2.33
-20260814,39,39,38,38.95,48593396,41.45,-6.03,42.12,38.09,1.55
 20260817,38.6,39.25,38,39.2,46041639,41.26,-4.99,42.08,38.2,1.46
 20260818,38.9,40.1,38.7,39.7,33199568,41.13,-3.48,42.02,38.33,1.04
 20260819,39.55,39.7,38.65,39,24299348,40.95,-4.77,41.91,38.47,0.76
@@ -166,18 +161,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,41.95,43,41.5,43,22882451,40.74,5.54,40.91,39.7,0.81
 20260903,42.9,43.75,42.65,43.45,16242371,40.97,6.06,40.88,39.83,0.59
 20260904,43.75,44,43.15,44,12694801,41.22,6.74,40.86,39.98,0.47
+20260907,44.7,44.7,43.95,44.35,13082688,41.48,6.91,40.88,40.12,0.49
+20260908,44.5,45.25,44.1,45.15,13254248,41.79,8.05,40.95,40.27,0.51
+20260909,44.85,45.25,44.05,44.35,9120535,42,5.59,41.01,40.4,0.37
+20260910,44.35,45.6,44.2,44.8,13056360,42.23,6.08,41.3,40.52,0.6
+20260911,44.75,45.9,44.6,45.85,18673673,42.54,7.79,41.64,40.65,0.91
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 81.97
-- over_600_ratio: 80.86
-- over_800_ratio: 80.17
-- over_1000_ratio: 79.58
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260911
+- over_400_ratio: 82.05
+- over_600_ratio: 80.96
+- over_800_ratio: 80.25
+- over_1000_ratio: 79.63
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,81.2,0.13,79.4,0.14,78.74,0.17,3,True,True
 20260626,81.26,0.06,79.46,0.06,78.8,0.06,4,True,True
 20260703,81.31,0.05,79.51,0.05,78.88,0.08,5,True,True
 20260709,81.43,0.12,79.65,0.14,79,0.12,6,True,True
@@ -197,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,81.76,0.15,79.98,0.17,79.3,0.15,1,True,True
 20260828,81.86,0.1,80.07,0.09,79.47,0.17,2,True,True
 20260904,81.97,0.11,80.17,0.1,79.58,0.11,3,True,True
+20260911,82.05,0.08,80.25,0.08,79.63,0.05,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2880 | 華南金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/27 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息 3.普通股發放股利種類及金額:每股配發現金股利1.35元、股票股利0.1元。 4.除權（息）交易日:115/08/13 5.最後過戶日:115/08/14 6.停止過戶起始日期:115/08/15 7.停止過戶截止日期:115/08/19 8.除權（息）基準日:115/08/19 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/28 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:授權董事長調整股東配股、配息率或分派現金股利暨增資發行新股 基準日。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2880 | 華南金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.事實發生日:115/09/10 2.公司名稱:華南金融控股股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年8月份自結盈餘 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  華南金控本月合併稅前淨利為40.02億元、合併稅後淨利為33.71億元； 累計合併稅前淨利286.32億元、合併稅後淨利為240.22億元，每股稅後盈餘為1.71元， 每股淨值為17.63元。  主要子公司自結合併損益說明如下： 華南銀行本月合併稅前淨利為33.10億元、合併稅後淨利為27.90億元； 累計合併稅前淨利226.00億元、合併稅後淨利為189.91億元，每股稅後盈餘為1.78元， 每股淨值為24.22元。             華南金融控股公司暨主要子公司115年8月份合併獲利(損失)資料：  　　　　　　　自結合併　自結合併　累計合併　累計合併　累計合併　累計合併 　　　　　　　稅前淨利　稅後淨利　稅前淨利　稅後淨利　每股稅前　每股稅後                 (損)      (損)      (損)      (損)      盈餘      盈餘 　　　　　　　（億元）　（億元）　（億元）　（億元）　 (虧損)    (虧損)                                                         (元)      (元) 華南金控　　　  40.02　   33.71　  286.32　  240.22 　  2.04　　  1.71 華南銀行　　　  33.10　　 27.90　  226.00　　189.91　   2.12　　  1.78 華南永昌證券　   5.18　    4.54 　  46.50　   39.85　　 7.10　　  6.09 華南產險    　   2.32　　  1.85 　  17.91　　 15.06 　  8.95　　  7.52 註1:上述資料均係集團自結合併數字 註2:未適用天災保險準備金之累計合併稅後每股盈餘(虧損) 　　華南金控為1.71元、華南產險為7.46元；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2880 | 華南金 | 5 | 4 | 5 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2880 | 華南金 | 10 | 9 | 5 | 10 | 14 | continued_many_days | 連續 10 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2880 | 華南金 | 4 | 0 | 146140.0 | 0.0 |  | no_signal |
+| 20260911 | 2880 | 華南金 | 4 | 0 | 217270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

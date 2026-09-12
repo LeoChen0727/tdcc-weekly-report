@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:57 Asia/Taipei
+- generated_at: 2026-09-12 15:44:15 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 301
-- high: 317.5
-- low: 294.5
-- close: 315
-- volume: 3153237
-- ma5: 309.4
-- ema23_primary: 306.23
-- distance_to_ema23_pct: 2.86
-- ma20: 304.15
-- ma60: 320.5
-- ma120: 270.51
-- return_5d: 1.78
-- return_20d: 7.33
-- volume_ratio: 1.89
-- distance_to_ma20_pct_auxiliary: 3.57
-- distance_to_high_60_pct: -22.22
+- date: 20260911
+- open: 298
+- high: 304.5
+- low: 298
+- close: 300
+- volume: 1083400
+- ma5: 302.4
+- ema23_primary: 304.79
+- distance_to_ema23_pct: -1.57
+- ma20: 303
+- ma60: 318.53
+- ma120: 275.17
+- return_5d: -4.76
+- return_20d: -2.28
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -0.99
+- distance_to_high_60_pct: -25.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,294.5,309,293,309,2187808,310.17,-0.38,305.57,313.68,0.96
-20260811,304,310.5,301,301.5,1384074,309.44,-2.57,304.55,315.06,0.64
-20260812,302.5,307.5,301,305.5,1123376,309.12,-1.17,303.1,316.51,0.53
-20260813,310.5,317.5,310.5,312,1875619,309.36,0.85,302.43,318.11,0.88
-20260814,314,315,306,307,1400637,309.16,-0.7,302.55,319.61,0.68
 20260817,306.5,307,301,301.5,728958,308.52,-2.28,302.57,320.67,0.37
 20260818,303,304,294,294,1215328,307.31,-4.33,301.9,321.3,0.65
 20260819,286,303,286,301,1017993,306.79,-1.89,301.2,321.75,0.56
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,322,333.5,313.5,313.5,6629877,306.02,2.44,303.95,321.41,4.03
 20260903,314,315.5,299,299,2845571,305.44,-2.11,303.07,320.68,1.68
 20260904,301,317.5,294.5,315,3153237,306.23,2.86,304.15,320.5,1.89
+20260907,316,317,308,308,1708357,306.38,0.53,304.1,320.34,1.04
+20260908,310,310,300,300.5,1048510,305.89,-1.76,304.05,319.89,0.64
+20260909,305,308,301.5,302.5,728834,305.61,-1.02,303.9,319.41,0.45
+20260910,300.5,304.5,298.5,301,709344,305.22,-1.38,303.35,319.08,0.46
+20260911,298,304.5,298,300,1083400,304.79,-1.57,303,318.53,0.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 44.21
-- over_600_ratio: 40.42
-- over_800_ratio: 38.79
-- over_1000_ratio: 36.64
-- over_400_change_1w: -0.31
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.98
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260911
+- over_400_ratio: 44.2
+- over_600_ratio: 40.85
+- over_800_ratio: 38.74
+- over_1000_ratio: 36.63
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,48.01,0.87,41.43,0.19,39.96,0.19,3,False,True
 20260626,48.13,0.12,42.09,0.66,39.96,0,4,False,True
 20260703,47.15,-0.98,42.51,0.42,39.56,-0.4,5,False,True
 20260709,46.31,-0.84,41.63,-0.88,39.44,-0.12,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,45.14,0.3,39.68,-0.06,37.57,0.03,1,False,True
 20260828,44.52,-0.62,39.06,-0.62,37.62,0.05,2,False,True
 20260904,44.21,-0.31,38.79,-0.27,36.64,-0.98,0,False,False
+20260911,44.2,-0.01,38.74,-0.05,36.63,-0.01,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6197 | 佳必琪 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 6197 | 佳必琪 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣7.0元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣854,601,174元，合計每股配發新台幣6.92325997元。 4.變更原因: 因本公司國內無擔保轉換公司債轉換成普通股，致使本公司流通在外股數 發生變動而影響股東配息比率異動，依民國115年03月06日董事會決議由 董事會授權董事長調整配息率。 5.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6197 | 佳必琪 | 1 | 1 | 2 | 5 | 12 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 6197 | 佳必琪 | 1 | 1 | 2 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6197 | 佳必琪 | 123 | 0 | 18541740.0 | 0.0 |  | call_strong_inflow |
+| 20260911 | 6197 | 佳必琪 | 123 | 0 | 8171800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

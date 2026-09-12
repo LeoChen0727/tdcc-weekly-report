@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:13 Asia/Taipei
+- generated_at: 2026-09-12 15:43:33 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
+- date: 20260911
 - open: 122
-- high: 122.5
-- low: 115.5
-- close: 118
-- volume: 3581294
-- ma5: 122.7
-- ema23_primary: 118.6
-- distance_to_ema23_pct: -0.5
-- ma20: 116.72
-- ma60: 134.95
-- ma120: 156.95
-- return_5d: -5.6
-- return_20d: 3.06
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -39.95
+- high: 124
+- low: 122
+- close: 123
+- volume: 3109049
+- ma5: 126.2
+- ema23_primary: 121.31
+- distance_to_ema23_pct: 1.39
+- ma20: 118.33
+- ma60: 131.32
+- ma120: 155.03
+- return_5d: 4.24
+- return_20d: 6.03
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 3.95
+- distance_to_high_60_pct: -37.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,119,125.5,118.5,125.5,4961217,122.78,2.22,116.61,152.63,0.8
-20260811,124.5,129,122,122,12494182,122.71,-0.58,115.67,151.75,1.96
-20260812,118.5,119.5,117,118,7082626,122.32,-3.53,114.44,150.87,1.09
-20260813,119,122,117.5,117.5,6303302,121.92,-3.62,113.47,150.08,0.95
-20260814,118,119,115,116,4353421,121.42,-4.47,113.09,149.33,0.69
 20260817,114.5,116,111,115,6106615,120.89,-4.87,112.86,148.51,0.97
 20260818,115,115,110,110,3518394,119.98,-8.32,112.24,147.44,0.56
 20260819,107,112.5,106,107.5,4364586,118.94,-9.62,111.34,146.25,0.7
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,132,132.5,124,124.5,12492024,118.71,4.88,116.47,136.63,2.04
 20260903,125.5,126.5,117.5,118,5543430,118.65,-0.55,116.55,135.69,0.93
 20260904,122,122.5,115.5,118,3581294,118.6,-0.5,116.72,134.95,0.61
+20260907,119,121.5,117,119.5,3273965,118.67,0.7,116.42,134.17,0.57
+20260908,124.5,130.5,124,126.5,12850292,119.32,6.01,116.65,133.5,2.22
+20260909,126.5,138,125,135,16952441,120.63,11.91,117.5,132.94,2.7
+20260910,132.5,133,126,127,9421993,121.16,4.82,117.97,132.21,1.46
+20260911,122,124,122,123,3109049,121.31,1.39,118.33,131.32,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 28.31
-- over_600_ratio: 25.86
-- over_800_ratio: 23.86
-- over_1000_ratio: 20.56
-- over_400_change_1w: -1.29
-- over_800_change_1w: 0.07
-- over_1000_change_1w: -0.68
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260911
+- over_400_ratio: 29.21
+- over_600_ratio: 26.59
+- over_800_ratio: 23.29
+- over_1000_ratio: 21.31
+- over_400_change_1w: 0.9
+- over_800_change_1w: -0.57
+- over_1000_change_1w: 0.75
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,34.4,2.21,29.16,2.07,27.85,2.68,2,True,True
 20260626,38.37,3.97,32.04,2.88,31.09,3.24,3,True,True
 20260703,36.61,-1.76,30.92,-1.12,29.98,-1.11,0,False,False
 20260709,31.82,-4.79,25.82,-5.1,23.24,-6.74,0,False,False
@@ -199,24 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,29.2,-0.01,23.34,0.43,20.83,0.13,1,False,True
 20260828,29.6,0.4,23.79,0.45,21.24,0.41,2,True,True
 20260904,28.31,-1.29,23.86,0.07,20.56,-0.68,3,False,True
+20260911,29.21,0.9,23.29,-0.57,21.31,0.75,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3715 | 定穎投控 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.股東臨時會日期:115/09/02 2.重要決議事項: (1)通過修訂本公司「背書保證管理辦法」案。 (2)通過本公司之子公司超穎電子電路股份有限公司發行H股股票並在香港聯合交易 所有限公司主板上市案。 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 1.股東臨時會日期:115/09/02 2.重要決議事項: (1)通過修訂本公司「背書保證管理辦法」案。 (2)通過本公司之子公司超穎電子電路股份有限公司發行H股股票並在香港聯合交易 所有限公司主板上市案。 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 17 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.股東臨時會日期:115/09/02 2.重要決議事項: (1)通過修訂本公司「背書保證管理辦法」案。 (2)通過本公司之子公司超穎電子電路股份有限公司發行H股股票並在香港聯合交易 所有限公司主板上市案。 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3715 | 定穎投控 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業用之機器設備，坐落泰國304工業區 2.事實發生日:115/9/10~115/9/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依核決層級由董事長於民國115年9月10日核決 民國115年9月10日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批 每單位價格：不適用 交易總金額：美金總額不高於1,660萬元(約新台幣5.25億元) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Schmoll Maschinen GmbH；與公司的關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：依合約條件付款 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策方式：比價及議價 價格決定之參考依據：參考市場行情 決策單位：依公司核決權限之規定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產及營運所需 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: NA 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業用之機器設備，坐落泰國304工業區 2.事實發生日:115/9/10~115/9/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依核決層級由董事長於民國115年9月10日核決 民國115年9月10日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批 每單位價格：不適用 交易總金額：美金總額不高於1,660萬元(約新台幣5.25億元) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Schmoll Maschinen GmbH；與公司的關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：依合約條件付款 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策方式：比價及議價 價格決定之參考依據：參考市場行情 決策單位：依公司核決權限之規定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產及營運所需 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: NA 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 37 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業用之機器設備，坐落泰國304工業區 2.事實發生日:115/9/10~115/9/10 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依核決層級由董事長於民國115年9月10日核決 民國115年9月10日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批 每單位價格：不適用 交易總金額：美金總額不高於1,660萬元(約新台幣5.25億元) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Schmoll Maschinen GmbH；與公司的關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：依合約條件付款 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策方式：比價及議價 價格決定之參考依據：參考市場行情 決策單位：依公司核決權限之規定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產及營運所需 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: NA 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3715 | 定穎投控 | 13 | 2 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3715 | 定穎投控 | 18 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3715 | 定穎投控 | 221 | 6 | 2509500.0 | 27270.0 | 92.02 | no_signal |
+| 20260911 | 3715 | 定穎投控 | 215 | 5 | 4406260.0 | 118040.0 | 37.33 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

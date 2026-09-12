@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6239 力成
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:01 Asia/Taipei
+- generated_at: 2026-09-12 15:44:19 Asia/Taipei
 - stock_id: 6239
 - stock_name: 力成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 280.5
-- high: 283.5
-- low: 272.5
-- close: 276.5
-- volume: 9540575
-- ma5: 278.1
-- ema23_primary: 276.55
-- distance_to_ema23_pct: -0.02
-- ma20: 276.95
-- ma60: 294.82
-- ma120: 268.57
-- return_5d: -3.66
-- return_20d: 5.33
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -26.75
+- date: 20260911
+- open: 278
+- high: 278
+- low: 270.5
+- close: 273
+- volume: 12530702
+- ma5: 278.6
+- ema23_primary: 277.23
+- distance_to_ema23_pct: -1.53
+- ma20: 275.93
+- ma60: 289.72
+- ma120: 271.64
+- return_5d: -1.27
+- return_20d: -1.8
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -1.06
+- distance_to_high_60_pct: -27.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,283,288.5,283,288.5,7915671,275.42,4.75,270.7,305.82,0.37
-20260811,291,296,271,282.5,39724386,276.01,2.35,269.62,306.4,1.8
-20260812,284,287,280.5,281.5,13946437,276.46,1.82,268,306.93,0.64
-20260813,287,294,282,283,18351610,277.01,2.16,266.32,307.86,0.83
-20260814,287,288.5,276,278,14915030,277.09,0.33,265.82,308.58,0.72
 20260817,278,282,275.5,278,7819061,277.17,0.3,266.4,308.93,0.39
 20260818,279,279.5,265,265.5,11353209,276.19,-3.87,266.07,308.63,0.57
 20260819,258,267.5,255,262.5,9782257,275.05,-4.56,264.5,307.82,0.5
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,280,286,278,278,8155148,276.7,0.47,275.98,296.02,0.54
 20260903,282.5,284.5,273.5,275,9490466,276.56,-0.56,276.25,295.26,0.64
 20260904,280.5,283.5,272.5,276.5,9540575,276.55,-0.02,276.95,294.82,0.67
+20260907,281.5,285,279.5,280,7157757,276.84,1.14,276.52,293.93,0.51
+20260908,285,290.5,274,275.5,14541717,276.73,-0.44,276.18,292.73,1.13
+20260909,278,288,278,281,12889675,277.08,1.41,276.15,291.97,1.01
+20260910,280,290,279.5,283.5,14120688,277.62,2.12,276.18,290.92,1.12
+20260911,278,278,270.5,273,12530702,277.23,-1.53,275.93,289.72,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 62.19
-- over_600_ratio: 59.27
-- over_800_ratio: 57.83
-- over_1000_ratio: 56.08
-- over_400_change_1w: 0.58
-- over_800_change_1w: 0.44
-- over_1000_change_1w: 0.52
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260911
+- over_400_ratio: 62.35
+- over_600_ratio: 59.78
+- over_800_ratio: 58.36
+- over_1000_ratio: 56.41
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.53
+- over_1000_change_1w: 0.33
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,69.59,-2.25,65.18,-2.54,63.69,-2.16,0,False,False
 20260626,66.81,-2.78,61.76,-3.42,60.62,-3.07,0,False,False
 20260703,66.86,0.05,61.61,-0.15,60.01,-0.61,1,False,False
 20260709,66.95,0.09,61.86,0.25,60.35,0.34,2,False,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,62.41,-0.4,57.97,-0.44,56.36,-0.09,0,False,False
 20260828,61.61,-0.8,57.39,-0.58,55.56,-0.8,0,False,False
 20260904,62.19,0.58,57.83,0.44,56.08,0.52,1,True,True
+20260911,62.35,0.16,58.36,0.53,56.41,0.33,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/09/03 2.本次買回股份數量(股):1,200,000 3.本次買回股份總金額(元):333,890,119 4.本次平均每股買回價格(元):278.24 5.於買回期間內累積已持有自己公司股份數量(股):5,650,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.74 7.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北喜來登大飯店 4.法人說明會擇要訊息：本公司受邀參加第一金證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6239 | 力成 | 38 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 6239 | 力成 | 43 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6239 | 力成 | 269 | 12 | 13228070.0 | 5150.0 | 2568.56 | no_signal |
+| 20260911 | 6239 | 力成 | 275 | 12 | 16517940.0 | 103310.0 | 159.89 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

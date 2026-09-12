@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4749 新應材
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:28 Asia/Taipei
+- generated_at: 2026-09-12 15:43:47 Asia/Taipei
 - stock_id: 4749
 - stock_name: 新應材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 782
-- high: 813
-- low: 776
-- close: 776
-- volume: 1261000
-- ma5: 778
-- ema23_primary: 780.67
-- distance_to_ema23_pct: -0.6
-- ma20: 777.45
-- ma60: 826.83
-- ma120: 902.86
-- return_5d: -1.77
-- return_20d: -4.08
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: -0.19
-- distance_to_high_60_pct: -23.17
+- date: 20260911
+- open: 750
+- high: 750
+- low: 720
+- close: 721
+- volume: 868000
+- ma5: 763
+- ema23_primary: 773.47
+- distance_to_ema23_pct: -6.78
+- ma20: 769.05
+- ma60: 812.82
+- ma120: 896.62
+- return_5d: -7.09
+- return_20d: -8.39
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: -6.25
+- distance_to_high_60_pct: -28.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,786,800,764,786,1188000,802.82,-2.1,784.15,912.73,1.31
-20260811,786,807,771,803,551000,802.84,0.02,782.95,909.2,0.64
-20260812,806,823,806,809,337000,803.35,0.7,780.1,905.93,0.4
-20260813,824,824,795,798,472000,802.91,-0.61,777,902.82,0.56
-20260814,800,802,786,787,358000,801.58,-1.82,776.5,899.37,0.44
 20260817,786,791,780,786,252000,800.28,-1.78,775.25,894.3,0.32
 20260818,789,790,769,769,343000,797.68,-3.59,772.9,887.62,0.44
 20260819,744,767,744,759,322000,794.45,-4.46,770.1,881.02,0.42
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,805,808,787,787,689000,783.1,0.5,782.3,833.18,1.33
 20260903,795,797,758,759,531000,781.09,-2.83,779.1,829.32,1.06
 20260904,782,813,776,776,1261000,780.67,-0.6,777.45,826.83,2.38
+20260907,794,825,784,787,1072000,781.19,0.74,777.5,824.82,2.05
+20260908,801,814,780,780,703000,781.09,-0.14,776.35,822.47,1.32
+20260909,780,797,768,770,656000,780.17,-1.3,774.4,819.47,1.2
+20260910,760,769,756,757,340000,778.24,-2.73,772.35,816.47,0.63
+20260911,750,750,720,721,868000,773.47,-6.78,769.05,812.82,1.53
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 33.62
-- over_600_ratio: 27.07
-- over_800_ratio: 24.77
-- over_1000_ratio: 23.91
-- over_400_change_1w: 1.14
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 33.66
+- over_600_ratio: 26.94
+- over_800_ratio: 24.68
+- over_1000_ratio: 23.82
+- over_400_change_1w: 0.04
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.09
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,36.63,-1.5,26.9,-0.69,24.89,0.2,2,False,True
 20260626,36.44,-0.19,27.52,0.62,25.49,0.6,3,False,True
 20260703,35.64,-0.8,26.84,-0.68,23.89,-1.6,0,False,False
 20260709,35.55,-0.09,26.87,0.03,23.92,0.03,1,False,True
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,33.53,-0.12,26.52,-0.09,25.66,-0.09,0,False,False
 20260828,32.48,-1.05,24.63,-1.89,23.77,-1.89,0,False,False
 20260904,33.62,1.14,24.77,0.14,23.91,0.14,1,True,True
+20260911,33.66,0.04,24.68,-0.09,23.82,-0.09,2,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4749 | 新應材 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4749 | 新應材 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

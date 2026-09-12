@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6203 海韻電
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:58 Asia/Taipei
+- generated_at: 2026-09-12 15:44:16 Asia/Taipei
 - stock_id: 6203
 - stock_name: 海韻電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 60.3
-- high: 60.8
-- low: 60.2
-- close: 60.7
-- volume: 22000
-- ma5: 60.4
-- ema23_primary: 60.95
-- distance_to_ema23_pct: -0.41
-- ma20: 60.24
-- ma60: 63.96
-- ma120: 66.03
-- return_5d: 1.85
-- return_20d: -0.49
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 0.76
-- distance_to_high_60_pct: -14.02
+- date: 20260911
+- open: 60
+- high: 60
+- low: 59.5
+- close: 59.9
+- volume: 65000
+- ma5: 60.12
+- ema23_primary: 60.65
+- distance_to_ema23_pct: -1.24
+- ma20: 60.12
+- ma60: 63.37
+- ma120: 65.78
+- return_5d: -1.32
+- return_20d: -0.33
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -0.36
+- distance_to_high_60_pct: -15.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,61.8,62.1,60.7,61,101000,64.11,-4.85,64.22,67.23,0.82
-20260811,61,61,60.5,60.7,70000,63.82,-4.89,63.98,67.1,0.61
-20260812,61.3,61.5,60.7,61.1,50000,63.6,-3.93,63.74,66.98,0.44
-20260813,61.1,61.1,60.3,60.3,165000,63.32,-4.77,63.51,66.84,1.43
-20260814,60.4,60.5,59.8,60.1,166000,63.05,-4.68,63.3,66.7,1.44
 20260817,60.2,60.4,60.1,60.3,61000,62.82,-4.02,63.08,66.52,0.54
 20260818,60.4,60.4,59.7,59.8,80000,62.57,-4.43,62.79,66.31,0.73
 20260819,59.8,60.4,59.8,60.3,56000,62.38,-3.34,62.48,66.11,0.52
@@ -168,10 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,60.3,61,60.3,60.9,116000,61.03,-0.22,60.27,64.23,1.52
 20260903,61,61,60,60.3,43000,60.97,-1.1,60.26,64.07,0.57
 20260904,60.3,60.8,60.2,60.7,22000,60.95,-0.41,60.24,63.96,0.31
+20260907,60.5,60.6,60.1,60.2,32000,60.89,-1.13,60.2,63.84,0.47
+20260908,60.2,60.6,60,60.4,31000,60.85,-0.73,60.19,63.74,0.47
+20260909,60.2,60.4,60,60,72000,60.78,-1.28,60.13,63.61,1.06
+20260910,60.2,60.2,60,60.1,44000,60.72,-1.02,60.12,63.5,0.71
+20260911,60,60,59.5,59.9,65000,60.65,-1.24,60.12,63.37,1.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
+- as_of_date: 20260911
 - over_400_ratio: 59.22
 - over_600_ratio: 55.63
 - over_800_ratio: 52.21
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,59.19,0.03,52.21,0.02,52.21,0.02,5,True,True
 20260626,59.19,0,52.21,0,52.21,0,0,False,False
 20260703,59.2,0.01,52.21,0,52.21,0,1,False,False
 20260709,59.2,0,52.21,0,52.21,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,59.22,0,52.21,0,52.21,0,0,False,False
 20260828,59.22,0,52.21,0,52.21,0,0,False,False
 20260904,59.22,0,52.21,0,52.21,0,0,False,False
+20260911,59.22,0,52.21,0,52.21,0,0,False,False
 ```
 
 ## Candidate Context

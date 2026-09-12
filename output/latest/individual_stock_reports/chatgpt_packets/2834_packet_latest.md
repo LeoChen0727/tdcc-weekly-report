@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2834 臺企銀
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:38 Asia/Taipei
+- generated_at: 2026-09-12 15:42:59 Asia/Taipei
 - stock_id: 2834
 - stock_name: 臺企銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 16.85
-- high: 17.1
-- low: 16.85
-- close: 17
-- volume: 65441010
-- ma5: 17.08
-- ema23_primary: 16.85
-- distance_to_ema23_pct: 0.86
-- ma20: 16.59
-- ma60: 17.35
-- ma120: 16.62
-- return_5d: 3.34
-- return_20d: 3.03
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.47
-- distance_to_high_60_pct: -7.61
+- date: 20260911
+- open: 17.7
+- high: 18
+- low: 17.55
+- close: 18
+- volume: 38854381
+- ma5: 17.75
+- ema23_primary: 17.18
+- distance_to_ema23_pct: 4.77
+- ma20: 16.92
+- ma60: 17.38
+- ma120: 16.73
+- return_5d: 5.88
+- return_20d: 10.43
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 6.38
+- distance_to_high_60_pct: -2.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,16.7,16.7,16.4,16.5,27113817,17.47,-5.56,17.68,17.26,0.6
-20260811,16.5,16.55,16.35,16.4,30328265,17.38,-5.65,17.62,17.27,0.68
-20260812,16.45,16.55,16.4,16.5,20167875,17.31,-4.67,17.55,17.28,0.45
-20260813,16.5,16.5,16.25,16.45,43024086,17.24,-4.56,17.47,17.28,0.96
-20260814,16.45,16.45,16.25,16.3,31429456,17.16,-5,17.38,17.29,0.71
 20260817,16.3,16.35,16.25,16.3,22546119,17.09,-4.61,17.3,17.29,0.52
 20260818,16.3,16.55,16.25,16.5,24755437,17.04,-3.16,17.22,17.3,0.58
 20260819,16.5,16.55,16.4,16.4,19367581,16.98,-3.44,17.14,17.31,0.46
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,17,17.3,16.95,17.25,45702144,16.82,2.57,16.54,17.34,0.68
 20260903,17.15,17.4,17,17.1,101693429,16.84,1.53,16.57,17.34,1.45
 20260904,16.85,17.1,16.85,17,65441010,16.85,0.86,16.59,17.35,0.91
+20260907,17.05,17.2,16.9,17.2,42598738,16.88,1.87,16.62,17.35,0.59
+20260908,17.2,17.7,17.1,17.7,64877865,16.95,4.42,16.69,17.36,0.87
+20260909,17.75,17.95,17.7,17.95,59423314,17.03,5.37,16.76,17.37,0.78
+20260910,17.85,18.05,17.75,17.9,61247986,17.11,4.64,16.84,17.37,0.79
+20260911,17.7,18,17.55,18,38854381,17.18,4.77,16.92,17.38,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 60.46
-- over_600_ratio: 57.76
-- over_800_ratio: 55.99
-- over_1000_ratio: 54.8
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.46
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 60.81
+- over_600_ratio: 58.06
+- over_800_ratio: 56.34
+- over_1000_ratio: 55.18
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.35
+- over_1000_change_1w: 0.38
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,61.15,0.2,56.79,0.27,55.52,0.18,3,True,True
 20260626,61.23,0.08,56.84,0.05,55.6,0.08,4,True,True
 20260703,61.16,-0.07,56.74,-0.1,55.54,-0.06,0,False,False
 20260709,61.34,0.18,56.94,0.2,55.75,0.21,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,60.86,-0.17,56.39,-0.19,55.33,-0.16,0,False,False
 20260828,60.79,-0.07,56.34,-0.05,55.26,-0.07,0,False,False
 20260904,60.46,-0.33,55.99,-0.35,54.8,-0.46,0,False,False
+20260911,60.81,0.35,56.34,0.35,55.18,0.38,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除權息 3.普通股發放股利種類及金額: 每股分派現金股利0.30元及股票股利0.70元， 計分派現金股利新臺幣（以下同）29億1,541萬8,555元及股票股利 轉增資發行新股68億264萬3,300元。 4.除權（息）交易日:115/08/04 5.最後過戶日:115/08/05 6.停止過戶起始日期:115/08/06 7.停止過戶截止日期:115/08/10 8.除權（息）基準日:115/08/10 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/09/02 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)股票含權(息)最後買進日：115/08/03 (2)股東若欲以email接收股利發放通知，請至集保結算所 「股東e服務-股務事務電子通知(eNotice)平台」 (https://stockservices.tdcc.com.tw)辦理登記。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:臺灣企銀 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年8月份自結合併盈餘 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年8月份合併稅前淨利17.55億元，合併稅後淨利14.28億元。累計合併稅前 淨利124.38億元，累計合併稅後淨利103.46億元，累計合併每股稅前盈餘1.20元， 累計合併每股稅後盈餘0.99元，合併每股淨值15.09元。 以上數字係本公司自行結算金額。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2834 | 臺企銀 | 1 | 1 | 4 | 4 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2834 | 臺企銀 | 6 | 6 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2834 | 臺企銀 | 4 | 0 | 78890.0 | 0.0 |  | no_signal |
+| 20260911 | 2834 | 臺企銀 | 4 | 0 | 5700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

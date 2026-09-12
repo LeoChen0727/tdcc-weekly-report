@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3718 中光電投控
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:14 Asia/Taipei
+- generated_at: 2026-09-12 15:43:33 Asia/Taipei
 - stock_id: 3718
 - stock_name: 中光電投控
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 2
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 7
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -125,23 +125,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 80
-- high: 80.5
-- low: 75.2
-- close: 75.5
-- volume: 4129000
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20260911
+- open: 65
+- high: 66.5
+- low: 63.1
+- close: 63.1
+- volume: 5343000
+- ma5: 66.76
+- ema23_primary: 73.98
+- distance_to_ema23_pct: -14.71
+- ma20: 69.66
+- ma60: 69.66
+- ma120: 69.66
+- return_5d: -16.42
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -9.41
+- distance_to_high_60_pct: -26.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,11 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260903,85,86,77.2,78.3,3400000,,,,,
 20260904,80,80.5,75.2,75.5,4129000,,,,,
+20260907,75.1,75.1,70.1,70.9,6283000,,,,,
+20260908,71.5,71.6,65.6,66.1,7163000,,,,,
+20260909,66.3,69,66.2,68.1,4431000,75.82,-10.18,71.78,71.78,0.87
+20260910,67.4,67.4,65.1,65.6,4240000,74.97,-12.5,70.75,70.75,0.86
+20260911,65,66.5,63.1,63.1,5343000,73.98,-14.71,69.66,69.66,1.07
 ```
 
 ## Latest TDCC Snapshot

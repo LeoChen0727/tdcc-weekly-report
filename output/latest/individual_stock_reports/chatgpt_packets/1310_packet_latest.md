@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1310 台苯
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:47 Asia/Taipei
+- generated_at: 2026-09-12 15:42:11 Asia/Taipei
 - stock_id: 1310
 - stock_name: 台苯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 8.78
-- high: 8.79
-- low: 8.55
-- close: 8.72
-- volume: 3093178
-- ma5: 8.82
-- ema23_primary: 8.53
-- distance_to_ema23_pct: 2.29
-- ma20: 8.34
-- ma60: 9.09
-- ma120: 9.35
-- return_5d: 3.44
-- return_20d: 9.41
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 4.54
-- distance_to_high_60_pct: -29.96
+- date: 20260911
+- open: 8.8
+- high: 8.83
+- low: 8.62
+- close: 8.63
+- volume: 1644380
+- ma5: 8.68
+- ema23_primary: 8.58
+- distance_to_ema23_pct: 0.58
+- ma20: 8.48
+- ma60: 9.1
+- ma120: 9.23
+- return_5d: -1.03
+- return_20d: 3.98
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 1.77
+- distance_to_high_60_pct: -30.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,8.1,8.15,7.98,8.08,4121526,8.7,-7.12,8.89,9.08,0.6
-20260811,8.08,8.1,7.91,8.01,3325759,8.64,-7.31,8.77,9.08,0.49
-20260812,8.08,8.1,8.01,8.09,2178167,8.6,-5.89,8.65,9.08,0.33
-20260813,8.11,8.23,8.06,8.14,3608852,8.56,-4.89,8.52,9.09,0.56
-20260814,8.2,8.33,8.04,8.3,4385556,8.54,-2.77,8.43,9.09,0.69
 20260817,8.5,8.5,8.07,8.12,3420792,8.5,-4.49,8.34,9.09,0.54
 20260818,8.12,8.28,8.07,8.15,3251161,8.47,-3.81,8.25,9.1,0.52
 20260819,8.2,8.21,8.06,8.1,2899666,8.44,-4.05,8.15,9.1,0.47
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,8.82,9.07,8.8,8.97,2724992,8.48,5.79,8.26,9.08,0.68
 20260903,8.99,9.29,8.75,8.82,4431788,8.51,3.67,8.3,9.09,1.16
 20260904,8.78,8.79,8.55,8.72,3093178,8.53,2.29,8.34,9.09,0.82
+20260907,8.73,8.76,8.56,8.6,1979507,8.53,0.8,8.37,9.09,0.54
+20260908,8.64,8.64,8.49,8.57,1970702,8.53,0.42,8.39,9.09,0.55
+20260909,8.57,8.9,8.57,8.87,3865106,8.56,3.59,8.43,9.1,1.05
+20260910,8.91,8.91,8.66,8.72,1693720,8.58,1.68,8.46,9.1,0.47
+20260911,8.8,8.83,8.62,8.63,1644380,8.58,0.58,8.48,9.1,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 30.22
-- over_600_ratio: 27.04
-- over_800_ratio: 24.61
-- over_1000_ratio: 23.6
-- over_400_change_1w: -0.17
-- over_800_change_1w: -0.41
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 30.57
+- over_600_ratio: 27.24
+- over_800_ratio: 25.2
+- over_1000_ratio: 24.69
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.59
+- over_1000_change_1w: 1.09
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,29.76,-0.27,24.62,0.09,23.58,0.07,2,False,True
 20260626,30.09,0.33,24.94,0.32,23.21,-0.37,3,False,True
 20260703,30.58,0.49,25.96,1.02,24.06,0.85,4,True,True
 20260709,29.92,-0.66,25.4,-0.56,24.03,-0.03,0,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,30.16,0.22,24.67,-0.16,23.81,0.2,4,False,True
 20260828,30.39,0.23,25.02,0.35,23.48,-0.33,5,False,True
 20260904,30.22,-0.17,24.61,-0.41,23.6,0.12,6,False,True
+20260911,30.57,0.35,25.2,0.59,24.69,1.09,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1310 | 台苯 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 1310 | 台苯 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1310 | 台苯 | 1 | 1 | 3 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 1310 | 台苯 | 6 | 2 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

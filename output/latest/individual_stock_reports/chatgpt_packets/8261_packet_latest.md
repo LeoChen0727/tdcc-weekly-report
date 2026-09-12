@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:52 Asia/Taipei
+- generated_at: 2026-09-12 15:45:08 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 178.5
-- high: 185.5
-- low: 174.5
-- close: 180.5
-- volume: 3505933
-- ma5: 178.2
-- ema23_primary: 186.94
-- distance_to_ema23_pct: -3.44
-- ma20: 183.05
-- ma60: 220.78
-- ma120: 175.9
-- return_5d: -3.73
-- return_20d: 4.94
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -1.39
-- distance_to_high_60_pct: -52.56
+- date: 20260911
+- open: 164.5
+- high: 166
+- low: 162
+- close: 162
+- volume: 1680219
+- ma5: 170.4
+- ema23_primary: 180.86
+- distance_to_ema23_pct: -10.43
+- ma20: 178.95
+- ma60: 220.12
+- ma120: 178.34
+- return_5d: -10.25
+- return_20d: -12.43
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -9.47
+- distance_to_high_60_pct: -57.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,175.5,181.5,174,179,5109076,209.28,-14.47,214.78,215.07,0.9
-20260811,178,191.5,176.5,184,7517842,207.17,-11.18,208.62,215.9,1.31
-20260812,184,190,183.5,184,4859012,205.24,-10.35,202.62,216.66,0.83
-20260813,187,202,187,202,11082891,204.97,-1.45,198.8,217.77,1.76
-20260814,202.5,202.5,185,185,12236942,203.31,-9,195.5,218.37,1.83
 20260817,187,197.5,180.5,195.5,7579776,202.65,-3.53,193.82,219.12,1.1
 20260818,196.5,210.5,185,186.5,13143315,201.31,-7.36,190.97,219.57,1.76
 20260819,181,202,179.5,183.5,11749118,199.82,-8.17,187.45,219.69,1.48
@@ -168,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,179,182.5,177,177,1905117,188.84,-6.27,183.3,220.23,0.29
 20260903,179,184.5,173,173,3621186,187.52,-7.74,182.62,220.38,0.56
 20260904,178.5,185.5,174.5,180.5,3505933,186.94,-3.44,183.05,220.78,0.56
+20260907,183.5,186.5,180,181,3161086,186.44,-2.92,183.15,221.16,0.51
+20260908,179.5,180,170.5,170.5,4186344,185.11,-7.89,182.47,221.11,0.7
+20260909,170.5,173.5,169,170.5,1715914,183.9,-7.28,181.8,220.85,0.29
+20260910,168,170.5,166,168,2049028,182.57,-7.98,180.1,220.68,0.38
+20260911,164.5,166,162,162,1680219,180.86,-10.43,178.95,220.12,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 42.47
-- over_600_ratio: 40.27
-- over_800_ratio: 38.51
-- over_1000_ratio: 37.8
-- over_400_change_1w: -2.09
-- over_800_change_1w: -2.59
-- over_1000_change_1w: -1.06
+- as_of_date: 20260911
+- over_400_ratio: 42.23
+- over_600_ratio: 39.27
+- over_800_ratio: 38.13
+- over_1000_ratio: 37.42
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.38
+- over_1000_change_1w: -0.38
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,50.33,8.69,46.57,7.97,42.12,4.23,1,True,True
 20260626,54.03,3.7,48.4,1.83,46.17,4.05,2,True,True
 20260703,55.89,1.86,51.91,3.51,49,2.83,3,True,True
 20260709,53.04,-2.85,48.48,-3.43,43.96,-5.04,0,False,False
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,43.53,-6.97,40.42,-5,38.95,-4.21,0,False,False
 20260828,44.56,1.03,41.1,0.68,38.86,-0.09,1,False,True
 20260904,42.47,-2.09,38.51,-2.59,37.8,-1.06,0,False,False
+20260911,42.23,-0.24,38.13,-0.38,37.42,-0.38,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8261 | 富鼎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/29 1.召開法人說明會之日期：115/07/29 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市松山區民生東路三段115號14樓 (玉山廳) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會，本公司營運狀況報告。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8261 | 富鼎 | 1 | 1 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8261 | 富鼎 | 128 | 2 | 9434740.0 | 5790.0 | 1629.49 | no_signal |
+| 20260911 | 8261 | 富鼎 | 122 | 1 | 3516120.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

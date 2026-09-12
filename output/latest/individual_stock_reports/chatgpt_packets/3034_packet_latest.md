@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:46 Asia/Taipei
+- generated_at: 2026-09-12 15:43:07 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 527
-- high: 530
-- low: 519
-- close: 524
-- volume: 2053343
-- ma5: 537.2
-- ema23_primary: 532.85
-- distance_to_ema23_pct: -1.66
-- ma20: 535.35
-- ma60: 520.86
-- ma120: 477.64
-- return_5d: -3.85
-- return_20d: -3.32
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -2.12
-- distance_to_high_60_pct: -13.53
+- date: 20260911
+- open: 536
+- high: 547
+- low: 536
+- close: 547
+- volume: 2414338
+- ma5: 541.8
+- ema23_primary: 536.16
+- distance_to_ema23_pct: 2.02
+- ma20: 537.35
+- ma60: 524.57
+- ma120: 484.38
+- return_5d: 4.39
+- return_20d: 6.84
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -9.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,546,557,541,544,3004623,516.35,5.36,503.23,504.66,0.6
-20260811,543,546,533,538,2428903,518.15,3.83,506.73,505.85,0.54
-20260812,538,544,532,537,3050823,519.72,3.32,509.98,506.88,0.69
-20260813,542,545,531,538,3781700,521.25,3.21,513.3,508.07,0.85
-20260814,538,538,507,512,3726982,520.48,-1.63,515.88,508.73,0.86
 20260817,510,513,498.5,509,3210961,519.52,-2.02,518.42,509.14,0.75
 20260818,502,508,499.5,505,2567924,518.31,-2.57,519.88,509.47,0.61
 20260819,504,535,501,534,4731319,519.62,2.77,521.52,510.22,1.15
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,558,563,540,543,3294710,534.26,1.64,537.05,519.33,0.9
 20260903,548,549,522,527,2612709,533.65,-1.25,536.25,520.1,0.72
 20260904,527,530,519,524,2053343,532.85,-1.66,535.35,520.86,0.58
+20260907,534,540,525,540,2295152,533.45,1.23,535.15,521.73,0.65
+20260908,543,543,524,534,2042980,533.49,0.1,534.95,522.48,0.58
+20260909,532,552,532,543,3739044,534.28,1.63,535.25,523.28,1.06
+20260910,538,551,534,545,2522795,535.18,1.84,535.6,524.03,0.73
+20260911,536,547,536,547,2414338,536.16,2.02,537.35,524.57,0.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 71.55
-- over_600_ratio: 66.78
-- over_800_ratio: 63.36
-- over_1000_ratio: 60.53
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 1.24
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 71.88
+- over_600_ratio: 66.71
+- over_800_ratio: 63.14
+- over_1000_ratio: 60.46
+- over_400_change_1w: 0.33
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,70.41,0.42,63.1,0.75,59.74,0.47,4,True,True
 20260626,70.52,0.11,62.56,-0.54,59.35,-0.39,5,False,False
 20260703,70.28,-0.24,62.96,0.4,58.94,-0.41,6,False,True
 20260709,70.46,0.18,63.16,0.2,59.34,0.4,7,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,71.24,0.12,63.17,0.39,59.56,-0.62,1,False,True
 20260828,71.53,0.29,63.33,0.16,59.29,-0.27,2,False,True
 20260904,71.55,0.02,63.36,0.03,60.53,1.24,3,True,True
+20260911,71.88,0.33,63.14,-0.22,60.46,-0.07,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3034 | 聯詠 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 3034 | 聯詠 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:內部稽核主管 2.發生變動日期:115/06/30 3.舊任者姓名、級職及簡歷: 葉育芬 聯詠科技內部稽核主管 4.新任者姓名、級職及簡歷: 徐韻筑 聯詠科技主任管理師 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:退休 6.異動原因:退休 7.生效日期:115/06/30 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3034 | 聯詠 | 4 | 3 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3034 | 聯詠 | 9 | 2 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3034 | 聯詠 | 112 | 7 | 2146600.0 | 56380.0 | 38.07 | no_signal |
+| 20260911 | 3034 | 聯詠 | 116 | 6 | 14667970.0 | 1260.0 | 11641.25 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

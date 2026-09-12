@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:06 Asia/Taipei
+- generated_at: 2026-09-12 15:43:26 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 23.15
-- high: 23.95
-- low: 22.45
-- close: 23.2
-- volume: 1254082
-- ma5: 23.42
-- ema23_primary: 23.42
-- distance_to_ema23_pct: -0.92
-- ma20: 23.38
-- ma60: 25.98
-- ma120: 23.22
-- return_5d: -4.53
-- return_20d: -5.5
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -0.76
-- distance_to_high_60_pct: -41.56
+- date: 20260911
+- open: 21.95
+- high: 22.25
+- low: 21.95
+- close: 21.95
+- volume: 579447
+- ma5: 22.58
+- ema23_primary: 23.11
+- distance_to_ema23_pct: -5.01
+- ma20: 23.13
+- ma60: 25.36
+- ma120: 23.34
+- return_5d: -5.39
+- return_20d: -6.79
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -5.09
+- distance_to_high_60_pct: -44.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,25,25,23.5,23.7,5180271,23.49,0.89,22.24,25.54,2.31
-20260811,23.8,24.2,22.9,23.05,2299187,23.45,-1.72,22.13,25.57,1.1
-20260812,23.25,23.9,23.15,23.5,1827396,23.46,0.18,22.04,25.62,0.89
-20260813,23.6,25.25,23.55,24.1,3777310,23.51,2.5,22,25.69,1.75
-20260814,24.4,24.5,23.05,23.55,2247585,23.51,0.15,22.06,25.75,1.07
 20260817,23.75,24,23.25,23.25,876243,23.49,-1.03,22.13,25.79,0.44
 20260818,23.3,24.25,22.6,22.7,1877968,23.43,-3.1,22.14,25.8,0.94
 20260819,21.9,22.9,21.85,22.6,1040269,23.36,-3.24,22.13,25.82,0.53
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,23.65,24.1,23.45,23.5,925154,23.48,0.09,23.44,26.12,0.47
 20260903,23.75,24.05,22.95,22.95,963825,23.44,-2.07,23.45,26.07,0.51
 20260904,23.15,23.95,22.45,23.2,1254082,23.42,-0.92,23.38,25.98,0.72
+20260907,23.45,23.55,22.85,22.95,892571,23.38,-1.83,23.34,25.89,0.59
+20260908,22.7,23.05,22.5,22.65,689530,23.32,-2.86,23.32,25.78,0.48
+20260909,22.7,22.95,22.5,22.9,621351,23.28,-1.64,23.29,25.69,0.45
+20260910,22.85,22.85,22.45,22.45,542517,23.21,-3.28,23.21,25.55,0.44
+20260911,21.95,22.25,21.95,21.95,579447,23.11,-5.01,23.13,25.36,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 43.42
-- over_600_ratio: 39.24
-- over_800_ratio: 36.66
-- over_1000_ratio: 33.46
-- over_400_change_1w: 0.3
-- over_800_change_1w: 0.14
-- over_1000_change_1w: -0.61
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260911
+- over_400_ratio: 43.44
+- over_600_ratio: 40.1
+- over_800_ratio: 36.26
+- over_1000_ratio: 31.34
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.4
+- over_1000_change_1w: -2.12
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,53.97,3.42,48.84,2.37,44.56,1.5,3,True,True
 20260626,50.22,-3.75,43.81,-5.03,40.31,-4.25,0,False,False
 20260703,51.29,1.07,41.94,-1.87,38.56,-1.75,1,False,False
 20260709,44.51,-6.78,39.08,-2.86,33.88,-4.68,0,False,False
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,42.06,0.33,36.42,-0.08,33.97,-0.08,2,False,False
 20260828,43.12,1.06,36.52,0.1,34.07,0.1,3,True,True
 20260904,43.42,0.3,36.66,0.14,33.46,-0.61,4,False,True
+20260911,43.44,0.02,36.26,-0.4,31.34,-2.12,5,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3550 | 聯穎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:昆山廣穎電線有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由: (1)依據金融監督管理委員會115年7月6日金管證審字第1150347406號函示辦理。 (2)本公司之子公司昆山廣穎電線有限公司因盈餘分配致財報淨值下降， 造成資金貸與超限，應訂定改善計畫。 6.因應措施: (1)本案已訂定改善計畫，並已依規定將相關改善計畫送獨立董事備查。 (2)本公司已督促子公司於6月底前還款將資金貸與餘額降至限額內， 至此改善計畫已執行完成。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司擬於近期董事會報告本案，並報告改善計畫已執行完成， 且會依函示於下一次股東會報告。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3550 | 聯穎 | 1 | 1 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

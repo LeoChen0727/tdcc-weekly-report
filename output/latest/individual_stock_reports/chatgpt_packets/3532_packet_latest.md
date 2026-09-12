@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3532 台勝科
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:05 Asia/Taipei
+- generated_at: 2026-09-12 15:43:25 Asia/Taipei
 - stock_id: 3532
 - stock_name: 台勝科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 392
-- high: 406.5
-- low: 385
-- close: 399
-- volume: 6836299
-- ma5: 389.4
-- ema23_primary: 370.37
-- distance_to_ema23_pct: 7.73
-- ma20: 361.7
-- ma60: 373.78
-- ma120: 291.07
-- return_5d: 0
-- return_20d: 27.68
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 10.31
-- distance_to_high_60_pct: -27.72
+- date: 20260911
+- open: 409.5
+- high: 423.5
+- low: 406.5
+- close: 423
+- volume: 7432373
+- ma5: 411.6
+- ema23_primary: 385.23
+- distance_to_ema23_pct: 9.8
+- ma20: 385.7
+- ma60: 378.54
+- ma120: 302.25
+- return_5d: 6.01
+- return_20d: 18.82
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 9.67
+- distance_to_high_60_pct: -23.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,310,312.5,281.5,283,8467248,345.52,-18.09,372.98,344.18,1.08
-20260811,282.5,290.5,265.5,284,7775673,340.39,-16.57,361.68,345.22,1.07
-20260812,289,312,286.5,312,5998580,338.03,-7.7,351.12,346.73,0.88
-20260813,334.5,343,320.5,343,5508061,338.44,1.35,344.73,349.07,0.82
-20260814,343,358,330,356,15489054,339.9,4.74,341.32,351.58,2.22
 20260817,346,387.5,342,371.5,15693543,342.54,8.46,336.6,354.01,2.2
 20260818,360,402.5,360,369,19319356,344.74,7.04,333.38,356.02,2.7
 20260819,354,369.5,344.5,356.5,7431947,345.72,3.12,327.8,357.41,1.09
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,401,405,386,386,3847679,366.56,5.3,354.12,370.02,0.41
 20260903,391,402,376,381,6008409,367.77,3.6,357.38,371.63,0.62
 20260904,392,406.5,385,399,6836299,370.37,7.73,361.7,373.78,0.68
+20260907,401,418.5,393.5,403,8013341,373.09,8.02,367.7,375.55,0.8
+20260908,415,438.5,397,398,9378177,375.16,6.09,373.4,376.74,0.93
+20260909,412,425.5,401.5,424,9176282,379.23,11.8,379,377.82,0.9
+20260910,417,423,410,410,4334630,381.8,7.39,382.35,378.08,0.43
+20260911,409.5,423.5,406.5,423,7432373,385.23,9.8,385.7,378.54,0.76
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 89.65
-- over_600_ratio: 88.79
-- over_800_ratio: 88.05
-- over_1000_ratio: 87.8
-- over_400_change_1w: -0.11
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 90.05
+- over_600_ratio: 89.3
+- over_800_ratio: 88.6
+- over_1000_ratio: 88.35
+- over_400_change_1w: 0.4
+- over_800_change_1w: 0.55
+- over_1000_change_1w: 0.55
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,91.57,0.21,89.29,0.34,88.78,0.8,7,False,True
 20260626,91.26,-0.31,89.04,-0.25,88.28,-0.5,8,False,False
 20260703,91.16,-0.1,88.93,-0.11,88.46,0.18,9,False,True
 20260709,90.97,-0.19,89.24,0.31,88.06,-0.4,10,False,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,89.32,-0.67,87.5,-0.71,87.25,-0.02,0,False,False
 20260828,89.76,0.44,87.83,0.33,87.58,0.33,1,False,True
 20260904,89.65,-0.11,88.05,0.22,87.8,0.22,2,False,True
+20260911,90.05,0.4,88.6,0.55,88.35,0.55,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3532 | 台勝科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 3532 | 台勝科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3532 | 台勝科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第2季 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3532 | 台勝科 | 2 | 2 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3532 | 台勝科 | 1 | 1 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3532 | 台勝科 | 30 | 0 | 1420230.0 | 0.0 |  | no_signal |
+| 20260911 | 3532 | 台勝科 | 27 | 0 | 589210.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

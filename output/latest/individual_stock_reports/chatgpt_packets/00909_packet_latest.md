@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:40 Asia/Taipei
+- generated_at: 2026-09-12 15:42:04 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 81
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 86
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 48.34
-- high: 48.68
-- low: 48.33
-- close: 48.66
-- volume: 4206663
-- ma5: 45.79
-- ema23_primary: 45.69
-- distance_to_ema23_pct: 6.5
-- ma20: 45.28
-- ma60: 46.36
-- ma120: 46.26
-- return_5d: 1.76
-- return_20d: 9.87
-- volume_ratio: 3.03
-- distance_to_ma20_pct_auxiliary: 7.46
-- distance_to_high_60_pct: -5.51
+- date: 20260911
+- open: 47.2
+- high: 47.2
+- low: 46.48
+- close: 46.59
+- volume: 1012769
+- ma5: 48.12
+- ema23_primary: 46.52
+- distance_to_ema23_pct: 0.16
+- ma20: 46.3
+- ma60: 46.25
+- ma120: 46.37
+- return_5d: -4.25
+- return_20d: 5.86
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 0.62
+- distance_to_high_60_pct: -9.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,44.45,44.52,44.32,44.42,293249,45.4,-2.17,45.17,47.2,0.31
-20260811,43.35,43.66,43.22,43.63,1383241,45.26,-3.59,45.09,47.33,1.41
-20260812,43.65,43.85,43.65,43.85,292344,45.14,-2.86,44.99,47.41,0.31
-20260813,44.22,44.31,44.17,44.3,385717,45.07,-1.71,44.92,47.49,0.42
-20260814,44.3,44.3,44,44.01,479061,44.98,-2.16,44.96,47.38,0.59
 20260817,44.57,44.57,44.01,44.08,255042,44.91,-1.84,45,47.31,0.32
 20260818,44.25,44.4,44,44.13,355688,44.84,-1.59,44.92,47.22,0.47
 20260819,42.87,42.87,42.48,42.58,2006385,44.65,-4.64,44.68,47.1,2.52
@@ -167,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,44.66,44.72,44.09,44.3,1679866,45.47,-2.58,45.08,46.41,1.45
 20260903,44.66,44.94,44.64,44.86,1706522,45.42,-1.24,45.06,46.34,1.4
 20260904,48.34,48.68,48.33,48.66,4206663,45.69,6.5,45.28,46.36,3.03
+20260907,48.26,48.72,48.26,48.56,1152323,45.93,5.72,45.49,46.4,0.81
+20260908,48.56,48.65,48.25,48.48,789835,46.14,5.06,45.73,46.4,0.56
+20260909,48.59,49.16,48.59,49.14,1426284,46.39,5.92,46,46.37,0.98
+20260910,48.45,48.45,47.77,47.81,1179848,46.51,2.79,46.17,46.32,0.79
+20260911,47.2,47.2,46.48,46.59,1012769,46.52,0.16,46.3,46.25,0.66
 ```
 
 ## Latest TDCC Snapshot

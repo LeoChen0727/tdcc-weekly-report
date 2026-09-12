@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3048 益登
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:47 Asia/Taipei
+- generated_at: 2026-09-12 15:43:08 Asia/Taipei
 - stock_id: 3048
 - stock_name: 益登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 53.4
-- high: 53.8
-- low: 52.7
-- close: 53.4
-- volume: 1031546
-- ma5: 53.9
-- ema23_primary: 55.28
-- distance_to_ema23_pct: -3.4
-- ma20: 56.33
-- ma60: 58.47
-- ma120: 53.45
-- return_5d: -3.96
-- return_20d: -7.13
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -5.19
-- distance_to_high_60_pct: -31.45
+- date: 20260911
+- open: 50.5
+- high: 51
+- low: 50.1
+- close: 50.2
+- volume: 1079726
+- ma5: 51.74
+- ema23_primary: 53.99
+- distance_to_ema23_pct: -7.02
+- ma20: 54.49
+- ma60: 56.69
+- ma120: 53.92
+- return_5d: -5.99
+- return_20d: -14.63
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -7.88
+- distance_to_high_60_pct: -33.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,58.5,59.4,57.1,57.3,3389440,54.66,4.82,51.92,62.19,0.82
-20260811,57.2,60,56.7,58.8,5297592,55.01,6.89,52.08,62.23,1.26
-20260812,59.8,62.4,59.6,59.7,9820279,55.4,7.76,52.21,62.27,2.15
-20260813,59.8,63.9,59.6,60.7,9031648,55.84,8.7,52.45,62.35,1.84
-20260814,60.8,60.9,58.5,58.8,4246289,56.09,4.83,52.86,62.3,0.85
 20260817,58.5,58.8,57.4,58,2499306,56.25,3.12,53.3,62.13,0.5
 20260818,57.5,57.8,55.3,55.4,2515866,56.18,-1.38,53.55,61.82,0.5
 20260819,53.8,58.3,53.8,57,3204496,56.25,1.34,53.86,61.55,0.63
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,54.7,55,54,54,1041777,55.73,-3.11,56.83,59.12,0.31
 20260903,54.2,54.4,52.4,52.4,1604527,55.45,-5.51,56.53,58.8,0.49
 20260904,53.4,53.8,52.7,53.4,1031546,55.28,-3.4,56.33,58.47,0.36
+20260907,54.1,54.1,53.2,53.5,716778,55.13,-2.96,56.13,58.11,0.26
+20260908,53.4,53.9,51.9,52,1473165,54.87,-5.24,55.8,57.76,0.58
+20260909,52.3,52.6,51.5,51.6,1104961,54.6,-5.49,55.39,57.39,0.52
+20260910,51.2,51.6,50.7,51.4,1130620,54.33,-5.4,54.92,57.06,0.66
+20260911,50.5,51,50.1,50.2,1079726,53.99,-7.02,54.49,56.69,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 48.69
-- over_600_ratio: 44.65
-- over_800_ratio: 42.77
+- as_of_date: 20260911
+- over_400_ratio: 48.57
+- over_600_ratio: 44.86
+- over_800_ratio: 42.73
 - over_1000_ratio: 41.46
-- over_400_change_1w: -0.55
-- over_800_change_1w: -0.92
-- over_1000_change_1w: -1.26
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.04
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,52.07,-0.9,47.87,-1.76,45.52,-1.68,0,False,False
 20260626,52.37,0.3,48.82,0.95,46.85,1.33,1,True,True
 20260703,51.25,-1.12,47.2,-1.62,45.88,-0.97,0,False,False
 20260709,50.7,-0.55,46.1,-1.1,45.1,-0.78,0,False,False
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,49.3,-0.38,44.46,0.11,43.12,0.13,2,False,True
 20260828,49.24,-0.06,43.69,-0.77,42.72,-0.4,0,False,False
 20260904,48.69,-0.55,42.77,-0.92,41.46,-1.26,0,False,False
+20260911,48.57,-0.12,42.73,-0.04,41.46,0,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/8~115/7/15 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,983,000 每股平均價格(新台幣元): 160.02 交易總金額(新台幣元):317,321,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：2,119,398股 金額：146,874仟元 持股比例：2.65% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.13% 占母公司業主權益比例：18.91% 營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 3048 | 益登 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 58 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/8~115/7/15 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,983,000 每股平均價格(新台幣元): 160.02 交易總金額(新台幣元):317,321,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：2,119,398股 金額：146,874仟元 持股比例：2.65% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.13% 占母公司業主權益比例：18.91% 營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3048 | 益登 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/8~115/7/15 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,983,000 每股平均價格(新台幣元): 160.02 交易總金額(新台幣元):317,321,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：2,119,398股 金額：146,874仟元 持股比例：2.65% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.13% 占母公司業主權益比例：18.91% 營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3048 | 益登 | revenue_breakout_low_response | 營收爆發低反應股 | 10 | 61 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.證券名稱: 蜜望實企業股份有限公司普通股(8043) 2.交易日期:115/7/8~115/7/15 3.董事會通過日期: 民國115年5月13日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量(股):1,983,000 每股平均價格(新台幣元): 160.02 交易總金額(新台幣元):317,321,500 6.處分利益（或損失）（取得有價證券者不適用）: 本次處分為出售透過其他綜合損益按公允價值衡量之金融資產， 處分結果將計入資產負債表之權益項下，不影響本公司當期損益。 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：2,119,398股 金額：146,874仟元 持股比例：2.65% 權利受限情形：無。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例：3.13% 占母公司業主權益比例：18.91% 營運資金：6,603,994仟元 10.取得或處分之具體目的: 財務投資。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用。 14.監察人承認或審計委員會同意日期: 民國 115年 5月 13日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3048 | 益登 | 15 | 6 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3048 | 益登 | 4 | 4 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3048 | 益登 | 30 | 1 | 117740.0 | 0.0 |  | no_signal |
+| 20260911 | 3048 | 益登 | 29 | 1 | 122690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

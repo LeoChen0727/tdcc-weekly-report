@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009829 大華韓國KOSPI50
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:43 Asia/Taipei
+- generated_at: 2026-09-12 15:42:08 Asia/Taipei
 - stock_id: 009829
 - stock_name: 大華韓國KOSPI50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 11
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 16
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 10.33
-- high: 10.55
-- low: 10.25
-- close: 10.5
-- volume: 19781160
-- ma5: 10.32
-- ema23_primary: 10.52
-- distance_to_ema23_pct: -0.15
-- ma20: 10.4
-- ma60: 10.4
-- ma120: 10.4
-- return_5d: 0.86
+- date: 20260911
+- open: 10.83
+- high: 11.01
+- low: 10.78
+- close: 10.85
+- volume: 22276418
+- ma5: 11.05
+- ema23_primary: 10.7
+- distance_to_ema23_pct: 1.37
+- ma20: 10.6
+- ma60: 10.6
+- ma120: 10.6
+- return_5d: 3.33
 - return_20d:
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 0.99
-- distance_to_high_60_pct: -2.51
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 2.33
+- distance_to_high_60_pct: -4.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -159,6 +159,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,10.3,10.31,10.13,10.2,30968684,10.56,-3.42,10.43,10.43,0.62
 20260903,10.28,10.36,10.02,10.03,21764576,10.52,-4.63,10.39,10.39,0.46
 20260904,10.33,10.55,10.25,10.5,19781160,10.52,-0.15,10.4,10.4,0.44
+20260907,10.83,10.97,10.79,10.97,27424383,10.55,3.95,10.45,10.45,0.64
+20260908,11.21,11.37,11.18,11.18,39086926,10.61,5.42,10.5,10.5,0.91
+20260909,11.16,11.26,11.1,11.12,24368884,10.65,4.43,10.55,10.55,0.59
+20260910,11.02,11.17,10.92,11.15,22669188,10.69,4.3,10.59,10.59,0.56
+20260911,10.83,11.01,10.78,10.85,22276418,10.7,1.37,10.6,10.6,0.57
 ```
 
 ## Latest TDCC Snapshot

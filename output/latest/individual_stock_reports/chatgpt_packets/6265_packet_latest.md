@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6265 方土昶
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:02 Asia/Taipei
+- generated_at: 2026-09-12 15:44:20 Asia/Taipei
 - stock_id: 6265
 - stock_name: 方土昶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 54.9
-- high: 55.3
-- low: 52.8
-- close: 54.2
-- volume: 2738000
-- ma5: 55.64
-- ema23_primary: 55.97
-- distance_to_ema23_pct: -3.16
-- ma20: 58.05
-- ma60: 53.56
-- ma120: 49.13
-- return_5d: -5.08
-- return_20d: -2.17
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -6.63
-- distance_to_high_60_pct: -21.11
+- date: 20260911
+- open: 49.95
+- high: 50.5
+- low: 48.6
+- close: 48.75
+- volume: 6679000
+- ma5: 52.89
+- ema23_primary: 54.81
+- distance_to_ema23_pct: -11.05
+- ma20: 56.77
+- ma60: 53.17
+- ma120: 49.42
+- return_5d: -10.06
+- return_20d: -22
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -14.12
+- distance_to_high_60_pct: -29.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,57.9,58.5,55.1,55.8,6519000,49.64,12.41,48.23,51.8,2.04
-20260811,56.4,58.8,55.4,56.1,6832000,50.18,11.8,48.45,51.98,2.05
-20260812,56.7,59,56.6,56.8,7480000,50.73,11.97,48.6,52.17,2.12
-20260813,57.2,59.9,57,58.9,9069000,51.41,14.57,48.96,52.44,2.35
-20260814,62.2,63.8,61,62.5,14829000,52.33,19.43,49.69,52.79,3.34
 20260817,65.8,68.7,62.9,63.3,14174000,53.25,18.88,50.58,53.11,2.84
 20260818,63.7,65,58.3,58.8,10801000,53.71,9.48,51.18,53.29,1.98
 20260819,57.5,59.4,56.5,59.2,6160000,54.17,9.29,51.74,53.4,1.08
@@ -173,17 +167,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,56.3,56.5,55.7,55.8,1786000,56.32,-0.92,58.14,53.62,0.25
 20260903,56.6,57.6,54,54.1,2914000,56.13,-3.62,58.11,53.6,0.42
 20260904,54.9,55.3,52.8,54.2,2738000,55.97,-3.16,58.05,53.56,0.4
+20260907,55,56.1,54.3,54.8,2581000,55.87,-1.92,58,53.52,0.39
+20260908,54.6,55.9,53.6,53.8,2086000,55.7,-3.41,57.88,53.43,0.32
+20260909,54.1,54.3,53,53.1,1970000,55.48,-4.3,57.7,53.34,0.32
+20260910,52.8,54.7,52.7,54,2154000,55.36,-2.46,57.45,53.31,0.37
+20260911,49.95,50.5,48.6,48.75,6679000,54.81,-11.05,56.77,53.17,1.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 48.29
-- over_600_ratio: 45.65
-- over_800_ratio: 43.35
-- over_1000_ratio: 39.45
-- over_400_change_1w: -2.34
-- over_800_change_1w: -2.76
-- over_1000_change_1w: -5.82
+- as_of_date: 20260911
+- over_400_ratio: 46.96
+- over_600_ratio: 42.56
+- over_800_ratio: 40.17
+- over_1000_ratio: 38.64
+- over_400_change_1w: -1.33
+- over_800_change_1w: -3.18
+- over_1000_change_1w: -0.81
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,47.63,1.2,43.85,-0.18,41.52,-0.01,1,False,False
 20260626,46,-1.63,41.76,-2.09,40.92,-0.6,0,False,False
 20260703,44.63,-1.37,40.93,-0.83,40.09,-0.83,0,False,False
 20260709,44.65,0.02,40.94,0.01,40.1,0.01,1,True,True
@@ -204,18 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,51.44,0.63,47.01,-1.36,45.4,-2.13,3,False,False
 20260828,50.63,-0.81,46.11,-0.9,45.27,-0.13,0,False,False
 20260904,48.29,-2.34,43.35,-2.76,39.45,-5.82,0,False,False
+20260911,46.96,-1.33,40.17,-3.18,38.64,-0.81,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6265 | 方土昶 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 6265 | 方土昶 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 8 | A_優先追蹤 |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6265 | 方土昶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司民國114年度虧損撥補案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:  通過本公司民國114年度個體財務報表及合併財務報表暨營業報告書案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:  通過修訂本公司「取得或處分資產處理程序」案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6265 | 方土昶 | 9 | 9 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 6265 | 方土昶 | 14 | 14 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

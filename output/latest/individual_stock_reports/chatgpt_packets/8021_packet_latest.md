@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:44 Asia/Taipei
+- generated_at: 2026-09-12 15:45:00 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 425
-- high: 426
-- low: 413
-- close: 420
-- volume: 6332673
-- ma5: 435.5
-- ema23_primary: 422.79
-- distance_to_ema23_pct: -0.66
-- ma20: 423.2
-- ma60: 456.71
-- ma120: 416.71
-- return_5d: -7.49
-- return_20d: 6.33
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -0.76
-- distance_to_high_60_pct: -33.01
+- date: 20260911
+- open: 430
+- high: 430
+- low: 418
+- close: 418.5
+- volume: 1115991
+- ma5: 442.2
+- ema23_primary: 429.03
+- distance_to_ema23_pct: -2.45
+- ma20: 425.57
+- ma60: 449.26
+- ma120: 424.65
+- return_5d: -0.36
+- return_20d: -3.57
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: -1.66
+- distance_to_high_60_pct: -32.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,408.5,434.5,408.5,434.5,6014329,413.82,5,401.4,463.44,1.17
-20260811,424.5,444,414,439,1335242,415.92,5.55,398.98,463.4,0.26
-20260812,439.5,441,421,427,1141530,416.84,2.44,393.73,463.84,0.22
-20260813,439,446.5,427.5,429,1028740,417.85,2.67,389.93,464.46,0.2
-20260814,431,437,415,434,1114375,419.2,3.53,388.9,465.68,0.22
 20260817,423.5,431,395,428,1631315,419.93,1.92,389.82,466.41,0.32
 20260818,437,452,400,408.5,10703530,418.98,-2.5,391.23,466.18,2.1
 20260819,392,413,391,393.5,5308156,416.86,-5.6,389.98,465.01,1.03
@@ -173,26 +169,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,445,461,438.5,459,7186775,423.91,8.28,422.15,460.52,1.25
 20260903,461,462,413.5,413.5,14442146,423.04,-2.26,421.95,458.98,2.41
 20260904,425,426,413,420,6332673,422.79,-0.66,423.2,456.71,1.06
+20260907,445,462,444,462,13046649,426.06,8.44,424.57,454.91,2.07
+20260908,441,461,431,450,15127276,428.05,5.13,425.12,453.71,2.16
+20260909,448,451.5,439.5,442.5,1319886,429.26,3.09,425.9,452.65,0.19
+20260910,445.5,449.5,431,438,995636,429.99,1.86,426.35,451.32,0.14
+20260911,430,430,418,418.5,1115991,429.03,-2.45,425.57,449.26,0.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 43.44
-- over_600_ratio: 38.66
-- over_800_ratio: 35.75
-- over_1000_ratio: 30.9
-- over_400_change_1w: -2.73
-- over_800_change_1w: -1.58
-- over_1000_change_1w: -3.44
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 47.53
+- over_600_ratio: 43.07
+- over_800_ratio: 39.81
+- over_1000_ratio: 34.82
+- over_400_change_1w: 4.09
+- over_800_change_1w: 4.06
+- over_1000_change_1w: 3.92
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,46.57,-5.73,37.98,-4.19,35.05,-3.45,0,False,False
 20260626,47.84,1.27,40.38,2.4,37.38,2.33,1,True,True
 20260703,47.91,0.07,40.61,0.23,37.17,-0.21,2,False,True
 20260709,48.03,0.12,40.86,0.25,37.85,0.68,3,False,True
@@ -204,17 +204,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,45.88,-1.22,38.87,-1.26,35.75,-2.54,0,False,False
 20260828,46.17,0.29,37.33,-1.54,34.34,-1.41,1,False,False
 20260904,43.44,-2.73,35.75,-1.58,30.9,-3.44,0,False,False
+20260911,47.53,4.09,39.81,4.06,34.82,3.92,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | 1.事實發生日:115/08/27 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告。 3.財務業務資訊:   期間               (月)                      (季)           (最近四季累計) ----------------------------------------------------------------------------           最近一月      與去年同期     最近一季     與去年同期 (114年第3季          (115年7月)      增減%     (115年第二季)     增減%   至115年第2季)                                                                 (合併核閱　  科目    (合併自結數)                (合併核閱數)               及查核數) --------------------------------------------------------------------------- 營業收入     730,488       102.56%      1,826,030       80.30%     5,675,548 稅前淨利     226,669       271.90%        518,481      278.33%     1,239,717 歸屬於母公司 134,927       283.60%        302,049      285.50%       729,814 業主淨利 每股盈餘(元)   0.92        270.32%           2.08      275.81%         5.08  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:115年5月因有所得稅抵減1,500萬，影響EPS為0.1元。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8021 | 尖點 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.董事會決議或公司決定增資基準日期:115/09/08 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/09/04 4.董事會決議(追補)發行日期:115/08/14 5.發行總金額及股數: 發行總面額新台幣40,000,000元 發行股數:4,000,000股。 6.採總括申報發行新股案件，本次發行金額及股數:不適用。 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 8.每股面額:新台幣 10 元。 9.發行價格:俟定價後另行公告。 10.員工認股股數: 依公司法第267條規定，保留發行新股總數10%，計400千股 供員工認購。 11.原股東認購比率:本次發行新股總額之80%計3,200千股，由原股東按 增資認股基準日股東名簿記載之股東及其持股比例分別認購，依本公司 目前流通在外股數 147,320,109股計算，原股東每仟股得認購 21.72140668股。如嗣後因本公司普通股發生變動影響流通在外股份數量， 致原股東認股比率因此發生變動時，由董事長辦理相關調整事宜。 12.公開銷售方式及股數:依證券交易法28條之1規定，提撥發行新股總數10%， 計400千股採公開申購方式對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，自停止 過戶日起五日內由股東自行向本公司股務代理機構辦理拼湊整股認購，其拼湊不 足一股之畸零股及原股東、員工放棄認購或認購不足及逾期未拼湊之部分，擬授 權董事長洽特定人按發行價格認購之。 14.本次發行新股之權利義務: 本次現金增資發行新股之權利義務與原發行 之普通股份相同。 15.本次增資資金用途:購置機器設備/廠務工程/員工宿舍。 16.現金增資認股基準日:115/10/12 17.最後過戶日:115/10/07 18.停止過戶起始日期:115/10/08 19.停止過戶截止日期:115/10/12 20.股款繳納期間: (1)原股東及員工繳款期間:115/10/20 ~ 115/10/27 (2)特定人認股繳款期間:115/10/28-115/10/30 21.與代收及專戶存儲價款行庫訂約日期:俟正式簽約後另行公告。 22.委託代收存款機構:俟正式簽約後另行公告。 23.委託存儲款項機構:俟正式簽約後另行公告。 24.其他應敘明事項: (1)本公司辦理115年現金增資發行普通股4,000,000股乙案， 業經金融監督管理委員會115年9月4日金管證發字第1150353873號函 申報生效在案。 (2)本公司國內第二次無擔保轉換公司債，停止轉換普通股期間為 115年09月15日至115年10月12日；請債券持有人如擬申請轉換， 最遲應於115年9月11日向往來證券商辦理轉換手續。 (3)嗣後如因本公司可轉換公司債轉換，致影響流通在外股數， 使每仟股可認購股數因此發生變動者，授權董事長全權處理認股率調整事宜， 並另行公告之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8021 | 尖點 | revenue_breakout_low_response | 營收爆發低反應股 | 14 | 40 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會決議或公司決定增資基準日期:115/09/08 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/09/04 4.董事會決議(追補)發行日期:115/08/14 5.發行總金額及股數: 發行總面額新台幣40,000,000元 發行股數:4,000,000股。 6.採總括申報發行新股案件，本次發行金額及股數:不適用。 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 8.每股面額:新台幣 10 元。 9.發行價格:俟定價後另行公告。 10.員工認股股數: 依公司法第267條規定，保留發行新股總數10%，計400千股 供員工認購。 11.原股東認購比率:本次發行新股總額之80%計3,200千股，由原股東按 增資認股基準日股東名簿記載之股東及其持股比例分別認購，依本公司 目前流通在外股數 147,320,109股計算，原股東每仟股得認購 21.72140668股。如嗣後因本公司普通股發生變動影響流通在外股份數量， 致原股東認股比率因此發生變動時，由董事長辦理相關調整事宜。 12.公開銷售方式及股數:依證券交易法28條之1規定，提撥發行新股總數10%， 計400千股採公開申購方式對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，自停止 過戶日起五日內由股東自行向本公司股務代理機構辦理拼湊整股認購，其拼湊不 足一股之畸零股及原股東、員工放棄認購或認購不足及逾期未拼湊之部分，擬授 權董事長洽特定人按發行價格認購之。 14.本次發行新股之權利義務: 本次現金增資發行新股之權利義務與原發行 之普通股份相同。 15.本次增資資金用途:購置機器設備/廠務工程/員工宿舍。 16.現金增資認股基準日:115/10/12 17.最後過戶日:115/10/07 18.停止過戶起始日期:115/10/08 19.停止過戶截止日期:115/10/12 20.股款繳納期間: (1)原股東及員工繳款期間:115/10/20 ~ 115/10/27 (2)特定人認股繳款期間:115/10/28-115/10/30 21.與代收及專戶存儲價款行庫訂約日期:俟正式簽約後另行公告。 22.委託代收存款機構:俟正式簽約後另行公告。 23.委託存儲款項機構:俟正式簽約後另行公告。 24.其他應敘明事項: (1)本公司辦理115年現金增資發行普通股4,000,000股乙案， 業經金融監督管理委員會115年9月4日金管證發字第1150353873號函 申報生效在案。 (2)本公司國內第二次無擔保轉換公司債，停止轉換普通股期間為 115年09月15日至115年10月12日；請債券持有人如擬申請轉換， 最遲應於115年9月11日向往來證券商辦理轉換手續。 (3)嗣後如因本公司可轉換公司債轉換，致影響流通在外股數， 使每仟股可認購股數因此發生變動者，授權董事長全權處理認股率調整事宜， 並另行公告之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8021 | 尖點 | 2 | 2 | 4 | 9 | 14 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260911 | 8021 | 尖點 | 1 | 1 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

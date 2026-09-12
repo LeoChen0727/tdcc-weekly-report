@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4939 亞電
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:32 Asia/Taipei
+- generated_at: 2026-09-12 15:43:50 Asia/Taipei
 - stock_id: 4939
 - stock_name: 亞電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,40 +69,39 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: high_level_distribution_risk
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -116,6 +115,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 83
-- high: 87.9
-- low: 80.2
-- close: 87.9
-- volume: 3655000
-- ma5: 86.92
-- ema23_primary: 74.41
-- distance_to_ema23_pct: 18.13
-- ma20: 72.45
-- ma60: 64.89
-- ma120: 52.38
-- return_5d: -5.28
-- return_20d: 44.57
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: 21.33
-- distance_to_high_60_pct: -7.67
+- date: 20260911
+- open: 80.1
+- high: 86.5
+- low: 80.1
+- close: 82.4
+- volume: 23133000
+- ma5: 87.72
+- ema23_primary: 78.93
+- distance_to_ema23_pct: 4.4
+- ma20: 78.92
+- ma60: 66.76
+- ma120: 54.73
+- return_5d: -6.26
+- return_20d: 34.2
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: 4.4
+- distance_to_high_60_pct: -13.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,60.8,62.8,60.1,61.3,10420000,59.19,3.57,60.17,57.1,0.48
-20260811,60.8,62,59.1,61.7,5990000,59.4,3.88,60.49,57.5,0.28
-20260812,61,62.8,60.8,60.8,5770000,59.51,2.16,60.49,57.87,0.27
-20260813,61.1,64.9,61.1,63.9,14405000,59.88,6.72,60.35,58.3,0.69
-20260814,65.4,65.5,61,61.4,19797000,60.01,2.32,60.41,58.69,0.98
 20260817,61,62.4,59.1,60.4,4706000,60.04,0.6,60.12,59.06,0.25
 20260818,59.9,63.9,59.7,60.1,9984000,60.04,0.09,59.48,59.41,0.56
 20260819,60.2,63.1,60.1,60.5,7892000,60.08,0.7,58.97,59.76,0.55
@@ -166,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,86.5,91,85.2,88.9,4022000,72.43,22.74,70.09,64.16,0.2
 20260903,90.5,90.5,81.5,81.5,5544000,73.18,11.36,71.09,64.42,0.29
 20260904,83,87.9,80.2,87.9,3655000,74.41,18.13,72.45,64.89,0.2
+20260907,88.5,94.5,88.5,93.6,7740000,76.01,23.14,74.06,65.44,0.43
+20260908,93.6,93.6,87,89.5,3832000,77.13,16.03,75.45,65.83,0.21
+20260909,90.1,91.2,87.5,90.7,2977000,78.26,15.89,76.95,66.17,0.17
+20260910,87.5,92.4,81.9,82.4,16846000,78.61,4.82,77.88,66.47,0.94
+20260911,80.1,86.5,80.1,82.4,23133000,78.93,4.4,78.92,66.76,1.28
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 41.46
-- over_600_ratio: 36.74
-- over_800_ratio: 34.66
-- over_1000_ratio: 33.84
-- over_400_change_1w: -1.26
-- over_800_change_1w: -0.72
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 38.03
+- over_600_ratio: 33.97
+- over_800_ratio: 31.13
+- over_1000_ratio: 29.46
+- over_400_change_1w: -3.43
+- over_800_change_1w: -3.53
+- over_1000_change_1w: -4.38
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,33.99,0.19,27.41,0.34,25.75,1.26,1,True,True
 20260626,33.71,-0.28,26.24,-1.17,24.58,-1.17,2,False,False
 20260703,33.93,0.22,26.24,0,24.58,0,3,False,False
 20260709,31.89,-2.04,26.28,0.04,24.62,0.04,4,False,True
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,35.25,-0.52,28.87,-2.85,27.16,-2.73,0,False,False
 20260828,42.72,7.47,35.38,6.51,33.61,6.45,1,True,True
 20260904,41.46,-1.26,34.66,-0.72,33.84,0.23,2,False,True
+20260911,38.03,-3.43,31.13,-3.53,29.46,-4.38,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 4939 | 亞電 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 4939 | 亞電 | 2 | 1 | 2 | 2 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

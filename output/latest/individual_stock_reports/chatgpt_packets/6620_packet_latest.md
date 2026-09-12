@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6620 漢達
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:15 Asia/Taipei
+- generated_at: 2026-09-12 15:44:32 Asia/Taipei
 - stock_id: 6620
 - stock_name: 漢達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 170
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 175
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,9 +100,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 105
-- high: 107.5
-- low: 97.1
-- close: 107.5
-- volume: 6781000
-- ma5: 96.12
-- ema23_primary: 86.13
-- distance_to_ema23_pct: 24.81
-- ma20: 82.03
-- ma60: 86.84
-- ma120: 79.65
-- return_5d: 27.22
-- return_20d: 27.22
-- volume_ratio: 5.41
-- distance_to_ma20_pct_auxiliary: 31.05
-- distance_to_high_60_pct: -3.15
+- date: 20260911
+- open: 123.5
+- high: 126.5
+- low: 123.5
+- close: 124
+- volume: 1336000
+- ma5: 123.9
+- ema23_primary: 99.59
+- distance_to_ema23_pct: 24.51
+- ma20: 93.36
+- ma60: 91.27
+- ma120: 81.76
+- return_5d: 15.35
+- return_20d: 60.21
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 32.83
+- distance_to_high_60_pct: -6.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,84,84.3,78.6,78.6,1296000,87.35,-10.01,86.67,83.73,1.28
-20260811,78.2,78.2,74,76.7,947000,86.46,-11.29,86.23,83.84,0.97
-20260812,76.7,79.7,76.7,79.5,287000,85.88,-7.43,85.85,83.96,0.3
-20260813,77.2,81,77.2,80.8,371000,85.46,-5.45,85.42,84.03,0.4
-20260814,81.1,81.1,77.4,77.4,457000,84.78,-8.71,84.97,84.05,0.5
 20260817,77.2,78.6,77,77.2,180000,84.15,-8.26,84.53,84.08,0.2
 20260818,77.7,77.7,76.6,76.6,204000,83.52,-8.29,84.13,84.1,0.23
 20260819,76.5,76.5,74.7,74.8,283000,82.8,-9.66,83.53,84.14,0.32
@@ -168,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,87.9,95.4,87.7,95.4,2888000,82.93,15.03,80.28,85.76,3.69
 20260903,92.9,103.5,92,98,3548000,84.19,16.41,80.88,86.22,3.79
 20260904,105,107.5,97.1,107.5,6781000,86.13,24.81,82.03,86.84,5.41
+20260907,114.5,118,107.5,113,9307000,88.37,27.87,83.75,87.59,5.63
+20260908,121.5,124,120,124,5890000,91.34,35.76,86.11,88.53,3.1
+20260909,127.5,132,127,132,2892000,94.73,39.35,88.74,89.53,1.42
+20260910,128.5,129,124,126.5,2128000,97.38,29.91,91.03,90.45,1
+20260911,123.5,126.5,123.5,124,1336000,99.59,24.51,93.36,91.27,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 60.59
-- over_600_ratio: 55.21
-- over_800_ratio: 50.74
-- over_1000_ratio: 49.68
-- over_400_change_1w: 1.48
-- over_800_change_1w: 1.38
-- over_1000_change_1w: 1.4
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 62.69
+- over_600_ratio: 55.9
+- over_800_ratio: 51.29
+- over_1000_ratio: 49.59
+- over_400_change_1w: 2.1
+- over_800_change_1w: 0.55
+- over_1000_change_1w: -0.09
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,60.35,0.82,50.17,0.27,49.08,0.27,7,False,True
 20260626,60.56,0.21,51.06,0.89,48.97,-0.11,8,False,True
 20260703,60.44,-0.12,50.45,-0.61,48.84,-0.13,0,False,False
 20260709,60.27,-0.17,50.32,-0.13,48.64,-0.2,0,False,False
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,59.21,-0.26,49.42,-0.03,48.32,0,0,False,False
 20260828,59.11,-0.1,49.36,-0.06,48.28,-0.04,0,False,False
 20260904,60.59,1.48,50.74,1.38,49.68,1.4,1,True,True
+20260911,62.69,2.1,51.29,0.55,49.59,-0.09,2,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6620 | 漢達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | 1.主管機關核准減資日期:115/08/26 2.辦理資本變更登記完成日期:115/08/26 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)庫藏股註銷減資前： 本公司實收資本額為新台幣1,699,819,000元，流通在外股數為169,981,900股 (含私募普通股17,000,000股)，每股淨值為新台幣29.55元。 (2)本次註銷減資新台幣40,000,000元，註銷股份4,000,000股。 (3)庫藏股註銷減資後： 本公司實收資本額為新台幣1,659,819,000元，流通在外股數為165,981,900股 (含私募普通股17,000,000股)，每股淨值為新台幣30.26元。 4.預計換股作業計畫:不適用 5.預計減資新股上櫃後之上櫃普通股股數:不適用 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項: (1)本公司係於115年08月27日收到變更登記核准通知。 (2)以上每股淨值係依最近一期(115年第二季)會計師核閱之財務報告為計算基礎。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6620 | 漢達 | 4 | 3 | 4 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

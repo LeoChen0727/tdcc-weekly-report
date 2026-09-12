@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:18 Asia/Taipei
+- generated_at: 2026-09-12 15:42:40 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 66.3
-- high: 67.9
-- low: 66.2
-- close: 67.5
-- volume: 27074525
-- ma5: 66.48
-- ema23_primary: 65.74
-- distance_to_ema23_pct: 2.68
-- ma20: 66.35
-- ma60: 65.03
-- ma120: 58.41
-- return_5d: 4.01
-- return_20d: 5.47
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 1.73
-- distance_to_high_60_pct: -8.16
+- date: 20260911
+- open: 61.5
+- high: 62.2
+- low: 60.8
+- close: 62
+- volume: 9980073
+- ma5: 63.8
+- ema23_primary: 64.99
+- distance_to_ema23_pct: -4.61
+- ma20: 65.36
+- ma60: 64.8
+- ma120: 59.25
+- return_5d: -8.15
+- return_20d: -11.3
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -5.14
+- distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,64.5,66,64.4,66,18619643,63.58,3.81,62.19,64.82,0.55
-20260811,65.9,66,64.2,65.1,14648753,63.7,2.19,62.26,65.03,0.45
-20260812,66,71.1,65.9,69,79797257,64.15,7.57,62.66,65.32,2.34
-20260813,69.5,72.6,68.2,68.8,72503717,64.53,6.61,63.06,65.61,2
-20260814,71,73.5,69.4,69.9,59267538,64.98,7.57,63.63,65.91,1.6
 20260817,68.9,69,66,66.7,36590747,65.12,2.42,64.11,66.12,0.99
 20260818,66.5,66.8,64.3,64.9,19434188,65.11,-0.32,64.34,66.21,0.53
 20260819,63.6,65.3,63.3,65.2,15165045,65.11,0.13,64.52,66.21,0.42
@@ -173,26 +168,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,67.1,68.4,66.4,66.6,22335535,65.63,1.48,66.2,65.1,0.9
 20260903,67.5,68.1,64.8,65,16089639,65.58,-0.88,66.17,65,0.65
 20260904,66.3,67.9,66.2,67.5,27074525,65.74,2.68,66.35,65.03,1.07
+20260907,68.2,68.2,65.2,66.1,24974529,65.77,0.51,66.36,65.04,0.98
+20260908,65.5,65.5,62.6,64,36613724,65.62,-2.47,66.3,65,1.37
+20260909,63.1,65.1,63,64.3,15028143,65.51,-1.85,66.06,64.95,0.64
+20260910,63.8,63.9,62.5,62.6,15958979,65.27,-4.09,65.75,64.89,0.77
+20260911,61.5,62.2,60.8,62,9980073,64.99,-4.61,65.36,64.8,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 74.51
-- over_600_ratio: 73.05
-- over_800_ratio: 72.13
-- over_1000_ratio: 71.33
-- over_400_change_1w: 0.15
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 73.96
+- over_600_ratio: 72.57
+- over_800_ratio: 71.63
+- over_1000_ratio: 70.79
+- over_400_change_1w: -0.55
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -0.54
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,73.13,-0.25,71.01,-0.2,70.14,-0.15,0,False,False
 20260626,72.8,-0.33,70.63,-0.38,69.78,-0.36,0,False,False
 20260703,72.95,0.15,70.73,0.1,69.81,0.03,1,True,True
 20260709,73.39,0.44,71.15,0.42,70.25,0.44,2,True,True
@@ -204,24 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,74.26,-0.19,72,-0.2,71.1,-0.2,0,False,False
 20260828,74.36,0.1,72.02,0.02,71.14,0.04,1,True,True
 20260904,74.51,0.15,72.13,0.11,71.33,0.19,2,True,True
+20260911,73.96,-0.55,71.63,-0.5,70.79,-0.54,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2356 | 英業達 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/02 2.公司名稱:英業達股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:美麗島電子報,上報等 6.報導內容:..吳子嘉今天赴北檢，告發鄭朝方、其兄弟鄭朝瀚、其父鄭永金、英業達  董事長葉力誠，以及地政士王進祥等5人...... 7.發生緣由:此等訊息純屬個人投資行為，與公司經營無關，亦不會影響公司營運業務  進行。 8.因應措施:發佈重大訊息說明。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 2356 | 英業達 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 11 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/02 2.公司名稱:英業達股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:美麗島電子報,上報等 6.報導內容:..吳子嘉今天赴北檢，告發鄭朝方、其兄弟鄭朝瀚、其父鄭永金、英業達  董事長葉力誠，以及地政士王進祥等5人...... 7.發生緣由:此等訊息純屬個人投資行為，與公司經營無關，亦不會影響公司營運業務  進行。 8.因應措施:發佈重大訊息說明。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 2356 | 英業達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/02 2.公司名稱:英業達股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:美麗島電子報,上報等 6.報導內容:..吳子嘉今天赴北檢，告發鄭朝方、其兄弟鄭朝瀚、其父鄭永金、英業達  董事長葉力誠，以及地政士王進祥等5人...... 7.發生緣由:此等訊息純屬個人投資行為，與公司經營無關，亦不會影響公司營運業務  進行。 8.因應措施:發佈重大訊息說明。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2356 | 英業達 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 ~ 115/10/13 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：線上說明會 4.法人說明會擇要訊息：2026/9/11受邀參加CLSA; 2026/9/16受邀參加KeyBanc; 2026/10/13受邀參加SIG線上投資人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2356 | 英業達 | 15 | 13 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 2356 | 英業達 | 20 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2356 | 英業達 | 115 | 6 | 10862620.0 | 67540.0 | 160.83 | no_signal |
+| 20260911 | 2356 | 英業達 | 119 | 5 | 6290610.0 | 136040.0 | 46.24 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

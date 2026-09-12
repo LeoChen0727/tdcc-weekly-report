@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6214 精誠
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:59 Asia/Taipei
+- generated_at: 2026-09-12 15:44:17 Asia/Taipei
 - stock_id: 6214
 - stock_name: 精誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 183.5
-- high: 186
-- low: 183.5
-- close: 185.5
-- volume: 1621496
-- ma5: 183.5
-- ema23_primary: 172.28
-- distance_to_ema23_pct: 7.67
-- ma20: 173.55
-- ma60: 151.11
-- ma120: 137.13
-- return_5d: 2.49
-- return_20d: 26.62
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 6.89
-- distance_to_high_60_pct: -0.27
+- date: 20260911
+- open: 188
+- high: 190.5
+- low: 187
+- close: 188.5
+- volume: 2105028
+- ma5: 186.7
+- ema23_primary: 177.43
+- distance_to_ema23_pct: 6.24
+- ma20: 182.3
+- ma60: 154.79
+- ma120: 140.21
+- return_5d: 1.62
+- return_20d: 9.59
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 3.4
+- distance_to_high_60_pct: -1.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,144.5,146,142.5,144.5,1660632,143.73,0.53,143.88,138.57,0.74
-20260811,142,143,140.5,143,1287062,143.67,-0.47,144,138.93,0.58
-20260812,143,144,142,142.5,719008,143.57,-0.75,144.07,139.24,0.33
-20260813,156.5,156.5,156.5,156.5,2744322,144.65,8.19,144.9,139.79,1.2
-20260814,172,172,172,172,1870185,146.93,17.06,146.65,140.59,0.81
 20260817,173,179.5,173,175.5,23596009,149.31,17.54,148.55,141.39,6.84
 20260818,175,176,173.5,176,5269144,151.54,16.14,150.28,142.16,1.44
 20260819,174.5,181.5,174.5,178.5,9858275,153.78,16.07,152.12,142.98,2.41
@@ -167,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,181.5,183.5,181.5,183,795315,170,7.65,169.72,149.74,0.22
 20260903,183,184.5,182.5,183,2152555,171.08,6.97,171.6,150.41,0.61
 20260904,183.5,186,183.5,185.5,1621496,172.28,7.67,173.55,151.11,0.46
+20260907,186,186.5,184.5,185,1001110,173.34,6.72,175.57,151.82,0.28
+20260908,185,186,184,185,1357191,174.32,6.13,177.68,152.48,0.39
+20260909,184,187.5,184,187.5,1198434,175.41,6.89,179.93,153.22,0.34
+20260910,187,188.5,186.5,187.5,1648736,176.42,6.28,181.47,154,0.47
+20260911,188,190.5,187,188.5,2105028,177.43,6.24,182.3,154.79,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 65.46
-- over_600_ratio: 63.59
-- over_800_ratio: 60.89
-- over_1000_ratio: 58.26
-- over_400_change_1w: 1.07
-- over_800_change_1w: 1.59
-- over_1000_change_1w: 1.91
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260911
+- over_400_ratio: 66.81
+- over_600_ratio: 65.13
+- over_800_ratio: 63.13
+- over_1000_ratio: 60.5
+- over_400_change_1w: 1.35
+- over_800_change_1w: 2.24
+- over_1000_change_1w: 2.24
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,57.08,-1.11,50.07,-0.5,47.46,-0.48,0,False,False
 20260626,56.05,-1.03,49.12,-0.95,46.14,-1.32,0,False,False
 20260703,55.63,-0.42,48.9,-0.22,45.61,-0.53,0,False,False
 20260709,55.12,-0.51,48.82,-0.08,45.51,-0.1,0,False,False
@@ -198,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,62.81,5.35,56.79,6.3,53.78,6.6,6,True,True
 20260828,64.39,1.58,59.3,2.51,56.35,2.57,7,True,True
 20260904,65.46,1.07,60.89,1.59,58.26,1.91,8,True,True
+20260911,66.81,1.35,63.13,2.24,60.5,2.24,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6214 | 精誠 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_2_3d | 1.事實發生日:115/08/26 2.公司名稱:精誠資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 與伊藤忠商事株式會社簽訂合作備忘錄後，合資設立CTC-SYSTEX株式會社。 6.因應措施:發布重大訊息補充說明後續合作進度。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 6214 | 精誠 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_2_3d | 1.事實發生日:115/08/26 2.公司名稱:精誠資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 與伊藤忠商事株式會社簽訂合作備忘錄後，合資設立CTC-SYSTEX株式會社。 6.因應措施:發布重大訊息補充說明後續合作進度。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6214 | 精誠 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:精誠資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 與伊藤忠商事株式會社簽訂合作備忘錄後，合資設立CTC-SYSTEX株式會社。 6.因應措施:發布重大訊息補充說明後續合作進度。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 6214 | 精誠 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:精誠資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 與伊藤忠商事株式會社簽訂合作備忘錄後，合資設立CTC-SYSTEX株式會社。 6.因應措施:發布重大訊息補充說明後續合作進度。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6214 | 精誠 | 2 | 2 | 3 | 5 | 14 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260911 | 6214 | 精誠 | 7 | 7 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6214 | 精誠 | 16 | 0 | 3294690.0 | 0.0 |  | call_inflow |
+| 20260911 | 6214 | 精誠 | 17 | 0 | 8746620.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

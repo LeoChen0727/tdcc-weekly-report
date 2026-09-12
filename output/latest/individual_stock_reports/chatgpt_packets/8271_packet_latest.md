@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8271 宇瞻
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:52 Asia/Taipei
+- generated_at: 2026-09-12 15:45:08 Asia/Taipei
 - stock_id: 8271
 - stock_name: 宇瞻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 220
-- high: 222
-- low: 213
-- close: 217
-- volume: 1937182
-- ma5: 222.6
-- ema23_primary: 224.69
-- distance_to_ema23_pct: -3.42
-- ma20: 228.82
-- ma60: 211.16
-- ma120: 208.01
-- return_5d: -6.67
-- return_20d: -7.86
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -5.17
-- distance_to_high_60_pct: -13.03
+- date: 20260911
+- open: 208
+- high: 208.5
+- low: 205.5
+- close: 206
+- volume: 1384179
+- ma5: 215.2
+- ema23_primary: 221.09
+- distance_to_ema23_pct: -6.83
+- ma20: 224.4
+- ma60: 212.05
+- ma120: 208.83
+- return_5d: -5.07
+- return_20d: -11.59
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -8.2
+- distance_to_high_60_pct: -17.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,233.5,237.5,228.5,235.5,6983213,214.77,9.65,209.4,211.89,0.84
-20260811,232.5,235,229,234.5,4354343,216.42,8.36,212.45,211.77,0.52
-20260812,236,238.5,231,232,4782916,217.72,6.56,214.97,211.7,0.56
-20260813,233.5,235,228.5,229.5,4357104,218.7,4.94,217.07,211.83,0.5
-20260814,231.5,236.5,224.5,233,8476251,219.89,5.96,219.22,212.13,0.99
 20260817,233.5,233.5,227.5,228,3195900,220.57,3.37,221.43,212.27,0.38
 20260818,229,232,223,223,2874908,220.77,1.01,223,212.24,0.34
 20260819,218,221,215.5,219.5,2443973,220.66,-0.53,224.15,212.08,0.29
@@ -173,17 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,226.5,230.5,224.5,225.5,1580182,226.15,-0.29,231.25,210.91,0.3
 20260903,227.5,229.5,217,217,3191252,225.39,-3.72,229.75,210.91,0.69
 20260904,220,222,213,217,1937182,224.69,-3.42,228.82,211.16,0.46
+20260907,222,226.5,220,222,1855792,224.46,-1.1,228.15,211.57,0.47
+20260908,223,227,219.5,219.5,1607586,224.05,-2.03,227.4,211.86,0.42
+20260909,220.5,222,217,217.5,1425181,223.51,-2.69,226.68,212.01,0.39
+20260910,216.5,216.5,211,211,2410888,222.46,-5.15,225.75,212.09,0.67
+20260911,208,208.5,205.5,206,1384179,221.09,-6.83,224.4,212.05,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 42.72
-- over_600_ratio: 40.37
-- over_800_ratio: 38.22
-- over_1000_ratio: 36.82
-- over_400_change_1w: -2.78
-- over_800_change_1w: -0.75
-- over_1000_change_1w: -0.04
+- as_of_date: 20260911
+- over_400_ratio: 41.94
+- over_600_ratio: 39.7
+- over_800_ratio: 38.11
+- over_1000_ratio: 36.59
+- over_400_change_1w: -0.78
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.23
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,44.12,-0.74,37.9,-0.32,37.9,-0.32,0,False,False
 20260626,43.72,-0.4,38.93,1.03,38.28,0.38,1,False,True
 20260703,43.17,-0.55,38.44,-0.49,37.71,-0.57,0,False,False
 20260709,42.41,-0.76,36.32,-2.12,36.32,-1.39,0,False,False
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,43.68,-1.49,39.4,-1.18,38.66,-0.43,0,False,False
 20260828,45.5,1.82,38.97,-0.43,36.86,-1.8,1,False,False
 20260904,42.72,-2.78,38.22,-0.75,36.82,-0.04,0,False,False
+20260911,41.94,-0.78,38.11,-0.11,36.59,-0.23,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：晶華酒店 四樓 (台北市中山區中山北路二段39巷3號) 4.法人說明會擇要訊息：台新證券舉辦之2026年第三季全球投資論壇 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 8271 | 宇瞻 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 40 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：晶華酒店 四樓 (台北市中山區中山北路二段39巷3號) 4.法人說明會擇要訊息：台新證券舉辦之2026年第三季全球投資論壇 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8271 | 宇瞻 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：晶華酒店 四樓 (台北市中山區中山北路二段39巷3號) 4.法人說明會擇要訊息：台新證券舉辦之2026年第三季全球投資論壇 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8271 | 宇瞻 | revenue_breakout_low_response | 營收爆發低反應股 | 14 | 38 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：晶華酒店 四樓 (台北市中山區中山北路二段39巷3號) 4.法人說明會擇要訊息：台新證券舉辦之2026年第三季全球投資論壇 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8271 | 宇瞻 | 12 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 8271 | 宇瞻 | 17 | 12 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8271 | 宇瞻 | 76 | 8 | 763390.0 | 47640.0 | 16.02 | no_signal |
+| 20260911 | 8271 | 宇瞻 | 75 | 8 | 1173570.0 | 56350.0 | 20.83 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

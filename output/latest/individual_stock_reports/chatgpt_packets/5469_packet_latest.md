@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:43 Asia/Taipei
+- generated_at: 2026-09-12 15:44:02 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 71.8
-- high: 72.2
+- date: 20260911
+- open: 71.1
+- high: 72.9
 - low: 70.9
-- close: 71.6
-- volume: 804330
-- ma5: 72.9
-- ema23_primary: 72.91
-- distance_to_ema23_pct: -1.79
-- ma20: 73.47
-- ma60: 76.68
-- ma120: 80.98
-- return_5d: -4.28
-- return_20d: 0.28
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -2.54
-- distance_to_high_60_pct: -23.83
+- close: 72.3
+- volume: 1025524
+- ma5: 71.96
+- ema23_primary: 72.58
+- distance_to_ema23_pct: -0.38
+- ma20: 72.48
+- ma60: 75.61
+- ma120: 80.32
+- return_5d: 0.98
+- return_20d: -2.43
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -0.25
+- distance_to_high_60_pct: -23.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,73,77.2,72.7,75.9,3906563,72.68,4.43,70.23,79.73,1.68
-20260811,75.5,76.5,74.5,75.9,2165128,72.95,4.05,70.28,79.67,1
-20260812,76.2,77.3,76,76.7,1582788,73.26,4.69,70.28,79.63,0.73
-20260813,77.3,78.1,76.4,76.9,1571353,73.56,4.53,70.47,79.59,0.76
-20260814,77.1,77.2,73.9,74.1,2338063,73.61,0.67,70.78,79.51,1.18
 20260817,74.1,75.5,74,74.9,991150,73.72,1.61,71.11,79.4,0.52
 20260818,74.7,75.4,73.9,74,1124803,73.74,0.35,71.29,79.25,0.59
 20260819,73.6,74.1,72,72.2,1683957,73.61,-1.92,71.31,79.06,0.87
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,74,74.4,73.3,73.7,611378,73.19,0.7,73.42,77.03,0.4
 20260903,73.9,74.2,71.2,71.2,1041089,73.03,-2.5,73.45,76.83,0.69
 20260904,71.8,72.2,70.9,71.6,804330,72.91,-1.79,73.47,76.68,0.57
+20260907,72.6,72.9,71.7,72.3,678284,72.86,-0.76,73.28,76.54,0.54
+20260908,72.6,72.7,71.1,71.1,914139,72.71,-2.21,73.05,76.33,0.76
+20260909,71.2,72.8,71.2,72.4,799014,72.68,-0.39,72.83,76.08,0.69
+20260910,72.2,72.4,71.5,71.7,494686,72.6,-1.24,72.57,75.85,0.45
+20260911,71.1,72.9,70.9,72.3,1025524,72.58,-0.38,72.48,75.61,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 72.36
-- over_600_ratio: 70.73
-- over_800_ratio: 68.91
-- over_1000_ratio: 67.98
-- over_400_change_1w: -0.18
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.78
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 72.46
+- over_600_ratio: 70.93
+- over_800_ratio: 69.4
+- over_1000_ratio: 68.1
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.49
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,71.67,0.9,67.55,0.28,66.6,0.27,6,True,True
 20260626,71.91,0.24,68.23,0.68,66.9,0.3,7,True,True
 20260703,72.45,0.54,68.26,0.03,66.77,-0.13,8,False,True
 20260709,72.64,0.19,68.51,0.25,67.16,0.39,9,True,True
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,72.37,-0.44,68.7,0.17,66.88,-0.51,4,False,True
 20260828,72.54,0.17,68.72,0.02,67.2,0.32,5,True,True
 20260904,72.36,-0.18,68.91,0.19,67.98,0.78,6,False,True
+20260911,72.46,0.1,69.4,0.49,68.1,0.12,7,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 5469 | 瀚宇博 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):24,305,679,000 2.原預定買回之期間:115/07/31~115/09/29 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):62.00~74.00 5.本次實際買回期間:115/07/31~115/08/19 6.本次已買回股份數量(股):2,000,000 7.本次已買回股份總金額(元):141,487,012 8.本次平均每股買回價格(元):70.74 9.累積已持有自己公司股份數量(股):2,227,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.46 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 5469 | 瀚宇博 | 1 | 1 | 1 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5469 | 瀚宇博 | 31 | 0 | 15000.0 | 0.0 |  | no_signal |
+| 20260911 | 5469 | 瀚宇博 | 27 | 0 | 63040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

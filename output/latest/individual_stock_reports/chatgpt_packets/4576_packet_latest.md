@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:25 Asia/Taipei
+- generated_at: 2026-09-12 15:43:44 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 236
-- high: 239.5
-- low: 223
-- close: 238
-- volume: 3520267
-- ma5: 231.6
-- ema23_primary: 217.12
-- distance_to_ema23_pct: 9.62
-- ma20: 217.95
-- ma60: 210.49
-- ma120: 204.95
-- return_5d: 10.19
-- return_20d: 9.17
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 9.2
-- distance_to_high_60_pct: -5.56
+- date: 20260911
+- open: 234
+- high: 250
+- low: 232.5
+- close: 242
+- volume: 3945958
+- ma5: 241.3
+- ema23_primary: 225.61
+- distance_to_ema23_pct: 7.27
+- ma20: 222.43
+- ma60: 213.58
+- ma120: 209.99
+- return_5d: 1.68
+- return_20d: 9.5
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 8.8
+- distance_to_high_60_pct: -6.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,223.5,232.5,214.5,226.5,3149130,204.47,10.77,197.88,219.73,1.74
-20260811,223.5,226,216,218.5,1684823,205.64,6.25,198.68,218.95,0.94
-20260812,217,231,217,227,2231864,207.42,9.44,199.72,218.43,1.2
-20260813,228,235.5,222.5,224,4165130,208.8,7.28,200.38,217.96,2.06
-20260814,224,226.5,217.5,221,1287472,209.82,5.33,201.72,217.7,0.64
 20260817,220,233,220,225.5,2760470,211.12,6.81,203.62,217.32,1.32
 20260818,223.5,226.5,209,210.5,1617769,211.07,-0.27,204.6,216.47,0.76
 20260819,206.5,219,205,208,1528579,210.82,-1.34,205.1,215.32,0.71
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,229,252,227.5,242,7351242,213.79,13.2,216.32,209.59,2.6
 20260903,250,251.5,229.5,231,9012781,215.22,7.33,216.95,209.88,2.9
 20260904,236,239.5,223,238,3520267,217.12,9.62,217.95,210.49,1.22
+20260907,250,258,245,247,6096261,219.61,12.47,218.97,211.33,2.01
+20260908,249.5,252,230.5,235.5,4225651,220.93,6.59,219.82,211.89,1.34
+20260909,239,249,236.5,244,4290540,222.86,9.49,220.68,212.38,1.31
+20260910,241,244.5,233,238,2857031,224.12,6.19,221.38,212.9,0.89
+20260911,234,250,232.5,242,3945958,225.61,7.27,222.43,213.58,1.18
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 67.75
-- over_600_ratio: 66.46
-- over_800_ratio: 63.47
-- over_1000_ratio: 59.69
-- over_400_change_1w: 1.28
-- over_800_change_1w: 2.6
-- over_1000_change_1w: 1.05
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 67.73
+- over_600_ratio: 64.3
+- over_800_ratio: 62.67
+- over_1000_ratio: 60.42
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.8
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,65.64,-0.87,62.83,-0.3,59.9,-0.22,0,False,False
 20260626,66.06,0.42,63.91,1.08,60.86,0.96,1,True,True
 20260703,66.47,0.41,63.58,-0.33,61.23,0.37,2,False,True
 20260709,65.32,-1.15,62.5,-1.08,59.32,-1.91,0,False,False
@@ -198,24 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,66.32,-0.56,60.82,-2.32,58.58,-0.83,0,False,False
 20260828,66.47,0.15,60.87,0.05,58.64,0.06,1,True,True
 20260904,67.75,1.28,63.47,2.6,59.69,1.05,2,True,True
+20260911,67.73,-0.02,62.67,-0.8,60.42,0.73,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4576 | 大銀微系統 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/03 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容: 『…法人估…大銀8月營收有機會突破4億元大關…全年合併營收將可進一步突破 40億元大關，…』 7.發生緣由: 關於上述報導，係媒體及法人推測並非本公司發佈之訊息，謹此澄清。有關本公司 之財務及業務資訊，皆以公開資訊觀測站公告為主，特此說明。 8.因應措施:無 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 4576 | 大銀微系統 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/03 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容: 『…法人估…大銀8月營收有機會突破4億元大關…全年合併營收將可進一步突破 40億元大關，…』 7.發生緣由: 關於上述報導，係媒體及法人推測並非本公司發佈之訊息，謹此澄清。有關本公司 之財務及業務資訊，皆以公開資訊觀測站公告為主，特此說明。 8.因應措施:無 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/03 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容: 『…法人估…大銀8月營收有機會突破4億元大關…全年合併營收將可進一步突破 40億元大關，…』 7.發生緣由: 關於上述報導，係媒體及法人推測並非本公司發佈之訊息，謹此澄清。有關本公司 之財務及業務資訊，皆以公開資訊觀測站公告為主，特此說明。 8.因應措施:無 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 4576 | 大銀微系統 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/07 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容: 『…大銀預期…今年營收挑戰兩位數成長…大銀今年營收破40億元…』 7.發生緣由: 應主管機關要求說明 8.因應措施: 本公司並未公布對未來財務數字的預測。有關本公司之財務、業務資訊， 請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/07 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容: 『…大銀預期…今年營收挑戰兩位數成長…大銀今年營收破40億元…』 7.發生緣由: 應主管機關要求說明 8.因應措施: 本公司並未公布對未來財務數字的預測。有關本公司之財務、業務資訊， 請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4576 | 大銀微系統 | 14 | 2 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 4576 | 大銀微系統 | 19 | 4 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 4576 | 大銀微系統 | 73 | 0 | 11334800.0 | 0.0 |  | no_signal |
+| 20260911 | 4576 | 大銀微系統 | 89 | 1 | 23123110.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

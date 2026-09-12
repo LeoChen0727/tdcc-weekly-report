@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1528 恩德
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:56 Asia/Taipei
+- generated_at: 2026-09-12 15:42:19 Asia/Taipei
 - stock_id: 1528
 - stock_name: 恩德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 18.75
-- high: 19.2
-- low: 18.75
-- close: 19.15
-- volume: 525394
-- ma5: 19.12
-- ema23_primary: 19.16
-- distance_to_ema23_pct: -0.05
-- ma20: 19.03
-- ma60: 20.85
-- ma120: 23.58
-- return_5d: -2.05
-- return_20d: 3.23
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 0.62
-- distance_to_high_60_pct: -28.14
+- date: 20260911
+- open: 19.9
+- high: 21.2
+- low: 19.9
+- close: 21.2
+- volume: 9585675
+- ma5: 20.19
+- ema23_primary: 19.54
+- distance_to_ema23_pct: 8.51
+- ma20: 19.27
+- ma60: 20.42
+- ma120: 23.47
+- return_5d: 10.71
+- return_20d: 9.28
+- volume_ratio: 6.04
+- distance_to_ma20_pct_auxiliary: 10.02
+- distance_to_high_60_pct: -18.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,18.85,19.15,18.65,19,670407,19.62,-3.14,19.1,23.22,0.57
-20260811,19,19.4,18.85,19,768535,19.56,-2.88,18.96,23.12,0.69
-20260812,19,19.5,18.9,19.4,782167,19.55,-0.77,18.82,23.01,0.7
-20260813,19.6,19.95,19.3,19.4,718142,19.54,-0.71,18.71,22.9,0.65
-20260814,19.4,19.45,19.1,19.4,636691,19.53,-0.65,18.67,22.81,0.62
 20260817,19.7,19.75,18.95,19.1,597376,19.49,-2.01,18.64,22.7,0.61
 20260818,19.1,19.4,18.7,18.7,620789,19.42,-3.73,18.57,22.57,0.65
 20260819,18.65,19,18.45,18.55,668804,19.35,-4.14,18.5,22.43,0.71
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,19,19.6,19,19.35,529230,19.2,0.77,19,21.08,0.83
 20260903,19.35,19.55,18.7,18.7,699605,19.16,-2.4,19,20.95,1.09
 20260904,18.75,19.2,18.75,19.15,525394,19.16,-0.05,19.03,20.85,0.82
+20260907,19.25,19.3,18.85,19.15,392050,19.16,-0.05,19.04,20.75,0.62
+20260908,19.5,21.05,19.5,21.05,3489297,19.32,8.97,19.14,20.68,4.56
+20260909,21.8,21.8,20.25,20.25,7046159,19.39,4.41,19.18,20.6,6.54
+20260910,20.15,20.15,19.25,19.3,1959599,19.39,-0.45,19.18,20.49,1.72
+20260911,19.9,21.2,19.9,21.2,9585675,19.54,8.51,19.27,20.42,6.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 30.67
-- over_600_ratio: 29.09
-- over_800_ratio: 28.78
-- over_1000_ratio: 28.78
-- over_400_change_1w: -0.26
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.52
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20260911
+- over_400_ratio: 29.56
+- over_600_ratio: 28.73
+- over_800_ratio: 27.74
+- over_1000_ratio: 27.74
+- over_400_change_1w: -1.11
+- over_800_change_1w: -1.04
+- over_1000_change_1w: -1.04
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,31.25,-0.36,28.9,-1.44,28.9,-0.57,0,False,False
 20260626,29.96,-1.29,28.56,-0.34,28.56,-0.34,0,False,False
 20260703,29.93,-0.03,28.34,-0.22,28.34,-0.22,0,False,False
 20260709,29.3,-0.63,28.2,-0.14,27.74,-0.6,0,False,False
@@ -199,17 +197,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,30.57,0.41,28.17,0.43,27.74,0,6,False,True
 20260828,30.93,0.36,28.77,0.6,28.26,0.52,7,True,True
 20260904,30.67,-0.26,28.78,0.01,28.78,0.52,8,False,True
+20260911,29.56,-1.11,27.74,-1.04,27.74,-1.04,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 1528 | 恩德 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 1528 | 恩德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 1528 | 恩德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 1528 | 恩德 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

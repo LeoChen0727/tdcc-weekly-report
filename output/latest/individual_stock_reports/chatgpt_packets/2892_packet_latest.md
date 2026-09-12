@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:40 Asia/Taipei
+- generated_at: 2026-09-12 15:43:01 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 36.95
-- high: 37.3
-- low: 36.4
-- close: 37.3
-- volume: 30570826
-- ma5: 36.32
-- ema23_primary: 34.76
-- distance_to_ema23_pct: 7.3
-- ma20: 34.25
-- ma60: 33.82
-- ma120: 31.23
-- return_5d: 8.43
-- return_20d: 4.92
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 8.9
-- distance_to_high_60_pct: 0
+- date: 20260911
+- open: 37.7
+- high: 39.05
+- low: 37.7
+- close: 38.9
+- volume: 34933986
+- ma5: 37.97
+- ema23_primary: 35.91
+- distance_to_ema23_pct: 8.31
+- ma20: 35.38
+- ma60: 34.36
+- ma120: 31.61
+- return_5d: 4.29
+- return_20d: 16.64
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 9.95
+- distance_to_high_60_pct: -0.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,35.7,35.7,34.9,34.95,51369106,34.61,1,34.79,32.01,1.16
-20260811,33.55,33.7,32.6,32.7,85137348,34.45,-5.07,34.74,32.07,1.8
-20260812,32.7,33.15,32.45,33.15,42976191,34.34,-3.46,34.75,32.14,0.92
-20260813,33.35,33.35,32.65,33.15,28066711,34.24,-3.18,34.71,32.21,0.61
-20260814,33.15,33.7,32.75,33.35,39847913,34.17,-2.39,34.67,32.3,0.87
 20260817,33.1,33.55,32.55,33.4,45847450,34.1,-2.06,34.64,32.4,0.99
 20260818,33.4,34.25,33.25,33.7,40530045,34.07,-1.08,34.6,32.5,0.87
 20260819,33.65,33.8,33.3,33.6,16299693,34.03,-1.26,34.56,32.6,0.36
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,35.55,36.35,35.4,36.25,37045311,34.32,5.63,34.1,33.6,0.88
 20260903,36.25,37.1,36.1,36.85,38579002,34.53,6.72,34.16,33.71,0.93
 20260904,36.95,37.3,36.4,37.3,30570826,34.76,7.3,34.25,33.82,0.74
+20260907,38,38,36.85,37.3,38993734,34.97,6.65,34.37,33.93,0.96
+20260908,37.2,37.9,36.85,37.85,28543044,35.21,7.49,34.63,34.04,0.75
+20260909,37.95,38.1,37.15,37.8,30638819,35.43,6.7,34.86,34.15,0.82
+20260910,37.4,38.25,37.35,38,29076588,35.64,6.61,35.1,34.26,0.78
+20260911,37.7,39.05,37.7,38.9,34933986,35.91,8.31,35.38,34.36,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 72.02
-- over_600_ratio: 70.17
-- over_800_ratio: 68.98
-- over_1000_ratio: 68.07
-- over_400_change_1w: 0.32
-- over_800_change_1w: 0.33
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260911
+- over_400_ratio: 72.16
+- over_600_ratio: 70.31
+- over_800_ratio: 69.14
+- over_1000_ratio: 68.24
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,70.73,0.38,67.65,0.41,66.78,0.41,3,True,True
 20260626,71,0.27,67.92,0.27,67.06,0.28,4,True,True
 20260703,71.09,0.09,68.01,0.09,67.17,0.11,5,True,True
 20260709,71.32,0.23,68.27,0.26,67.39,0.22,6,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,71.75,0.06,68.72,0.03,67.86,0.05,1,True,True
 20260828,71.7,-0.05,68.65,-0.07,67.79,-0.07,0,False,False
 20260904,72.02,0.32,68.98,0.33,68.07,0.28,1,True,True
+20260911,72.16,0.14,69.14,0.16,68.24,0.17,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管 2.發生變動日期:115/09/02 3.舊任者姓名、級職及簡歷: 鄭聿舒(美國第一銀行主任秘書暨財務長) 4.新任者姓名、級職及簡歷: 張淑卿(洛杉磯分行研究員) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/09/02 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管 2.發生變動日期:115/09/02 3.舊任者姓名、級職及簡歷: 鄭聿舒(美國第一銀行主任秘書暨財務長) 4.新任者姓名、級職及簡歷: 張淑卿(洛杉磯分行研究員) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/09/02 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2892 | 第一金 | 6 | 4 | 5 | 6 | 11 | continued_many_days | 連續 6 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260911 | 2892 | 第一金 | 11 | 9 | 5 | 10 | 14 | continued_many_days | 連續 11 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2892 | 第一金 | 8 | 0 | 250290.0 | 0.0 |  | no_signal |
+| 20260911 | 2892 | 第一金 | 8 | 0 | 401320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

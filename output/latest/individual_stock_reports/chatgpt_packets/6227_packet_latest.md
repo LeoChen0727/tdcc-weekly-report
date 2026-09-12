@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6227 茂綸
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:00 Asia/Taipei
+- generated_at: 2026-09-12 15:44:18 Asia/Taipei
 - stock_id: 6227
 - stock_name: 茂綸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 113.5
-- high: 117
-- low: 111.5
-- close: 113.5
-- volume: 242000
-- ma5: 113.4
-- ema23_primary: 117.3
-- distance_to_ema23_pct: -3.24
-- ma20: 119.33
-- ma60: 118.69
-- ma120: 111.07
-- return_5d: 0.44
-- return_20d: -7.72
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -4.88
-- distance_to_high_60_pct: -15.93
+- date: 20260911
+- open: 123.5
+- high: 127.5
+- low: 120.5
+- close: 127.5
+- volume: 4135000
+- ma5: 116.8
+- ema23_primary: 117.35
+- distance_to_ema23_pct: 8.65
+- ma20: 116.9
+- ma60: 117.88
+- ma120: 112.4
+- return_5d: 12.33
+- return_20d: 2.82
+- volume_ratio: 5.79
+- distance_to_ma20_pct_auxiliary: 9.07
+- distance_to_high_60_pct: -5.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,125.5,126,123,125,308000,117.98,5.95,114.85,121.12,0.78
-20260811,130.5,135,128.5,131,1016000,119.07,10.02,115.72,121.23,2.39
-20260812,131,132,124,125.5,966000,119.6,4.93,116.25,121.34,2.16
-20260813,128,131,125,127,465000,120.22,5.64,116.95,121.54,1.01
-20260814,128,128,123,124,368000,120.53,2.88,117.85,121.71,0.8
 20260817,125,125,122,122.5,229000,120.7,1.49,118.75,121.81,0.5
 20260818,122.5,122.5,118,118,360000,120.47,-2.05,119.28,121.64,0.77
 20260819,118,119,115.5,117,343000,120.18,-2.65,119.65,121.41,0.73
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,113,118,113,116,487000,118.07,-1.76,120.4,119.2,0.81
 20260903,118,118,113,113,374000,117.65,-3.95,119.8,118.88,0.62
 20260904,113.5,117,111.5,113.5,242000,117.3,-3.24,119.33,118.69,0.4
+20260907,115,115,111,111.5,371000,116.82,-4.55,118.65,118.38,0.61
+20260908,111.5,113,111.5,112,161000,116.42,-3.8,117.7,118.14,0.29
+20260909,114,118,113,117,406000,116.47,0.46,117.28,117.98,0.76
+20260910,115.5,117.5,115,116,322000,116.43,-0.37,116.72,117.83,0.61
+20260911,123.5,127.5,120.5,127.5,4135000,117.35,8.65,116.9,117.88,5.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 70.39
-- over_600_ratio: 69.33
+- as_of_date: 20260911
+- over_400_ratio: 70.47
+- over_600_ratio: 69.4
 - over_800_ratio: 67.6
 - over_1000_ratio: 67.6
-- over_400_change_1w: -1.39
+- over_400_change_1w: 0.08
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,71.93,-0.68,69.2,-0.05,69.2,-0.05,0,False,False
 20260626,73.03,1.1,69.2,0,69.2,0,1,False,False
 20260703,72.95,-0.08,69.07,-0.13,69.07,-0.13,0,False,False
 20260709,72.89,-0.06,69.06,-0.01,69.06,-0.01,0,False,False
@@ -199,17 +198,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,72.07,-0.45,67.6,-1.07,67.6,0,0,False,False
 20260828,71.78,-0.29,67.6,0,67.6,0,0,False,False
 20260904,70.39,-1.39,67.6,0,67.6,0,1,False,False
+20260911,70.47,0.08,67.6,0,67.6,0,2,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 6227 | 茂綸 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：統一綜合證券總公司13樓會議廳 台北市松山區東興路8號13F 4.法人說明會擇要訊息：統一證券舉辦之115年第二季財報法人說明會 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 6227 | 茂綸 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：統一綜合證券總公司13樓會議廳 台北市松山區東興路8號13F 4.法人說明會擇要訊息：統一證券舉辦之115年第二季財報法人說明會 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6227 | 茂綸 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：統一綜合證券總公司13樓會議廳 台北市松山區東興路8號13F 4.法人說明會擇要訊息：統一證券舉辦之115年第二季財報法人說明會 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 6227 | 茂綸 | 1 | 1 | 1 | 1 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

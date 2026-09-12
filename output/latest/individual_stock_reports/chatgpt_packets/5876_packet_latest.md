@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:48 Asia/Taipei
+- generated_at: 2026-09-12 15:44:06 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 41
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 42
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 45.95
-- high: 46.3
-- low: 45.25
-- close: 46.3
-- volume: 7546959
-- ma5: 45
-- ema23_primary: 44.06
-- distance_to_ema23_pct: 5.08
-- ma20: 43.62
-- ma60: 43.57
-- ma120: 41.63
-- return_5d: 7.3
-- return_20d: 6.56
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 6.16
-- distance_to_high_60_pct: -1.7
+- date: 20260911
+- open: 47.1
+- high: 48.75
+- low: 47.1
+- close: 48.65
+- volume: 7005480
+- ma5: 47.95
+- ema23_primary: 45.45
+- distance_to_ema23_pct: 7.04
+- ma20: 44.91
+- ma60: 44.02
+- ma120: 41.99
+- return_5d: 5.08
+- return_20d: 14.88
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 8.33
+- distance_to_high_60_pct: -0.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,43.75,43.75,42.9,43.35,6889973,44.08,-1.65,44.77,42.52,0.47
-20260811,43.15,43.55,42.7,43.1,4564461,43.99,-2.03,44.69,42.56,0.33
-20260812,43.1,43.1,42.6,42.85,4327818,43.9,-2.39,44.6,42.62,0.32
-20260813,43.1,43.1,42.05,42.25,8247877,43.76,-3.45,44.46,42.64,0.62
-20260814,42.4,42.45,41.65,42.35,6477947,43.64,-2.96,44.32,42.68,0.52
 20260817,42.1,42.55,41.9,42.25,7192187,43.53,-2.93,44.16,42.72,0.61
 20260818,42.45,43.2,42.25,43.2,6595939,43.5,-0.69,44.03,42.77,0.59
 20260819,42.85,43.55,42.35,43.5,7353841,43.5,-0,43.96,42.83,0.68
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,44.8,45.35,43.95,45.35,16001250,43.67,3.85,43.35,43.44,2.18
 20260903,45.15,46,45.1,45.95,13157273,43.86,4.77,43.47,43.5,1.73
 20260904,45.95,46.3,45.25,46.3,7546959,44.06,5.08,43.62,43.57,0.97
+20260907,46.5,46.95,46.05,46.95,9786207,44.3,5.97,43.8,43.65,1.23
+20260908,46.55,48.75,46.45,48.75,19081290,44.67,9.12,44.08,43.76,2.2
+20260909,48.25,48.6,47.2,47.5,6283664,44.91,5.77,44.31,43.83,0.72
+20260910,46.9,48.05,46.9,47.9,7098758,45.16,6.07,44.59,43.92,0.82
+20260911,47.1,48.75,47.1,48.65,7005480,45.45,7.04,44.91,44.02,0.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 88.36
-- over_600_ratio: 85.88
-- over_800_ratio: 84.11
-- over_1000_ratio: 82.8
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260911
+- over_400_ratio: 88.64
+- over_600_ratio: 86.22
+- over_800_ratio: 84.45
+- over_1000_ratio: 83.19
+- over_400_change_1w: 0.28
+- over_800_change_1w: 0.34
+- over_1000_change_1w: 0.39
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,86.93,0.05,82.64,0.03,81.23,0.02,3,True,True
 20260626,86.79,-0.14,82.58,-0.06,81.12,-0.11,0,False,False
 20260703,86.88,0.09,82.67,0.09,81.31,0.19,1,True,True
 20260709,86.85,-0.03,82.6,-0.07,81.21,-0.1,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,88.21,0.11,84,0.14,82.61,0.09,1,True,True
 20260828,88.18,-0.03,84.03,0.03,82.63,0.02,2,False,True
 20260904,88.36,0.18,84.11,0.08,82.8,0.17,3,True,True
+20260911,88.64,0.28,84.45,0.34,83.19,0.39,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.發生變動日期:115/07/17 2.功能性委員會名稱:風險委員會 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:唐業銓先生 6.新任者簡歷:德勤中國金融服務業審計及核證合夥人 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:新任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 10.新任生效日期:115/07/17 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/08 2.公司名稱:上海商業儲蓄銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年8月份合併自結損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   公告本公司115年8月份合併自結損益：   單位:億元   ------8月損益-----------------累計1-8月損益---------------    合併    母公司        合併       母公司     基本EPS(元)    稅前   業主稅後       稅前      業主稅後    18.81   14.66        202.19      136.58        2.79   ----------------------------------------------------------；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5876 | 上海商銀 | 4 | 1 | 4 | 6 | 13 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 5876 | 上海商銀 | 9 | 3 | 5 | 9 | 13 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5876 | 上海商銀 | 1 | 0 | 107220.0 | 0.0 |  | no_signal |
+| 20260911 | 5876 | 上海商銀 | 1 | 0 | 272680.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

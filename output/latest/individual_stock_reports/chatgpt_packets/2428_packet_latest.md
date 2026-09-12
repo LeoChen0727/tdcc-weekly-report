@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:23 Asia/Taipei
+- generated_at: 2026-09-12 15:42:45 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 250
+- date: 20260911
+- open: 247.5
 - high: 263
-- low: 250
-- close: 260
-- volume: 2467223
-- ma5: 252.6
-- ema23_primary: 251.98
-- distance_to_ema23_pct: 3.18
-- ma20: 252.15
-- ma60: 268.22
-- ma120: 234.05
-- return_5d: -0.76
-- return_20d: 15.81
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 3.11
-- distance_to_high_60_pct: -28.47
+- low: 247
+- close: 255
+- volume: 2241225
+- ma5: 253.4
+- ema23_primary: 252.41
+- distance_to_ema23_pct: 1.03
+- ma20: 254.03
+- ma60: 264.98
+- ma120: 237.84
+- return_5d: -1.92
+- return_20d: 0
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -29.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,229,231.5,228.5,229,351146,245.01,-6.54,241.82,269.69,0.36
-20260811,230,238,228,231.5,727310,243.89,-5.08,238.85,270.12,0.8
-20260812,245,254.5,242.5,254.5,2289406,244.77,3.97,236.82,270.83,2.37
-20260813,255,266,255,259.5,5513682,246,5.49,235.35,271.59,4.62
-20260814,260,260,252,255,1739247,246.75,3.34,234.9,272.12,1.45
 20260817,254,256,250,254.5,916609,247.4,2.87,235.12,272.53,0.78
 20260818,254.5,258,252,252,1008248,247.78,1.7,235.1,272.69,0.86
 20260819,248,262.5,247,256.5,1967772,248.51,3.22,235.07,272.92,1.62
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,254,256,250,250.5,1282277,251.86,-0.54,249.75,269.39,0.72
 20260903,250.5,253,244.5,244.5,1098757,251.25,-2.69,250.38,268.65,0.61
 20260904,250,263,250,260,2467223,251.98,3.18,252.15,268.22,1.3
+20260907,263,266,259,259.5,1426110,252.6,2.73,253.68,267.86,0.73
+20260908,258.5,259,251,253.5,979542,252.68,0.33,254.78,267.23,0.5
+20260909,252,255.5,248,248.5,1240196,252.33,-1.52,254.47,266.21,0.65
+20260910,248.5,252,244.5,250.5,790825,252.18,-0.67,254.03,265.72,0.47
+20260911,247.5,263,247,255,2241225,252.41,1.03,254.03,264.98,1.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 59.37
-- over_600_ratio: 56.71
-- over_800_ratio: 54.49
-- over_1000_ratio: 51.77
-- over_400_change_1w: -1.34
-- over_800_change_1w: 0.6
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260911
+- over_400_ratio: 59.79
+- over_600_ratio: 57.17
+- over_800_ratio: 53.84
+- over_1000_ratio: 51.75
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.65
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,64.48,0.67,56.48,-0.12,52.45,0.54,2,False,True
 20260626,64.15,-0.33,56.05,-0.43,52.55,0.1,3,False,True
 20260703,64.33,0.18,55.57,-0.48,52.83,0.28,4,False,True
 20260709,64.22,-0.11,55.01,-0.56,50.83,-2,0,False,False
@@ -199,24 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,62.25,-0.58,54.83,1.2,52.74,1.84,1,False,True
 20260828,60.71,-1.54,53.89,-0.94,51.8,-0.94,0,False,False
 20260904,59.37,-1.34,54.49,0.6,51.77,-0.03,1,False,True
+20260911,59.79,0.42,53.84,-0.65,51.75,-0.02,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2428 | 興勤 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | continued_2_3d | 1.證券名稱: 摩根士丹利數字經濟混合型證券投資基金C 2.交易日期:115/7/3~115/7/9 3.董事會通過日期: 民國115年7月9日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量：8,944,365.00單位；每單位價格：人民幣4.5358元； 交易數量：6,705,073.00單位；每單位價格：人民幣4.6382元； 交易總金額：人民幣71,669仟元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益人民幣8,664仟元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占母公司最近期個體財務報表中總資產之比例：1.12％ 占最近期合併財務報表歸屬於母公司業主之權益之比例：1.48％ 母公司最近期個體財務報表中營運資金數額：新台幣992,843仟元 10.取得或處分之具體目的: 投資理財 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 該基金尚未結算，公告資料之單位價格依115年7月9日 最新估計價格人民幣4.6382元計算。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 2428 | 興勤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_2_3d | 1.證券名稱: 摩根士丹利數字經濟混合型證券投資基金C 2.交易日期:115/7/3~115/7/9 3.董事會通過日期: 民國115年7月9日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量：8,944,365.00單位；每單位價格：人民幣4.5358元； 交易數量：6,705,073.00單位；每單位價格：人民幣4.6382元； 交易總金額：人民幣71,669仟元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益人民幣8,664仟元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占母公司最近期個體財務報表中總資產之比例：1.12％ 占最近期合併財務報表歸屬於母公司業主之權益之比例：1.48％ 母公司最近期個體財務報表中營運資金數額：新台幣992,843仟元 10.取得或處分之具體目的: 投資理財 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 該基金尚未結算，公告資料之單位價格依115年7月9日 最新估計價格人民幣4.6382元計算。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 2428 | 興勤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | 1.證券名稱: 摩根士丹利數字經濟混合型證券投資基金C 2.交易日期:115/7/3~115/7/9 3.董事會通過日期: 民國115年7月9日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易數量：8,944,365.00單位；每單位價格：人民幣4.5358元； 交易數量：6,705,073.00單位；每單位價格：人民幣4.6382元； 交易總金額：人民幣71,669仟元 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益人民幣8,664仟元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占母公司最近期個體財務報表中總資產之比例：1.12％ 占最近期合併財務報表歸屬於母公司業主之權益之比例：1.48％ 母公司最近期個體財務報表中營運資金數額：新台幣992,843仟元 10.取得或處分之具體目的: 投資理財 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 該基金尚未結算，公告資料之單位價格依115年7月9日 最新估計價格人民幣4.6382元計算。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2428 | 興勤 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/08 2.公司名稱:興勤電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年08月份自結合併營業收入(已扣除內部交易)。 6.因應措施:本公司115年08月份自結合併營業收入為新台幣942,587仟元，較去年同期 自結合併營收新台幣623,344仟元，增加51.21%。 115年01-08月份累計自結合併營業收入為新台幣6,679,112仟元，較去年同期累計自結 合併營收新台幣5,234,095仟元，增加27.61%。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師簽證，特此說明。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 2428 | 興勤 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/08 2.公司名稱:興勤電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年08月份自結合併營業收入(已扣除內部交易)。 6.因應措施:本公司115年08月份自結合併營業收入為新台幣942,587仟元，較去年同期 自結合併營收新台幣623,344仟元，增加51.21%。 115年01-08月份累計自結合併營業收入為新台幣6,679,112仟元，較去年同期累計自結 合併營收新台幣5,234,095仟元，增加27.61%。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師簽證，特此說明。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 2428 | 興勤 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 10 | A_優先追蹤 |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/08 2.公司名稱:興勤電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公佈本公司115年08月份自結合併營業收入(已扣除內部交易)。 6.因應措施:本公司115年08月份自結合併營業收入為新台幣942,587仟元，較去年同期 自結合併營收新台幣623,344仟元，增加51.21%。 115年01-08月份累計自結合併營業收入為新台幣6,679,112仟元，較去年同期累計自結 合併營收新台幣5,234,095仟元，增加27.61%。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 自結數尚未經會計師簽證，特此說明。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2428 | 興勤 | 3 | 2 | 4 | 8 | 14 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260911 | 2428 | 興勤 | 1 | 1 | 3 | 7 | 13 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2428 | 興勤 | 54 | 0 | 6054140.0 | 0.0 |  | call_strong_inflow |
+| 20260911 | 2428 | 興勤 | 55 | 0 | 2267320.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

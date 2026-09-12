@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:49 Asia/Taipei
+- generated_at: 2026-09-12 15:45:04 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 106
-- high: 107
-- low: 102.5
-- close: 104.5
-- volume: 1536000
-- ma5: 107.7
-- ema23_primary: 113.66
-- distance_to_ema23_pct: -8.06
-- ma20: 111.85
-- ma60: 132.05
-- ma120: 116.55
-- return_5d: -4.57
-- return_20d: -20.53
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -6.57
-- distance_to_high_60_pct: -40.96
+- date: 20260911
+- open: 90.2
+- high: 92.6
+- low: 89.2
+- close: 90.7
+- volume: 3581000
+- ma5: 97.68
+- ema23_primary: 107.79
+- distance_to_ema23_pct: -15.85
+- ma20: 105.67
+- ma60: 128.66
+- ma120: 117.07
+- return_5d: -13.21
+- return_20d: -22.15
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -14.17
+- distance_to_high_60_pct: -48.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,135,138,123,123,12032000,131.76,-6.65,130.93,134.89,2.29
-20260811,123,126,120,121.5,4865000,130.9,-7.18,129.12,135.32,1.01
-20260812,122.5,126.5,121.5,125.5,4624000,130.45,-3.8,128.1,135.66,1.14
-20260813,125,128,123.5,125.5,5737000,130.04,-3.49,127.28,135.99,1.35
-20260814,127,127.5,114.5,116.5,8065000,128.91,-9.63,126.7,136.14,1.78
 20260817,119.5,119.5,113,114,4323000,127.67,-10.71,126,136.24,0.93
 20260818,115,119,109.5,110,4215000,126.2,-12.83,124.5,136.1,0.88
 20260819,106,110,105.5,108,2983000,124.68,-13.38,122.88,135.82,0.61
@@ -167,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,110.5,113.5,109,109.5,1766000,115.44,-5.15,114.78,132.63,0.42
 20260903,111,115.5,104,104,4625000,114.49,-9.16,113.2,132.28,1.13
 20260904,106,107,102.5,104.5,1536000,113.66,-8.06,111.85,132.05,0.4
+20260907,106.5,108,104.5,105,1548000,112.94,-7.03,110.95,131.78,0.47
+20260908,107,107,100.5,101,2494000,111.94,-9.77,109.92,131.26,0.78
+20260909,99,103,98,99.9,4505000,110.94,-9.95,108.64,130.5,1.41
+20260910,99.9,99.9,91.3,91.8,6901000,109.34,-16.04,106.96,129.65,2.13
+20260911,90.2,92.6,89.2,90.7,3581000,107.79,-15.85,105.67,128.66,1.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 45.18
-- over_600_ratio: 42.6
-- over_800_ratio: 42.2
-- over_1000_ratio: 38.64
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.21
+- as_of_date: 20260911
+- over_400_ratio: 43.36
+- over_600_ratio: 41.57
+- over_800_ratio: 39.25
+- over_1000_ratio: 37.38
+- over_400_change_1w: -1.82
+- over_800_change_1w: -2.95
+- over_1000_change_1w: -1.26
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,58.09,4.28,54.69,5.34,52.84,4.65,1,True,True
 20260626,56.21,-1.88,52.26,-2.43,51.64,-1.2,0,False,False
 20260703,56.39,0.18,52.39,0.13,51.12,-0.52,1,False,True
 20260709,56.96,0.57,52.71,0.32,52.71,1.59,2,True,True
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,46.05,-1.66,43.16,-1.4,39.61,-0.66,0,False,False
 20260828,45.57,-0.48,42.42,-0.74,38.85,-0.76,0,False,False
 20260904,45.18,-0.39,42.2,-0.22,38.64,-0.21,0,False,False
+20260911,43.36,-1.82,39.25,-2.95,37.38,-1.26,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8096 | 擎亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:擎亞電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115/8/25序號1.國內第二次無擔保轉換公司債轉換價格調整 6.因應措施:本公司因配發現金股利，依本公司國內第二次無擔保轉換公司債發行及 轉換辦法第十一條規定，轉換價格應予以調整，故自115年9月15日起，國內第二次無 擔保公司債轉換價格由新台幣158.0元調整為新台幣157.3元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 8096 | 擎亞 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 38 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:擎亞電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115/8/25序號1.國內第二次無擔保轉換公司債轉換價格調整 6.因應措施:本公司因配發現金股利，依本公司國內第二次無擔保轉換公司債發行及 轉換辦法第十一條規定，轉換價格應予以調整，故自115年9月15日起，國內第二次無 擔保公司債轉換價格由新台幣158.0元調整為新台幣157.3元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8096 | 擎亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:擎亞電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115/8/25序號1.國內第二次無擔保轉換公司債轉換價格調整 6.因應措施:本公司因配發現金股利，依本公司國內第二次無擔保轉換公司債發行及 轉換辦法第十一條規定，轉換價格應予以調整，故自115年9月15日起，國內第二次無 擔保公司債轉換價格由新台幣158.0元調整為新台幣157.3元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8096 | 擎亞 | 1 | 1 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 8096 | 擎亞 | 2 | 2 | 3 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

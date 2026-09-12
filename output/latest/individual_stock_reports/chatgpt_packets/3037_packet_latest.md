@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:46 Asia/Taipei
+- generated_at: 2026-09-12 15:43:07 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 930
-- high: 940
-- low: 873
-- close: 902
-- volume: 40890597
-- ma5: 953.6
-- ema23_primary: 1008.11
-- distance_to_ema23_pct: -10.53
-- ma20: 1050.6
-- ma60: 953.23
-- ma120: 857.85
-- return_5d: -18.74
-- return_20d: -5.55
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: -14.14
-- distance_to_high_60_pct: -26.67
+- date: 20260911
+- open: 969
+- high: 990
+- low: 958
+- close: 977
+- volume: 11445626
+- ma5: 973.4
+- ema23_primary: 996.43
+- distance_to_ema23_pct: -1.95
+- ma20: 1043.75
+- ma60: 956.27
+- ma120: 875.02
+- return_5d: 8.31
+- return_20d: -4.22
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: -6.4
+- distance_to_high_60_pct: -20.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,979,995,976,992,7464140,888.5,11.65,859.2,920.92,0.28
-20260811,988,995,972,992,5181158,897.13,10.57,865.1,923.77,0.2
-20260812,999,1010,990,1000,8196771,905.7,10.41,868.3,926.83,0.34
-20260813,1045,1045,976,1000,8899504,913.56,9.46,874.2,929.87,0.38
-20260814,1020,1025,995,1020,9634898,922.43,10.58,885.5,933.15,0.43
 20260817,1045,1120,1035,1120,53834958,938.89,19.29,904,936.73,2.28
 20260818,1130,1200,1115,1145,38561591,956.07,19.76,920,939.65,1.57
 20260819,1110,1165,1085,1130,24496587,970.56,16.43,931.15,941.98,1
@@ -173,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,955,988,948,973,26059464,1026.37,-5.2,1055.75,953.7,1.11
 20260903,997,1005,923,923,33450176,1017.76,-9.31,1053.25,952.93,1.4
 20260904,930,940,873,902,40890597,1008.11,-10.53,1050.6,953.23,1.64
+20260907,939,965,911,949,22187760,1003.19,-5.4,1048.45,954.82,0.86
+20260908,964,975,939,954,17812108,999.09,-4.51,1046.55,955.68,0.68
+20260909,980,1005,980,993,21332775,998.58,-0.56,1046.2,956.23,0.79
+20260910,993,1005,966,994,19157314,998.2,-0.42,1045.9,956.45,0.7
+20260911,969,990,958,977,11445626,996.43,-1.95,1043.75,956.27,0.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 77.69
-- over_600_ratio: 74.35
-- over_800_ratio: 72.4
-- over_1000_ratio: 69.95
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.49
-- over_1000_change_1w: 0.47
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 77.95
+- over_600_ratio: 74.51
+- over_800_ratio: 72.48
+- over_1000_ratio: 70.19
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,75.72,0.42,70.34,0.09,68.25,0.1,1,True,True
 20260626,76.08,0.36,70.93,0.59,68.45,0.2,2,True,True
 20260703,75.61,-0.47,70.22,-0.71,68.11,-0.34,0,False,False
 20260709,74.34,-1.27,69.35,-0.87,67.08,-1.03,0,False,False
@@ -204,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,77.48,1.79,72.01,1.42,69.57,1.13,3,True,True
 20260828,77.63,0.15,71.91,-0.1,69.48,-0.09,4,False,False
 20260904,77.69,0.06,72.4,0.49,69.95,0.47,5,False,True
+20260911,77.95,0.26,72.48,0.08,70.19,0.24,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.主管機關核准減資日期:115/08/28 2.辦理資本變更登記完成日期:115/08/28 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)本次註銷限制員工權利新股31,000股，每股面額新台幣(下同)10元，    共計減少資本310,000元。 (2)股份註銷減資前：本公司流通在外股數為1,641,322,596股，    實收資本額為16,413,225,960元。 (3)股份註銷減資後：本公司流通在外股數為1,641,291,596股，    實收資本額為16,412,915,960元，每股淨額為新台幣77.82元。 4.預計換股作業計畫:不適用 5.預計減資新股上市後之上市普通股股數:不適用 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項:以上每股淨值係最近一期(115Q2)會計師核閱財務報告計算之。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3037 | 欣興 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:欣興電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)因應公司營運需求，本公司董事會決議授權董事長於授權金額範圍內， 全權處理購置不動產之相關事宜。 (2)俟後續確定交易條件及對象時，依本公司「取得或處分資產處理程序」之規定辦理 並發佈重大訊息。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:欣興電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)因應公司營運需求，本公司董事會決議授權董事長於授權金額範圍內， 全權處理購置不動產之相關事宜。 (2)俟後續確定交易條件及對象時，依本公司「取得或處分資產處理程序」之規定辦理 並發佈重大訊息。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3037 | 欣興 | 7 | 2 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3037 | 欣興 | 12 | 7 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3037 | 欣興 | 100 | 10 | 13759360.0 | 50560.0 | 272.14 | no_signal |
+| 20260911 | 3037 | 欣興 | 95 | 10 | 1721850.0 | 9420.0 | 182.79 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

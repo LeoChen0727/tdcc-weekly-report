@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8040 九暘
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:45 Asia/Taipei
+- generated_at: 2026-09-12 15:45:01 Asia/Taipei
 - stock_id: 8040
 - stock_name: 九暘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 74.7
-- high: 76.5
-- low: 73.7
-- close: 75
-- volume: 1334000
-- ma5: 75.32
-- ema23_primary: 74
-- distance_to_ema23_pct: 1.36
-- ma20: 72.94
-- ma60: 83.02
-- ma120: 78.95
-- return_5d: 3.73
-- return_20d: 2.74
-- volume_ratio: 2.18
-- distance_to_ma20_pct_auxiliary: 2.82
-- distance_to_high_60_pct: -40.71
+- date: 20260911
+- open: 77.8
+- high: 79.3
+- low: 76.6
+- close: 77.2
+- volume: 1149000
+- ma5: 79.58
+- ema23_primary: 75.91
+- distance_to_ema23_pct: 1.7
+- ma20: 74.19
+- ma60: 81.71
+- ma120: 80.19
+- return_5d: 2.93
+- return_20d: 5.75
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 4.06
+- distance_to_high_60_pct: -38.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,74.1,76.8,73.8,76,648000,77.01,-1.31,73.53,93.06,0.91
-20260811,74.9,75.5,74.1,74.7,278000,76.82,-2.75,72.97,92.89,0.42
-20260812,75.1,75.9,74.7,75.1,243000,76.67,-2.05,72.44,92.59,0.38
-20260813,75.4,76.5,74,74.2,357000,76.47,-2.96,72.03,92.33,0.56
-20260814,74.3,74.9,72.7,73,337000,76.18,-4.17,71.91,91.91,0.57
 20260817,72.8,73.9,72.5,73,235000,75.91,-3.84,71.89,91.31,0.44
 20260818,73.1,73.2,69,69.6,476000,75.39,-7.68,71.55,90.49,0.91
 20260819,67.8,71.8,67.4,71.2,267000,75.04,-5.11,71.25,89.64,0.52
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,82.9,82.9,82.9,82.9,744000,73.83,12.28,72.72,83.73,2.1
 20260903,85.9,85.9,74.7,74.7,4697000,73.91,1.07,72.84,83.35,8.2
 20260904,74.7,76.5,73.7,75,1334000,74,1.36,72.94,83.02,2.18
+20260907,77.5,82.5,74.5,82.5,4892000,74.71,10.43,73.27,82.78,5.93
+20260908,82.8,83.8,78.4,79,5023000,75.06,5.24,73.48,82.51,4.73
+20260909,78.1,81.4,77.8,79.2,1507000,75.41,5.03,73.69,82.22,1.34
+20260910,78.5,82.2,77.1,80,1607000,75.79,5.55,73.97,81.98,1.35
+20260911,77.8,79.3,76.6,77.2,1149000,75.91,1.7,74.19,81.71,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 49.98
+- as_of_date: 20260911
+- over_400_ratio: 49.88
 - over_600_ratio: 47.01
 - over_800_ratio: 45.71
 - over_1000_ratio: 44.68
-- over_400_change_1w: -1.92
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 9
+- over_400_change_1w: -0.1
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,52.96,-0.25,46.61,-0.18,44.6,-1.16,0,False,False
 20260626,51.96,-1,46.57,-0.04,44.6,0,0,False,False
 20260703,51.08,-0.88,45.63,-0.94,44.6,0,0,False,False
 20260709,51.09,0.01,45.63,0,44.6,0,1,False,False
@@ -199,19 +198,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,51.79,0.14,45.65,0.02,44.62,0.02,7,True,True
 20260828,51.9,0.11,45.69,0.04,44.66,0.04,8,True,True
 20260904,49.98,-1.92,45.71,0.02,44.68,0.02,9,False,True
+20260911,49.88,-0.1,45.71,0,44.68,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8040 | 九暘 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 8040 | 九暘 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | continued_2_3d | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 8040 | 九暘 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | continued_2_3d | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8040 | 九暘 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 8040 | 九暘 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8040 | 九暘 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 9 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8040 | 九暘 | 2 | 2 | 2 | 2 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260911 | 8040 | 九暘 | 7 | 4 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

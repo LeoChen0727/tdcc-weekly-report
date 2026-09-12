@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:43 Asia/Taipei
+- generated_at: 2026-09-12 15:42:08 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 347
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 352
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 24.6
-- high: 24.7
-- low: 24.35
-- close: 24.6
-- volume: 18895624
-- ma5: 24.71
-- ema23_primary: 24.43
-- distance_to_ema23_pct: 0.69
-- ma20: 24.48
+- date: 20260911
+- open: 24.65
+- high: 24.75
+- low: 24.5
+- close: 24.5
+- volume: 14583409
+- ma5: 24.53
+- ema23_primary: 24.47
+- distance_to_ema23_pct: 0.12
+- ma20: 24.51
 - ma60: 24.12
-- ma120: 24.2
-- return_5d: 1.23
+- ma120: 24.22
+- return_5d: -0.41
 - return_20d: 1.03
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 0.51
-- distance_to_high_60_pct: -5.75
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -0.04
+- distance_to_high_60_pct: -6.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,24.5,24.65,24.25,24.55,14596102,24.04,2.13,23.99,24.03,0.52
-20260811,24.55,24.8,24.3,24.65,19811272,24.09,2.33,24.09,24.04,0.71
-20260812,24.65,24.75,24.45,24.45,13998587,24.12,1.37,24.13,24.04,0.52
-20260813,24.55,24.7,24,24.05,37511920,24.11,-0.27,24.14,24.04,1.37
-20260814,24,24.3,24,24.25,19242304,24.13,0.52,24.17,24.04,0.73
 20260817,24.25,24.3,23.85,24.2,20470344,24.13,0.28,24.19,24.04,0.81
 20260818,24.1,24.45,23.9,24.1,26187879,24.13,-0.12,24.2,24.04,1.02
 20260819,24,24.25,23.85,24.05,16533208,24.12,-0.3,24.2,24.04,0.64
@@ -168,17 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,25.3,25.4,24.65,24.8,43527079,24.41,1.58,24.46,24.1,0.75
 20260903,24.85,24.95,24.4,24.45,24047477,24.42,0.14,24.46,24.11,0.42
 20260904,24.6,24.7,24.35,24.6,18895624,24.43,0.69,24.48,24.12,0.33
+20260907,24.65,24.65,24.3,24.3,19462259,24.42,-0.5,24.46,24.12,0.34
+20260908,24.3,24.5,24.2,24.3,16729814,24.41,-0.45,24.45,24.11,0.29
+20260909,24.25,25,24.25,24.75,33714369,24.44,1.27,24.46,24.11,0.57
+20260910,24.7,24.95,24.6,24.8,20276057,24.47,1.35,24.5,24.12,0.35
+20260911,24.65,24.75,24.5,24.5,14583409,24.47,0.12,24.51,24.12,0.25
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 55.47
-- over_600_ratio: 53.74
-- over_800_ratio: 52.53
-- over_1000_ratio: 51.55
-- over_400_change_1w: -0.82
-- over_800_change_1w: -0.87
-- over_1000_change_1w: -0.84
+- as_of_date: 20260911
+- over_400_ratio: 55.25
+- over_600_ratio: 53.5
+- over_800_ratio: 52.36
+- over_1000_ratio: 51.36
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.19
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,55.41,0.13,52.35,0.16,51.23,0.11,4,True,True
 20260626,55.52,0.11,52.47,0.12,51.34,0.11,5,True,True
 20260703,54.78,-0.74,51.75,-0.72,50.62,-0.72,0,False,False
 20260709,54.98,0.2,51.94,0.19,50.83,0.21,1,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,56.54,0.2,53.68,0.31,52.69,0.34,7,True,True
 20260828,56.29,-0.25,53.4,-0.28,52.39,-0.3,0,False,False
 20260904,55.47,-0.82,52.53,-0.87,51.55,-0.84,0,False,False
+20260911,55.25,-0.22,52.36,-0.17,51.36,-0.19,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1101 | 台泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:臺灣水泥股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據本公司國內第一次無擔保轉換公司債發行及轉換辦法第十五條規定 調整轉換價格。 6.因應措施:本公司自115年7月7日(除息基準日)起，本公司國內第一次無擔保轉換 公司債之轉換價格由每股新台幣35.2元調整為34.0元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1101 | 台泥 | 1 | 1 | 4 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1101 | 台泥 | 22 | 0 | 551160.0 | 0.0 |  | no_signal |
+| 20260911 | 1101 | 台泥 | 25 | 0 | 2682410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

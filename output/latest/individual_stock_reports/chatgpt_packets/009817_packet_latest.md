@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009817 國泰日本不動產
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:43 Asia/Taipei
+- generated_at: 2026-09-12 15:42:07 Asia/Taipei
 - stock_id: 009817
 - stock_name: 國泰日本不動產
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 74
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 79
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 9.08
-- high: 9.11
-- low: 9.07
-- close: 9.1
-- volume: 1028628
-- ma5: 9.01
-- ema23_primary: 9.09
-- distance_to_ema23_pct: 0.13
-- ma20: 9.09
-- ma60: 9.06
-- ma120: 8.99
-- return_5d: 1.22
-- return_20d: -0.98
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 0.17
-- distance_to_high_60_pct: -4.41
+- date: 20260911
+- open: 9.06
+- high: 9.06
+- low: 9.02
+- close: 9.06
+- volume: 1003984
+- ma5: 9.07
+- ema23_primary: 9.08
+- distance_to_ema23_pct: -0.26
+- ma20: 9.06
+- ma60: 9.08
+- ma120: 9
+- return_5d: -0.44
+- return_20d: -0.44
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -4.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,9.2,9.2,9.19,9.2,710034,9.2,0,9.24,8.97,0.38
-20260811,9.19,9.2,9.17,9.19,699744,9.2,-0.1,9.25,8.97,0.39
-20260812,9.17,9.19,9.12,9.15,699813,9.19,-0.49,9.25,8.97,0.41
-20260813,9.24,9.24,9.16,9.19,776809,9.19,-0.05,9.25,8.98,0.46
-20260814,9.19,9.19,9.09,9.1,509152,9.19,-0.94,9.25,8.98,0.33
 20260817,9.15,9.19,9.09,9.09,914824,9.18,-0.96,9.25,8.98,0.6
 20260818,9.07,9.07,8.97,8.99,914939,9.16,-1.89,9.24,8.98,0.6
 20260819,9.02,9.02,9,9.02,203514,9.15,-1.43,9.23,8.98,0.14
@@ -168,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,8.97,8.97,8.93,8.96,973239,9.09,-1.45,9.1,9.04,1.41
 20260903,8.96,9.04,8.88,9.03,3070689,9.09,-0.63,9.09,9.05,3.95
 20260904,9.08,9.11,9.07,9.1,1028628,9.09,0.13,9.09,9.06,1.33
+20260907,9.1,9.1,9,9.03,315215,9.08,-0.59,9.08,9.06,0.42
+20260908,9.06,9.12,9.06,9.1,1025777,9.08,0.17,9.07,9.06,1.34
+20260909,9.11,9.11,9.06,9.08,625535,9.08,-0.05,9.07,9.07,0.82
+20260910,9.08,9.11,9.06,9.1,1077870,9.09,0.16,9.06,9.07,1.38
+20260911,9.06,9.06,9.02,9.06,1003984,9.08,-0.26,9.06,9.08,1.25
 ```
 
 ## Latest TDCC Snapshot

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2069 運錩
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:10 Asia/Taipei
+- generated_at: 2026-09-12 15:42:33 Asia/Taipei
 - stock_id: 2069
 - stock_name: 運錩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 21.15
-- high: 21.3
-- low: 20.8
-- close: 21
-- volume: 276772
-- ma5: 21.02
-- ema23_primary: 20.42
-- distance_to_ema23_pct: 2.86
-- ma20: 20.57
-- ma60: 19.27
-- ma120: 19.18
-- return_5d: -1.87
-- return_20d: 7.14
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 2.09
-- distance_to_high_60_pct: -5.19
+- date: 20260911
+- open: 23.3
+- high: 25.2
+- low: 23.3
+- close: 24.65
+- volume: 3483002
+- ma5: 22.75
+- ema23_primary: 21.3
+- distance_to_ema23_pct: 15.75
+- ma20: 21.27
+- ma60: 19.54
+- ma120: 19.34
+- return_5d: 17.38
+- return_20d: 24.81
+- volume_ratio: 3.42
+- distance_to_ma20_pct_auxiliary: 15.92
+- distance_to_high_60_pct: -2.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,19.8,20.3,19.8,19.95,531057,18.72,6.56,18.58,18.94,1.46
-20260811,20,20.35,19.95,20.05,772553,18.83,6.47,18.69,18.95,2.02
-20260812,20.2,20.25,19.9,19.9,631050,18.92,5.17,18.76,18.95,1.58
-20260813,20,20.3,19.95,20.2,741244,19.03,6.16,18.84,18.97,1.73
-20260814,20.2,20.2,19.75,19.75,415055,19.09,3.47,18.89,18.98,0.98
 20260817,19.75,19.95,19.75,19.85,270272,19.15,3.65,18.95,18.98,0.64
 20260818,19.85,19.85,19.75,19.85,236042,19.21,3.33,19.01,18.99,0.55
 20260819,19.85,20.05,19.7,19.85,303615,19.26,3.05,19.07,19,0.71
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,21.3,21.3,20.7,20.8,459296,20.31,2.41,20.42,19.23,0.71
 20260903,21.05,21.15,20.75,20.95,345942,20.36,2.88,20.5,19.25,0.57
 20260904,21.15,21.3,20.8,21,276772,20.42,2.86,20.57,19.27,0.5
+20260907,21.2,21.2,20.4,20.4,528856,20.42,-0.08,20.59,19.28,0.95
+20260908,21.35,22.4,20.95,22.4,2647458,20.58,8.84,20.71,19.33,4.06
+20260909,22.7,24.5,22.65,23.3,3739663,20.81,11.98,20.88,19.38,4.63
+20260910,23.3,24,22.95,23,1871513,20.99,9.58,21.02,19.45,2.17
+20260911,23.3,25.2,23.3,24.65,3483002,21.3,15.75,21.27,19.54,3.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 63.38
-- over_600_ratio: 59.97
-- over_800_ratio: 55.24
-- over_1000_ratio: 53.73
-- over_400_change_1w: 0.53
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260911
+- over_400_ratio: 64.19
+- over_600_ratio: 60.47
+- over_800_ratio: 56.22
+- over_1000_ratio: 53.69
+- over_400_change_1w: 0.81
+- over_800_change_1w: 0.98
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,61.91,0.21,54.27,-0.02,52.71,-0.58,4,False,False
 20260626,61.98,0.07,53.78,-0.49,52.78,0.07,5,False,True
 20260703,61.69,-0.29,53.76,-0.02,52.16,-0.62,0,False,False
 20260709,61.95,0.26,53.77,0.01,52.2,0.04,1,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,62.71,-0.36,54.58,0.08,53.58,0.08,7,False,True
 20260828,62.85,0.14,55.22,0.64,53.73,0.15,8,False,True
 20260904,63.38,0.53,55.24,0.02,53.73,0,9,False,True
+20260911,64.19,0.81,56.22,0.98,53.69,-0.04,10,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 2069 | 運錩 | true_breakout | 嚴格突破 | 102.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 2069 | 運錩 | 4 | 1 | 4 | 4 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

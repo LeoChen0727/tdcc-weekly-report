@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:10 Asia/Taipei
+- generated_at: 2026-09-12 15:43:30 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: high
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,7 +104,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 4155
-- high: 4275
-- low: 4110
-- close: 4220
-- volume: 1757291
-- ma5: 4164
-- ema23_primary: 3931.94
-- distance_to_ema23_pct: 7.33
-- ma20: 3969
-- ma60: 3894.67
-- ma120: 3909.12
-- return_5d: 3.81
-- return_20d: 13.59
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 6.32
-- distance_to_high_60_pct: -13.79
+- date: 20260911
+- open: 3870
+- high: 3870
+- low: 3650
+- close: 3650
+- volume: 5595150
+- ma5: 3936
+- ema23_primary: 3928.61
+- distance_to_ema23_pct: -7.09
+- ma20: 3942.5
+- ma60: 3871.83
+- ma120: 3938.04
+- return_5d: -13.51
+- return_20d: -13.3
+- volume_ratio: 2.33
+- distance_to_ma20_pct_auxiliary: -7.42
+- distance_to_high_60_pct: -25.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,3850,3955,3665,3800,3273476,3585.87,5.97,3436,4066.5,1.49
-20260811,4000,4150,3925,3955,4658914,3616.63,9.36,3447.5,4055.67,2.06
-20260812,3960,4100,3950,4055,2029574,3653.16,11,3463.5,4046.75,0.91
-20260813,4100,4225,4090,4190,2869332,3697.9,13.31,3484.5,4042.75,1.26
-20260814,4225,4530,4180,4210,3601132,3740.57,12.55,3521,4036.25,1.53
 20260817,4350,4490,4060,4060,4619421,3767.19,7.77,3555.75,4022.17,1.86
 20260818,4105,4135,3680,3715,3983342,3762.84,-1.27,3567,4002.5,1.53
 20260819,3585,3730,3585,3630,1950747,3751.77,-3.25,3569,3981.33,0.74
@@ -167,26 +169,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,4260,4310,4180,4200,1632464,3892.64,7.9,3924.25,3895,0.67
 20260903,4210,4260,4010,4050,1876714,3905.75,3.69,3943.75,3891.67,0.77
 20260904,4155,4275,4110,4220,1757291,3931.94,7.33,3969,3894.67,0.73
+20260907,4175,4180,4000,4040,3204560,3940.95,2.51,3981,3894.33,1.33
+20260908,4090,4105,3985,4030,1620933,3948.37,2.07,3984.75,3893.08,0.72
+20260909,3985,3990,3850,3905,3254166,3944.75,-1.01,3977.25,3887.33,1.4
+20260910,3880,4075,3815,4055,2298103,3953.94,2.56,3970.5,3883,1
+20260911,3870,3870,3650,3650,5595150,3928.61,-7.09,3942.5,3871.83,2.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 37.51
-- over_600_ratio: 28.2
-- over_800_ratio: 21.64
-- over_1000_ratio: 13.2
-- over_400_change_1w: 2.61
-- over_800_change_1w: 1.45
-- over_1000_change_1w: 1.28
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 35.77
+- over_600_ratio: 27.69
+- over_800_ratio: 20.14
+- over_1000_ratio: 12.73
+- over_400_change_1w: -1.74
+- over_800_change_1w: -1.5
+- over_1000_change_1w: -0.47
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,38.5,-0.41,20.81,-2.02,15.43,0.06,3,False,True
 20260626,36.02,-2.48,18.6,-2.21,15.31,-0.12,0,False,False
 20260703,37.38,1.36,19.94,1.34,13.38,-1.93,1,False,True
 20260709,39.02,1.64,21.82,1.88,13.22,-0.16,2,False,True
@@ -198,22 +204,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,35.84,-0.77,22.44,0.62,14.42,0.8,8,False,True
 20260828,34.9,-0.94,20.19,-2.25,11.92,-2.5,0,False,False
 20260904,37.51,2.61,21.64,1.45,13.2,1.28,1,True,True
+20260911,35.77,-1.74,20.14,-1.5,12.73,-0.47,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3661 | 世芯-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260903; status=confirmed; proximity=recent |
+| 20260911 | 3661 | 世芯-KY | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3661 | 世芯-KY | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 21 | B_可觀察 |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3661 | 世芯-KY | 2 | 2 | 4 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3661 | 世芯-KY | 7 | 1 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3661 | 世芯-KY | 218 | 14 | 55709900.0 | 779430.0 | 71.48 | no_signal |
+| 20260911 | 3661 | 世芯-KY | 203 | 10 | 81060040.0 | 2403520.0 | 33.73 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

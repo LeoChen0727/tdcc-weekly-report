@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009828 中信台日韓PCB
 
 ## Metadata
-- generated_at: 2026-09-06 22:15:43 Asia/Taipei
+- generated_at: 2026-09-12 15:42:08 Asia/Taipei
 - stock_id: 009828
 - stock_name: 中信台日韓PCB
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260904
-- price_rows: 3
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 8
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 9.5
+- date: 20260911
+- open: 9.35
 - high: 9.5
-- low: 9.18
-- close: 9.43
-- volume: 103246680
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- low: 9.35
+- close: 9.45
+- volume: 55467325
+- ma5: 9.62
+- ema23_primary: 9.72
+- distance_to_ema23_pct: -2.8
+- ma20: 9.59
+- ma60: 9.59
+- ma120: 9.59
+- return_5d: 0.21
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -1.46
+- distance_to_high_60_pct: -5.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +151,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,9.97,10.01,9.86,9.86,119272537,,,,,
 20260903,9.77,9.77,9.33,9.33,146075643,,,,,
 20260904,9.5,9.5,9.18,9.43,103246680,,,,,
+20260907,9.69,9.78,9.55,9.72,94914159,,,,,
+20260908,9.77,9.81,9.59,9.63,71853860,9.77,-1.39,9.59,9.59,0.67
+20260909,9.71,9.85,9.68,9.71,49652633,9.76,-0.53,9.61,9.61,0.51
+20260910,9.56,9.63,9.48,9.59,66095797,9.75,-1.61,9.61,9.61,0.71
+20260911,9.35,9.5,9.35,9.45,55467325,9.72,-2.8,9.59,9.59,0.63
 ```
 
 ## Latest TDCC Snapshot

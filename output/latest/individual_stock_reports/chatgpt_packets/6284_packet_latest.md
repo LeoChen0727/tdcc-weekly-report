@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:04 Asia/Taipei
+- generated_at: 2026-09-12 15:44:22 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 77.9
-- high: 79.3
-- low: 76.9
-- close: 79.1
-- volume: 1053000
-- ma5: 78.08
-- ema23_primary: 78.56
-- distance_to_ema23_pct: 0.69
-- ma20: 77.91
-- ma60: 86.41
-- ma120: 87.75
-- return_5d: -2.83
-- return_20d: 7.91
+- date: 20260911
+- open: 77
+- high: 78.4
+- low: 75.5
+- close: 75.5
+- volume: 992000
+- ma5: 77.88
+- ema23_primary: 78.27
+- distance_to_ema23_pct: -3.54
+- ma20: 77.73
+- ma60: 84.45
+- ma120: 87.6
+- return_5d: -4.55
+- return_20d: -2.83
 - volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.53
-- distance_to_high_60_pct: -28.74
+- distance_to_ma20_pct_auxiliary: -2.87
+- distance_to_high_60_pct: -31.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,75.2,78,74.5,76.4,1014000,80.93,-5.6,78.44,94.58,0.61
-20260811,77.2,80.5,76.5,78,1306000,80.69,-3.33,77.93,94.47,0.84
-20260812,78.7,80.6,78.5,79.3,959000,80.57,-1.58,77.28,94.38,0.67
-20260813,80.1,83.4,80.1,81.6,1562000,80.66,1.17,76.92,94.32,1.08
-20260814,82,82,77,77.7,1124000,80.41,-3.37,76.75,94.15,0.81
 20260817,78.6,78.6,76,77.6,686000,80.18,-3.21,76.73,93.89,0.52
 20260818,77.8,77.9,75.7,75.9,625000,79.82,-4.91,76.4,93.44,0.51
 20260819,74.4,80.8,73.9,79.1,1486000,79.76,-0.83,76.19,92.89,1.25
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,78.9,79.4,78,78,869000,78.77,-0.98,77.65,87.22,0.76
 20260903,79.3,79.3,75.6,75.6,1257000,78.51,-3.7,77.62,86.73,1.08
 20260904,77.9,79.3,76.9,79.1,1053000,78.56,0.69,77.91,86.41,0.9
+20260907,80.4,81.4,79.1,79.9,1109000,78.67,1.57,78.08,86.13,0.94
+20260908,80.8,80.8,77.6,77.6,638000,78.58,-1.25,78.06,85.78,0.56
+20260909,77.6,78.5,77.1,77.6,440000,78.5,-1.14,77.98,85.34,0.39
+20260910,77.2,80.3,76.3,78.8,1294000,78.52,0.35,77.84,84.98,1.17
+20260911,77,78.4,75.5,75.5,992000,78.27,-3.54,77.73,84.45,0.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 48.87
-- over_600_ratio: 46.64
-- over_800_ratio: 45.15
-- over_1000_ratio: 45.15
-- over_400_change_1w: -0.23
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 48.98
+- over_600_ratio: 46.75
+- over_800_ratio: 45.25
+- over_1000_ratio: 45.25
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,53.37,-2.72,49.42,-2.62,47.7,-2.58,0,False,False
 20260626,52.86,-0.51,48.7,-0.72,47.53,-0.17,0,False,False
 20260703,51.69,-1.17,47.72,-0.98,45.92,-1.61,0,False,False
 20260709,49.52,-2.17,44.1,-3.62,43.53,-2.39,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,49.2,0.14,45.1,0.74,44.55,0.19,5,False,True
 20260828,49.1,-0.1,44.94,-0.16,44.94,0.39,6,False,True
 20260904,48.87,-0.23,45.15,0.21,45.15,0.21,7,False,True
+20260911,48.98,0.11,45.25,0.1,45.25,0.1,8,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6284 | 佳邦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 普通股現金股利新台幣279,623,648元，每股配發新台幣 1.9 元。 3.變更後發放股利種類及金額: 普通股現金股利新台幣279,623,648元，每股配發新台幣1.88959997元。 4.變更原因:因辦理庫藏股轉讓員工，致使流通在外股數增加810,000股， 故依實際流通在外股數調整現金股利配息率 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6284 | 佳邦 | 1 | 1 | 2 | 4 | 8 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

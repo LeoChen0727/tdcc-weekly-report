@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8299 群聯
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:53 Asia/Taipei
+- generated_at: 2026-09-12 15:45:09 Asia/Taipei
 - stock_id: 8299
 - stock_name: 群聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 2025
-- high: 2050
-- low: 1970
-- close: 2015
-- volume: 2747000
-- ma5: 2074
-- ema23_primary: 2055.93
-- distance_to_ema23_pct: -1.99
-- ma20: 2092
-- ma60: 2090.92
-- ma120: 2089.5
-- return_5d: -6.28
-- return_20d: -0.25
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -3.68
-- distance_to_high_60_pct: -24.53
+- date: 20260911
+- open: 2000
+- high: 2000
+- low: 1920
+- close: 1990
+- volume: 4480000
+- ma5: 2064
+- ema23_primary: 2057.33
+- distance_to_ema23_pct: -3.27
+- ma20: 2073
+- ma60: 2070.67
+- ma120: 2094.04
+- return_5d: -1.24
+- return_20d: -4.33
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -4
+- distance_to_high_60_pct: -25.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,2060,2080,2030,2040,4195000,1924.89,5.98,1840,2218.25,0.88
-20260811,2035,2100,2015,2090,2872000,1938.65,7.81,1842,2208.92,0.62
-20260812,2110,2245,2110,2210,5656000,1961.26,12.68,1847.25,2200.17,1.22
-20260813,2260,2280,2175,2280,6892000,1987.82,14.7,1862.25,2197.08,1.45
-20260814,2325,2325,2065,2080,14997000,1995.51,4.23,1877,2194,2.89
 20260817,2110,2125,2085,2085,4262000,2002.96,4.1,1894.5,2189.83,0.82
 20260818,2105,2120,2000,2000,4517000,2002.72,-0.14,1901.75,2182.67,0.86
 20260819,1920,1970,1905,1965,4356000,1999.57,-1.73,1904.25,2174.08,0.83
@@ -173,26 +169,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,2100,2115,2060,2065,2900000,2065.08,-0,2093.5,2099.25,0.53
 20260903,2085,2120,1990,2000,3126000,2059.65,-2.9,2092.25,2093.25,0.58
 20260904,2025,2050,1970,2015,2747000,2055.93,-1.99,2092,2090.92,0.53
+20260907,2075,2115,2065,2095,2545000,2059.19,1.74,2094.75,2089.17,0.5
+20260908,2115,2160,2080,2085,2551000,2061.34,1.15,2094.5,2085.42,0.5
+20260909,2100,2125,2070,2085,1866000,2063.31,1.05,2088.25,2081.5,0.38
+20260910,2100,2120,2065,2065,2295000,2063.45,0.07,2077.5,2076.33,0.49
+20260911,2000,2000,1920,1990,4480000,2057.33,-3.27,2073,2070.67,1.09
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 39.21
-- over_600_ratio: 34.11
-- over_800_ratio: 30.55
-- over_1000_ratio: 27.3
-- over_400_change_1w: -3.2
-- over_800_change_1w: -5.8
-- over_1000_change_1w: -7.06
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 39.31
+- over_600_ratio: 35.07
+- over_800_ratio: 31.24
+- over_1000_ratio: 27.89
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.69
+- over_1000_change_1w: 0.59
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,45.76,-0.42,38.36,-0.75,35.11,-0.79,0,False,False
 20260626,46.29,0.53,37.29,-1.07,36.09,0.98,1,False,True
 20260703,45.53,-0.76,37.92,0.63,34.66,-1.43,2,False,True
 20260709,45.05,-0.48,35.99,-1.93,33.98,-0.68,0,False,False
@@ -204,18 +204,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,41.53,-1.85,35.67,-1.1,32.44,-2.32,0,False,False
 20260828,42.41,0.88,36.35,0.68,34.36,1.92,1,True,True
 20260904,39.21,-3.2,30.55,-5.8,27.3,-7.06,0,False,False
+20260911,39.31,0.1,31.24,0.69,27.89,0.59,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8299 | 群聯 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：UBS證券安排之實體會議 4.法人說明會擇要訊息：本公司受邀參加UBS證券舉辦之投資論壇，說明營運績效等。 5.其他應敘明事項：會議細節請洽UBS證券 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 8299 | 群聯 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 33 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：UBS證券安排之實體會議 4.法人說明會擇要訊息：本公司受邀參加UBS證券舉辦之投資論壇，說明營運績效等。 5.其他應敘明事項：會議細節請洽UBS證券 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8299 | 群聯 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：UBS證券安排之實體會議 4.法人說明會擇要訊息：本公司受邀參加UBS證券舉辦之投資論壇，說明營運績效等。 5.其他應敘明事項：會議細節請洽UBS證券 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8299 | 群聯 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 29 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：UBS證券安排之實體會議 4.法人說明會擇要訊息：本公司受邀參加UBS證券舉辦之投資論壇，說明營運績效等。 5.其他應敘明事項：會議細節請洽UBS證券 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8299 | 群聯 | 15 | 15 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 8299 | 群聯 | 20 | 20 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

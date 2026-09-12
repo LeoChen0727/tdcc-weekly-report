@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3094 聯傑
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:50 Asia/Taipei
+- generated_at: 2026-09-12 15:43:10 Asia/Taipei
 - stock_id: 3094
 - stock_name: 聯傑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 43.2
-- high: 46.5
-- low: 43.15
-- close: 46.5
-- volume: 17920641
-- ma5: 42.34
-- ema23_primary: 39.14
-- distance_to_ema23_pct: 18.8
-- ma20: 38.72
-- ma60: 38
-- ma120: 33.05
-- return_5d: 13.97
-- return_20d: 33.43
-- volume_ratio: 4.52
-- distance_to_ma20_pct_auxiliary: 20.11
-- distance_to_high_60_pct: 0
+- date: 20260911
+- open: 41.05
+- high: 41.6
+- low: 40.35
+- close: 40.9
+- volume: 2294363
+- ma5: 41.93
+- ema23_primary: 40.08
+- distance_to_ema23_pct: 2.04
+- ma20: 39.81
+- ma60: 38.63
+- ma120: 33.81
+- return_5d: -12.04
+- return_20d: 8.34
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 2.74
+- distance_to_high_60_pct: -19.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,35.2,37.95,35.2,36.95,1645958,36.08,2.4,36.01,36.33,0.55
-20260811,37.05,37.9,36.15,37.6,1501822,36.21,3.84,36.05,36.42,0.51
-20260812,37.3,38,36.6,36.7,1222137,36.25,1.24,35.87,36.47,0.45
-20260813,37.15,39.55,36.9,38.8,4403492,36.46,6.41,35.76,36.54,1.94
-20260814,39.4,39.4,37.65,37.75,4081388,36.57,3.23,35.8,36.57,1.8
 20260817,38.65,38.95,37.05,37.2,1672033,36.62,1.58,35.88,36.59,0.74
 20260818,36.95,37.4,36.1,36.3,888978,36.6,-0.81,35.76,36.6,0.42
 20260819,35.6,36.9,35.5,36.25,805319,36.57,-0.87,35.66,36.6,0.41
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,40.6,42.6,40.3,41.2,5495413,38.12,8.07,37.8,37.51,2.06
 20260903,41.85,43.8,40.1,42.3,9326594,38.47,9.95,38.13,37.71,3
 20260904,43.2,46.5,43.15,46.5,17920641,39.14,18.8,38.72,38,4.52
+20260907,49,50.8,44.8,44.8,19617528,39.61,13.1,39.11,38.26,4.04
+20260908,44.75,45.8,40.6,41.25,10973412,39.75,3.78,39.29,38.41,2.06
+20260909,41.3,41.9,40.7,40.8,4165088,39.84,2.42,39.49,38.5,0.76
+20260910,40.6,42.8,40.3,41.9,5614453,40.01,4.73,39.65,38.6,1.01
+20260911,41.05,41.6,40.35,40.9,2294363,40.08,2.04,39.81,38.63,0.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 16.81
-- over_600_ratio: 15.08
-- over_800_ratio: 15.08
-- over_1000_ratio: 12.98
-- over_400_change_1w: 1.32
-- over_800_change_1w: 1.11
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 20.91
+- over_600_ratio: 17.04
+- over_800_ratio: 17.04
+- over_1000_ratio: 15.96
+- over_400_change_1w: 4.1
+- over_800_change_1w: 1.96
+- over_1000_change_1w: 2.98
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,20.74,4.42,13.71,1.17,12.63,1.17,5,True,True
 20260626,18.13,-2.61,14.74,1.03,11.43,-1.2,6,False,True
 20260703,16.03,-2.1,12.51,-2.23,11.43,0,0,False,False
 20260709,19.47,3.44,15.3,2.79,13.16,1.73,1,True,True
@@ -199,17 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,14.71,-1.77,13.68,-1.13,11.48,-2.25,0,False,False
 20260828,15.49,0.78,13.97,0.29,12.89,1.41,1,True,True
 20260904,16.81,1.32,15.08,1.11,12.98,0.09,2,True,True
+20260911,20.91,4.1,17.04,1.96,15.96,2.98,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3094 | 聯傑 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/07 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 3094 | 聯傑 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/07 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 3094 | 聯傑 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/07 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3094 | 聯傑 | 9 | 1 | 5 | 9 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260911 | 3094 | 聯傑 | 14 | 4 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

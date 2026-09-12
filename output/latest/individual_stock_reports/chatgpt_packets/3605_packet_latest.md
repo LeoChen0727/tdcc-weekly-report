@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:08 Asia/Taipei
+- generated_at: 2026-09-12 15:43:28 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 118.5
-- high: 124.5
-- low: 113.5
-- close: 118
-- volume: 12601654
-- ma5: 124.8
-- ema23_primary: 115.68
-- distance_to_ema23_pct: 2.01
-- ma20: 120.6
-- ma60: 96.65
-- ma120: 84.48
-- return_5d: -9.92
-- return_20d: 9.77
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -2.16
-- distance_to_high_60_pct: -16.31
+- date: 20260911
+- open: 125
+- high: 127
+- low: 122
+- close: 122.5
+- volume: 4915056
+- ma5: 124.9
+- ema23_primary: 118.97
+- distance_to_ema23_pct: 2.96
+- ma20: 121.65
+- ma60: 100.89
+- ma120: 87.13
+- return_5d: 3.81
+- return_20d: -6.84
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -13.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,108.5,110.5,103,109,9989806,91.29,19.4,89.72,82.75,1.09
-20260811,111.5,119.5,109.5,111,15655243,92.93,19.44,90.94,83.31,1.63
-20260812,111,120,111,120,8422797,95.19,26.07,92.66,84.05,0.86
-20260813,124.5,132,123,132,13830861,98.26,34.34,95.01,84.98,1.35
-20260814,134,137.5,128,131.5,18819544,101.03,30.16,97.62,85.83,1.72
 20260817,131.5,136.5,128,131.5,7347466,103.57,26.97,100.36,86.66,0.66
 20260818,133,133,119,121,11788125,105.02,15.22,102.19,87.33,1.04
 20260819,120,122.5,116.5,119,6294199,106.18,12.07,103.5,87.97,0.58
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,123.5,134,120,127,19992489,115.56,9.9,119.75,95.13,1.45
 20260903,128,129.5,114.5,114.5,13684319,115.47,-0.84,120.08,95.82,1.03
 20260904,118.5,124.5,113.5,118,12601654,115.68,2.01,120.6,96.65,0.94
+20260907,121.5,128,117,120.5,10428662,116.08,3.81,121.17,97.44,0.78
+20260908,122,132.5,120,124,16952861,116.74,6.22,121.83,98.29,1.26
+20260909,123,134.5,121.5,129.5,25273109,117.8,9.93,122.3,99.21,1.76
+20260910,128,131,124.5,128,9745092,118.65,7.88,122.1,100.14,0.69
+20260911,125,127,122,122.5,4915056,118.97,2.96,121.65,100.89,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 64.61
-- over_600_ratio: 61.79
-- over_800_ratio: 56.9
-- over_1000_ratio: 55.86
-- over_400_change_1w: 0.35
-- over_800_change_1w: -4.34
-- over_1000_change_1w: -2.87
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260911
+- over_400_ratio: 65.45
+- over_600_ratio: 61.74
+- over_800_ratio: 58.44
+- over_1000_ratio: 57.43
+- over_400_change_1w: 0.84
+- over_800_change_1w: 1.54
+- over_1000_change_1w: 1.57
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,45.53,-0.11,42.15,0.45,40.16,-0.06,7,False,True
 20260626,46.77,1.24,42.1,-0.05,41.09,0.93,8,False,True
 20260703,54.42,7.65,49.51,7.41,47.93,6.84,9,True,True
 20260709,55.8,1.38,50.5,0.99,48.45,0.52,10,True,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,68.56,-0.03,64.9,3.86,62.29,2.81,3,False,True
 20260828,64.26,-4.3,61.24,-3.66,58.73,-3.56,0,False,False
 20260904,64.61,0.35,56.9,-4.34,55.86,-2.87,1,False,False
+20260911,65.45,0.84,58.44,1.54,57.43,1.57,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3605 | 宏致 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區敦化南路二段97號11樓(敦南摩天大樓11樓教育訓練室) 4.法人說明會擇要訊息：本公司受邀參加台新證券舉辦之法人說明會，說明公司營運概況及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 3605 | 宏致 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區敦化南路二段97號11樓(敦南摩天大樓11樓教育訓練室) 4.法人說明會擇要訊息：本公司受邀參加台新證券舉辦之法人說明會，說明公司營運概況及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 3605 | 宏致 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區敦化南路二段97號11樓(敦南摩天大樓11樓教育訓練室) 4.法人說明會擇要訊息：本公司受邀參加台新證券舉辦之法人說明會，說明公司營運概況及未來展望。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3605 | 宏致 | 3 | 2 | 4 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 3605 | 宏致 | 8 | 1 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3605 | 宏致 | 84 | 0 | 11955670.0 | 0.0 |  | no_signal |
+| 20260911 | 3605 | 宏致 | 96 | 0 | 9861590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

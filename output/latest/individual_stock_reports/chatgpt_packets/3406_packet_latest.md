@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:00 Asia/Taipei
+- generated_at: 2026-09-12 15:43:20 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,38 +69,38 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
+- date: 20260911
 - open: 1020
-- high: 1070
-- low: 962
-- close: 1055
-- volume: 2626231
-- ma5: 1021.2
-- ema23_primary: 788.22
-- distance_to_ema23_pct: 33.85
-- ma20: 759.45
-- ma60: 656.01
-- ma120: 590.45
-- return_5d: 15.05
-- return_20d: 93.22
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 38.92
-- distance_to_high_60_pct: -3.21
+- high: 1140
+- low: 1000
+- close: 1060
+- volume: 10717908
+- ma5: 1047.4
+- ema23_primary: 880.86
+- distance_to_ema23_pct: 20.34
+- ma20: 876
+- ma60: 684.14
+- ma120: 615.55
+- return_5d: 0.47
+- return_20d: 72.36
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 21
+- distance_to_high_60_pct: -7.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,546,552,525,546,3355864,540.58,1,518.62,604.61,1.7
-20260811,546,547,533,538,942113,540.37,-0.44,516.17,603.77,0.49
-20260812,546,584,535,578,2755054,543.5,6.35,517.38,603.79,1.46
-20260813,585,635,572,629,6207058,550.63,14.23,520.98,604.99,2.96
-20260814,623,642,608,615,4503598,555.99,10.61,525.77,606.08,2.01
 20260817,630,676,625,676,6365961,565.99,19.44,534.58,607.73,2.58
 20260818,676,695,669,685,5616144,575.91,18.94,542.27,609.54,2.09
 20260819,655,705,651,657,4958403,582.67,12.76,548.67,610.64,1.74
@@ -166,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,970,1070,970,1050,2423763,743.33,41.26,711.8,645.17,0.44
 20260903,1060,1070,990,991,2416584,763.96,29.72,734,649.71,0.44
 20260904,1020,1070,962,1055,2626231,788.22,33.85,759.45,656.01,0.48
+20260907,1040,1040,961,987,2303955,804.78,22.64,781.5,660.91,0.42
+20260908,987,1050,970,1010,1972893,821.88,22.89,805.1,666.71,0.36
+20260909,1030,1110,980,1110,5569916,845.89,31.22,831.7,673.08,0.99
+20260910,1120,1125,1040,1070,9554384,864.57,23.76,853.75,678.51,1.64
+20260911,1020,1140,1000,1060,10717908,880.86,20.34,876,684.14,1.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 60.07
-- over_600_ratio: 53.06
-- over_800_ratio: 48.16
-- over_1000_ratio: 44.1
-- over_400_change_1w: 1.29
-- over_800_change_1w: 4.66
-- over_1000_change_1w: 7.84
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260911
+- over_400_ratio: 61.63
+- over_600_ratio: 52.53
+- over_800_ratio: 48.87
+- over_1000_ratio: 41.13
+- over_400_change_1w: 1.56
+- over_800_change_1w: 0.71
+- over_1000_change_1w: -2.97
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,58.64,-0.09,45.82,-1.81,38.53,-1.77,0,False,False
 20260626,57.68,-0.96,44,-1.82,37.47,-1.06,0,False,False
 20260703,56.64,-1.04,44.33,0.33,36.97,-0.5,1,False,True
 20260709,55.91,-0.73,44.31,-0.02,36.91,-0.06,0,False,False
@@ -197,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,55.32,1.55,43.85,1.84,36.57,1.14,3,True,True
 20260828,58.78,3.46,43.5,-0.35,36.26,-0.31,4,False,False
 20260904,60.07,1.29,48.16,4.66,44.1,7.84,5,True,True
+20260911,61.63,1.56,48.87,0.71,41.13,-2.97,6,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 3406 | 玉晶光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | mixed_flow | continued_overheated | 1.事實發生日:115/09/08 2.公司名稱:玉晶光電(股)公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報B03版 6.報導內容: 法人預期...第三季營收有望季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:報載有關本公司營收等相關預測資訊係媒體採用法人臆測，與公司無關， 特此澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 3406 | 玉晶光 | 3 | 2 | 3 | 4 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3406 | 玉晶光 | 171 | 15 | 17673450.0 | 1471230.0 | 12.01 | put_inflow |
+| 20260911 | 3406 | 玉晶光 | 167 | 15 | 63605590.0 | 1930310.0 | 32.95 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

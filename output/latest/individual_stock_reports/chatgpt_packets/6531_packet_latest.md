@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:10 Asia/Taipei
+- generated_at: 2026-09-12 15:44:28 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 942
-- high: 949
-- low: 901
-- close: 911
-- volume: 2888036
-- ma5: 933
-- ema23_primary: 892.6
-- distance_to_ema23_pct: 2.06
-- ma20: 894.05
-- ma60: 896.17
-- ma120: 843.88
-- return_5d: 1.79
-- return_20d: -4.21
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 1.9
-- distance_to_high_60_pct: -24.71
+- date: 20260911
+- open: 1005
+- high: 1015
+- low: 973
+- close: 988
+- volume: 3956907
+- ma5: 981.6
+- ema23_primary: 924.93
+- distance_to_ema23_pct: 6.82
+- ma20: 918
+- ma60: 901.13
+- ma120: 861.58
+- return_5d: 8.45
+- return_20d: 6.01
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 7.63
+- distance_to_high_60_pct: -18.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,980,1010,915,923,5773012,845.47,9.17,818.75,941.58,1.78
-20260811,905,920,831,831,1368256,844.27,-1.57,817.4,937.43,0.44
-20260812,831,885,828,878,1349993,847.08,3.65,814.15,933.15,0.44
-20260813,880,903,860,865,918703,848.57,1.94,811.95,930.48,0.31
-20260814,882,932,870,932,945306,855.52,8.94,817.6,929.8,0.33
 20260817,906,927,873,873,1236567,856.98,1.87,822.25,929.75,0.45
 20260818,893,925,847,863,7561123,857.48,0.64,822.5,928.08,2.52
 20260819,833,870,829,837,4111029,855.77,-2.19,818.95,924.45,1.34
@@ -167,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,950,977,920,957,3252360,889.02,7.65,895.45,896.73,1.05
 20260903,967,995,907,912,8083032,890.93,2.36,896.05,895.88,2.36
 20260904,942,949,901,911,2888036,892.6,2.06,894.05,896.17,0.84
+20260907,939,968,936,960,2887072,898.22,6.88,895.9,897.33,0.87
+20260908,979,979,924,931,2388928,900.95,3.34,900.9,897.32,0.71
+20260909,941,1015,936,999,5337019,909.12,9.89,906.95,898.45,1.5
+20260910,993,1065,991,1030,6397932,919.2,12.05,915.2,900.22,1.67
+20260911,1005,1015,973,988,3956907,924.93,6.82,918,901.13,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 63.82
-- over_600_ratio: 59
-- over_800_ratio: 54.82
-- over_1000_ratio: 52.08
-- over_400_change_1w: -0.74
-- over_800_change_1w: -0.63
-- over_1000_change_1w: -1.75
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 65.53
+- over_600_ratio: 59.8
+- over_800_ratio: 56.95
+- over_1000_ratio: 53.62
+- over_400_change_1w: 1.71
+- over_800_change_1w: 2.13
+- over_1000_change_1w: 1.54
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,65.05,-0.4,57.95,1.49,55.41,2.6,4,False,True
 20260626,64.33,-0.72,57.46,-0.49,53.36,-2.05,0,False,False
 20260703,63.56,-0.77,56.05,-1.41,52.97,-0.39,0,False,False
 20260709,64.71,1.15,55.97,-0.08,52.92,-0.05,1,False,False
@@ -198,23 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,64.42,-0.3,55.39,-1.67,53.2,0.12,3,False,True
 20260828,64.56,0.14,55.45,0.06,53.83,0.63,4,True,True
 20260904,63.82,-0.74,54.82,-0.63,52.08,-1.75,5,False,False
+20260911,65.53,1.71,56.95,2.13,53.62,1.54,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6531 | 愛普* | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因:  本公司現金股利訂於115年7月10日發放，如因受巴威颱風影響，致部分停止上班地區  金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項:  如未受颱風停班影響地區，將依原訂日期115年7月10日發放；若颱風影響致部分地區  停止上班期間延長，本公司現金股利發放時間順延。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因:  本公司現金股利訂於115年7月10日發放，如因受巴威颱風影響，致部分停止上班地區  金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項:  如未受颱風停班影響地區，將依原訂日期115年7月10日發放；若颱風影響致部分地區  停止上班期間延長，本公司現金股利發放時間順延。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6531 | 愛普* | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因:  本公司現金股利訂於115年7月10日發放，如因受巴威颱風影響，致部分停止上班地區  金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項:  如未受颱風停班影響地區，將依原訂日期115年7月10日發放；若颱風影響致部分地區  停止上班期間延長，本公司現金股利發放時間順延。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議或公司決定日期:115/07/09 2.原現金股利發放日:115/07/10 3.變更後現金股利發放日:115/07/13 4.變更原因:  本公司現金股利訂於115年7月10日發放，如因受巴威颱風影響，致部分停止上班地區  金融機構作業日程需順延，現金股利發放日將順延至下一營業日發放。 5.其他應敘明事項:  如未受颱風停班影響地區，將依原訂日期115年7月10日發放；若颱風影響致部分地區  停止上班期間延長，本公司現金股利發放時間順延。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6531 | 愛普* | 24 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 6531 | 愛普* | 29 | 1 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6531 | 愛普* | 80 | 5 | 15565410.0 | 19000.0 | 819.23 | no_signal |
+| 20260911 | 6531 | 愛普* | 78 | 5 | 48678440.0 | 196590.0 | 247.61 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

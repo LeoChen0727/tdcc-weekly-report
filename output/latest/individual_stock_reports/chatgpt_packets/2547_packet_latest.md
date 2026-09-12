@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:31 Asia/Taipei
+- generated_at: 2026-09-12 15:42:53 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 10
-- high: 10.05
-- low: 9.95
-- close: 9.98
-- volume: 1329476
-- ma5: 9.98
-- ema23_primary: 10.16
-- distance_to_ema23_pct: -1.78
-- ma20: 10.15
-- ma60: 10.58
-- ma120: 10.53
-- return_5d: -0.2
-- return_20d: -6.29
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -1.67
-- distance_to_high_60_pct: -15.42
+- date: 20260911
+- open: 9.95
+- high: 9.95
+- low: 9.8
+- close: 9.82
+- volume: 2786114
+- ma5: 9.95
+- ema23_primary: 10.09
+- distance_to_ema23_pct: -2.64
+- ma20: 10.06
+- ma60: 10.49
+- ma120: 10.48
+- return_5d: -1.6
+- return_20d: -2.77
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: -2.34
+- distance_to_high_60_pct: -16.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,10.7,10.75,10.6,10.75,2075973,10.53,2.1,10.43,10.6,0.67
-20260811,10.65,10.7,10.4,10.55,2986529,10.53,0.19,10.4,10.61,1
-20260812,10.15,10.15,9.82,10.1,8212336,10.49,-3.76,10.35,10.62,2.63
-20260813,10.05,10.15,10.05,10.15,2333416,10.47,-3.02,10.3,10.62,0.81
-20260814,10.15,10.15,9.98,10.1,1997381,10.44,-3.21,10.29,10.62,0.74
 20260817,10.05,10.3,10.05,10.25,2270649,10.42,-1.63,10.29,10.62,0.85
 20260818,10.2,10.2,10.05,10.15,756715,10.4,-2.38,10.29,10.63,0.29
 20260819,10.15,10.15,10.05,10.1,723306,10.37,-2.63,10.29,10.63,0.28
@@ -172,17 +167,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,9.96,10.05,9.95,9.99,1041750,10.19,-2.01,10.2,10.62,0.56
 20260903,10,10.1,9.98,9.99,1259448,10.18,-1.84,10.18,10.6,0.68
 20260904,10,10.05,9.95,9.98,1329476,10.16,-1.78,10.15,10.58,0.77
+20260907,10.1,10.1,9.93,9.95,1459952,10.14,-1.91,10.11,10.56,0.86
+20260908,10,10,9.94,9.96,931719,10.13,-1.66,10.08,10.54,0.59
+20260909,9.96,10.1,9.96,10.05,1023130,10.12,-0.71,10.08,10.53,0.83
+20260910,10.05,10.05,9.95,9.98,1138407,10.11,-1.29,10.07,10.51,0.97
+20260911,9.95,9.95,9.8,9.82,2786114,10.09,-2.64,10.06,10.49,2.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 70.79
-- over_600_ratio: 68.35
-- over_800_ratio: 66.21
-- over_1000_ratio: 64.11
-- over_400_change_1w: -0.17
-- over_800_change_1w: -0.28
-- over_1000_change_1w: -0.11
+- as_of_date: 20260911
+- over_400_ratio: 70.78
+- over_600_ratio: 68.24
+- over_800_ratio: 66.07
+- over_1000_ratio: 63.95
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -0.16
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,69.56,0.44,64.92,0.5,62.9,0.41,1,True,True
 20260626,69.55,-0.01,64.94,0.02,62.83,-0.07,2,False,True
 20260703,70.02,0.47,65.34,0.4,63.31,0.48,3,True,True
 20260709,70.38,0.36,65.81,0.47,63.87,0.56,4,True,True
@@ -203,18 +202,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,70.92,-0.01,66.29,0.03,64.11,0.13,4,False,True
 20260828,70.96,0.04,66.49,0.2,64.22,0.11,5,True,True
 20260904,70.79,-0.17,66.21,-0.28,64.11,-0.11,0,False,False
+20260911,70.78,-0.01,66.07,-0.14,63.95,-0.16,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260904 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 24 | B_可觀察 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260911 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260911 | 2547 | 日勝生 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 20 | B_可觀察 |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/07/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:林榮顯 4.舊任者簡歷:日勝生活科技(股)公司董事長 5.新任者姓名:林榮顯 6.新任者簡歷:日勝生活科技(股)公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:董事會選任 9.新任生效日期:115/07/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2547 | 日勝生 | 6 | 6 | 5 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2547 | 日勝生 | 3 | 3 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5314 世紀*
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:40 Asia/Taipei
+- generated_at: 2026-09-12 15:43:58 Asia/Taipei
 - stock_id: 5314
 - stock_name: 世紀*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 211
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 216
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -102,9 +102,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +115,8 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 32
-- high: 32.25
-- low: 31.05
-- close: 32
-- volume: 3534000
-- ma5: 33.7
-- ema23_primary: 37.83
-- distance_to_ema23_pct: -15.42
-- ma20: 35.36
-- ma60: 51.8
-- ma120: 61.9
-- return_5d: -6.43
-- return_20d: -46.67
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -9.5
-- distance_to_high_60_pct: -57.33
+- date: 20260911
+- open: 42.15
+- high: 42.15
+- low: 42.15
+- close: 42.15
+- volume: 18969000
+- ma5: 41.08
+- ema23_primary: 39.11
+- distance_to_ema23_pct: 7.77
+- ma20: 32.46
+- ma60: 50.42
+- ma120: 60.4
+- return_5d: 31.72
+- return_20d: 160.19
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 29.85
+- distance_to_high_60_pct: -43.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,61,62.3,60,62.3,3350000,58.46,6.58,57.87,61.15,0.75
-20260811,61.9,62.5,60.7,61.1,2588000,58.68,4.13,57.52,61.05,0.64
-20260812,61.1,62.8,60.8,62.5,2695000,58.99,5.94,57.31,61.01,0.7
-20260813,62.5,63.4,61.3,61.3,3810000,59.19,3.57,57.17,61,0.99
-20260814,16.2,16.2,16.2,16.2,366000,55.6,-70.87,55.02,60.15,0.11
 20260817,17.8,17.8,17.8,17.8,105000,52.45,-66.07,53.02,59.28,0.03
 20260818,19.55,19.55,19.55,19.55,130000,49.71,-60.67,50.96,58.49,0.04
 20260819,21.5,21.5,21.5,21.5,11013000,47.36,-54.6,49.12,57.77,3.42
@@ -167,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,35.95,35.95,34.2,34.2,3888000,39.03,-12.38,38.19,52.73,0.86
 20260903,34.25,34.35,30.85,31,4315000,38.36,-19.2,36.76,52.25,0.95
 20260904,32,32.25,31.05,32,3534000,37.83,-15.42,35.36,51.8,0.77
+20260907,32.55,35.2,32.5,35.2,6644000,37.61,-6.42,34.01,51.42,1.4
+20260908,37.65,38.7,37.65,38.7,10137000,37.7,2.64,32.88,51.09,1.97
+20260909,42.55,42.55,39.4,42.55,49416000,38.11,11.65,31.89,50.83,6.61
+20260910,45.35,46.8,45.35,46.8,38015000,38.83,20.52,31.16,50.67,4.14
+20260911,42.15,42.15,42.15,42.15,18969000,39.11,7.77,32.46,50.42,1.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 39.48
-- over_600_ratio: 37.42
-- over_800_ratio: 36.23
-- over_1000_ratio: 35.65
-- over_400_change_1w: -1.33
-- over_800_change_1w: -0.98
-- over_1000_change_1w: -0.98
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 46.92
+- over_600_ratio: 44.7
+- over_800_ratio: 43.63
+- over_1000_ratio: 42.59
+- over_400_change_1w: 7.44
+- over_800_change_1w: 7.4
+- over_1000_change_1w: 6.94
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,45.81,0.01,42.12,-0.85,41.52,-0.62,2,False,False
 20260626,45.16,-0.65,41.87,-0.25,41.26,-0.26,0,False,False
 20260703,44.55,-0.61,41.55,-0.32,40.66,-0.6,0,False,False
 20260709,41.27,-3.28,37.73,-3.82,37.45,-3.21,0,False,False
@@ -198,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,39.84,-1.38,36.56,-1.19,35.35,-1.45,0,False,False
 20260828,40.81,0.97,37.21,0.65,36.63,1.28,1,True,True
 20260904,39.48,-1.33,36.23,-0.98,35.65,-0.98,0,False,False
+20260911,46.92,7.44,43.63,7.4,42.59,6.94,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 5314 | 世紀* | pattern | 型態觀察 | 47.0 |  |  | platform_right_side |  |  | continued_overheated | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  通過承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:                  通過「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表:                  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)114年度盈餘轉增資發行新股案。  (2)本公司擬發行限制員工權利新股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260911 | 5314 | 世紀* | 3 | 1 | 4 | 4 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

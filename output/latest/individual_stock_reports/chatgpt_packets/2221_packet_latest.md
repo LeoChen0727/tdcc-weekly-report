@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2221 大甲
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:12 Asia/Taipei
+- generated_at: 2026-09-12 15:42:35 Asia/Taipei
 - stock_id: 2221
 - stock_name: 大甲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 95.7
-- high: 98.5
-- low: 90.3
-- close: 90.8
-- volume: 12640000
-- ma5: 83.84
-- ema23_primary: 67.47
-- distance_to_ema23_pct: 34.58
-- ma20: 65.14
-- ma60: 53.57
-- ma120: 45.33
-- return_5d: 13.93
-- return_20d: 93.4
-- volume_ratio: 6.17
-- distance_to_ma20_pct_auxiliary: 39.4
-- distance_to_high_60_pct: -7.82
+- date: 20260911
+- open: 103
+- high: 105.5
+- low: 95.4
+- close: 95.4
+- volume: 10136000
+- ma5: 90.44
+- ema23_primary: 75.75
+- distance_to_ema23_pct: 25.95
+- ma20: 75.03
+- ma60: 57.45
+- ma120: 47.82
+- return_5d: 5.07
+- return_20d: 82.41
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 27.15
+- distance_to_high_60_pct: -9.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,47.3,49.3,47.1,49,215000,47.08,4.09,48.29,46.45,0.32
-20260811,48.2,49.1,46.5,49.1,324000,47.25,3.93,48.25,46.47,0.48
-20260812,48.95,52,47.8,50.2,465000,47.49,5.7,48.1,46.54,0.74
-20260813,50.5,54,50.5,53.7,719000,48.01,11.85,47.87,46.74,1.32
-20260814,53.7,55,51.6,52.3,295000,48.37,8.13,47.85,46.9,0.69
 20260817,52.7,54.9,51.7,54,468000,48.84,10.57,48.03,47.08,1.15
 20260818,54,54.7,53.2,54.4,328000,49.3,10.35,48.23,47.24,0.83
 20260819,53.7,53.7,51.8,52.6,264000,49.57,6.1,48.27,47.38,0.81
@@ -166,18 +161,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,78.5,85.4,78.1,83.2,3198000,62.97,32.13,60.68,51.96,2.68
 20260903,84.2,91.5,84.2,91.5,4812000,65.35,40.02,62.94,52.76,3.38
 20260904,95.7,98.5,90.3,90.8,12640000,67.47,34.58,65.14,53.57,6.17
+20260907,90,90.6,83.7,86.7,4198000,69.07,25.52,67.02,54.3,1.87
+20260908,87.2,90.9,85.5,85.8,5753000,70.47,21.76,68.86,55.02,2.28
+20260909,85.8,90,85.6,87.8,2759000,71.91,22.1,70.73,55.74,1.05
+20260910,87.8,96.5,86.3,96.5,6394000,73.96,30.48,72.88,56.63,2.19
+20260911,103,105.5,95.4,95.4,10136000,75.75,25.95,75.03,57.45,2.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 68.24
-- over_600_ratio: 65.95
+- as_of_date: 20260911
+- over_400_ratio: 66.58
+- over_600_ratio: 64.24
 - over_800_ratio: 64.24
 - over_1000_ratio: 64.24
-- over_400_change_1w: -1.22
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.47
-- tdcc_consecutive_up_weeks: 4
+- over_400_change_1w: -1.66
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -185,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,64.71,0,64.71,0,64.71,0,0,False,False
 20260626,64.71,0,64.71,0,64.71,0,0,False,False
 20260703,64.71,0,64.71,0,64.71,0,0,False,False
 20260709,64.71,0,64.71,0,64.71,0,0,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,66.13,0.02,64.71,0,64.71,0,2,False,False
 20260828,69.46,3.33,64.71,0,64.71,0,3,False,False
 20260904,68.24,-1.22,64.24,-0.47,64.24,-0.47,4,False,False
+20260911,66.58,-1.66,64.24,0,64.24,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2221 | 大甲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/09/03 2.公司名稱:大甲永和機械工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司「國內第一次無擔保轉換公司債發行及轉換辦法」訂定轉換價格。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司業奉金融監督管理委員會民國115年8月26日金管證發字第1150352956號函 同意申報生效在案。 (2)以民國115年9月3日為轉換價格訂基準日之前5個營業日普通股之平均收盤價78.24元 為基準價格，轉換溢價率105.01%。 (3)依上述方式訂定轉換價格為每股新台幣82.16元。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2221 | 大甲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/09/09 2.公司名稱:大甲永和機械工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款辦理公告， 本公司發行國內第一次無擔保轉換公司債至公告日止，債款代收銀行業已收足所有應 募款項共計新台幣伍億元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2221 | 大甲 | 9 | 1 | 5 | 9 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260911 | 2221 | 大甲 | 14 | 2 | 5 | 10 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

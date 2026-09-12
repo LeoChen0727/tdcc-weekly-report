@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:09 Asia/Taipei
+- generated_at: 2026-09-12 15:42:32 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 350
-- high: 364
-- low: 342
-- close: 363
-- volume: 4629639
-- ma5: 353.7
-- ema23_primary: 353.17
-- distance_to_ema23_pct: 2.78
-- ma20: 361.73
-- ma60: 339.42
-- ma120: 323.24
-- return_5d: 2.54
-- return_20d: -6.2
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 0.35
-- distance_to_high_60_pct: -10.26
+- date: 20260911
+- open: 354.5
+- high: 378
+- low: 346
+- close: 359
+- volume: 8834128
+- ma5: 361.4
+- ema23_primary: 356.08
+- distance_to_ema23_pct: 0.82
+- ma20: 358.15
+- ma60: 342.53
+- ma120: 328.68
+- return_5d: -1.1
+- return_20d: -3.88
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 0.24
+- distance_to_high_60_pct: -11.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,381,389,365,387,9126898,335.9,15.21,325.02,343.14,2.05
-20260811,381,384,360,368,7314735,338.58,8.69,327.57,342.73,1.58
-20260812,367,374,363.5,369,3426951,341.11,8.18,329.95,342.57,0.73
-20260813,383,404.5,377.5,381,13188894,344.44,10.62,332.4,342.66,2.51
-20260814,387,388.5,367.5,373.5,4910831,346.86,7.68,335.77,342.89,0.92
 20260817,370,395,370,381.5,7052470,349.74,9.08,339.85,343.02,1.26
 20260818,383,385,366,368,4108074,351.27,4.76,343,342.88,0.72
 20260819,360,378,350,367,6809824,352.58,4.09,345.32,342.42,1.15
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,359,369.5,352,352,5084000,352.98,-0.28,363.8,338.81,0.79
 20260903,353,364.5,343,344.5,3382843,352.27,-2.21,362.93,338.8,0.57
 20260904,350,364,342,363,4629639,353.17,2.78,361.73,339.42,0.87
+20260907,371,377.5,362.5,364.5,3895952,354.11,2.93,360.6,340.18,0.77
+20260908,367,367,349,350,2971158,353.77,-1.07,359.7,340.62,0.61
+20260909,352,381.5,352,370.5,8565244,355.16,4.32,359.77,341.31,1.67
+20260910,368,369,358,363,3704993,355.82,2.02,358.88,341.95,0.8
+20260911,354.5,378,346,359,8834128,356.08,0.82,358.15,342.53,1.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 70.62
-- over_600_ratio: 65.82
-- over_800_ratio: 63.44
-- over_1000_ratio: 60.14
-- over_400_change_1w: -0.35
-- over_800_change_1w: -0.49
-- over_1000_change_1w: -0.75
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 71.34
+- over_600_ratio: 66.9
+- over_800_ratio: 64.14
+- over_1000_ratio: 60.81
+- over_400_change_1w: 0.72
+- over_800_change_1w: 0.7
+- over_1000_change_1w: 0.67
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,68.77,0.1,61.91,-0.2,60.39,0.04,2,False,True
 20260626,68.08,-0.69,61.67,-0.24,59.62,-0.77,0,False,False
 20260703,68.28,0.2,62.36,0.69,60.3,0.68,1,True,True
 20260709,68.56,0.28,62.46,0.1,60.68,0.38,2,True,True
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,71.39,-0.24,64.17,-0.71,60.81,-0.96,0,False,False
 20260828,70.97,-0.42,63.93,-0.24,60.89,0.08,1,False,True
 20260904,70.62,-0.35,63.44,-0.49,60.14,-0.75,0,False,False
+20260911,71.34,0.72,64.14,0.7,60.81,0.67,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2049 | 上銀 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 2049 | 上銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2049 | 上銀 | 13 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2049 | 上銀 | 18 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2049 | 上銀 | 158 | 7 | 13538470.0 | 765970.0 | 17.67 | no_signal |
+| 20260911 | 2049 | 上銀 | 160 | 6 | 23122790.0 | 191700.0 | 120.62 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

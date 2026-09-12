@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:08 Asia/Taipei
+- generated_at: 2026-09-12 15:44:26 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 953
-- high: 983
-- low: 940
-- close: 981
-- volume: 8077000
-- ma5: 956.2
-- ema23_primary: 974.5
-- distance_to_ema23_pct: 0.67
-- ma20: 965.9
-- ma60: 1045.82
-- ma120: 840.01
-- return_5d: 0.93
-- return_20d: 12.5
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 1.56
-- distance_to_high_60_pct: -38.69
+- date: 20260911
+- open: 887
+- high: 912
+- low: 882
+- close: 902
+- volume: 4372000
+- ma5: 940
+- ema23_primary: 961.24
+- distance_to_ema23_pct: -6.16
+- ma20: 967.35
+- ma60: 1045.07
+- ma120: 859.9
+- return_5d: -8.05
+- return_20d: -10.69
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -6.76
+- distance_to_high_60_pct: -43.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,880,888,852,854,6699000,998.48,-14.47,1063.7,996.78,0.59
-20260811,847,883,823,849,8497000,986.03,-13.9,1030.4,999.1,0.8
-20260812,844,933,844,933,10564000,981.61,-4.95,1003.05,1003.02,1
-20260813,970,1025,950,1025,9647000,985.22,4.04,985.8,1009.02,0.9
-20260814,1025,1045,993,1010,14896000,987.29,2.3,974.3,1015.22,1.36
 20260817,1000,1095,990,1020,10494000,990.01,3.03,962.05,1020.53,0.97
 20260818,1020,1120,1010,1060,13047000,995.85,6.44,954.8,1026.25,1.2
 20260819,1010,1030,972,983,10429000,994.78,-1.18,941.95,1029.5,0.96
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,976,982,951,967,6929000,978.17,-1.14,957.7,1040.32,0.7
 20260903,970,974,920,927,7319000,973.9,-4.82,960.45,1042.38,0.75
 20260904,953,983,940,981,8077000,974.5,0.67,965.9,1045.82,0.83
+20260907,990,1015,966,971,8393000,974.2,-0.33,971.75,1048.9,0.86
+20260908,986,1010,944,955,9122000,972.6,-1.81,977.05,1050.42,0.93
+20260909,961,965,946,955,4255000,971.14,-1.66,978.15,1050.5,0.45
+20260910,941,941,903,917,7247000,966.63,-5.13,972.75,1048.37,0.77
+20260911,887,912,882,902,4372000,961.24,-6.16,967.35,1045.07,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 77.68
-- over_600_ratio: 74.84
-- over_800_ratio: 72.51
-- over_1000_ratio: 70.6
-- over_400_change_1w: -0.77
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260911
+- over_400_ratio: 77.12
+- over_600_ratio: 74.45
+- over_800_ratio: 71.95
+- over_1000_ratio: 70.45
+- over_400_change_1w: -0.56
+- over_800_change_1w: -0.56
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,81.52,0.65,75.68,0.6,72.63,0.42,1,True,True
 20260626,81.36,-0.16,75.96,0.28,72.93,0.3,2,False,True
 20260703,80.98,-0.38,75.78,-0.18,72.95,0.02,3,False,True
 20260709,80.92,-0.06,76.46,0.68,72.7,-0.25,4,False,True
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,79.32,-0.1,73.79,0.03,71.41,0.1,2,False,True
 20260828,78.45,-0.87,72.55,-1.24,70.46,-0.95,0,False,False
 20260904,77.68,-0.77,72.51,-0.04,70.6,0.14,1,False,True
+20260911,77.12,-0.56,71.95,-0.56,70.45,-0.15,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6488 | 環球晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/20 2.被背書保證之: (1)公司名稱:環球晶圓股份有限公司 (2)與提供背書保證公司之關係: 本公司之子公司環球晶資本股份有限公司 對本公司提供背書保證 (3)背書保證之限額(仟元):153,943,410 (4)原背書保證之餘額(仟元):0 (5)本次新增背書保證之金額(仟元):8,000,000 (6)迄事實發生日止背書保證餘額(仟元):8,000,000 (7)被背書保證公司實際動支金額(仟元):0 (8)本次新增背書保證之原因: 集團整體資金運用以協助降低銀行融資成本 3.被背書保證公司提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.被背書保證公司最近期財務報表之: (1)資本(仟元):4,781,137 (2)累積盈虧金額(仟元):34,882,093 5.解除背書保證責任之: (1)條件: 被保證額度全數清償 (2)日期: 被保證額度全數清償之日 6.背書保證之總限額(仟元): 967,240,960 7.迄事實發生日為止，背書保證餘額(仟元): 150,850,519 8.迄事實發生日為止，A提供背書保證餘額占公開發行公司最近期財務報表淨值之 比率: 155.96 9.迄事實發生日為止，背書保證、長期投資及資金貸與餘額合計數達該公開發行公 司最近期財務報表淨值之比率: 13.28 10.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6488 | 環球晶 | 1 | 1 | 3 | 8 | 14 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:32 Asia/Taipei
+- generated_at: 2026-09-12 15:42:54 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 58
-- high: 59.3
-- low: 57.2
-- close: 58.2
-- volume: 29297988
-- ma5: 58.12
-- ema23_primary: 56.68
-- distance_to_ema23_pct: 2.68
-- ma20: 57.15
-- ma60: 53.01
-- ma120: 52.4
-- return_5d: 3.56
-- return_20d: 15.25
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 1.85
-- distance_to_high_60_pct: -13.52
+- date: 20260911
+- open: 57.6
+- high: 60.7
+- low: 57.6
+- close: 59.4
+- volume: 79512906
+- ma5: 58.26
+- ema23_primary: 57.26
+- distance_to_ema23_pct: 3.74
+- ma20: 58.8
+- ma60: 53.58
+- ma120: 52.42
+- return_5d: 2.06
+- return_20d: 15.12
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 1.03
+- distance_to_high_60_pct: -11.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,50.8,51.8,50.5,51.6,23675162,50.78,1.62,50.42,51.25,1.37
-20260811,51.8,52.2,51.3,52,22775772,50.88,2.2,50.62,51.32,1.37
-20260812,52,52.1,51.3,51.7,10408883,50.95,1.48,50.7,51.37,0.64
-20260813,51.9,52,50.9,51.4,17291845,50.99,0.81,50.76,51.4,1.05
-20260814,51.5,51.9,50.7,51.6,21723431,51.04,1.1,50.88,51.42,1.29
 20260817,51.7,54.8,51.7,54.7,97224950,51.34,6.54,51.16,51.48,4.68
 20260818,55.1,57.2,54.6,56.2,86793977,51.75,8.61,51.43,51.54,3.66
 20260819,55.6,59,54.9,59,114832016,52.35,12.7,51.81,51.66,4.02
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,58,60,56.9,57.5,41626918,56.43,1.89,56.39,52.78,0.49
 20260903,57.6,58.6,57.2,57.8,35026477,56.55,2.22,56.76,52.88,0.4
 20260904,58,59.3,57.2,58.2,29297988,56.68,2.68,57.15,53.01,0.33
+20260907,58.5,58.7,58,58.1,15705138,56.8,2.29,57.47,53.13,0.18
+20260908,58.2,58.2,57.1,57.3,15542080,56.84,0.8,57.73,53.21,0.18
+20260909,57.1,58.6,56.5,58.5,31633364,56.98,2.67,58.08,53.33,0.36
+20260910,58.8,59.8,57.4,58,43320399,57.07,1.64,58.41,53.45,0.48
+20260911,57.6,60.7,57.6,59.4,79512906,57.26,3.74,58.8,53.58,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 61.77
-- over_600_ratio: 60.45
-- over_800_ratio: 59.82
-- over_1000_ratio: 59.12
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.2
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 61.98
+- over_600_ratio: 60.57
+- over_800_ratio: 59.91
+- over_1000_ratio: 59.14
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,55.59,-0.14,53.62,-0.16,53,-0.06,0,False,False
 20260626,55.87,0.28,53.88,0.26,53.14,0.14,1,True,True
 20260703,55.29,-0.58,53.3,-0.58,52.43,-0.71,0,False,False
 20260709,55.67,0.38,53.58,0.28,52.79,0.36,1,True,True
@@ -198,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,61.16,3.44,58.94,3.38,58.12,3.39,7,True,True
 20260828,62.23,1.07,60.02,1.08,59.18,1.06,8,True,True
 20260904,61.77,-0.46,59.82,-0.2,59.12,-0.06,0,False,False
+20260911,61.98,0.21,59.91,0.09,59.14,0.02,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2609 | 陽明 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| 20260911 | 2609 | 陽明 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | continued_overheated | 1.發生變動日期:115/09/08 2.法人名稱:陽明海運股份有限公司 3.舊任者姓名:劉政得/陳飛傑 4.舊任者簡歷: 劉政得:陽明(新加坡)有限公司船舶管理部主管 陳飛傑:陽明(新加坡)有限公司業務部主管 5.新任者姓名:卓承佑/洪啟勛 6.新任者簡歷: 卓承佑:陽明(新加坡)有限公司船舶管理部主管 洪啟勛:陽明(新加坡)有限公司業務部主管 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）: 劉政得:111/10/03至115/09/30 陳飛傑:115/05/01至115/09/30 9.新任生效日期:115/10/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 2609 | 陽明 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | continued_overheated | 1.發生變動日期:115/09/08 2.法人名稱:陽明海運股份有限公司 3.舊任者姓名:劉政得/陳飛傑 4.舊任者簡歷: 劉政得:陽明(新加坡)有限公司船舶管理部主管 陳飛傑:陽明(新加坡)有限公司業務部主管 5.新任者姓名:卓承佑/洪啟勛 6.新任者簡歷: 卓承佑:陽明(新加坡)有限公司船舶管理部主管 洪啟勛:陽明(新加坡)有限公司業務部主管 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）: 劉政得:111/10/03至115/09/30 陳飛傑:115/05/01至115/09/30 9.新任生效日期:115/10/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2609 | 陽明 | 13 | 4 | 5 | 10 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260911 | 2609 | 陽明 | 18 | 9 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2609 | 陽明 | 99 | 9 | 13150990.0 | 125070.0 | 105.15 | no_signal |
+| 20260911 | 2609 | 陽明 | 100 | 8 | 18783660.0 | 490830.0 | 38.27 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

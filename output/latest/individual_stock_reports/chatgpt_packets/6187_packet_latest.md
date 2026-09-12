@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:56 Asia/Taipei
+- generated_at: 2026-09-12 15:44:14 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 1345
-- high: 1360
-- low: 1280
-- close: 1305
-- volume: 1920000
-- ma5: 1333
-- ema23_primary: 1253.27
-- distance_to_ema23_pct: 4.13
-- ma20: 1274.25
-- ma60: 1120.97
-- ma120: 1092.85
-- return_5d: -4.4
-- return_20d: 15.49
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 2.41
-- distance_to_high_60_pct: -10.31
+- date: 20260911
+- open: 1250
+- high: 1275
+- low: 1220
+- close: 1250
+- volume: 1567000
+- ma5: 1323
+- ema23_primary: 1275.74
+- distance_to_ema23_pct: -2.02
+- ma20: 1313
+- ma60: 1138.88
+- ma120: 1117.33
+- return_5d: -4.21
+- return_20d: -1.96
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -4.8
+- distance_to_high_60_pct: -14.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,1165,1220,1080,1090,3918000,1035.85,5.23,1014.55,1067.72,1.53
-20260811,1165,1195,1035,1050,5630000,1037.03,1.25,1017.8,1066.47,2.04
-20260812,1060,1155,1055,1155,4335000,1046.86,10.33,1021.55,1066.8,1.5
-20260813,1190,1270,1185,1270,5819000,1065.46,19.2,1031.3,1069.38,1.92
-20260814,1275,1320,1250,1275,4487000,1082.92,17.74,1046.3,1072.55,1.43
 20260817,1275,1400,1265,1385,5106000,1108.09,24.99,1068.8,1077.47,1.55
 20260818,1360,1360,1250,1260,3894000,1120.75,12.42,1081.9,1079.47,1.14
 20260819,1210,1355,1205,1305,4731000,1136.1,14.87,1094.4,1081.05,1.36
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,1360,1410,1335,1340,1902000,1243.89,7.73,1259.25,1114.13,0.5
 20260903,1365,1410,1300,1300,2927000,1248.57,4.12,1265.5,1116.97,0.77
 20260904,1345,1360,1280,1305,1920000,1253.27,4.13,1274.25,1120.97,0.51
+20260907,1320,1400,1310,1370,2297000,1263,8.47,1288.25,1126.63,0.63
+20260908,1355,1435,1350,1385,3519000,1273.17,8.78,1305,1131.63,0.99
+20260909,1410,1425,1325,1330,2844000,1277.9,4.08,1313.75,1134.97,0.81
+20260910,1340,1360,1280,1280,1829000,1278.08,0.15,1314.25,1137.3,0.56
+20260911,1250,1275,1220,1250,1567000,1275.74,-2.02,1313,1138.88,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 54.11
-- over_600_ratio: 46.49
-- over_800_ratio: 41.13
-- over_1000_ratio: 32.73
-- over_400_change_1w: -1.12
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -1.89
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 53.61
+- over_600_ratio: 43.63
+- over_800_ratio: 38.68
+- over_1000_ratio: 32.4
+- over_400_change_1w: -0.5
+- over_800_change_1w: -2.45
+- over_1000_change_1w: -0.33
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,52.25,-1.09,38.96,-1.87,34.04,-2.06,0,False,False
 20260626,51.27,-0.98,37.89,-1.07,32.98,-1.06,1,False,False
 20260703,51.33,0.06,38.94,1.05,32.27,-0.71,2,False,True
 20260709,50.93,-0.4,39.67,0.73,33.08,0.81,3,False,True
@@ -198,18 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,55.1,-0.29,41.73,-0.44,32.39,-3.22,0,False,False
 20260828,55.23,0.13,41.24,-0.49,34.62,2.23,1,False,True
 20260904,54.11,-1.12,41.13,-0.11,32.73,-1.89,2,False,False
+20260911,53.61,-0.5,38.68,-2.45,32.4,-0.33,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6187 | 萬潤 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 6187 | 萬潤 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260911 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 6187 | 萬潤 | 10 | 5 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 6187 | 萬潤 | 15 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5443 均豪
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:42 Asia/Taipei
+- generated_at: 2026-09-12 15:44:01 Asia/Taipei
 - stock_id: 5443
 - stock_name: 均豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 112
-- high: 114.5
-- low: 109
-- close: 112.5
-- volume: 2199000
-- ma5: 111.8
-- ema23_primary: 106.5
-- distance_to_ema23_pct: 5.63
-- ma20: 107.6
-- ma60: 104.19
-- ma120: 110.01
-- return_5d: 0.45
-- return_20d: 18.3
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.55
-- distance_to_high_60_pct: -11.42
+- date: 20260911
+- open: 106.5
+- high: 107.5
+- low: 104
+- close: 105.5
+- volume: 1350000
+- ma5: 111.9
+- ema23_primary: 108.19
+- distance_to_ema23_pct: -2.49
+- ma20: 108.65
+- ma60: 104.91
+- ma120: 110.37
+- return_5d: -6.22
+- return_20d: -0.47
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -2.9
+- distance_to_high_60_pct: -16.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,104.5,104.5,104.5,104.5,1649000,97.58,7.1,95.77,108.11,0.9
-20260811,105.5,109.5,105,107.5,5078000,98.4,9.24,95.92,107.72,2.59
-20260812,108,114.5,108,113.5,4920000,99.66,13.89,96.19,107.55,2.41
-20260813,114.5,115,107,107,3257000,100.27,6.71,96.12,107.34,1.57
-20260814,108,108,105,106,1772000,100.75,5.21,96.53,107.17,0.92
 20260817,106.5,108.5,106,106.5,1197000,101.23,5.21,97.14,106.98,0.67
 20260818,107,109,105,106.5,1341000,101.67,4.75,97.57,106.73,0.76
 20260819,105,107.5,103,104.5,933000,101.9,2.55,97.75,106.28,0.55
@@ -168,16 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,111,116.5,111,112,3185000,105.59,6.07,105.99,103.91,1.5
 20260903,113,115,110,110,2474000,105.96,3.82,106.73,103.98,1.12
 20260904,112,114.5,109,112.5,2199000,106.5,5.63,107.6,104.19,0.97
+20260907,114,121.5,112.5,120,7288000,107.63,11.5,108.38,104.51,2.85
+20260908,120,122.5,113.5,114.5,5468000,108.2,5.82,108.72,104.72,2.12
+20260909,113,113.5,110,111.5,3011000,108.47,2.79,108.62,104.83,1.21
+20260910,110,110.5,108,108,1227000,108.43,-0.4,108.67,104.89,0.51
+20260911,106.5,107.5,104,105.5,1350000,108.19,-2.49,108.65,104.91,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 40.39
-- over_600_ratio: 36.99
-- over_800_ratio: 35.37
-- over_1000_ratio: 34.35
-- over_400_change_1w: -0.61
-- over_800_change_1w: -0.73
+- as_of_date: 20260911
+- over_400_ratio: 39.75
+- over_600_ratio: 36.9
+- over_800_ratio: 35.25
+- over_1000_ratio: 33.63
+- over_400_change_1w: -0.64
+- over_800_change_1w: -0.12
 - over_1000_change_1w: -0.72
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,39.78,-0.09,35.23,-0.07,34.73,-0.06,2,False,False
 20260626,38.82,-0.96,35,-0.23,33.99,-0.74,0,False,False
 20260703,40.84,2.02,36.22,1.22,34.61,0.62,1,True,True
 20260709,40.24,-0.6,36.3,0.08,34.68,0.07,2,False,True
@@ -199,19 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,40.56,0.11,35.72,0.62,34.75,0.14,5,False,True
 20260828,41,0.44,36.1,0.38,35.07,0.32,6,False,True
 20260904,40.39,-0.61,35.37,-0.73,34.35,-0.72,0,False,False
+20260911,39.75,-0.64,35.25,-0.12,33.63,-0.72,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5443 | 均豪 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
-| 20260904 | 5443 | 均豪 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 5443 | 均豪 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 3 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 5443 | 均豪 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5443 | 均豪 | 7 | 4 | 5 | 7 | 11 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260911 | 5443 | 均豪 | 12 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

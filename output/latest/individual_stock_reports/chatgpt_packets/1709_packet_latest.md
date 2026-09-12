@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1709 和益
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:01 Asia/Taipei
+- generated_at: 2026-09-12 15:42:24 Asia/Taipei
 - stock_id: 1709
 - stock_name: 和益
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 41
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 42
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 34.1
-- high: 34.9
-- low: 33.8
-- close: 34
-- volume: 8132636
-- ma5: 34.46
-- ema23_primary: 32.14
-- distance_to_ema23_pct: 5.78
-- ma20: 32.67
-- ma60: 26.97
-- ma120: 22.87
-- return_5d: -5.95
-- return_20d: 22.3
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 4.07
-- distance_to_high_60_pct: -9.81
+- date: 20260911
+- open: 35.3
+- high: 36.8
+- low: 34.7
+- close: 36.2
+- volume: 16271099
+- ma5: 34.98
+- ema23_primary: 33.18
+- distance_to_ema23_pct: 9.11
+- ma20: 34.23
+- ma60: 28.14
+- ma120: 23.57
+- return_5d: 6.47
+- return_20d: 19.28
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 5.76
+- distance_to_high_60_pct: -3.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,28.3,28.55,27,27.3,5150246,25.36,7.65,26.08,22.67,0.92
-20260811,26.75,27.7,26.2,27.4,4292157,25.53,7.32,26.05,22.82,0.87
-20260812,27.45,28.3,27.05,28,5162239,25.74,8.79,26.08,22.99,1.11
-20260813,28.5,30.8,28.15,30.65,24724371,26.15,17.23,26.25,23.19,4.37
-20260814,29.9,32.2,29.5,30.35,13482409,26.5,14.54,26.46,23.4,2.23
 20260817,30.9,33.35,30.55,32.75,13746538,27.02,21.22,26.79,23.64,2.11
 20260818,32.55,33.25,30.95,32.7,7855737,27.49,18.95,27.02,23.88,1.22
 20260819,32,33.85,31.85,32.55,6445461,27.91,16.61,27.25,24.1,0.99
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,34.75,35.4,33.85,35,14108956,31.84,9.93,32.07,26.54,1.03
 20260903,35.15,35.9,33.2,33.45,11959315,31.97,4.62,32.36,26.76,0.86
 20260904,34.1,34.9,33.8,34,8132636,32.14,5.78,32.67,26.97,0.58
+20260907,34.5,34.7,33.3,34.2,6337416,32.31,5.84,33.02,27.2,0.45
+20260908,33.75,34.1,32.8,33.6,6585442,32.42,3.64,33.33,27.4,0.46
+20260909,33.5,36,33.5,35.6,13704688,32.69,8.92,33.7,27.64,0.94
+20260910,36.25,37.55,34.95,35.3,17937535,32.9,7.28,33.94,27.88,1.25
+20260911,35.3,36.8,34.7,36.2,16271099,33.18,9.11,34.23,28.14,1.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 70.95
-- over_600_ratio: 67.53
-- over_800_ratio: 64.64
-- over_1000_ratio: 61.78
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 71.41
+- over_600_ratio: 68.16
+- over_800_ratio: 65.3
+- over_1000_ratio: 62.84
+- over_400_change_1w: 0.46
+- over_800_change_1w: 0.66
+- over_1000_change_1w: 1.06
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,63.06,0.26,56.56,0.4,53.46,0.2,17,True,True
 20260626,62.91,-0.15,56.35,-0.21,53.66,0.2,18,False,True
 20260703,63.54,0.63,56.98,0.63,54.3,0.64,19,True,True
 20260709,63.96,0.42,57.7,0.72,54.86,0.56,20,True,True
@@ -199,17 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,71.53,1.32,64.75,1.94,62.1,1.59,26,True,True
 20260828,70.9,-0.63,64.39,-0.36,61.56,-0.54,0,False,False
 20260904,70.95,0.05,64.64,0.25,61.78,0.22,1,False,True
+20260911,71.41,0.46,65.3,0.66,62.84,1.06,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1709 | 和益 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：台北市中山區建國北路一段96號13樓 4.法人說明會擇要訊息：本公司受邀參加台新證券所舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 1709 | 和益 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：台北市中山區建國北路一段96號13樓 4.法人說明會擇要訊息：本公司受邀參加台新證券所舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 1709 | 和益 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/14 1.召開法人說明會之日期：115/07/14 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：台北市中山區建國北路一段96號13樓 4.法人說明會擇要訊息：本公司受邀參加台新證券所舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 1709 | 和益 | 2 | 2 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 1709 | 和益 | 7 | 7 | 5 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

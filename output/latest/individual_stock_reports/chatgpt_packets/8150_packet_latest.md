@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-09-06 22:18:50 Asia/Taipei
+- generated_at: 2026-09-12 15:45:06 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 91
-- high: 92.8
-- low: 87.9
-- close: 90.1
-- volume: 17066972
-- ma5: 90.34
-- ema23_primary: 90.18
-- distance_to_ema23_pct: -0.09
-- ma20: 90.51
-- ma60: 95.56
-- ma120: 85.67
-- return_5d: -0.44
-- return_20d: 4.4
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -27.92
+- date: 20260911
+- open: 88.2
+- high: 88.2
+- low: 85.5
+- close: 86.7
+- volume: 22223021
+- ma5: 90.14
+- ema23_primary: 90.11
+- distance_to_ema23_pct: -3.79
+- ma20: 89.6
+- ma60: 95.08
+- ma120: 86.78
+- return_5d: -3.77
+- return_20d: -5.66
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -3.24
+- distance_to_high_60_pct: -30.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,89.4,94.2,89.4,92.9,39296241,90.65,2.48,92.11,95.61,0.72
-20260811,93.1,99.4,91,99,100567458,91.35,8.38,91.86,95.91,1.77
-20260812,96.6,97.4,92,92.2,86136843,91.42,0.86,90.77,96.08,1.48
-20260813,93.5,98.5,92.8,92.9,72593049,91.54,1.48,89.28,96.33,1.38
-20260814,94.5,95.5,90.5,91.9,39986859,91.57,0.36,88.36,96.62,0.79
 20260817,92.5,94,90,91.5,30736479,91.57,-0.07,87.78,96.88,0.62
 20260818,91.5,92.4,87.6,89.1,28382010,91.36,-2.47,87.03,97.05,0.6
 20260819,85.7,88.6,85.4,87.3,18501550,91.02,-4.09,86.4,97.06,0.43
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,91,92.3,89.9,90.2,18889803,90.29,-0.1,90.21,95.64,0.54
 20260903,91.2,93.5,88.9,89.1,23458442,90.19,-1.21,90.32,95.53,0.68
 20260904,91,92.8,87.9,90.1,17066972,90.18,-0.09,90.51,95.56,0.5
+20260907,91.9,93.5,90.2,91.3,17151866,90.28,1.13,90.43,95.46,0.52
+20260908,92.2,93.5,89.7,90.3,13892407,90.28,0.02,90,95.35,0.49
+20260909,90.8,95.4,90.7,91.5,38445198,90.38,1.24,89.96,95.28,1.48
+20260910,90.7,91.5,90,90.9,11730848,90.42,0.53,89.86,95.21,0.51
+20260911,88.2,88.2,85.5,86.7,22223021,90.11,-3.79,89.6,95.08,1.01
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 61.62
-- over_600_ratio: 59.13
-- over_800_ratio: 57.17
-- over_1000_ratio: 54.37
-- over_400_change_1w: 1.47
-- over_800_change_1w: 0.97
-- over_1000_change_1w: 1.09
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260911
+- over_400_ratio: 61.96
+- over_600_ratio: 59.83
+- over_800_ratio: 57.87
+- over_1000_ratio: 55.86
+- over_400_change_1w: 0.34
+- over_800_change_1w: 0.7
+- over_1000_change_1w: 1.49
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,68.3,-3.51,64.9,-3.6,62.47,-3.08,0,False,False
 20260626,68.99,0.69,65.51,0.61,63.62,1.15,1,True,True
 20260703,71.99,3,68.34,2.83,66.33,2.71,2,True,True
 20260709,72.27,0.28,68.29,-0.05,66.28,-0.05,3,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,60.01,-1.75,56.27,-2.2,53.88,-2.41,0,False,False
 20260828,60.15,0.14,56.2,-0.07,53.28,-0.6,1,False,False
 20260904,61.62,1.47,57.17,0.97,54.37,1.09,2,True,True
+20260911,61.96,0.34,57.87,0.7,55.86,1.49,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 取得廠務工程及設備一批 2.事實發生日:114/7/2~115/6/23 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理批准 民國115年6月23日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 取得廠務工程及設備一批,總計新台幣512,231仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：茂存機械工程股份有限公司 與本公司之關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依雙方訂購單約定之付款條件支付貨款 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 參考市場行情經雙方議價，經內部核決權限辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 生產使用相關 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 ~ 115/09/16 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：台北W酒店 4.法人說明會擇要訊息：本公司應瑞銀證券之邀請，參加瑞銀證券Taiwan Summit 2026，就已公開發布之財務數字及經營績效等相關資訊進行說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8150 | 南茂 | 2 | 2 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 8150 | 南茂 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 8150 | 南茂 | 177 | 3 | 7207280.0 | 21260.0 | 339.01 | no_signal |
+| 20260911 | 8150 | 南茂 | 171 | 3 | 4019710.0 | 5350.0 | 751.35 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

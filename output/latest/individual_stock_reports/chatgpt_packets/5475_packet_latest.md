@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5475 德宏
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:44 Asia/Taipei
+- generated_at: 2026-09-12 15:44:02 Asia/Taipei
 - stock_id: 5475
 - stock_name: 德宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 213
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 218
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,35 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -99,10 +105,12 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +124,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 188
-- high: 190
-- low: 176
-- close: 190
-- volume: 5443000
-- ma5: 193.5
-- ema23_primary: 177.04
-- distance_to_ema23_pct: 7.32
-- ma20: 175.25
-- ma60: 184.77
-- ma120: 237.73
-- return_5d: -5.47
-- return_20d: 53.85
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 8.42
-- distance_to_high_60_pct: -33.68
+- date: 20260911
+- open: 181
+- high: 196
+- low: 175
+- close: 175
+- volume: 8126000
+- ma5: 187.3
+- ema23_primary: 180.39
+- distance_to_ema23_pct: -2.99
+- ma20: 184.97
+- ma60: 180.77
+- ma120: 236.99
+- return_5d: -7.89
+- return_20d: 2.64
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: -5.39
+- distance_to_high_60_pct: -38.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,122,130.5,122,125,3880000,148.58,-15.87,137.28,219,1.12
-20260811,131.5,137.5,131,135,15263000,147.45,-8.44,135.1,216.27,3.8
-20260812,136,148.5,136,148.5,15151000,147.54,0.65,133.62,213.77,3.25
-20260813,157.5,163,148.5,163,24104000,148.83,9.52,133,211.62,4.17
-20260814,167,179,166,170.5,27380000,150.63,13.19,133.62,209.82,3.93
 20260817,170.5,170.5,157.5,169,2825000,152.16,11.06,134.72,207.86,0.41
 20260818,175.5,184,174,182.5,4091000,154.69,17.98,136.53,205.95,0.59
 20260819,172.5,181,171,180,2410000,156.8,14.8,137.88,204.16,0.35
@@ -166,17 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,195.5,204.5,190,190,4974000,175.26,8.41,168.95,186.99,0.6
 20260903,192,208.5,181,182.5,6874000,175.86,3.77,171.93,185.68,0.83
 20260904,188,190,176,190,5443000,177.04,7.32,175.25,184.77,0.66
+20260907,192,198,190,194,4316000,178.45,8.71,178.7,184.03,0.52
+20260908,195,196,185,190,2998000,179.42,5.9,181.45,183.2,0.39
+20260909,190,203.5,188.5,193,5675000,180.55,6.9,183.68,182.44,0.79
+20260910,193,194.5,184,184.5,3837000,180.88,2,184.75,181.68,0.62
+20260911,181,196,175,175,8126000,180.39,-2.99,184.97,180.77,1.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 26.93
-- over_600_ratio: 23.16
-- over_800_ratio: 21.7
-- over_1000_ratio: 21.7
-- over_400_change_1w: -1.85
-- over_800_change_1w: -3.01
-- over_1000_change_1w: -1.5
+- as_of_date: 20260911
+- over_400_ratio: 25.82
+- over_600_ratio: 22.44
+- over_800_ratio: 21.47
+- over_1000_ratio: 20.78
+- over_400_change_1w: -1.11
+- over_800_change_1w: -0.23
+- over_1000_change_1w: -0.92
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,40.65,1.04,35.2,0.49,34.44,0.47,3,True,True
 20260626,40.63,-0.02,35.7,0.5,35.7,1.26,4,False,True
 20260703,39.41,-1.22,34.97,-0.73,34.97,-0.73,0,False,False
 20260709,40.42,1.01,35.43,0.46,33.94,-1.03,1,False,True
@@ -197,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,28.91,-3,24.18,-4.47,23.55,-3.12,0,False,False
 20260828,28.78,-0.13,24.71,0.53,23.2,-0.35,1,False,True
 20260904,26.93,-1.85,21.7,-3.01,21.7,-1.5,0,False,False
+20260911,25.82,-1.11,21.47,-0.23,20.78,-0.92,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_overheated | 1.事實發生日:115/08/27 2.公司名稱:德宏工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年第一季合併財務報告附表一「資金貸與他人」欄位誤植，將本 公司對子公司德宇複合材料股份有限公司之資金貸與「本期最高餘額」誤植為新臺幣 30,000仟元，經覆核更正為新臺幣10,000仟元；期末餘額、實際動支金額、對個別對 象資金貸與限額及資金貸與總限額均未變動。 6.更正資訊項目/報表名稱:115年第一季合併財報告附表一資金貸與他人 7.更正前金額/內容/頁次: 合併財務報告第61頁 本期最高餘額$30,000仟元 8.更正後金額/內容/頁次: 合併財務報告第61頁 本期最高餘額$10,000仟元 9.因應措施:修正後重新上傳財報電子檔及iXBRL申報至公開資訊站。 10.其他應敘明事項:本案僅為資金貸與他人揭露資訊之補正，對原公告之財務報告損益及 股東權益並無影響。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 5475 | 德宏 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/27 2.公司名稱:德宏工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年第一季合併財務報告附表一「資金貸與他人」欄位誤植，將本 公司對子公司德宇複合材料股份有限公司之資金貸與「本期最高餘額」誤植為新臺幣 30,000仟元，經覆核更正為新臺幣10,000仟元；期末餘額、實際動支金額、對個別對 象資金貸與限額及資金貸與總限額均未變動。 6.更正資訊項目/報表名稱:115年第一季合併財報告附表一資金貸與他人 7.更正前金額/內容/頁次: 合併財務報告第61頁 本期最高餘額$30,000仟元 8.更正後金額/內容/頁次: 合併財務報告第61頁 本期最高餘額$10,000仟元 9.因應措施:修正後重新上傳財報電子檔及iXBRL申報至公開資訊站。 10.其他應敘明事項:本案僅為資金貸與他人揭露資訊之補正，對原公告之財務報告損益及 股東權益並無影響。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 5475 | 德宏 | 7 | 4 | 5 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260911 | 5475 | 德宏 | 12 | 9 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

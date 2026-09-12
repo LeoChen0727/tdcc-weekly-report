@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2406 國碩
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:21 Asia/Taipei
+- generated_at: 2026-09-12 15:42:43 Asia/Taipei
 - stock_id: 2406
 - stock_name: 國碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 27.4
-- high: 27.4
-- low: 26.75
-- close: 27.25
-- volume: 3061571
-- ma5: 27.73
-- ema23_primary: 29.28
-- distance_to_ema23_pct: -6.94
-- ma20: 29.07
-- ma60: 33.1
-- ma120: 33.27
-- return_5d: -4.89
-- return_20d: -13.08
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -6.25
-- distance_to_high_60_pct: -40.7
+- date: 20260911
+- open: 26.5
+- high: 26.9
+- low: 26.3
+- close: 26.4
+- volume: 3041349
+- ma5: 26.96
+- ema23_primary: 28.45
+- distance_to_ema23_pct: -7.21
+- ma20: 28
+- ma60: 32.21
+- ma120: 32.87
+- return_5d: -3.12
+- return_20d: -9.59
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: -5.73
+- distance_to_high_60_pct: -42.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,31.7,32.25,31.55,31.95,3442113,32.81,-2.63,32.09,34.67,0.36
-20260811,32.15,32.6,31.75,31.75,5541596,32.73,-2.98,31.93,34.69,0.63
-20260812,31.8,32.2,31.6,31.65,4271523,32.64,-3.02,31.77,34.69,0.49
-20260813,32.05,32.5,31.5,31.5,6739448,32.54,-3.2,31.64,34.68,0.77
-20260814,30.35,30.5,29,29.2,13319126,32.26,-9.49,31.57,34.67,1.53
 20260817,29.2,29.8,28.95,29.5,4800766,32.03,-7.91,31.53,34.65,0.57
 20260818,29.65,29.65,28.7,28.75,4189618,31.76,-9.47,31.36,34.6,0.51
 20260819,28.2,28.65,28,28.55,2916471,31.49,-9.34,31.02,34.51,0.37
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,28.25,28.5,27.9,27.9,2962726,29.69,-6.02,29.53,33.38,0.7
 20260903,28,28.25,27,27.05,4151276,29.47,-8.2,29.27,33.24,1.01
 20260904,27.4,27.4,26.75,27.25,3061571,29.28,-6.94,29.07,33.1,0.75
+20260907,27.5,27.7,27.2,27.25,2054941,29.11,-6.4,28.83,32.9,0.51
+20260908,27.45,27.45,26.9,26.9,2237101,28.93,-7.01,28.59,32.7,0.58
+20260909,27.25,27.4,26.9,27.35,2266549,28.8,-5.03,28.38,32.51,0.61
+20260910,27.35,27.35,26.6,26.9,2722263,28.64,-6.07,28.14,32.38,0.77
+20260911,26.5,26.9,26.3,26.4,3041349,28.45,-7.21,28,32.21,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 24.11
-- over_600_ratio: 22.01
-- over_800_ratio: 19.91
-- over_1000_ratio: 17.36
-- over_400_change_1w: -0.55
-- over_800_change_1w: -0.78
-- over_1000_change_1w: -0.46
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260911
+- over_400_ratio: 24.49
+- over_600_ratio: 22.1
+- over_800_ratio: 20.82
+- over_1000_ratio: 17.21
+- over_400_change_1w: 0.38
+- over_800_change_1w: 0.91
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,38,-2.9,33.47,-2.98,31.47,-2.77,0,False,False
 20260626,35.47,-2.53,30.35,-3.12,27.76,-3.71,0,False,False
 20260703,37.37,1.9,33.92,3.57,31.08,3.32,1,True,True
 20260709,34.17,-3.2,31.42,-2.5,28.64,-2.44,0,False,False
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,25.17,-1.56,21.35,-1.34,18.48,-1.35,0,False,False
 20260828,24.66,-0.51,20.69,-0.66,17.82,-0.66,0,False,False
 20260904,24.11,-0.55,19.91,-0.78,17.36,-0.46,0,False,False
+20260911,24.49,0.38,20.82,0.91,17.21,-0.15,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2406 | 國碩 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260904 | 2406 | 國碩 | revenue_breakout_low_response | 營收爆發低反應股 | 11 | 61 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 2406 | 國碩 | revenue_pullback | 營收成長股價回檔 | 57.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 2406 | 國碩 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 51 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過承認本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:  通過承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  (1)配合子公司禾迅綠電(股)公司未來申請股票上市（櫃）計畫，本公司得辦理對禾迅     綠電(股)公司釋股作業暨放棄參與其現金增資計畫案。  (2)本公司辦理私募普通股案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2406 | 國碩 | 48 | 13 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2406 | 國碩 | 53 | 18 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2406 | 國碩 | 22 | 0 | 13230.0 | 0.0 |  | no_signal |
+| 20260911 | 2406 | 國碩 | 22 | 0 | 295300.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

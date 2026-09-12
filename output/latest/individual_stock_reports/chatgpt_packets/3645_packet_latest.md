@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-09-06 22:17:10 Asia/Taipei
+- generated_at: 2026-09-12 15:43:29 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 71.2
-- high: 73.3
-- low: 69.7
-- close: 71.6
-- volume: 2138640
-- ma5: 72.48
-- ema23_primary: 70.46
-- distance_to_ema23_pct: 1.61
-- ma20: 69.36
-- ma60: 76.5
-- ma120: 86.03
-- return_5d: -6.53
-- return_20d: 4.68
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -27.46
+- date: 20260911
+- open: 69.6
+- high: 70
+- low: 68.4
+- close: 68.5
+- volume: 1456092
+- ma5: 71.7
+- ema23_primary: 70.84
+- distance_to_ema23_pct: -3.3
+- ma20: 69.78
+- ma60: 74.85
+- ma120: 85.6
+- return_5d: -4.33
+- return_20d: -1.01
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.83
+- distance_to_high_60_pct: -29.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,70.1,73,70,72.1,1336504,72.44,-0.46,69.2,87.83,0.8
-20260811,67.1,68.9,64.9,67.8,2605318,72.05,-5.9,68.81,87.19,1.62
-20260812,67.8,73.3,67.8,71.2,2153066,71.98,-1.08,68.48,86.59,1.3
-20260813,70.9,71.9,69.6,69.7,1742258,71.79,-2.91,68.2,85.95,1.03
-20260814,71.1,71.1,68.8,69.2,1041667,71.57,-3.32,68.19,85.39,0.64
 20260817,69.2,70.2,68.6,69.1,774058,71.37,-3.18,68.19,84.71,0.5
 20260818,69.5,69.8,66.8,66.8,676674,70.99,-5.9,67.96,84.01,0.45
 20260819,65.5,67.3,65.4,65.9,884410,70.56,-6.61,67.69,83.15,0.59
@@ -168,17 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,72.2,75.2,72.1,72.5,3120839,70.37,3.03,69.14,77.28,1.41
 20260903,72.5,73.3,70.2,70.3,2690321,70.36,-0.09,69.19,76.8,1.17
 20260904,71.2,73.3,69.7,71.6,2138640,70.46,1.61,69.36,76.5,0.9
+20260907,72.4,72.7,71.3,71.8,1382531,70.58,1.73,69.34,76.2,0.58
+20260908,71.8,74.5,71,73.7,4826440,70.84,4.04,69.64,75.92,1.95
+20260909,73,74.1,72.4,73.9,2371612,71.09,3.95,69.77,75.61,0.95
+20260910,73.7,75,69.8,70.6,5268432,71.05,-0.63,69.81,75.25,1.98
+20260911,69.6,70,68.4,68.5,1456092,70.84,-3.3,69.78,74.85,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 40.46
-- over_600_ratio: 35.78
-- over_800_ratio: 32.27
-- over_1000_ratio: 30.34
-- over_400_change_1w: -3.27
-- over_800_change_1w: -5.21
-- over_1000_change_1w: -6.53
+- as_of_date: 20260911
+- over_400_ratio: 38.19
+- over_600_ratio: 34.29
+- over_800_ratio: 30.41
+- over_1000_ratio: 27.86
+- over_400_change_1w: -2.27
+- over_800_change_1w: -1.86
+- over_1000_change_1w: -2.48
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,46.14,-0.56,36.3,-1.27,34.9,-1.3,2,False,False
 20260626,45.75,-0.39,37.3,1,35.99,1.09,3,False,True
 20260703,45.26,-0.49,36.78,-0.52,36.08,0.09,4,False,True
 20260709,45.03,-0.23,37.21,0.43,35.89,-0.19,5,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,44.63,-0.51,37.23,-0.22,35.38,-0.81,0,False,False
 20260828,43.73,-0.9,37.48,0.25,36.87,1.49,1,False,True
 20260904,40.46,-3.27,32.27,-5.21,30.34,-6.53,0,False,False
+20260911,38.19,-2.27,30.41,-1.86,27.86,-2.48,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3645 | 達邁 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3645 | 達邁 | 1 | 1 | 4 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 3645 | 達邁 | 27 | 0 | 301710.0 | 0.0 |  | no_signal |
+| 20260911 | 3645 | 達邁 | 27 | 0 | 118480.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-09-06 22:16:17 Asia/Taipei
+- generated_at: 2026-09-12 15:42:39 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260904
-- price_rows: 348
-- current_main_price_date: 20260904
+- latest_price_date: 20260911
+- price_rows: 353
+- current_main_price_date: 20260911
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260904-ef2f08472cf64a89
-- official_tdcc_signal_date: 20260904
-- latest_tdcc_date: 20260904
-- tdcc_rows: 19
+- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
+- official_tdcc_signal_date: 20260911
+- latest_tdcc_date: 20260911
+- tdcc_rows: 20
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260904
-- open: 174
-- high: 176
-- low: 165.5
-- close: 174
-- volume: 100505993
-- ma5: 176.1
-- ema23_primary: 174.57
-- distance_to_ema23_pct: -0.32
-- ma20: 178.2
-- ma60: 175.82
-- ma120: 145.5
-- return_5d: -4.13
-- return_20d: 6.42
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -2.36
-- distance_to_high_60_pct: -25.48
+- date: 20260911
+- open: 173
+- high: 173.5
+- low: 170.5
+- close: 171.5
+- volume: 74789115
+- ma5: 180.4
+- ema23_primary: 176.46
+- distance_to_ema23_pct: -2.81
+- ma20: 178.55
+- ma60: 175.62
+- ma120: 148.01
+- return_5d: -1.44
+- return_20d: -6.54
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -3.95
+- distance_to_high_60_pct: -26.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260810,169,179.5,168.5,179.5,154758322,160.98,11.51,156.53,165.9,1.22
-20260811,178,181,172.5,178,194693938,162.39,9.61,157.2,166.71,1.5
-20260812,186.5,193,174.5,177,207363846,163.61,8.18,157.03,167.48,1.53
-20260813,183,185,177,177,227421621,164.73,7.45,157.28,168.47,1.63
-20260814,183,191,180.5,183.5,241145687,166.29,10.35,158.7,169.61,1.65
 20260817,185.5,190,181.5,181.5,128521974,167.56,8.32,160.22,170.73,0.87
 20260818,186,192,176,176.5,183343610,168.3,4.87,161.28,171.59,1.22
 20260819,167,169.5,165,168,113062347,168.28,-0.17,161.12,172.25,0.75
@@ -173,26 +169,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260902,173.5,180,171.5,179,83567943,175.13,2.21,177.78,175.19,0.51
 20260903,181.5,185.5,168,169,161434224,174.62,-3.22,177.68,175.4,1
 20260904,174,176,165.5,174,100505993,174.57,-0.32,178.2,175.82,0.63
+20260907,181,183.5,178,180,118922555,175.02,2.85,178.22,176.21,0.76
+20260908,185,192,183.5,188,222260653,176.1,6.76,178.72,176.47,1.41
+20260909,190.5,190.5,180.5,183,140400625,176.68,3.58,179.03,176.38,0.91
+20260910,181,182.5,178,179.5,67914754,176.91,1.46,179.15,176.08,0.46
+20260911,173,173.5,170.5,171.5,74789115,176.46,-2.81,178.55,175.62,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260904
-- over_400_ratio: 67.97
-- over_600_ratio: 66.65
-- over_800_ratio: 65.54
-- over_1000_ratio: 64.57
-- over_400_change_1w: -2.67
-- over_800_change_1w: -2.98
-- over_1000_change_1w: -3.21
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260911
+- over_400_ratio: 69.7
+- over_600_ratio: 68.31
+- over_800_ratio: 67.1
+- over_1000_ratio: 66.09
+- over_400_change_1w: 1.73
+- over_800_change_1w: 1.56
+- over_1000_change_1w: 1.52
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260618,74.46,2.87,72.13,2.93,71.35,2.78,1,True,True
 20260626,73.41,-1.05,71.04,-1.09,70.33,-1.02,0,False,False
 20260703,71.18,-2.23,68.86,-2.18,68.12,-2.21,0,False,False
 20260709,69.89,-1.29,67.69,-1.17,66.93,-1.19,0,False,False
@@ -204,22 +204,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260821,69.68,0.72,67.51,0.72,66.79,0.72,1,True,True
 20260828,70.64,0.96,68.52,1.01,67.78,0.99,2,True,True
 20260904,67.97,-2.67,65.54,-2.98,64.57,-3.21,0,False,False
+20260911,69.7,1.73,67.1,1.56,66.09,1.52,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:華邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司海外第四次無擔保轉換公司債發行及轉換辦法第十二(一)條規定， 本債券發行之日起屆滿三個月之翌日至到期日前，如本公司普通股於台灣證券交易所之 收盤價格，連續三十個營業日中有二十個交易日(如遇除權或除息者，於除權或除息交 易日至除權或除息基準日之間，採用之收盤價格，應先設算為除權或除息前之價格)達 提前贖回金額(定義於後)除以本債券面額再乘以當時轉換價格後所得之總數120%時，本 公司得以提前贖回金額贖回全部或部份本債券。 「提前贖回金額」係指公司依本債券面額加計年利率為-1.5%之利息補償金，且以每半 年為計算基礎所得之金額。 提前贖回金額將按固定匯率換算為新臺幣，並以該新臺幣金額按贖回當時匯率(參考上 午十一時Taipei Forex Inc.所顯示之定盤匯率)換算為美金償還。 6.因應措施:本公司將於115年8月12日提前贖回全部海外第四次無擔保轉換公司債。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260901; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260911 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/07/13 2.公司名稱:華邦電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司海外第四次無擔保轉換公司債發行及轉換辦法第十二(一)條規定， 本債券發行之日起屆滿三個月之翌日至到期日前，如本公司普通股於台灣證券交易所之 收盤價格，連續三十個營業日中有二十個交易日(如遇除權或除息者，於除權或除息交 易日至除權或除息基準日之間，採用之收盤價格，應先設算為除權或除息前之價格)達 提前贖回金額(定義於後)除以本債券面額再乘以當時轉換價格後所得之總數120%時，本 公司得以提前贖回金額贖回全部或部份本債券。 「提前贖回金額」係指公司依本債券面額加計年利率為-1.5%之利息補償金，且以每半 年為計算基礎所得之金額。 提前贖回金額將按固定匯率換算為新臺幣，並以該新臺幣金額按贖回當時匯率(參考上 午十一時Taipei Forex Inc.所顯示之定盤匯率)換算為美金償還。 6.因應措施:本公司將於115年8月12日提前贖回全部海外第四次無擔保轉換公司債。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2344 | 華邦電 | 27 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260911 | 2344 | 華邦電 | 32 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260904 | 2344 | 華邦電 | 383 | 42 | 40998950.0 | 1163020.0 | 35.25 | no_signal |
+| 20260911 | 2344 | 華邦電 | 390 | 40 | 32292090.0 | 1040460.0 | 31.04 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
