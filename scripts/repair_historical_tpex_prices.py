@@ -1,4 +1,4 @@
-"""Bounded repair of the audited September 2025 TPEx legacy daily files."""
+"""Bounded repair of separately authorized TPEx historical daily batches."""
 from __future__ import annotations
 
 import argparse
@@ -26,6 +26,22 @@ DATES = tuple("20250901 20250902 20250903 20250904 20250905 20250909 20250910 "
 EVIDENCE = Path("retained-evidence/tpex-history-repair-202509")
 MANIFEST = Path("config/tpex_historical_price_repair_202509.csv")
 COLUMNS = ["date", "ticker", "name", "market", "open", "high", "low", "close", "volume", "turnover"]
+BATCHES = {
+    "202509": (DATES, EVIDENCE, MANIFEST),
+    "202510": (
+        tuple("20251001 20251002 20251003 20251007 20251008 20251009 "
+              "20251013 20251014 20251016 20251020 20251021 20251022 "
+              "20251023 20251027 20251028 20251029 20251030 20251031".split()),
+        Path("retained-evidence/tpex-history-repair-202510"),
+        Path("config/tpex_historical_price_repair_202510.csv"),
+    ),
+}
+
+
+def batch_spec(batch: str) -> tuple[tuple[str, ...], Path, Path]:
+    if batch not in BATCHES:
+        raise ValueError(f"unauthorized TPEx repair batch: {batch}")
+    return BATCHES[batch]
 
 
 def sha(payload: bytes) -> str:
@@ -83,10 +99,11 @@ def reject_repeated_batches(payloads: dict[str, bytes]) -> None:
         observed[digest] = date
 
 
-def collect(root: Path, reuse: Path | None) -> None:
-    """Only the explicit 17 days; existing receipted raw is verified and reused."""
-    for date in DATES:
-        target = root / EVIDENCE / "raw" / f"{date}_TPEx_raw.json"
+def collect(root: Path, reuse: Path | None, batch: str = "202509") -> None:
+    """Only the selected authorized batch; verify and reuse existing raw."""
+    dates, evidence, _ = batch_spec(batch)
+    for date in dates:
+        target = root / evidence / "raw" / f"{date}_TPEx_raw.json"
         receipt_path = target.with_name(f"{date}_TPEx_receipt.json")
         if target.exists() and receipt_path.exists():
             receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
@@ -120,17 +137,18 @@ def collect(root: Path, reuse: Path | None) -> None:
         print(f"raw_received={date} bytes={len(raw)} sha256={sha(raw)}", flush=True)
 
 
-def apply(root: Path, source_ref: str) -> None:
+def apply(root: Path, source_ref: str, batch: str = "202509") -> None:
+    dates, evidence, manifest_path = batch_spec(batch)
     source_sha = subprocess.check_output(["git", "rev-parse", source_ref], cwd=root, text=True).strip()
     payloads: dict[str, bytes] = {}
     manifest = []
-    for date in DATES:
+    for date in dates:
         path = f"data/daily_price/{date}.csv"
         before = git_bytes(root, source_sha, path)
         target = root / path
         if target.exists() and target.read_bytes() != before:
             raise ValueError(f"target differs from authorized source: {path}")
-        raw_path = EVIDENCE / "raw" / f"{date}_TPEx_raw.json"
+        raw_path = evidence / "raw" / f"{date}_TPEx_raw.json"
         receipt_path = raw_path.with_name(f"{date}_TPEx_receipt.json")
         raw = (root / raw_path).read_bytes()
         receipt = json.loads((root / receipt_path).read_text(encoding="utf-8"))
@@ -153,17 +171,18 @@ def apply(root: Path, source_ref: str) -> None:
         target = root / "data/daily_price" / f"{date}.csv"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(payload)
-    with (root / MANIFEST).open("w", encoding="utf-8", newline="") as handle:
+    with (root / manifest_path).open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(manifest[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(manifest)
 
 
-def validate(root: Path, ref: str = "") -> list[dict]:
+def validate(root: Path, ref: str = "", batch: str = "202509") -> list[dict]:
+    dates, _, manifest_path = batch_spec(batch)
     read = (lambda path: git_bytes(root, ref, path.as_posix())) if ref else (lambda path: (root / path).read_bytes())
-    manifest = rows(read(MANIFEST))
-    if [row["date"] for row in manifest] != list(DATES):
-        raise ValueError("repair manifest must contain the exact authorized 17 dates")
+    manifest = rows(read(manifest_path))
+    if [row["date"] for row in manifest] != list(dates):
+        raise ValueError(f"repair manifest must contain the exact authorized {len(dates)} dates")
     payloads = {}
     results = []
     for row in manifest:
@@ -193,6 +212,7 @@ def validate(root: Path, ref: str = "") -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", type=Path, default=ROOT)
+    parser.add_argument("--batch", choices=tuple(BATCHES), default="202509")
     parser.add_argument("--source-ref", default="origin/main")
     parser.add_argument("--verify-ref", default="")
     parser.add_argument("--reuse-raw-root", type=Path)
@@ -201,12 +221,12 @@ def main() -> None:
     mode.add_argument("--apply", action="store_true")
     args = parser.parse_args()
     if args.collect:
-        collect(args.repo_root, args.reuse_raw_root)
+        collect(args.repo_root, args.reuse_raw_root, args.batch)
     elif args.apply:
-        apply(args.repo_root, args.source_ref)
-        print(json.dumps(validate(args.repo_root)))
+        apply(args.repo_root, args.source_ref, args.batch)
+        print(json.dumps(validate(args.repo_root, batch=args.batch)))
     else:
-        print(json.dumps(validate(args.repo_root, args.verify_ref)))
+        print(json.dumps(validate(args.repo_root, args.verify_ref, args.batch)))
 
 
 if __name__ == "__main__":

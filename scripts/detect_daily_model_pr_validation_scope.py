@@ -60,12 +60,17 @@ TPEX_HISTORY_REPAIR_PATTERNS = (
     "tests/test_backfill_official_daily_price.py",
     "tests/test_historical_tpex_price_repair.py",
     "config/tpex_historical_price_repair_202509.csv",
+    "config/tpex_historical_price_repair_202510.csv",
     "docs/tpex_historical_price_repair.md",
     "retained-evidence/tpex-history-repair-202509/*",
+    "retained-evidence/tpex-history-repair-202510/*",
     *(f"data/daily_price/{date}.csv" for date in (
         "20250901", "20250902", "20250903", "20250904", "20250905", "20250909",
         "20250910", "20250911", "20250917", "20250918", "20250919", "20250922",
         "20250923", "20250924", "20250925", "20250926", "20250930",
+        "20251001", "20251002", "20251003", "20251007", "20251008", "20251009",
+        "20251013", "20251014", "20251016", "20251020", "20251021", "20251022",
+        "20251023", "20251027", "20251028", "20251029", "20251030", "20251031",
     )),
 )
 

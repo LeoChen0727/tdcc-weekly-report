@@ -52,3 +52,32 @@ PR 與合併後的 `Daily Model Maintenance PR Validation` 在
 合併後採 main `workflow_dispatch`、`validation_profile=all`，再以手動
 `python scripts/repair_historical_tpex_prices.py --verify-ref origin/main` 驗收
 main 的實際資料；不派送正式產報 workflow。
+
+## 2025 年 10 月獨立修復批次
+
+2026-09-12 使用者另行授權 18 個日期，登錄於
+`config/tpex_historical_price_repair_202510.csv`；不擴大 9 月既有批次，
+不改舊 manifest、原文或修復後行情。預設 CLI 仍為 9 月，10 月須明確選擇
+`--batch 202510`，沒有任意日期或全月份寫入模式。
+
+10 月原文與收據從已核實的 F 槽來源逐位元複製到
+`retained-evidence/tpex-history-repair-202510/raw/`，未重新下載。
+原始被修訂 CSV 均由 manifest 的 source_sha 綁定原 Git 物件保留。
+只重用既有 TPEx parser；不修改一般抓價、backfill parser、模型或 workflow。
+
+修復 18 日共 15,111 筆官方可用上櫃行情；18,962 筆上市實體行逐位元不變。
+保留官方無報價原文，不把非交易／不可用值補為零。
+`original_publication_version_verified=false`，不能視為首次發布版本或
+回測正式升級證據。本次沒有重算研究、修改舊研究產物或產生六份正式 PDF。
+
+```text
+python scripts/repair_historical_tpex_prices.py --batch 202510
+python scripts/repair_historical_tpex_prices.py --batch 202510 --verify-ref origin/main
+python -m pytest tests/test_backfill_official_daily_price.py tests/test_historical_tpex_price_repair.py -q
+```
+
+既有 CI 測試入口現在驗證兩個批次；新增 10 月測試直接用 CSV、JSON 與
+Decimal 對照官方六個數值欄位及完整代碼，不使用 producer parser 計算
+expected。新 raw 的 Git -text 與日期檔 eol=lf 只約束本批傳輸，
+避免 checkout 改寫原文雜湊或上市實體行。合併後仍須 main 全套驗證，
+不得以本地或 PR 通過代替。

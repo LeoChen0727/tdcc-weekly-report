@@ -1,5 +1,5 @@
 path,type,owner,status,called_by_workflow,imported_by,tested_by,documented_by,writes_artifact,reads_artifact,keep_reason,delete_reason,removal_risk
-scripts/repair_historical_tpex_prices.py,python,official_price_data,active,,,tests/test_historical_tpex_price_repair.py,docs/repo_production_inventory.md;docs/tpex_historical_price_repair.md,,,authorized seventeen-date TPEx correction and direct official-source verification,,high
+scripts/repair_historical_tpex_prices.py,python,official_price_data,active,,,tests/test_historical_tpex_price_repair.py,docs/repo_production_inventory.md;docs/tpex_historical_price_repair.md,,,separately authorized September seventeen-date and October eighteen-date TPEx corrections with direct official-source verification,,high
 tests/test_historical_tpex_price_repair.py,test_python,official_price_data,active,,,,docs/tpex_historical_price_repair.md,,,TPEx historical correction and isolation regressions,,medium
 tests/test_backfill_official_daily_price.py,test_python,official_price_data,active,,,,docs/tpex_historical_price_repair.md,,,official backfill source integrity regressions,,medium
 docs/tpex_historical_price_repair.md,guidance_doc,official_price_data,active,,,,,,,official historical TPEx correction semantics evidence and reproduction,,high
