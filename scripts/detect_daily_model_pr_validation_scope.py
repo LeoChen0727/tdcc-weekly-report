@@ -431,6 +431,7 @@ REVENUE_MARKERS = (
 FINANCIAL_STATEMENT_MARKERS = ("financial_statement",)
 
 MODEL_LIKE_MARKERS = (
+    "tdcc_stealth_accumulation_current_version_horizon_extension",
     "tdcc_stealth_accumulation_current_version_annual_replay",
     "tdcc_stealth_accumulation_corporate_action_ledger",
     "daily_model",
@@ -551,6 +552,17 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_anomalies_v1.csv',
         'output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_receipted_marketwide_replay_report_v1.md',
         "scripts/build_tdcc_stealth_accumulation_current_version_annual_replay.py",
+        "scripts/tdcc_stealth_accumulation_current_version_horizon_extension.py",
+        "scripts/validate_tdcc_stealth_accumulation_current_version_horizon_extension.py",
+        "config/tdcc_stealth_accumulation_current_version_horizon_extension_v1.json",
+        "docs/specs/tdcc_stealth_accumulation_current_version_horizon_extension_v1.md",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_source_manifest_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_trades_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_blocked_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_anomalies_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_paired_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_report_v1.md",
         "scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py",
         "tests/test_tdcc_stealth_accumulation_current_version_annual_replay.py",
         "tests/test_validate_tdcc_stealth_accumulation_current_version_annual_replay.py",

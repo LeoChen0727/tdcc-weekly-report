@@ -18,6 +18,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_tdcc_stealth_accumulation_current_version_annual_replay as producer  # noqa: E402
 
+import tdcc_stealth_accumulation_current_version_horizon_extension as horizon_extension  # noqa: E402
+
 
 TDCC_LEVELS = (
     "400,001-600,000", "600,001-800,000", "800,001-1,000,000",
@@ -604,3 +606,201 @@ def test_writer_never_targets_sealed_evidence(tmp_path, monkeypatch):
         producer.write_outputs(tmp_path, tmp_path / producer.DIRECTORY,
                                {name: b"synthetic-only\n" for name in producer.GENERATED})
     assert not (tmp_path / producer.DIRECTORY).exists()
+
+
+def extension_contract():
+    return json.loads((ROOT / horizon_extension.CONTRACT_FILE).read_text(encoding="utf-8"))
+
+
+def horizon_fixture(signal_indices=(0, 2, 5, 6, 10, 11, 75), asof_index=80):
+    calendar = [d for d, weekday in producer.date_range("20250101", "20250701") if weekday < 5][:100]
+    original = dict(requested_signal_start=calendar[0], requested_signal_end=calendar[asof_index],
+                    as_of=calendar[asof_index], price_source_ref="synthetic", history_start=calendar[0],
+                    calendar_end=calendar[-1])
+    signals = [dict(signal_date=calendar[i], stock_id="2330", stock_name="合成", market="TWSE",
+                    input_ref="synthetic", receipt_id="", history_gap_count="0") for i in signal_indices]
+    prices = {date:{"2330":dict(date=date, stock_id="2330", open=10, high=30, low=9,
+                                close=10+i/100, volume=1000000, source="synthetic",
+                                source_path="data/daily_price/"+date+".csv", source_sha256="synthetic",
+                                duplicate_key=False, date_mismatch=False, alias_payload_conflict=False)}
+              for i, date in enumerate(calendar[:asof_index+1])}
+    return signals, prices, calendar, original
+
+
+def test_extension_contract_is_separately_frozen_and_no_old_prefix_collision():
+    horizon_extension.validate_extension_contract(extension_contract())
+    assert len(horizon_extension.GENERATED) == 7
+    assert not any(name.startswith(producer.PREFIX) for name in horizon_extension.GENERATED)
+    producer.validate_contract(contract())
+
+
+@pytest.mark.parametrize("field", [*FALSE_CONTRACT_FLAGS, "base_artifact_ref", "profiles", "as_of"])
+def test_extension_contract_rejects_mutations(field):
+    changed = extension_contract()
+    changed[field] = True if field in FALSE_CONTRACT_FLAGS else "changed"
+    with pytest.raises(ValueError, match="Frozen"):
+        horizon_extension.validate_extension_contract(changed)
+
+
+def test_extension_cli_still_requires_explicit_private_input():
+    with pytest.raises(SystemExit) as exc:
+        producer.main(["--horizon-extension-contract", str(ROOT / horizon_extension.CONTRACT_FILE)])
+    assert exc.value.code == 2
+
+
+def test_extension_cli_is_opt_in_without_old_build_or_writer(monkeypatch):
+    from contextlib import nullcontext
+    calls = []
+    monkeypatch.setattr(producer, "artifact_guard", lambda root: nullcontext())
+    monkeypatch.setattr(horizon_extension, "preserve_v1", lambda root: nullcontext())
+    monkeypatch.setattr(horizon_extension, "build_extension", lambda *args: calls.append("extension_build") or {})
+    monkeypatch.setattr(horizon_extension, "write_extension_outputs", lambda *args: calls.append("extension_write"))
+    monkeypatch.setattr(producer, "build", lambda *args: pytest.fail("old producer must not run"))
+    monkeypatch.setattr(producer, "write_outputs", lambda *args: pytest.fail("old writer must not run"))
+    assert producer.main(["--repository-root", str(ROOT), "--input-root", "synthetic-unused",
+                          "--horizon-extension-contract", str(ROOT / horizon_extension.CONTRACT_FILE)]) == 0
+    assert calls == ["extension_build", "extension_write"]
+
+
+def test_extension_target_D0_plus_h_and_unknown_future_are_not_off_by_one():
+    _, _, calendar, original = horizon_fixture()
+    mature = horizon_extension.target_dates(calendar, calendar[0], 60, original["as_of"])
+    assert mature == dict(entry_index=1, exit_target_index=61, entry_date=calendar[1], exit_date=calendar[61], mature=True)
+    unknown = horizon_extension.target_dates(calendar, calendar[75], 60, original["as_of"])
+    assert unknown["entry_date"] == calendar[76]
+    assert unknown["exit_date"] == ""
+    assert unknown["exit_target_index"] == 136 and unknown["mature"] is False
+
+
+def test_extension_common_cutoff_uses_calendar_not_realized_stock_outcomes():
+    signals, prices, calendar, original = horizon_fixture(signal_indices=(0, 19, 20, 75))
+    prices.clear()
+    groups, cutoff = horizon_extension.select_profiles(signals, calendar, original)
+    assert cutoff == calendar[19]
+    assert groups["common_d60"] == signals[:2]
+    assert groups["full_period"] == signals
+
+
+def test_extension_each_horizon_has_fresh_locks_and_exit_day_remains_blocked():
+    signals, prices, calendar, original = horizon_fixture()
+    trades, blocked, _, _ = horizon_extension.replay_positions(signals, prices, calendar, original,
+                                                               {"full_period":[5, 10]})
+    five = {r["signal_date"] for r in trades if r["horizon"] == 5}
+    ten = {r["signal_date"] for r in trades if r["horizon"] == 10}
+    assert calendar[10] in five and calendar[10] not in ten
+    assert any(r["signal_date"] == calendar[6] and r["horizon"] == 5
+               and r["reasons"] == "blocked_exit_day" for r in blocked)
+    assert all(r["strict_entry_established"] is False for r in blocked if r["record_type"] == "strict_ledger_decision")
+    assert all(r["formal_use"] is False and r["promotion_evidence_allowed"] is False for r in trades)
+
+
+@pytest.mark.parametrize("kind", ["entry", "exit", "immature"])
+def test_extension_missing_entry_exit_and_immaturity_are_distinct(kind):
+    signals, prices, calendar, original = horizon_fixture(signal_indices=(0, 2))
+    if kind == "entry":
+        prices.pop(calendar[1])
+    elif kind == "exit":
+        prices.pop(calendar[31])
+    else:
+        original["as_of"] = calendar[20]
+        prices = {d:r for d,r in prices.items() if d <= original["as_of"]}
+    trades, blocked, _, _ = horizon_extension.replay_positions(signals, prices, calendar, original, {"full_period":[30]})
+    reasons = {(r["signal_date"], r["record_type"]):r["reasons"] for r in blocked if r["record_type"] != "strict_ledger_decision"}
+    first_reason = reasons[calendar[0], "operation_no_entry" if kind == "entry" else "operation_censored"]
+    assert first_reason == {"entry":"entry_price_missing_or_invalid", "exit":"open_unresolved_exit_price", "immature":"open_immature"}[kind]
+    if kind == "entry":
+        assert any(r["signal_date"] == calendar[2] for r in trades)
+    else:
+        assert reasons[calendar[2], "operation_no_entry"] == "blocked_active_position"
+        assert not trades
+
+
+def test_extension_streamed_blocked_equals_list_and_never_drops_rows():
+    signals, prices, calendar, original = horizon_fixture()
+    expected, rows, _, _ = horizon_extension.replay_positions(signals, prices, calendar, original)
+    streamed = []
+    actual, counts, _, _ = horizon_extension.replay_positions(signals, prices, calendar, original, blocked_sink=streamed.append)
+    assert actual == expected and streamed == rows and sum(counts.values()) == len(rows)
+    assert streamed[0]["record_type"] == "strict_ledger_decision"
+
+
+def test_extension_retained_candidates_match_exact_profile_event_and_horizon():
+    signals, prices, calendar, original = horizon_fixture(signal_indices=(0,))
+    trades, _, _, _ = horizon_extension.replay_positions(signals, prices, calendar, original)
+    retained = [dict(signal_date=calendar[0], stock_id="2330", horizon="20", entry_date=calendar[1],
+                     exit_date=calendar[21], net_return_pct="1"),
+                dict(signal_date=calendar[2], stock_id="9999", horizon="20", entry_date=calendar[3],
+                     exit_date=calendar[23], net_return_pct="2")]
+    anomalies = horizon_extension.apply_anomalies(trades, retained)
+    assert len(anomalies) == 1
+    assert anomalies[0]["profile"] == "common_d60" and anomalies[0]["horizon"] == 20
+    assert all(not r["anomaly_candidate"] for r in trades if r["horizon"] != 20)
+
+
+def test_extension_IQR_only_marks_candidates_and_keeps_primary():
+    rows = [dict(profile="full_period", signal_date=f"2025010{i+1}", stock_id="2330", horizon=30,
+                 slippage_bps=10, net_return_pct=value, entry_date="20250102", exit_date="20250220",
+                 primary_row_retained=True) for i,value in enumerate(["1","1","1","1","1","500"])]
+    anomalies = horizon_extension.apply_anomalies(rows, [], {"full_period":[30]})
+    assert len(rows) == 6 and len(anomalies) == 1
+    assert rows[-1]["anomaly_candidate"] is True
+    assert all(r["primary_row_retained"] for r in rows)
+    assert anomalies[0]["disposition"] == "unresolved_anomaly_candidate"
+
+
+def test_extension_paired_eventset_is_identical_all_horizons_and_overlaps_allowed():
+    signals, prices, calendar, original = horizon_fixture(signal_indices=(0, 2, 5))
+    rows = horizon_extension.paired_summary(signals, prices, calendar, original)
+    assert len(rows) == 18 and {r["event_count"] for r in rows} == {3}
+    expected_keys = [[r["signal_date"], "2330", calendar[calendar.index(r["signal_date"])+1]] for r in signals]
+    assert {r["eventset_sha256"] for r in rows} == {producer.sha(producer.json_bytes(expected_keys))}
+    assert all(r["portfolio_performance"] is False and r["overlapping_events_allowed"] is True for r in rows)
+    assert all(r["mean_paired_delta_vs_D20_pct"] == 0 and r["paired_delta_zero_count"] == 3
+               for r in rows if r["horizon"] == 20)
+
+
+def test_extension_paired_missing_one_horizon_excludes_same_event_from_all_six():
+    signals, prices, calendar, original = horizon_fixture(signal_indices=(0, 2))
+    prices.pop(calendar[61])
+    rows = horizon_extension.paired_summary(signals, prices, calendar, original)
+    assert {r["event_count"] for r in rows} == {1}
+    assert {r["excluded_missing_entry_or_exit_events"] for r in rows} == {1}
+
+
+def test_extension_paired_empty_is_nonblocking_and_has_no_fabricated_return():
+    signals, _, calendar, original = horizon_fixture(signal_indices=(0,))
+    rows = horizon_extension.paired_summary(signals, {}, calendar, original)
+    assert len(rows) == 18 and all(r["event_count"] == 0 and r["mean_net_return_pct"] == "" for r in rows)
+
+
+def test_extension_preserve_v1_rejects_cross_version_changes(monkeypatch):
+    values = iter([{"physical":{"v1": "before"}}, {"physical":{"v1": "after"}}])
+    monkeypatch.setattr(horizon_extension, "v1_snapshot", lambda root: next(values))
+    with pytest.raises(ValueError, match="v1 nine-artifact"):
+        with horizon_extension.preserve_v1(ROOT):
+            pass
+
+
+@pytest.mark.parametrize("defect", ["extra", "missing", "nonbytes", "wrong_root"])
+def test_extension_writer_exact_seven_rejection_before_any_write(tmp_path, defect):
+    artifacts = {name:b"synthetic" for name in horizon_extension.GENERATED}
+    output = tmp_path / horizon_extension.DIRECTORY
+    if defect == "extra":
+        artifacts[producer.NAMES["summary"]] = b"never overwrite v1"
+    elif defect == "missing":
+        artifacts.pop(next(iter(artifacts)))
+    elif defect == "nonbytes":
+        artifacts[next(iter(artifacts))] = "notbytes"
+    else:
+        output = tmp_path / "other"
+    with pytest.raises(ValueError):
+        horizon_extension.write_extension_outputs(tmp_path, artifacts, output)
+    assert not output.exists()
+
+
+def test_extension_gzip_serialization_has_exact_rows_and_deterministic_bytes():
+    rows = [{"key":"合成", "number":1}, {"key":"second", "number":2}]
+    a = horizon_extension.gzip_rows(rows, ["key", "number"])
+    b = horizon_extension.gzip_rows(rows, ["key", "number"])
+    assert a == b
+    assert producer.records(gzip.decompress(a)) == [{"key":"合成", "number":"1"}, {"key":"second", "number":"2"}]
