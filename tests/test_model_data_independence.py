@@ -1428,6 +1428,28 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 42
+    annual_migration = rows[-1]
+    assert annual_migration["migration_id"] == (
+        "tdcc_stealth_accumulation_current_version_annual_replay_20260912"
+    )
+    assert annual_migration["changed_data_families"] == (
+        "tdcc_stealth_accumulation_current_version_annual_replay_outputs"
+    )
+    assert annual_migration["previous_contract_sha256s"] == "NEW"
+    assert annual_migration["new_contract_sha256s"] == (
+        "11fb8dd124409b186243a247d5f23bbcf3c5cc85e42eeb2159e087c8b1667599"
+    )
+    assert annual_migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert annual_migration["user_approval_reference"] == (
+        "user_approval_20260912_tdcc_stealth_current_version_annual_replay"
+    )
+    assert annual_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(annual_migration) == (
+        "5511cf9cbc883bec4b5a5f7e1feb345f484a67473a07f4524ea1ad2b1458d696"
+    )
+    # Preserve every pre-annual migration assertion against its original prefix.
+    rows = rows[:-1]
     assert len(rows) == 41
     ledger_migration = rows[-1]
     assert ledger_migration["migration_id"] == (
