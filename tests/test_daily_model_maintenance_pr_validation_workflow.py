@@ -372,6 +372,50 @@ def tdcc_corporate_action_ledger_step_contract_ok(text: str) -> bool:
     )
 
 
+TDCC_CURRENT_VERSION_ANNUAL_STEP = "Validate TDCC annual current-version replay v1 published artifacts without producing artifacts"
+TDCC_CURRENT_VERSION_ANNUAL_TARGETS = (
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_coverage_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_features_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_signals_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_trades_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_blocked_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_anomalies_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_report_v1.md",
+)
+TDCC_CURRENT_VERSION_ANNUAL_VALIDATOR = "python scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py --published-only"
+TDCC_CURRENT_VERSION_ANNUAL_TEST = "python -m pytest -q -p no:cacheprovider tests/test_tdcc_stealth_accumulation_current_version_annual_replay.py tests/test_validate_tdcc_stealth_accumulation_current_version_annual_replay.py"
+TDCC_CURRENT_VERSION_ANNUAL_DIFF = (
+    "git --no-replace-objects diff --exit-code HEAD -- "
+    + " ".join(TDCC_CURRENT_VERSION_ANNUAL_TARGETS)
+)
+TDCC_CURRENT_VERSION_ANNUAL_COMMANDS = (
+    TDCC_CURRENT_VERSION_ANNUAL_VALIDATOR,
+    TDCC_CURRENT_VERSION_ANNUAL_TEST,
+    TDCC_CURRENT_VERSION_ANNUAL_DIFF,
+)
+
+
+def tdcc_current_version_annual_step_contract_ok(text: str) -> bool:
+    step = job_step("shared_model_research", TDCC_CURRENT_VERSION_ANNUAL_STEP, text)
+    if (
+        not step
+        or active_field(step, "if") is not None
+        or active_field(step, "continue-on-error") is not None
+        or run_commands(active_field(step, "run") or "")
+        != TDCC_CURRENT_VERSION_ANNUAL_COMMANDS
+    ):
+        return False
+    runs = workflow_run_text(text)
+    return (
+        all(runs.count(command) == 1 for command in TDCC_CURRENT_VERSION_ANNUAL_COMMANDS)
+        and "build_tdcc_stealth_accumulation_current_version_annual_replay.py" not in runs
+        and "--input-root" not in step
+        and re.search(r'(?m)^          PYTHONDONTWRITEBYTECODE: "1"$', step) is not None
+    )
+
+
 VOLUME_VALIDATION_COMMANDS = (
     "python scripts/validate_volume_breakout_watch.py --latest-only",
     "python scripts/validate_volume_attack_theme_layer.py",
@@ -468,6 +512,12 @@ def domain_workload_contract_ok(text: str) -> bool:
             expected_job_commands += (
                 TDCC_CORPORATE_ACTION_LEDGER_VALIDATOR,
                 TDCC_CORPORATE_ACTION_LEDGER_DIFF,
+            )
+            if not tdcc_current_version_annual_step_contract_ok(text):
+                return False
+            expected_job_commands += (
+                TDCC_CURRENT_VERSION_ANNUAL_VALIDATOR,
+                TDCC_CURRENT_VERSION_ANNUAL_DIFF,
             )
         if (
             not step
@@ -2105,6 +2155,34 @@ def test_dfkai_replay_job_validator_rejects_disabled_glyph_assertion() -> None:
     )
 
     assert any("canary glyphs are missing" in error for error in errors)
+
+
+def test_tdcc_current_version_annual_ci_is_published_only_with_exact_nine_artifacts() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert len(TDCC_CURRENT_VERSION_ANNUAL_TARGETS) == 9
+    assert sum(path.endswith(".csv.gz") for path in TDCC_CURRENT_VERSION_ANNUAL_TARGETS) == 4
+    assert all("*" not in path for path in TDCC_CURRENT_VERSION_ANNUAL_TARGETS)
+    assert tdcc_current_version_annual_step_contract_ok(text)
+    assert domain_workload_contract_ok(text)
+
+
+@pytest.mark.parametrize("old,new", (
+    (TDCC_CURRENT_VERSION_ANNUAL_VALIDATOR, "python scripts/build_tdcc_stealth_accumulation_current_version_annual_replay.py"),
+    ("--published-only", "--input-root private-data"),
+    (TDCC_CURRENT_VERSION_ANNUAL_TEST, "echo skipped-annual-tests"),
+    (TDCC_CURRENT_VERSION_ANNUAL_DIFF, "echo skipped-annual-diff"),
+    (TDCC_CURRENT_VERSION_ANNUAL_TARGETS[0], "output/research/tdcc_stealth_accumulation/*"),
+    ("      - name: " + TDCC_CURRENT_VERSION_ANNUAL_STEP,
+     "      - name: " + TDCC_CURRENT_VERSION_ANNUAL_STEP + "\n        if: false"),
+    ("      - name: " + TDCC_CURRENT_VERSION_ANNUAL_STEP,
+     "      - name: " + TDCC_CURRENT_VERSION_ANNUAL_STEP + "\n        continue-on-error: true"),
+))
+def test_tdcc_current_version_annual_ci_rejects_weakened_checks(old: str, new: str) -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    assert old in text
+    mutated = text.replace(old, new, 1)
+    assert not tdcc_current_version_annual_step_contract_ok(mutated)
+    assert not domain_workload_contract_ok(mutated)
 
 
 def test_tdcc_corporate_action_ledger_ci_is_validate_only_with_exact_five_artifacts() -> None:

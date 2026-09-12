@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import json
 import os
 import re
 import shutil
@@ -1613,3 +1614,137 @@ def test_projection_chain_primary_guard_cannot_be_removed_or_succeed(mutation: s
     replacement = "" if mutation == "remove" else guard.replace("exit 1", "exit 0", 1)
     errors = _errors(text[:start] + replacement + text[end:], validator.LEGACY_WORKFLOW_PATH)
     assert any("projection chain stage must fail closed" in error for error in errors)
+
+
+def _annual_local_inputs():
+    return (
+        (validator.ROOT / validator.ANNUAL_LOCAL_CONFIG).read_bytes(),
+        (validator.ROOT / validator.ANNUAL_LOCAL_PRODUCER).read_text(encoding="utf-8"),
+    )
+
+
+def test_annual_local_private_contract_and_disjoint_ownership_pass():
+    contract, producer = _annual_local_inputs()
+    assert validator.validate_annual_local_contract(contract, producer) == []
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    assert validator.validate_registry_contract(rows, owned) == []
+    assert validator.ANNUAL_LOCAL_OWNER not in {row.model_id for row in rows}
+    assert owned[validator.ANNUAL_LOCAL_OWNER] == validator.ANNUAL_LOCAL_PRODUCER
+
+
+@pytest.mark.parametrize("mutation", ("unknown_owner", "missing_owner", "wrong_producer", "overlap_owner", "overlap_producer"))
+def test_annual_local_private_ownership_is_not_an_unknown_writer_exemption(mutation):
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    if mutation == "unknown_owner":
+        owned["unapproved_local_private_consumer"] = "scripts/unapproved_local_private_consumer.py"
+    elif mutation == "missing_owner":
+        del owned[validator.ANNUAL_LOCAL_OWNER]
+    elif mutation == "wrong_producer":
+        owned[validator.ANNUAL_LOCAL_OWNER] = "scripts/unapproved_local_private_consumer.py"
+    elif mutation == "overlap_owner":
+        rows.append(replace(rows[0], model_id=validator.ANNUAL_LOCAL_OWNER,
+                            producer=validator.ANNUAL_LOCAL_PRODUCER))
+    else:
+        rows.append(replace(rows[0], model_id="unapproved_remote_alias",
+                            producer=validator.ANNUAL_LOCAL_PRODUCER))
+    errors = validator.validate_registry_contract(rows, owned)
+    assert any("disjoint" in error or "cover every model_owned_write" in error for error in errors)
+
+
+@pytest.mark.parametrize("mutation", ("missing", "malformed", "duplicate_key", "wrong_hash", "private_publication", "formal_use", "promotion", "wrong_source", "wrong_files", "wrong_tdcc"))
+def test_annual_local_private_contract_fails_closed(mutation):
+    raw, producer = _annual_local_inputs()
+    contract = json.loads(raw)
+    if mutation == "missing":
+        raw = b""
+    elif mutation == "malformed":
+        raw = b"[]"
+    elif mutation == "duplicate_key":
+        raw = b'{"model_id":"tdcc_stealth_accumulation",' + raw.lstrip()[1:]
+    else:
+        if mutation == "wrong_hash":
+            contract["authorization_reference"] += "_changed"
+        elif mutation == "private_publication":
+            contract["private_raw_publication_allowed"] = True
+        elif mutation == "formal_use":
+            contract["formal_use"] = True
+        elif mutation == "promotion":
+            contract["promotion_evidence_allowed"] = True
+        elif mutation == "wrong_source":
+            contract["price_source_ref"] = "0" * 40
+        elif mutation == "wrong_files":
+            contract["external_files"].pop()
+        else:
+            next(row for row in contract["external_files"] if row["kind"] == "tdcc")["kind"] = "unapproved"
+        raw = json.dumps(contract, ensure_ascii=False).encode("utf-8")
+    assert validator.validate_annual_local_contract(raw, producer)
+
+
+@pytest.mark.parametrize("mutation", ("missing", "optional", "false", "dead_helper", "conditional", "after_parse", "known_args", "duplicate"))
+def test_annual_local_private_input_root_must_be_required_in_actual_main(mutation):
+    raw, producer = _annual_local_inputs()
+    declaration = '    parser.add_argument("--input-root", type=Path, required=True)\n'
+    assert producer.count(declaration) == 1
+    if mutation == "missing":
+        producer = producer.replace(declaration, "")
+    elif mutation == "optional":
+        producer = producer.replace(declaration, declaration.replace(", required=True", ""))
+    elif mutation == "false":
+        producer = producer.replace(declaration, declaration.replace("required=True", "required=False"))
+    elif mutation == "dead_helper":
+        producer = producer.replace(declaration, "") + "\n\ndef unused_parser(parser):\n" + declaration
+    elif mutation == "conditional":
+        producer = producer.replace(declaration, "    if False:\n    " + declaration)
+    elif mutation == "after_parse":
+        producer = producer.replace(declaration, "").replace("    args = parser.parse_args(argv)\n", "    args = parser.parse_args(argv)\n" + declaration)
+    elif mutation == "known_args":
+        producer = producer.replace("parser.parse_args(argv)", "parser.parse_known_args(argv)")
+    else:
+        producer = producer.replace(declaration, declaration * 2)
+    assert any("mandatory --input-root" in error for error in validator.validate_annual_local_contract(raw, producer))
+
+
+@pytest.mark.parametrize("workflow_path", (".github/workflows/unrelated_new.yml", ".github/workflows/unrelated_new.yaml"))
+def test_annual_local_private_producer_forbidden_even_in_unregistered_workflows(workflow_path):
+    texts = {path.relative_to(validator.ROOT).as_posix(): path.read_text(encoding="utf-8")
+             for path in (validator.ROOT / ".github/workflows").iterdir()
+             if path.is_file() and path.suffix in {".yml", ".yaml"}}
+    assert validator.validate_annual_local_workflow_exclusion(texts) == []
+    texts[workflow_path] = "jobs:\n  forbidden:\n    steps:\n      - run: python " + validator.ANNUAL_LOCAL_PRODUCER
+    errors = validator.validate_annual_local_workflow_exclusion(texts)
+    assert len(errors) == 1 and workflow_path in errors[0]
+
+
+def test_annual_local_private_missing_file_fails_public_validator(monkeypatch):
+    path_type = type(validator.ROOT)
+    original = path_type.read_bytes
+
+    def missing_contract(path):
+        if path == validator.ROOT / validator.ANNUAL_LOCAL_CONFIG:
+            raise FileNotFoundError("annual fixed contract absent")
+        return original(path)
+
+    monkeypatch.setattr(path_type, "read_bytes", missing_contract)
+    assert any("unreadable annual local-private" in error for error in validator.validate())
+
+
+@pytest.mark.parametrize("mutation", ("valid", "produce", "private_input", "masked", "skip", "wildcard", "duplicate", "missing_validator"))
+def test_annual_local_private_ci_is_published_only_without_private_source_access(mutation):
+    text = validator.PR_VALIDATION_WORKFLOW.read_text(encoding="utf-8")
+    command = validator.ANNUAL_LOCAL_CI_COMMANDS[0]
+    if mutation == "produce":
+        text += "\n# python " + validator.ANNUAL_LOCAL_PRODUCER
+    elif mutation == "private_input":
+        text = text.replace(command, command.replace("--published-only", "--input-root private"))
+    elif mutation == "masked":
+        text = text.replace(command, command + " || true")
+    elif mutation == "skip":
+        text = text.replace("      - name: Validate TDCC annual current-version replay v1 published artifacts without producing artifacts", "      - if: false\n        name: Validate TDCC annual current-version replay v1 published artifacts without producing artifacts")
+    elif mutation == "wildcard":
+        text = text.replace(validator.ANNUAL_LOCAL_CI_COMMANDS[2], "git diff --exit-code HEAD -- output/research/*")
+    elif mutation == "duplicate":
+        text += "\n# " + command
+    elif mutation == "missing_validator":
+        text = text.replace(command, "true")
+    errors = validator.validate_annual_local_pr_contract(text)
+    assert bool(errors) == (mutation != "valid")

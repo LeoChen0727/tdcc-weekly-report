@@ -1,0 +1,536 @@
+{
+  "model_id": "tdcc_stealth_accumulation",
+  "research_contract": "current_acquired_historical_versions_annual_v1",
+  "selector_ref": "2244a0a36c4542cd62948b50f12ef98ade50e1df",
+  "operation_ref": "b4c289c98f7276f07036c1b8b4d90d9d8de466bd",
+  "outcome_ref": "07d992bbd9afa283355d8828a294da4524efb56d",
+  "requested_signal_start": "20250910",
+  "requested_signal_end": "20260909",
+  "universe": "每個歷史訊號日原始行情中四位且不以0開頭的證券；保留91開頭可能TDR並標記，不使用今日存活名單或all_candidates。這是股票型代碼母體，不宣稱全部已逐檔核實普通股分類。",
+  "phase_policy": "phase_classifier_not_invoked; explicit empty phase/status for the frozen research v2 enum fallback branch; not a reconstruction of old mixed candidate inputs",
+  "tdcc": "明列55份私有FinMind原文之有效日不晚於signal_date的最後四批；400張以上為400,001-600,000、600,001-800,000、800,001-1,000,000與more than 1,000,001四級比例之和；1000張以上為最高級。調整及total列不納入。400/1000最後比例減第一比例，up=count(diff>0)，使用固定classify_accumulation原函式；四批或任一必要比例缺少則unsupported，不將缺值當0。",
+  "price_features": "同股有效日觀測序列，civil weekday排除週末，row有效日期須等於檔名日期；只用date<=signal_date的歷史休市事件前綴排除休市日副本，逐日列出實際影響，未來closure不改decision序列，詳本版external calendar與固定main exceptional calendar之依賴與缺證；return_5d/20d=close/lag(5/20)-1，百分比；volume_ma20、high_20、low_20含當日；previous_20d_high_ex_today為前20觀測high最大值；volume_ratio=current shares/mean(last20 shares)；volume_ma20_lots=shares/1000。至少21份有效觀測，不借用其他模型60日gate。",
+  "price_feature_reference": "7ef37a966280201a5ee236856306fdb513de7092:scripts/build_stock_price_history.py:add_indicators,round_numeric_columns; previous_20d_high_ex_today is an explicitly pinned low-level lagged-high definition, not a strategy threshold change",
+  "numeric_feature_serialization": "four decimal places before frozen selector evaluation",
+  "volume_confirmed_breakout_policy": "not independently generated; False explicitly means no second model-owned breakout flag; frozen selector still computes its own OHLCV attack exclusion",
+  "history_gap_policy": "缺交易所日觀測不前填；揭露缺日。lag為有效觀測lag，不冒稱固定交易所日lag。已有資料的異常幅度不作剔除門檻。",
+  "volume_quality_policy": "任一使用中20觀測來源仍標示TPEX_OLD_DAILY_JSON，量比/均量lineage unresolved；保留母體與指標、不得列supported selector/trade。新版明確使用已修復且固定SHA的main每日行情；不修改舊receipt版本或回測證據。",
+  "operation": "next exchange session open=D0; exit=calendar[entry_index+h],h=5/10/20; each horizon independent same-stock locks; signal_date must be strictly greater than prior exit_date; no intraday execution, no queue, no stops or take-profit",
+  "costs": {
+    "shares": 1000,
+    "fee_each_side": "0.001425",
+    "minimum_fee_each_side": "20",
+    "sell_tax": "0.003",
+    "slippage_bps": [
+      0,
+      10,
+      20
+    ]
+  },
+  "return_basis": "同時保存strict_v3_status及raw_price_cashflow_unadjusted研究proxy。有OHLC可計實際數值的成本後價格proxy，不等於公司行動核實總報酬，不等於券商成交。strict v3公司行動缺證時仍open_unresolved_exit；proxy帳本則依固定預定close結束，明示其無公司行動假設。",
+  "anomaly_policy": "異常候選保留primary；排除版僅sensitivity，非corrected performance；不得依報酬調參。",
+  "financial_scope": "不使用月營收；EPS、毛利率、營益率、營業利益、業外損益、淨利、季度與年度財報均不在範圍。",
+  "formal_use": false,
+  "promotion_evidence_allowed": false,
+  "classifier_ref": "af71f09d64aabbbadf9481940590dce21cd8e263",
+  "classifier_blob_oid": "200d331615a9910b9436b2304a234ce1d6d602e4",
+  "as_of": "20260909",
+  "history_start": "20250401",
+  "calendar_end": "20261030",
+  "authorization_reference": "user_authorized_20260912_tdcc_annual_current_version_replay_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde",
+  "selector_semantics": "原研究v2 enum fallback，不宣稱等同正式production phase classifier；禁止調參。",
+  "source_version_policy": "使用目前取得歷史版本的 research-only 回放。所有 decision/outcome 日價固定於 price_source_ref 的 data/daily_price/YYYYMMDD.csv；TDCC 僅使用明列55份私有歷史版本、有效日<=signal。原發布版本及當時可得性未核實，不是strict PIT。舊 receipted replay 及其 receipt flags 完全不改。",
+  "outcome_revision_policy": "Same pinned current main price version; historical first publication unproven.",
+  "warmup_policy": "新版history_start=20250401，涵蓋已取得日价最早20250407；七股八份官方月行情補充缺失之有效暖機觀測。不新增60日或固定21市場日連續gate，不拼接3717/4441/7610/7765/7780前身。每股最後21個現有觀測及其OHLC完整性沿用凍結consumer；缺日只揭露，不前填。",
+  "artifact_prefix": "tdcc_stealth_accumulation_current_version_annual_replay_",
+  "artifact_kinds": [
+    "source_manifest_v1.json",
+    "coverage_v1.csv",
+    "features_v1.csv.gz",
+    "signals_v1.csv.gz",
+    "trades_v1.csv.gz",
+    "summary_v1.csv",
+    "blocked_v1.csv.gz",
+    "anomalies_v1.csv",
+    "report_v1.md"
+  ],
+  "price_source_ref": "07d992bbd9afa283355d8828a294da4524efb56d",
+  "ordinary_stock_universe_certified": false,
+  "input_availability_proven": false,
+  "full_period_pit_complete": false,
+  "calendar_complete_coverage_verified": false,
+  "corporate_action_complete_coverage_verified": false,
+  "private_raw_publication_allowed": false,
+  "external_source_policy": "Exact relative paths and SHA256 allowlist; raw paid TDCC CSVs remain outside Git. Recovered one-day quote and seven-stock warmup official JSONs are authorized for this new research family only; no changes to original receipts. Warmup supplements only valid missing pre-signal observations; valid main rows take precedence after numeric equality check when both valid.",
+  "source_data_coverage_limit": "55 TDCC weeks include four warmup weeks and do not represent 55 evaluable weeks. 20260911 is absent and outside this contract. 91-prefixed possible TDR is labeled. Five recent identities 3717/4441/7610/7765/7780 are not spliced.",
+  "external_files": [
+    {
+      "kind": "calendar",
+      "path": "../tdcc-one-year-source-intake-20260910/official_calendar_rows.csv",
+      "sha256": "9fb0f65ea03198caf9d7289d6c188480c28cc7037415444af3329405abed0034"
+    },
+    {
+      "kind": "price_recovery",
+      "path": "../tdcc-one-year-source-intake-20260910/recovered_price_20250915.csv",
+      "date": "20250915",
+      "sha256": "c1b05d54c757e101bd94e387ba88c2d0d363505c7522b3116bed7dc62261c7ae",
+      "rows": 2277
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20250919.csv",
+      "date": "20250919",
+      "sha256": "0787e6eb527f9cdd6f21bcd8b84d6bd30064d1f574bb0e25b82d679fb4fbdfc4",
+      "rows": 64838
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20250926.csv",
+      "date": "20250926",
+      "sha256": "35a3912eb3f83a341a17944d4cac2ddcaa39e961cffaaf5bbc086d4322a3d518",
+      "rows": 64974
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251003.csv",
+      "date": "20251003",
+      "sha256": "5e53dca082dee624e21c50124e57112596244bb332ca0f06369ccd86fc27d07d",
+      "rows": 65127
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251009.csv",
+      "date": "20251009",
+      "sha256": "75e70649c36270226f7b176f0af17eb0d48badcc761a6d8c50cb9de73efd639f",
+      "rows": 65195
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251017.csv",
+      "date": "20251017",
+      "sha256": "8baffb5f515376b1691556806826ea9a2d606eee132a433aa255f300ffb98867",
+      "rows": 65382
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251023.csv",
+      "date": "20251023",
+      "sha256": "5d321eb13969b4fb76d38d8e4d7f0d9f78a98375e992421909514b627170f452",
+      "rows": 65382
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251031.csv",
+      "date": "20251031",
+      "sha256": "34a844e4d2a328e8b05aecd0600f800b318f5ee24fe719c192436c34d7b9c988",
+      "rows": 65535
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251107.csv",
+      "date": "20251107",
+      "sha256": "3a4ecdaf753523a1097a86c258a4df53a1fd15ebae68f08d730639f803b1e234",
+      "rows": 65603
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251114.csv",
+      "date": "20251114",
+      "sha256": "a74ae6b37c65943dbe79095fefd083eeb0b44dbf98bb86927cac236bd60202b8",
+      "rows": 65705
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251121.csv",
+      "date": "20251121",
+      "sha256": "b4f6d5b30b8137011518ccbf948e3faec177a7c489f33e593ea194bf1856f5a6",
+      "rows": 65722
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251128.csv",
+      "date": "20251128",
+      "sha256": "687011ab3a8dd0dd830faa38e9f948004f67d30a5f3ac1df7d078714f81b09f2",
+      "rows": 65756
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251205.csv",
+      "date": "20251205",
+      "sha256": "47c35d363f5f4806317a36aa8fd586dcf400685862792782e4a4c54a7442b5c3",
+      "rows": 65824
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251212.csv",
+      "date": "20251212",
+      "sha256": "0373b877a565b74f978e760832bebbdbedf22d2ef6dda8a18df7d26083e6b070",
+      "rows": 65909
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251219.csv",
+      "date": "20251219",
+      "sha256": "f34cfed8aad0f2ba52b0d0b79e46b663015ce7261e8521ede6feb226a2a3beb8",
+      "rows": 66011
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20251226.csv",
+      "date": "20251226",
+      "sha256": "1d77d60b8dbc96b834098605af98809a1f60616749ffc421922dfd5638ffa8e0",
+      "rows": 66198
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260102.csv",
+      "date": "20260102",
+      "sha256": "444139bc0c73d30549b96cf10d7b000ec6e1b75d1b0ccb4cef8f6ce599e88435",
+      "rows": 66266
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260109.csv",
+      "date": "20260109",
+      "sha256": "cba607c29ee24e0e708874541e777e2bb0fac164a42b02855ee4fe72e8959ede",
+      "rows": 66385
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260116.csv",
+      "date": "20260116",
+      "sha256": "0dc733fc50ba16396c3200705a5a730354ebbf1bc0b83cd295a50ac69fd16fc1",
+      "rows": 66368
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260123.csv",
+      "date": "20260123",
+      "sha256": "e28acb55317f8fe7495899eca941b846b459a56376a6283b04a13819ae0141a9",
+      "rows": 66453
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260130.csv",
+      "date": "20260130",
+      "sha256": "63a0d1df4dc51683b267f2e677702d554278ef88118f8d4142df766f66290ca2",
+      "rows": 66504
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260206.csv",
+      "date": "20260206",
+      "sha256": "3cbd379f25c0a52f7b9cb165f8339ffea2f592cd417658d0c8ff0cba46c28b57",
+      "rows": 66640
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260213.csv",
+      "date": "20260213",
+      "sha256": "4cad6ece9a3901836b2c01c042b70263e626f9186533fca017a38bc56ba5889b",
+      "rows": 66708
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260226.csv",
+      "date": "20260226",
+      "sha256": "8b8ca98b6ab1f0ab79ba2fdc8398eb9b75cf5efd22c3376cf8cf64e9c1ccac8b",
+      "rows": 66776
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260306.csv",
+      "date": "20260306",
+      "sha256": "7d093fe1495e5611c16692aefade5d66f8d2c9c4f86bac9289a623d161a60cb0",
+      "rows": 66861
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260313.csv",
+      "date": "20260313",
+      "sha256": "48128b6142b0b83609b747170ee9a6b76db90f0fb6345687e994a106205efb3c",
+      "rows": 66895
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260320.csv",
+      "date": "20260320",
+      "sha256": "e32678ae5fdbb53d10d81d6e327190bb546ea36612acdf50840485b95928e19c",
+      "rows": 66980
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260327.csv",
+      "date": "20260327",
+      "sha256": "eaf622e7f6d8516bc4cc023b256be3b16c14f1ac1b5950381151b7f85d9f55bd",
+      "rows": 67048
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260402.csv",
+      "date": "20260402",
+      "sha256": "f0132926ca9c29081e63015ad7e627b67b3c6451e13e7caa88f508ec7d161326",
+      "rows": 67082
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260410.csv",
+      "date": "20260410",
+      "sha256": "42f0d4ae57d4476a58250db72ea55aa9dd7b15597b0fab64941ad1a6312eeddc",
+      "rows": 67235
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260417.csv",
+      "date": "20260417",
+      "sha256": "ac951f0959ce97c68df66ecded2cc59d846a62685c408c5aa05fc416732c4849",
+      "rows": 67252
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260424.csv",
+      "date": "20260424",
+      "sha256": "27352846c0c90374558f23059505a06134d0cf49cac0176e5924d656c7b2df1b",
+      "rows": 67388
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260430.csv",
+      "date": "20260430",
+      "sha256": "31e960f26483001c33bea2bb87800ed52489f515c7e40aa05d2151022f822846",
+      "rows": 67439
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260508.csv",
+      "date": "20260508",
+      "sha256": "b1b20abdbb00b01ff7c7667f96260147fe4ba3d2384bf7ff0ba5875dfd3228f4",
+      "rows": 67507
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260515.csv",
+      "date": "20260515",
+      "sha256": "d56164903cb93e630b24fdfc37dd1e326d5292d19596970e73876f236aca8793",
+      "rows": 67592
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260522.csv",
+      "date": "20260522",
+      "sha256": "5e87f44b26c67bdae5e0cbc51d57a856e3381e17034bfca059d815f1f9f5d089",
+      "rows": 67643
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260529.csv",
+      "date": "20260529",
+      "sha256": "061539eca3bfb15172ff9f0df6a8d64d445e218ca8c04d930531214d1cbd60c8",
+      "rows": 67694
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260605.csv",
+      "date": "20260605",
+      "sha256": "e07006430e6e085c2a48935d5ba2f017b358c3e8573003a0be938048be8b2a55",
+      "rows": 67813
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260612.csv",
+      "date": "20260612",
+      "sha256": "bc5ae0e0527a5bf89f76642287e4c08271e7aa336c3551c96c85bbe8f7ea0457",
+      "rows": 67830
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260618.csv",
+      "date": "20260618",
+      "sha256": "31427dc8b8d326d40a34356fa52b29782461b6a0f8a010776d4b408c5da0a875",
+      "rows": 67864
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260626.csv",
+      "date": "20260626",
+      "sha256": "9bbbdcb93ee29930ed83674df269d75f6363ebae0c43770a01de26ea54514408",
+      "rows": 67983
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260703.csv",
+      "date": "20260703",
+      "sha256": "2c8ad12f05d73717a0f02b443e96b111cf2a9f6b97904c1f81a8796b3ece2915",
+      "rows": 68017
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260709.csv",
+      "date": "20260709",
+      "sha256": "280f43295084754e5578193fcb82fbe8c148c10f1cc53ef620a72f953e14f754",
+      "rows": 68051
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260717.csv",
+      "date": "20260717",
+      "sha256": "1a4adda783d59153655c17c1ecce5301110b2c66df0ee0f51f1c7fb504b730ac",
+      "rows": 68170
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260724.csv",
+      "date": "20260724",
+      "sha256": "eb0b1225c4ecc3aeda7cb1203b0a62b226ffe2ac2d88ad21d7d577a997c5b9c7",
+      "rows": 68238
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260731.csv",
+      "date": "20260731",
+      "sha256": "1bcfac09604c44417e8463c809583aa1d0b897e2ab5672399068291b3fae11e1",
+      "rows": 68323
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260807.csv",
+      "date": "20260807",
+      "sha256": "20925bd480eb6855b57a94b369e72adc4f954640232cbc224b841a1af5ebdaf1",
+      "rows": 68442
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260814.csv",
+      "date": "20260814",
+      "sha256": "9881227cccf3dfe5a2a8071711a7c889f35595fcc182694a5b881dd3c7bd0049",
+      "rows": 68476
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260821.csv",
+      "date": "20260821",
+      "sha256": "844861f22c309e244932543492429dc1e70233c12f6738134bc0a8509291b175",
+      "rows": 68578
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260828.csv",
+      "date": "20260828",
+      "sha256": "36fec283e0b367058f531325741c672f303da94f6094cb0ed8f5f31aba890030",
+      "rows": 68799
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_20260904.csv",
+      "date": "20260904",
+      "sha256": "d160a2eadc5a89b713a576c839579c69a45e67525fea5de34298003f3db61313",
+      "rows": 68867
+    },
+    {
+      "kind": "tdcc",
+      "path": "finmind_market_requested_20250912_20250926.csv",
+      "date": "20250912",
+      "sha256": "22fb2be383727b252f5dfa2e042c08c1abe39a7282e407ead5feff006df48d21",
+      "rows": 64719
+    },
+    {
+      "kind": "tdcc",
+      "path": "source-followup-20260912/tdcc_warmup/finmind_market_20250815.csv",
+      "date": "20250815",
+      "sha256": "56e7d0e9272971d43a94ba12dd8cfb2a91be8778b6c96cc26967aa281b55b974",
+      "rows": 64056
+    },
+    {
+      "kind": "tdcc",
+      "path": "source-followup-20260912/tdcc_warmup/finmind_market_20250822.csv",
+      "date": "20250822",
+      "sha256": "ef35da618b234220b19cf861a5934135db2c962628a405f0af3c931167ae84d8",
+      "rows": 64226
+    },
+    {
+      "kind": "tdcc",
+      "path": "source-followup-20260912/tdcc_warmup/finmind_market_20250829.csv",
+      "date": "20250829",
+      "sha256": "d0cbdc81e05e024f56cd18ef466683d7e54df43ab0ae5d699ea241b3bad61ee3",
+      "rows": 64379
+    },
+    {
+      "kind": "tdcc",
+      "path": "source-followup-20260912/tdcc_warmup/finmind_market_20250905.csv",
+      "date": "20250905",
+      "sha256": "c6bd16431d6dd4f3f64b8b41fd54a55cf738c681f84a6092b1194b011b4823d1",
+      "rows": 64617
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+      "stock_id": "4804",
+      "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=4804&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:13.866737+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_4987_202508.json",
+      "stock_id": "4987",
+      "sha256": "372970af98ae83e5f69465eb6053717e163597cf2c9be24bb3e33a30b08c6400",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=4987&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:13.951712+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+      "stock_id": "6171",
+      "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=6171&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:14.006677+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_6212_202508.json",
+      "stock_id": "6212",
+      "sha256": "0c3489910ffeec42b413730c155c112201ba22937cb4459269b2befc93609db1",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=6212&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:07.325979+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_6236_202507.json",
+      "stock_id": "6236",
+      "sha256": "645b3456a984a247b6187e2c4d9373fb8ac1531eef1afb505b2a73add0cd1d93",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=6236&date=2025/07/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:14:23.112026+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_6236_202508.json",
+      "stock_id": "6236",
+      "sha256": "f17b5e995120aa34788226558cd09b3e06563de041eae2fe6dc3a9c6b02bbf1f",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=6236&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:14.088057+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+      "stock_id": "6747",
+      "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=6747&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:14.179066+08:00"
+    },
+    {
+      "kind": "price_warmup",
+      "path": "source-followup-20260912/warmup_identity/tpex_6904_202508.json",
+      "stock_id": "6904",
+      "sha256": "5d94cbcf09c54f7a554326a34e168a5ba2d52d381e545a9597a6897be89561da",
+      "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock?code=6904&date=2025/08/01&response=json",
+      "fetched_at_utc": "2026-09-12T19:12:14.22135+08:00"
+    }
+  ],
+  "expected_tdcc_weeks": 55,
+  "expected_tdcc_rows": 3667325,
+  "anomaly_retention_reference": {
+    "ref": "07d992bbd9afa283355d8828a294da4524efb56d",
+    "path": "config/tdcc_stealth_accumulation_receipted_marketwide_availability_v1.json",
+    "field": "retained_anomaly_candidates"
+  }
+}
