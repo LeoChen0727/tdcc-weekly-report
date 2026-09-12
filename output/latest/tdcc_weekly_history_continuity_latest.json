@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "generated_at": "2026-09-07 14:35:36 Asia/Taipei",
-  "signal_date": "20260904",
+  "generated_at": "2026-09-12 15:27:53 Asia/Taipei",
+  "signal_date": "20260911",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "required_periods": 0,
   "required_dates": [
@@ -23,10 +23,11 @@
     "20260814",
     "20260821",
     "20260828",
-    "20260904"
+    "20260904",
+    "20260911"
   ],
-  "current_stock_count": 1966,
-  "missing_rows_before": 7,
+  "current_stock_count": 1968,
+  "missing_rows_before": 10,
   "missing_before": [
     {
       "date": "20260626",
@@ -68,6 +69,16 @@
       "existing_rows": 1968,
       "missing_stock_ids": [
         "4747"
+      ]
+    },
+    {
+      "date": "20260904",
+      "missing_stock_count": 3,
+      "existing_rows": 1966,
+      "missing_stock_ids": [
+        "1563",
+        "6461",
+        "6949"
       ]
     }
   ],
@@ -127,13 +138,37 @@
       "status": "invalid_holder_distribution",
       "attempts": 1,
       "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260904",
+      "stock_id": "1563",
+      "stock_name": "巧新",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260904",
+      "stock_id": "6461",
+      "stock_name": "益得",
+      "status": "official_no_data",
+      "attempts": 3,
+      "message": "official query returned no distribution row"
+    },
+    {
+      "date": "20260904",
+      "stock_id": "6949",
+      "stock_name": "沛爾生醫-創",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
     }
   ],
   "repaired_count": 0,
   "failed_count": 0,
-  "accepted_exception_count": 7,
-  "official_no_data_count": 2,
-  "invalid_holder_distribution_count": 5,
+  "accepted_exception_count": 10,
+  "official_no_data_count": 3,
+  "invalid_holder_distribution_count": 7,
   "confirmed_history_exceptions": [
     {
       "date": "20260626",
@@ -162,11 +197,23 @@
     {
       "date": "20260828",
       "stock_id": "4747"
+    },
+    {
+      "date": "20260904",
+      "stock_id": "1563"
+    },
+    {
+      "date": "20260904",
+      "stock_id": "6461"
+    },
+    {
+      "date": "20260904",
+      "stock_id": "6949"
     }
   ],
   "history_exception_limit": 20,
   "systemic_history_exception": false,
-  "missing_rows_after": 7,
+  "missing_rows_after": 10,
   "unresolved_missing_rows": 0,
   "unresolved": []
 }
