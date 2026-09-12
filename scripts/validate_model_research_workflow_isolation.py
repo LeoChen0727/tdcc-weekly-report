@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import ast
 import csv
+import hashlib
+import json
 import re
 from collections import Counter
 from dataclasses import dataclass
@@ -17,6 +20,31 @@ REGISTRY = ROOT / "config/model_research_workflow_entrypoints.csv"
 OWNERSHIP_REGISTRY = ROOT / "config/model_research_artifact_ownership.csv"
 WORKFLOW = ROOT / ".github/workflows/research_backtest_pipeline.yml"
 PR_VALIDATION_WORKFLOW = ROOT / ".github/workflows/daily_model_maintenance_pr_validation.yml"
+
+# One approved private-input consumer, not a general local execution registry.
+ANNUAL_LOCAL_OWNER = "tdcc_stealth_accumulation_current_version_annual_replay"
+ANNUAL_LOCAL_PRODUCER = f"scripts/build_{ANNUAL_LOCAL_OWNER}.py"
+ANNUAL_LOCAL_CONFIG = f"config/{ANNUAL_LOCAL_OWNER}_v1.json"
+ANNUAL_LOCAL_CONTRACT_SHA256 = "fbccfcd32079dd1bf81eba942c91b57bc7942da0dffc3a5cd01df4872461de91"
+ANNUAL_LOCAL_PRICE_SOURCE_REF = "07d992bbd9afa283355d8828a294da4524efb56d"
+ANNUAL_LOCAL_VALIDATOR = f"scripts/validate_{ANNUAL_LOCAL_OWNER}.py"
+ANNUAL_LOCAL_TESTS = (
+    f"tests/test_{ANNUAL_LOCAL_OWNER}.py",
+    f"tests/test_validate_{ANNUAL_LOCAL_OWNER}.py",
+)
+ANNUAL_LOCAL_ARTIFACTS = tuple(
+    f"output/research/tdcc_stealth_accumulation/{ANNUAL_LOCAL_OWNER}_{suffix}"
+    for suffix in (
+        "source_manifest_v1.json", "coverage_v1.csv", "features_v1.csv.gz",
+        "signals_v1.csv.gz", "trades_v1.csv.gz", "summary_v1.csv",
+        "blocked_v1.csv.gz", "anomalies_v1.csv", "report_v1.md",
+    )
+)
+ANNUAL_LOCAL_CI_COMMANDS = (
+    f"python {ANNUAL_LOCAL_VALIDATOR} --published-only",
+    "python -m pytest -q -p no:cacheprovider " + " ".join(ANNUAL_LOCAL_TESTS),
+    "git --no-replace-objects diff --exit-code HEAD -- " + " ".join(ANNUAL_LOCAL_ARTIFACTS),
+)
 
 REQUIRED_COLUMNS = {
     "workflow_path",
@@ -562,10 +590,13 @@ def validate_registry_contract(
 ) -> list[str]:
     errors: list[str] = []
     registry_models = {row.model_id: row.producer for row in rows}
-    if registry_models != model_owned_producers:
+    annual_local = {ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER}
+    if set(registry_models) & set(annual_local) or set(registry_models.values()) & set(annual_local.values()):
+        errors.append("annual local-private producer and remote workflow ownership must be disjoint")
+    if {**registry_models, **annual_local} != model_owned_producers:
         errors.append(
             "workflow registry must cover every model_owned_write producer exactly: "
-            f"workflow={registry_models}; ownership={model_owned_producers}"
+            f"workflow={registry_models}; exact_local={annual_local}; ownership={model_owned_producers}"
         )
     for attribute in ("workflow_input", "producer", "model_id"):
         values = [getattr(row, attribute) for row in rows]
@@ -613,6 +644,117 @@ def validate_registry_contract(
             != (RECEIPTED_REPLAY_STAGE_GLOB, "", "")
         ):
             errors.append("receipted replay registry must retain its v1-only model family")
+    return errors
+
+
+def validate_annual_local_workflow_exclusion(workflow_texts: dict[str, str]) -> list[str]:
+    """Private raw inputs cannot be made available to any remote workflow."""
+    return [
+        f"annual local-private producer is forbidden in every workflow: {path}"
+        for path, text in workflow_texts.items()
+        if Path(ANNUAL_LOCAL_PRODUCER).stem in text
+    ]
+
+
+def validate_annual_local_contract(contract_bytes: bytes, producer_text: str) -> list[str]:
+    """Validate the fixed private contract and mandatory CLI without importing it."""
+    errors: list[str] = []
+
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"duplicate contract key: {key}")
+            result[key] = value
+        return result
+
+    try:
+        contract = json.loads(contract_bytes.decode("utf-8-sig"), object_pairs_hook=unique_object)
+        canonical = (json.dumps(contract, ensure_ascii=False, sort_keys=True,
+                                indent=2, allow_nan=False) + "\n").encode("utf-8")
+        if hashlib.sha256(canonical).hexdigest() != ANNUAL_LOCAL_CONTRACT_SHA256:
+            errors.append("annual local-private contract canonical SHA256 mismatch")
+        if not isinstance(contract, dict):
+            raise ValueError("contract must be an object")
+        files = contract.get("external_files", [])
+        if (
+            contract.get("model_id") != "tdcc_stealth_accumulation"
+            or contract.get("private_raw_publication_allowed") is not False
+            or contract.get("formal_use") is not False
+            or contract.get("promotion_evidence_allowed") is not False
+            or contract.get("price_source_ref") != ANNUAL_LOCAL_PRICE_SOURCE_REF
+            or not isinstance(files, list) or len(files) != 65
+            or sum(isinstance(row, dict) and row.get("kind") == "tdcc" for row in files) != 55
+        ):
+            errors.append("annual local-private contract must retain its exact model, private flags, source and 65/55 inputs")
+    except (UnicodeError, ValueError, TypeError) as exc:
+        errors.append(f"invalid annual local-private contract: {exc}")
+
+    try:
+        module = ast.parse(producer_text)
+        mains = [node for node in module.body if isinstance(node, ast.FunctionDef) and node.name == "main"]
+        if len(mains) != 1:
+            raise ValueError("exactly one top-level main is required")
+        body = mains[0].body
+        parsers = [
+            (index, node.targets[0].id)
+            for index, node in enumerate(body)
+            if isinstance(node, ast.Assign) and len(node.targets) == 1
+            and isinstance(node.targets[0], ast.Name) and isinstance(node.value, ast.Call)
+            and isinstance(node.value.func, ast.Attribute)
+            and isinstance(node.value.func.value, ast.Name)
+            and node.value.func.value.id == "argparse" and node.value.func.attr == "ArgumentParser"
+        ]
+        if len(parsers) != 1:
+            raise ValueError("main must construct exactly one argparse parser")
+        parser_index, parser_name = parsers[0]
+        declarations, parses = [], []
+        for index, node in enumerate(body):
+            call = node.value if isinstance(node, (ast.Assign, ast.Expr)) else None
+            if not (isinstance(call, ast.Call) and isinstance(call.func, ast.Attribute)
+                    and isinstance(call.func.value, ast.Name) and call.func.value.id == parser_name):
+                continue
+            if call.func.attr == "add_argument" and any(
+                isinstance(arg, ast.Constant) and arg.value == "--input-root" for arg in call.args
+            ):
+                declarations.append((index, call))
+            if call.func.attr in {"parse_args", "parse_known_args"}:
+                parses.append((index, call.func.attr))
+        if (len(declarations) != 1 or len(parses) != 1 or parses[0][1] != "parse_args"
+                or not parser_index < declarations[0][0] < parses[0][0]
+                or not any(key.arg == "required" and isinstance(key.value, ast.Constant)
+                           and key.value.value is True for key in declarations[0][1].keywords)):
+            raise ValueError("main must unconditionally require --input-root before parse_args")
+    except (SyntaxError, ValueError) as exc:
+        errors.append(f"invalid annual local-private mandatory --input-root CLI: {exc}")
+    return errors
+
+
+def validate_annual_local_pr_contract(text: str) -> list[str]:
+    errors = validate_annual_local_workflow_exclusion({str(PR_VALIDATION_WORKFLOW): text})
+    paths = (ANNUAL_LOCAL_PRODUCER, ANNUAL_LOCAL_VALIDATOR, *ANNUAL_LOCAL_TESTS,
+             ANNUAL_LOCAL_CONFIG, f"docs/specs/{ANNUAL_LOCAL_OWNER}_v1.md", *ANNUAL_LOCAL_ARTIFACTS)
+    for path in paths:
+        try:
+            if set(pr_scope.domains_for_path(path)) != {pr_scope.RESEARCH_SAFETY_LITE, pr_scope.SHARED_MODEL_RESEARCH}:
+                errors.append(f"annual local-private path must retain exact PR domains: {path}")
+        except pr_scope.ScopeDetectionError as exc:
+            errors.append(f"annual local-private path is not routed: {path}: {exc}")
+    try:
+        root = _workflow_fields(text, 0)
+        jobs = _children(root["jobs"], 2)
+        shared = _children(jobs["shared_model_research"], 4)
+        steps = _workflow_steps(shared["steps"])
+        annual_steps = [step for step in steps if ANNUAL_LOCAL_VALIDATOR in "\n".join(_run_lines(step))]
+        if (len(annual_steps) != 1 or _run_lines(annual_steps[0]) != ANNUAL_LOCAL_CI_COMMANDS
+                or set(annual_steps[0]) != {"name", "env", "run"}
+                or _children(annual_steps[0]["env"], 10) != {"PYTHONDONTWRITEBYTECODE": WorkflowField('"1"', "")}):
+            errors.append("annual local-private CI must retain only three unconditional published-only read-only commands")
+        for command in ANNUAL_LOCAL_CI_COMMANDS:
+            if text.count(command) != 1:
+                errors.append("annual local-private CI command must occur exactly once: " + command)
+    except (KeyError, ValueError) as exc:
+        errors.append(f"invalid annual local-private CI contract: {exc}")
     return errors
 
 
@@ -1039,7 +1181,7 @@ def validate_publish_block(text: str, blocks: list[str]) -> list[str]:
 
 
 def validate_pr_workflow_text(text: str, rows: list[WorkflowEntrypoint]) -> list[str]:
-    errors: list[str] = []
+    errors = validate_annual_local_pr_contract(text)
     if not rows:
         errors.append("daily model PR validation requires registered model namespaces")
     trigger = text.split("\njobs:", 1)[0]
@@ -1481,6 +1623,7 @@ def validate_workflow_text(
     workflow_path: str = LEGACY_WORKFLOW_PATH,
 ) -> list[str]:
     errors = validate_registry_contract(rows, model_owned_producers)
+    errors.extend(validate_annual_local_workflow_exclusion({workflow_path: text}))
     if workflow_path not in WORKFLOW_WRITER_JOBS:
         return errors + [f"unsupported model research workflow: {workflow_path}"]
     for row in rows:
@@ -1878,6 +2021,19 @@ def validate() -> list[str]:
         except OSError as exc:
             errors.append(f"missing research workflow: {path}: {exc}")
     errors.extend(validate_workflow_texts(workflow_texts, rows, model_owned_producers))
+    try:
+        all_workflows = {
+            path.relative_to(ROOT).as_posix(): path.read_text(encoding="utf-8")
+            for path in (ROOT / ".github/workflows").iterdir()
+            if path.is_file() and path.suffix.lower() in {".yml", ".yaml"}
+        }
+        errors.extend(validate_annual_local_workflow_exclusion(all_workflows))
+        errors.extend(validate_annual_local_contract(
+            (ROOT / ANNUAL_LOCAL_CONFIG).read_bytes(),
+            (ROOT / ANNUAL_LOCAL_PRODUCER).read_text(encoding="utf-8"),
+        ))
+    except (OSError, UnicodeError) as exc:
+        errors.append(f"unreadable annual local-private contract, producer or workflow: {exc}")
     if not PR_VALIDATION_WORKFLOW.is_file():
         errors.append(f"missing daily model PR validation workflow: {PR_VALIDATION_WORKFLOW}")
     else:
@@ -1896,6 +2052,7 @@ def main() -> int:
         return 1
     print("model research workflow isolation validation passed: " + ", ".join(WORKFLOW_WRITER_JOBS))
     print(f"validated_entrypoints={len(load_registry())}")
+    print("validated_local_private_entrypoints=1: " + ANNUAL_LOCAL_OWNER)
     return 0
 
 

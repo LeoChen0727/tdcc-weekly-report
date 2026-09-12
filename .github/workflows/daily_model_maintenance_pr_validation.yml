@@ -333,6 +333,14 @@ jobs:
           python -m pytest -q -p no:cacheprovider tests/test_tdcc_stealth_accumulation_corporate_action_ledger.py
           git --no-replace-objects diff --exit-code HEAD -- output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_source_manifest_v1.json output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_events_v1.csv output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_positions_v1.csv output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_blocked_v1.csv output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_corporate_action_ledger_report_v1.md
 
+      - name: Validate TDCC annual current-version replay v1 published artifacts without producing artifacts
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py --published-only
+          python -m pytest -q -p no:cacheprovider tests/test_tdcc_stealth_accumulation_current_version_annual_replay.py tests/test_validate_tdcc_stealth_accumulation_current_version_annual_replay.py
+          git --no-replace-objects diff --exit-code HEAD -- output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_source_manifest_v1.json output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_coverage_v1.csv output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_features_v1.csv.gz output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_signals_v1.csv.gz output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_trades_v1.csv.gz output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_summary_v1.csv output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_blocked_v1.csv.gz output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_anomalies_v1.csv output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_report_v1.md
+
       - name: Run TDCC field-contract replay v2 regression tests
         run: |
           python -m pytest -q tests/test_tdcc_stealth_accumulation_field_contract_replay.py
