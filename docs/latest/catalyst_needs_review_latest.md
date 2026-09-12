@@ -1,6 +1,6 @@
 # Catalyst Needs Review
 
-- generated_at: `2026-09-11 19:38:11 Asia/Taipei`
+- generated_at: `2026-09-12 08:09:06 Asia/Taipei`
 - rows: `2`
 - policy: Rows in this table are not confirmed catalyst data.
 - model_effect_allowed: `False` means the item cannot affect score, rank, upgrade, downgrade, or similar_to_shihsinko_flag.
