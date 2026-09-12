@@ -1,0 +1,26 @@
+{
+  "requested_date": "20251021",
+  "url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc?date=2025/10/21&type=EW&response=json",
+  "requested_at": "2026-09-12T11:16:35.509712+00:00",
+  "retrieved_at": "2026-09-12T11:16:35.745038+00:00",
+  "client": "Windows curl 8.13.0 Schannel",
+  "command_args": [
+    "C:\\Windows\\System32\\curl.exe",
+    "--silent",
+    "--show-error",
+    "--max-time",
+    "10",
+    "--dump-header",
+    "F:\\CodexStorage\\retained-evidence\\taiwan-stock-recommendation\\finmind-tdcc-intake-20260912\\source-followup-20260912\\october_identity\\20251021_extra_native_headers.txt",
+    "https://www.tpex.org.tw/www/zh-tw/afterTrading/otc?date=2025/10/21&type=EW&response=json"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "sha256": "c4d51a0075c7425325048d4c032455b4f7c691a9ff598a50519c5cdceae9ac18",
+  "bytes": 140424,
+  "response_headers_sha256": "ae8186c92e6cbcc9114e2a1ff6c3c0db05a9b8a7a13e9b09d927870952dad051",
+  "native_attempt_count": 1,
+  "tls_verification": "default_enabled",
+  "original_publication_version_verified": false,
+  "current_retrieval_of_historical_data": true
+}

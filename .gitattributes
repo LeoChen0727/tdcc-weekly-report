@@ -6,6 +6,25 @@
 *.parquet binary
 *.duckdb binary
 retained-evidence/tpex-history-repair-202509/raw/*_raw.json -text
+retained-evidence/tpex-history-repair-202510/raw/*_raw.json -text
+data/daily_price/20251001.csv text eol=lf
+data/daily_price/20251002.csv text eol=lf
+data/daily_price/20251003.csv text eol=lf
+data/daily_price/20251007.csv text eol=lf
+data/daily_price/20251008.csv text eol=lf
+data/daily_price/20251009.csv text eol=lf
+data/daily_price/20251013.csv text eol=lf
+data/daily_price/20251014.csv text eol=lf
+data/daily_price/20251016.csv text eol=lf
+data/daily_price/20251020.csv text eol=lf
+data/daily_price/20251021.csv text eol=lf
+data/daily_price/20251022.csv text eol=lf
+data/daily_price/20251023.csv text eol=lf
+data/daily_price/20251027.csv text eol=lf
+data/daily_price/20251028.csv text eol=lf
+data/daily_price/20251029.csv text eol=lf
+data/daily_price/20251030.csv text eol=lf
+data/daily_price/20251031.csv text eol=lf
 data/daily_price/20250901.csv text eol=lf
 data/daily_price/20250902.csv text eol=lf
 data/daily_price/20250903.csv text eol=lf
