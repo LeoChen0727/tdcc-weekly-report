@@ -818,9 +818,21 @@ def main(argv=None):
     parser.add_argument("--output-root", type=Path)
     parser.add_argument("--input-root", type=Path, required=True)
     parser.add_argument("--price-repository-root", type=Path)
+    parser.add_argument("--horizon-extension-contract", type=Path)
     args = parser.parse_args(argv)
     root = args.repository_root.resolve()
     output_root = args.output_root or root / DIRECTORY
+    if args.horizon_extension_contract is not None:
+        import tdcc_stealth_accumulation_current_version_horizon_extension as extension
+        contract_path = args.horizon_extension_contract.resolve()
+        require(contract_path == (root / extension.CONTRACT_FILE).resolve(),
+                "Extension requires the exact registered contract path")
+        extension_contract = json.loads(contract_path.read_text(encoding="utf-8-sig"))
+        with artifact_guard(root), extension.preserve_v1(root):
+            artifacts = extension.build_extension(args.price_repository_root or root, extension_contract, args.input_root)
+            extension.write_extension_outputs(root, artifacts, output_root)
+        print(f"{extension.VERSION}: artifacts={len(artifacts)} research_only=True")
+        return 0
     contract = json.loads((root / CONTRACT_FILE).read_text(encoding="utf-8-sig"))
     with artifact_guard(root):
         artifacts = build(args.price_repository_root or root, contract, args.input_root)

@@ -420,21 +420,71 @@ TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS = frozenset({
 })
 
 
+TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS = frozenset({
+    "scripts/tdcc_stealth_accumulation_current_version_horizon_extension.py",
+    "scripts/validate_tdcc_stealth_accumulation_current_version_horizon_extension.py",
+    "config/tdcc_stealth_accumulation_current_version_horizon_extension_v1.json",
+    "docs/specs/tdcc_stealth_accumulation_current_version_horizon_extension_v1.md",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_trades_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_blocked_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_anomalies_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_paired_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_report_v1.md",
+})
+
+
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
         | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
+        | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
     )
     for path in sorted(
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
         | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
+        | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
     ):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
             {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
         )
+
+
+@pytest.mark.parametrize("path", sorted(TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS))
+def test_tdcc_current_version_horizon_extension_paths_select_exact_research_domains(path: str) -> None:
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset(
+        {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
+    )
+
+
+def test_horizon_extension_has_seven_separate_artifacts_without_copying_v1_features() -> None:
+    assert TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS.isdisjoint(
+        TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
+    )
+    artifacts = {path for path in TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
+                 if path.startswith("output/")}
+    assert len(artifacts) == 7
+    assert sum(path.endswith(".csv.gz") for path in artifacts) == 2
+    assert not any("features_" in path or "signals_" in path for path in artifacts)
+    assert not any("*" in path for path in artifacts)
+
+
+@pytest.mark.parametrize("path", (
+    "scripts/tdcc_stealth_accumulation_current_version_horizon_extension_unregistered.py",
+    "config/tdcc_stealth_accumulation_current_version_horizon_extension_v2.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_features_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_signals_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_trades_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_summary_v2.csv",
+))
+def test_tdcc_current_version_horizon_extension_unregistered_paths_fail_closed(path: str) -> None:
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
 
 
 @pytest.mark.parametrize("path", sorted(TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS))

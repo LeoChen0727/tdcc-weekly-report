@@ -1428,6 +1428,28 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 43
+    horizon_migration = rows[-1]
+    assert horizon_migration["migration_id"] == (
+        "tdcc_stealth_accumulation_current_version_horizon_extension_20260913"
+    )
+    assert horizon_migration["changed_data_families"] == (
+        "tdcc_stealth_accumulation_current_version_horizon_extension_outputs"
+    )
+    assert horizon_migration["previous_contract_sha256s"] == "NEW"
+    assert horizon_migration["new_contract_sha256s"] == (
+        "de5b14dc976074df1249c9d027faf2e66801da08e6ea839a5f9e4fcdbe4905fa"
+    )
+    assert horizon_migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert horizon_migration["user_approval_reference"] == (
+        "user_authorized_20260913_tdcc_horizon_extension_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde"
+    )
+    assert horizon_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(horizon_migration) == (
+        "638a0d2893f13b1b1381fee7e6774d77dfa596733a4730ed3473e4e8f9d84779"
+    )
+    # Preserve every pre-extension migration assertion against its original prefix.
+    rows = rows[:-1]
     assert len(rows) == 42
     annual_migration = rows[-1]
     assert annual_migration["migration_id"] == (
@@ -2501,6 +2523,46 @@ def test_forward_holdout_artifact_lineage_lists_only_actual_direct_inputs() -> N
         assert rows[history_path]["validator"] == (
             "scripts/validate_revenue_unreacted_range_forward_holdout.py"
         )
+
+
+def test_tdcc_horizon_extension_is_an_explicit_same_owner_family() -> None:
+    family = "tdcc_stealth_accumulation_current_version_horizon_extension_outputs"
+    background = {row["data_family_id"]: row for row in read_csv(
+        "config/daily_model_background_data_registry.csv"
+    )}
+    sharing = {row["data_family_id"]: row for row in read_csv(
+        "config/daily_model_data_sharing_registry.csv"
+    )}
+    ownership = read_csv("config/model_research_artifact_ownership.csv")
+    old_family = "tdcc_stealth_accumulation_current_version_annual_replay_outputs"
+    old = sharing[old_family]
+    current = sharing[family]
+    assert current["owner_model_or_family"] == old["owner_model_or_family"] == (
+        "tdcc_stealth_accumulation_current_version_annual_replay"
+    )
+    assert current["registered_producers"] == old["registered_producers"]
+    assert current["ownership_mode"] == "model_owned_not_shared"
+    assert current["approved_consumer_models"] == "tdcc_stealth_accumulation"
+    assert current["producer_write_scope"] == background[family]["artifact_path"] == (
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_*_v1.*"
+    )
+    assert current["data_contract_sha256"] == data_contract_sha256(background[family])
+    assert current["data_contract_sha256"] == "de5b14dc976074df1249c9d027faf2e66801da08e6ea839a5f9e4fcdbe4905fa"
+    assert old["data_contract_sha256"] == data_contract_sha256(background[old_family])
+    assert old["data_contract_sha256"] == "11fb8dd124409b186243a247d5f23bbcf3c5cc85e42eeb2159e087c8b1667599"
+    assert old["producer_write_scope"].endswith("current_version_annual_replay_*_v1.*")
+    matching = [row for row in ownership if row["artifact_glob"] == current["producer_write_scope"]]
+    assert len(matching) == 1
+    assert matching[0]["owner_model_id"] == current["owner_model_or_family"]
+    assert matching[0]["producer"] == current["registered_producers"]
+    assert matching[0]["change_policy"] == "model_owned_write"
+    assert matching[0]["formal_evidence_status"] == "research_only"
+    lineage = [row for row in read_csv("config/report_artifact_lineage.csv")
+               if "tdcc_stealth_accumulation_current_version_horizon_extension_" in row["artifact_path"]]
+    assert len(lineage) == 7
+    assert sum(row["artifact_path"].endswith(".csv.gz") for row in lineage) == 2
+    assert {row["producer"] for row in lineage} == {current["registered_producers"]}
+    assert {row["publisher"] for row in lineage} == {"manual_research_validator_run"}
 
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:

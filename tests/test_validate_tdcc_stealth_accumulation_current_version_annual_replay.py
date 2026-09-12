@@ -352,3 +352,318 @@ def test_manifest_rebinding_retained_anomalies_fails(audit, bundle):
     manifest["evidence"]["retained_anomaly_candidates"] = [dict(signal_date="20250910", stock_id="1111", horizon=5)]
     artifacts[name] = audit.canonical_json(manifest)
     assert any("retained anomaly" in e for e in audit.validate_artifacts(ROOT, contract, artifacts, published_only=True))
+
+
+# Same-model horizon extension. The annual-v1 regression cases above are unchanged.
+@pytest.fixture
+def horizon_audit(monkeypatch):
+    monkeypatch.syspath_prepend(str(ROOT / "scripts"))
+    path = ROOT / "scripts/validate_tdcc_stealth_accumulation_current_version_horizon_extension.py"
+    spec = importlib.util.spec_from_file_location("horizon_independent_audit_test", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_horizon_extension_has_no_producer_import_or_execution(horizon_audit):
+    tree = ast.parse(Path(horizon_audit.__file__).read_text(encoding="utf-8"))
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            modules = [alias.name for alias in node.names] if isinstance(node, ast.Import) else [node.module]
+            assert not any("build_" in name or name == "tdcc_stealth_accumulation_current_version_horizon_extension" for name in modules)
+        elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+            assert node.func.id not in {"eval", "exec", "compile", "__import__"}
+
+
+@pytest.mark.parametrize("horizon", [5, 10, 20, 30, 40, 60])
+def test_horizon_extension_entry_index_maturity_and_calendar_tail(horizon_audit, horizon):
+    calendar = horizon_audit.annual.calendar_days([], "20250401", "20261030")
+    cutoff = calendar[calendar.index("20260909") - 1 - horizon]
+    row = horizon_audit.holding_dates(calendar, cutoff, horizon, "20260909")
+    assert row["entry_index"] == calendar.index(cutoff) + 1
+    assert row["exit_target_index"] == row["entry_index"] + horizon
+    assert row["exit_date"] == "20260909" and row["mature"] is True
+    following = horizon_audit.holding_dates(calendar, calendar[calendar.index(cutoff) + 1], horizon, "20260909")
+    assert following["mature"] is False
+    tail = horizon_audit.holding_dates(calendar, "20260908", horizon, "20260909")
+    assert tail["mature"] is False
+    if tail["exit_target_index"] >= len(calendar):
+        assert tail["exit_date"] == ""
+
+
+def test_horizon_extension_common_cutoff_is_date_not_surviving_trade(horizon_audit):
+    calendar = horizon_audit.annual.calendar_days([], "20250401", "20261030")
+    cutoff = horizon_audit.common_cutoff(calendar, "20260909")
+    i = calendar.index(cutoff)
+    signals = [horizon_audit.Signal(calendar[j], "1111", "測試", "TWSE", 0) for j in (i - 1, i, i + 1)]
+    profiles, observed = horizon_audit.select_profiles(signals, calendar, "20260909")
+    assert observed == cutoff
+    assert profiles["full_period"] == signals
+    assert profiles["common_d60"] == signals[:2]
+    assert horizon_audit.PROFILES == {"full_period": (30, 40, 60), "common_d60": (5, 10, 20, 30, 40, 60)}
+
+
+class HorizonSyntheticPrices:
+    def __init__(self, audit, *, missing=(), as_of="20260909"):
+        self.audit, self.missing, self.as_of = audit, set(missing), as_of
+
+    def daily(self, date):
+        if not date or date > self.as_of or date in self.missing:
+            return {}, {}
+        return {"1111": simple_price(self.audit.annual, date, closing=110)}, {}
+
+
+def test_horizon_extension_rebuilds_locks_not_D20_trade_extension(horizon_audit):
+    calendar = horizon_audit.annual.calendar_days([], "20250401", "20261030")
+    start = "20250910"
+    index = calendar.index(start) + 1
+    dates = [start, calendar[index + 20 + 1], calendar[index + 30], calendar[index + 30 + 1]]
+    signals = [horizon_audit.Signal(date, "1111", "測試", "TWSE", 0) for date in dates]
+    prices = HorizonSyntheticPrices(horizon_audit)
+    thirty = list(horizon_audit.ledger_rows(prices, signals, calendar, profile="full_period", horizon=30, as_of="20260909"))
+    traded = {row["signal_date"] for kind, row in thirty if kind == "trades"}
+    assert traded == {start, dates[-1]}
+    assert any(row.get("reasons") == "blocked_exit_day" and row["signal_date"] == dates[2] for _, row in thirty)
+    assert any(row.get("reasons") == "blocked_active_position" and row["signal_date"] == dates[1] for _, row in thirty)
+    forty = list(horizon_audit.ledger_rows(prices, signals, calendar, profile="full_period", horizon=40, as_of="20260909"))
+    assert {row["signal_date"] for kind, row in forty if kind == "trades"} == {start}
+    for _, row in thirty + forty:
+        if row.get("record_type") == "strict_ledger_decision":
+            assert row["strict_entry_established"] is False
+            assert row["strict_prior_position_locked"] is False
+
+
+def test_horizon_extension_missing_exit_and_unknown_future_never_release_lock(horizon_audit):
+    calendar = horizon_audit.annual.calendar_days([], "20250401", "20261030")
+    start = "20250910"
+    index = calendar.index(start) + 1
+    exit_date = calendar[index + 30]
+    signals = [horizon_audit.Signal(date, "1111", "測試", "TWSE", 0) for date in (start, calendar[index + 31])]
+    rows = list(horizon_audit.ledger_rows(HorizonSyntheticPrices(horizon_audit, missing=[exit_date]), signals, calendar, profile="full_period", horizon=30, as_of="20260909"))
+    assert not any(kind == "trades" for kind, _ in rows)
+    assert any(row.get("reasons") == "open_unresolved_exit_price" for _, row in rows)
+    assert any(row.get("reasons") == "blocked_active_position" for _, row in rows)
+    late = [horizon_audit.Signal("20260908", "1111", "測試", "TWSE", 0)]
+    rows = list(horizon_audit.ledger_rows(HorizonSyntheticPrices(horizon_audit), late, calendar, profile="full_period", horizon=60, as_of="20260909"))
+    assert not any(kind == "trades" for kind, _ in rows)
+    censored = next(row for _, row in rows if row.get("record_type") == "operation_censored")
+    assert censored["reasons"] == "open_immature" and censored["exit_date"] == ""
+
+
+def test_horizon_extension_paired_all_six_use_same_complete_case_events(horizon_audit):
+    calendar = horizon_audit.annual.calendar_days([], "20250401", "20261030")
+    signals = [horizon_audit.Signal(date, "1111", "測試", "TWSE", 0) for date in ("20250910", "20250911")]
+    target = horizon_audit.holding_dates(calendar, signals[0].signal_date, 60, "20260909")["exit_date"]
+    rows, _ = horizon_audit.paired_summary(HorizonSyntheticPrices(horizon_audit, missing=[target]), signals, calendar, "20260909")
+    assert len(rows) == 18
+    assert {row["event_count"] for row in rows} == {1}
+    assert len({row["eventset_sha256"] for row in rows}) == 1
+    assert {row["excluded_missing_entry_or_exit_events"] for row in rows} == {1}
+    assert all(row["overlapping_events_allowed"] and not row["portfolio_performance"] for row in rows)
+    for row in rows:
+        if row["horizon"] == 20:
+            assert row["mean_paired_delta_vs_D20_pct"] == 0
+            assert row["paired_delta_zero_count"] == 1
+    complete, _ = horizon_audit.paired_summary(HorizonSyntheticPrices(horizon_audit), signals, calendar, "20260909")
+    assert {row["event_count"] for row in complete} == {2}
+    portfolio = list(horizon_audit.ledger_rows(HorizonSyntheticPrices(horizon_audit), signals, calendar, profile="common_d60", horizon=60, as_of="20260909"))
+    assert len([row for kind, row in portfolio if kind == "trades" and row["slippage_bps"] == 10]) == 1
+
+
+def horizon_report(audit, original, groups, cutoff, summary, paired, anomalies, blocks):
+    lines = ["research_only formal_use=False promotion_evidence_allowed=False full_period_pit_complete=False 不是 strict PIT 已核實 total-return 出場日訊號仍阻擋 不是portfolio績效 不影響主帳本 全部保留primary 只作sensitivity 不是corrected/cleaned performance 不依異常幅度刪除 blocked_input_availability_unproven 沒有配對sensitivity",
+        f"原始訊號區間 {original['requested_signal_start']}–{original['requested_signal_end']}；as_of={original['as_of']}；D60共同訊號截止={cutoff}。",
+        f"全區間原始訊號 {len(groups['full_period'])}；共同區間原始訊號 {len(groups['common_d60'])}。", f"新anomalies共 {len(anomalies)} 列；immutable v1 baseline候選 0 列",
+        f"配對common原始訊號 {paired[0]['common_signal_count']}；六horizon共同有效事件 {paired[0]['event_count']}；缺有效入場／任一出場排除 {paired[0]['excluded_missing_entry_or_exit_events']}；可能91開頭TDR事件 {paired[0]['possible_TDR_events']}。",
+        "## 主要結果（10 bps，保留所有未解候選）"]
+    for row in summary:
+        if row["slippage_bps"] == 10 and row["population"].startswith("primary"):
+            lines.append(f"| {row['profile']} | {row['horizon']} | {row['realized_raw_price_proxy_positions']} | {row['mean_net_return_pct']} | {row['median_net_return_pct']} | {row['win_rate_pct']} | {row['proxy_immature_positions']}／{row['proxy_unresolved_exit_positions']} |")
+    lines.append("## 排除候選敏感性對照（10 bps，不取代primary）")
+    for row in summary:
+        if row["slippage_bps"] == 10 and row["population"].startswith("sensitivity"):
+            lines.append(f"| {row['profile']} | {row['horizon']} | {row['realized_raw_price_proxy_positions']} | {row['mean_net_return_pct']} | {row['median_net_return_pct']} | {row['win_rate_pct']} |")
+    lines.append("## 未入場／未成熟／缺出場原因分布")
+    reasons = sorted((p, h, k[0], k[1], n) for (p, h), counter in blocks.items() for k, n in counter.items() if isinstance(k, tuple) and k[0] != "strict_ledger_decision")
+    for profile, horizon, kind, reason, count in reasons:
+        lines.append(f"| {profile} | {horizon} | {kind} | {reason} | {count} |")
+    lines.append("## 新帳本數值調查候選（10 bps，每組列出最高與最低）")
+    for profile, horizons in audit.PROFILES.items():
+        for horizon in horizons:
+            candidates = [r for r in anomalies if r["profile"] == profile and r["horizon"] == horizon]
+            if candidates:
+                chosen = [min(candidates, key=lambda r:float(r["net_return_pct"])), max(candidates, key=lambda r:float(r["net_return_pct"]))]
+                for row in chosen[:1] if chosen[0] == chosen[1] else chosen:
+                    lines.append(f"| {profile} | {horizon} | {row['signal_date']} | {row['stock_id']} | {row['net_return_pct']} | unresolved_anomaly_candidate；保留primary |")
+    lines.append("## 同事件配對觀察（10 bps）")
+    for row in paired:
+        if row["slippage_bps"] == 10:
+            lines.append(f"| {row['horizon']} | {row['event_count']} | {row['mean_net_return_pct']} | {row['mean_paired_delta_vs_D20_pct']} | {row['median_paired_delta_vs_D20_pct']} |")
+    return ("\n".join(lines) + "\n").encode("utf-8")
+
+
+@pytest.fixture
+def horizon_bundle(horizon_audit, monkeypatch):
+    audit = horizon_audit
+    contract = json.loads((ROOT / audit.CONTRACT_FILE).read_text(encoding="utf-8"))
+    original = json.loads((ROOT / audit.annual.CONTRACT_FILE).read_text(encoding="utf-8"))
+    calendar = audit.annual.calendar_days([], original["history_start"], original["calendar_end"])
+    signals = [audit.Signal(date, "1111", "測試", "TWSE", 0) for date in ("20250910", "20250911", "20250918", "20260908", "20260909")]
+    groups, cutoff = audit.select_profiles(signals, calendar, original["as_of"])
+    prices, trades, blocked = HorizonSyntheticPrices(audit), [], []
+    from collections import Counter, defaultdict
+    stats, counts = defaultdict(list), defaultdict(Counter)
+    for profile, horizons in audit.PROFILES.items():
+        for horizon in horizons:
+            for kind, row in audit.ledger_rows(prices, groups[profile], calendar, profile=profile, horizon=horizon, as_of=original["as_of"]):
+                if kind == "blocked":
+                    blocked.append(row)
+                    counts[profile, horizon][row["record_type"]] += 1
+                    counts[profile, horizon][row["reasons"]] += 1
+                    counts[profile, horizon][row["record_type"], row["reasons"]] += 1
+                else:
+                    trades.append(row)
+                    stats[profile, horizon, row["slippage_bps"]].append(audit.StatTrade(profile, row["signal_date"], row["stock_id"], horizon, row["slippage_bps"], row["net_return_pct"], 0, row["entry_date"], row["exit_date"], None))
+    anomalies, anomaly_keys = audit.anomaly_rows(stats, [])
+    for row in trades:
+        row["anomaly_candidate"] = (row["profile"], row["signal_date"], row["stock_id"], row["horizon"]) in anomaly_keys
+    summary = audit.summaries(stats, counts, groups, cutoff, original["as_of"], anomaly_keys)
+    paired, paired_anomalies = audit.paired_summary(prices, groups["common_d60"], calendar, original["as_of"])
+    anomalies.extend(paired_anomalies)
+    rows = dict(trades=trades, blocked=blocked, summary=summary, anomalies=anomalies, paired_summary=paired)
+    artifacts = {}
+    for kind, values in rows.items():
+        data = encode(values, audit.SCHEMAS[kind])
+        artifacts[audit.name(kind)] = gzip.compress(data, mtime=0) if kind in {"trades", "blocked"} else data
+    artifacts[audit.name("report")] = horizon_report(audit, original, groups, cutoff, summary, paired, anomalies, counts)
+    supplemental = dict(warmup_nonquote_rows=0, supplemental_price_rows=0)
+    baseline = dict(evidence=dict(calendar_closures=[]), counts=dict(supplemental=supplemental), hashes={audit.annual.artifact_name("anomalies"):dict(sha256="a" * 64)})
+    manifest = dict(model_id=audit.annual.MODEL_ID, owner_id="tdcc_stealth_accumulation_current_version_annual_replay", artifact_version=audit.PREFIX + "v1", contract_file=audit.CONTRACT_FILE, contract=contract, contract_sha256=audit.APPROVED_CONTRACT_SHA256, base_artifact_ref=audit.BASE_REF, base_contract=original, base_contract_sha256=audit.annual.APPROVED_CONTRACT_SHA256, validation_scope="immutable_v1_signals_and_independent_horizon_source_replay_not_selector_revalidation", calendar=dict(history_start=original["history_start"], calendar_end=original["calendar_end"], closures=[], sessions=calendar, target_index_basis="zero_based_from_history_start"), baseline_anomaly_audit=dict(candidate_rows=0, retained_in_immutable_base=True, sha256="a" * 64, unrepresented_candidates_not_copied_to_extension_profiles=True), common_signal_cutoff=cutoff, counts=dict(base_signals=len(signals), common_signals=len(groups["common_d60"]), trade_rows=len(trades), blocked_rows=len(blocked), anomaly_rows=len(anomalies), summary_rows=54, paired_summary_rows=18, paired_event_count=paired[0]["event_count"], supplemental=supplemental), **{field:False for field in audit.FALSE_FLAGS})
+    manifest["hashes"] = {filename:dict(bytes=len(data), sha256=audit.sha(data)) for filename, data in artifacts.items()}
+    artifacts[audit.name("source_manifest")] = audit.annual.canonical_json(manifest)
+    monkeypatch.setattr(audit, "load_baseline", lambda root: (object(), original, baseline, signals, [], b""))
+    monkeypatch.setattr(audit, "PublishedPrices", lambda *args: prices)
+    monkeypatch.setattr(audit, "audit_source_bindings", lambda *args: None)
+    return contract, artifacts
+
+
+def horizon_replace(audit, artifacts, kind, mutate):
+    filename = audit.name(kind)
+    rows = list(audit.records(kind, artifacts[filename]))
+    mutate(rows)
+    data = encode(rows, audit.SCHEMAS[kind])
+    artifacts[filename] = gzip.compress(data, mtime=0) if kind in {"trades", "blocked"} else data
+    manifest = json.loads(artifacts[audit.name("source_manifest")])
+    manifest["hashes"][filename] = dict(bytes=len(artifacts[filename]), sha256=audit.sha(artifacts[filename]))
+    artifacts[audit.name("source_manifest")] = audit.annual.canonical_json(manifest)
+
+
+def test_horizon_extension_synthetic_bundle(horizon_audit, horizon_bundle):
+    contract, artifacts = horizon_bundle
+    assert horizon_audit.validate_artifacts(ROOT, contract, artifacts, published_only=True) == []
+
+
+@pytest.mark.parametrize("kind,field,value", [
+    ("trades", "entry_index", "999"), ("trades", "exit_target_index", "999"),
+    ("trades", "horizon", "20"), ("trades", "exit_date", "20260909"),
+    ("trades", "entry_open", "1"), ("trades", "net_pnl", "0"),
+    ("trades", "anomaly_candidate", "True"), ("trades", "primary_row_retained", "False"),
+    ("blocked", "strict_entry_established", "True"), ("blocked", "reasons", "open_immature"),
+    ("summary", "signal_cutoff", "20260909"), ("summary", "total_input_signals", "0"),
+    ("summary", "population", "corrected_performance"), ("summary", "mean_net_return_pct", "999"),
+    ("paired_summary", "event_count", "0"), ("paired_summary", "eventset_sha256", "0" * 64),
+    ("paired_summary", "mean_paired_delta_vs_D20_pct", "999"), ("paired_summary", "portfolio_performance", "True"),
+    ("paired_summary", "possible_TDR_events", "1"), ("paired_summary", "anomaly_candidate_events", "99"),
+])
+def test_horizon_extension_rehashed_field_mutations(horizon_audit, horizon_bundle, kind, field, value):
+    contract, artifacts = horizon_bundle
+    def mutate(rows):
+        row = next((r for r in rows if r.get("profile") == "common_d60"), rows[0])
+        row[field] = value
+    horizon_replace(horizon_audit, artifacts, kind, mutate)
+    assert horizon_audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("field", ["common_signal_cutoff", "calendar", "base_artifact_ref", "input_availability_proven"])
+def test_horizon_extension_manifest_boundary_mutations(horizon_audit, horizon_bundle, field):
+    contract, artifacts = horizon_bundle
+    filename = horizon_audit.name("source_manifest")
+    manifest = json.loads(artifacts[filename])
+    if field == "calendar": manifest[field]["sessions"].pop(10)
+    elif field == "input_availability_proven": manifest[field] = True
+    else: manifest[field] = "20990101"
+    artifacts[filename] = horizon_audit.annual.canonical_json(manifest)
+    assert horizon_audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("kind", ["source_manifest", "trades", "blocked", "summary", "anomalies", "paired_summary", "report"])
+def test_horizon_extension_missing_any_of_seven_artifacts_fails(horizon_audit, horizon_bundle, kind):
+    contract, artifacts = horizon_bundle
+    artifacts.pop(horizon_audit.name(kind))
+    assert horizon_audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+def test_horizon_extension_full_mode_requires_private_inputs(horizon_audit, horizon_bundle):
+    contract, artifacts = horizon_bundle
+    assert any("requires --input-root" in error for error in horizon_audit.validate_artifacts(ROOT, contract, artifacts))
+
+
+@pytest.mark.parametrize("section", ["主要結果", "排除候選敏感性對照", "未入場／未成熟／缺出場原因分布", "新帳本數值調查候選", "同事件配對觀察"])
+def test_horizon_extension_rehashed_report_section_mutations(horizon_audit, horizon_bundle, section):
+    contract, artifacts = horizon_bundle
+    filename = horizon_audit.name("report")
+    report = artifacts[filename].decode("utf-8")
+    report = report.replace("## " + section, "## MUTATED " + section, 1)
+    artifacts[filename] = report.encode("utf-8")
+    manifest = json.loads(artifacts[horizon_audit.name("source_manifest")])
+    manifest["hashes"][filename] = dict(bytes=len(artifacts[filename]), sha256=horizon_audit.sha(artifacts[filename]))
+    artifacts[horizon_audit.name("source_manifest")] = horizon_audit.annual.canonical_json(manifest)
+    errors = horizon_audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+    assert any("report section" in error for error in errors)
+
+
+def test_horizon_extension_retains_old_candidates_without_cross_horizon_flags(horizon_audit):
+    from collections import defaultdict
+    stats = defaultdict(list)
+    for horizon in (5, 30):
+        for index, value in enumerate((0, 1, 2, 3, 100)):
+            stats["common_d60", horizon, 10].append(horizon_audit.StatTrade("common_d60", f"202509{10+index}", str(1111+index), horizon, 10, str(value), 0, "20250911", "20251024", None))
+    retained = [dict(signal_date="20250910", stock_id="1111", horizon="5", net_return_pct="0", entry_date="20250911", exit_date="20251024"), dict(signal_date="20260901", stock_id="9999", horizon="20", net_return_pct="999", entry_date="20260902", exit_date="20261001")]
+    anomalies, keys = horizon_audit.anomaly_rows(stats, retained)
+    assert ("common_d60", "20250910", "1111", 5) in keys
+    assert ("common_d60", "20250910", "1111", 30) not in keys
+    assert not any(row["stock_id"] == "9999" for row in anomalies)
+    assert {row["stock_id"] for row in anomalies if row["reason"].startswith("outside_")} == {"1115"}
+    assert all(row["primary_row_retained"] and row["represented_in_current_proxy_trade"] for row in anomalies)
+
+
+def test_horizon_extension_zero_paired_events_remain_blank_not_zero_return(horizon_audit):
+    calendar = horizon_audit.annual.calendar_days([], "20250401", "20261030")
+    rows, anomalies = horizon_audit.paired_summary(HorizonSyntheticPrices(horizon_audit), [], calendar, "20260909")
+    assert len(rows) == 18 and anomalies == []
+    assert all(row["event_count"] == 0 and row["mean_net_return_pct"] == "" and row["mean_paired_delta_vs_D20_pct"] == "" for row in rows)
+
+
+def test_horizon_extension_real_published_seven_preserve_v1_and_output_bytes(horizon_audit):
+    """Required CI consumption test: a missing published artifact must fail, never skip."""
+    output = ROOT / horizon_audit.DEFAULT_DIRECTORY
+    paths = [output / horizon_audit.name(kind) for kind in horizon_audit.KINDS]
+    assert all(path.is_file() and not path.is_symlink() for path in paths), "all seven published horizon artifacts are required"
+    before = {path.name:horizon_audit.sha(path.read_bytes()) for path in paths}
+    git = horizon_audit.annual.GitReader(ROOT)
+    v1 = {}
+    for kind in horizon_audit.annual.KINDS:
+        filename = horizon_audit.annual.artifact_name(kind)
+        relative = horizon_audit.DEFAULT_DIRECTORY + "/" + filename
+        data = git.read(horizon_audit.BASE_REF, relative)
+        path = ROOT / relative
+        v1[relative] = (git.tree(horizon_audit.BASE_REF)[relative], horizon_audit.sha(data), horizon_audit.sha(path.read_bytes()) if path.is_file() else None)
+        if path.is_file(): assert horizon_audit.sha(path.read_bytes()) == horizon_audit.sha(data)
+    assert horizon_audit.validate(ROOT, published_only=True) == []
+    assert {path.name:horizon_audit.sha(path.read_bytes()) for path in paths} == before
+    fresh = horizon_audit.annual.GitReader(ROOT)
+    for relative, (oid, digest, physical) in v1.items():
+        assert fresh.tree(horizon_audit.BASE_REF)[relative] == oid
+        assert horizon_audit.sha(fresh.read(horizon_audit.BASE_REF, relative)) == digest
+        path = ROOT / relative
+        assert (horizon_audit.sha(path.read_bytes()) if path.is_file() else None) == physical
