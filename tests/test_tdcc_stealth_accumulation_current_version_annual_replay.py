@@ -804,3 +804,236 @@ def test_extension_gzip_serialization_has_exact_rows_and_deterministic_bytes():
     b = horizon_extension.gzip_rows(rows, ["key", "number"])
     assert a == b
     assert producer.records(gzip.decompress(a)) == [{"key":"合成", "number":"1"}, {"key":"second", "number":"2"}]
+
+
+import tdcc_stealth_accumulation_condition_stratification as stratification
+
+
+def stratification_fixture():
+    _,prices,calendar,original=horizon_fixture(signal_indices=(0,),asof_index=80)
+    contract_value=dict(as_of=calendar[80],validation_entry_start=calendar[40],price_source_ref="synthetic",
+                        variants=[{"variant_id":v} for v in stratification.VARIANTS])
+    rows=[]
+    for i in (20,25,40,42,45,65,75):
+        row={k:"" for k in producer.CSV_FIELDS["features"]}
+        row.update(feature_id=calendar[i]+":2330",signal_date=calendar[i],stock_id="2330",stock_name="合成",market="TWSE",
+            input_ref="synthetic",receipt_id="",history_gap_count="2",observed_history_dates=";".join(calendar[i-20:i+1]),
+            high_20="30.0000",low_20="9.0000",return_5d="0.0000",return_20d="-0.0001",
+            tdcc_400_change_sum="0.0001",tdcc_1000_change_sum="-0.0001",tdcc_400_up_weeks="2",tdcc_1000_up_weeks="3",
+            selected="True",feature_supported="True",formal_use="False",promotion_evidence_allowed="False")
+        rows.append(stratification.derive_feature(row,prices))
+    return rows,prices,calendar,contract_value
+
+
+def test_stratification_type7_is_decimal_interpolated_and_precision_independent():
+    with localcontext() as context:
+        context.prec=6
+        assert stratification.quantile_type7([Decimal(x) for x in (0,10,20,30)],"0.75")==Decimal("22.50")
+        assert stratification.quantile_type7([Decimal("0.123456789"),Decimal("0.987654321")],"0.75")==Decimal("0.77160493800")
+    assert stratification.quantile_type7([],"0.75") is None
+
+
+def test_stratification_derives_observation_width_without_rounding_or_gap_filter():
+    rows,_,_,_=stratification_fixture();r=rows[0]
+    with localcontext() as context:
+        context.prec=50
+        assert r["range_20obs_pct"]==str((Decimal("30.0000")/Decimal("9.0000")-1)*100)
+    assert r["history_gap_count"]=="2" and r["stratification_feature_supported"] is True
+    assert r["price_state"]=="short_rebound_in_decline"
+
+
+def test_stratification_previous_low_excludes_today_and_equal_passes():
+    rows,prices,calendar,_=stratification_fixture()
+    prices[calendar[20]]["2330"]["low"]=8
+    r=stratification.derive_feature(rows[0],prices)
+    assert Decimal(r["previous_20obs_low_ex_today"])==9
+    assert r["no_new_low_previous20obs"] is False
+    assert stratification.condition(r,"no_new_low_previous20obs",None)==(False,True)
+
+
+def test_stratification_missing_window_is_not_a_cross_variant_gate():
+    rows,prices,calendar,_=stratification_fixture();prices.pop(calendar[0])
+    r=stratification.derive_feature(rows[0],prices)
+    assert r["stratification_feature_supported"] is False
+    assert stratification.condition(r,"baseline",None)==(True,True)
+    assert stratification.condition(r,"tdcc_both_up_count_ge2",None)==(True,True)
+    assert stratification.condition(r,"price_5obs_nonnegative",None)==(True,True)
+    assert stratification.condition(r,"no_new_low_previous20obs",None)==(False,False)
+
+
+def test_stratification_five_single_filters_are_not_combined():
+    rows,_,_,_=stratification_fixture();r=rows[0]
+    assert stratification.condition(r,"tdcc_both_net_positive",None)==(False,True)
+    assert stratification.condition(r,"tdcc_both_up_count_ge2",None)==(True,True)
+    assert stratification.condition(r,"price_5obs_nonnegative",None)==(True,True)
+    assert stratification.condition(r,"range_20obs_le_training_q75",None)==(False,False)
+    threshold=Decimal(r["range_20obs_pct"])
+    assert stratification.condition(r,"range_20obs_le_training_q75",threshold)==(True,True)
+
+
+def test_stratification_frozen_four_decimal_return_zero_is_nonnegative():
+    row={"return_5d":"-0.0000"}
+    assert stratification.condition(row,"price_5obs_nonnegative",None)==(True,True)
+    row["return_5d"]="-0.0001"
+    assert stratification.condition(row,"price_5obs_nonnegative",None)==(False,True)
+
+
+def test_stratification_purge_and_partition_do_not_reset_locks():
+    features,prices,calendar,contract_value=stratification_fixture();blocked=[]
+    trades,counts=stratification.replay_variant(features,prices,calendar,contract_value,"baseline",None,blocked.append)
+    first=[r for r in trades if r["signal_date"]==calendar[20] and r["horizon"]==20]
+    assert {r["partition"] for r in first}=={"purged_cross_split"}
+    assert any(r["signal_date"]==calendar[40] and r["horizon"]==20 and r["reasons"]=="blocked_active_position" for r in blocked)
+    assert any(r["signal_date"]==calendar[42] and r["horizon"]==20 and r["partition"]=="validation" for r in trades)
+    assert sum(counts.values())==len(blocked)
+
+
+def test_stratification_unknown_future_exit_is_immature_with_target_index():
+    features,prices,calendar,contract_value=stratification_fixture();blocked=[]
+    trades,_=stratification.replay_variant(features[-1:],prices,calendar,contract_value,"baseline",None,blocked.append)
+    row=next(r for r in blocked if r["horizon"]==60 and r["record_type"]=="operation_censored")
+    assert row["exit_date"]=="" and row["exit_target_index"]==136 and row["reasons"]=="open_immature"
+    assert not trades
+
+
+def test_stratification_training_rule_ignores_validation_and_candidate_exclusion():
+    features,_,calendar,c=stratification_fixture();by={r["feature_id"]:r for r in features}
+    trades=[]
+    for i,(partition,width,result) in enumerate([("training","10","20"),("training","20","-20"),("training","30","0"),("training","40","1"),("validation","999","999")]):
+        f=features[i];f["range_20obs_pct"]=width
+        trades.append(dict(feature_id=f["feature_id"],horizon=20,slippage_bps=10,partition=partition,net_return_pct=result,
+                           trade_id=str(i),stock_id=f["stock_id"],signal_date=f["signal_date"]))
+    prior=[dict(signal_date=trades[0]["signal_date"],stock_id="2330",horizon="20")]
+    threshold,contrasts,rules=stratification.training_material(trades,by,c,prior)
+    assert threshold==Decimal("32.50") and rules["training_positions"]==4
+    assert rules["immutable_training_candidate_group_counts"]=={"high":1}
+    assert len(contrasts)==120
+    sensitivity=next(r for r in contrasts if r["population"]!="primary" and r["outcome_group"]=="all_training" and r["feature_name"]=="range_20obs_pct")
+    assert sensitivity["samples"]==3
+
+
+def test_stratification_anomaly_IQR_is_entire_ledger_not_partition():
+    rows=[]
+    for i,value in enumerate([1,1,1,1,1,500]):
+        rows.append(dict(variant="baseline",partition="validation" if i==5 else "training",slippage_bps=10,
+                         horizon=20,signal_date=str(i),stock_id="2330",net_return_pct=str(value),entry_date="20250101",exit_date="20250301"))
+    anomalies=stratification.mark_anomalies(rows,[])
+    assert len(anomalies)==1 and anomalies[0]["partition"]=="validation"
+    assert rows[-1]["anomaly_candidate"] is True and len(rows)==6
+
+
+def test_stratification_report_and_wire_schemas_have_synthetic_nonempty_coverage():
+    features,prices,calendar,c=stratification_fixture();blocked=[]
+    trades,counts=stratification.replay_variant(features,prices,calendar,c,"baseline",None,blocked.append)
+    threshold,contrasts,rules=stratification.training_material(trades,{r["feature_id"]:r for r in features},c)
+    anomalies=stratification.mark_anomalies(trades,[])
+    summary=stratification.summaries(trades,counts,features,calendar,c,"baseline",threshold)
+    assert len(summary)==48
+    for kind,rows in dict(features=features,trades=trades,blocked=blocked,training_contrasts=contrasts,summary=summary,anomalies=anomalies).items():
+        assert producer.csv_bytes(rows,stratification.SCHEMAS[kind])
+    report=stratification.report_bytes(c,rules,summary,anomalies,contrasts).decode()
+    assert "不是完全盲測" in report and "不是corrected/cleaned performance" in report
+    assert "formal_use=False" in report
+    assert "## 訓練高／低報酬特徵對照" in report and "正/零/負率%" in report
+    assert "新帳本全期variant/horizon IQR" in report and "新帳本分區IQR" not in report
+    assert "| primary | range_20obs_pct | median |" in report
+
+
+def test_stratification_opt_in_flags_are_mutually_exclusive():
+    with pytest.raises(SystemExit) as error:
+        producer.main(["--input-root","synthetic","--horizon-extension-contract","one","--condition-stratification-contract","two"])
+    assert error.value.code==2
+
+
+@pytest.mark.parametrize("defect",["missing","extra","nonbytes"])
+def test_stratification_writer_rejects_nonexact_payloads(tmp_path,defect):
+    artifacts={n:b"synthetic" for n in stratification.GENERATED}
+    if defect=="missing":artifacts.pop(next(iter(artifacts)))
+    elif defect=="extra":artifacts[producer.NAMES["summary"]]=b"unchanged old version"
+    else:artifacts[next(iter(artifacts))]="not bytes"
+    with pytest.raises(ValueError,match="Exact-nine"):
+        stratification.write_outputs(tmp_path,artifacts)
+    assert not (tmp_path/stratification.DIRECTORY).exists()
+
+
+def test_stratification_guard_rejects_old_version_change(monkeypatch):
+    snapshots=iter([{"old":"one"},{"old":"two"}])
+    monkeypatch.setattr(stratification,"frozen_snapshot",lambda root:next(snapshots))
+    with pytest.raises(ValueError,match="Annual9/horizon7"):
+        with stratification.preserve_previous_versions(ROOT):pass
+
+
+def projection_fixture():
+    rows,prices,calendar,_=stratification_fixture()
+    source_path="warmup/2330.json";digest="a"*64
+    for date in calendar[:2]:
+        prices[date]["2330"].update(source="TPEx_OFFICIAL_MONTHLY_CURRENT_VERSION",
+            source_path="external:"+source_path,source_sha256=digest)
+    row=stratification.derive_feature(rows[0],prices)
+    dates=row["observed_history_dates"].split(";")
+    reference=dict(feature_id=row["feature_id"],signal_date=row["signal_date"],stock_id="2330",
+        observed_dates=dates,observed_dates_sha256=producer.sha(producer.json_bytes(dates)),
+        previous_20obs_low_ex_today=row["previous_20obs_low_ex_today"],
+        missing_observation_dates=calendar[:2],warmup_sources=[dict(path=source_path,sha256=digest)])
+    projection=dict(rows=[reference],row_count=1,missing_pair_count=2,
+                    rows_sha256=producer.sha(producer.json_bytes([reference])))
+    original=dict(external_files=[dict(path=source_path,sha256=digest,kind="price_warmup")])
+    return row,prices,projection,original
+
+
+def test_stratification_contract_is_frozen_before_replay():
+    value=json.loads((ROOT/stratification.CONTRACT_FILE).read_text(encoding="utf-8"))
+    stratification.validate_contract(value)
+    value["validation_entry_start"]="20260402"
+    with pytest.raises(ValueError,match="Frozen stratification contract changed"):
+        stratification.validate_contract(value)
+
+
+def test_stratification_warmup_projection_matches_raw_without_replacing_values():
+    row,prices,projection,original=projection_fixture()
+    before=dict(row)
+    audit=stratification.prepare_warmup_projection(projection,original)
+    stratification.verify_raw_warmup_projection(row,prices,audit)
+    assert stratification.finish_warmup_projection(audit)==dict(raw_verified_rows=1,raw_verified_missing_pairs=2,
+                                                               projection_used_as_price_fallback=False)
+    assert row==before
+
+
+@pytest.mark.parametrize("defect",["duplicate","digest","dates","source","pair_count"])
+def test_stratification_projection_rejects_malformed_immutable_reference(defect):
+    _,_,projection,original=projection_fixture()
+    if defect=="duplicate":
+        projection["rows"]*=2;projection["row_count"]=2
+    elif defect=="dates":projection["rows"][0]["observed_dates_sha256"]="0"*64
+    elif defect=="source":projection["rows"][0]["warmup_sources"][0]["sha256"]="0"*64
+    elif defect=="pair_count":projection["missing_pair_count"]=3
+    projection["rows_sha256"]=producer.sha(producer.json_bytes(projection["rows"]))
+    if defect=="digest":projection["rows_sha256"]="0"*64
+    with pytest.raises(ValueError,match="Warmup projection"):
+        stratification.prepare_warmup_projection(projection,original)
+
+
+@pytest.mark.parametrize("defect",["low","source","observed_dates","missing_date","unexpected","no_raw"])
+def test_stratification_projection_raw_mismatch_fails_closed(defect):
+    row,prices,projection,original=projection_fixture()
+    audit=stratification.prepare_warmup_projection(projection,original)
+    date=projection["rows"][0]["missing_observation_dates"][0]
+    if defect=="low":row["previous_20obs_low_ex_today"]="0.01"
+    elif defect=="source":prices[date]["2330"]["source_sha256"]="0"*64
+    elif defect=="observed_dates":row["observed_history_dates"]=row["observed_history_dates"].replace(date,"19000101")
+    elif defect=="missing_date":prices[date]["2330"]["source"]="ordinary"
+    elif defect=="unexpected":audit["index"]={}
+    else:
+        for d in projection["rows"][0]["missing_observation_dates"]:prices[d]["2330"]["source"]="ordinary"
+    with pytest.raises(ValueError,match="[Ww]armup projection"):
+        stratification.verify_raw_warmup_projection(row,prices,audit)
+
+
+def test_stratification_projection_exact_coverage_and_duplicate_rows_are_required():
+    row,prices,projection,original=projection_fixture()
+    audit=stratification.prepare_warmup_projection(projection,original)
+    with pytest.raises(ValueError,match="exact identity coverage"):
+        stratification.finish_warmup_projection(audit)
+    stratification.verify_raw_warmup_projection(row,prices,audit)
+    with pytest.raises(ValueError,match="duplicate raw warmup"):
+        stratification.verify_raw_warmup_projection(row,prices,audit)

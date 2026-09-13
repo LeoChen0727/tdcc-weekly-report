@@ -431,6 +431,7 @@ REVENUE_MARKERS = (
 FINANCIAL_STATEMENT_MARKERS = ("financial_statement",)
 
 MODEL_LIKE_MARKERS = (
+    "tdcc_stealth_accumulation_condition_stratification",
     "tdcc_stealth_accumulation_current_version_horizon_extension",
     "tdcc_stealth_accumulation_current_version_annual_replay",
     "tdcc_stealth_accumulation_corporate_action_ledger",
@@ -563,6 +564,19 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_anomalies_v1.csv",
         "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_paired_summary_v1.csv",
         "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_report_v1.md",
+        "scripts/tdcc_stealth_accumulation_condition_stratification.py",
+        "scripts/validate_tdcc_stealth_accumulation_condition_stratification.py",
+        "config/tdcc_stealth_accumulation_condition_stratification_v1.json",
+        "docs/specs/tdcc_stealth_accumulation_condition_stratification_v1.md",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_source_manifest_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_features_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_training_contrasts_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_candidate_rules_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_trades_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_blocked_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_anomalies_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_report_v1.md",
         "scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py",
         "tests/test_tdcc_stealth_accumulation_current_version_annual_replay.py",
         "tests/test_validate_tdcc_stealth_accumulation_current_version_annual_replay.py",

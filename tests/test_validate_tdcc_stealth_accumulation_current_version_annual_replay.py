@@ -667,3 +667,503 @@ def test_horizon_extension_real_published_seven_preserve_v1_and_output_bytes(hor
         assert horizon_audit.sha(fresh.read(horizon_audit.BASE_REF, relative)) == digest
         path = ROOT / relative
         assert (horizon_audit.sha(path.read_bytes()) if path.is_file() else None) == physical
+
+
+@pytest.fixture
+def stratification_audit(monkeypatch):
+    import sys
+    monkeypatch.syspath_prepend(str(ROOT / "scripts"))
+    name = "stratification_independent_audit_test"
+    spec = importlib.util.spec_from_file_location(name, ROOT / "scripts/validate_tdcc_stealth_accumulation_condition_stratification.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+class StratificationSyntheticPrices:
+    def __init__(self, audit, stocks=("1111", "2222", "3333")):
+        self.audit, self.stocks, self.missing, self.calls = audit, stocks, set(), []
+
+    def daily(self, date):
+        self.calls.append(date)
+        return {stock: simple_price(self.audit.annual_io, date, stock) for stock in self.stocks if (date, stock) not in self.missing}, {}
+
+
+def stratification_report(audit, rules, rows, anomalies, contrasts):
+    text = ["research_only formal_use=False promotion_evidence_allowed=False 不是strict PIT total-return 不是完全盲測 D20主要、D60僅robustness 切分不重置 精確44個warmup缺口 原65份私有來源 零分母為空 不是corrected/cleaned performance 不使用月營收",
+        f"訓練baseline D20/10bps：{rules['training_positions']}部位、{rules['training_stocks']}股、{rules['training_signal_dates']}訊號日期；寬度有效分母{rules['training_width_samples']}；type7 Q75={rules['training_q75']}。",
+        "## 固定五個單項條件", "", "| variant | meaning |", "|---|---|"]
+    text.extend("| " + variant + " | description |" for variant in audit.VARIANTS[1:])
+    text.extend(["", "## 訓練高／低報酬特徵對照（D20／10 bps）", "", "| header |", "|---|"])
+    lookup = {(r["population"], r["feature_name"], r["outcome_group"]):r for r in contrasts}
+    for population in ("primary", "immutable_prior_candidate_exclusion_sensitivity"):
+        for field in ("tdcc_both_net_positive", "tdcc_both_up_count_ge2", "no_new_low_previous20obs", "range_20obs_pct", "return_5d"):
+            statistic = "median" if field in {"range_20obs_pct", "return_5d"} else "mean"
+            cells = [population, field, statistic] + [lookup[population, field, group][statistic] for group in ("high", "low", "middle")]
+            text.append("| " + " | ".join(cells) + " |")
+    text.extend(["", "## 訓練／驗證主要與敏感性對照（10 bps）", "", "| header |", "|---|"])
+    for row in rows:
+        if row["slippage_bps"] == 10 and row["partition"] in {"training", "validation"}:
+            cells = [row[k] for k in ("variant", "horizon", "partition", "population", "samples", "stocks", "signal_dates", "entry_dates")] + [f"{row['win_count']}/{row['neutral_count']}/{row['failure_count']}", f"{row['win_rate_pct']}/{row['neutral_rate_pct']}/{row['failure_rate_pct']}"] + [row[k] for k in ("mean_net_return_pct", "median_net_return_pct", "high_return_ge10_rate_pct", "loss_le_minus10_rate_pct")]
+            text.append("| " + " | ".join(map(str, cells)) + " |")
+    text.extend(["", "## 缺證、未成熟與重疊（10 bps primary）", "", "| header |", "|---|"])
+    for row in rows:
+        if row["slippage_bps"] == 10 and row["population"] == "primary" and row["partition"] != "all":
+            cells = [row[k] for k in ("variant", "horizon", "partition", "unsupported_signals", "filter_rejected_signals", "overlap_blocked_signals", "missing_entry_signals", "immature_positions", "missing_exit_positions", "purged_positions")]
+            text.append("| " + " | ".join(map(str, cells)) + " |")
+    text.append(f"未解數值候選{len(anomalies)}列")
+    return ("\n".join(text) + "\n").encode("utf-8")
+
+
+@pytest.fixture
+def stratification_bundle(stratification_audit, monkeypatch):
+    from collections import Counter
+    audit = stratification_audit
+    contract = json.loads((ROOT / audit.CONTRACT_FILE).read_bytes())
+    calendar = audit.session_calendar([])
+    prices = StratificationSyntheticPrices(audit)
+    signals = [base_feature(audit.annual_io, date, stock) for date, stock in (("20250910", "1111"), ("20250911", "1111"), ("20260105", "2222"), ("20260316", "2222"), ("20260402", "2222"), ("20260908", "3333"), ("20260909", "3333"))]
+    signals[0]["tdcc_400_change_sum"] = "-1"
+    signals = list(audit.annual_io.rows_for("signals", gzip.compress(encode(signals, audit.annual_io.FEATURE_FIELDS), mtime=0)))
+    features = [audit.derive_feature(row, prices) for row in signals]
+    by_id = {row["feature_id"]: row for row in features}
+    original = dict(history_start="20250401", calendar_end="20261030", requested_signal_start="20250910", as_of=audit.AS_OF)
+    supplemental = dict(warmup_nonquote_rows=0, supplemental_price_rows=0)
+    original_manifest = dict(counts=dict(signals=len(features), supplemental=supplemental))
+    context = dict(original=original, original_manifest=original_manifest, signals_payload=gzip.compress(encode(signals, audit.annual_io.FEATURE_FIELDS), mtime=0), retained=[], prices=prices, closures=[], calendar=calendar, inputs=None)
+    monkeypatch.setattr(audit, "load_context", lambda *args, **kwargs: context)
+    monkeypatch.setattr(audit, "projection_map", lambda *args: {})
+    monkeypatch.setattr(audit, "audit_source_bindings", lambda *args: None)
+    input_counts = {h: Counter(audit.partition(**{k:v for k,v in audit.holding_dates(calendar, f["signal_date"], h).items() if k in {"entry_date", "exit_date"}}) for f in features) for h in audit.HORIZONS}
+    trades, blocked, summary, anomalies, threshold = [], [], [], [], None
+    for variant in audit.VARIANTS:
+        these, counts = [], Counter()
+        for horizon in audit.HORIZONS:
+            for kind, row in audit.ledger_rows(features, prices, calendar, variant, threshold, horizon):
+                if kind == "trades": these.append(row)
+                else:
+                    blocked.append(row)
+                    counts[row["partition"], horizon, row["record_type"], row["reasons"]] += 1
+        compact = [audit.compact_trade(row) for row in these]
+        if variant == "baseline": threshold, contrasts, rules = audit.training_material(compact, by_id, contract, [])
+        new_anomalies, keys = audit.anomaly_rows(compact, [])
+        for row in these: row["anomaly_candidate"] = (row["signal_date"], row["stock_id"], row["horizon"]) in keys
+        trades.extend(these)
+        anomalies.extend(new_anomalies)
+        summary.extend(audit.summaries(compact, counts, input_counts, variant, keys))
+    artifacts = {}
+    for kind, rows in dict(features=features, trades=trades, blocked=blocked, summary=summary, anomalies=anomalies, training_contrasts=contrasts).items():
+        data = encode([{field:row.get(field, "") for field in audit.SCHEMAS[kind]} for row in rows], audit.SCHEMAS[kind])
+        artifacts[audit.artifact_name(kind)] = gzip.compress(data, mtime=0) if kind in {"features", "trades", "blocked"} else data
+    artifacts[audit.artifact_name("candidate_rules")] = audit.canonical_json(rules)
+    artifacts[audit.artifact_name("report")] = stratification_report(audit, rules, summary, anomalies, contrasts)
+    manifest = dict(model_id="tdcc_stealth_accumulation", owner_id="tdcc_stealth_accumulation_current_version_annual_replay", artifact_version=audit.PREFIX + "v1", contract_file=audit.CONTRACT_FILE, contract=contract, contract_sha256=audit.APPROVED_CONTRACT_SHA256, base_contract=original,
+        calendar=dict(sessions=calendar, closures=[], history_start="20250401", calendar_end="20261030"), candidate_rules=rules,
+        warmup_projection_audit=dict(raw_verified_rows=44, raw_verified_missing_pairs=65, projection_used_as_price_fallback=False),
+        counts=dict(signals=len(features), trades=len(trades), blocked=len(blocked), summary=len(summary), anomalies=len(anomalies), training_contrasts=len(contrasts), baseline_candidate_source_rows=0, supplemental=supplemental),
+        hashes={name:dict(bytes=len(data), sha256=audit.digest(data)) for name,data in artifacts.items()}, **{field:False for field in audit.FALSE_FLAGS})
+    artifacts[audit.artifact_name("source_manifest")] = audit.canonical_json(manifest)
+    return contract, artifacts
+
+
+def stratification_rehash(audit, artifacts, kind, payload):
+    name = audit.artifact_name(kind)
+    artifacts[name] = payload
+    manifest = json.loads(artifacts[audit.artifact_name("source_manifest")])
+    manifest["hashes"][name] = dict(bytes=len(payload), sha256=audit.digest(payload))
+    artifacts[audit.artifact_name("source_manifest")] = audit.canonical_json(manifest)
+
+
+def test_stratification_synthetic_bundle(stratification_audit, stratification_bundle):
+    assert stratification_audit.validate_artifacts(ROOT, *stratification_bundle, published_only=True) == []
+
+
+@pytest.mark.parametrize("values,p,expected", [([1,2,3,4], ".75", "3.25"), ([9], ".75", "9"), ([1,3], ".5", "2"), (["0.1","0.2"], ".75", "0.175")])
+def test_stratification_decimal_type7(stratification_audit, values, p, expected):
+    assert stratification_audit.quantile_type7(values, p) == Decimal(expected)
+
+
+@pytest.mark.parametrize("values", [[], ["NaN"], [1, ""], ["Infinity"]])
+def test_stratification_quantile_missing_not_zero(stratification_audit, values):
+    with pytest.raises(ValueError): stratification_audit.quantile_type7(values, ".75")
+
+
+def test_stratification_conditions_are_independent_and_missing_not_false(stratification_audit):
+    audit = stratification_audit
+    row = dict(tdcc_400_change_sum="-1", tdcc_1000_change_sum="-1", tdcc_400_up_weeks="2", tdcc_1000_up_weeks="2", return_5d="-0.0000", range_20obs_pct="1", current_low="", previous_20obs_low_ex_today="", stratification_feature_supported=False)
+    assert audit.condition(row, "tdcc_both_net_positive", None) == (False, True)
+    assert audit.condition(row, "tdcc_both_up_count_ge2", None) == (True, True)
+    assert audit.condition(row, "price_5obs_nonnegative", None) == (True, True)
+    assert audit.condition(row, "range_20obs_le_training_q75", Decimal(1)) == (True, True)
+    assert audit.condition(row, "no_new_low_previous20obs", None) == (False, False)
+    assert audit.condition(row, "baseline", None) == (True, True)
+
+
+def test_stratification_observation_window_excludes_today_and_preserves_gap(stratification_audit):
+    audit = stratification_audit
+    signal = base_feature(audit.annual_io)
+    signal["history_gap_count"] = "3"
+    prices = StratificationSyntheticPrices(audit)
+    row = audit.derive_feature(signal, prices)
+    assert row["previous_20obs_low_ex_today"] == "99.0" and row["no_new_low_previous20obs"] is True
+    with localcontext() as context:
+        context.prec = 50
+        assert row["range_20obs_pct"] == str((Decimal("101")/Decimal("99")-1)*100)
+    assert row["history_gap_count"] == "3" and row["stratification_feature_supported"] is True
+    prices.missing.add((signal["observed_history_dates"].split(";")[0], "1111"))
+    missing = audit.derive_feature(signal, prices)
+    assert missing["previous_20obs_low_ex_today"] == "" and missing["stratification_feature_supported"] is False
+    assert audit.condition(missing, "tdcc_both_net_positive", None) == (True, True)
+
+
+def test_stratification_chronology_retains_cross_split_lock_and_rebuilds_filtered_entries(stratification_audit, stratification_bundle):
+    audit = stratification_audit
+    _, artifacts = stratification_bundle
+    trades = list(audit.records("trades", artifacts[audit.artifact_name("trades")]))
+    baseline = {row["signal_date"] for row in trades if row["variant"] == "baseline" and row["stock_id"] == "1111"}
+    filtered = {row["signal_date"] for row in trades if row["variant"] == "tdcc_both_net_positive" and row["stock_id"] == "1111"}
+    assert baseline == {"20250910"} and filtered == {"20250911"}
+    blocked = list(audit.records("blocked", artifacts[audit.artifact_name("blocked")]))
+    cross = [row for row in blocked if row["signal_date"] == "20260402" and row["variant"] == "baseline" and row["horizon"] == "20" and row["record_type"] == "operation_no_entry"]
+    assert len(cross) == 1 and cross[0]["partition"] == "validation" and cross[0]["reasons"] == "blocked_active_position"
+    rules = json.loads(artifacts[audit.artifact_name("candidate_rules")])
+    assert rules["training_positions"] == 2
+    assert rules["selection_uses_validation"] is False and rules["selection_uses_anomaly_exclusion"] is False
+
+
+@pytest.mark.parametrize("kind,field,value", [
+    ("features", "observed_history_dates", "20250910"), ("features", "range_20obs_pct", "0"), ("features", "previous_20obs_low_ex_today", "0"),
+    ("features", "input_ref", "HEAD"), ("features", "formal_use", "True"), ("features", "price_state", "bottom_confirmed"),
+    ("trades", "entry_index", "999"), ("trades", "exit_target_index", "999"), ("trades", "partition", "validation"),
+    ("trades", "net_pnl", "999"), ("trades", "strict_missing_evidence", ""), ("trades", "anomaly_candidate", "True"),
+    ("blocked", "reasons", "open_immature"), ("blocked", "strict_entry_established", "True"),
+    ("summary", "total_input_signals", "0"), ("summary", "samples", "0"), ("summary", "mean_net_return_pct", "999"),
+    ("training_contrasts", "samples", "0"), ("training_contrasts", "population", "validation"), ("training_contrasts", "q75", "0"),
+])
+def test_stratification_rehashed_field_mutations(stratification_audit, stratification_bundle, kind, field, value):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    rows = list(audit.records(kind, artifacts[audit.artifact_name(kind)]))
+    rows[0][field] = value
+    data = encode(rows, audit.SCHEMAS[kind])
+    if kind in {"features", "trades", "blocked"}: data = gzip.compress(data, mtime=0)
+    stratification_rehash(audit, artifacts, kind, data)
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("kind", ["source_manifest", "features", "training_contrasts", "candidate_rules", "trades", "blocked", "summary", "anomalies", "report"])
+def test_stratification_any_missing_artifact_fails(stratification_audit, stratification_bundle, kind):
+    contract, artifacts = stratification_bundle
+    artifacts.pop(stratification_audit.artifact_name(kind))
+    assert stratification_audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("field", ["training_q75", "training_width_samples", "training_trade_keys_sha256", "selection_uses_validation", "selection_uses_anomaly_exclusion"])
+def test_stratification_rehashed_rules_mutations(stratification_audit, stratification_bundle, field):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    rules = json.loads(artifacts[audit.artifact_name("candidate_rules")])
+    rules[field] = True if field.startswith("selection") else "999"
+    stratification_rehash(audit, artifacts, "candidate_rules", audit.canonical_json(rules))
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("field", ["calendar", "contract_sha256", "formal_use", "counts"])
+def test_stratification_manifest_boundary_mutations(stratification_audit, stratification_bundle, field):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    name = audit.artifact_name("source_manifest")
+    manifest = json.loads(artifacts[name])
+    if field == "calendar": manifest[field]["sessions"].pop(20)
+    elif field == "counts": manifest[field]["signals"] = 0
+    elif field == "formal_use": manifest[field] = True
+    else: manifest[field] = "0" * 64
+    artifacts[name] = audit.canonical_json(manifest)
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+def test_stratification_late_h60_is_immature_without_future_lookup(stratification_audit):
+    audit = stratification_audit
+    calendar = audit.session_calendar([], end="20260915")
+    prices = StratificationSyntheticPrices(audit)
+    row = base_feature(audit.annual_io, "20260908")
+    records = list(audit.ledger_rows([row], prices, calendar, "baseline", None, 60))
+    assert records[-1][1]["reasons"] == "open_immature" and records[-1][1]["exit_date"] == ""
+    assert all(date <= audit.AS_OF for date in prices.calls)
+
+
+def test_stratification_missing_private_mode_rejected(stratification_audit, stratification_bundle):
+    assert any("requires --input-root" in error for error in stratification_audit.validate_artifacts(ROOT, *stratification_bundle))
+
+
+def test_stratification_no_new_producer_import_or_eval(stratification_audit):
+    tree = ast.parse(Path(stratification_audit.__file__).read_text(encoding="utf-8"))
+    imports = [node.module for node in ast.walk(tree) if isinstance(node, ast.ImportFrom)]
+    imports += [alias.name for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names]
+    assert not any(name and (name.startswith("build_tdcc") or name == "tdcc_stealth_accumulation_condition_stratification") for name in imports)
+    assert not any(isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id in {"exec", "eval", "compile"} for node in ast.walk(tree))
+
+
+@pytest.mark.parametrize("field", ["base_artifact_ref", "price_source_ref", "protected_artifact_ref", "validation_entry_start", "as_of", "horizons"])
+def test_stratification_fixed_contract_pins_cannot_drift(stratification_audit, field):
+    audit = stratification_audit
+    contract = json.loads((ROOT / audit.CONTRACT_FILE).read_bytes())
+    contract[field] = "MUTATED"
+    with pytest.raises(ValueError, match="contract SHA256"):
+        audit.contract_audit(contract)
+
+
+@pytest.mark.parametrize("mutation", ["missing", "extra", "duplicate", "source_hash", "source_path", "observed_hash", "observed_date", "missing_dates"])
+def test_stratification_projection_exact_44_source_scope(stratification_audit, mutation):
+    audit = stratification_audit
+    contract = json.loads((ROOT / audit.CONTRACT_FILE).read_bytes())
+    original = json.loads((ROOT / audit.annual_io.CONTRACT_FILE).read_bytes())
+    assert len(audit.projection_map(contract, original)) == 44
+    rows = contract["published_warmup_low_projection"]["rows"]
+    if mutation == "missing": rows.pop()
+    elif mutation in {"extra", "duplicate"}: rows.append(copy.deepcopy(rows[0]))
+    elif mutation == "source_hash": rows[0]["warmup_sources"][0]["sha256"] = "0"*64
+    elif mutation == "source_path": rows[0]["warmup_sources"][0]["path"] = "other.json"
+    elif mutation == "observed_hash": rows[0]["observed_dates_sha256"] = "0"*64
+    elif mutation == "observed_date": rows[0]["observed_dates"][0] = "20250101"
+    else: rows[0]["missing_observation_dates"] = []
+    with pytest.raises(ValueError): audit.projection_map(contract, original)
+
+
+def test_stratification_projection_checks_raw_minimum_and_not_general_fallback(stratification_audit):
+    audit = stratification_audit
+    signal = base_feature(audit.annual_io)
+    dates = signal["observed_history_dates"].split(";")
+    projection = dict(feature_id=signal["feature_id"], signal_date=signal["signal_date"], stock_id=signal["stock_id"], observed_dates=dates, observed_dates_sha256=audit.digest(audit.canonical_json(dates)), previous_20obs_low_ex_today="99.0", missing_observation_dates=[dates[0]])
+    prices = StratificationSyntheticPrices(audit)
+    assert audit.derive_feature(signal, prices, projection)["previous_20obs_low_ex_today"] == "99.0"
+    wrong = dict(projection, previous_20obs_low_ex_today="98")
+    with pytest.raises(ValueError, match="raw independent minimum"):
+        audit.derive_feature(signal, prices, wrong)
+    prices.missing.add((dates[0], "1111"))
+    assert audit.derive_feature(signal, prices, projection)["previous_20obs_low_ex_today"] == "99.0"
+    prices.missing.add((dates[1], "1111"))
+    with pytest.raises(ValueError, match="missing-date scope"):
+        audit.derive_feature(signal, prices, projection)
+
+
+def test_stratification_training_q75_includes_candidate_and_excludes_later_labels(stratification_audit):
+    audit = stratification_audit
+    contract = json.loads((ROOT / audit.CONTRACT_FILE).read_bytes())
+    features, trades = {}, []
+    for index, (part, width, value) in enumerate((("training", "1", "0"), ("training", "2", "10"), ("training", "3", "-10"), ("training", "100", "100"), ("validation", "100000", "9999"), ("purged_cross_split", "999999", "9999"))):
+        feature = base_feature(audit.annual_io, "20250910", str(1111+index))
+        feature.update(range_20obs_pct=width, current_low="99", previous_20obs_low_ex_today="99", price_state="nonnegative_short_and_medium")
+        features[feature["feature_id"]] = feature
+        trades.append(audit.StatTrade("baseline", part, feature["feature_id"], "20250910", feature["stock_id"], 20, 10, "20250911", "20251010", value, f"trade-{index}", None))
+    retained = [dict(signal_date="20250910", stock_id="1114", horizon="20")]
+    threshold, contrasts, rules = audit.training_material(trades, features, contract, retained)
+    assert threshold == Decimal("27.25") and rules["training_width_samples"] == 4
+    assert rules["training_outcome_group_counts"] == {"middle":1, "high":2, "low":1}
+    assert rules["immutable_training_candidate_group_counts"] == {"high":1}
+    sensitivity = next(row for row in contrasts if row["population"] != "primary" and row["feature_name"] == "range_20obs_pct" and row["outcome_group"] == "all_training")
+    assert sensitivity["valid_samples"] == 3 and Decimal(sensitivity["q75"]) == Decimal("2.5")
+    assert len(contrasts) == 120
+
+
+def test_stratification_anomaly_iqr_full_ledger_and_cost_flags(stratification_audit):
+    audit = stratification_audit
+    trades = []
+    for horizon in audit.HORIZONS:
+        for index, value in enumerate((0,1,2,3,100)):
+            for slip in audit.SLIPPAGES:
+                trades.append(audit.StatTrade("baseline", "validation" if index == 4 else "training", f"id{index}", "20250910", str(1111+index), horizon, slip, "20250911", "20251212", str(value), f"{index}:{slip}", None))
+    retained = [dict(signal_date="20250910", stock_id="1111", horizon="20")]
+    rows, keys = audit.anomaly_rows(trades, retained)
+    assert ("20250910", "1111", 20) in keys and ("20250910", "1111", 60) not in keys
+    assert ("20250910", "1115", 20) in keys and ("20250910", "1115", 60) in keys
+    assert len(rows) == 3 and all(row["disposition"] == "unresolved_anomaly_candidate" and row["primary_row_retained"] for row in rows)
+    wrong = trades[0]._replace(published_anomaly=False)
+    with pytest.raises(ValueError, match="candidate flag"):
+        audit.anomaly_rows([wrong, *trades[1:]], retained)
+
+
+def test_stratification_missing_exit_keeps_unresolved_lock(stratification_audit):
+    audit = stratification_audit
+    calendar = audit.session_calendar([])
+    prices = StratificationSyntheticPrices(audit)
+    first = base_feature(audit.annual_io, "20250910")
+    target = audit.holding_dates(calendar, first["signal_date"], 20)
+    prices.missing.add((target["exit_date"], "1111"))
+    later = base_feature(audit.annual_io, "20260105")
+    rows = list(audit.ledger_rows([first, later], prices, calendar, "baseline", None, 20))
+    assert not any(kind == "trades" for kind, _ in rows)
+    assert [row["reasons"] for kind,row in rows if row["record_type"] != "strict_ledger_decision"] == ["open_unresolved_exit_price", "blocked_active_position"]
+
+
+def test_stratification_costs_minimum_fee_tax_and_empty_denominators(stratification_audit):
+    audit = stratification_audit
+    trade = audit.cashflows("1", "1", 0)
+    assert Decimal(trade["buy_fee"]) == 20 and Decimal(trade["sell_fee"]) == 20
+    assert Decimal(trade["sell_tax"]) == 3 and Decimal(trade["net_pnl"]) == -43
+    assert Decimal(audit.cashflows("1", "1", 20)["net_return_pct"]) < Decimal(trade["net_return_pct"])
+    assert audit.return_statistics([])["mean_net_return_pct"] == ""
+    stats = audit.return_statistics([-10,0,10])
+    assert stats["win_count"] == stats["neutral_count"] == stats["failure_count"] == 1
+    assert stats["high_return_ge10_rate_pct"] == stats["loss_le_minus10_rate_pct"]
+
+
+@pytest.mark.parametrize("section", ["固定五個單項條件", "訓練高／低報酬特徵對照（D20／10 bps）", "訓練／驗證主要與敏感性對照（10 bps）", "缺證、未成熟與重疊（10 bps primary）"])
+def test_stratification_rehashed_report_missing_section(stratification_audit, stratification_bundle, section):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    report = artifacts[audit.artifact_name("report")].decode("utf-8").replace("## " + section, "## MUTATED", 1)
+    stratification_rehash(audit, artifacts, "report", report.encode("utf-8"))
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("section,cell", [("訓練高／低報酬特徵對照（D20／10 bps）",3), ("訓練／驗證主要與敏感性對照（10 bps）",9), ("缺證、未成熟與重疊（10 bps primary）",3)])
+def test_stratification_rehashed_report_numeric_mutation(stratification_audit, stratification_bundle, section, cell):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    report = artifacts[audit.artifact_name("report")].decode("utf-8")
+    start = report.index("## " + section)
+    prefix, body = report[:start], report[start:]
+    lines = body.splitlines()
+    table = [i for i,line in enumerate(lines) if line.startswith("| ")]
+    index = table[1]
+    fields = lines[index].split("|")
+    fields[cell+1] = " 999 "
+    lines[index] = "|".join(fields)
+    stratification_rehash(audit, artifacts, "report", (prefix + "\n".join(lines) + "\n").encode("utf-8"))
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("mutation", ["bad_hash", "BOM", "CRLF", "truncated_gzip", "duplicate_feature", "extra_trade", "removed_trade"])
+def test_stratification_serialization_and_row_cardinality(stratification_audit, stratification_bundle, mutation):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    kind = "features"
+    if mutation in {"extra_trade", "removed_trade"}: kind = "trades"
+    payload = artifacts[audit.artifact_name(kind)]
+    if mutation == "bad_hash":
+        artifacts[audit.artifact_name(kind)] = payload + b"x"
+    elif mutation == "truncated_gzip":
+        stratification_rehash(audit, artifacts, kind, payload[:20])
+    elif mutation in {"BOM", "CRLF"}:
+        raw = gzip.decompress(payload)
+        raw = b"\xef\xbb\xbf" + raw if mutation == "BOM" else raw.replace(b"\n", b"\r\n")
+        stratification_rehash(audit, artifacts, kind, gzip.compress(raw, mtime=0))
+    else:
+        rows = list(audit.records(kind, payload))
+        if mutation == "removed_trade": rows.pop()
+        else: rows.append(rows[0])
+        stratification_rehash(audit, artifacts, kind, gzip.compress(encode(rows, audit.SCHEMAS[kind]), mtime=0))
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("field,value", [("raw_verified_rows",0), ("raw_verified_missing_pairs",0), ("projection_used_as_price_fallback",True)])
+def test_stratification_manifest_projection_audit_mutations(stratification_audit, stratification_bundle, field, value):
+    audit = stratification_audit
+    contract, artifacts = stratification_bundle
+    name = audit.artifact_name("source_manifest")
+    manifest = json.loads(artifacts[name])
+    manifest["warmup_projection_audit"][field] = value
+    artifacts[name] = audit.canonical_json(manifest)
+    assert audit.validate_artifacts(ROOT, contract, artifacts, published_only=True)
+
+
+@pytest.mark.parametrize("mutation", ["sha256", "git_blob_oid", "bytes", "ref", "extra_source", "external_sha256", "external_bytes"])
+def test_stratification_immutable_and_external_source_bindings(stratification_audit, mutation):
+    from types import SimpleNamespace
+    audit = stratification_audit
+    pairs = [(audit.BASE_REF, audit.annual_io.CONTRACT_FILE)]
+    pairs += [(audit.BASE_REF, audit.DIRECTORY + "/" + audit.annual_io.artifact_name(kind)) for kind in ("source_manifest", "signals", "features", "anomalies")]
+    pairs += [(audit.PROTECTED_REF, audit.horizon_io.CONTRACT_FILE)]
+    pairs += [(audit.PROTECTED_REF, audit.DIRECTORY + "/" + audit.horizon_io.name(kind)) for kind in ("source_manifest", "anomalies")]
+    pairs += [(audit.PRICE_REF, path) for path in ("data/daily_price/20250401.csv", "config/twse_non_trading_days.csv", "data/market_calendar/exceptional_non_trading_days.csv")]
+    used = {(ref,path):dict(ref=ref, path=path, git_blob_oid="1"*40, sha256="2"*64, bytes=123) for ref,path in pairs}
+    external = [dict(path="private.csv", sha256="3"*64, bytes=456)]
+    git = SimpleNamespace(used=used, tree=lambda ref: {"data/daily_price/20250401.csv":"1"*40})
+    context = dict(git=git, original=dict(history_start="20250401", as_of="20260909"), original_manifest=dict(external_sources=external), inputs=None)
+    manifest = dict(sources=copy.deepcopy(list(used.values())), external_sources=copy.deepcopy(external))
+    audit.audit_source_bindings(context, {}, manifest)
+    if mutation == "extra_source": manifest["sources"].append(copy.deepcopy(manifest["sources"][0]))
+    elif mutation.startswith("external_"): manifest["external_sources"][0][mutation.removeprefix("external_")] = "MUTATED"
+    else: manifest["sources"][0][mutation] = "MUTATED"
+    with pytest.raises(ValueError): audit.audit_source_bindings(context, {}, manifest)
+
+
+def test_stratification_missing_entry_never_establishes_proxy_or_strict_lock(stratification_audit):
+    audit = stratification_audit
+    prices = StratificationSyntheticPrices(audit)
+    prices.missing.add(("20250911", "1111"))
+    signals = [base_feature(audit.annual_io, date) for date in ("20250910", "20250911")]
+    rows = list(audit.ledger_rows(signals, prices, audit.session_calendar([]), "baseline", None, 20))
+    assert any(row.get("reasons") == "entry_price_missing_or_invalid" for _,row in rows)
+    assert {row["signal_date"] for kind,row in rows if kind == "trades"} == {"20250911"}
+    assert all(row["strict_entry_established"] is False for _,row in rows if row.get("record_type") == "strict_ledger_decision")
+
+
+def test_stratification_real_published_nine_preserve_old_sixteen(stratification_audit):
+    """Mandatory published evidence: missing new9 fails; no private-input or skip fallback."""
+    audit = stratification_audit
+    output = ROOT / audit.DIRECTORY
+    paths = [output / audit.artifact_name(kind) for kind in audit.KINDS]
+    assert all(path.is_file() and not path.is_symlink() for path in paths), "all nine stratification artifacts required"
+    before = {path.name:audit.digest(path.read_bytes()) for path in paths}
+    git = audit.annual_io.GitReader(ROOT)
+    previous = [audit.annual_io.artifact_name(kind) for kind in audit.annual_io.KINDS] + [audit.horizon_io.name(kind) for kind in audit.horizon_io.KINDS]
+    snapshots = {}
+    for name in previous:
+        relative = audit.DIRECTORY + "/" + name
+        data = git.read(audit.PROTECTED_REF, relative)
+        path = ROOT / relative
+        physical = audit.digest(path.read_bytes()) if path.is_file() else None
+        assert not path.is_symlink()
+        if physical is not None: assert physical == audit.digest(data)
+        snapshots[relative] = git.tree(audit.PROTECTED_REF)[relative], audit.digest(data), physical
+    assert audit.validate(ROOT, published_only=True) == []
+    assert {path.name:audit.digest(path.read_bytes()) for path in paths} == before
+    fresh = audit.annual_io.GitReader(ROOT)
+    for relative, (oid, digest_, physical) in snapshots.items():
+        path = ROOT / relative
+        assert fresh.tree(audit.PROTECTED_REF)[relative] == oid and audit.digest(fresh.read(audit.PROTECTED_REF, relative)) == digest_
+        assert (audit.digest(path.read_bytes()) if path.is_file() else None) == physical
+
+
+@pytest.mark.parametrize("actual,expected", [("",None), (None,""), (None,None), ("","")])
+def test_stratification_csv_wire_none_equals_empty_only(stratification_audit, actual, expected):
+    stratification_audit.compare_row("blocked", dict(entry_open=actual), dict(entry_open=expected))
+
+
+@pytest.mark.parametrize("value", [0, False, "0", "False"])
+def test_stratification_csv_wire_zero_and_false_are_not_missing(stratification_audit, value):
+    with pytest.raises(ValueError, match="entry_open"):
+        stratification_audit.compare_row("blocked", dict(entry_open=""), dict(entry_open=value))
+    with pytest.raises(ValueError, match="entry_open"):
+        stratification_audit.compare_row("blocked", dict(entry_open=value), dict(entry_open=None))
+
+
+def test_stratification_existing_entry_price_row_with_missing_open_serializes_blocked_empty(stratification_audit):
+    audit = stratification_audit
+    calendar = audit.session_calendar([])
+    signal = base_feature(audit.annual_io, "20250912", "2073")
+    entry = audit.holding_dates(calendar, signal["signal_date"], 20)["entry_date"]
+
+    class MissingOpenPrices:
+        def daily(self, date):
+            row = simple_price(audit.annual_io, date, "2073")
+            if date == entry:
+                row["open"] = None
+            return {"2073":row}, {}
+
+    prices = MissingOpenPrices()
+    assert not audit.valid_price(prices.daily(entry)[0]["2073"])
+    rows = list(audit.ledger_rows([signal], prices, calendar, "baseline", None, 20))
+    assert all(kind == "blocked" for kind, _ in rows)
+    expected = [row for _,row in rows]
+    strict = next(row for row in expected if row["record_type"] == "strict_ledger_decision")
+    assert strict["entry_open"] is None and strict["strict_entry_established"] is False
+    assert strict["strict_v3_status"] == "blocked_entry_price"
+    assert expected[-1]["reasons"] == "entry_price_missing_or_invalid"
+    payload = gzip.compress(encode([{field:row.get(field, "") for field in audit.SCHEMAS["blocked"]} for row in expected], audit.SCHEMAS["blocked"]), mtime=0)
+    actual = list(audit.records("blocked", payload))
+    assert actual[0]["entry_open"] == ""
+    audit.compare_sequence("blocked", actual, expected)
