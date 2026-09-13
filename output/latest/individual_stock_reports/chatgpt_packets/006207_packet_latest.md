@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:31 Asia/Taipei
+- generated_at: 2026-09-13 22:15:34 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: standard_rawdata_packet
