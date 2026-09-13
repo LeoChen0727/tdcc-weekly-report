@@ -1,0 +1,2151 @@
+{
+  "model_id": "tdcc_stealth_accumulation",
+  "owner_id": "tdcc_stealth_accumulation_current_version_annual_replay",
+  "artifact_version": "tdcc_stealth_accumulation_condition_stratification_v1",
+  "code_source_ref": "129b8669ef17cb1a678dd71b87097cbbff084c82",
+  "base_artifact_ref": "d2f3ccfaf95562b5179f433af0b4b41d62bfee17",
+  "protected_artifact_ref": "129b8669ef17cb1a678dd71b87097cbbff084c82",
+  "base_contract_file": "config/tdcc_stealth_accumulation_current_version_annual_replay_v1.json",
+  "base_contract_sha256": "fbccfcd32079dd1bf81eba942c91b57bc7942da0dffc3a5cd01df4872461de91",
+  "horizon_contract_file": "config/tdcc_stealth_accumulation_current_version_horizon_extension_v1.json",
+  "horizon_contract_sha256": "92b3ecd136ac2d70ffcdf575a836f4a5a68767bbbe6fbfb351cf5c158f24abdc",
+  "price_source_ref": "07d992bbd9afa283355d8828a294da4524efb56d",
+  "requested_signal_start": "20250910",
+  "requested_signal_end": "20260909",
+  "as_of": "20260909",
+  "validation_entry_start": "20260401",
+  "horizons": [
+    20,
+    60
+  ],
+  "primary_horizon": 20,
+  "robustness_horizon": 60,
+  "slippage_bps": [
+    0,
+    10,
+    20
+  ],
+  "primary_slippage_bps": 10,
+  "partition_policy": {
+    "training": "entry_date < 20260401 and scheduled_exit_date < 20260401",
+    "purged_cross_split": "entry_date < 20260401 and scheduled_exit_date >= 20260401; retain position locks; not training or validation return denominator",
+    "validation": "entry_date >= 20260401",
+    "ledger": "each variant and horizon independently replays all frozen signals in chronology; never reset locks at split; signal_date strictly greater than previous proxy exit date",
+    "missing_future_date": "retain target index; maturity before price lookup; unknown future date empty, never fabricated"
+  },
+  "outcome_groups": {
+    "high": "net_return_pct >= 10",
+    "low": "net_return_pct <= -10",
+    "middle": "-10 < net_return_pct < 10",
+    "positive": "net_return_pct > 0",
+    "zero": "net_return_pct == 0",
+    "negative": "net_return_pct < 0"
+  },
+  "training_protocol": {
+    "population": "immutable annual baseline D20, slippage_bps=10, entry_date < 20260401 and exit_date < 20260401; reproduce by full-signal baseline replay",
+    "order": "baseline replay -> training-only high/low/middle feature contrasts -> freeze candidate_rules including training Q75 -> independent full-signal variant replays -> time-split summaries",
+    "candidate_rationale": "five bounded single-feature hypotheses chosen after early-window descriptive contrasts; weak separation is not effectiveness; do not add combinations or search for better results",
+    "threshold_feature": "range_20obs_pct",
+    "threshold_population": "all valid width observations in training baseline primary positions, one observation per position; retain unresolved anomaly candidates",
+    "quantile_probability": "0.75",
+    "quantile_algorithm": "Hyndman-Fan type 7; sort Decimal widths; index=(n-1)*0.75; linear interpolation without threshold rounding; record n and exact decimal result",
+    "no_training_width": "width variant unsupported; no threshold invented",
+    "selection_forbidden": "validation outcomes; full-year anomaly flags; candidate-exclusion metrics; maximum win rate; threshold grids; cross-feature combinations"
+  },
+  "variants": [
+    {
+      "variant_id": "baseline",
+      "family": "baseline",
+      "rule": "all immutable supported selected signals; no new feature filter"
+    },
+    {
+      "variant_id": "tdcc_both_net_positive",
+      "family": "tdcc",
+      "rule": "Decimal(tdcc_400_change_sum) > 0 and Decimal(tdcc_1000_change_sum) > 0",
+      "meaning": "400/1000四批期間各自淨增；不是同週同步增加；兩級距非互斥"
+    },
+    {
+      "variant_id": "tdcc_both_up_count_ge2",
+      "family": "tdcc",
+      "rule": "int(tdcc_400_up_weeks) >= 2 and int(tdcc_1000_up_weeks) >= 2",
+      "meaning": "三個相鄰批次變化中兩級距各至少兩次增加；不要求連續、同週或淨增"
+    },
+    {
+      "variant_id": "price_5obs_nonnegative",
+      "family": "price_state",
+      "rule": "return_5d >= 0",
+      "meaning": "近5個有效觀測收盤未下跌；不是已完成止穩或底部確認"
+    },
+    {
+      "variant_id": "range_20obs_le_training_q75",
+      "family": "range_low",
+      "rule": "range_20obs_pct <= frozen training-only Q75",
+      "meaning": "近20個有效觀測寬度不超過前段baseline主樣本Q75；非連續20交易日保證"
+    },
+    {
+      "variant_id": "no_new_low_previous20obs",
+      "family": "range_low",
+      "rule": "current_low >= previous_20obs_low_ex_today",
+      "meaning": "當日未創前20個有效觀測新低；不稱底部完成"
+    }
+  ],
+  "feature_policy": {
+    "basis": "immutable annual signal observed_history_dates, exactly 21 existing observations including signal date; preserve history_gap_count and do not silently require calendar-contiguous prices",
+    "tdcc": "use immutable serialized annual delta/up-count fields; up_weeks is count of positive differences across three intervals, not consecutive weeks or joint same-week count",
+    "return_5d": "use immutable four-decimal annual observation-lag return; do not reinterpret as five consecutive sessions",
+    "return_20d": "use immutable four-decimal annual observation-lag return; descriptive only",
+    "range_20obs_pct": "(Decimal(immutable high_20)/Decimal(immutable low_20)-1)*100, Decimal localcontext precision 50; serialize exact result without additional rounding; same final20 observed dates as annual v1",
+    "previous_20obs_low_ex_today": "minimum low over first 20 of the immutable 21 observed dates; current low is final date low",
+    "price_state": "return_20d<0 and return_5d<0: falling; return_20d<0 and return_5d>=0: short_rebound_in_decline; return_20d>=0 and return_5d>=0: nonnegative_short_and_medium; return_20d>=0 and return_5d<0: short_pullback; missing: unsupported",
+    "missing": "required numeric or observed-date price absent/invalid -> that feature unsupported; no zero filling, forward filling, replacement sources, original signal deletion or cross-variant feature dependency",
+    "scope": "no monthly revenue, EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly or annual financial statement data"
+  },
+  "operation_policy": "unchanged annual cost cashflows and horizon semantics; D0 next frozen-calendar session open; exit calendar[entry_index+h] close; independent same-stock non-overlap; unresolved missing exit keeps lock; no intraday realized operation, no new stops or targets",
+  "anomaly_policy": "Retain annual D20 candidates and horizon full_period D60 candidates by same signal_date/stock_id/horizon; add Q1/Q3 +/-3IQR candidates from each variant/horizon full-chronology mature slippage10 ledger, not separate partition thresholds. All candidates stay primary; exclusion is sensitivity only. Training contrasts use immutable annual D20 prior-only flags, never new full-year flags. No anomaly flag or sensitivity result selects parameters.",
+  "full_year_prior_exposure": "annual aggregate and horizon aggregate already inspected; later partition is time-split validation/robustness, not fully blinded holdout",
+  "artifact_directory": "output/research/tdcc_stealth_accumulation",
+  "artifact_filenames": [
+    "tdcc_stealth_accumulation_condition_stratification_source_manifest_v1.json",
+    "tdcc_stealth_accumulation_condition_stratification_features_v1.csv.gz",
+    "tdcc_stealth_accumulation_condition_stratification_training_contrasts_v1.csv",
+    "tdcc_stealth_accumulation_condition_stratification_candidate_rules_v1.json",
+    "tdcc_stealth_accumulation_condition_stratification_trades_v1.csv.gz",
+    "tdcc_stealth_accumulation_condition_stratification_blocked_v1.csv.gz",
+    "tdcc_stealth_accumulation_condition_stratification_summary_v1.csv",
+    "tdcc_stealth_accumulation_condition_stratification_anomalies_v1.csv",
+    "tdcc_stealth_accumulation_condition_stratification_report_v1.md"
+  ],
+  "formal_use": false,
+  "promotion_evidence_allowed": false,
+  "input_availability_proven": false,
+  "full_period_pit_complete": false,
+  "calendar_complete_coverage_verified": false,
+  "corporate_action_complete_coverage_verified": false,
+  "ordinary_stock_universe_certified": false,
+  "private_raw_publication_allowed": false,
+  "authorization_reference": "user_authorized_20260913_tdcc_condition_stratification_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde",
+  "published_warmup_low_projection": {
+    "rows": [
+      {
+        "feature_id": "20250910:4804",
+        "signal_date": "20250910",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910"
+        ],
+        "observed_dates_sha256": "f23360b444a7c18a3512aadad8593cf46738f513057ccdd36b553118dacd4291",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250910:4987",
+        "signal_date": "20250910",
+        "stock_id": "4987",
+        "observed_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910"
+        ],
+        "observed_dates_sha256": "f23360b444a7c18a3512aadad8593cf46738f513057ccdd36b553118dacd4291",
+        "previous_20obs_low_ex_today": "71.1",
+        "missing_observation_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4987_202508.json",
+            "sha256": "372970af98ae83e5f69465eb6053717e163597cf2c9be24bb3e33a30b08c6400"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250910:6171",
+        "signal_date": "20250910",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910"
+        ],
+        "observed_dates_sha256": "f23360b444a7c18a3512aadad8593cf46738f513057ccdd36b553118dacd4291",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250910:6236",
+        "signal_date": "20250910",
+        "stock_id": "6236",
+        "observed_dates": [
+          "20250730",
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910"
+        ],
+        "observed_dates_sha256": "799cf963cefa6e11595c73fe079279cdc4c549e6d327482e93640a1ac9ec649e",
+        "previous_20obs_low_ex_today": "21.35",
+        "missing_observation_dates": [
+          "20250730",
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6236_202507.json",
+            "sha256": "645b3456a984a247b6187e2c4d9373fb8ac1531eef1afb505b2a73add0cd1d93"
+          },
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6236_202508.json",
+            "sha256": "f17b5e995120aa34788226558cd09b3e06563de041eae2fe6dc3a9c6b02bbf1f"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250910:6747",
+        "signal_date": "20250910",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910"
+        ],
+        "observed_dates_sha256": "f23360b444a7c18a3512aadad8593cf46738f513057ccdd36b553118dacd4291",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250911:4804",
+        "signal_date": "20250911",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911"
+        ],
+        "observed_dates_sha256": "e62d8231498337d5a8a64d60493012c72e6747c298d32f5b64724c3cc675c184",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250911:4987",
+        "signal_date": "20250911",
+        "stock_id": "4987",
+        "observed_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911"
+        ],
+        "observed_dates_sha256": "e62d8231498337d5a8a64d60493012c72e6747c298d32f5b64724c3cc675c184",
+        "previous_20obs_low_ex_today": "71.1",
+        "missing_observation_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4987_202508.json",
+            "sha256": "372970af98ae83e5f69465eb6053717e163597cf2c9be24bb3e33a30b08c6400"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250911:6171",
+        "signal_date": "20250911",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911"
+        ],
+        "observed_dates_sha256": "e62d8231498337d5a8a64d60493012c72e6747c298d32f5b64724c3cc675c184",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250911:6236",
+        "signal_date": "20250911",
+        "stock_id": "6236",
+        "observed_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911"
+        ],
+        "observed_dates_sha256": "297a8ebd5ca866d0952bbf507c70da100651fe85fd6a1009af93bf64ff266761",
+        "previous_20obs_low_ex_today": "21.35",
+        "missing_observation_dates": [
+          "20250813",
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6236_202508.json",
+            "sha256": "f17b5e995120aa34788226558cd09b3e06563de041eae2fe6dc3a9c6b02bbf1f"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250911:6747",
+        "signal_date": "20250911",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911"
+        ],
+        "observed_dates_sha256": "e62d8231498337d5a8a64d60493012c72e6747c298d32f5b64724c3cc675c184",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250814",
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250912:4804",
+        "signal_date": "20250912",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912"
+        ],
+        "observed_dates_sha256": "1ad0a0bb8ee907911adc23c40e4d063ff653a4a999aa930c11d37f9163b45acb",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250912:4987",
+        "signal_date": "20250912",
+        "stock_id": "4987",
+        "observed_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912"
+        ],
+        "observed_dates_sha256": "1ad0a0bb8ee907911adc23c40e4d063ff653a4a999aa930c11d37f9163b45acb",
+        "previous_20obs_low_ex_today": "71.1",
+        "missing_observation_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4987_202508.json",
+            "sha256": "372970af98ae83e5f69465eb6053717e163597cf2c9be24bb3e33a30b08c6400"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250912:6171",
+        "signal_date": "20250912",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912"
+        ],
+        "observed_dates_sha256": "1ad0a0bb8ee907911adc23c40e4d063ff653a4a999aa930c11d37f9163b45acb",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250912:6747",
+        "signal_date": "20250912",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912"
+        ],
+        "observed_dates_sha256": "1ad0a0bb8ee907911adc23c40e4d063ff653a4a999aa930c11d37f9163b45acb",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250815",
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250915:4804",
+        "signal_date": "20250915",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915"
+        ],
+        "observed_dates_sha256": "15e77d7023823b6101f289aeaa4ac378e1e8ab7f3b73de3b0a94166c65777b8e",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250915:6171",
+        "signal_date": "20250915",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915"
+        ],
+        "observed_dates_sha256": "15e77d7023823b6101f289aeaa4ac378e1e8ab7f3b73de3b0a94166c65777b8e",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250915:6747",
+        "signal_date": "20250915",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915"
+        ],
+        "observed_dates_sha256": "15e77d7023823b6101f289aeaa4ac378e1e8ab7f3b73de3b0a94166c65777b8e",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250818",
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250916:4804",
+        "signal_date": "20250916",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916"
+        ],
+        "observed_dates_sha256": "de666949f5c32f188fdd6d0e95e75ef7fba60e9fb4993df082b6a6049f2b36c8",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250916:6171",
+        "signal_date": "20250916",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916"
+        ],
+        "observed_dates_sha256": "de666949f5c32f188fdd6d0e95e75ef7fba60e9fb4993df082b6a6049f2b36c8",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250916:6747",
+        "signal_date": "20250916",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916"
+        ],
+        "observed_dates_sha256": "de666949f5c32f188fdd6d0e95e75ef7fba60e9fb4993df082b6a6049f2b36c8",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250819",
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250917:4804",
+        "signal_date": "20250917",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917"
+        ],
+        "observed_dates_sha256": "221a33a9244606af5fbc2c6ca78129271135944f948d3817c65f30dc3adc8f6f",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250917:6171",
+        "signal_date": "20250917",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917"
+        ],
+        "observed_dates_sha256": "221a33a9244606af5fbc2c6ca78129271135944f948d3817c65f30dc3adc8f6f",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250917:6747",
+        "signal_date": "20250917",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917"
+        ],
+        "observed_dates_sha256": "221a33a9244606af5fbc2c6ca78129271135944f948d3817c65f30dc3adc8f6f",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250820",
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250918:4804",
+        "signal_date": "20250918",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918"
+        ],
+        "observed_dates_sha256": "2ffc5640850d1268d69dc5e842ebc3915383681f51c83c776754855e49a660b0",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250918:6171",
+        "signal_date": "20250918",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918"
+        ],
+        "observed_dates_sha256": "2ffc5640850d1268d69dc5e842ebc3915383681f51c83c776754855e49a660b0",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250918:6747",
+        "signal_date": "20250918",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918"
+        ],
+        "observed_dates_sha256": "2ffc5640850d1268d69dc5e842ebc3915383681f51c83c776754855e49a660b0",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250821",
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250919:4804",
+        "signal_date": "20250919",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919"
+        ],
+        "observed_dates_sha256": "df1b954502f8d27bcf43ccfae0249252b21d74700081dfe4fc77a491bd58ba73",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250919:6171",
+        "signal_date": "20250919",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919"
+        ],
+        "observed_dates_sha256": "df1b954502f8d27bcf43ccfae0249252b21d74700081dfe4fc77a491bd58ba73",
+        "previous_20obs_low_ex_today": "30.1",
+        "missing_observation_dates": [
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250919:6747",
+        "signal_date": "20250919",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919"
+        ],
+        "observed_dates_sha256": "df1b954502f8d27bcf43ccfae0249252b21d74700081dfe4fc77a491bd58ba73",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250822",
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250922:4804",
+        "signal_date": "20250922",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922"
+        ],
+        "observed_dates_sha256": "6de931cd0239e7214944e6ff59ef427ff62300fe3e7826b42cdb1a73e0375e4c",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250922:6171",
+        "signal_date": "20250922",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922"
+        ],
+        "observed_dates_sha256": "6de931cd0239e7214944e6ff59ef427ff62300fe3e7826b42cdb1a73e0375e4c",
+        "previous_20obs_low_ex_today": "30.0",
+        "missing_observation_dates": [
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250922:6747",
+        "signal_date": "20250922",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922"
+        ],
+        "observed_dates_sha256": "6de931cd0239e7214944e6ff59ef427ff62300fe3e7826b42cdb1a73e0375e4c",
+        "previous_20obs_low_ex_today": "193.0",
+        "missing_observation_dates": [
+          "20250825",
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250923:4804",
+        "signal_date": "20250923",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923"
+        ],
+        "observed_dates_sha256": "4b4428ce73ce5a488ab3c3dc90b8b4f9d9ab6b11344e9fc1ce4db8e841c98de2",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250923:6171",
+        "signal_date": "20250923",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923"
+        ],
+        "observed_dates_sha256": "4b4428ce73ce5a488ab3c3dc90b8b4f9d9ab6b11344e9fc1ce4db8e841c98de2",
+        "previous_20obs_low_ex_today": "30.0",
+        "missing_observation_dates": [
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250923:6747",
+        "signal_date": "20250923",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923"
+        ],
+        "observed_dates_sha256": "4b4428ce73ce5a488ab3c3dc90b8b4f9d9ab6b11344e9fc1ce4db8e841c98de2",
+        "previous_20obs_low_ex_today": "193.5",
+        "missing_observation_dates": [
+          "20250826",
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250924:4804",
+        "signal_date": "20250924",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924"
+        ],
+        "observed_dates_sha256": "a7a258b8d26faa9ef6aead18cc912cec9c3f2624d38965d390dfa16683d1fbd5",
+        "previous_20obs_low_ex_today": "9.26",
+        "missing_observation_dates": [
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250924:6171",
+        "signal_date": "20250924",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924"
+        ],
+        "observed_dates_sha256": "a7a258b8d26faa9ef6aead18cc912cec9c3f2624d38965d390dfa16683d1fbd5",
+        "previous_20obs_low_ex_today": "30.0",
+        "missing_observation_dates": [
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250924:6747",
+        "signal_date": "20250924",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250827",
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924"
+        ],
+        "observed_dates_sha256": "a7a258b8d26faa9ef6aead18cc912cec9c3f2624d38965d390dfa16683d1fbd5",
+        "previous_20obs_low_ex_today": "193.5",
+        "missing_observation_dates": [
+          "20250827",
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250925:4804",
+        "signal_date": "20250925",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924",
+          "20250925"
+        ],
+        "observed_dates_sha256": "2bdff0c92a45855889015b24ae70feb3275151b70f25606165ce6b07d18d5f36",
+        "previous_20obs_low_ex_today": "8.81",
+        "missing_observation_dates": [
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250925:6171",
+        "signal_date": "20250925",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924",
+          "20250925"
+        ],
+        "observed_dates_sha256": "2bdff0c92a45855889015b24ae70feb3275151b70f25606165ce6b07d18d5f36",
+        "previous_20obs_low_ex_today": "30.0",
+        "missing_observation_dates": [
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250925:6747",
+        "signal_date": "20250925",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250828",
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924",
+          "20250925"
+        ],
+        "observed_dates_sha256": "2bdff0c92a45855889015b24ae70feb3275151b70f25606165ce6b07d18d5f36",
+        "previous_20obs_low_ex_today": "194.0",
+        "missing_observation_dates": [
+          "20250828",
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250926:4804",
+        "signal_date": "20250926",
+        "stock_id": "4804",
+        "observed_dates": [
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924",
+          "20250925",
+          "20250926"
+        ],
+        "observed_dates_sha256": "b36e3f7c50d2de21b2499f96f88185e6e5a5f216a6191b1cb1935fdffb0ca392",
+        "previous_20obs_low_ex_today": "8.81",
+        "missing_observation_dates": [
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_4804_202508.json",
+            "sha256": "7c375b4b18210386503d47a4de016ddb454aa83dd779485f584002585a50bfea"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250926:6171",
+        "signal_date": "20250926",
+        "stock_id": "6171",
+        "observed_dates": [
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924",
+          "20250925",
+          "20250926"
+        ],
+        "observed_dates_sha256": "b36e3f7c50d2de21b2499f96f88185e6e5a5f216a6191b1cb1935fdffb0ca392",
+        "previous_20obs_low_ex_today": "30.0",
+        "missing_observation_dates": [
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6171_202508.json",
+            "sha256": "cca70a8cb57adbb8852687dbba047d0b97ab289bba9021453853a3c46bfe8725"
+          }
+        ]
+      },
+      {
+        "feature_id": "20250926:6747",
+        "signal_date": "20250926",
+        "stock_id": "6747",
+        "observed_dates": [
+          "20250829",
+          "20250901",
+          "20250902",
+          "20250903",
+          "20250904",
+          "20250905",
+          "20250908",
+          "20250909",
+          "20250910",
+          "20250911",
+          "20250912",
+          "20250915",
+          "20250916",
+          "20250917",
+          "20250918",
+          "20250919",
+          "20250922",
+          "20250923",
+          "20250924",
+          "20250925",
+          "20250926"
+        ],
+        "observed_dates_sha256": "b36e3f7c50d2de21b2499f96f88185e6e5a5f216a6191b1cb1935fdffb0ca392",
+        "previous_20obs_low_ex_today": "194.5",
+        "missing_observation_dates": [
+          "20250829"
+        ],
+        "warmup_sources": [
+          {
+            "path": "source-followup-20260912/warmup_identity/tpex_6747_202508.json",
+            "sha256": "79457b70fbfd5996d7f8a17bdfe7f26f457cea0a34f41e13b6971534632a7372"
+          }
+        ]
+      }
+    ],
+    "row_count": 44,
+    "missing_pair_count": 65,
+    "rows_sha256": "7e1cfc119bd5a1cbe36a399651f4dc8e664dcd883760f590b6ec7d0ba97c22a5",
+    "scope": "pre_performance_derived_previous20obs_minimum_only; not_private_raw_quotes"
+  },
+  "published_warmup_projection_policy": "Exact44 signal_date/stock_id/observed_dates identities only; require canonical rows hash and exact source hashes from immutable annual contract. Missing/extra/duplicate keys fail. Full producer and full independent validator each recompute original raw window minima and compare this pre-performance reference. Published-only checks the frozen derived reference plus remaining Git prices; it does not reread private raw. No general missing-price fallback.",
+  "partition_wire_labels": {
+    "train": "training",
+    "purged": "purged_cross_split",
+    "validation": "validation"
+  }
+}

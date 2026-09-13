@@ -435,23 +435,76 @@ TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS = frozenset({
 })
 
 
+TDCC_CONDITION_STRATIFICATION_EXACT_PATHS = frozenset({
+    "scripts/tdcc_stealth_accumulation_condition_stratification.py",
+    "scripts/validate_tdcc_stealth_accumulation_condition_stratification.py",
+    "config/tdcc_stealth_accumulation_condition_stratification_v1.json",
+    "docs/specs/tdcc_stealth_accumulation_condition_stratification_v1.md",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_features_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_training_contrasts_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_candidate_rules_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_trades_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_blocked_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_anomalies_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_report_v1.md",
+})
+
+
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
         | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
         | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
+        | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
     )
     for path in sorted(
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
         | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
         | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
+        | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
     ):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
             {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
         )
+
+
+@pytest.mark.parametrize("path", sorted(TDCC_CONDITION_STRATIFICATION_EXACT_PATHS))
+def test_tdcc_condition_stratification_paths_select_exact_research_domains(path: str) -> None:
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset(
+        {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
+    )
+
+
+def test_condition_stratification_has_nine_disjoint_exact_artifacts() -> None:
+    assert TDCC_CONDITION_STRATIFICATION_EXACT_PATHS.isdisjoint(
+        TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
+        | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
+    )
+    artifacts = {path for path in TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
+                 if path.startswith("output/")}
+    assert len(artifacts) == 9
+    assert sum(path.endswith(".csv.gz") for path in artifacts) == 3
+    assert not any("*" in path for path in artifacts)
+
+
+@pytest.mark.parametrize("path", (
+    "scripts/tdcc_stealth_accumulation_condition_stratification_unregistered.py",
+    "config/tdcc_stealth_accumulation_condition_stratification_v2.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_features_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_trades_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_blocked_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_signals_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_summary_v2.csv",
+))
+def test_tdcc_condition_stratification_unregistered_paths_fail_closed(path: str) -> None:
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
 
 
 @pytest.mark.parametrize("path", sorted(TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS))

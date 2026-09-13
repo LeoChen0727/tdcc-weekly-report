@@ -818,10 +818,22 @@ def main(argv=None):
     parser.add_argument("--output-root", type=Path)
     parser.add_argument("--input-root", type=Path, required=True)
     parser.add_argument("--price-repository-root", type=Path)
-    parser.add_argument("--horizon-extension-contract", type=Path)
+    research_mode = parser.add_mutually_exclusive_group()
+    research_mode.add_argument("--horizon-extension-contract", type=Path)
+    research_mode.add_argument("--condition-stratification-contract", type=Path)
     args = parser.parse_args(argv)
     root = args.repository_root.resolve()
     output_root = args.output_root or root / DIRECTORY
+    if args.condition_stratification_contract is not None:
+        import tdcc_stealth_accumulation_condition_stratification as stratification
+        contract_path = args.condition_stratification_contract.resolve()
+        require(contract_path == (root / stratification.CONTRACT_FILE).resolve(), "Exact stratification contract path required")
+        contract = json.loads(contract_path.read_text(encoding="utf-8-sig"))
+        with artifact_guard(root), stratification.preserve_previous_versions(root):
+            artifacts = stratification.build_stratification(args.price_repository_root or root, contract, args.input_root)
+            stratification.write_outputs(root, artifacts, output_root)
+        print(f"{stratification.VERSION}: artifacts={len(artifacts)} research_only=True")
+        return 0
     if args.horizon_extension_contract is not None:
         import tdcc_stealth_accumulation_current_version_horizon_extension as extension
         contract_path = args.horizon_extension_contract.resolve()

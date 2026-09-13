@@ -1,0 +1,67 @@
+{
+  "artifact_version": "tdcc_stealth_accumulation_condition_stratification_v1",
+  "formal_use": false,
+  "immutable_training_candidate_group_counts": {
+    "high": 171,
+    "low": 7
+  },
+  "promotion_evidence_allowed": false,
+  "quantile_algorithm": "Hyndman-Fan type 7",
+  "quantile_probability": "0.75",
+  "selection_uses_anomaly_exclusion": false,
+  "selection_uses_validation": false,
+  "threshold_feature": "range_20obs_pct",
+  "threshold_supported": true,
+  "training_horizon": 20,
+  "training_outcome_group_counts": {
+    "high": 863,
+    "low": 950,
+    "middle": 5459
+  },
+  "training_partition": "training",
+  "training_positions": 7272,
+  "training_q75": "21.295534008212383624019189332032361670122372647075",
+  "training_signal_dates": 110,
+  "training_slippage_bps": 10,
+  "training_stocks": 1840,
+  "training_trade_keys_sha256": "13a5f1ab8509adba30885ea89d9469a8e915c6780227518650d3cf92735a6930",
+  "training_width_samples": 7272,
+  "training_widths_sha256": "ccd3d6fb0709efdcaf5eb309d587b0ce4b9772b4e9a1673559e9bb83fb9a99a0",
+  "variants": [
+    {
+      "family": "baseline",
+      "rule": "all immutable supported selected signals; no new feature filter",
+      "variant_id": "baseline"
+    },
+    {
+      "family": "tdcc",
+      "meaning": "400/1000四批期間各自淨增；不是同週同步增加；兩級距非互斥",
+      "rule": "Decimal(tdcc_400_change_sum) > 0 and Decimal(tdcc_1000_change_sum) > 0",
+      "variant_id": "tdcc_both_net_positive"
+    },
+    {
+      "family": "tdcc",
+      "meaning": "三個相鄰批次變化中兩級距各至少兩次增加；不要求連續、同週或淨增",
+      "rule": "int(tdcc_400_up_weeks) >= 2 and int(tdcc_1000_up_weeks) >= 2",
+      "variant_id": "tdcc_both_up_count_ge2"
+    },
+    {
+      "family": "price_state",
+      "meaning": "近5個有效觀測收盤未下跌；不是已完成止穩或底部確認",
+      "rule": "return_5d >= 0",
+      "variant_id": "price_5obs_nonnegative"
+    },
+    {
+      "family": "range_low",
+      "meaning": "近20個有效觀測寬度不超過前段baseline主樣本Q75；非連續20交易日保證",
+      "rule": "range_20obs_pct <= frozen training-only Q75",
+      "variant_id": "range_20obs_le_training_q75"
+    },
+    {
+      "family": "range_low",
+      "meaning": "當日未創前20個有效觀測新低；不稱底部完成",
+      "rule": "current_low >= previous_20obs_low_ex_today",
+      "variant_id": "no_new_low_previous20obs"
+    }
+  ]
+}
