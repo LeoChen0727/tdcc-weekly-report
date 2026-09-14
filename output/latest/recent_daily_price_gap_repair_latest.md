@@ -1,16 +1,18 @@
 # Recent Daily Price Gap Repair
 
-- status: `pass`
-- as_of_date: `20260911`
+- status: `repaired`
+- as_of_date: `20260914`
 - date_boundary: `include_as_of_date_if_trading`
-- target_end_date: `20260911`
+- target_end_date: `20260914`
 - lookback_days: `7`
-- expected_trading_dates: `20260904, 20260907, 20260908, 20260909, 20260910, 20260911`
+- expected_trading_dates: `20260907, 20260908, 20260909, 20260910, 20260911, 20260914`
 - non_trading_days_in_window: ``
-- missing_before: ``
+- missing_before: `20260914`
 - missing_after: ``
-- rebuild_history_status: `skipped_history_current`
+- rebuild_history_status: `completed`
 
 ## Actions
 
-No recent daily price gap repair action was required.
+| date | action | result | target |
+|---|---|---|---|
+| 20260914 | repair_daily_price_range | 0 | data/daily_price/daily_price_20260914.csv |
