@@ -1,22 +1,22 @@
 # Volume v2 warrant lineage history audit
 
 - Audit version: `volume_v2_warrant_lineage_history_audit_v5`
-- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901, 20260902, 20260903, 20260904, 20260907, 20260908, 20260909, 20260910, 20260911`
-- Runtime combined coverage: `128` revisions; current replay plus trusted HEAD baseline
-- Formal volume v2 rows: `257`
-- Formal verified clean: `230`
+- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901, 20260902, 20260903, 20260904, 20260907, 20260908, 20260909, 20260910, 20260911, 20260916`
+- Runtime combined coverage: `129` revisions; current replay plus trusted HEAD baseline
+- Formal volume v2 rows: `260`
+- Formal verified clean: `233`
 - Formal superseded: `5`
 - Formal quarantined: `22`
 - Formal unreplayable: `0`
 - Legacy precontract history incomplete dates: `16`
-- Historical promotion evidence eligible rows: `31/257`
-- Superseded advisory watch rows: `108`
-- Independent component replay resolved: `257/257`
+- Historical promotion evidence eligible rows: `31/260`
+- Superseded advisory watch rows: `111`
+- Independent component replay resolved: `260/260`
 - Candidate-absent canonical score contexts: `103` stored as `{}`
 - Warrant collision rows: `49`
 - TDCC-status collision rows: `0`
 - False-breakout collision rows: `0`
-- Watch/candidate source score collisions: `104`
+- Watch/candidate source score collisions: `107`
 - Watch/candidate source rank collisions: `0`
 - Non-current rows were preserved from trusted HEAD and were not revalidated or replayed.
 
@@ -152,6 +152,7 @@
 | 20260909 | r1 | 3 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260910 | r1 | 6 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260911 | r1 | 3 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
+| 20260916 | r1 | 3 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 
 ## Watch collision disposition
 
@@ -265,6 +266,9 @@
 | 20260911 | 3229 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 69.0→69.0 | 0.0→0.0 | 0.0→0.0 | 73.5→73.5 | 1→1 | verified_clean |
 | 20260911 | 2305 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=/call_strong_inflow→call_strong_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 71.7→71.7 | 2→2 | verified_clean |
 | 20260911 | 3624 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 100.0→100.0 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 1→1 | verified_clean |
+| 20260916 | 6226 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 75.0→75.0 | 0.0→0.0 | 0.0→0.0 | 84.0→84.0 | 1→1 | verified_clean |
+| 20260916 | 6218 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 2→2 | verified_clean |
+| 20260916 | 6168 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 85.2→85.2 | 0.0→0.0 | 0.0→0.0 | 91.2→91.2 | 1→1 | verified_clean |
 
 ## Conclusion
 

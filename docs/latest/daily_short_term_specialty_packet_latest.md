@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-09-11 11:45:37 UTC`
-- main_price_date: `20260911`
+- generated_at: `2026-09-16 11:52:34 UTC`
+- main_price_date: `20260916`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
@@ -26,33 +26,27 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 96 | 55.208333333333336 | 0.8174513996767331 | 51.041666666666664 | -0.33604071770280086 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 57 | 57.89473684210527 | 0.3159266225202549 | 49.122807017543856 | -1.1563108477832584 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 101 | 55.44554455445545 | 0.8725984802425671 | 51.48514851485149 | -0.27353488351061006 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 59 | 57.6271186440678 | 0.438178070600849 | 49.152542372881356 | -1.0351300721421328 | ok_initial_sample |
 | phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 8 | 37.5 | 0.058969962687469124 | 25.0 | -3.960599066141337 | insufficient_sample |
 
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 87 | 51.724137931034484 | 0.3742557220746242 | 54.02298850574713 | 0.7440360928513516 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 52 | 51.92307692307693 | -1.255641734639191 | 51.92307692307693 | -1.0578799317480385 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 7 | 42.857142857142854 | 0.3878825192447926 | 42.857142857142854 | -4.225900692543553 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 96 | 51.041666666666664 | -0.021473075056727204 | 53.125 | 0.31139623725189686 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 57 | 52.63157894736842 | -1.5295321710461345 | 50.877192982456144 | -1.41134736615707 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 8 | 37.5 | -0.7689450906822755 | 37.5 | -4.735236292985046 | insufficient_sample |
 
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 6620 | 漢達 | other | overheated_after_tdcc |
-| 3374 | 精材 | other | overheated_after_tdcc |
-| 7711 | 永擎 | other | overheated_after_tdcc |
-| 3094 | 聯傑 | other | overheated_after_tdcc |
-| 2455 | 全新 | other | overheated_after_tdcc |
-| 3406 | 玉晶光 | other | overheated_after_tdcc |
-| 4908 | 前鼎 | other | overheated_after_tdcc |
-| 6620 | 漢達 | other | overheated_after_tdcc |
-| 3374 | 精材 | other | overheated_after_tdcc |
-| 7711 | 永擎 | other | overheated_after_tdcc |
-| 8103 | 瀚荃 | other | overheated_after_tdcc |
-| 3094 | 聯傑 | other | overheated_after_tdcc |
-| 2455 | 全新 | other | overheated_after_tdcc |
+| 6173 | 信昌電 | passive components | overheated_after_tdcc |
+| 2338 | 光罩 | other | overheated_after_tdcc |
+| 6179 | 亞通 | other | price_leading_tdcc |
+| 6426 | 統新 | other | price_leading_tdcc |
+| 2305 | 全友 | other | overheated_after_tdcc |
+| 3624 | 光頡 | passive components | overheated_after_tdcc |
+| 7610 | 聯友金屬-創 | other | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 
