@@ -1,21 +1,21 @@
 {
-  "base_commit_sha": "3ec8075e84aae2cb3804263dd501d4825d057691",
-  "expected_main_price_date": "20260916",
-  "generated_at": "2026-09-16T19:33:36+08:00",
-  "generation_id": "daily-authority-20260916-35090147521-1",
-  "market_session_date": "20260916",
+  "base_commit_sha": "ebbd95df0a10c967032164fb7a3e466b4dc2f07d",
+  "expected_main_price_date": "20260917",
+  "generated_at": "2026-09-17T19:32:46+08:00",
+  "generation_id": "daily-authority-20260917-35215519772-1",
+  "market_session_date": "20260917",
   "market_status": "open_confirmed",
   "producer": "daily_full_pipeline",
   "reason_code": "twse_tpex_target_date_confirmed",
-  "release_id": "daily-authority-20260916-35090147521-1",
+  "release_id": "daily-authority-20260917-35215519772-1",
   "schema_version": "daily_authority_release_v1",
   "surfaces": {
-    "output/latest/data_freshness_latest.csv": "e0e12b39bf943639f6acde52d02e5f28cb2365f15108d3aa0d31acde4ea62747",
-    "output/latest/data_freshness_latest.md": "bc3f6377c4d01c8fc91bbc1204b74956d1357ec342e06c451ed2ffc4cad54659",
-    "output/latest/market_session_status_latest.json": "a2072dc5a30f34bf769f8e9988a5069c4fba4e23dd5b9c184137771b136272b9"
+    "output/latest/data_freshness_latest.csv": "e16e484658d3733603b9fc38e408f932e2d622f68902e472a75324982b983f34",
+    "output/latest/data_freshness_latest.md": "53adda75dadc392c6365688dbd71cef6013a3236640ebb0dd7b26c6df202adc6",
+    "output/latest/market_session_status_latest.json": "bf653872d6b0ecca84397417bd33a3bb4faf64ef62536ea89cb75f3d851454b5"
   },
   "transition_baseline": {
-    "commit_sha": "3ec8075e84aae2cb3804263dd501d4825d057691",
+    "commit_sha": "ebbd95df0a10c967032164fb7a3e466b4dc2f07d",
     "kind": "git_object",
     "path": "output/latest/market_session_status_latest.json"
   }
