@@ -1,9 +1,8 @@
 {
   "status": "pass",
-  "main_price_date": "20260917",
+  "main_price_date": "20260918",
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260828",
     "20260831",
     "20260901",
     "20260902",
@@ -17,22 +16,11 @@
     "20260914",
     "20260915",
     "20260916",
-    "20260917"
+    "20260917",
+    "20260918"
   ],
   "non_trading_days_in_window": [],
   "daily_price_files": {
-    "20260828": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260828.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2135,
-      "date_rows": 2135,
-      "stock_rows": 2113,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
     "20260831": {
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260831.csv",
       "exists": true,
@@ -200,9 +188,21 @@
         "TPEx",
         "TWSE"
       ]
+    },
+    "20260918": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260918.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2130,
+      "date_rows": 2130,
+      "stock_rows": 2109,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
     }
   },
-  "target_stock_count": 221,
+  "target_stock_count": 222,
   "stock_history_missing_rows": [],
   "stock_history_missing_row_count": 0,
   "errors": []
