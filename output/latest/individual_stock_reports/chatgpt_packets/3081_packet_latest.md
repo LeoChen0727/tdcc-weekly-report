@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3081 聯亞
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:26 Asia/Taipei
+- generated_at: 2026-09-19 15:53:05 Asia/Taipei
 - stock_id: 3081
 - stock_name: 聯亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 2800
-- high: 2825
-- low: 2735
-- close: 2810
-- volume: 2482000
-- ma5: 2885
-- ema23_primary: 2885.01
-- distance_to_ema23_pct: -2.6
-- ma20: 3040.75
-- ma60: 2349.83
-- ma120: 2395.75
-- return_5d: -11.36
-- return_20d: 10.63
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -7.59
-- distance_to_high_60_pct: -21.94
+- date: 20260918
+- open: 2780
+- high: 2915
+- low: 2730
+- close: 2880
+- volume: 3166000
+- ma5: 2765
+- ema23_primary: 2844.67
+- distance_to_ema23_pct: 1.24
+- ma20: 3027.25
+- ma60: 2390.67
+- ma120: 2445.71
+- return_5d: 2.49
+- return_20d: -1.37
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -4.86
+- distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,2670,2790,2625,2790,1340000,2209.54,26.27,2063.5,2194.75,0.48
-20260818,2850,3065,2775,2925,5245000,2269.16,28.9,2134,2198.33,1.75
-20260819,2750,2900,2650,2680,5057000,2303.4,16.35,2184.75,2194.25,1.57
-20260820,2765,2830,2635,2780,4519000,2343.11,18.65,2232.25,2187.92,1.36
-20260821,2845,2920,2760,2920,4752000,2391.19,22.11,2290.25,2188.5,1.55
 20260824,2910,2910,2750,2765,3133000,2422.34,14.15,2338.25,2190.42,1.07
 20260825,2690,2995,2645,2960,4479000,2467.14,19.98,2400.75,2196.17,1.56
 20260826,3010,3255,2940,3255,6821000,2532.8,28.51,2486.5,2205.67,2.27
@@ -167,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,3085,3150,2820,2850,4728000,2897.45,-1.64,3019,2331.25,1.21
 20260910,2820,2930,2755,2830,2921000,2891.83,-2.14,3027.25,2340.42,0.73
 20260911,2800,2825,2735,2810,2482000,2885.01,-2.6,3040.75,2349.83,0.61
+20260914,2725,2830,2685,2745,2614000,2873.34,-4.47,3038.5,2354.92,0.64
+20260915,2725,2745,2650,2675,2210000,2856.81,-6.36,3026,2359.92,0.56
+20260916,2695,2930,2695,2805,5534000,2852.49,-1.67,3032.25,2368.58,1.39
+20260917,2910,2930,2715,2720,4058000,2841.45,-4.27,3029.25,2378,1.03
+20260918,2780,2915,2730,2880,3166000,2844.67,1.24,3027.25,2390.67,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 48.55
-- over_600_ratio: 42.58
-- over_800_ratio: 39.31
-- over_1000_ratio: 33.06
-- over_400_change_1w: -0.38
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -0.47
+- as_of_date: 20260918
+- over_400_ratio: 46.55
+- over_600_ratio: 41.46
+- over_800_ratio: 37.93
+- over_1000_ratio: 29.87
+- over_400_change_1w: -2
+- over_800_change_1w: -1.38
+- over_1000_change_1w: -3.19
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,45.25,0.84,36.79,-0.47,32.02,0.4,7,False,True
 20260703,46.86,1.61,37.28,0.49,34.48,2.46,8,True,True
 20260709,47.27,0.41,39.06,1.78,35.33,0.85,9,True,True
 20260717,45.82,-1.45,38.65,-0.41,32.71,-2.62,0,False,False
@@ -198,18 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,47.95,0.47,38.77,-0.98,34.53,1,4,False,True
 20260904,48.93,0.98,39.67,0.9,33.53,-1,5,False,True
 20260911,48.55,-0.38,39.31,-0.36,33.06,-0.47,0,False,False
+20260918,46.55,-2,37.93,-1.38,29.87,-3.19,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3081 | 聯亞 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會或股東會決議日期:115/08/26 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣22.7億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及外部融資等 6.具體目的:因應客戶訂單需求，維持公司未來營運持續成長的動能 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.董事會或股東會決議日期:115/08/26 2.投資計畫內容:增購生產設備以提升產能 3.預計投資金額:總金額不超過新台幣22.7億元 4.預計投資日期:依各項設備採購合約約定之期程分期執行　 5.資金來源:自有營運資金及外部融資等 6.具體目的:因應客戶訂單需求，維持公司未來營運持續成長的動能 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3081 | 聯亞 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/9/15~115/9/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年9月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易數量：一批 交易總金額：折合新台幣約5.35億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：台灣艾司摩爾科技股份有限公司; 與公司關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：議價 決策單位：依本公司採購管理規定呈核決定辦理。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 3081 | 聯亞 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/9/15~115/9/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年9月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易數量：一批 交易總金額：折合新台幣約5.35億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：台灣艾司摩爾科技股份有限公司; 與公司關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：議價 決策單位：依本公司採購管理規定呈核決定辦理。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3081 | 聯亞 | 7 | 7 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3081 | 聯亞 | 10 | 10 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

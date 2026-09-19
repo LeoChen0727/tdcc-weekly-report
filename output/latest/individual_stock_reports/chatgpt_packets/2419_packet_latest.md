@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2419 仲琦
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:06 Asia/Taipei
+- generated_at: 2026-09-19 15:52:40 Asia/Taipei
 - stock_id: 2419
 - stock_name: 仲琦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 26.9
-- high: 27.35
-- low: 26.8
-- close: 27.05
-- volume: 966605
-- ma5: 26.95
-- ema23_primary: 26.04
-- distance_to_ema23_pct: 3.88
-- ma20: 25.74
-- ma60: 26.07
-- ma120: 28.94
-- return_5d: -0.18
-- return_20d: 9.07
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 5.1
-- distance_to_high_60_pct: -11.02
+- date: 20260918
+- open: 28.25
+- high: 28.25
+- low: 27.35
+- close: 27.9
+- volume: 1343637
+- ma5: 27.3
+- ema23_primary: 26.51
+- distance_to_ema23_pct: 5.26
+- ma20: 26.43
+- ma60: 25.95
+- ma120: 28.76
+- return_5d: 3.14
+- return_20d: 13.18
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 5.54
+- distance_to_high_60_pct: -8.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,24.8,25.2,24.8,25.15,284333,25.14,0.04,24.5,27.59,0.49
-20260818,25.15,25.15,24.2,24.25,349187,25.07,-3.26,24.43,27.47,0.6
-20260819,24.1,24.55,23.75,24,368018,24.98,-3.91,24.34,27.33,0.65
-20260820,24.15,24.6,24.15,24.5,277890,24.94,-1.76,24.29,27.22,0.5
-20260821,24.5,24.8,24.35,24.65,213419,24.91,-1.06,24.29,27.12,0.4
 20260824,24.9,24.9,24.5,24.5,168790,24.88,-1.53,24.27,27,0.32
 20260825,24.5,24.8,24.1,24.6,234147,24.86,-1.03,24.33,26.87,0.47
 20260826,24.8,25.35,24.8,25,412450,24.87,0.53,24.43,26.74,0.93
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,27,27.35,26.7,27.2,1077601,25.87,5.15,25.53,26.15,0.78
 20260910,27,27.7,26.8,26.85,1110309,25.95,3.47,25.62,26.11,0.79
 20260911,26.9,27.35,26.8,27.05,966605,26.04,3.88,25.74,26.07,0.67
+20260914,27.3,27.4,26.75,26.75,677622,26.1,2.49,25.82,26.03,0.46
+20260915,26.9,26.9,26.55,26.6,493599,26.14,1.75,25.93,25.98,0.34
+20260916,26.9,27.5,26.8,27.35,883317,26.24,4.22,26.1,25.96,0.59
+20260917,27.6,28.1,27.35,27.9,1787710,26.38,5.76,26.27,25.95,1.14
+20260918,28.25,28.25,27.35,27.9,1343637,26.51,5.26,26.43,25.95,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 64.72
-- over_600_ratio: 63.53
-- over_800_ratio: 62.24
-- over_1000_ratio: 62.24
-- over_400_change_1w: -0.06
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -0.36
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 64.89
+- over_600_ratio: 63.48
+- over_800_ratio: 62.87
+- over_1000_ratio: 62.61
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.63
+- over_1000_change_1w: 0.37
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,64.92,-0.15,63.13,-0.09,62.57,-0.1,1,False,False
 20260703,64.92,0,62.98,-0.15,62.98,0.41,2,False,True
 20260709,64.88,-0.04,63.27,0.29,63,0.02,3,False,True
 20260717,64.66,-0.22,63.23,-0.04,62.97,-0.03,0,False,False
@@ -199,22 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,65.09,0.07,63.28,0,63.28,0,1,False,False
 20260904,64.78,-0.31,62.6,-0.68,62.6,-0.68,0,False,False
 20260911,64.72,-0.06,62.24,-0.36,62.24,-0.36,1,False,False
+20260918,64.89,0.17,62.87,0.63,62.61,0.37,2,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2419 | 仲琦 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 2419 | 仲琦 | revenue_pullback | 營收成長股價回檔 | 56.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2419 | 仲琦 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 32 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2419 | 仲琦 | 2 | 2 | 2 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2419 | 仲琦 | 27 | 0 | 117250.0 | 0.0 |  | no_signal |
+| 20260918 | 2419 | 仲琦 | 25 | 0 | 39800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

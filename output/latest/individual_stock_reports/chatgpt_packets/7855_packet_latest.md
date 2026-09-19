@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7855 和運租車
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:50 Asia/Taipei
+- generated_at: 2026-09-19 15:54:55 Asia/Taipei
 - stock_id: 7855
 - stock_name: 和運租車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260911
-- price_rows: 24
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 29
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 42.05
+- date: 20260918
+- open: 42.15
 - high: 42.2
-- low: 42
+- low: 42.1
 - close: 42.1
-- volume: 576354
-- ma5: 42.12
-- ema23_primary: 42.92
-- distance_to_ema23_pct: -1.92
-- ma20: 42.99
-- ma60: 43.19
-- ma120: 43.19
-- return_5d: -1.52
-- return_20d: -4.43
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.08
+- volume: 374554
+- ma5: 42.05
+- ema23_primary: 42.62
+- distance_to_ema23_pct: -1.22
+- ma20: 42.63
+- ma60: 42.99
+- ma120: 42.99
+- return_5d: 0
+- return_20d: -3.33
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -1.25
 - distance_to_high_60_pct: -6.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,44.1,44.2,43.7,43.7,2336775,43.85,-0.35,44.05,44.05,0.38
-20260818,43.7,44,43.55,43.55,2063586,43.83,-0.63,43.97,43.97,0.38
-20260819,43.45,43.5,43.15,43.3,1334829,43.78,-1.1,43.87,43.87,0.28
-20260820,43.3,43.4,43.25,43.35,987094,43.75,-0.91,43.81,43.81,0.23
-20260821,43.35,43.7,43.3,43.55,708861,43.73,-0.41,43.78,43.78,0.18
 20260824,43.65,43.8,43.6,43.65,858454,43.72,-0.17,43.77,43.77,0.24
 20260825,43.7,43.75,43.55,43.6,865426,43.71,-0.26,43.75,43.75,0.26
 20260826,43.6,43.65,43.4,43.5,1103403,43.7,-0.45,43.73,43.73,0.35
@@ -168,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,42.1,42.25,42.05,42.15,557349,43.09,-2.17,43.21,43.29,0.38
 20260910,42.2,42.25,42.05,42.05,573518,43,-2.21,43.09,43.23,0.46
 20260911,42.05,42.2,42,42.1,576354,42.92,-1.92,42.99,43.19,0.53
+20260914,42.1,42.1,42,42,396126,42.85,-1.98,42.91,43.14,0.4
+20260915,42.05,42.1,42,42,367485,42.78,-1.82,42.83,43.09,0.41
+20260916,42.1,42.1,42,42.05,362217,42.72,-1.56,42.77,43.06,0.43
+20260917,42.1,42.2,42.05,42.1,376860,42.67,-1.32,42.71,43.02,0.46
+20260918,42.15,42.2,42.1,42.1,374554,42.62,-1.22,42.63,42.99,0.47
 ```
 
 ## Latest TDCC Snapshot

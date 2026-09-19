@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-09-13 22:15:41 Asia/Taipei
+- generated_at: 2026-09-19 15:52:07 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 64.6
-- high: 65.5
+- date: 20260918
+- open: 65.4
+- high: 65.6
 - low: 64.2
-- close: 64.6
-- volume: 12666314
-- ma5: 65.72
-- ema23_primary: 62.9
-- distance_to_ema23_pct: 2.7
-- ma20: 62.69
-- ma60: 59.43
-- ma120: 53.83
-- return_5d: -2.12
-- return_20d: 7.67
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 3.05
-- distance_to_high_60_pct: -9.27
+- close: 65
+- volume: 29305397
+- ma5: 63.38
+- ema23_primary: 63.11
+- distance_to_ema23_pct: 2.99
+- ma20: 63.94
+- ma60: 60.27
+- ma120: 54.56
+- return_5d: 0.62
+- return_20d: 9.43
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 1.67
+- distance_to_high_60_pct: -8.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,61,61.8,59.1,59.1,30793935,57.41,2.94,57.99,54.38,0.74
-20260818,59.2,60.3,58.7,58.9,20595196,57.54,2.37,57.78,54.61,0.52
-20260819,58.3,58.4,56.8,56.8,23728422,57.48,-1.17,57.45,54.81,0.63
-20260820,57.5,58.9,57.4,57.8,13659989,57.5,0.52,57.03,55.03,0.45
-20260821,57.8,59.5,57.8,59.4,20206463,57.66,3.02,56.87,55.26,0.72
 20260824,59,59.3,55.9,57,41808955,57.61,-1.05,56.63,55.46,1.47
 20260825,56.7,58.5,56.2,57.8,18974759,57.62,0.31,56.65,55.63,0.7
 20260826,58.5,61.2,58,60.1,35648630,57.83,3.93,56.84,55.8,1.34
@@ -167,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,64.9,67.4,64.6,66.7,26927598,62.48,6.75,62.05,58.84,0.74
 20260910,66.3,66.5,64.7,65.6,21995840,62.74,4.55,62.46,59.15,0.61
 20260911,64.6,65.5,64.2,64.6,12666314,62.9,2.7,62.69,59.43,0.38
+20260914,63.7,63.8,61.5,62.9,23847845,62.9,0,62.88,59.61,0.71
+20260915,62.1,62.5,61.2,62,17895998,62.82,-1.31,63.03,59.77,0.54
+20260916,62.1,63.7,61.7,62.4,18778277,62.79,-0.62,63.31,59.99,0.57
+20260917,62.8,64.7,62.5,64.6,26190059,62.94,2.64,63.66,60.16,0.78
+20260918,65.4,65.6,64.2,65,29305397,63.11,2.99,63.94,60.27,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 75.47
-- over_600_ratio: 74.37
-- over_800_ratio: 73.43
-- over_1000_ratio: 72.66
-- over_400_change_1w: -0.18
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -0.18
+- as_of_date: 20260918
+- over_400_ratio: 75.33
+- over_600_ratio: 74.26
+- over_800_ratio: 73.36
+- over_1000_ratio: 72.59
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.07
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,74.55,1.72,72.55,1.77,71.92,1.74,2,True,True
 20260703,74.8,0.25,72.9,0.35,72.19,0.27,3,True,True
 20260709,74.22,-0.58,72.36,-0.54,71.62,-0.57,0,False,False
 20260717,74.9,0.68,73.02,0.66,72.32,0.7,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,74.67,0.58,72.69,0.62,71.86,0.59,1,True,True
 20260904,75.65,0.98,73.64,0.95,72.84,0.98,2,True,True
 20260911,75.47,-0.18,73.43,-0.21,72.66,-0.18,0,False,False
+20260918,75.33,-0.14,73.36,-0.07,72.59,-0.07,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1301 | 台塑 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:台灣塑膠工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司2026年8月合併營業額 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 一、2026年8月合併營業額與2026年7月比較： 2026年8月合併營業額139億9,238萬元，與2026年7月比較，減少13億154萬元， 衰退8.5％，主要是銷售量差減少，說明如下： 8月配合台塑石化公司OL-3歲修，本公司麥寮4個廠安排歲修，產銷量減少，加上 100%轉投資台塑工業美國公司已於8/1併入台塑美國公司，因此，本公司2026年8月 各主要產品銷售量，合計比7月減少6.3萬噸。 二、2026年8月合併營業額與2025年8月比較： 2026年8月合併營業額139億9,238萬元，與2025年8月比較，增加8億8,920萬元， 成長6.8％，說明如下： 1.銷售價差增加34億元： 今年初美伊戰爭爆發，原油、輕油及原料乙烯、丙烯價格大漲，推升石化產品價格， 因此，本公司2026年8月各主要產品平均價格比去年同期上漲，幅度介於27％~58％。 2.銷售量差減少25.1億元： 今年8月美伊戰事反覆，原油及原料乙烯、丙烯價格高檔震盪，下游客戶採購保守， 加上中國大陸房地產及汽車需求疲弱，且100%轉投資台塑工業美國公司已於8/1併入 台塑美國公司，因此，本公司2026年8月PVC、液鹼及PE產品銷售量，合計比去年同期 減少9.7萬噸。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 1301 | 台塑 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北市信義區松壽路2號3樓(君悅酒店) 4.法人說明會擇要訊息：本公司受邀參加永豐金證券線上法說會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1301 | 台塑 | 1 | 1 | 2 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 1301 | 台塑 | 4 | 4 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1301 | 台塑 | 125 | 1 | 3350640.0 | 0.0 |  | no_signal |
+| 20260918 | 1301 | 台塑 | 127 | 1 | 17849840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

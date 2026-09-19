@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:03 Asia/Taipei
+- generated_at: 2026-09-19 15:52:35 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 31.1
-- high: 31.2
-- low: 30.75
-- close: 31.1
-- volume: 9509718
-- ma5: 31.55
-- ema23_primary: 31.35
-- distance_to_ema23_pct: -0.81
-- ma20: 31.36
-- ma60: 31.26
-- ma120: 30.82
-- return_5d: -4.89
-- return_20d: -3.72
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -0.84
-- distance_to_high_60_pct: -11.9
+- date: 20260918
+- open: 32.75
+- high: 32.75
+- low: 31.85
+- close: 31.95
+- volume: 24075941
+- ma5: 31.73
+- ema23_primary: 31.5
+- distance_to_ema23_pct: 1.42
+- ma20: 31.57
+- ma60: 31.07
+- ma120: 31.01
+- return_5d: 2.73
+- return_20d: 4.07
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 1.21
+- distance_to_high_60_pct: -6.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,32.5,32.55,30.75,31.45,36593527,30.82,2.06,30.14,32.81,1.46
-20260818,31.1,31.1,30.45,30.55,15383939,30.79,-0.79,30.16,32.83,0.62
-20260819,30.1,31,30.05,30.9,12354545,30.8,0.32,30.17,32.8,0.51
-20260820,31,31.4,30.8,31,12951230,30.82,0.59,30.21,32.79,0.54
-20260821,31,31,30.5,30.7,8315197,30.81,-0.35,30.25,32.78,0.35
 20260824,30.7,31.6,30.7,31.1,12582129,30.83,0.87,30.3,32.76,0.53
 20260825,31.15,31.3,30.7,31.05,6407332,30.85,0.64,30.41,32.69,0.29
 20260826,31,31.5,30.9,31.4,8644574,30.9,1.63,30.55,32.57,0.41
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,31.4,32.1,31.25,31.8,14459020,31.37,1.39,31.43,31.45,0.75
 20260910,31.6,31.6,31.35,31.5,6824128,31.38,0.39,31.43,31.32,0.37
 20260911,31.1,31.2,30.75,31.1,9509718,31.35,-0.81,31.36,31.26,0.6
+20260914,31,31.55,30.95,31.4,11658204,31.36,0.14,31.36,31.21,0.8
+20260915,31.4,31.45,30.8,30.9,9020306,31.32,-1.34,31.38,31.16,0.63
+20260916,31,32,30.95,32,18042980,31.38,1.99,31.43,31.13,1.24
+20260917,32,32.8,32,32.4,19345151,31.46,2.98,31.5,31.1,1.3
+20260918,32.75,32.75,31.85,31.95,24075941,31.5,1.42,31.57,31.07,1.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 37.76
-- over_600_ratio: 35.74
-- over_800_ratio: 34.41
-- over_1000_ratio: 33.37
-- over_400_change_1w: -0.06
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -0.28
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 38.31
+- over_600_ratio: 36.3
+- over_800_ratio: 34.98
+- over_1000_ratio: 33.85
+- over_400_change_1w: 0.55
+- over_800_change_1w: 0.57
+- over_1000_change_1w: 0.48
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,38.6,-0.38,35.47,-0.49,34.6,-0.46,0,False,False
 20260703,38.02,-0.58,34.76,-0.71,33.92,-0.68,0,False,False
 20260709,37.89,-0.13,34.71,-0.05,33.88,-0.04,0,False,False
 20260717,37.21,-0.68,34.08,-0.63,33.19,-0.69,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,37.54,0.09,34.36,0.03,33.41,0.08,4,True,True
 20260904,37.82,0.28,34.62,0.26,33.65,0.24,5,True,True
 20260911,37.76,-0.06,34.41,-0.21,33.37,-0.28,0,False,False
+20260918,38.31,0.55,34.98,0.57,33.85,0.48,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2353 | 宏碁 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:宏碁股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:自由時報 6.報導內容:宏碁派來救火2天閃辭 兆基「短命董座」李文詳100萬元交保 7.發生緣由:本公司並未涉入媒體報導檢調偵查中之案件，宏碁全球營運皆恪守 所在地相關法規，且向來尊重與配合司法單位調查程序。 8.因應措施: 於公開資訊觀測站發佈重大訊息說明。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2353 | 宏碁 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/10 2.公司名稱:宏碁股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:自由時報 6.報導內容:宏碁派來救火2天閃辭 兆基「短命董座」李文詳100萬元交保 7.發生緣由:本公司並未涉入媒體報導檢調偵查中之案件，宏碁全球營運皆恪守 所在地相關法規，且向來尊重與配合司法單位調查程序。 8.因應措施: 於公開資訊觀測站發佈重大訊息說明。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2353 | 宏碁 | 18 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2353 | 宏碁 | 21 | 10 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2353 | 宏碁 | 61 | 4 | 1525900.0 | 1150.0 | 1326.87 | no_signal |
+| 20260918 | 2353 | 宏碁 | 62 | 4 | 3622700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

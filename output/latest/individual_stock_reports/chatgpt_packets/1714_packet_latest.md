@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1714 和桐
 
 ## Metadata
-- generated_at: 2026-09-13 22:15:51 Asia/Taipei
+- generated_at: 2026-09-19 15:52:21 Asia/Taipei
 - stock_id: 1714
 - stock_name: 和桐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 15.65
-- high: 15.85
-- low: 15.3
-- close: 15.35
-- volume: 19762675
-- ma5: 16.27
-- ema23_primary: 16.49
-- distance_to_ema23_pct: -6.92
-- ma20: 16.75
-- ma60: 16.8
-- ma120: 13.67
-- return_5d: -7.81
-- return_20d: -6.4
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: -8.39
-- distance_to_high_60_pct: -38.6
+- date: 20260918
+- open: 16.25
+- high: 16.25
+- low: 15.65
+- close: 15.7
+- volume: 7933467
+- ma5: 15.49
+- ema23_primary: 16.15
+- distance_to_ema23_pct: -2.8
+- ma20: 16.39
+- ma60: 16.53
+- ma120: 13.91
+- return_5d: 2.28
+- return_20d: -7.65
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -4.2
+- distance_to_high_60_pct: -37.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,16.75,17.5,16.5,17.15,24001086,15.92,7.73,15.24,15.42,1.16
-20260818,17.2,17.3,16.55,16.9,13519524,16,5.61,15.32,15.54,0.66
-20260819,16.65,16.95,16.55,16.75,7761869,16.06,4.27,15.38,15.66,0.39
-20260820,16.9,17.2,16.85,17,10251277,16.14,5.31,15.45,15.78,0.52
-20260821,17,17.35,16.85,17,12832352,16.21,4.85,15.56,15.91,0.64
 20260824,17.05,17.15,16.5,16.65,12910366,16.25,2.46,15.67,16.03,0.65
 20260825,16.55,16.6,15.95,16.5,10048779,16.27,1.41,15.81,16.15,0.51
 20260826,16.45,16.7,16.4,16.55,6063768,16.29,1.57,15.98,16.26,0.32
@@ -173,17 +169,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,16.3,16.85,16.3,16.8,7543179,16.6,1.18,16.82,16.89,0.48
 20260910,16.75,16.75,16.45,16.5,5388612,16.6,-0.58,16.81,16.87,0.37
 20260911,15.65,15.85,15.3,15.35,19762675,16.49,-6.92,16.75,16.8,1.35
+20260914,14.7,15.15,14.65,14.95,13245531,16.36,-8.64,16.64,16.71,0.94
+20260915,14.9,15.35,14.9,15.15,5071270,16.26,-6.84,16.56,16.66,0.37
+20260916,15.25,15.65,15.2,15.6,5865650,16.21,-3.75,16.5,16.62,0.43
+20260917,15.65,16.25,15.55,16.05,10370991,16.19,-0.89,16.45,16.57,0.76
+20260918,16.25,16.25,15.65,15.7,7933467,16.15,-2.8,16.39,16.53,0.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 52.82
-- over_600_ratio: 50.48
-- over_800_ratio: 48.44
-- over_1000_ratio: 47.62
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.06
+- as_of_date: 20260918
+- over_400_ratio: 52.15
+- over_600_ratio: 49.78
+- over_800_ratio: 48.05
+- over_1000_ratio: 46.81
+- over_400_change_1w: -0.67
+- over_800_change_1w: -0.39
+- over_1000_change_1w: -0.81
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +193,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,61.98,-0.95,58.64,-0.49,56.99,-0.65,0,False,False
 20260703,62.1,0.12,58.75,0.11,57.02,0.03,1,True,True
 20260709,55.86,-6.24,52.11,-6.64,50.84,-6.18,0,False,False
 20260717,54.66,-1.2,51.23,-0.88,49.78,-1.06,0,False,False
@@ -204,22 +204,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,53.58,-0.25,49.7,-0.43,48.9,0.11,2,False,True
 20260904,52.91,-0.67,48.58,-1.12,47.68,-1.22,0,False,False
 20260911,52.82,-0.09,48.44,-0.14,47.62,-0.06,0,False,False
+20260918,52.15,-0.67,48.05,-0.39,46.81,-0.81,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:和桐化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不通用 5.發生緣由:更正115年3月~5月資金貸與資訊揭露明細表 6.更正資訊項目/報表名稱:115年3月~5月資金貸與資訊揭露明細表 7.更正前金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 8.更正後金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 9.因應措施:更正後重新上傳至公開資訊觀測站。 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 1714 | 和桐 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/07 2.公司名稱:和桐化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不通用 5.發生緣由:更正115年3月~5月資金貸與資訊揭露明細表 6.更正資訊項目/報表名稱:115年3月~5月資金貸與資訊揭露明細表 7.更正前金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:0仟元 8.更正後金額/內容/頁次: (1)115年3月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (2)115年4月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 (3)115年5月 編號0 資金貸出之公司:和桐化學股份有限公司 貸與對象:中華全球石油股份有限公司 期末餘額:150,000仟元 9.因應措施:更正後重新上傳至公開資訊觀測站。 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1714 | 和桐 | 20 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 1714 | 和桐 | 23 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1714 | 和桐 | 16 | 0 | 845290.0 | 0.0 |  | no_signal |
+| 20260918 | 1714 | 和桐 | 16 | 0 | 1154350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

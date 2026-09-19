@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8040 九暘
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:51 Asia/Taipei
+- generated_at: 2026-09-19 15:54:57 Asia/Taipei
 - stock_id: 8040
 - stock_name: 九暘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 77.8
-- high: 79.3
-- low: 76.6
-- close: 77.2
-- volume: 1149000
-- ma5: 79.58
-- ema23_primary: 75.91
-- distance_to_ema23_pct: 1.7
-- ma20: 74.19
-- ma60: 81.71
-- ma120: 80.19
-- return_5d: 2.93
-- return_20d: 5.75
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 4.06
-- distance_to_high_60_pct: -38.97
+- date: 20260918
+- open: 79.5
+- high: 83.5
+- low: 78.5
+- close: 82.7
+- volume: 2271000
+- ma5: 78.98
+- ema23_primary: 77.05
+- distance_to_ema23_pct: 7.33
+- ma20: 76.28
+- ma60: 79.06
+- ma120: 81.41
+- return_5d: 7.12
+- return_20d: 18.82
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: 8.42
+- distance_to_high_60_pct: -32.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,72.8,73.9,72.5,73,235000,75.91,-3.84,71.89,91.31,0.44
-20260818,73.1,73.2,69,69.6,476000,75.39,-7.68,71.55,90.49,0.91
-20260819,67.8,71.8,67.4,71.2,267000,75.04,-5.11,71.25,89.64,0.52
-20260820,72.7,72.7,69.5,69.7,245000,74.59,-6.56,70.95,88.83,0.48
-20260821,70.1,71.2,69.5,69.6,277000,74.18,-6.17,70.78,88.11,0.55
 20260824,69.9,70.6,69.3,69.5,212000,73.79,-5.81,70.63,87.44,0.44
 20260825,69.4,70.7,67.6,70.7,156000,73.53,-3.85,70.78,86.76,0.34
 20260826,70.9,73.8,70.8,72,305000,73.4,-1.91,71.16,86.09,0.75
@@ -168,15 +168,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,78.1,81.4,77.8,79.2,1507000,75.41,5.03,73.69,82.22,1.34
 20260910,78.5,82.2,77.1,80,1607000,75.79,5.55,73.97,81.98,1.35
 20260911,77.8,79.3,76.6,77.2,1149000,75.91,1.7,74.19,81.71,0.94
+20260914,76.5,78.7,75.5,78.1,725000,76.09,2.64,74.44,81.44,0.58
+20260915,77.7,78.8,77.2,77.6,431000,76.22,1.82,74.84,81,0.34
+20260916,77.8,79.9,77.8,78.2,597000,76.38,2.38,75.19,80.4,0.47
+20260917,79.2,83,78.3,78.3,1258000,76.54,2.3,75.62,79.62,0.95
+20260918,79.5,83.5,78.5,82.7,2271000,77.05,7.33,76.28,79.06,1.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 49.88
+- as_of_date: 20260918
+- over_400_ratio: 49.8
 - over_600_ratio: 47.01
 - over_800_ratio: 45.71
 - over_1000_ratio: 44.68
-- over_400_change_1w: -0.1
+- over_400_change_1w: -0.08
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,51.96,-1,46.57,-0.04,44.6,0,0,False,False
 20260703,51.08,-0.88,45.63,-0.94,44.6,0,0,False,False
 20260709,51.09,0.01,45.63,0,44.6,0,1,False,False
 20260717,51.12,0.03,45.63,0,44.6,0,2,False,False
@@ -199,19 +203,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,51.9,0.11,45.69,0.04,44.66,0.04,8,True,True
 20260904,49.98,-1.92,45.71,0.02,44.68,0.02,9,False,True
 20260911,49.88,-0.1,45.71,0,44.68,0,0,False,False
+20260918,49.8,-0.08,45.71,0,44.68,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8040 | 九暘 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 8040 | 九暘 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 8040 | 九暘 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 9 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8040 | 九暘 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | continued_2_3d | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 8040 | 九暘 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8040 | 九暘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.發生變動日期:115/06/26 2.法人名稱:達發科技股份有限公司 3.舊任者姓名:羅瑞祥 4.舊任者簡歷: 睿瑾明新投資股份有限公司董事長 5.新任者姓名:潘建華 6.新任者簡歷: 九暘電子股份有限公司總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:113/06/21-116/06/20 9.新任生效日期:115/06/26 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8040 | 九暘 | 7 | 4 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 8040 | 九暘 | 2 | 2 | 4 | 9 | 9 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7828 創新服務
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:50 Asia/Taipei
+- generated_at: 2026-09-19 15:54:55 Asia/Taipei
 - stock_id: 7828
 - stock_name: 創新服務
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260911
-- price_rows: 101
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 106
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,7 +104,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
+- date: 20260918
 - open: 2010
-- high: 2070
-- low: 1955
-- close: 1975
-- volume: 248000
-- ma5: 2003
-- ema23_primary: 1820
-- distance_to_ema23_pct: 8.52
-- ma20: 1768.25
-- ma60: 1830.5
-- ma120: 1659.95
-- return_5d: 2.33
-- return_20d: 14.83
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 11.69
-- distance_to_high_60_pct: -21.31
+- high: 2125
+- low: 2010
+- close: 2125
+- volume: 497000
+- ma5: 1972
+- ema23_primary: 1876.41
+- distance_to_ema23_pct: 13.25
+- ma20: 1849.75
+- ma60: 1813.08
+- ma120: 1674.67
+- return_5d: 7.59
+- return_20d: 31.99
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: 14.88
+- distance_to_high_60_pct: -15.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,1680,1730,1630,1725,168000,1715.81,0.54,1644.75,1777,0.64
-20260818,1725,1735,1625,1630,129000,1708.66,-4.6,1632.75,1784.75,0.51
-20260819,1575,1675,1575,1615,169000,1700.85,-5.05,1618,1790.33,0.69
-20260820,1640,1670,1595,1650,80000,1696.61,-2.75,1606,1794.42,0.33
-20260821,1615,1630,1580,1610,59000,1689.4,-4.7,1600,1796.17,0.26
 20260824,1610,1660,1550,1550,88000,1677.78,-7.62,1598.25,1798.67,0.4
 20260825,1500,1555,1480,1520,106000,1664.63,-8.69,1602.75,1800.5,0.53
 20260826,1520,1595,1485,1580,83000,1657.58,-4.68,1617.25,1802.67,0.45
@@ -167,18 +161,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,2130,2230,2035,2080,687000,1783.26,16.64,1746.5,1831.17,2.73
 20260910,2090,2175,1965,2055,441000,1805.91,13.79,1755.5,1832.08,1.7
 20260911,2010,2070,1955,1975,248000,1820,8.52,1768.25,1830.5,0.95
+20260914,1970,1975,1875,1950,260000,1830.83,6.51,1779.5,1829.67,0.98
+20260915,1910,2040,1845,1845,273000,1832.01,0.71,1790.25,1826.42,1
+20260916,1860,2020,1855,2005,257000,1846.43,8.59,1809.75,1822.5,0.93
+20260917,2050,2055,1920,1935,336000,1853.81,4.38,1824,1816,1.16
+20260918,2010,2125,2010,2125,497000,1876.41,13.25,1849.75,1813.08,1.6
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 65.78
-- over_600_ratio: 60.16
-- over_800_ratio: 53.6
-- over_1000_ratio: 53.6
-- over_400_change_1w: 0.45
+- as_of_date: 20260918
+- over_400_ratio: 65.92
+- over_600_ratio: 60.34
+- over_800_ratio: 53.54
+- over_1000_ratio: 53.54
+- over_400_change_1w: 0.14
 - over_800_change_1w: -0.06
 - over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,63.43,-0.06,53.85,0,53.85,0,0,False,False
 20260703,63.41,-0.02,53.85,0,53.85,0,0,False,False
 20260709,63.35,-0.06,53.85,0,53.85,0,0,False,False
 20260717,64.45,1.1,53.84,-0.01,53.84,-0.01,1,False,False
@@ -198,6 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,65.37,-0.09,53.7,-0.08,53.7,-0.08,0,False,False
 20260904,65.33,-0.04,53.66,-0.04,53.66,-0.04,0,False,False
 20260911,65.78,0.45,53.6,-0.06,53.6,-0.06,1,False,False
+20260918,65.92,0.14,53.54,-0.06,53.54,-0.06,2,False,False
 ```
 
 ## Candidate Context

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:08 Asia/Taipei
+- generated_at: 2026-09-19 15:52:43 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,7 +104,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 4635
-- high: 4655
-- low: 4535
-- close: 4585
-- volume: 7591878
-- ma5: 4680
-- ema23_primary: 4246.12
-- distance_to_ema23_pct: 7.98
-- ma20: 4161.75
-- ma60: 3999.08
-- ma120: 3502.96
-- return_5d: 3.85
-- return_20d: 8.91
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 10.17
-- distance_to_high_60_pct: -5.56
+- date: 20260918
+- open: 4600
+- high: 4735
+- low: 4545
+- close: 4710
+- volume: 10365174
+- ma5: 4546
+- ema23_primary: 4354.32
+- distance_to_ema23_pct: 8.17
+- ma20: 4334.75
+- ma60: 4011.5
+- ma120: 3625.38
+- return_5d: 2.73
+- return_20d: 24.27
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: 8.66
+- distance_to_high_60_pct: -2.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,4205,4225,4025,4050,10559715,3904.41,3.73,3807.75,4055,1.06
-20260818,4020,4050,3885,3885,9323808,3902.79,-0.46,3818.5,4055.42,0.93
-20260819,3750,3910,3750,3845,7036521,3897.98,-1.36,3818.25,4048.75,0.73
-20260820,3820,3870,3675,3700,13213952,3881.48,-4.68,3809.5,4039.33,1.33
-20260821,3725,3810,3695,3790,6657464,3873.85,-2.16,3811.5,4025.17,0.68
 20260824,3820,3825,3745,3765,3321459,3864.78,-2.58,3815.75,4014.42,0.35
 20260825,3725,3735,3655,3735,5403340,3853.97,-3.09,3836.75,4004.83,0.59
 20260826,3730,3965,3710,3945,8370053,3861.55,2.16,3876.5,3994.67,0.95
@@ -167,26 +168,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,4780,4780,4625,4625,5400794,4169.43,10.93,4118.25,3994.33,0.6
 20260910,4560,4730,4520,4720,6662243,4215.31,11.97,4143,3997,0.76
 20260911,4635,4655,4535,4585,7591878,4246.12,7.98,4161.75,3999.08,0.88
+20260914,4475,4650,4435,4560,6122500,4272.27,6.73,4187.25,4001.92,0.73
+20260915,4505,4575,4430,4430,6209254,4285.42,3.37,4214.5,4001.33,0.75
+20260916,4435,4625,4435,4530,6640865,4305.8,5.21,4248.75,4001.25,0.81
+20260917,4565,4700,4500,4500,6495763,4321.98,4.12,4288.75,4004.83,0.82
+20260918,4600,4735,4545,4710,10365174,4354.32,8.17,4334.75,4011.5,1.28
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 73.84
-- over_600_ratio: 69.33
-- over_800_ratio: 66.44
-- over_1000_ratio: 63.76
-- over_400_change_1w: 0.23
-- over_800_change_1w: 0.55
-- over_1000_change_1w: 0.59
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 73.91
+- over_600_ratio: 69.38
+- over_800_ratio: 66.33
+- over_1000_ratio: 63.49
+- over_400_change_1w: 0.07
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.27
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,75.38,-0.15,68.12,-0.28,65.29,-0.33,0,False,False
 20260703,74.96,-0.42,67.71,-0.41,64.93,-0.36,0,False,False
 20260709,74.71,-0.25,67.46,-0.25,64.61,-0.32,0,False,False
 20260717,74.59,-0.12,67.28,-0.18,64.33,-0.28,0,False,False
@@ -198,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,73.63,0,66.04,-0.34,63.08,-0.16,0,False,False
 20260904,73.61,-0.02,65.89,-0.15,63.17,0.09,1,False,True
 20260911,73.84,0.23,66.44,0.55,63.76,0.59,2,True,True
+20260918,73.91,0.07,66.33,-0.11,63.49,-0.27,3,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2454 | 聯發科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | 1.發生變動日期:115/07/06 2.法人名稱:聯發科技股份有限公司 3.舊任者姓名:不適用　 4.舊任者簡歷:不適用 5.新任者姓名:陳暄妮　 6.新任者簡歷:聯發科技股份有限公司 財務本部協理 7.異動原因:法人股東增派一席董事 8.原任期（例xx/xx/xx至xx/xx/xx）:不適用 9.新任生效日期:115/07/06 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2454 | 聯發科 | 3 | 1 | 4 | 5 | 9 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2454 | 聯發科 | 260 | 30 | 61560610.0 | 617190.0 | 99.74 | no_signal |
+| 20260918 | 2454 | 聯發科 | 249 | 30 | 89976670.0 | 365580.0 | 246.12 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

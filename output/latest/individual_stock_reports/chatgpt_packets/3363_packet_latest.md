@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3363 上詮
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:33 Asia/Taipei
+- generated_at: 2026-09-19 15:53:15 Asia/Taipei
 - stock_id: 3363
 - stock_name: 上詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 698
-- high: 699
-- low: 679
-- close: 681
-- volume: 2374000
-- ma5: 707.4
-- ema23_primary: 680.02
-- distance_to_ema23_pct: 0.14
-- ma20: 680.4
-- ma60: 614.45
-- ma120: 700.95
-- return_5d: -7.35
-- return_20d: 16.21
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -19.88
+- date: 20260918
+- open: 671
+- high: 683
+- low: 658
+- close: 683
+- volume: 2561000
+- ma5: 669
+- ema23_primary: 676.28
+- distance_to_ema23_pct: 0.99
+- ma20: 697.45
+- ma60: 613.4
+- ma120: 701.45
+- return_5d: 0.29
+- return_20d: 13.83
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -2.07
+- distance_to_high_60_pct: -19.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,593,625,585,624,3763000,586.86,6.33,568,652.33,1.06
-20260818,620,632,584,586,3827000,586.79,-0.13,571.15,647.9,1.05
-20260819,569,592,561,584,1992000,586.55,-0.44,572.05,643.53,0.55
-20260820,589,612,589,610,2889000,588.51,3.65,573.1,638.95,0.82
-20260821,610,616,598,600,1924000,589.47,1.79,574,634.83,0.59
 20260824,601,603,565,567,1934000,587.59,-3.5,572.45,630.7,0.62
 20260825,556,623,549,623,3360000,590.54,5.5,576.65,627.8,1.07
 20260826,630,654,623,650,6021000,595.5,9.15,584.88,625.15,1.82
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,730,756,701,708,6138000,676.83,4.6,669.95,614.4,1.23
 20260910,706,732,694,714,4358000,679.93,5.01,675.65,614.52,0.88
 20260911,698,699,679,681,2374000,680.02,0.14,680.4,614.45,0.48
+20260914,660,685,656,675,2139000,679.6,-0.68,682.95,613.83,0.44
+20260915,669,672,647,648,2539000,676.97,-4.28,686.05,612.77,0.53
+20260916,647,690,647,684,3029000,677.55,0.95,691.05,612.75,0.63
+20260917,698,699,653,655,4018000,675.67,-3.06,693.3,612.5,0.82
+20260918,671,683,658,683,2561000,676.28,0.99,697.45,613.4,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 38.97
-- over_600_ratio: 34.98
-- over_800_ratio: 29.39
-- over_1000_ratio: 28.56
-- over_400_change_1w: -1.92
-- over_800_change_1w: -1.56
-- over_1000_change_1w: -1.67
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 37.86
+- over_600_ratio: 34.84
+- over_800_ratio: 29.21
+- over_1000_ratio: 29.21
+- over_400_change_1w: -1.11
+- over_800_change_1w: -0.18
+- over_1000_change_1w: 0.65
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,41.56,-0.35,33.24,0.56,30.17,-0.94,1,False,True
 20260703,43.58,2.02,33.74,0.5,32.13,1.96,2,True,True
 20260709,41.16,-2.42,32.56,-1.18,31.08,-1.05,0,False,False
 20260717,41.43,0.27,32.39,-0.17,30.17,-0.91,1,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,42.49,2.46,33.36,2.79,30.1,1.14,2,True,True
 20260904,40.89,-1.6,30.95,-2.41,30.23,0.13,3,False,True
 20260911,38.97,-1.92,29.39,-1.56,28.56,-1.67,0,False,False
+20260918,37.86,-1.11,29.21,-0.18,29.21,0.65,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3363 | 上詮 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：W Hotel Taipei 4.法人說明會擇要訊息：本公司受邀參加UBS Taiwan Summit 2026，會中說明本公司營運概況及經營績效。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 3363 | 上詮 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：W Hotel Taipei 4.法人說明會擇要訊息：本公司受邀參加UBS Taiwan Summit 2026，會中說明本公司營運概況及經營績效。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3363 | 上詮 | 4 | 4 | 4 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3363 | 上詮 | 7 | 7 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

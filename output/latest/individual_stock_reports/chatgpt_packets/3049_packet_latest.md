@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3049 精金
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:25 Asia/Taipei
+- generated_at: 2026-09-19 15:53:04 Asia/Taipei
 - stock_id: 3049
 - stock_name: 精金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
+- date: 20260918
 - open: 12.1
-- high: 12.3
-- low: 12
+- high: 12.15
+- low: 11.9
 - close: 12.1
-- volume: 3504288
-- ma5: 12.43
-- ema23_primary: 12.3
-- distance_to_ema23_pct: -1.63
-- ma20: 12.42
-- ma60: 12.02
-- ma120: 12.55
-- return_5d: -5.47
-- return_20d: 9.01
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -2.56
-- distance_to_high_60_pct: -18.52
+- volume: 2707209
+- ma5: 11.99
+- ema23_primary: 12.19
+- distance_to_ema23_pct: -0.77
+- ma20: 12.67
+- ma60: 11.85
+- ma120: 12.46
+- return_5d: 0
+- return_20d: 4.76
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -4.48
+- distance_to_high_60_pct: -15.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,11.1,11.1,10.75,10.85,2402024,11.05,-1.8,10.62,12.5,0.91
-20260818,10.85,10.95,10.65,10.65,1446469,11.02,-3.32,10.59,12.47,0.55
-20260819,10.6,10.8,10.45,10.7,1312124,10.99,-2.63,10.56,12.44,0.51
-20260820,10.9,11.2,10.7,11.2,2998461,11.01,1.75,10.56,12.42,1.17
-20260821,11.25,12,11.25,11.55,9199081,11.05,4.5,10.6,12.41,3.13
 20260824,12.7,12.7,12.6,12.7,10131116,11.19,13.5,10.7,12.42,3.04
 20260825,13,13.7,12.4,13.5,50056854,11.38,18.61,10.87,12.44,8.83
 20260826,13.35,13.75,13.2,13.35,22879098,11.55,15.62,11.06,12.44,3.48
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,12.5,12.75,12.5,12.5,5928451,12.32,1.45,12.32,12.1,0.45
 20260910,12.5,12.55,12.25,12.3,4087625,12.32,-0.15,12.37,12.07,0.31
 20260911,12.1,12.3,12,12.1,3504288,12.3,-1.63,12.42,12.02,0.27
+20260914,12.1,12.15,11.9,12,3003993,12.28,-2.25,12.47,11.98,0.23
+20260915,11.95,12.1,11.8,11.8,2397221,12.24,-3.56,12.53,11.94,0.18
+20260916,11.85,12.15,11.85,12.05,2380004,12.22,-1.4,12.6,11.91,0.18
+20260917,12.15,12.3,12,12,3711042,12.2,-1.66,12.64,11.88,0.28
+20260918,12.1,12.15,11.9,12.1,2707209,12.19,-0.77,12.67,11.85,0.21
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 46.78
-- over_600_ratio: 45.27
-- over_800_ratio: 44.07
-- over_1000_ratio: 43.48
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 46.9
+- over_600_ratio: 45.4
+- over_800_ratio: 44.18
+- over_1000_ratio: 43.36
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.11
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,47.05,0.25,44.28,0.3,43.33,0.06,1,True,True
 20260703,47.05,0,44.07,-0.21,43.47,0.14,2,False,True
 20260709,46.87,-0.18,44.08,0.01,43.05,-0.42,3,False,True
 20260717,46.66,-0.21,43.86,-0.22,43.04,-0.01,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,46.46,-0.58,43.62,-0.5,42.8,-0.48,0,False,False
 20260904,46.64,0.18,43.84,0.22,43.15,0.35,1,True,True
 20260911,46.78,0.14,44.07,0.23,43.48,0.33,2,True,True
+20260918,46.9,0.12,44.18,0.11,43.36,-0.12,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3049 | 精金 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯欣投資有限合夥 2.事實發生日:115/8/26~115/8/26 3.董事會通過日期: 民國115年8月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 聯欣投資有限合夥為有限合夥組織，無交易數量及單位交易價格 交易總金額：新台幣150,000,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 不適用 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依據有限合夥合約規定，並依聯欣投資有限合夥撥款通知，進行撥款 12.本次交易之決定方式、價格決定之參考依據及決策單位: 投資有限合夥架構新基金、有限合夥組織無單位價格， 依董事會決議辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: (1)佔總資產比率：1.01%。 (2)佔歸屬於母公司股東權益比率：1.83%。 (3)最近期財務報表營運資金：新台幣2,372,569仟元。 16.經紀人及經紀費用: 無。 17.取得或處分之具體目的或用途: 長期投資 18.本次交易表示異議董事之意見: 無。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 民國115年08月26日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 無。 27.過去一年及預計未來一年內與交易相對人交易情形: 無 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 3049 | 精金 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯欣投資有限合夥 2.事實發生日:115/8/26~115/8/26 3.董事會通過日期: 民國115年8月26日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 聯欣投資有限合夥為有限合夥組織，無交易數量及單位交易價格 交易總金額：新台幣150,000,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 不適用 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依據有限合夥合約規定，並依聯欣投資有限合夥撥款通知，進行撥款 12.本次交易之決定方式、價格決定之參考依據及決策單位: 投資有限合夥架構新基金、有限合夥組織無單位價格， 依董事會決議辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: (1)佔總資產比率：1.01%。 (2)佔歸屬於母公司股東權益比率：1.83%。 (3)最近期財務報表營運資金：新台幣2,372,569仟元。 16.經紀人及經紀費用: 無。 17.取得或處分之具體目的或用途: 長期投資 18.本次交易表示異議董事之意見: 無。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 民國115年08月26日 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 無。 27.過去一年及預計未來一年內與交易相對人交易情形: 無 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3049 | 精金 | 4 | 4 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3049 | 精金 | 7 | 7 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3049 | 精金 | 11 | 0 | 348980.0 | 0.0 |  | no_signal |
+| 20260918 | 3049 | 精金 | 11 | 0 | 50150.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

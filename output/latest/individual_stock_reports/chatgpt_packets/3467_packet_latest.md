@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3467 台灣精材
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:35 Asia/Taipei
+- generated_at: 2026-09-19 15:53:18 Asia/Taipei
 - stock_id: 3467
 - stock_name: 台灣精材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,40 +69,39 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: no_entry_now
+- thesis_state: high_level_distribution_risk
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -116,6 +115,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 51.7
-- high: 58.6
-- low: 51.7
-- close: 58.6
-- volume: 155000
-- ma5: 53.08
-- ema23_primary: 50.3
-- distance_to_ema23_pct: 16.51
-- ma20: 49.16
-- ma60: 52.22
-- ma120: 55.89
-- return_5d: 14.68
-- return_20d: 25.75
-- volume_ratio: 2.54
-- distance_to_ma20_pct_auxiliary: 19.21
-- distance_to_high_60_pct: -15.68
+- date: 20260918
+- open: 76
+- high: 77.4
+- low: 73.4
+- close: 77.4
+- volume: 1068000
+- ma5: 71.54
+- ema23_primary: 57.97
+- distance_to_ema23_pct: 33.53
+- ma20: 55.58
+- ma60: 52.73
+- ma120: 57.15
+- return_5d: 32.08
+- return_20d: 66.99
+- volume_ratio: 2.39
+- distance_to_ma20_pct_auxiliary: 39.27
+- distance_to_high_60_pct: -1.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,46,46,45.5,45.85,46000,48.49,-5.44,47.04,58.24,0.55
-20260818,46.6,46.6,44.75,45.45,41000,48.23,-5.77,46.71,57.94,0.49
-20260819,44.7,46.05,44,45.95,15000,48.04,-4.36,46.35,57.59,0.19
-20260820,45.95,45.95,45.35,45.75,11000,47.85,-4.39,46.05,57.13,0.14
-20260821,45.5,46.45,45.5,46.35,10000,47.73,-2.89,45.82,56.61,0.13
 20260824,45.85,46.15,45.8,46.15,12000,47.6,-3.04,45.64,56.15,0.15
 20260825,45.8,46.3,45.2,46,24000,47.46,-3.08,45.54,55.67,0.32
 20260826,46.05,48.8,46.05,48.25,79000,47.53,1.52,45.72,55.28,1.33
@@ -166,15 +161,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,51.7,52,51.1,51.7,50000,49.2,5.08,48.18,52.48,0.95
 20260910,51,53.4,50.5,53.3,109000,49.54,7.58,48.56,52.3,2
 20260911,51.7,58.6,51.7,58.6,155000,50.3,16.51,49.16,52.22,2.54
+20260914,64.4,64.4,64.4,64.4,122000,51.47,25.12,50.09,52.22,1.88
+20260915,70.8,70.8,70.8,70.8,606000,53.08,33.38,51.35,52.25,6.52
+20260916,71.2,76.5,68,71.6,3278000,54.63,31.07,52.63,52.33,12.8
+20260917,72.8,78.7,70.8,73.5,2766000,56.2,30.79,54.02,52.49,7.02
+20260918,76,77.4,73.4,77.4,1068000,57.97,33.53,55.58,52.73,2.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 62.59
+- as_of_date: 20260918
+- over_400_ratio: 62.58
 - over_600_ratio: 57.73
 - over_800_ratio: 55.59
 - over_1000_ratio: 55.59
-- over_400_change_1w: 0
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -185,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,61.17,0,55.73,0,55.73,0,0,False,False
 20260703,61.15,-0.02,55.71,-0.02,55.71,-0.02,0,False,False
 20260709,61.15,0,55.71,0,55.71,0,0,False,False
 20260717,62.47,1.32,55.71,0,55.71,0,1,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,61.95,0,54.95,0,54.95,0,0,False,False
 20260904,62.59,0.64,55.59,0.64,55.59,0.64,1,True,True
 20260911,62.59,0,55.59,0,55.59,0,0,False,False
+20260918,62.58,-0.01,55.59,0,55.59,0,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 3467 | 台灣精材 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 3467 | 台灣精材 | 3 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

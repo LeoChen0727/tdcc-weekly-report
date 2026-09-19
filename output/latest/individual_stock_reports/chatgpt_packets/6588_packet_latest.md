@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6588 東典光電
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:27 Asia/Taipei
+- generated_at: 2026-09-19 15:54:26 Asia/Taipei
 - stock_id: 6588
 - stock_name: 東典光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 111
-- high: 112
-- low: 107
-- close: 107.5
-- volume: 1069000
-- ma5: 113.3
-- ema23_primary: 105.8
-- distance_to_ema23_pct: 1.61
-- ma20: 107.19
-- ma60: 93.77
-- ma120: 110.75
-- return_5d: -0.92
-- return_20d: 15.47
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 0.28
-- distance_to_high_60_pct: -15.35
+- date: 20260918
+- open: 119.5
+- high: 122.5
+- low: 116
+- close: 117.5
+- volume: 3914000
+- ma5: 110.6
+- ema23_primary: 107.74
+- distance_to_ema23_pct: 9.06
+- ma20: 110.4
+- ma60: 94.45
+- ma120: 110.91
+- return_5d: 9.3
+- return_20d: 9.3
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 6.43
+- distance_to_high_60_pct: -7.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,93.3,94.3,90,90.9,729000,89.55,1.51,87.77,95.22,0.25
-20260818,90.9,96.8,88.5,94.5,2406000,89.96,5.04,89,94.62,0.78
-20260819,92.7,98.5,91.1,95,1906000,90.38,5.11,90.06,94.03,0.61
-20260820,96.1,103,94,101,4582000,91.27,10.67,91.41,93.48,1.37
-20260821,102,110,101.5,107.5,4483000,92.62,16.07,92.71,93.14,1.29
 20260824,106.5,108,100,101.5,1945000,93.36,8.72,93.31,92.91,0.58
 20260825,99.5,111.5,97,111.5,3363000,94.87,17.53,94.23,92.89,1.12
 20260826,113,118,112,114.5,7670000,96.51,18.64,95.46,93.01,2.9
@@ -168,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,114.5,118.5,111.5,115,2690000,105.02,9.5,105.53,93.75,0.91
 20260910,113,116,112,112.5,1413000,105.65,6.49,106.47,93.78,0.49
 20260911,111,112,107,107.5,1069000,105.8,1.61,107.19,93.77,0.37
+20260914,105,113,104,107,1475000,105.9,1.04,108,93.76,0.5
+20260915,106.5,107,100,100,965000,105.41,-5.13,108.28,93.67,0.33
+20260916,102.5,110,102,110,1127000,105.79,3.98,109.03,93.82,0.39
+20260917,115.5,121,114.5,118.5,6703000,106.85,10.9,109.9,94.13,2.26
+20260918,119.5,122.5,116,117.5,3914000,107.74,9.06,110.4,94.45,1.34
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 22.66
+- as_of_date: 20260918
+- over_400_ratio: 24.08
 - over_600_ratio: 20.94
 - over_800_ratio: 20.94
 - over_1000_ratio: 18.13
-- over_400_change_1w: 0
+- over_400_change_1w: 1.42
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,25.76,-0.16,21.16,0,21.16,0,0,False,False
 20260703,25.61,-0.15,21.08,-0.08,21.08,-0.08,0,False,False
 20260709,25.48,-0.13,20.98,-0.1,18.13,-2.95,0,False,False
 20260717,24.32,-1.16,20.98,0,18.13,0,0,False,False
@@ -199,18 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,22.66,-1.67,20.94,-0.05,18.13,0,0,False,False
 20260904,22.66,0,20.94,0,18.13,0,0,False,False
 20260911,22.66,0,20.94,0,18.13,0,0,False,False
+20260918,24.08,1.42,20.94,0,18.13,0,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6588 | 東典光電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期：115/09/02 2.股東臨時會召開日期：115/10/29 3.股東臨時會召開地點：宜蘭縣五結鄉利工一路二段70號 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：本公司之孫公司科沃斯先進股份有限公司向關係人取得不動產使用權資產案。 6.臨時動議： 7.停止過戶起始日期：115/09/30 8.停止過戶截止日期：115/10/29 9.其他應敘明事項：本次股東臨時會得採電子方式行使表決權，其行使方法依公司法第177-1條規定， 將載明於股東臨時會召集通知，並依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6588 | 東典光電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期：115/09/02 2.股東臨時會召開日期：115/10/29 3.股東臨時會召開地點：宜蘭縣五結鄉利工一路二段70號 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：本公司之孫公司科沃斯先進股份有限公司向關係人取得不動產使用權資產案。 6.臨時動議： 7.停止過戶起始日期：115/09/30 8.停止過戶截止日期：115/10/29 9.其他應敘明事項：本次股東臨時會得採電子方式行使表決權，其行使方法依公司法第177-1條規定， 將載明於股東臨時會召集通知，並依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6588 | 東典光電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議日期：115/09/02 2.股東臨時會召開日期：115/10/29 3.股東臨時會召開地點：宜蘭縣五結鄉利工一路二段70號 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：本公司之孫公司科沃斯先進股份有限公司向關係人取得不動產使用權資產案。 6.臨時動議： 7.停止過戶起始日期：115/09/30 8.停止過戶截止日期：115/10/29 9.其他應敘明事項：本次股東臨時會得採電子方式行使表決權，其行使方法依公司法第177-1條規定， 將載明於股東臨時會召集通知，並依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6588 | 東典光電 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | 1.董事會決議日期：115/09/02 2.股東臨時會召開日期：115/10/29 3.股東臨時會召開地點：宜蘭縣五結鄉利工一路二段70號 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：本公司之孫公司科沃斯先進股份有限公司向關係人取得不動產使用權資產案。 6.臨時動議： 7.停止過戶起始日期：115/09/30 8.停止過戶截止日期：115/10/29 9.其他應敘明事項：本次股東臨時會得採電子方式行使表決權，其行使方法依公司法第177-1條規定， 將載明於股東臨時會召集通知，並依相關法令規定辦理。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6588 | 東典光電 | 10 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6588 | 東典光電 | 13 | 7 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

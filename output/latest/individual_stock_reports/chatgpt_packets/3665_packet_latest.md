@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:41 Asia/Taipei
+- generated_at: 2026-09-19 15:53:26 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 352
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 357
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 回檔後短線轉強
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 1880
-- high: 1890
-- low: 1850
-- close: 1875
-- volume: 1944589
-- ma5: 1957
-- ema23_primary: 2083.58
-- distance_to_ema23_pct: -10.01
-- ma20: 2111.5
-- ma60: 2067.67
-- ma120: 2167.96
-- return_5d: -12.59
-- return_20d: -14.77
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -11.2
-- distance_to_high_60_pct: -26.61
+- date: 20260918
+- open: 2060
+- high: 2210
+- low: 2045
+- close: 2210
+- volume: 6471964
+- ma5: 2030
+- ema23_primary: 2068.08
+- distance_to_ema23_pct: 6.86
+- ma20: 2064
+- ma60: 2069.92
+- ma120: 2178
+- return_5d: 17.87
+- return_20d: -2.86
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 7.07
+- distance_to_high_60_pct: -13.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,2185,2185,2095,2135,1878863,2143.76,-0.41,2173.75,2091.33,0.5
-20260818,2130,2310,2125,2240,3107456,2151.78,4.1,2185.75,2092.75,0.83
-20260819,2150,2210,2120,2200,2061571,2155.8,2.05,2190,2092.33,0.57
-20260820,2225,2255,2180,2250,1488154,2163.65,3.99,2188.25,2090.08,0.44
-20260821,2270,2360,2225,2275,3470516,2172.93,4.7,2191.75,2090.25,1.03
 20260824,2275,2275,2050,2050,4781290,2162.68,-5.21,2186.75,2089.17,1.36
 20260825,2035,2080,2010,2075,2634314,2155.38,-3.73,2179.75,2088.5,0.76
 20260826,2035,2055,1930,2005,4874749,2142.85,-6.43,2175.5,2087.17,1.4
@@ -172,18 +167,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,1935,2015,1890,1975,2477275,2118.23,-6.76,2141.5,2074.42,0.84
 20260910,1960,1975,1925,1930,930001,2102.54,-8.21,2127.75,2071.25,0.33
 20260911,1880,1890,1850,1875,1944589,2083.58,-10.01,2111.5,2067.67,0.68
+20260914,1825,2000,1810,1955,2220323,2072.86,-5.69,2102.5,2065.25,0.77
+20260915,1940,2020,1925,1980,2594783,2065.13,-4.12,2089.5,2065.08,0.91
+20260916,1980,2030,1935,1995,2539303,2059.28,-3.12,2079.25,2065,0.88
+20260917,2035,2085,1985,2010,3284559,2055.17,-2.2,2067.25,2065.08,1.1
+20260918,2060,2210,2045,2210,6471964,2068.08,6.86,2064,2069.92,2.07
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 61.4
-- over_600_ratio: 56.16
-- over_800_ratio: 50.18
-- over_1000_ratio: 43.86
-- over_400_change_1w: -0.22
-- over_800_change_1w: 0.49
-- over_1000_change_1w: -0.9
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 61.77
+- over_600_ratio: 56.34
+- over_800_ratio: 49.27
+- over_1000_ratio: 44.37
+- over_400_change_1w: 0.37
+- over_800_change_1w: -0.91
+- over_1000_change_1w: 0.51
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,58.59,-0.58,46.62,-2.61,41.54,-3.17,0,False,False
 20260703,58.56,-0.03,46.99,0.37,41.89,0.35,1,False,True
 20260709,58.76,0.2,47.65,0.66,42.61,0.72,2,True,True
 20260717,60.91,2.15,47.63,-0.02,43.53,0.92,3,False,True
@@ -203,22 +202,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,61.91,-1.32,49.73,-1.8,44.8,-1,0,False,False
 20260904,61.62,-0.29,49.69,-0.04,44.76,-0.04,0,False,False
 20260911,61.4,-0.22,50.18,0.49,43.86,-0.9,1,False,True
+20260918,61.77,0.37,49.27,-0.91,44.37,0.51,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/21 2.發生緣由:本公司偵測到部份資訊系統遭受網路安全事件。 3.處理過程: 本公司於偵測到異常後，已立即啟動資安應變機制與隔離受影響之資訊系統措施 ，進行全面清查與復原作業，並同步委請外部資安專家協助復原與調查。 4.預計可能損失或影響:經初步評估對公司整體營運及財務無重大影響。 5.可能獲得保險理賠之金額:評估中。 6.改善情形及未來因應措施: 本公司將持續提升網路與資訊基礎架構之資安防護姿態（security posture） ，以確保資料安全與營運韌性。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3665 | 貿聯-KY | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/21 2.發生緣由:本公司偵測到部份資訊系統遭受網路安全事件。 3.處理過程: 本公司於偵測到異常後，已立即啟動資安應變機制與隔離受影響之資訊系統措施 ，進行全面清查與復原作業，並同步委請外部資安專家協助復原與調查。 4.預計可能損失或影響:經初步評估對公司整體營運及財務無重大影響。 5.可能獲得保險理賠之金額:評估中。 6.改善情形及未來因應措施: 本公司將持續提升網路與資訊基礎架構之資安防護姿態（security posture） ，以確保資料安全與營運韌性。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/21 2.發生緣由:本公司偵測到部份資訊系統遭受網路安全事件。 3.處理過程: 本公司於偵測到異常後，已立即啟動資安應變機制與隔離受影響之資訊系統措施 ，進行全面清查與復原作業，並同步委請外部資安專家協助復原與調查。 4.預計可能損失或影響:經初步評估對公司整體營運及財務無重大影響。 5.可能獲得保險理賠之金額:評估中。 6.改善情形及未來因應措施: 本公司將持續提升網路與資訊基礎架構之資安防護姿態（security posture） ，以確保資料安全與營運韌性。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3665 | 貿聯-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | stale_signal | 1.事實發生日:115/08/21 2.發生緣由:本公司偵測到部份資訊系統遭受網路安全事件。 3.處理過程: 本公司於偵測到異常後，已立即啟動資安應變機制與隔離受影響之資訊系統措施 ，進行全面清查與復原作業，並同步委請外部資安專家協助復原與調查。 4.預計可能損失或影響:經初步評估對公司整體營運及財務無重大影響。 5.可能獲得保險理賠之金額:評估中。 6.改善情形及未來因應措施: 本公司將持續提升網路與資訊基礎架構之資安防護姿態（security posture） ，以確保資料安全與營運韌性。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3665 | 貿聯-KY | 1 | 1 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3665 | 貿聯-KY | 4 | 4 | 4 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3665 | 貿聯-KY | 306 | 10 | 15590030.0 | 455630.0 | 34.22 | no_signal |
+| 20260918 | 3665 | 貿聯-KY | 304 | 9 | 64382380.0 | 188960.0 | 340.72 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:04 Asia/Taipei
+- generated_at: 2026-09-19 15:52:37 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 66.5
-- high: 68
-- low: 66.4
-- close: 67.3
-- volume: 1827659
-- ma5: 67.44
-- ema23_primary: 68.38
-- distance_to_ema23_pct: -1.58
-- ma20: 68.29
-- ma60: 70.23
-- ma120: 72.96
-- return_5d: -1.46
-- return_20d: -4.54
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -1.45
-- distance_to_high_60_pct: -17.73
+- date: 20260918
+- open: 67.4
+- high: 67.5
+- low: 66.6
+- close: 67.5
+- volume: 2134134
+- ma5: 66.66
+- ema23_primary: 67.79
+- distance_to_ema23_pct: -0.43
+- ma20: 67.82
+- ma60: 69.43
+- ma120: 72.77
+- return_5d: 0.3
+- return_20d: -1.46
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -0.47
+- distance_to_high_60_pct: -16.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,70.5,72.2,70.5,70.9,2376701,69.82,1.55,67.97,73.49,0.82
-20260818,71.1,71.2,69.3,69.3,2515816,69.77,-0.68,68.08,73.25,0.86
-20260819,66.3,68.4,66.3,66.9,1850802,69.53,-3.79,68.04,72.97,0.63
-20260820,67.3,68.1,66.6,67.1,1295775,69.33,-3.22,67.99,72.72,0.45
-20260821,68.2,69.1,67.8,68.5,4136830,69.26,-1.1,68.04,72.51,1.38
 20260824,68.7,68.7,67,67.1,2351451,69.08,-2.87,67.99,72.32,0.81
 20260825,66,67.1,65.6,66.9,1699344,68.9,-2.9,68.14,72.05,0.6
 20260826,67.1,70.4,67.1,70.1,5051998,69,1.6,68.52,71.81,1.79
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,68.1,68.4,67.5,67.7,1914505,68.59,-1.3,68.63,70.5,0.72
 20260910,67.7,68,67.1,67.3,1450803,68.48,-1.73,68.45,70.38,0.55
 20260911,66.5,68,66.4,67.3,1827659,68.38,-1.58,68.29,70.23,0.69
+20260914,67,67.2,65.9,66.6,1434174,68.23,-2.4,68.08,70.09,0.56
+20260915,66.6,66.9,65.7,65.7,1326411,68.02,-3.42,67.89,69.94,0.53
+20260916,66.4,67.1,66,66.7,2119041,67.91,-1.79,67.89,69.77,0.83
+20260917,67.4,67.7,66.7,66.8,1895364,67.82,-1.5,67.87,69.63,0.74
+20260918,67.4,67.5,66.6,67.5,2134134,67.79,-0.43,67.82,69.43,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 25.6
-- over_600_ratio: 24.07
-- over_800_ratio: 23.19
-- over_1000_ratio: 21.91
-- over_400_change_1w: -0.54
-- over_800_change_1w: -0.41
-- over_1000_change_1w: -0.42
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 25.61
+- over_600_ratio: 24.15
+- over_800_ratio: 22.88
+- over_1000_ratio: 21.55
+- over_400_change_1w: 0.01
+- over_800_change_1w: -0.31
+- over_1000_change_1w: -0.36
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,28.18,-0.26,25.22,0.16,23.09,-0.4,2,False,True
 20260703,28.05,-0.13,24.17,-1.05,22.26,-0.83,0,False,False
 20260709,27.74,-0.31,24.11,-0.06,23.02,0.76,1,False,True
 20260717,27.52,-0.22,24.18,0.07,23.1,0.08,2,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,26.89,-0.14,23.75,-0.16,22.68,0.07,1,False,True
 20260904,26.14,-0.75,23.6,-0.15,22.33,-0.35,0,False,False
 20260911,25.6,-0.54,23.19,-0.41,21.91,-0.42,0,False,False
+20260918,25.61,0.01,22.88,-0.31,21.55,-0.36,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.股東會決議日:115/06/25 2.許可從事競業行為之董事姓名及職稱: 董事：董俊仁(佳美投資股份有限公司代表人) 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司。 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 表決時出席股東表決權數183,090,559權，贊成權數180,560,083權，占總權數98.61%； 本案依票決方式表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.股東會決議日:115/06/25 2.許可從事競業行為之董事姓名及職稱: 董事：董俊仁(佳美投資股份有限公司代表人) 3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司。 4.許可從事競業行為之期間:任職本公司董事之職務期間。 5.決議情形（請依公司法第209條說明表決結果）: 表決時出席股東表決權數183,090,559權，贊成權數180,560,083權，占總權數98.61%； 本案依票決方式表決通過。 6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱 （非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用。 7.所擔任該大陸地區事業之公司名稱及職務:不適用。 8.所擔任該大陸地區事業地址:不適用。 9.所擔任該大陸地區事業營業項目:不適用。 10.對本公司財務業務之影響程度:無。 11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用。 12.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2374 | 佳能 | 18 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2374 | 佳能 | 21 | 10 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2374 | 佳能 | 42 | 1 | 467020.0 | 0.0 |  | no_signal |
+| 20260918 | 2374 | 佳能 | 42 | 1 | 149550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

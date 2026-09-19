@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6285 啟碁
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:21 Asia/Taipei
+- generated_at: 2026-09-19 15:54:17 Asia/Taipei
 - stock_id: 6285
 - stock_name: 啟碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -132,33 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 227
-- high: 227
-- low: 222.5
-- close: 222.5
-- volume: 2595591
-- ma5: 231.7
-- ema23_primary: 238.34
-- distance_to_ema23_pct: -6.65
-- ma20: 237.95
-- ma60: 244.82
-- ma120: 246.7
-- return_5d: -8.62
-- return_20d: -9.18
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -6.49
-- distance_to_high_60_pct: -20.82
+- date: 20260918
+- open: 229
+- high: 230.5
+- low: 227
+- close: 227.5
+- volume: 4485576
+- ma5: 223.4
+- ema23_primary: 233.17
+- distance_to_ema23_pct: -2.43
+- ma20: 234.45
+- ma60: 241.64
+- ma120: 248.73
+- return_5d: 2.25
+- return_20d: -3.4
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: -2.96
+- distance_to_high_60_pct: -17.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,247,248,243,243,2765798,246.05,-1.24,242.75,261.72,0.37
-20260818,243,244.5,236,236,3408804,245.22,-3.76,242.3,260.72,0.46
-20260819,231,238.5,229,235.5,3436699,244.41,-3.64,241.43,259.68,0.48
-20260820,239.5,243,234.5,237,3758510,243.79,-2.79,240.35,258.55,0.54
-20260821,239,240.5,233,235.5,2231537,243.1,-3.13,239.65,257.28,0.33
 20260824,235.5,238.5,230.5,230.5,2223237,242.05,-4.77,238.7,256.06,0.33
 20260825,230,234,225.5,233.5,2695668,241.34,-3.25,238.88,254.63,0.41
 20260826,234.5,244,231.5,242,3455646,241.39,0.25,240.18,253.43,0.56
@@ -174,26 +169,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,236,240.5,233.5,233.5,2505454,240.95,-3.09,240.05,246.26,0.66
 20260910,232.5,233.5,226,227,3087291,239.78,-5.33,239.07,245.62,0.84
 20260911,227,227,222.5,222.5,2595591,238.34,-6.65,237.95,244.82,0.73
+20260914,218.5,224.5,216,222,2139358,236.98,-6.32,236.9,243.95,0.6
+20260915,221,226,220,222,2429329,235.73,-5.83,236.2,243.18,0.69
+20260916,225,227,219,219,4239436,234.34,-6.55,235.38,242.6,1.2
+20260917,223,228.5,223,226.5,3711605,233.69,-3.08,234.85,242.12,1.05
+20260918,229,230.5,227,227.5,4485576,233.17,-2.43,234.45,241.64,1.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 63.09
-- over_600_ratio: 60.69
-- over_800_ratio: 58.06
-- over_1000_ratio: 56.38
-- over_400_change_1w: -0.16
-- over_800_change_1w: -0.23
-- over_1000_change_1w: -0.44
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 63.03
+- over_600_ratio: 60.66
+- over_800_ratio: 58.32
+- over_1000_ratio: 56.23
+- over_400_change_1w: -0.06
+- over_800_change_1w: 0.26
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,64.12,-0.79,59.41,-1.06,57.88,-0.5,0,False,False
 20260703,63.71,-0.41,58.76,-0.65,57.25,-0.63,0,False,False
 20260709,63.31,-0.4,58.3,-0.46,56.96,-0.29,0,False,False
 20260717,63.53,0.22,58.42,0.12,56.7,-0.26,1,False,True
@@ -205,23 +204,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,63.36,0.14,58.15,-0.4,56.83,-0.58,1,False,False
 20260904,63.25,-0.11,58.29,0.14,56.82,-0.01,2,False,True
 20260911,63.09,-0.16,58.06,-0.23,56.38,-0.44,0,False,False
+20260918,63.03,-0.06,58.32,0.26,56.23,-0.15,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6285 | 啟碁 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:啟碁科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司股務事務原透過集團股務室自行辦理，經董事會決議自116年1月1日起，將 委託元大證券股份有限公司為本公司股務代理人，並協助辦理股務相關事務。 6.因應措施: 凡本公司股東自116年1月1日起洽辦有關股票過戶、質權設定或撤銷、領息或配股、 變更住址、印鑑更換掛失、股票掛失以及其他股務作業事宜， 敬請親臨或郵寄至元大證券股份有限公司股務代理部辦理。 營業地址:106臺北市大安區敦化南路2段67號B1 聯絡電話:(02)2586-5859 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 6285 | 啟碁 | revenue_breakout_low_response | 營收爆發低反應股 | 13 | 46 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:啟碁科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司股務事務原透過集團股務室自行辦理，經董事會決議自116年1月1日起，將 委託元大證券股份有限公司為本公司股務代理人，並協助辦理股務相關事務。 6.因應措施: 凡本公司股東自116年1月1日起洽辦有關股票過戶、質權設定或撤銷、領息或配股、 變更住址、印鑑更換掛失、股票掛失以及其他股務作業事宜， 敬請親臨或郵寄至元大證券股份有限公司股務代理部辦理。 營業地址:106臺北市大安區敦化南路2段67號B1 聯絡電話:(02)2586-5859 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6285 | 啟碁 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:啟碁科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司股務事務原透過集團股務室自行辦理，經董事會決議自116年1月1日起，將 委託元大證券股份有限公司為本公司股務代理人，並協助辦理股務相關事務。 6.因應措施: 凡本公司股東自116年1月1日起洽辦有關股票過戶、質權設定或撤銷、領息或配股、 變更住址、印鑑更換掛失、股票掛失以及其他股務作業事宜， 敬請親臨或郵寄至元大證券股份有限公司股務代理部辦理。 營業地址:106臺北市大安區敦化南路2段67號B1 聯絡電話:(02)2586-5859 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6285 | 啟碁 | revenue_breakout_low_response | 營收爆發低反應股 | 14 | 44 | D_降級_TDCC轉弱 |  |  | call_inflow | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:啟碁科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司股務事務原透過集團股務室自行辦理，經董事會決議自116年1月1日起，將 委託元大證券股份有限公司為本公司股務代理人，並協助辦理股務相關事務。 6.因應措施: 凡本公司股東自116年1月1日起洽辦有關股票過戶、質權設定或撤銷、領息或配股、 變更住址、印鑑更換掛失、股票掛失以及其他股務作業事宜， 敬請親臨或郵寄至元大證券股份有限公司股務代理部辦理。 營業地址:106臺北市大安區敦化南路2段67號B1 聯絡電話:(02)2586-5859 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6285 | 啟碁 | 29 | 18 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6285 | 啟碁 | 32 | 21 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6285 | 啟碁 | 212 | 17 | 2625400.0 | 71290.0 | 36.83 | no_signal |
+| 20260918 | 6285 | 啟碁 | 213 | 17 | 7758140.0 | 8480.0 | 914.88 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

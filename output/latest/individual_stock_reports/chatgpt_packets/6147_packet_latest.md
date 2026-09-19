@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6147 頎邦
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:13 Asia/Taipei
+- generated_at: 2026-09-19 15:54:07 Asia/Taipei
 - stock_id: 6147
 - stock_name: 頎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,11 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,6 +118,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 186.5
-- high: 188.5
-- low: 180
-- close: 181
-- volume: 24656000
-- ma5: 189.4
-- ema23_primary: 178.85
-- distance_to_ema23_pct: 1.2
-- ma20: 177.75
-- ma60: 182.91
-- ma120: 178.47
-- return_5d: -0.82
-- return_20d: 14.92
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.83
-- distance_to_high_60_pct: -34.89
+- date: 20260918
+- open: 217
+- high: 229
+- low: 213
+- close: 229
+- volume: 72627000
+- ma5: 207
+- ema23_primary: 189.33
+- distance_to_ema23_pct: 20.95
+- ma20: 188.82
+- ma60: 178.88
+- ma120: 184.15
+- return_5d: 26.52
+- return_20d: 46.33
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: 21.28
+- distance_to_high_60_pct: -3.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,158.5,171,155.5,168.5,32571000,163.58,3.01,153.2,206.5,1.11
-20260818,168.5,171,163,163.5,23197000,163.57,-0.04,152.72,205.63,0.79
-20260819,157,165.5,156.5,161.5,17100000,163.4,-1.16,151.3,204.38,0.59
-20260820,163,167,159,163.5,14878000,163.41,0.06,150.7,202.76,0.53
-20260821,162,162.5,155,156.5,14584000,162.83,-3.89,150.62,200.95,0.51
 20260824,157.5,162,157,157,14250000,162.35,-3.29,150.72,198.93,0.57
 20260825,157,171,152,169,22562000,162.9,3.74,152.2,196.66,0.91
 20260826,166,185.5,166,185.5,29810000,164.78,12.57,155.18,194.99,1.2
@@ -167,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,189,203,189,198,47727000,177.58,11.5,175.28,184.33,1.41
 20260910,193.5,202.5,189,190.5,56352000,178.65,6.63,176.57,183.72,1.61
 20260911,186.5,188.5,180,181,24656000,178.85,1.2,177.75,182.91,0.7
+20260914,176,191.5,171,189,41513000,179.69,5.18,178.78,181.86,1.17
+20260915,194.5,206.5,194.5,200,63670000,181.39,10.26,180.6,180.57,1.69
+20260916,201.5,207.5,197.5,207.5,64262000,183.56,13.04,182.9,179.73,1.61
+20260917,212.5,219,206,209.5,70040000,185.72,12.8,185.2,179.07,1.64
+20260918,217,229,213,229,72627000,189.33,20.95,188.82,178.88,1.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 63.46
-- over_600_ratio: 61.11
-- over_800_ratio: 60.07
-- over_1000_ratio: 58.66
-- over_400_change_1w: -1.16
-- over_800_change_1w: -0.91
-- over_1000_change_1w: -1.24
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 65.38
+- over_600_ratio: 63.05
+- over_800_ratio: 61.47
+- over_1000_ratio: 60.64
+- over_400_change_1w: 1.92
+- over_800_change_1w: 1.4
+- over_1000_change_1w: 1.98
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,69.1,-1.47,65.4,-1.52,63.96,-1.37,0,False,False
 20260703,67.05,-2.05,63.61,-1.79,61.79,-2.17,0,False,False
 20260709,65.39,-1.66,61.88,-1.73,60.06,-1.73,0,False,False
 20260717,65.65,0.26,61.99,0.11,60.44,0.38,1,True,True
@@ -198,18 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,64.48,0.65,61.14,0.82,59.54,0.7,2,True,True
 20260904,64.62,0.14,60.98,-0.16,59.9,0.36,3,False,True
 20260911,63.46,-1.16,60.07,-0.91,58.66,-1.24,0,False,False
+20260918,65.38,1.92,61.47,1.4,60.64,1.98,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6147 | 頎邦 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/09 1.召開法人說明會之日期：115/09/09 2.召開法人說明會之時間：15 時 30 分 3.召開法人說明會之地點：台北市信義路四段236號7F 4.法人說明會擇要訊息：說明本公司營運概況及產業發展 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6147 | 頎邦 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/09 1.召開法人說明會之日期：115/09/09 2.召開法人說明會之時間：15 時 30 分 3.召開法人說明會之地點：台北市信義路四段236號7F 4.法人說明會擇要訊息：說明本公司營運概況及產業發展 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6147 | 頎邦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/09 1.召開法人說明會之日期：115/09/09 2.召開法人說明會之時間：15 時 30 分 3.召開法人說明會之地點：台北市信義路四段236號7F 4.法人說明會擇要訊息：說明本公司營運概況及產業發展 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6147 | 頎邦 | 9 | 2 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6147 | 頎邦 | 1 | 1 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

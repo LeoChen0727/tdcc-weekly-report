@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2468 華經
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:09 Asia/Taipei
+- generated_at: 2026-09-19 15:52:44 Asia/Taipei
 - stock_id: 2468
 - stock_name: 華經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -105,11 +101,10 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -123,6 +118,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -130,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 33
-- high: 35.8
-- low: 33
-- close: 35.8
-- volume: 4234479
-- ma5: 33.36
-- ema23_primary: 33.94
-- distance_to_ema23_pct: 5.48
-- ma20: 33.97
-- ma60: 35.03
-- ma120: 35.35
-- return_5d: 5.6
-- return_20d: 1.27
-- volume_ratio: 10.58
-- distance_to_ma20_pct_auxiliary: 5.39
-- distance_to_high_60_pct: -12.68
+- date: 20260918
+- open: 41.7
+- high: 45.85
+- low: 41.2
+- close: 45.85
+- volume: 12298765
+- ma5: 42.76
+- ema23_primary: 37.12
+- distance_to_ema23_pct: 23.51
+- ma20: 35.9
+- ma60: 35.49
+- ma120: 35.57
+- return_5d: 28.07
+- return_20d: 30.81
+- volume_ratio: 2.93
+- distance_to_ma20_pct_auxiliary: 27.72
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,35.65,36.1,34.55,35.3,456659,34.93,1.06,34.38,36.44,0.9
-20260818,35.3,35.8,34.95,35.3,196575,34.96,0.97,34.36,36.46,0.39
-20260819,34.7,35.25,34.6,34.6,172930,34.93,-0.95,34.31,36.47,0.34
-20260820,35,35.1,34.35,34.95,168950,34.93,0.05,34.3,36.49,0.34
-20260821,35.6,35.6,34.9,35.05,271501,34.94,0.31,34.31,36.52,0.55
 20260824,34.15,34.35,33.8,34,145919,34.86,-2.48,34.28,36.54,0.3
 20260825,33.75,33.75,33.2,33.5,200369,34.75,-3.6,34.24,36.54,0.51
 20260826,33.55,34.35,33.55,34.35,178177,34.72,-1.06,34.34,36.51,0.5
@@ -172,15 +163,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,32.8,32.8,32.4,32.45,150826,33.88,-4.23,34.07,35.16,0.57
 20260910,32.45,32.6,32.15,32.55,140063,33.77,-3.62,33.95,35.08,0.54
 20260911,33,35.8,33,35.8,4234479,33.94,5.48,33.97,35.03,10.58
+20260914,38.8,39.35,38.4,39.35,2185407,34.39,14.42,34.17,35.06,4.49
+20260915,40.95,43.25,40.05,43.25,7140627,35.13,23.11,34.57,35.14,8.56
+20260916,43.25,45,42,43.65,46253058,35.84,21.79,35.02,35.26,14.74
+20260917,43.45,44.5,41.5,41.7,9363080,36.33,14.79,35.36,35.34,2.6
+20260918,41.7,45.85,41.2,45.85,12298765,37.12,23.51,35.9,35.49,2.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 51.57
+- as_of_date: 20260918
+- over_400_ratio: 50.77
 - over_600_ratio: 50.02
 - over_800_ratio: 50.02
 - over_1000_ratio: 50.02
-- over_400_change_1w: -0.12
+- over_400_change_1w: -0.8
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -191,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,50.8,0.08,50.02,0,50.02,0,1,False,False
 20260703,51.1,0.3,50.02,0,50.02,0,2,False,False
 20260709,50.64,-0.46,50.02,0,50.02,0,0,False,False
 20260717,50.02,-0.62,50.02,0,50.02,0,0,False,False
@@ -203,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,51.79,-0.24,50.02,0,50.02,0,0,False,False
 20260904,51.69,-0.1,50.02,0,50.02,0,0,False,False
 20260911,51.57,-0.12,50.02,0,50.02,0,0,False,False
+20260918,50.77,-0.8,50.02,0,50.02,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2468 | 華經 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2468 | 華經 | true_breakout | 嚴格突破 | 89.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/09/16 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊: 財務資訊如下:  期間       (月)       (月)        (季)         (季)    (最近四季累計) ====================================================================== 科目     最近一月    與去年     最近一季      與去年    114年第3季至         115年08月   同期增減   115年第2季    同期增減    115年第2季       (合併自結數)    (％)    (合併核閱數)     (％)     (合併核閱數) ====================================================================== 營業收入    199      -28.59       662         0.04           2,542 (百萬元) 稅前淨利      9      -12.34        27        29.95             117 (百萬元) 歸屬母公司    7      -12.68        21        31.98              95 業主淨利 (百萬元) 每股盈餘   0.11       -8.33      0.31        34.78            1.36 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2468 | 華經 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260918 | 2468 | 華經 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

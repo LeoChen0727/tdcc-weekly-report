@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1717 長興
 
 ## Metadata
-- generated_at: 2026-09-13 22:15:52 Asia/Taipei
+- generated_at: 2026-09-19 15:52:21 Asia/Taipei
 - stock_id: 1717
 - stock_name: 長興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 70.5
-- high: 71.6
-- low: 70.2
-- close: 70.9
-- volume: 4923000
-- ma5: 72.14
-- ema23_primary: 73.33
-- distance_to_ema23_pct: -3.32
-- ma20: 74.19
-- ma60: 70.89
-- ma120: 72.85
-- return_5d: -6.83
-- return_20d: -1.12
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -4.43
-- distance_to_high_60_pct: -19.98
+- date: 20260918
+- open: 72
+- high: 72.5
+- low: 70.8
+- close: 71.4
+- volume: 6856264
+- ma5: 70.14
+- ema23_primary: 72.25
+- distance_to_ema23_pct: -1.18
+- ma20: 74.03
+- ma60: 70.59
+- ma120: 73.21
+- return_5d: 0.71
+- return_20d: -0.28
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -3.56
+- distance_to_high_60_pct: -19.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,71.3,73.6,70.5,71.8,10371497,68.67,4.57,65.2,71.53,0.73
-20260818,72.1,72.2,69.6,70.5,7562403,68.82,2.44,65.56,71.32,0.53
-20260819,69,72.8,68.8,69.6,8960905,68.88,1.04,65.92,71.11,0.63
-20260820,71.1,71.8,69.7,70.2,5886109,68.99,1.75,66.32,70.89,0.42
-20260821,70.3,72,69.7,71.6,6746269,69.21,3.45,66.89,70.68,0.48
 20260824,71.9,72.7,70.6,71.3,6475936,69.38,2.76,67.39,70.49,0.47
 20260825,70.5,71.7,70.1,71.7,3709289,69.58,3.05,68.08,70.33,0.28
 20260826,72.5,73.3,71.8,71.9,7655120,69.77,3.05,68.94,70.17,0.6
@@ -172,17 +167,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,72.1,72.9,72,72.3,6055044,73.72,-1.93,74.55,70.86,0.31
 20260910,72.3,73.2,71.4,71.7,6961436,73.56,-2.52,74.22,70.89,0.38
 20260911,70.5,71.6,70.2,70.9,4923000,73.33,-3.32,74.19,70.89,0.29
+20260914,70.4,70.4,68.2,69.2,8551098,72.99,-5.19,74.06,70.83,0.51
+20260915,69.2,69.5,68.1,68.1,4705926,72.58,-6.18,73.94,70.72,0.28
+20260916,68.8,71.3,68.8,70.7,7073755,72.43,-2.38,73.99,70.7,0.43
+20260917,71.7,72.3,71.2,71.3,6176640,72.33,-1.43,74.05,70.66,0.37
+20260918,72,72.5,70.8,71.4,6856264,72.25,-1.18,74.03,70.59,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 67.44
-- over_600_ratio: 65.02
-- over_800_ratio: 63.33
-- over_1000_ratio: 61.51
-- over_400_change_1w: -1.6
-- over_800_change_1w: -1.77
-- over_1000_change_1w: -1.93
+- as_of_date: 20260918
+- over_400_ratio: 66.81
+- over_600_ratio: 64.29
+- over_800_ratio: 62.8
+- over_1000_ratio: 60.9
+- over_400_change_1w: -0.63
+- over_800_change_1w: -0.53
+- over_1000_change_1w: -0.61
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,65.14,0.57,60.96,0.38,59,0.37,2,True,True
 20260703,64.68,-0.46,60.65,-0.31,58.53,-0.47,0,False,False
 20260709,66.53,1.85,62.55,1.9,60.67,2.14,1,True,True
 20260717,65.63,-0.9,61.62,-0.93,59.83,-0.84,0,False,False
@@ -203,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,66.75,0.89,62.8,1.19,61,0.98,1,True,True
 20260904,69.04,2.29,65.1,2.3,63.44,2.44,2,True,True
 20260911,67.44,-1.6,63.33,-1.77,61.51,-1.93,0,False,False
+20260918,66.81,-0.63,62.8,-0.53,60.9,-0.61,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1717 | 長興 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:長興材料工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間 自民國115年07月22日至115年08月25日下午3時30分止。 6.因應措施: (1)未於催繳期間繳納股款之認股人，自民國115年08月25日    下午3時30分停止繳納並喪失其權利。 (2)催繳期間繳款之認股人，所認購之股數預計於民國115年09月08日    劃撥至認股人之證券集保帳戶。 (3)若有任何疑問，請洽詢本公司股務代理機構:統一綜合證券(股)公司    股務代理部，地址:台北市松山區東興路8號B1，電話:(02)2746-3797。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 1717 | 長興 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:長興材料工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間 自民國115年07月22日至115年08月25日下午3時30分止。 6.因應措施: (1)未於催繳期間繳納股款之認股人，自民國115年08月25日    下午3時30分停止繳納並喪失其權利。 (2)催繳期間繳款之認股人，所認購之股數預計於民國115年09月08日    劃撥至認股人之證券集保帳戶。 (3)若有任何疑問，請洽詢本公司股務代理機構:統一綜合證券(股)公司    股務代理部，地址:台北市松山區東興路8號B1，電話:(02)2746-3797。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1717 | 長興 | 7 | 7 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 1717 | 長興 | 10 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1717 | 長興 | 131 | 0 | 5428420.0 | 0.0 |  | no_signal |
+| 20260918 | 1717 | 長興 | 134 | 0 | 1779070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

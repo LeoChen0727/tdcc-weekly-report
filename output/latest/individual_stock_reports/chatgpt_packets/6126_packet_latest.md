@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6126 信音
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:11 Asia/Taipei
+- generated_at: 2026-09-19 15:54:05 Asia/Taipei
 - stock_id: 6126
 - stock_name: 信音
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 257
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 營收成長股價回檔
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 28.8
-- high: 29.05
-- low: 28.75
-- close: 29
-- volume: 241000
-- ma5: 28.9
-- ema23_primary: 29.71
-- distance_to_ema23_pct: -2.4
-- ma20: 29.48
-- ma60: 31.96
-- ma120: 33.1
-- return_5d: -0.51
-- return_20d: -3.33
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -1.64
-- distance_to_high_60_pct: -29.7
+- date: 20260918
+- open: 32.1
+- high: 32.1
+- low: 31.1
+- close: 31.3
+- volume: 1216000
+- ma5: 29.99
+- ema23_primary: 29.86
+- distance_to_ema23_pct: 4.82
+- ma20: 29.6
+- ma60: 31.14
+- ma120: 33.05
+- return_5d: 7.93
+- return_20d: 6.83
+- volume_ratio: 2.55
+- distance_to_ma20_pct_auxiliary: 5.73
+- distance_to_high_60_pct: -20.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,29.9,30.05,29.7,29.95,279000,31.31,-4.34,30.59,34.97,0.53
-20260818,29.95,30.15,29.6,29.65,410000,31.17,-4.88,30.51,34.86,0.79
-20260819,29.55,29.85,29.35,29.45,434000,31.03,-5.08,30.41,34.75,0.84
-20260820,29.5,29.55,29.2,29.25,312000,30.88,-5.28,30.3,34.63,0.61
-20260821,29.3,29.55,29.1,29.3,234000,30.75,-4.71,30.24,34.53,0.47
 20260824,29.5,29.65,29.2,29.45,268000,30.64,-3.88,30.17,34.43,0.54
 20260825,29.6,29.75,29.25,29.75,224000,30.57,-2.67,30.19,34.34,0.48
 20260826,29.9,30.3,29.9,30.1,200000,30.53,-1.4,30.24,34.22,0.48
@@ -168,26 +168,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,28.7,29.1,28.7,28.85,340000,29.86,-3.39,29.61,32.33,0.97
 20260910,28.9,29.1,28.85,28.85,435000,29.78,-3.12,29.54,32.16,1.24
 20260911,28.8,29.05,28.75,29,241000,29.71,-2.4,29.48,31.96,0.72
+20260914,28.65,28.9,28.55,28.85,252000,29.64,-2.67,29.43,31.77,0.76
+20260915,28.8,29.05,28.45,28.5,294000,29.55,-3.54,29.37,31.58,0.9
+20260916,28.5,29.75,28.5,29.7,580000,29.56,0.48,29.39,31.42,1.74
+20260917,29.5,31.6,29.2,31.6,2196000,29.73,6.29,29.5,31.28,5.12
+20260918,32.1,32.1,31.1,31.3,1216000,29.86,4.82,29.6,31.14,2.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 36.53
-- over_600_ratio: 35.35
-- over_800_ratio: 33.79
-- over_1000_ratio: 32.5
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 36.93
+- over_600_ratio: 35.8
+- over_800_ratio: 33.75
+- over_1000_ratio: 32.47
+- over_400_change_1w: 0.4
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,38.84,1.02,34.73,1.64,32.7,0.92,1,True,True
 20260703,37.63,-1.21,34.69,-0.04,32.74,0.04,2,False,True
 20260709,37.17,-0.46,33.07,-1.62,31.82,-0.92,0,False,False
 20260717,36.52,-0.65,32.18,-0.89,30.8,-1.02,0,False,False
@@ -199,17 +203,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,36.42,-0.14,32.86,0.08,32.24,0.08,5,False,True
 20260904,36.41,-0.01,33.6,0.74,32.36,0.12,6,False,True
 20260911,36.53,0.12,33.79,0.19,32.5,0.14,7,True,True
+20260918,36.93,0.4,33.75,-0.04,32.47,-0.03,8,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6126 | 信音 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/09/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣17,020,000元(含稅)。 4.除權（息）交易日:NA 5.最後過戶日:115/09/22 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/23 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.現金股利發放日期:115/09/23 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6126 | 信音 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 17 | A_優先追蹤 |  |  |  | continued_2_3d | 1.董事會、股東會決議或公司決定日期:115/09/17 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣17,020,000元(含稅)。 4.除權（息）交易日:NA 5.最後過戶日:115/09/22 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/23 9.債券最後申請轉換日期:NA 10.債券停止轉換起始日期:NA 11.債券停止轉換截止日期:NA 12.現金股利發放日期:115/09/23 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6126 | 信音 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

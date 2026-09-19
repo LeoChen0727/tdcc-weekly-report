@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2481 強茂
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:10 Asia/Taipei
+- generated_at: 2026-09-19 15:52:45 Asia/Taipei
 - stock_id: 2481
 - stock_name: 強茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 151
-- high: 157
-- low: 149
-- close: 150
-- volume: 27272517
-- ma5: 153.4
-- ema23_primary: 148.83
-- distance_to_ema23_pct: 0.78
-- ma20: 147.45
-- ma60: 157.01
-- ma120: 137.84
-- return_5d: -3.85
-- return_20d: 8.7
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 1.73
-- distance_to_high_60_pct: -35.48
+- date: 20260918
+- open: 166.5
+- high: 171
+- low: 165
+- close: 168.5
+- volume: 39944652
+- ma5: 162.5
+- ema23_primary: 153.83
+- distance_to_ema23_pct: 9.54
+- ma20: 153.47
+- ma60: 155.28
+- ma120: 140.56
+- return_5d: 12.33
+- return_20d: 26.69
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 9.79
+- distance_to_high_60_pct: -27.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,139,150,134,144.5,23354044,142.81,1.19,134.62,156.92,1.14
-20260818,146,152.5,139,139.5,42148201,142.53,-2.13,134.43,157.02,1.95
-20260819,135.5,148,135,136.5,45689068,142.03,-3.89,133.38,157.06,2
-20260820,139,147,135.5,138.5,32700481,141.74,-2.28,133.07,156.92,1.42
-20260821,137.5,139.5,132,133,16032556,141.01,-5.68,132.72,156.68,0.7
 20260824,134,137.5,133.5,134,9411577,140.42,-4.57,132.57,156.44,0.42
 20260825,132,137,129.5,137,7980226,140.14,-2.24,133.2,156.02,0.36
 20260826,135,150.5,134.5,150.5,40353759,141,6.74,135.1,155.91,1.7
@@ -168,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,153.5,159.5,150,152,23255435,148.2,2.56,146.28,156.69,0.69
 20260910,152,159,150,154.5,42970542,148.73,3.88,146.85,156.93,1.25
 20260911,151,157,149,150,27272517,148.83,0.78,147.45,157.01,0.78
+20260914,148,164,146,159,61139738,149.68,6.23,148.18,156.99,1.67
+20260915,158,163.5,152,153.5,58386182,150,2.33,148.88,156.62,1.56
+20260916,154.5,168.5,154,168.5,62194518,151.54,11.19,150.47,156.2,1.62
+20260917,174,174,161,163,67322321,152.5,6.89,151.7,155.67,1.68
+20260918,166.5,171,165,168.5,39944652,153.83,9.54,153.47,155.28,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 55.25
-- over_600_ratio: 53.97
-- over_800_ratio: 51.95
-- over_1000_ratio: 50.81
-- over_400_change_1w: -6.03
-- over_800_change_1w: -6.37
-- over_1000_change_1w: -5.58
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 56.62
+- over_600_ratio: 55.14
+- over_800_ratio: 53.15
+- over_1000_ratio: 51.46
+- over_400_change_1w: 1.37
+- over_800_change_1w: 1.2
+- over_1000_change_1w: 0.65
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,66.68,2.3,62.23,1.95,60.77,3.32,1,True,True
 20260703,67.55,0.87,63.45,1.22,61.07,0.3,2,True,True
 20260709,67.22,-0.33,63.2,-0.25,60.82,-0.25,0,False,False
 20260717,66.37,-0.85,62.52,-0.68,60.17,-0.65,0,False,False
@@ -199,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,57.24,1.14,53.7,0.44,52.07,0.22,1,True,True
 20260904,61.28,4.04,58.32,4.62,56.39,4.32,2,True,True
 20260911,55.25,-6.03,51.95,-6.37,50.81,-5.58,0,False,False
+20260918,56.62,1.37,53.15,1.2,51.46,0.65,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2481 | 強茂 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/10 1.召開法人說明會之日期：115/09/10 2.召開法人說明會之時間：15 時 20 分 3.召開法人說明會之地點：集思北科大會議中心 4.法人說明會擇要訊息：本公司受邀參加凱基證券舉辦之投資論壇，說明115年第二季本公司營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2481 | 強茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/10 1.召開法人說明會之日期：115/09/10 2.召開法人說明會之時間：15 時 20 分 3.召開法人說明會之地點：集思北科大會議中心 4.法人說明會擇要訊息：本公司受邀參加凱基證券舉辦之投資論壇，說明115年第二季本公司營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2481 | 強茂 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/10 1.召開法人說明會之日期：115/09/10 2.召開法人說明會之時間：15 時 20 分 3.召開法人說明會之地點：集思北科大會議中心 4.法人說明會擇要訊息：本公司受邀參加凱基證券舉辦之投資論壇，說明115年第二季本公司營運成果。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2481 | 強茂 | 15 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2481 | 強茂 | 18 | 1 | 5 | 10 | 18 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2481 | 強茂 | 185 | 2 | 22765840.0 | 10160.0 | 2240.73 | call_inflow |
+| 20260918 | 2481 | 強茂 | 201 | 2 | 20497910.0 | 38530.0 | 532.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2104 國際中橡
 
 ## Metadata
-- generated_at: 2026-09-13 22:15:58 Asia/Taipei
+- generated_at: 2026-09-19 15:52:30 Asia/Taipei
 - stock_id: 2104
 - stock_name: 國際中橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 10.45
-- high: 10.55
-- low: 10.4
-- close: 10.5
-- volume: 2010432
-- ma5: 10.41
-- ema23_primary: 10.37
-- distance_to_ema23_pct: 1.26
-- ma20: 10.4
-- ma60: 10.33
-- ma120: 10.62
-- return_5d: 1.94
-- return_20d: 1.94
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 0.94
-- distance_to_high_60_pct: -9.87
+- date: 20260918
+- open: 10.75
+- high: 10.75
+- low: 10.5
+- close: 10.55
+- volume: 2764742
+- ma5: 10.47
+- ema23_primary: 10.41
+- distance_to_ema23_pct: 1.34
+- ma20: 10.41
+- ma60: 10.35
+- ma120: 10.55
+- return_5d: 0.48
+- return_20d: -0.94
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 1.32
+- distance_to_high_60_pct: -9.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,10.3,10.45,10.2,10.4,2034218,10.19,2.02,10.08,10.34,0.55
-20260818,10.35,10.4,10.25,10.35,1982208,10.21,1.4,10.07,10.35,0.54
-20260819,10.35,10.35,10.2,10.3,1765408,10.21,0.84,10.06,10.36,0.48
-20260820,10.35,10.55,10.35,10.45,2168119,10.23,2.11,10.06,10.36,0.61
-20260821,10.5,10.7,10.4,10.65,3498998,10.27,3.71,10.08,10.38,0.98
 20260824,10.65,10.7,10.3,10.35,2350734,10.28,0.72,10.09,10.39,0.69
 20260825,10.35,10.35,10.2,10.2,5350995,10.27,-0.68,10.11,10.39,1.63
 20260826,10.35,10.7,10.35,10.65,5488501,10.3,3.39,10.15,10.39,1.72
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,10.1,10.95,10.1,10.8,10263999,10.34,4.5,10.37,10.33,3.11
 20260910,10.75,10.75,10.5,10.6,4314688,10.36,2.34,10.39,10.33,1.29
 20260911,10.45,10.55,10.4,10.5,2010432,10.37,1.26,10.4,10.33,0.61
+20260914,10.45,10.45,10.25,10.3,2230057,10.36,-0.61,10.4,10.33,0.67
+20260915,10.3,10.35,10.25,10.3,823029,10.36,-0.56,10.39,10.33,0.25
+20260916,10.35,10.6,10.3,10.45,4517906,10.37,0.81,10.4,10.34,1.33
+20260917,10.4,10.85,10.4,10.75,4747256,10.4,3.39,10.42,10.35,1.34
+20260918,10.75,10.75,10.5,10.55,2764742,10.41,1.34,10.41,10.35,0.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 45.01
-- over_600_ratio: 41.79
-- over_800_ratio: 38.92
-- over_1000_ratio: 37.2
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.15
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 45.46
+- over_600_ratio: 42.17
+- over_800_ratio: 39.31
+- over_1000_ratio: 37.59
+- over_400_change_1w: 0.45
+- over_800_change_1w: 0.39
+- over_1000_change_1w: 0.39
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,45.33,-0.09,38.77,-0.07,36.77,-0.05,0,False,False
 20260703,45.13,-0.2,38.59,-0.18,36.39,-0.38,0,False,False
 20260709,45.04,-0.09,38.5,-0.09,36.58,0.19,1,False,True
 20260717,45.04,0,38.63,0.13,36.34,-0.24,2,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,45.01,-0.03,38.81,0.16,37.17,0.26,4,False,True
 20260904,44.97,-0.04,38.77,-0.04,37.24,0.07,5,False,True
 20260911,45.01,0.04,38.92,0.15,37.2,-0.04,6,False,True
+20260918,45.46,0.45,39.31,0.39,37.59,0.39,7,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2104 | 國際中橡 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2104 | 國際中橡 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2104 | 國際中橡 | 1 | 1 | 2 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2104 | 國際中橡 | 4 | 1 | 4 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2104 | 國際中橡 | 4 | 0 | 194850.0 | 0.0 |  | no_signal |
+| 20260918 | 2104 | 國際中橡 | 4 | 0 | 51840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

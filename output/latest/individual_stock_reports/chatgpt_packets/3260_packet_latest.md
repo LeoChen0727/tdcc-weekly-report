@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:30 Asia/Taipei
+- generated_at: 2026-09-19 15:53:11 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 257
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 401
-- high: 406
-- low: 396.5
-- close: 402.5
-- volume: 5028000
-- ma5: 410
-- ema23_primary: 407.85
-- distance_to_ema23_pct: -1.31
-- ma20: 409.48
-- ma60: 402.94
-- ma120: 406.35
-- return_5d: 0.5
-- return_20d: 0.12
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -1.7
-- distance_to_high_60_pct: -12.4
+- date: 20260918
+- open: 399.5
+- high: 401.5
+- low: 395
+- close: 396.5
+- volume: 6708000
+- ma5: 395.5
+- ema23_primary: 403.52
+- distance_to_ema23_pct: -1.74
+- ma20: 408.07
+- ma60: 401.12
+- ma120: 406.45
+- return_5d: -1.49
+- return_20d: -6.15
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -2.84
+- distance_to_high_60_pct: -13.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,404,404,397,400,4773000,400.48,-0.12,395.57,406.03,0.38
-20260818,404,406,386,387,9164000,399.36,-3.09,396.5,405.52,0.72
-20260819,377.5,395,375,395,6156000,398.99,-1,397.27,405.32,0.48
-20260820,396,404,391,401,6363000,399.16,0.46,398.4,405.17,0.5
-20260821,400.5,422.5,399,422.5,20651000,401.11,5.33,400.38,405.33,1.55
 20260824,425.5,459.5,421.5,438.5,31204000,404.22,8.48,402.2,405.9,2.14
 20260825,437.5,437.5,407,418.5,16790000,405.41,3.23,404.68,405.96,1.13
 20260826,421,422,411,416,7952000,406.29,2.39,405.77,405.77,0.58
@@ -172,26 +167,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,417.5,424.5,413.5,414.5,7069000,408.46,1.48,409.55,403.33,0.76
 20260910,412.5,414,406,407,4821000,408.34,-0.33,409.45,403.17,0.53
 20260911,401,406,396.5,402.5,5028000,407.85,-1.31,409.48,402.94,0.56
+20260914,400,401.5,394,398,4422000,407.03,-2.22,409.38,402.52,0.5
+20260915,395,395,385,388.5,5888000,405.49,-4.19,409.45,401.77,0.67
+20260916,389.5,399.5,389,399.5,3285000,404.99,-1.36,409.68,401.56,0.38
+20260917,405.5,405.5,395,395,3486000,404.16,-2.27,409.38,401.33,0.41
+20260918,399.5,401.5,395,396.5,6708000,403.52,-1.74,408.07,401.12,0.87
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 36.84
-- over_600_ratio: 34.7
-- over_800_ratio: 32.72
-- over_1000_ratio: 29.74
-- over_400_change_1w: 1.66
-- over_800_change_1w: 2.28
-- over_1000_change_1w: 1.18
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 35.9
+- over_600_ratio: 33.57
+- over_800_ratio: 32.14
+- over_1000_ratio: 30.28
+- over_400_change_1w: -0.94
+- over_800_change_1w: -0.58
+- over_1000_change_1w: 0.54
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,30.83,-1.8,26.6,-1.89,25.24,-1.07,0,False,False
 20260703,29.03,-1.8,25.82,-0.78,23.97,-1.27,0,False,False
 20260709,29.84,0.81,26.63,0.81,25.01,1.04,1,True,True
 20260717,30.09,0.25,26.29,-0.34,25.19,0.18,2,False,True
@@ -203,18 +202,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,36.86,4.02,32.44,3.3,30.25,2.17,8,True,True
 20260904,35.18,-1.68,30.44,-2,28.56,-1.69,0,False,False
 20260911,36.84,1.66,32.72,2.28,29.74,1.18,1,True,True
+20260918,35.9,-0.94,32.14,-0.58,30.28,0.54,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司「國內第九次無擔保轉換公司債發行及轉換辦法」訂定轉換價格 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司辦理國內第九次無擔保轉換公司債新台幣參拾億元，業經金融監督管理委員會    民國115年9月3日金管證發字第11503537591號函核准申報生效。 (2)以115年9月10日為轉換價格訂定基準日，以基準日(不含)前一、三、五個營業日之    本公司普通股收盤價之簡單算術平均數擇一為基準價格，乘以106.95%之轉換溢價率    ，訂定轉換價格為每股新台幣435.5元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 3 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依本公司「國內第九次無擔保轉換公司債發行及轉換辦法」訂定轉換價格 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司辦理國內第九次無擔保轉換公司債新台幣參拾億元，業經金融監督管理委員會    民國115年9月3日金管證發字第11503537591號函核准申報生效。 (2)以115年9月10日為轉換價格訂定基準日，以基準日(不含)前一、三、五個營業日之    本公司普通股收盤價之簡單算術平均數擇一為基準價格，乘以106.95%之轉換溢價率    ，訂定轉換價格為每股新台幣435.5元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 23 | 3 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3260 | 威剛 | 20 | 20 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3260 | 威剛 | 23 | 23 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

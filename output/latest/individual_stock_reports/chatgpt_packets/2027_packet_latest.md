@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-09-13 22:15:56 Asia/Taipei
+- generated_at: 2026-09-19 15:52:27 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
+- action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 47.2
-- high: 47.4
-- low: 46.3
-- close: 46.5
-- volume: 20851259
-- ma5: 48.35
-- ema23_primary: 48.38
-- distance_to_ema23_pct: -3.88
-- ma20: 49.47
-- ma60: 44.92
-- ma120: 42.23
-- return_5d: -7.37
-- return_20d: -2.31
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -6.01
-- distance_to_high_60_pct: -11.09
+- date: 20260918
+- open: 47.3
+- high: 47.65
+- low: 46.9
+- close: 47.35
+- volume: 12398697
+- ma5: 46.35
+- ema23_primary: 47.69
+- distance_to_ema23_pct: -0.72
+- ma20: 48.53
+- ma60: 45.4
+- ma120: 42.64
+- return_5d: 1.83
+- return_20d: -5.86
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -2.44
+- distance_to_high_60_pct: -9.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,47.9,51.3,47.55,50,43019012,45.29,10.41,45.2,42.79,1.75
-20260818,49.3,50.2,48.8,49.7,15806951,45.65,8.86,45.63,42.92,0.63
-20260819,48.75,50.5,48.2,50,18075115,46.02,8.66,45.95,43.02,0.78
-20260820,50,51.6,49.95,50.5,15981417,46.39,8.86,46.25,43.18,0.7
-20260821,50.5,50.5,49.4,50.3,9436777,46.72,7.67,46.59,43.31,0.41
 20260824,51,52.3,50.5,51,15833188,47.07,8.34,46.91,43.46,0.71
 20260825,51.1,51.4,50.3,50.6,7980484,47.37,6.83,47.33,43.61,0.36
 20260826,50.6,50.8,49.6,50,10774807,47.59,5.07,47.67,43.73,0.51
@@ -168,17 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,49.1,49.6,48.4,48.6,14231298,48.58,0.05,49.64,44.73,0.76
 20260910,48.3,48.7,47.25,48.2,20158807,48.55,-0.71,49.53,44.84,1.21
 20260911,47.2,47.4,46.3,46.5,20851259,48.38,-3.88,49.47,44.92,1.31
+20260914,46.5,46.55,45.7,45.75,9155087,48.16,-5,49.26,45,0.64
+20260915,45.75,45.75,44.95,45,12037554,47.89,-6.04,49.02,45.06,0.86
+20260916,45.2,46.65,45.1,46.55,14323752,47.78,-2.58,48.85,45.17,1.03
+20260917,46.6,47.55,46.15,47.1,10660209,47.73,-1.31,48.68,45.28,0.78
+20260918,47.3,47.65,46.9,47.35,12398697,47.69,-0.72,48.53,45.4,0.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 77.99
-- over_600_ratio: 76.03
-- over_800_ratio: 74.9
-- over_1000_ratio: 73.85
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.45
-- over_1000_change_1w: -0.53
+- as_of_date: 20260918
+- over_400_ratio: 77.8
+- over_600_ratio: 75.78
+- over_800_ratio: 74.56
+- over_1000_ratio: 73.74
+- over_400_change_1w: -0.19
+- over_800_change_1w: -0.34
+- over_1000_change_1w: -0.11
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,73.77,-0.16,70.65,-0.19,69.75,-0.15,0,False,False
 20260703,73.91,0.14,70.69,0.04,69.79,0.04,1,True,True
 20260709,73.95,0.04,70.74,0.05,69.84,0.05,2,True,True
 20260717,74.27,0.32,71.02,0.28,70.17,0.33,3,True,True
@@ -199,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,78.16,-0.04,75.14,-0.12,74.38,-0.23,9,False,False
 20260904,78.32,0.16,75.35,0.21,74.38,0,10,False,True
 20260911,77.99,-0.33,74.9,-0.45,73.85,-0.53,0,False,False
+20260918,77.8,-0.19,74.56,-0.34,73.74,-0.11,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/08/19 2.公司名稱:美國大成國際公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正子公司美國大成國際公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱: 非持有供交易-不符避險會計/遠期契約 & 交換 7.更正前金額/內容/頁次: 遠期契約(單位：仟元)  未沖銷契約-契約總金額：0  未沖銷契約-公允價值：0  未沖銷契約-本年度認列未實現損益金額：0 交換(單位：仟元)  未沖銷契約-契約總金額：6,572,525  未沖銷契約-公允價值：164,397  未沖銷契約-本年度認列未實現損益金額：164,397 8.更正後金額/內容/頁次: 遠期契約(單位：仟元)  未沖銷契約-契約總金額：4,991,962  未沖銷契約-公允價值：88,211  未沖銷契約-本年度認列未實現損益金額：88,211 交換(單位：仟元)  未沖銷契約-契約總金額：1,580,563  未沖銷契約-公允價值：76,187  未沖銷契約-本年度認列未實現損益金額：76,187 9.因應措施:重新上傳至公開資訊觀測站。 10.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.公司名稱:美國大成國際公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:更正子公司美國大成國際公司115年6月衍生性商品交易資訊 6.更正資訊項目/報表名稱: 非持有供交易-不符避險會計/遠期契約 & 交換 7.更正前金額/內容/頁次: 遠期契約(單位：仟元)  未沖銷契約-契約總金額：0  未沖銷契約-公允價值：0  未沖銷契約-本年度認列未實現損益金額：0 交換(單位：仟元)  未沖銷契約-契約總金額：6,572,525  未沖銷契約-公允價值：164,397  未沖銷契約-本年度認列未實現損益金額：164,397 8.更正後金額/內容/頁次: 遠期契約(單位：仟元)  未沖銷契約-契約總金額：4,991,962  未沖銷契約-公允價值：88,211  未沖銷契約-本年度認列未實現損益金額：88,211 交換(單位：仟元)  未沖銷契約-契約總金額：1,580,563  未沖銷契約-公允價值：76,187  未沖銷契約-本年度認列未實現損益金額：76,187 9.因應措施:重新上傳至公開資訊觀測站。 10.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2027 | 大成鋼 | 36 | 7 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 2027 | 大成鋼 | 39 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2027 | 大成鋼 | 61 | 3 | 3233290.0 | 398080.0 | 8.12 | no_signal |
+| 20260918 | 2027 | 大成鋼 | 61 | 3 | 7885270.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:16 Asia/Taipei
+- generated_at: 2026-09-19 15:54:12 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 110
-- high: 116
-- low: 109
-- close: 112
-- volume: 4776000
-- ma5: 113.8
-- ema23_primary: 109.98
-- distance_to_ema23_pct: 1.84
-- ma20: 107.78
-- ma60: 120.58
-- ma120: 101.14
-- return_5d: 0.9
-- return_20d: 4.19
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 3.92
-- distance_to_high_60_pct: -38.29
+- date: 20260918
+- open: 114
+- high: 115.5
+- low: 111.5
+- close: 115.5
+- volume: 5379000
+- ma5: 109.8
+- ema23_primary: 110.09
+- distance_to_ema23_pct: 4.92
+- ma20: 109.33
+- ma60: 116.39
+- ma120: 103.45
+- return_5d: 3.12
+- return_20d: 11.59
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 5.65
+- distance_to_high_60_pct: -32.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,108,109.5,105.5,107.5,1623000,111.41,-3.51,106.31,126.27,0.33
-20260818,107,108,101,102,2335000,110.63,-7.8,105.18,126.47,0.51
-20260819,99.3,108,99.3,102,2957000,109.91,-7.2,103.93,126.53,0.66
-20260820,104,105.5,100,103,1415000,109.33,-5.79,103.03,126.44,0.33
-20260821,103,111,103,103.5,4697000,108.85,-4.91,102.7,126.44,1.1
 20260824,104,105.5,100,100,1370000,108.11,-7.5,102.28,126.35,0.33
 20260825,100,101.5,96.2,100.5,1689000,107.48,-6.49,102.31,126.17,0.43
 20260826,100.5,110.5,100.5,110.5,3176000,107.73,2.57,103.12,125.97,0.86
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,115.5,119.5,112,116,8894000,109.6,5.84,107.5,122.07,1.76
 20260910,115,115,111,112,3684000,109.8,2.01,107.55,121.44,0.73
 20260911,110,116,109,112,4776000,109.98,1.84,107.78,120.58,0.94
+20260914,108.5,109,105,106.5,2739000,109.69,-2.91,107.72,119.59,0.53
+20260915,106,109.5,104,104,1889000,109.22,-4.78,107.83,118.57,0.37
+20260916,104.5,112,104.5,109.5,4707000,109.24,0.24,108.2,117.8,0.9
+20260917,110,117.5,110,113.5,7389000,109.59,3.56,108.72,117.03,1.34
+20260918,114,115.5,111.5,115.5,5379000,110.09,4.92,109.33,116.39,0.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 16.74
-- over_600_ratio: 12.58
-- over_800_ratio: 9.8
-- over_1000_ratio: 8.94
-- over_400_change_1w: 0.46
-- over_800_change_1w: -1.37
-- over_1000_change_1w: -1.38
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 15.65
+- over_600_ratio: 11.86
+- over_800_ratio: 8.91
+- over_1000_ratio: 7.86
+- over_400_change_1w: -1.09
+- over_800_change_1w: -0.89
+- over_1000_change_1w: -1.08
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,20.51,-8.05,13.34,-5.16,12.34,-4.26,0,False,False
 20260703,21.02,0.51,13.19,-0.15,12.23,-0.11,1,False,False
 20260709,19.8,-1.22,14.02,0.83,12.17,-0.06,2,False,True
 20260717,20.57,0.77,12.23,-1.79,12.23,0.06,3,False,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,20.88,0.53,15.31,1.24,11.65,0.41,5,True,True
 20260904,16.28,-4.6,11.17,-4.14,10.32,-1.33,0,False,False
 20260911,16.74,0.46,9.8,-1.37,8.94,-1.38,1,False,False
+20260918,15.65,-1.09,8.91,-0.89,7.86,-1.08,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6207 | 雷科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6207 | 雷科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6207 | 雷科 | 4 | 3 | 4 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 6207 | 雷科 | 7 | 6 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

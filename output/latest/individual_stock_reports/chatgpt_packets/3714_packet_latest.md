@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3714 富采
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:43 Asia/Taipei
+- generated_at: 2026-09-19 15:53:28 Asia/Taipei
 - stock_id: 3714
 - stock_name: 富采
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -125,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 60.6
-- high: 62.5
-- low: 60.5
-- close: 61.7
-- volume: 6784296
-- ma5: 63.9
-- ema23_primary: 61.24
-- distance_to_ema23_pct: 0.74
-- ma20: 61.23
-- ma60: 59.4
-- ma120: 62.67
-- return_5d: -7.63
-- return_20d: 8.44
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 0.76
-- distance_to_high_60_pct: -16.4
+- date: 20260918
+- open: 66.9
+- high: 68.8
+- low: 65
+- close: 67.4
+- volume: 18867951
+- ma5: 63.76
+- ema23_primary: 62.24
+- distance_to_ema23_pct: 8.29
+- ma20: 62.91
+- ma60: 58.9
+- ma120: 63.32
+- return_5d: 9.24
+- return_20d: 17.63
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 7.13
+- distance_to_high_60_pct: -2.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,57.6,60.2,57,59.7,8227127,56.54,5.58,54.03,62.11,1.1
-20260818,59,59,55.8,56,6705054,56.5,-0.88,54.22,61.69,0.88
-20260819,55,56.7,54.6,55.2,3273012,56.39,-2.11,54.29,61.28,0.43
-20260820,55.5,57.8,55.5,57,4506044,56.44,0.99,54.45,60.9,0.6
-20260821,57.2,59.2,56.7,57.3,6989900,56.51,1.39,54.59,60.62,0.94
 20260824,57.8,60.4,57.2,57.2,12114622,56.57,1.11,54.82,60.36,1.56
 20260825,56.8,59.6,56,59.6,6186282,56.82,4.89,55.34,60.14,0.8
 20260826,61.3,64.2,60.7,62.7,27039043,57.31,9.4,56.17,59.99,3.19
@@ -167,26 +167,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,65.7,67.2,63.6,63.7,14622469,61.13,4.2,60.83,59.51,1.1
 20260910,63.1,63.4,62,62,5708987,61.2,1.3,60.99,59.47,0.43
 20260911,60.6,62.5,60.5,61.7,6784296,61.24,0.74,61.23,59.4,0.51
+20260914,61.2,62.7,60,61.5,4988883,61.27,0.38,61.33,59.3,0.38
+20260915,61.3,61.7,60.1,60.1,3640157,61.17,-1.75,61.53,59.09,0.28
+20260916,61.1,64.7,61,64.3,10803088,61.43,4.67,61.98,58.99,0.8
+20260917,65,67.8,64.4,65.5,17654106,61.77,6.04,62.41,58.9,1.25
+20260918,66.9,68.8,65,67.4,18867951,62.24,8.29,62.91,58.9,1.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 43.8
+- as_of_date: 20260918
+- over_400_ratio: 43.9
 - over_600_ratio: 41.25
-- over_800_ratio: 40.23
-- over_1000_ratio: 38.53
-- over_400_change_1w: 0.6
-- over_800_change_1w: 0.81
-- over_1000_change_1w: 0.83
-- tdcc_consecutive_up_weeks: 10
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_800_ratio: 40.06
+- over_1000_ratio: 38.46
+- over_400_change_1w: 0.1
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 11
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,41.47,0.74,37.71,0.82,36.35,1.06,2,True,True
 20260703,41.06,-0.41,36.89,-0.82,35.54,-0.81,0,False,False
 20260709,41.08,0.02,36.76,-0.13,35.28,-0.26,1,False,False
 20260717,41.34,0.26,36.72,-0.04,34.88,-0.4,2,False,False
@@ -198,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,43.18,0.27,39.46,0.22,37.58,0.57,8,True,True
 20260904,43.2,0.02,39.42,-0.04,37.7,0.12,9,False,True
 20260911,43.8,0.6,40.23,0.81,38.53,0.83,10,True,True
+20260918,43.9,0.1,40.06,-0.17,38.46,-0.07,11,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3714 | 富采 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 3714 | 富采 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.主管機關核准減資日期:115/08/31 2.辦理資本變更登記完成日期:115/09/15 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:          實收資本額(元)       流通在外股數(股)    每股淨值(元)(註)  減資前  7,379,404,600         736,658,083          58.81  減資後  4,000,000,000         399,304,889         100.04  註：依115年第2季業經會計師核閱竣事之財務報表為依據計算。  4.預計換股作業計畫:詳見本公司115/09/02重大訊息第11款公告。 5.預計減資新股上市後之上市普通股股數:362,056,559股 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:約90.51% 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用 8.其他應敘明事項: (1)本公司減資資本額變更登記業經經濟部115年9月15日經授商字第11530146380號函核    准在案。 (2)換股作業計畫尚未經主管機關核備，若核備後內容有所變動，本公司將另行公告變更    之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3714 | 富采 | 6 | 4 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3714 | 富采 | 9 | 2 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

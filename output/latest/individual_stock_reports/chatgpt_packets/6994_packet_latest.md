@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:41 Asia/Taipei
+- generated_at: 2026-09-19 15:54:44 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 352
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 357
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 31.95
-- high: 31.95
-- low: 29.35
-- close: 29.35
-- volume: 2234014
-- ma5: 33.33
-- ema23_primary: 35.31
-- distance_to_ema23_pct: -16.88
-- ma20: 35.12
-- ma60: 39.46
-- ma120: 51.6
-- return_5d: -16.62
-- return_20d: -18.25
-- volume_ratio: 4.04
-- distance_to_ma20_pct_auxiliary: -16.42
-- distance_to_high_60_pct: -46.83
+- date: 20260918
+- open: 26.75
+- high: 28
+- low: 26.75
+- close: 27.8
+- volume: 567875
+- ma5: 27.13
+- ema23_primary: 32.43
+- distance_to_ema23_pct: -14.27
+- ma20: 33.04
+- ma60: 37.39
+- ma120: 49.69
+- return_5d: -5.28
+- return_20d: -21.69
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -15.86
+- distance_to_high_60_pct: -44.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,36.2,36.75,35.9,36.45,304067,38.55,-5.44,37.72,47.24,0.63
-20260818,36.35,37.3,35.35,35.4,709296,38.29,-7.54,37.48,46.9,1.4
-20260819,35.4,35.4,34.6,34.8,318997,38,-8.41,37.17,46.56,0.63
-20260820,35.2,35.3,34.6,35,315789,37.75,-7.27,36.88,46.2,0.62
-20260821,35.25,35.6,34.7,35.5,321080,37.56,-5.48,36.66,45.79,0.64
 20260824,35.15,36,34.95,35.3,341147,37.37,-5.54,36.4,45.35,0.67
 20260825,35.3,36.75,35,36.55,379054,37.3,-2.02,36.24,44.88,0.76
 20260826,36.8,37.2,36.35,36.4,544841,37.23,-2.22,36.12,44.39,1.1
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,35.2,35.2,33.9,34,990910,36.15,-5.94,35.61,40.26,2.3
 20260910,33.3,33.3,31.95,32.6,1099365,35.85,-9.07,35.44,39.88,2.41
 20260911,31.95,31.95,29.35,29.35,2234014,35.31,-16.88,35.12,39.46,4.04
+20260914,28.2,29.5,27.75,28,1022128,34.7,-19.31,34.69,39.04,1.74
+20260915,27.5,27.5,25.6,26.1,1892332,33.98,-23.2,34.23,38.58,2.92
+20260916,26.2,27.2,26,27,1120272,33.4,-19.17,33.84,38.18,1.63
+20260917,27.6,27.7,26.6,26.75,534726,32.85,-18.56,33.42,37.76,0.77
+20260918,26.75,28,26.75,27.8,567875,32.43,-14.27,33.04,37.39,0.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 45.42
-- over_600_ratio: 42.15
-- over_800_ratio: 40.21
-- over_1000_ratio: 36.64
-- over_400_change_1w: -0.84
-- over_800_change_1w: -0.25
-- over_1000_change_1w: -1.4
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 44.99
+- over_600_ratio: 40.33
+- over_800_ratio: 38.24
+- over_1000_ratio: 36.98
+- over_400_change_1w: -0.43
+- over_800_change_1w: -1.97
+- over_1000_change_1w: 0.34
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,57.06,-3.13,54.13,-4.04,52.79,-4.04,0,False,False
 20260703,54,-3.06,48.72,-5.41,46.16,-6.63,0,False,False
 20260709,48.64,-5.36,41.73,-6.99,37.9,-8.26,0,False,False
 20260717,48.06,-0.58,40.6,-1.13,38.04,0.14,1,False,True
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,45.78,-0.94,40.49,0.02,38.07,0.08,7,False,True
 20260904,46.26,0.48,40.46,-0.03,38.04,-0.03,8,False,False
 20260911,45.42,-0.84,40.21,-0.25,36.64,-1.4,0,False,False
+20260918,44.99,-0.43,38.24,-1.97,36.98,0.34,1,False,True
 ```
 
 ## Candidate Context
@@ -213,7 +213,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6994 | 富威電力 | 1 | 0 | 3100.0 | 0.0 |  | no_signal |
+| 20260918 | 6994 | 富威電力 | 1 | 0 | 410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

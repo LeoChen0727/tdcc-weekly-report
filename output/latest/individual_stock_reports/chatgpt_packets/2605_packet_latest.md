@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2605 新興
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:13 Asia/Taipei
+- generated_at: 2026-09-19 15:52:49 Asia/Taipei
 - stock_id: 2605
 - stock_name: 新興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 35.95
-- high: 37.5
-- low: 35.9
-- close: 36.5
-- volume: 15254289
-- ma5: 36.51
-- ema23_primary: 35.2
-- distance_to_ema23_pct: 3.7
-- ma20: 35.78
-- ma60: 32.69
-- ma120: 33.64
-- return_5d: 1.81
-- return_20d: 12.83
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 2
-- distance_to_high_60_pct: -6.89
+- date: 20260918
+- open: 37.15
+- high: 37.6
+- low: 36.1
+- close: 36.1
+- volume: 9451516
+- ma5: 36.1
+- ema23_primary: 35.53
+- distance_to_ema23_pct: 1.61
+- ma20: 35.86
+- ma60: 33.08
+- ma120: 33.4
+- return_5d: -1.1
+- return_20d: -4.5
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.68
+- distance_to_high_60_pct: -7.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,32.6,33,32.15,32.9,5455470,31.85,3.3,31.82,31.32,0.91
-20260818,33.3,35.7,33.25,35.2,24205597,32.13,9.57,32.02,31.38,3.45
-20260819,35.9,37.6,35,36.75,70856199,32.51,13.03,32.29,31.47,6.9
-20260820,37.45,37.95,35.85,36.4,29377214,32.84,10.85,32.48,31.56,2.72
-20260821,36.25,38.3,36.25,37.8,37504751,33.25,13.68,32.76,31.67,3.07
 20260824,38.05,39,36.25,36.6,29783116,33.53,9.16,33.01,31.76,2.21
 20260825,36.75,39.2,36.6,36.7,47492873,33.79,8.6,33.29,31.87,3.05
 20260826,36.2,37.25,34.3,34.85,23658234,33.88,2.86,33.48,31.89,1.44
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,36.55,37.2,35.85,36.95,14005228,34.97,5.65,35.38,32.55,0.73
 20260910,37,38.65,36.05,36.25,24763869,35.08,3.34,35.58,32.62,1.24
 20260911,35.95,37.5,35.9,36.5,15254289,35.2,3.7,35.78,32.69,0.75
+20260914,36.5,37.1,35.9,36.15,6995523,35.28,2.48,35.95,32.77,0.34
+20260915,36.15,36.55,34.85,35.05,8993430,35.26,-0.59,35.94,32.82,0.46
+20260916,35.1,36.8,35.1,36.05,12864086,35.32,2.06,35.91,32.9,0.77
+20260917,36,37.45,35.65,37.15,14491606,35.48,4.72,35.94,32.99,0.91
+20260918,37.15,37.6,36.1,36.1,9451516,35.53,1.61,35.86,33.08,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 54.21
-- over_600_ratio: 51.52
-- over_800_ratio: 49.45
-- over_1000_ratio: 48.25
-- over_400_change_1w: 0.05
-- over_800_change_1w: -0.31
-- over_1000_change_1w: -0.16
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 55.44
+- over_600_ratio: 52.55
+- over_800_ratio: 50.98
+- over_1000_ratio: 49.18
+- over_400_change_1w: 1.23
+- over_800_change_1w: 1.53
+- over_1000_change_1w: 0.93
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,53.72,-0.98,50.1,-1.24,49.21,-1.06,0,False,False
 20260703,52.4,-1.32,48.42,-1.68,47.79,-1.42,0,False,False
 20260709,52.79,0.39,49.29,0.87,48.67,0.88,1,True,True
 20260717,53.44,0.65,49.87,0.58,49.1,0.43,2,True,True
@@ -198,24 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,53.87,-1.32,48.87,-2.11,47.92,-1.99,0,False,False
 20260904,54.16,0.29,49.76,0.89,48.41,0.49,1,True,True
 20260911,54.21,0.05,49.45,-0.31,48.25,-0.16,2,False,False
+20260918,55.44,1.23,50.98,1.53,49.18,0.93,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2605 | 新興 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2605 | 新興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 2605 | 新興 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 55 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2605 | 新興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 2605 | 新興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2605 | 新興 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 56 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2605 | 新興 | 23 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2605 | 新興 | 26 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2605 | 新興 | 68 | 2 | 9685190.0 | 84470.0 | 114.66 | no_signal |
+| 20260918 | 2605 | 新興 | 69 | 2 | 8167460.0 | 6700.0 | 1219.02 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

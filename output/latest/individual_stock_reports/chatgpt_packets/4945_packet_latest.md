@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4945 陞達科技
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:57 Asia/Taipei
+- generated_at: 2026-09-19 15:53:46 Asia/Taipei
 - stock_id: 4945
 - stock_name: 陞達科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20250521
-- price_rows: 2
-- current_main_price_date: 20260911
+- latest_price_date: 20250901
+- price_rows: 3
+- current_main_price_date: 20260918
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -125,12 +125,12 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20250521
-- open: 69.7
-- high: 70
-- low: 69.6
-- close: 70
-- volume: 15000
+- date: 20250901
+- open: 76.6
+- high: 76.8
+- low: 75.6
+- close: 76.1
+- volume: 42000
 - ma5:
 - ema23_primary:
 - distance_to_ema23_pct:
@@ -149,6 +149,7 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20250411,54.7,62,54.7,61.5,105000,,,,,
 20250521,69.7,70,69.6,70,15000,,,,,
+20250901,76.6,76.8,75.6,76.1,42000,,,,,
 ```
 
 ## Latest TDCC Snapshot

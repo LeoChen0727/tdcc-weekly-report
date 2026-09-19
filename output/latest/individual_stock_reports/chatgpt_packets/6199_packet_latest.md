@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6199 天品
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:16 Asia/Taipei
+- generated_at: 2026-09-19 15:54:11 Asia/Taipei
 - stock_id: 6199
 - stock_name: 天品
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,27 +69,27 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -105,8 +105,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 97.3
-- high: 98.8
-- low: 89.8
-- close: 98.4
-- volume: 3134000
-- ma5: 97.1
-- ema23_primary: 96.11
-- distance_to_ema23_pct: 2.39
-- ma20: 94.91
-- ma60: 98.72
-- ma120: 99.26
-- return_5d: 2.39
-- return_20d: -0.81
-- volume_ratio: 2.69
-- distance_to_ma20_pct_auxiliary: 3.68
-- distance_to_high_60_pct: -9.72
+- date: 20260918
+- open: 105
+- high: 113
+- low: 103.5
+- close: 113
+- volume: 4218000
+- ma5: 104.7
+- ema23_primary: 99.31
+- distance_to_ema23_pct: 13.78
+- ma20: 97.33
+- ma60: 99.04
+- ma120: 99.23
+- return_5d: 14.84
+- return_20d: 20.34
+- volume_ratio: 2.25
+- distance_to_ma20_pct_auxiliary: 16.1
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,98.8,99.3,96.6,96.6,535000,98.89,-2.32,98.72,98.25,1.14
-20260818,95.9,96.2,94.2,94.6,352000,98.54,-3.99,98.42,98.17,0.75
-20260819,95,99.8,95,95.9,1508000,98.32,-2.46,98.31,98.12,2.8
-20260820,96,96.8,94.1,94.1,329000,97.97,-3.95,97.73,98.12,0.63
-20260821,93,94.9,92.5,93.9,723000,97.63,-3.82,97.28,98.11,1.33
 20260824,94,94.2,92.5,93.5,700000,97.28,-3.89,96.95,98.13,1.22
 20260825,92.7,94.1,91.8,93.7,754000,96.98,-3.39,96.71,98.18,1.29
 20260826,93.7,95.8,92,92.3,1514000,96.59,-4.45,96.62,98.22,2.53
@@ -172,26 +167,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,96.5,97.7,96.1,97.1,1367000,95.77,1.39,94.95,98.53,1.43
 20260910,97.1,98.1,95.6,97.3,2128000,95.9,1.46,94.95,98.61,2.07
 20260911,97.3,98.8,89.8,98.4,3134000,96.11,2.39,94.91,98.72,2.69
+20260914,98.4,101,97.7,100.5,3116000,96.47,4.17,95.11,98.71,2.41
+20260915,100.5,102.5,98,102.5,3079000,96.98,5.7,95.5,98.73,2.15
+20260916,101.5,103,99.3,102.5,3767000,97.44,5.2,95.83,98.74,2.44
+20260917,102.5,106,101,105,3489000,98.07,7.07,96.38,98.83,2.05
+20260918,105,113,103.5,113,4218000,99.31,13.78,97.33,99.04,2.25
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 82.05
-- over_600_ratio: 78.91
-- over_800_ratio: 77.62
-- over_1000_ratio: 76.08
-- over_400_change_1w: 0.45
-- over_800_change_1w: -0.52
-- over_1000_change_1w: -2.06
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 83.76
+- over_600_ratio: 81.5
+- over_800_ratio: 79.08
+- over_1000_ratio: 79.08
+- over_400_change_1w: 1.71
+- over_800_change_1w: 1.46
+- over_1000_change_1w: 3
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,79.85,0.63,75.04,0.43,75.04,0.43,6,True,True
 20260703,81.37,1.52,76.63,1.59,75.28,0.24,7,True,True
 20260709,83.29,1.92,78.34,1.71,77.01,1.73,8,True,True
 20260717,83.44,0.15,77.54,-0.8,77.54,0.53,9,False,True
@@ -203,20 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,81.84,-0.87,78.12,-0.03,78.12,-0.03,0,False,False
 20260904,81.6,-0.24,78.14,0.02,78.14,0.02,1,False,True
 20260911,82.05,0.45,77.62,-0.52,76.08,-2.06,2,False,False
+20260918,83.76,1.71,79.08,1.46,79.08,3,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6199 | 天品 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6199 | 天品 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 6199 | 天品 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 31 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 6199 | 天品 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6199 | 天品 | true_breakout | 嚴格突破 | 118.0 |  |  | breakout_confirmed |  |  | continued_many_days | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6199 | 天品 | 7 | 7 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6199 | 天品 | 10 | 1 | 5 | 10 | 11 | continued_many_days | 連續 10 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

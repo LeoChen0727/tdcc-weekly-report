@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:30 Asia/Taipei
+- generated_at: 2026-09-19 15:54:31 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,7 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 291.5
-- high: 303
-- low: 291
-- close: 292
-- volume: 3675064
-- ma5: 296.8
-- ema23_primary: 277.79
-- distance_to_ema23_pct: 5.12
-- ma20: 282.43
-- ma60: 263.39
-- ma120: 225.7
-- return_5d: 1.04
-- return_20d: 8.15
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 3.39
-- distance_to_high_60_pct: -11.52
+- date: 20260918
+- open: 299.5
+- high: 309.5
+- low: 297
+- close: 302
+- volume: 6002632
+- ma5: 297
+- ema23_primary: 284.67
+- distance_to_ema23_pct: 6.09
+- ma20: 286.18
+- ma60: 266.43
+- ma120: 232.76
+- return_5d: 3.42
+- return_20d: 12.9
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 5.53
+- distance_to_high_60_pct: -8.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,271,288,266,283,5150608,245.03,15.5,230.6,243.03,1.37
-20260818,283,295,277.5,288,8355505,248.61,15.84,233.53,244.61,2.1
-20260819,280,293,280,284,7856786,251.56,12.9,235.97,245.84,1.89
-20260820,289,292,280,287.5,5170899,254.55,12.94,238.8,247.07,1.21
-20260821,285,292,264,267.5,6973935,255.63,4.64,240.95,248,1.57
 20260824,267,271,258,259,2894489,255.91,1.21,242.85,248.73,0.65
 20260825,257,272,255,270.5,2557390,257.13,5.2,246.4,249.53,0.57
 20260826,272,281.5,270,276.5,3222064,258.74,6.86,250.95,250.47,0.72
@@ -173,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,299.5,314,293.5,299.5,9019982,274.45,9.13,279.6,261.02,1.69
 20260910,296,306,294,299,3575776,276.5,8.14,281.32,262.3,0.67
 20260911,291.5,303,291,292,3675064,277.79,5.12,282.43,263.39,0.71
+20260914,288.5,297.5,285,294.5,2549602,279.18,5.49,283,264.21,0.51
+20260915,294.5,303.5,289.5,291,4204679,280.17,3.87,283.15,264.8,0.87
+20260916,295.5,306,290,304,5010539,282.15,7.74,284.15,265.72,1.07
+20260917,306,315,285.5,293.5,10176575,283.1,3.67,284.45,266.22,2.06
+20260918,299.5,309.5,297,302,6002632,284.67,6.09,286.18,266.43,1.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 32.97
-- over_600_ratio: 28.97
+- as_of_date: 20260918
+- over_400_ratio: 32.53
+- over_600_ratio: 26.45
 - over_800_ratio: 24.07
-- over_1000_ratio: 17.52
-- over_400_change_1w: 2.58
-- over_800_change_1w: 0.68
-- over_1000_change_1w: -2.56
-- tdcc_consecutive_up_weeks: 1
+- over_1000_ratio: 17.61
+- over_400_change_1w: -0.44
+- over_800_change_1w: 0
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -192,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,35.79,7.3,27.74,8.01,25.48,9.28,5,True,True
 20260703,35.25,-0.54,23.54,-4.2,21.21,-4.27,0,False,False
 20260709,34.04,-1.21,22.96,-0.58,20.63,-0.58,0,False,False
 20260717,33.83,-0.21,23,0.04,20.67,0.04,1,False,True
@@ -204,22 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,31.12,-0.39,24.32,0.14,21.16,1.34,4,False,True
 20260904,30.39,-0.73,23.39,-0.93,20.08,-1.08,0,False,False
 20260911,32.97,2.58,24.07,0.68,17.52,-2.56,1,False,True
+20260918,32.53,-0.44,24.07,0,17.61,0.09,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 內容：依騰輝電子二KY發行及轉換辦法第十八條規定辦理。 發行公司於115年08月03日至115年09月01日行使債券贖回權，贖回權價格為債券面額之100.0000% 一、依據本公司中華民國境內第二次無擔保轉換公司債(以下簡稱：本轉換債)發行及轉換辦法第 18 條第一項規定: 本轉換公司債發&#64008;滿三個月後翌日起(民國115年5月4日)至發&#64008;期間屆滿前四十日止(民國119年12月25日)，本公司普通股收盤價&#63898;續三十個營業日(115年5月29日~115年7月13日)超過當時轉換價格(90.50元)達百分之三十(含)時，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日(115年7月27 日)債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本債券面額，以現&#63754;收回其全部債券，並函請櫃檯買賣中心公告。本公司執&#64008;收回請求，應於債券收回基準日後七個營業日內按債券面額以現&#63754;贖回其流通在外之本轉換公司債。 二、茲訂定本轉換債收回相關事宜如下：通知及受理轉換公司債收回期間：115年8月3日至115年9月1日(透過證券商申請收回者，配合集保公司作業115年8月31日為最後申請日)，逾期恕不受理。 三、轉換公司債收回基準日：115年9月1日 四、轉換公司債終止櫃檯買賣日期：115年9月2日 五、掛號寄發債券收回通知書日期：115年8月3日 六、若債券持有人於「債券收回通知書」所載債券收回基準日前，未至原交易券商辦理債券贖回手續者，本公司將按「債券面額」以現金收回流通在外之本轉換債。 七、每張債券收回價格：新台幣壹拾萬元整。 八、收回價款發放日：115 年 9 月10日(扣除處理費)以匯款或掛號方式郵寄禁止背書轉讓支票。 九、贖回權相關稅賦：因本次贖回權以債券面額收回，票面&#63965;&#63841;為0%，無債息相關稅賦之問題。 十、本公司執行收回請求，債券持有人請求轉換之最後期限為本轉換公司債終止櫃檯買賣日後第二個營業日(應於 115 年 9 月 3日前向往來券商提出申請)，未於前述期限前以書面向往來券商請求轉換者，本公司將按「債券面額」以現金收回其全部債券。 十一、本轉換債收回手續：因本轉換債為無實體發行，債券持有人請攜帶：1.證券存摺。 2.填具『轉換公司債帳簿劃撥轉換/贖回/賣回申請書』127表單（註明贖回），並加蓋集保帳戶印鑑。3.身分證正反面影本，至原交易證券商辦理債券收回手續即可；交易證券商於收件後會向台灣集中保管結算所提出申請，台灣集中保管結算所於接受申請後送交本公司股務代理機構，於送達時即生收回之效力，且不得申請撤銷。 十二、本公司股務代理機構：元大證券股份有限公司股務代理部 地址：106       臺北市大安區敦化南路2段67號地下一樓 電話：（02）2586&#8208;5859 警語：請投資人注意，具有請求轉換資格者，如未於115年9月3日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6672 | 騰輝電子-KY | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 取得之使用權資產騰揚廠房進行建築物改良及取得設備 2.事實發生日:115/9/17~115/9/17 3.董事會通過日期: 民國115年9月17日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 建築物改良:暫定約人民幣4,176萬元 機器設備及其附屬設備:暫定人民幣2.46億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 尚未確定 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 尚未確定 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 尚未確定 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 以匯款方式支付 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 經審計委員會及董事會決議通過 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 因應業務發展及策略規劃需要 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 民國115年09月17日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 騰揚廠房係於115/9/17董事會決議通過取得之使用權資產；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 取得之使用權資產騰揚廠房進行建築物改良及取得設備 2.事實發生日:115/9/17~115/9/17 3.董事會通過日期: 民國115年9月17日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 建築物改良:暫定約人民幣4,176萬元 機器設備及其附屬設備:暫定人民幣2.46億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 尚未確定 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 尚未確定 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 尚未確定 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 以匯款方式支付 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 經審計委員會及董事會決議通過 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 因應業務發展及策略規劃需要 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 民國115年09月17日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 騰揚廠房係於115/9/17董事會決議通過取得之使用權資產；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6672 | 騰輝電子-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 取得之使用權資產騰揚廠房進行建築物改良及取得設備 2.事實發生日:115/9/17~115/9/17 3.董事會通過日期: 民國115年9月17日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 建築物改良:暫定約人民幣4,176萬元 機器設備及其附屬設備:暫定人民幣2.46億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 尚未確定 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 尚未確定 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 尚未確定 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 以匯款方式支付 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 經審計委員會及董事會決議通過 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 因應業務發展及策略規劃需要 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 民國115年09月17日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 騰揚廠房係於115/9/17董事會決議通過取得之使用權資產；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6672 | 騰輝電子-KY | 15 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6672 | 騰輝電子-KY | 18 | 10 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6672 | 騰輝電子-KY | 88 | 1 | 10828320.0 | 0.0 |  | no_signal |
+| 20260918 | 6672 | 騰輝電子-KY | 95 | 1 | 14817870.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

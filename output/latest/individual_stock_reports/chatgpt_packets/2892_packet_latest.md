@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-09-13 22:16:20 Asia/Taipei
+- generated_at: 2026-09-19 15:52:57 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 37.7
-- high: 39.05
-- low: 37.7
-- close: 38.9
-- volume: 34933986
-- ma5: 37.97
-- ema23_primary: 35.91
-- distance_to_ema23_pct: 8.31
-- ma20: 35.38
-- ma60: 34.36
-- ma120: 31.61
-- return_5d: 4.29
-- return_20d: 16.64
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 9.95
-- distance_to_high_60_pct: -0.38
+- date: 20260918
+- open: 40.75
+- high: 40.75
+- low: 38.9
+- close: 39.8
+- volume: 52942496
+- ma5: 39.99
+- ema23_primary: 37.36
+- distance_to_ema23_pct: 6.54
+- ma20: 36.99
+- ma60: 34.99
+- ma120: 32.09
+- return_5d: 2.31
+- return_20d: 18.28
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 7.58
+- distance_to_high_60_pct: -2.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,33.1,33.55,32.55,33.4,45847450,34.1,-2.06,34.64,32.4,0.99
-20260818,33.4,34.25,33.25,33.7,40530045,34.07,-1.08,34.6,32.5,0.87
-20260819,33.65,33.8,33.3,33.6,16299693,34.03,-1.26,34.56,32.6,0.36
-20260820,33.7,33.75,33.2,33.3,27060212,33.97,-1.97,34.52,32.69,0.6
-20260821,33.25,33.8,33.2,33.65,32059690,33.94,-0.86,34.49,32.79,0.71
 20260824,33.55,33.8,33.25,33.55,23922167,33.91,-1.06,34.43,32.9,0.54
 20260825,33.5,34.1,33.45,33.8,28506825,33.9,-0.29,34.38,33.01,0.65
 20260826,33.5,34,33.25,33.4,38426399,33.86,-1.35,34.31,33.1,0.89
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,37.95,38.1,37.15,37.8,30638819,35.43,6.7,34.86,34.15,0.82
 20260910,37.4,38.25,37.35,38,29076588,35.64,6.61,35.1,34.26,0.78
 20260911,37.7,39.05,37.7,38.9,34933986,35.91,8.31,35.38,34.36,0.94
+20260914,38.55,40,38.55,39.85,37037261,36.24,9.96,35.7,34.48,1.01
+20260915,40.4,40.4,39.5,39.55,30707411,36.52,8.3,35.99,34.6,0.85
+20260916,39.7,40,39.25,40,24115235,36.81,8.67,36.31,34.73,0.66
+20260917,40,40.95,39.85,40.75,32824142,37.14,9.73,36.69,34.88,0.89
+20260918,40.75,40.75,38.9,39.8,52942496,37.36,6.54,36.99,34.99,1.39
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 72.16
-- over_600_ratio: 70.31
-- over_800_ratio: 69.14
-- over_1000_ratio: 68.24
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.16
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260918
+- over_400_ratio: 72.34
+- over_600_ratio: 70.51
+- over_800_ratio: 69.35
+- over_1000_ratio: 68.44
+- over_400_change_1w: 0.18
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,71,0.27,67.92,0.27,67.06,0.28,4,True,True
 20260703,71.09,0.09,68.01,0.09,67.17,0.11,5,True,True
 20260709,71.32,0.23,68.27,0.26,67.39,0.22,6,True,True
 20260717,71.38,0.06,68.34,0.07,67.46,0.07,7,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,71.7,-0.05,68.65,-0.07,67.79,-0.07,0,False,False
 20260904,72.02,0.32,68.98,0.33,68.07,0.28,1,True,True
 20260911,72.16,0.14,69.14,0.16,68.24,0.17,2,True,True
+20260918,72.34,0.18,69.35,0.21,68.44,0.2,3,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管 2.發生變動日期:115/09/02 3.舊任者姓名、級職及簡歷: 鄭聿舒(美國第一銀行主任秘書暨財務長) 4.新任者姓名、級職及簡歷: 張淑卿(洛杉磯分行研究員) 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/09/02 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2892 | 第一金 | 11 | 9 | 5 | 10 | 14 | continued_many_days | 連續 11 日上榜，需區分醞釀延續或訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2892 | 第一金 | 8 | 0 | 401320.0 | 0.0 |  | no_signal |
+| 20260918 | 2892 | 第一金 | 9 | 0 | 1027760.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

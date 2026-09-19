@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:19 Asia/Taipei
+- generated_at: 2026-09-19 15:54:15 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -125,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 212
-- high: 213
-- low: 209.5
-- close: 211.5
-- volume: 4963308
-- ma5: 212.7
-- ema23_primary: 210.09
-- distance_to_ema23_pct: 0.67
-- ma20: 207.93
-- ma60: 217.28
-- ma120: 205.36
-- return_5d: -0.24
-- return_20d: 1.68
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 1.72
-- distance_to_high_60_pct: -24.33
+- date: 20260918
+- open: 231
+- high: 244.5
+- low: 227.5
+- close: 244.5
+- volume: 36727856
+- ma5: 218.9
+- ema23_primary: 213.73
+- distance_to_ema23_pct: 14.4
+- ma20: 212.4
+- ma60: 215.6
+- ma120: 208.8
+- return_5d: 15.6
+- return_20d: 23.17
+- volume_ratio: 3.81
+- distance_to_ma20_pct_auxiliary: 15.11
+- distance_to_high_60_pct: -12.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,208,210.5,206.5,208,2869251,209.4,-0.67,204.53,221.2,0.52
-20260818,208,208.5,199.5,199.5,6262729,208.58,-4.35,203.7,220.82,1.11
-20260819,194,201,192.5,199.5,5509629,207.82,-4,202.5,220.29,0.97
-20260820,203,204,197,199.5,5000557,207.13,-3.68,201.18,219.67,0.88
-20260821,200,200,196.5,198.5,4287674,206.41,-3.83,200.25,219.08,0.77
 20260824,198.5,203.5,197.5,197.5,2272196,205.67,-3.97,199.35,218.56,0.41
 20260825,197,199.5,190,198.5,4612622,205.07,-3.2,199.53,218.07,0.85
 20260826,200.5,205,199,204,4184178,204.98,-0.48,200.65,217.82,0.81
@@ -167,18 +167,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,210,215.5,210,213,5082628,209.32,1.76,207.55,217.27,0.72
 20260910,215,225,213.5,217,18438387,209.96,3.35,207.75,217.32,2.43
 20260911,212,213,209.5,211.5,4963308,210.09,0.67,207.93,217.28,0.65
+20260914,206,213,204,210,3119037,210.08,-0.04,208.03,216.86,0.41
+20260915,210,214.5,207.5,207.5,2791002,209.87,-1.13,208.43,216.28,0.38
+20260916,209.5,212.5,208,210,3109254,209.88,0.06,208.95,215.82,0.43
+20260917,215.5,226,215,222.5,19035481,210.93,5.49,210.1,215.49,2.38
+20260918,231,244.5,227.5,244.5,36727856,213.73,14.4,212.4,215.6,3.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 46.21
-- over_600_ratio: 42.55
-- over_800_ratio: 39.15
-- over_1000_ratio: 36.99
-- over_400_change_1w: 0.28
-- over_800_change_1w: 1.01
-- over_1000_change_1w: 0.83
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 47.41
+- over_600_ratio: 43.68
+- over_800_ratio: 40.26
+- over_1000_ratio: 37.89
+- over_400_change_1w: 1.2
+- over_800_change_1w: 1.11
+- over_1000_change_1w: 0.9
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,51.6,3.05,44.17,3.25,42.13,2.66,1,True,True
 20260703,52.53,0.93,44.63,0.46,42.6,0.47,2,True,True
 20260709,52.38,-0.15,44.68,0.05,42.12,-0.48,3,False,True
 20260717,51.54,-0.84,43.92,-0.76,42.27,0.15,4,False,True
@@ -198,23 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,47.49,-0.95,39.73,-1.15,38.35,-1.11,0,False,False
 20260904,45.93,-1.56,38.14,-1.59,36.16,-2.19,0,False,False
 20260911,46.21,0.28,39.15,1.01,36.99,0.83,1,True,True
+20260918,47.41,1.2,40.26,1.11,37.89,0.9,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6257 | 矽格 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6257 | 矽格 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_put_bullish | continued_overheated | 1.董事會或股東會決議日期:115/07/27 2.投資計畫內容:本公司董事會決議通過追加115年度預算案 3.預計投資金額:追加預算新台幣20億元 4.預計投資日期:NA 5.資金來源:自有資金及銀行融資 6.具體目的:新專案購買機器設備及無塵室裝修升級 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6257 | 矽格 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6257 | 矽格 | 10 | 2 | 5 | 10 | 19 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6257 | 矽格 | 133 | 8 | 12667690.0 | 54390.0 | 232.9 | no_signal |
+| 20260918 | 6257 | 矽格 | 130 | 8 | 42576950.0 | 69680.0 | 611.04 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

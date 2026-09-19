@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6278 台表科
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:20 Asia/Taipei
+- generated_at: 2026-09-19 15:54:17 Asia/Taipei
 - stock_id: 6278
 - stock_name: 台表科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 186
-- high: 189
-- low: 183.5
-- close: 186.5
-- volume: 2170507
-- ma5: 191
-- ema23_primary: 187.51
-- distance_to_ema23_pct: -0.54
-- ma20: 190.07
-- ma60: 181.43
-- ma120: 176.17
-- return_5d: -6.75
-- return_20d: 7.8
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -1.88
-- distance_to_high_60_pct: -15.61
+- date: 20260918
+- open: 187
+- high: 196
+- low: 186
+- close: 196
+- volume: 3987784
+- ma5: 185.8
+- ema23_primary: 187.07
+- distance_to_ema23_pct: 4.78
+- ma20: 192.1
+- ma60: 179.89
+- ma120: 179.89
+- return_5d: 5.09
+- return_20d: 4.81
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 2.03
+- distance_to_high_60_pct: -11.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,172.5,179,172.5,175,5638796,167.09,4.74,158.9,189.09,1.21
-20260818,175,177.5,168,172,4528509,167.5,2.69,159.15,187.88,0.98
-20260819,168,181.5,168,174.5,6449418,168.08,3.82,159.53,186.82,1.34
-20260820,179,180.5,173.5,180,5517783,169.07,6.46,160.22,185.71,1.11
-20260821,180,190.5,178,187,17236125,170.57,9.63,161.6,184.9,3.02
 20260824,183.5,188,177,179,8596646,171.27,4.51,162.7,184.18,1.42
 20260825,177,182,172,181.5,5422166,172.12,5.45,164.6,183.52,0.88
 20260826,180,199.5,179,199.5,15168883,174.4,14.39,167.75,183.19,2.31
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,190.5,196,190.5,193.5,2825162,187.25,3.34,188.22,182.03,0.41
 20260910,193.5,193.5,189.5,191.5,1212076,187.6,2.08,189.4,181.72,0.18
 20260911,186,189,183.5,186.5,2170507,187.51,-0.54,190.07,181.43,0.34
+20260914,182,187,179.5,185.5,1629631,187.34,-0.98,190.6,181.11,0.27
+20260915,186,187,180.5,180.5,1557487,186.77,-3.36,191.03,180.68,0.26
+20260916,187.5,188,182.5,183,2342952,186.46,-1.85,191.45,180.33,0.41
+20260917,185.5,190,183.5,184,2460456,186.25,-1.21,191.65,180.04,0.44
+20260918,187,196,186,196,3987784,187.07,4.78,192.1,179.89,0.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 62.41
-- over_600_ratio: 59.14
-- over_800_ratio: 56.2
-- over_1000_ratio: 52.14
-- over_400_change_1w: -0.14
-- over_800_change_1w: 0.31
-- over_1000_change_1w: 0.94
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 62.62
+- over_600_ratio: 60.18
+- over_800_ratio: 57.03
+- over_1000_ratio: 52.11
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.83
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,65.02,-0.77,56.87,0.01,53.71,-0.3,2,False,True
 20260703,65.38,0.36,58.23,1.36,55.73,2.02,3,True,True
 20260709,63.04,-2.34,56.05,-2.18,53.57,-2.16,0,False,False
 20260717,60.89,-2.15,53.52,-2.53,50.4,-3.17,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,63,2.05,56.18,0.51,51.73,0.42,3,True,True
 20260904,62.55,-0.45,55.89,-0.29,51.2,-0.53,0,False,False
 20260911,62.41,-0.14,56.2,0.31,52.14,0.94,1,False,True
+20260918,62.62,0.21,57.03,0.83,52.11,-0.03,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6278 | 台表科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:台灣表面黏著科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:月營收公佈 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合併營業收入(當月與去年同月比較)(單位：新臺幣仟元)    項    目    114年08月     115年08月      成長率%   合併營收    4,174,612     4,628,384       10.87%  (2)合併營業收入(當月與上月比較)(單位：新臺幣仟元)    項    目    115年07月     115年08月      成長率%   合併營收    4,667,997     4,628,384       -0.85%  (3)累計合併營業收入(單位：新臺幣仟元)    項    目    114年1~8月    115年1~8月     成長率%   合併營收   33,337,605    35,081,965        5.23%  (4)上列數字係本公司自結數，未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6278 | 台表科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:台灣表面黏著科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:月營收公佈 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合併營業收入(當月與去年同月比較)(單位：新臺幣仟元)    項    目    114年08月     115年08月      成長率%   合併營收    4,174,612     4,628,384       10.87%  (2)合併營業收入(當月與上月比較)(單位：新臺幣仟元)    項    目    115年07月     115年08月      成長率%   合併營收    4,667,997     4,628,384       -0.85%  (3)累計合併營業收入(單位：新臺幣仟元)    項    目    114年1~8月    115年1~8月     成長率%   合併營收   33,337,605    35,081,965        5.23%  (4)上列數字係本公司自結數，未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6278 | 台表科 | 4 | 4 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6278 | 台表科 | 7 | 7 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6278 | 台表科 | 57 | 0 | 2100440.0 | 0.0 |  | no_signal |
+| 20260918 | 6278 | 台表科 | 58 | 1 | 7044540.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

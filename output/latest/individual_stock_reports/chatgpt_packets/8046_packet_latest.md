@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-09-13 22:17:51 Asia/Taipei
+- generated_at: 2026-09-19 15:54:57 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 1045
-- high: 1100
-- low: 1035
-- close: 1080
-- volume: 6348878
-- ma5: 1067
-- ema23_primary: 1129.28
-- distance_to_ema23_pct: -4.36
-- ma20: 1159.25
-- ma60: 1124.78
-- ma120: 959.88
-- return_5d: 2.37
-- return_20d: -17.24
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -6.84
-- distance_to_high_60_pct: -23.67
+- date: 20260918
+- open: 1105
+- high: 1120
+- low: 1065
+- close: 1100
+- volume: 10172303
+- ma5: 1082
+- ema23_primary: 1113.01
+- distance_to_ema23_pct: -1.17
+- ma20: 1127.25
+- ma60: 1137.5
+- ma120: 982.5
+- return_5d: 1.85
+- return_20d: -3.08
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -2.42
+- distance_to_high_60_pct: -22.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,1310,1380,1295,1295,19223157,1132.8,14.32,1106.25,1036.65,1.52
-20260818,1320,1355,1245,1245,10339787,1142.15,9,1109,1041.83,0.84
-20260819,1175,1280,1150,1180,15143786,1145.31,3.03,1102.75,1046.77,1.24
-20260820,1225,1235,1155,1195,9650795,1149.45,3.96,1101,1051.32,0.82
-20260821,1180,1200,1105,1135,11628964,1148.24,-1.15,1102.25,1055.15,0.99
 20260824,1135,1170,1105,1135,7449592,1147.14,-1.06,1105.25,1059.9,0.65
 20260825,1110,1170,1070,1160,8466384,1148.21,1.03,1114.45,1065.1,0.76
 20260826,1140,1200,1125,1180,14184956,1150.86,2.53,1129.5,1069.68,1.27
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,1075,1125,1065,1110,12270561,1139.55,-2.59,1177.75,1118.73,0.89
 20260910,1085,1105,1055,1070,6755869,1133.76,-5.62,1170.5,1121.53,0.51
 20260911,1045,1100,1035,1080,6348878,1129.28,-4.36,1159.25,1124.78,0.51
+20260914,1040,1070,1025,1055,6139066,1123.09,-6.06,1147.25,1127.8,0.52
+20260915,1070,1110,1055,1085,7742890,1119.91,-3.12,1139.25,1131.48,0.67
+20260916,1095,1115,1060,1105,7955496,1118.67,-1.22,1135.5,1134.75,0.71
+20260917,1120,1130,1060,1065,8133171,1114.2,-4.42,1129,1136.58,0.73
+20260918,1105,1120,1065,1100,10172303,1113.01,-1.17,1127.25,1137.5,0.92
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 83.92
-- over_600_ratio: 81.91
-- over_800_ratio: 80.65
-- over_1000_ratio: 79.28
+- as_of_date: 20260918
+- over_400_ratio: 84.2
+- over_600_ratio: 82.16
+- over_800_ratio: 80.89
+- over_1000_ratio: 79.63
 - over_400_change_1w: 0.28
-- over_800_change_1w: -0.05
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.35
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,84.82,2.46,80.88,1.65,80.15,1.77,2,True,True
 20260703,85.64,0.82,82.15,1.27,80.73,0.58,3,True,True
 20260709,85.59,-0.05,82.15,0,81.35,0.62,4,False,True
 20260717,85.68,0.09,82.23,0.08,81.15,-0.2,5,False,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,85.37,0,81.94,0.3,80.44,-0.1,2,False,True
 20260904,83.64,-1.73,80.7,-1.24,79.08,-1.36,0,False,False
 20260911,83.92,0.28,80.65,-0.05,79.28,0.2,1,False,True
+20260918,84.2,0.28,80.89,0.24,79.63,0.35,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8046 | 南電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北晶華酒店4樓（台北市中山區中山北路二段39巷3號） 4.法人說明會擇要訊息：本公司受邀參加台新證券2026年第三季投資論壇，說明本公司之營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北晶華酒店4樓（台北市中山區中山北路二段39巷3號） 4.法人說明會擇要訊息：本公司受邀參加台新證券2026年第三季投資論壇，說明本公司之營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北晶華酒店4樓（台北市中山區中山北路二段39巷3號） 4.法人說明會擇要訊息：本公司受邀參加台新證券2026年第三季投資論壇，說明本公司之營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8046 | 南電 | 11 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 8046 | 南電 | 14 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8046 | 南電 | 38 | 2 | 545780.0 | 21250.0 | 25.68 | no_signal |
+| 20260918 | 8046 | 南電 | 76 | 7 | 3318400.0 | 602750.0 | 5.51 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
