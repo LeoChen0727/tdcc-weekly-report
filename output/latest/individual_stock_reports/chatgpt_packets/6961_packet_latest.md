@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6961 旅天下
 
 ## Metadata
-- generated_at: 2026-09-19 15:54:43 Asia/Taipei
+- generated_at: 2026-09-19 22:17:36 Asia/Taipei
 - stock_id: 6961
 - stock_name: 旅天下
 - packet_status: standard_180d_window_packet

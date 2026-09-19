@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7825 和亞智慧
 
 ## Metadata
-- generated_at: 2026-09-19 15:54:55 Asia/Taipei
+- generated_at: 2026-09-19 22:17:45 Asia/Taipei
 - stock_id: 7825
 - stock_name: 和亞智慧
 - packet_status: partial_rawdata_packet

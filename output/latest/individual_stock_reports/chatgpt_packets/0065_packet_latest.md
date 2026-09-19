@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0065 復華香港正2
 
 ## Metadata
-- generated_at: 2026-09-19 15:51:57 Asia/Taipei
+- generated_at: 2026-09-19 22:15:31 Asia/Taipei
 - stock_id: 0065
 - stock_name: 復華香港正2
 - packet_status: insufficient_price_data

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00752 中信中國50
 
 ## Metadata
-- generated_at: 2026-09-19 15:51:59 Asia/Taipei
+- generated_at: 2026-09-19 22:15:32 Asia/Taipei
 - stock_id: 00752
 - stock_name: 中信中國50
 - packet_status: standard_rawdata_packet

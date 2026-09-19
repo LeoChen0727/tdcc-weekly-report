@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006206 元大上證50
 
 ## Metadata
-- generated_at: 2026-09-19 15:51:57 Asia/Taipei
+- generated_at: 2026-09-19 22:15:30 Asia/Taipei
 - stock_id: 006206
 - stock_name: 元大上證50
 - packet_status: standard_rawdata_packet

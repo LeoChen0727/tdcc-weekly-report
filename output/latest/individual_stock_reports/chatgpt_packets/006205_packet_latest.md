@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-09-19 15:51:57 Asia/Taipei
+- generated_at: 2026-09-19 22:15:30 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6907 雅特力-KY
 
 ## Metadata
-- generated_at: 2026-09-19 15:54:41 Asia/Taipei
+- generated_at: 2026-09-19 22:17:34 Asia/Taipei
 - stock_id: 6907
 - stock_name: 雅特力-KY
 - packet_status: standard_180d_window_packet

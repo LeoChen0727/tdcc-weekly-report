@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4305 世坤
 
 ## Metadata
-- generated_at: 2026-09-19 15:53:34 Asia/Taipei
+- generated_at: 2026-09-19 22:16:44 Asia/Taipei
 - stock_id: 4305
 - stock_name: 世坤
 - packet_status: standard_180d_window_packet
