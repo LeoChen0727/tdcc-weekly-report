@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5878 台名
 
 ## Metadata
-- generated_at: 2026-09-19 22:17:05 Asia/Taipei
+- generated_at: 2026-09-20 22:17:36 Asia/Taipei
 - stock_id: 5878
 - stock_name: 台名
 - packet_status: standard_180d_window_packet

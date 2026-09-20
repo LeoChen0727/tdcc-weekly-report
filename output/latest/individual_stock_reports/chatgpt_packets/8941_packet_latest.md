@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8941 關中
 
 ## Metadata
-- generated_at: 2026-09-19 22:17:57 Asia/Taipei
+- generated_at: 2026-09-20 22:18:47 Asia/Taipei
 - stock_id: 8941
 - stock_name: 關中
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-09-19 22:17:10 Asia/Taipei
+- generated_at: 2026-09-20 22:17:42 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet

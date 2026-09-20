@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4142 國光生
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:42 Asia/Taipei
+- generated_at: 2026-09-20 22:17:05 Asia/Taipei
 - stock_id: 4142
 - stock_name: 國光生
 - packet_status: standard_180d_window_packet

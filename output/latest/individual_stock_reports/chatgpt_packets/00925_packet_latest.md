@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00925 新光標普電動車
 
 ## Metadata
-- generated_at: 2026-09-19 22:15:34 Asia/Taipei
+- generated_at: 2026-09-20 22:15:33 Asia/Taipei
 - stock_id: 00925
 - stock_name: 新光標普電動車
 - packet_status: partial_rawdata_packet

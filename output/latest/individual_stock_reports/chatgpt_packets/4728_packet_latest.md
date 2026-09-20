@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4728 雙美
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:50 Asia/Taipei
+- generated_at: 2026-09-20 22:17:15 Asia/Taipei
 - stock_id: 4728
 - stock_name: 雙美
 - packet_status: standard_180d_window_packet

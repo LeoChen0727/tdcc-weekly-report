@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:33 Asia/Taipei
+- generated_at: 2026-09-20 22:16:52 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet

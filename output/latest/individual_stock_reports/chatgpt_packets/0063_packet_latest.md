@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0063 元大滬深300正2
 
 ## Metadata
-- generated_at: 2026-09-19 22:15:31 Asia/Taipei
+- generated_at: 2026-09-20 22:15:29 Asia/Taipei
 - stock_id: 0063
 - stock_name: 元大滬深300正2
 - packet_status: insufficient_price_data

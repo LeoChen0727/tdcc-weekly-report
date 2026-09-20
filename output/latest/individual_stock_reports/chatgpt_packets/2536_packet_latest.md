@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2536 宏普
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:09 Asia/Taipei
+- generated_at: 2026-09-20 22:16:21 Asia/Taipei
 - stock_id: 2536
 - stock_name: 宏普
 - packet_status: standard_180d_window_packet

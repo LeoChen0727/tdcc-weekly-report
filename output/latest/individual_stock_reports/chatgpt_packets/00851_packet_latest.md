@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00851 台新全球AI
 
 ## Metadata
-- generated_at: 2026-09-19 22:15:32 Asia/Taipei
+- generated_at: 2026-09-20 22:15:31 Asia/Taipei
 - stock_id: 00851
 - stock_name: 台新全球AI
 - packet_status: standard_rawdata_packet

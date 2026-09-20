@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7716 昱臺國際
 
 ## Metadata
-- generated_at: 2026-09-19 22:17:42 Asia/Taipei
+- generated_at: 2026-09-20 22:18:26 Asia/Taipei
 - stock_id: 7716
 - stock_name: 昱臺國際
 - packet_status: standard_180d_window_packet

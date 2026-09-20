@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3605 宏致
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:36 Asia/Taipei
+- generated_at: 2026-09-20 22:16:57 Asia/Taipei
 - stock_id: 3605
 - stock_name: 宏致
 - packet_status: standard_180d_window_packet

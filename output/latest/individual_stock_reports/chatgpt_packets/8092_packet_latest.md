@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8092 建暐
 
 ## Metadata
-- generated_at: 2026-09-19 22:17:49 Asia/Taipei
+- generated_at: 2026-09-20 22:18:35 Asia/Taipei
 - stock_id: 8092
 - stock_name: 建暐
 - packet_status: standard_180d_window_packet

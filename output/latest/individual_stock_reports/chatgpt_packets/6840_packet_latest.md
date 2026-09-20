@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6840 東研信超
 
 ## Metadata
-- generated_at: 2026-09-19 22:17:32 Asia/Taipei
+- generated_at: 2026-09-20 22:18:12 Asia/Taipei
 - stock_id: 6840
 - stock_name: 東研信超
 - packet_status: standard_180d_window_packet

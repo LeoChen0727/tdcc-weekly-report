@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3713 新晶投控
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:40 Asia/Taipei
+- generated_at: 2026-09-20 22:17:02 Asia/Taipei
 - stock_id: 3713
 - stock_name: 新晶投控
 - packet_status: standard_180d_window_packet

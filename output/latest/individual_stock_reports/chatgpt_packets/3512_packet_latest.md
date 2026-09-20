@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3512 皇龍
 
 ## Metadata
-- generated_at: 2026-09-19 22:16:33 Asia/Taipei
+- generated_at: 2026-09-20 22:16:53 Asia/Taipei
 - stock_id: 3512
 - stock_name: 皇龍
 - packet_status: standard_180d_window_packet
