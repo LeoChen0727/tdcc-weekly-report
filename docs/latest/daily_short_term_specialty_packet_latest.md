@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-09-18 11:52:41 UTC`
-- main_price_date: `20260918`
+- generated_at: `2026-09-21 11:50:05 UTC`
+- main_price_date: `20260921`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
@@ -26,27 +26,39 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 101 | 55.44554455445545 | 0.8725984802425671 | 51.48514851485149 | -0.27353488351061006 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 103 | 56.310679611650485 | 1.0808446811533614 | 52.42718446601942 | -0.018663024102431956 | ok_initial_sample |
 | phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 59 | 57.6271186440678 | 0.438178070600849 | 49.152542372881356 | -1.0351300721421328 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 8 | 37.5 | 0.058969962687469124 | 25.0 | -3.960599066141337 | insufficient_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 10 | 50.0 | 3.817799784978763 | 40.0 | 0.925955420550278 | insufficient_sample |
 
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 96 | 51.041666666666664 | -0.021473075056727204 | 53.125 | 0.31139623725189686 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 57 | 52.63157894736842 | -1.5295321710461345 | 50.877192982456144 | -1.41134736615707 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 101 | 52.475247524752476 | 0.03760167517962665 | 53.46534653465347 | 0.30247514757359556 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 59 | 54.23728813559322 | -1.3965259684870186 | 50.847457627118644 | -1.3291359270408545 | ok_initial_sample |
 | phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 8 | 37.5 | -0.7689450906822755 | 37.5 | -4.735236292985046 | insufficient_sample |
 
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 6173 | 信昌電 | passive components | overheated_after_tdcc |
-| 2338 | 光罩 | other | overheated_after_tdcc |
-| 6179 | 亞通 | other | price_leading_tdcc |
-| 6426 | 統新 | other | price_leading_tdcc |
-| 2305 | 全友 | other | overheated_after_tdcc |
-| 3624 | 光頡 | passive components | overheated_after_tdcc |
-| 7610 | 聯友金屬-創 | other | overheated_after_tdcc |
+| 6620 | 漢達 | other | overheated_after_tdcc |
+| 3605 | 宏致 | other | overheated_after_tdcc |
+| 4924 | 欣厚-KY | other | overheated_after_tdcc |
+| 1560 | 中砂 | other | overheated_after_tdcc |
+| 6147 | 頎邦 | other | overheated_after_tdcc |
+| 3066 | 李洲 | other | overheated_after_tdcc |
+| 6620 | 漢達 | other | overheated_after_tdcc |
+| 3605 | 宏致 | other | overheated_after_tdcc |
+| 4924 | 欣厚-KY | other | overheated_after_tdcc |
+| 1560 | 中砂 | other | overheated_after_tdcc |
+| 6147 | 頎邦 | other | overheated_after_tdcc |
+| 2303 | 聯電 | other | price_leading_tdcc |
+| 3264 | 欣銓 | other | price_leading_tdcc |
+| 6668 | 中揚光 | other | overheated_after_tdcc |
+| 3105 | 穩懋 | other | insufficient_price_context |
+| 8103 | 瀚荃 | other | insufficient_price_context |
+| 6168 | 宏齊 | other | overheated_after_tdcc |
+| 6147 | 頎邦 | other | overheated_after_tdcc |
+| 3066 | 李洲 | other | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 

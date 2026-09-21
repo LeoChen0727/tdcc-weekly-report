@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-18 19:42:13 Asia/Taipei",
+  "generated_at": "2026-09-21 19:40:19 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 5465
+      "rows": 5504
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,11 +11,11 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 622
+      "rows": 661
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
-      "rows": 21
+      "rows": 20
     }
   },
   "sources": {
@@ -40,7 +40,7 @@
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 437,
+      "rows": 422,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -60,10 +60,10 @@
     "bls_cpi_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
       "status": "ok",
-      "rows": 4,
+      "rows": 3,
       "error": "",
       "http_status": 200,
-      "note": "Parsed 4 release rows from the official BLS schedule table."
+      "note": "Parsed 3 release rows from the official BLS schedule table."
     },
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",

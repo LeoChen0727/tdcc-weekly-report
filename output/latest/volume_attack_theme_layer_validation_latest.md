@@ -1,7 +1,7 @@
 # Volume Attack Theme Layer Validation
 
 - status: `pass`
-- theme_rows: `15`
-- stock_rows: `30`
+- theme_rows: `14`
+- stock_rows: `32`
 - errors: `none`
 - warnings: `none`
