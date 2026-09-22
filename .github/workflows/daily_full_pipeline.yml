@@ -647,7 +647,9 @@ jobs:
           python scripts/validate_monthly_revenue_history.py
 
       - name: Fetch latest official daily price
+        id: official_price_fetch
         if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''
+        continue-on-error: true
         timeout-minutes: 9
         env:
           OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
@@ -655,20 +657,34 @@ jobs:
           OFFICIAL_PRICE_INDIVIDUAL_FALLBACK_MAX_SECONDS: "180"
           OFFICIAL_PRICE_INDIVIDUAL_REQUEST_TIMEOUT: "8"
         run: |
-          python fetch_official_daily_price.py
+          python scripts/capture_daily_price_diagnostics.py --attempt initial-fetch -- python fetch_official_daily_price.py
 
       - name: Inspect official daily price fetch result
         if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''
         run: |
-          echo "Official price fetch completed. Partial latest outputs are not published here."
+          echo "Initial official price fetch outcome: ${{ steps.official_price_fetch.outcome }}. Partial latest outputs are not published here."
           echo "All daily outputs are committed only after downstream freshness and consistency checks pass."
           git status --short
 
       - name: Repair missing daily price source files
         if: env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''
         timeout-minutes: 12
+        env:
+          INITIAL_FETCH_OUTCOME: ${{ steps.official_price_fetch.outcome }}
+          OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}
+          OFFICIAL_PRICE_FETCH_MAX_SECONDS: "480"
+          OFFICIAL_PRICE_INDIVIDUAL_FALLBACK_MAX_SECONDS: "180"
+          OFFICIAL_PRICE_INDIVIDUAL_REQUEST_TIMEOUT: "8"
         run: |
-          python scripts/repair_missing_daily_price_files.py \
+          # One bounded target-date recovery, not another workflow dispatch.
+          # A nonzero recovery stops this step before confirm/history/publication.
+          if [ "$INITIAL_FETCH_OUTCOME" = "failure" ]; then
+            python scripts/capture_daily_price_diagnostics.py --attempt recovery-fetch -- python fetch_official_daily_price.py
+          elif [ "$INITIAL_FETCH_OUTCOME" != "success" ]; then
+            echo "::error::Initial official price fetch did not complete"
+            exit 1
+          fi
+          python scripts/capture_daily_price_diagnostics.py --attempt missing-file-repair -- python scripts/repair_missing_daily_price_files.py \
             --max-repair-dates 3 \
             --retries 2 \
             --sleep-seconds 5
@@ -684,6 +700,13 @@ jobs:
               Path("output/latest/market_session_status_latest.json").read_text(encoding="utf-8-sig")
           )
           expected = os.environ["EXPECTED_MAIN_PRICE_DATE"]
+          fetch = json.loads(
+              Path("output/latest/official_price_fetch_latest.json").read_text(encoding="utf-8-sig")
+          )
+          if fetch.get("saved_price_date") != expected or fetch.get("full_market_ok") is not True:
+              raise SystemExit("official price fetch must be exact-target-date and full-market")
+          if payload.get("phase") != "confirm":
+              raise SystemExit("market-session phase is not confirm")
           if payload.get("market_status") != "open_confirmed":
               raise SystemExit(f"market_status={payload.get('market_status')!r} is not open_confirmed")
           if payload.get("market_session_date") != expected:
@@ -698,11 +721,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: daily-price-source-recovery
-          path: |
-            output/latest/daily_price_source_recovery_latest.json
-            output/latest/daily_price_source_recovery_latest.md
-            output/latest/repair_daily_price_range_latest.*
-            output/latest/repair_daily_price_range_check_code_latest.csv
+          path: ${{ runner.temp }}/daily-price-source-recovery/
           if-no-files-found: ignore
           retention-days: 30
 
