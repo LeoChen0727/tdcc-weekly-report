@@ -1333,6 +1333,25 @@ def test_runtime_critical_mode_rejects_core_contract_mutations(
     assert boundaries.validate_daily_runtime_critical_contracts(mutated)
 
 
+@pytest.mark.parametrize("step_name", ["Fetch latest official daily price", "Repair missing daily price source files"])
+@pytest.mark.parametrize("replacement", ["          OFFICIAL_PRICE_TARGET_DATE: 20260820", "          UNRELATED_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}"])
+def test_runtime_critical_price_target_is_bound_to_each_step(step_name, replacement):
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    original = "          OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
+    mutated = replace_workflow_step_literal(text, step_name, original, replacement)
+    assert original in mutated  # The other correct step cannot mask this one.
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+    assert any(step_name in error and "exact preflight date" in error for error in errors)
+
+
+def test_full_mode_uses_same_price_target_step_contract(monkeypatch):
+    def observed_contract(_text):
+        raise RuntimeError("step-bound price target contract")
+    monkeypatch.setattr(boundaries, "validate_daily_price_target_step_contract", observed_contract)
+    with pytest.raises(RuntimeError, match="step-bound price target contract"):
+        boundaries.main()
+
+
 def test_runtime_critical_mode_rejects_unknown_argument() -> None:
     with pytest.raises(SystemExit) as exc_info:
         boundaries.main(["--not-a-real-mode"])
