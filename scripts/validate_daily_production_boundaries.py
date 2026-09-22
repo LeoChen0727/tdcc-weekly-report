@@ -2283,6 +2283,27 @@ def validate_daily_runtime_current_snapshot_and_volume_contract(
     return errors
 
 
+def validate_daily_price_target_step_contract(daily_text: str) -> list[str]:
+    expected = "${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
+    errors: list[str] = []
+    for name in (
+        "Fetch latest official daily price",
+        "Repair missing daily price source files",
+    ):
+        block = workflow_step_block(daily_text, name)
+        # Bind the existing literal contract to this step's env, not another
+        # step or a diagnostic echo inside its run body.
+        env_block = block.partition("\n        env:\n")[2].partition("\n        run:")[0]
+        values = [
+            line.split(":", 1)[1].strip()
+            for line in env_block.splitlines()
+            if line.startswith("          OFFICIAL_PRICE_TARGET_DATE:")
+        ]
+        if values != [expected]:
+            errors.append(f"{name} must bind OFFICIAL_PRICE_TARGET_DATE to the exact preflight date")
+    return errors
+
+
 def validate_daily_runtime_critical_contracts(
     daily_text: str | None = None,
 ) -> list[str]:
@@ -2296,6 +2317,7 @@ def validate_daily_runtime_critical_contracts(
     errors.extend(validate_daily_readme_publish_contract(daily_text))
     errors.extend(validate_daily_failed_recovery_retry_contract(daily_text))
     errors.extend(validate_daily_pdf_runtime_inventory_contract(daily_text))
+    errors.extend(validate_daily_price_target_step_contract(daily_text))
     errors.extend(validate_daily_retired_historical_diagnostics_contract(daily_text))
     errors.extend(validate_daily_runtime_current_snapshot_and_volume_contract(daily_text))
     errors.extend(validate_daily_full_legacy_removal_guard(daily_text))
@@ -2308,7 +2330,6 @@ def validate_daily_runtime_critical_contracts(
         "should_run_daily_pipeline",
         "Verify open-confirmed target date",
         "open_confirmed",
-        "OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}",
     )
     for literal in market_literals:
         if literal not in daily_text:
@@ -2390,6 +2411,7 @@ def main(argv: Sequence[str] = ()) -> int:
 
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
+    errors.extend(validate_daily_price_target_step_contract(daily_text))
     errors.extend(validate_daily_full_legacy_removal_guard(daily_text))
     errors.extend(validate_daily_authority_snapshot_publish_contract(daily_text))
     errors.extend(validate_daily_readme_publish_contract(daily_text))
@@ -2477,9 +2499,6 @@ def main(argv: Sequence[str] = ()) -> int:
         ),
         "should_run_daily_pipeline": "daily_full_pipeline must branch on the market-session decision",
         "record-market-closure:": "daily_full_pipeline must record closed-market evidence without publishing",
-        "OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}": (
-            "daily_full_pipeline must fetch the exact expected market date"
-        ),
         "Verify open-confirmed target date": (
             "daily_full_pipeline must verify open_confirmed before continuing"
         ),
