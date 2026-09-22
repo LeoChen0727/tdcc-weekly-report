@@ -17,6 +17,20 @@ ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py"
 
 
+def test_medium_term_real_published_eleven_and_independent_validator_ci_entrypoint(tmp_path):
+    """Published artifacts and the entire independent suite are mandatory in CI."""
+    import subprocess
+    import sys
+
+    tests = subprocess.run(
+        [sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+         "--basetemp", str(tmp_path / "medium-term-validator"),
+         "tests/test_validate_tdcc_stealth_accumulation_medium_term_trend_research.py"],
+        cwd=ROOT, capture_output=True, text=True, check=False,
+    )
+    assert tests.returncode == 0, tests.stdout + tests.stderr
+
+
 @pytest.fixture
 def audit():
     spec = importlib.util.spec_from_file_location("annual_independent_audit_test", VALIDATOR)

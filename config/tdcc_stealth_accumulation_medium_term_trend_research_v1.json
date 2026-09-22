@@ -1,0 +1,138 @@
+{
+  "anomaly_policy": "retain historical unresolved candidates; additionally use each profile/strategy/horizon full-chronology mature slippage10 ledger (including purged_cross_split) with >=4 observations: statistics.quantiles(n=4,method=inclusive), strictly outside Q1-3IQR or Q3+3IQR creates a candidate; fewer than 4 creates no new IQR candidate; no separate partition thresholds; all remain primary; exclusion is sensitivity only and never selects parameters",
+  "anomaly_retention_match": "union exact signal_date/stock_id/horizon; never transfer across horizon; unrepresented prior candidates retained in manifest source counts, not synthetic trades",
+  "anomaly_retention_sources": [
+    {
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_annual_replay_anomalies_v1.csv",
+      "ref": "847d774ca80f354253e4680e32bc1a46584e35c0"
+    },
+    {
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_current_version_horizon_extension_anomalies_v1.csv",
+      "ref": "847d774ca80f354253e4680e32bc1a46584e35c0"
+    },
+    {
+      "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_condition_stratification_anomalies_v1.csv",
+      "ref": "847d774ca80f354253e4680e32bc1a46584e35c0"
+    }
+  ],
+  "artifact_directory": "output/research/tdcc_stealth_accumulation",
+  "artifact_kinds": [
+    "source_manifest_v1.json",
+    "coverage_v1.csv",
+    "weekly_features_v1.csv.gz",
+    "features_v1.csv.gz",
+    "signals_v1.csv.gz",
+    "trades_v1.csv.gz",
+    "blocked_v1.csv.gz",
+    "summary_v1.csv",
+    "feature_contrasts_v1.csv",
+    "anomalies_v1.csv",
+    "report_v1.md"
+  ],
+  "artifact_prefix": "tdcc_stealth_accumulation_medium_term_trend_research_",
+  "artifact_version": "tdcc_stealth_accumulation_medium_term_trend_research_v1",
+  "as_of": "20260909",
+  "authorization_reference": "user_authorized_20260913_tdcc_medium_term_trend_research_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde",
+  "base_artifact_ref": "d2f3ccfaf95562b5179f433af0b4b41d62bfee17",
+  "base_contract_file": "config/tdcc_stealth_accumulation_current_version_annual_replay_v1.json",
+  "base_contract_sha256": "fbccfcd32079dd1bf81eba942c91b57bc7942da0dffc3a5cd01df4872461de91",
+  "batch_coverage_policy": "Monday-Sunday weeks; check from the first selected batch through the last fully ended week strictly before signal_date, including ended weeks after the latest batch; scheduled sessions but no effective batch means missing_open_week; fully closed weeks allowed; calendar unknown unsupported; current unfinished week never missing; report batch count and calendar span, never require 7-day spacing",
+  "calendar_complete_coverage_verified": false,
+  "classifier_ref": "af71f09d64aabbbadf9481940590dce21cd8e263",
+  "cohort_policy": "shared data eligibility not shared selected signals; each profile/strategy/horizon starts empty at its profile start; 8-vs-12 comparison only common_12; no inherited pre-start positions",
+  "corporate_action_complete_coverage_verified": false,
+  "costs": {
+    "fee_each_side": "0.001425",
+    "minimum_fee_each_side": "20",
+    "sell_tax": "0.003",
+    "shares": 1000
+  },
+  "descriptive_features_only": [
+    "endpoint_net_change_pp",
+    "recent_pullback_pp",
+    "largest_positive_jump_share",
+    "slope_pp_per_week",
+    "calendar_span_days"
+  ],
+  "feature_contrast_policy": "before condition interpretation; fixed high>=10%, low<=-10%, middle=(-10%,10%); negative<0% remains independent failure indicator; report feature distributions, counts and payoff under identical profile/strategy/horizon/slippage/partition/anomaly basis; descriptive only, no tuning",
+  "feature_contrast_sensitivity": "immutable prior candidate flags only; never use newly detected full-chronology IQR flags to select or train parameters; all primary contrasts retain every realized position",
+  "financial_scope": "monthly revenue excluded; EPS, gross margin, operating margin, operating income, non-operating income, net income, quarterly and annual financial statements all excluded",
+  "formal_use": false,
+  "full_period_pit_complete": false,
+  "genuine_unseen_oos": false,
+  "holder_interpretation": "400+ and 1000+ bands overlap; aggregate percentage trends do not prove the same holders continuously bought",
+  "horizons": [
+    20,
+    60
+  ],
+  "input_availability_proven": false,
+  "largest_positive_jump_share": "max(positive adjacent changes)/sum(positive adjacent changes); no positive changes means missing with reason, never changes eligibility",
+  "model_id": "tdcc_stealth_accumulation",
+  "new_anomaly_flag_match": "union exact signal_date/stock_id/horizon across this research profiles and strategies; propagate the same candidate flag across slippage scenarios; retain each detecting ledger and its fences as provenance",
+  "operation_policy": "next exchange session open=D0; exit calendar[entry_index+horizon] close; signal_date strictly greater than prior exit_date; missing entry not established; missing exit or immature remains locked; maturity checked before indexing beyond calendar",
+  "ordinary_stock_universe_certified": false,
+  "outcome_policy": "win >0; neutral =0; failure <0; high-return hit >=10%; loss <=-10%; raw_price_cashflow_unadjusted research proxy, not verified total return or brokerage execution",
+  "owner_id": "tdcc_stealth_accumulation_medium_term_trend_research",
+  "price_policy": "unchanged annual current-version observed-history, warmup, source-quality and four-decimal frozen-selector price/volume gates",
+  "price_source_ref": "07d992bbd9afa283355d8828a294da4524efb56d",
+  "primary_horizon": 20,
+  "prior_results_seen": true,
+  "private_raw_publication_allowed": false,
+  "profiles": {
+    "common_12": {
+      "common_batches": 12,
+      "strategies": [
+        "baseline_4",
+        "trend_8",
+        "trend_12"
+      ]
+    },
+    "common_8": {
+      "common_batches": 8,
+      "strategies": [
+        "baseline_4",
+        "trend_8"
+      ]
+    },
+    "full_available": {
+      "common_batches": 0,
+      "strategies": [
+        "baseline_4",
+        "trend_8",
+        "trend_12"
+      ]
+    }
+  },
+  "promotion_evidence_allowed": false,
+  "requested_signal_end": "20260909",
+  "requested_signal_start": "20250910",
+  "secondary_horizon": 60,
+  "selector_ref": "2244a0a36c4542cd62948b50f12ef98ade50e1df",
+  "slippage_bps": [
+    0,
+    10,
+    20
+  ],
+  "slope_formula": "7*(N*sum(d*p)-sum(d)*sum(p))/(N*sum(d*d)-sum(d)^2); d=integer days from first batch; p=Decimal percentage points; exact numerator sign; no epsilon or prior rounding",
+  "slope_units": "percentage_points_per_week",
+  "source_commit_sha": "847d774ca80f354253e4680e32bc1a46584e35c0",
+  "split_date": "20260401",
+  "split_policy": "entry_date; train if entry<split and exit<split; purged_cross_split if entry<split<=exit; validation if entry>=split; never reset chronology locks at split",
+  "strategies": {
+    "baseline_4": {
+      "batches": 4,
+      "rule": "unchanged_original_four_batch_classifier_and_positive_resolution"
+    },
+    "trend_12": {
+      "batches": 12,
+      "rule": "exact_decimal_400_and_1000_ols_numerators_strictly_positive"
+    },
+    "trend_8": {
+      "batches": 8,
+      "rule": "exact_decimal_400_and_1000_ols_numerators_strictly_positive"
+    }
+  },
+  "tdcc_window_policy": "last N global effective batch dates<=signal_date; require the same stock and all four necessary bands in every date; no older substitution, zero fill or forward fill",
+  "universe_policy": "reconstruct historical daily price universe; preserve price-supported and price-qualified rows independently of TDCC; no old selected-signal or TDCC-four-batch prefilter",
+  "weekly_publication_policy": "derived per-stock Decimal offsets relative to first complete batch only; no absolute holding percentages and no private raw records; full validation rereads SHA-bound private source, published-only validation explicitly does not"
+}

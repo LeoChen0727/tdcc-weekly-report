@@ -1,0 +1,243 @@
+signal_date,raw_universe_rows,price_supported_rows,price_qualified_rows,baseline_4_supported_rows,baseline_4_signals,trend_8_supported_rows,trend_8_signals,trend_12_supported_rows,trend_12_signals,common_8_eligible_rows,common_12_eligible_rows,price_unsupported_reason_counts,trend_8_unsupported_reason_counts,trend_12_unsupported_reason_counts,possible_tdr_rows,formal_use,promotion_evidence_allowed
+20250910,1891,1886,1432,1432,812,0,0,0,0,0,0,"{""insufficient_21_observations"": 5}","{""insufficient_market_batches"": 1432}","{""insufficient_market_batches"": 1432}",4,False,False
+20250911,1893,1888,1423,1423,799,0,0,0,0,0,0,"{""insufficient_21_observations"": 5}","{""insufficient_market_batches"": 1423}","{""insufficient_market_batches"": 1423}",4,False,False
+20250912,1898,1894,1490,1490,818,0,0,0,0,0,0,"{""insufficient_21_observations"": 4}","{""insufficient_market_batches"": 1490}","{""insufficient_market_batches"": 1490}",3,False,False
+20250915,1909,1881,1526,1526,838,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 23, ""insufficient_21_observations"": 5, ""signal_ohlc_invalid_or_conflicting"": 23}","{""insufficient_market_batches"": 1526}","{""insufficient_market_batches"": 1526}",4,False,False
+20250916,1889,1867,1492,1492,812,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 17, ""insufficient_21_observations"": 5}","{""insufficient_market_batches"": 1492}","{""insufficient_market_batches"": 1492}",4,False,False
+20250917,1891,1868,1464,1464,797,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 17, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1464}","{""insufficient_market_batches"": 1464}",4,False,False
+20250918,1890,1865,1403,1403,769,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 19, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1403}","{""insufficient_market_batches"": 1403}",4,False,False
+20250919,1893,1867,1411,1411,786,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 20, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1411}","{""insufficient_market_batches"": 1411}",4,False,False
+20250922,1889,1863,1422,1422,789,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 20, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1422}","{""insufficient_market_batches"": 1422}",4,False,False
+20250923,1898,1871,1476,1476,829,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 21, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1476}","{""insufficient_market_batches"": 1476}",4,False,False
+20250924,1885,1861,1480,1480,831,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1480}","{""insufficient_market_batches"": 1480}",4,False,False
+20250925,1875,1853,1481,1481,829,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 16, ""insufficient_21_observations"": 6}","{""insufficient_market_batches"": 1481}","{""insufficient_market_batches"": 1481}",4,False,False
+20250926,1883,1858,1551,1551,865,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 7}","{""insufficient_market_batches"": 1551}","{""insufficient_market_batches"": 1551}",4,False,False
+20250930,1879,1854,1669,1669,925,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 7}","{""insufficient_market_batches"": 1669}","{""insufficient_market_batches"": 1669}",4,False,False
+20251001,1885,1860,1693,1693,942,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 7}","{""insufficient_market_batches"": 1693}","{""insufficient_market_batches"": 1693}",4,False,False
+20251002,1882,1856,1683,1683,933,0,0,0,0,0,0,"{""history_ohlc_invalid_or_conflicting"": 19, ""insufficient_21_observations"": 7}","{""insufficient_market_batches"": 1683}","{""insufficient_market_batches"": 1683}",4,False,False
+20251003,1888,1863,1660,1660,875,1660,491,0,0,1660,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 7}",{},"{""insufficient_market_batches"": 1660}",4,False,False
+20251007,1896,1872,1620,1620,846,1620,472,0,0,1620,0,"{""history_ohlc_invalid_or_conflicting"": 17, ""insufficient_21_observations"": 7}",{},"{""insufficient_market_batches"": 1620}",4,False,False
+20251008,1886,1862,1655,1655,868,1655,489,0,0,1655,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 6}",{},"{""insufficient_market_batches"": 1655}",3,False,False
+20251009,1896,1873,1612,1612,862,1612,457,0,0,1612,0,"{""history_ohlc_invalid_or_conflicting"": 20, ""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1612}",4,False,False
+20251013,1888,1867,1632,1632,874,1632,468,0,0,1632,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1632}",4,False,False
+20251014,1892,1870,1625,1625,884,1625,480,0,0,1625,0,"{""history_ohlc_invalid_or_conflicting"": 19, ""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1625}",4,False,False
+20251015,1890,1869,1644,1644,879,1644,479,0,0,1644,0,"{""history_ohlc_invalid_or_conflicting"": 18, ""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1644}",4,False,False
+20251016,1899,1874,1652,1652,891,1652,474,0,0,1652,0,"{""history_ohlc_invalid_or_conflicting"": 22, ""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1652}",4,False,False
+20251017,1885,1872,1690,1690,929,1690,503,0,0,1690,0,"{""history_ohlc_invalid_or_conflicting"": 10, ""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1690}",3,False,False
+20251020,1894,1880,1666,1666,912,1666,490,0,0,1666,0,"{""history_ohlc_invalid_or_conflicting"": 12, ""insufficient_21_observations"": 2}",{},"{""insufficient_market_batches"": 1666}",4,False,False
+20251021,1900,1887,1630,1630,894,1630,495,0,0,1630,0,"{""history_ohlc_invalid_or_conflicting"": 11, ""insufficient_21_observations"": 2}",{},"{""insufficient_market_batches"": 1630}",4,False,False
+20251022,1888,1879,1629,1629,898,1629,496,0,0,1629,0,"{""history_ohlc_invalid_or_conflicting"": 7, ""insufficient_21_observations"": 2}",{},"{""insufficient_market_batches"": 1629}",4,False,False
+20251023,1892,1884,1688,1688,960,1688,523,0,0,1688,0,"{""history_ohlc_invalid_or_conflicting"": 6, ""insufficient_21_observations"": 2}",{},"{""insufficient_market_batches"": 1688}",4,False,False
+20251027,1896,1891,1659,1659,950,1659,513,0,0,1659,0,"{""history_ohlc_invalid_or_conflicting"": 3, ""insufficient_21_observations"": 2}",{},"{""insufficient_market_batches"": 1659}",4,False,False
+20251028,1900,1892,1692,1692,974,1692,523,0,0,1692,0,"{""history_ohlc_invalid_or_conflicting"": 4, ""insufficient_21_observations"": 4}",{},"{""insufficient_market_batches"": 1692}",4,False,False
+20251029,1898,1891,1666,1666,959,1666,512,0,0,1666,0,"{""history_ohlc_invalid_or_conflicting"": 3, ""insufficient_21_observations"": 4}",{},"{""insufficient_market_batches"": 1666}",4,False,False
+20251030,1894,1891,1665,1665,954,1665,508,0,0,1665,0,"{""insufficient_21_observations"": 3}",{},"{""insufficient_market_batches"": 1665}",4,False,False
+20251031,1899,1893,1680,1680,891,1680,502,1680,527,1680,1680,"{""history_ohlc_invalid_or_conflicting"": 3, ""insufficient_21_observations"": 3}",{},{},4,False,False
+20251103,1895,1890,1680,1680,890,1680,505,1680,531,1680,1680,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 3}",{},{},4,False,False
+20251104,1884,1877,1690,1690,907,1690,516,1690,542,1690,1690,"{""history_ohlc_invalid_or_conflicting"": 3, ""insufficient_21_observations"": 4}",{},{},4,False,False
+20251105,1886,1880,1710,1710,916,1710,519,1710,546,1710,1710,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 4}",{},{},4,False,False
+20251106,1894,1888,1700,1700,906,1700,514,1700,541,1700,1700,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 4}",{},{},4,False,False
+20251107,1887,1881,1708,1708,880,1708,495,1708,508,1708,1708,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 4}",{},{},4,False,False
+20251110,1884,1880,1687,1687,875,1687,495,1687,506,1687,1687,"{""insufficient_21_observations"": 4}",{},{},4,False,False
+20251111,1899,1894,1664,1664,874,1664,483,1664,499,1664,1664,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 4}",{},{},4,False,False
+20251112,1892,1888,1601,1601,831,1601,465,1601,480,1601,1601,"{""insufficient_21_observations"": 4}",{},{},4,False,False
+20251113,1895,1889,1616,1616,831,1616,466,1616,480,1616,1616,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 4}",{},{},4,False,False
+20251114,1893,1890,1637,1637,864,1637,475,1637,487,1637,1637,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20251117,1903,1898,1679,1679,889,1678,468,1678,491,1678,1678,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251118,1895,1890,1725,1725,928,1724,507,1724,518,1724,1724,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 4}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251119,1896,1890,1775,1775,955,1774,520,1774,533,1774,1774,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251120,1893,1886,1766,1766,957,1765,523,1765,537,1765,1765,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251121,1888,1881,1779,1779,1060,1778,532,1778,557,1778,1778,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251124,1896,1890,1744,1744,1042,1744,527,1744,559,1744,1744,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 5}",{},{},4,False,False
+20251125,1901,1896,1747,1747,1037,1747,527,1747,554,1747,1747,"{""insufficient_21_observations"": 5}",{},{},4,False,False
+20251126,1908,1901,1638,1638,984,1638,499,1638,525,1638,1638,"{""history_ohlc_invalid_or_conflicting"": 2, ""insufficient_21_observations"": 5}",{},{},4,False,False
+20251127,1893,1887,1678,1678,1001,1678,508,1678,533,1678,1678,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20251128,1900,1894,1523,1523,923,1523,493,1523,504,1523,1523,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20251201,1895,1889,1622,1622,977,1622,511,1621,532,1622,1621,"{""insufficient_21_observations"": 6}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251202,1902,1896,1658,1658,996,1658,511,1657,530,1658,1657,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20251203,1900,1895,1672,1672,1005,1672,516,1671,540,1672,1671,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251204,1898,1893,1656,1656,996,1656,516,1655,544,1656,1655,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251205,1896,1891,1688,1688,1004,1688,568,1687,567,1688,1687,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251208,1897,1892,1657,1657,974,1657,552,1656,549,1657,1656,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251209,1896,1891,1625,1625,964,1624,546,1624,549,1624,1624,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251210,1904,1899,1651,1651,989,1649,561,1649,555,1649,1649,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251211,1905,1899,1636,1636,973,1635,551,1635,547,1635,1635,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251212,1902,1896,1643,1643,972,1641,535,1641,551,1641,1641,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251215,1900,1895,1644,1644,972,1643,545,1643,564,1643,1643,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251216,1910,1906,1624,1624,957,1623,526,1623,546,1623,1623,"{""insufficient_21_observations"": 4}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251217,1906,1902,1624,1624,951,1622,524,1622,538,1622,1622,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",3,False,False
+20251218,1899,1895,1662,1662,982,1660,550,1660,567,1660,1660,"{""history_ohlc_invalid_or_conflicting"": 1, ""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251219,1906,1903,1621,1621,873,1619,528,1619,541,1619,1619,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251222,1909,1905,1631,1631,882,1629,524,1629,537,1629,1629,"{""insufficient_21_observations"": 4}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251223,1914,1911,1620,1620,884,1618,540,1618,545,1618,1618,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251224,1911,1908,1633,1633,893,1631,540,1631,547,1631,1631,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251226,1909,1907,1597,1597,893,1596,524,1596,541,1596,1596,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20251229,1919,1917,1592,1592,895,1590,520,1590,527,1590,1590,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251230,1913,1911,1639,1639,934,1637,545,1637,560,1637,1637,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20251231,1923,1921,1631,1631,923,1629,542,1629,552,1629,1629,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 2}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260102,1924,1922,1582,1582,862,1582,503,1580,543,1582,1580,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260105,1926,1924,1513,1513,838,1513,494,1511,531,1513,1511,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260106,1924,1922,1566,1566,851,1566,491,1564,541,1566,1564,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260107,1924,1922,1506,1506,830,1506,491,1504,523,1506,1504,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260108,1919,1917,1605,1605,877,1605,523,1603,566,1605,1603,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260109,1914,1912,1625,1625,913,1625,488,1623,541,1625,1623,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260112,1930,1928,1510,1510,844,1510,471,1509,510,1510,1509,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260113,1926,1924,1554,1554,864,1554,468,1553,507,1554,1553,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260114,1930,1928,1512,1512,846,1512,469,1512,513,1512,1512,"{""insufficient_21_observations"": 2}",{},{},4,False,False
+20260115,1930,1928,1525,1525,856,1525,479,1525,519,1525,1525,"{""insufficient_21_observations"": 2}",{},{},4,False,False
+20260116,1930,1926,1463,1463,860,1463,462,1463,503,1463,1463,"{""insufficient_21_observations"": 4}",{},{},4,False,False
+20260119,1938,1934,1434,1434,828,1434,446,1432,484,1434,1432,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260120,1926,1922,1468,1468,854,1468,453,1466,497,1468,1466,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260121,1920,1917,1564,1564,911,1564,489,1562,533,1564,1562,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260122,1933,1930,1576,1576,934,1576,492,1574,526,1576,1574,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260123,1924,1921,1565,1565,906,1565,475,1563,550,1565,1563,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260126,1933,1930,1577,1577,912,1577,480,1575,548,1577,1575,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260127,1934,1931,1589,1589,925,1589,486,1587,565,1589,1587,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260128,1930,1927,1528,1528,888,1528,473,1526,543,1528,1526,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260129,1926,1922,1596,1596,944,1596,489,1594,561,1596,1594,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260130,1931,1927,1687,1687,1002,1686,527,1686,579,1686,1686,"{""insufficient_21_observations"": 4}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260202,1928,1923,1734,1734,1024,1733,552,1733,605,1733,1733,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260203,1928,1923,1733,1733,1025,1732,549,1732,597,1732,1732,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260204,1927,1922,1720,1720,1015,1719,548,1719,596,1719,1719,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260205,1929,1923,1711,1711,1005,1710,554,1710,602,1710,1710,"{""insufficient_21_observations"": 6}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260206,1928,1922,1738,1738,946,1737,549,1737,591,1737,1737,"{""insufficient_21_observations"": 6}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260209,1926,1920,1715,1715,930,1715,538,1715,587,1715,1715,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20260210,1935,1929,1728,1728,931,1728,537,1728,588,1728,1728,"{""insufficient_21_observations"": 6}",{},{},3,False,False
+20260211,1939,1933,1728,1728,945,1728,551,1728,590,1728,1728,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20260223,1941,1935,1654,1654,883,1654,503,1654,541,1654,1654,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20260224,1939,1935,1510,1510,811,1510,451,1510,479,1510,1510,"{""insufficient_21_observations"": 4}",{},{},4,False,False
+20260225,1941,1937,1522,1522,814,1522,464,1522,496,1522,1522,"{""insufficient_21_observations"": 4}",{},{},4,False,False
+20260226,1944,1940,1454,1454,877,1454,467,1454,480,1454,1454,"{""insufficient_21_observations"": 4}",{},{},4,False,False
+20260302,1936,1932,1479,1479,892,1479,483,1479,490,1479,1479,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260303,1942,1939,1627,1627,975,1627,531,1627,536,1627,1627,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20260304,1936,1933,1705,1705,1031,1705,572,1705,574,1705,1705,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20260305,1935,1932,1735,1735,1054,1735,587,1735,586,1735,1735,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20260306,1931,1928,1733,1733,1065,1733,594,1733,600,1733,1733,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20260309,1931,1928,1727,1727,1057,1727,600,1727,604,1727,1727,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20260310,1936,1934,1776,1776,1082,1776,618,1776,624,1776,1776,"{""insufficient_21_observations"": 2}",{},{},4,False,False
+20260311,1938,1936,1576,1576,976,1576,543,1576,549,1576,1576,"{""insufficient_21_observations"": 2}",{},{},4,False,False
+20260312,1933,1932,1623,1623,991,1623,544,1623,555,1623,1623,"{""insufficient_21_observations"": 1}",{},{},4,False,False
+20260313,1937,1936,1634,1634,1035,1633,554,1633,586,1633,1633,"{""insufficient_21_observations"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260316,1936,1935,1438,1438,907,1437,490,1437,518,1437,1437,"{""insufficient_21_observations"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260317,1938,1938,1479,1479,950,1478,502,1477,531,1478,1477,{},"{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260318,1939,1939,1531,1531,974,1530,502,1529,536,1530,1529,{},"{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260319,1934,1934,1543,1543,983,1542,522,1541,557,1542,1541,{},"{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260320,1931,1931,1535,1535,947,1534,551,1534,573,1534,1534,{},"{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260323,1933,1933,1649,1649,1018,1648,600,1648,607,1648,1648,{},"{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260324,1929,1929,1711,1711,1055,1710,630,1710,631,1710,1710,{},"{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260325,1940,1939,1717,1717,1062,1716,631,1716,638,1716,1716,"{""insufficient_21_observations"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260326,1930,1928,1705,1705,1051,1704,624,1704,635,1704,1704,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260327,1919,1917,1713,1713,1047,1712,643,1712,633,1712,1712,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260330,1928,1925,1682,1682,1026,1681,639,1681,627,1681,1681,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260331,1935,1932,1729,1729,1047,1728,648,1728,641,1728,1728,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260401,1943,1940,1724,1724,1038,1723,642,1723,630,1723,1723,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260402,1928,1925,1725,1725,1013,1725,655,1724,663,1725,1724,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260407,1935,1932,1740,1740,1018,1740,661,1739,669,1740,1739,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260408,1939,1935,1588,1588,919,1588,594,1587,598,1588,1587,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260409,1934,1930,1491,1491,869,1491,564,1490,560,1491,1490,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260410,1937,1933,1526,1526,890,1526,575,1525,571,1526,1525,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260413,1937,1933,1377,1377,819,1377,516,1376,512,1377,1376,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260414,1946,1942,1376,1376,810,1376,514,1375,506,1376,1375,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260415,1941,1937,1480,1480,867,1480,558,1479,552,1480,1479,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260416,1945,1941,1454,1454,851,1454,543,1453,537,1454,1453,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260417,1944,1940,1435,1435,857,1435,522,1434,561,1435,1434,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260420,1948,1943,1396,1396,826,1396,501,1395,539,1396,1395,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260421,1949,1944,1399,1399,836,1399,504,1398,539,1399,1398,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260422,1947,1942,1306,1306,780,1306,464,1305,493,1306,1305,"{""insufficient_21_observations"": 5}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260423,1950,1945,1398,1398,862,1398,517,1398,542,1398,1398,"{""insufficient_21_observations"": 5}",{},{},3,False,False
+20260424,1939,1935,1548,1548,914,1548,565,1547,605,1548,1547,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260427,1940,1937,1574,1574,933,1574,576,1573,614,1574,1573,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260428,1934,1930,1591,1591,937,1591,577,1590,617,1591,1590,"{""insufficient_21_observations"": 4}",{},"{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260429,1940,1937,1573,1573,926,1573,569,1572,602,1573,1572,"{""insufficient_21_observations"": 3}",{},"{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260430,1942,1938,1507,1507,831,1507,501,1507,552,1507,1507,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260504,1950,1946,1485,1485,821,1485,502,1485,556,1485,1485,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260505,1944,1940,1393,1393,761,1393,471,1393,516,1393,1393,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260506,1952,1948,1437,1437,773,1437,489,1437,530,1437,1437,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260507,1950,1946,1434,1434,781,1434,487,1434,533,1434,1434,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260508,1949,1945,1449,1449,786,1449,464,1449,527,1449,1449,"{""insufficient_21_observations"": 4}",{},{},3,False,False
+20260511,1955,1950,1430,1430,779,1430,468,1430,525,1430,1430,"{""insufficient_21_observations"": 5}",{},{},3,False,False
+20260512,1957,1952,1498,1498,807,1498,485,1498,551,1498,1498,"{""insufficient_21_observations"": 5}",{},{},3,False,False
+20260513,1940,1935,1514,1514,823,1514,502,1514,562,1514,1514,"{""insufficient_21_observations"": 5}",{},{},3,False,False
+20260514,1953,1948,1500,1500,815,1500,498,1500,555,1500,1500,"{""insufficient_21_observations"": 5}",{},{},3,False,False
+20260515,1953,1948,1557,1557,844,1557,504,1557,555,1557,1557,"{""insufficient_21_observations"": 5}",{},{},3,False,False
+20260518,1949,1943,1594,1594,871,1594,514,1594,558,1594,1594,"{""insufficient_21_observations"": 6}",{},{},3,False,False
+20260519,1944,1939,1652,1652,907,1652,533,1652,590,1652,1652,"{""insufficient_21_observations"": 5}",{},{},4,False,False
+20260520,1942,1936,1667,1667,917,1667,534,1667,595,1667,1667,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20260521,1954,1948,1634,1634,893,1634,519,1634,574,1634,1634,"{""insufficient_21_observations"": 6}",{},{},4,False,False
+20260522,1961,1073,787,787,473,787,278,787,290,787,787,"{""insufficient_21_observations"": 7, ""raw_volume_lineage_unresolved"": 881}",{},{},4,False,False
+20260525,1960,1073,722,722,444,722,260,722,266,722,722,"{""insufficient_21_observations"": 7, ""raw_volume_lineage_unresolved"": 880}",{},{},4,False,False
+20260526,1957,1074,725,725,448,725,259,725,267,725,725,"{""insufficient_21_observations"": 7, ""raw_volume_lineage_unresolved"": 876}",{},{},4,False,False
+20260527,1958,1074,742,742,456,742,268,742,274,742,742,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 878}",{},{},4,False,False
+20260528,1962,1075,824,824,507,824,298,824,305,824,824,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 881}",{},{},4,False,False
+20260529,1963,1075,788,788,504,788,267,788,288,788,788,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 882}",{},{},4,False,False
+20260601,1961,1076,775,775,490,775,264,775,280,775,775,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 879}",{},{},4,False,False
+20260602,1959,1077,782,782,498,782,277,782,288,782,782,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 876}",{},{},4,False,False
+20260603,1963,1076,689,689,437,689,237,689,256,689,689,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 881}",{},{},4,False,False
+20260604,1955,1074,707,707,454,707,248,707,266,707,707,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 876}",{},{},4,False,False
+20260605,1957,1075,821,821,518,821,308,821,309,821,821,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 877}",{},{},4,False,False
+20260608,1953,1076,905,905,575,905,339,905,343,905,905,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 873}",{},{},4,False,False
+20260609,1953,1077,882,882,561,882,329,882,332,882,882,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 872}",{},{},4,False,False
+20260610,1955,1077,908,908,574,908,340,908,343,908,908,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 874}",{},{},4,False,False
+20260611,1959,1077,940,940,597,940,355,940,359,940,940,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 878}",{},{},4,False,False
+20260612,1953,1075,903,903,546,903,328,903,341,903,903,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 874}",{},{},4,False,False
+20260615,1958,1076,814,814,500,814,297,814,301,814,814,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 878}",{},{},4,False,False
+20260616,1959,1079,868,868,534,868,319,868,320,868,868,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 876}",{},{},4,False,False
+20260617,1954,1077,814,814,504,814,310,814,310,814,814,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 873}",{},{},4,False,False
+20260618,1955,1077,783,783,466,783,304,783,317,783,783,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 874}",{},{},4,False,False
+20260622,1963,1080,791,791,477,791,317,791,329,791,791,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 880}",{},{},4,False,False
+20260623,1955,1079,888,888,521,888,340,888,363,888,888,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 873}",{},{},3,False,False
+20260624,1954,1079,884,884,524,884,343,884,365,884,884,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 872}",{},{},4,False,False
+20260625,1954,1076,903,903,531,903,348,903,370,903,903,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 875}",{},{},4,False,False
+20260626,1955,1077,959,959,542,959,370,959,376,959,959,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 874}",{},{},3,False,False
+20260629,1952,1077,963,963,540,963,375,963,379,963,963,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 872}",{},{},4,False,False
+20260630,1956,1080,949,949,539,949,371,949,374,949,949,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 873}",{},{},4,False,False
+20260701,1957,1081,924,924,527,924,364,924,368,924,924,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 873}",{},{},4,False,False
+20260702,1949,1079,913,913,524,913,363,913,368,913,913,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 867}",{},{},4,False,False
+20260703,1962,1079,769,769,436,769,308,769,317,769,769,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 880}",{},{},4,False,False
+20260706,1962,1892,1405,1405,766,1405,484,1405,499,1405,1405,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 67}",{},{},4,False,False
+20260707,1959,1918,1605,1605,885,1605,529,1605,562,1605,1605,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 38}",{},{},4,False,False
+20260708,1955,1924,1670,1670,928,1670,562,1670,599,1670,1670,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 28}",{},{},4,False,False
+20260709,1955,1934,1684,1684,887,1684,543,1684,596,1684,1684,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 18}",{},{},4,False,False
+20260713,1956,1936,1710,1710,900,1710,551,1710,608,1710,1710,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 17}",{},{},4,False,False
+20260714,1953,1939,1764,1764,934,1764,575,1764,637,1764,1764,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 11}",{},{},4,False,False
+20260715,1954,1944,1749,1749,928,1749,576,1749,635,1749,1749,"{""insufficient_21_observations"": 2, ""raw_volume_lineage_unresolved"": 8}",{},{},4,False,False
+20260716,1951,1942,1739,1739,922,1739,571,1739,632,1739,1739,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 6}",{},{},4,False,False
+20260717,1957,1952,1806,1805,973,1805,561,1805,650,1805,1805,"{""insufficient_21_observations"": 2, ""raw_volume_lineage_unresolved"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260720,1955,1952,1839,1838,991,1838,578,1838,667,1838,1838,"{""insufficient_21_observations"": 2, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260721,1951,1947,1829,1828,994,1828,573,1828,662,1828,1828,"{""insufficient_21_observations"": 2, ""raw_volume_lineage_unresolved"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260722,1957,1951,1824,1823,997,1823,569,1823,655,1823,1823,"{""insufficient_21_observations"": 2, ""raw_volume_lineage_unresolved"": 4}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260723,1946,1941,1828,1827,989,1827,565,1827,653,1827,1827,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260724,1946,1940,1782,1782,943,1781,547,1781,626,1781,1781,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260727,1936,1931,1760,1760,935,1759,547,1759,621,1759,1759,"{""insufficient_21_observations"": 3, ""raw_volume_lineage_unresolved"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260728,1947,1942,1856,1856,992,1855,574,1855,651,1855,1855,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260729,1958,1953,1800,1800,955,1799,563,1799,648,1799,1799,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260730,1945,1940,1883,1883,1008,1882,578,1882,657,1882,1882,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260731,1961,1956,1870,1870,1014,1869,568,1869,637,1869,1869,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260803,1942,1937,1880,1880,1024,1879,576,1879,641,1879,1879,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260804,1946,1940,1691,1691,939,1691,537,1691,591,1691,1691,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 2}",{},{},4,False,False
+20260805,1952,1947,1261,1261,745,1261,430,1261,487,1261,1261,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}",{},{},4,False,False
+20260806,1950,1945,1121,1121,664,1121,380,1121,437,1121,1121,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}",{},{},4,False,False
+20260807,1945,1940,1417,1417,804,1416,456,1416,494,1416,1416,"{""insufficient_21_observations"": 4, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260810,1958,1952,1444,1444,823,1443,460,1443,485,1443,1443,"{""insufficient_21_observations"": 5, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260811,1959,1952,1602,1602,897,1601,490,1601,526,1601,1601,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260812,1955,1948,1632,1632,923,1631,512,1631,537,1631,1631,"{""insufficient_21_observations"": 6, ""raw_volume_lineage_unresolved"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",3,False,False
+20260813,1963,1958,1645,1645,929,1644,500,1644,532,1644,1644,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260814,1954,1949,1620,1620,957,1619,517,1619,509,1619,1619,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260817,1959,1954,1698,1698,1006,1697,529,1697,531,1697,1697,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260818,1948,1943,1737,1737,1028,1736,538,1736,540,1736,1736,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260819,1945,1940,1785,1785,1054,1784,548,1784,554,1784,1784,"{""insufficient_21_observations"": 5}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260820,1950,1946,1773,1773,1051,1772,545,1772,550,1772,1772,"{""insufficient_21_observations"": 4}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260821,1957,1954,1743,1743,1041,1743,550,1743,545,1743,1743,"{""insufficient_21_observations"": 3}",{},{},3,False,False
+20260824,1944,1941,1770,1770,1062,1770,562,1770,562,1770,1770,"{""insufficient_21_observations"": 3}",{},{},4,False,False
+20260825,1943,1941,1683,1683,1005,1683,536,1683,536,1683,1683,"{""insufficient_21_observations"": 2}",{},{},3,False,False
+20260826,1957,1954,1535,1535,926,1535,514,1535,503,1535,1535,"{""insufficient_21_observations"": 2, ""raw_volume_lineage_unresolved"": 1}",{},{},4,False,False
+20260827,1952,1950,1452,1452,878,1452,496,1452,491,1452,1452,"{""insufficient_21_observations"": 2}",{},{},4,False,False
+20260828,1955,1953,1573,1573,945,1573,530,1572,518,1573,1572,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260831,1943,1941,1593,1593,955,1593,528,1592,509,1593,1592,"{""insufficient_21_observations"": 2}",{},"{""stock_batch_or_ratio_missing"": 1}",4,False,False
+20260901,1946,1944,1615,1614,975,1614,544,1613,525,1614,1613,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260902,1941,1939,1657,1656,1005,1656,550,1655,538,1656,1655,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260903,1942,1939,1718,1717,1042,1717,567,1716,546,1717,1716,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",3,False,False
+20260904,1944,1941,1707,1706,937,1706,570,1705,544,1706,1705,"{""insufficient_21_observations"": 3}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260907,1962,1960,1727,1726,955,1726,586,1725,562,1726,1725,"{""insufficient_21_observations"": 2}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260908,1950,1949,1740,1739,964,1739,594,1738,572,1739,1738,"{""insufficient_21_observations"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False
+20260909,1954,1953,1735,1734,955,1734,597,1733,569,1734,1733,"{""insufficient_21_observations"": 1}","{""stock_batch_or_ratio_missing"": 1}","{""stock_batch_or_ratio_missing"": 2}",4,False,False

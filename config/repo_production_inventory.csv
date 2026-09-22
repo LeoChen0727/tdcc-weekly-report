@@ -685,3 +685,7 @@ scripts/tdcc_stealth_accumulation_current_version_horizon_extension.py,python,re
 scripts/validate_tdcc_stealth_accumulation_current_version_horizon_extension.py,python,research_backtest,active,Independent horizon-extension published and full-source validator without producer business imports,,
 scripts/tdcc_stealth_accumulation_condition_stratification.py,python,research_backtest,active,Same-owner explicit opt-in condition-stratification implementation under the sole annual producer entrypoint,,
 scripts/validate_tdcc_stealth_accumulation_condition_stratification.py,python,research_backtest,active,Independent condition-stratification published and full-source validator without producer business imports,,
+scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py,python,research_backtest,active,Independent model-owned medium-term-trend private-input research producer; never invoked by remote workflows,,
+scripts/validate_tdcc_stealth_accumulation_medium_term_trend_research.py,python,research_backtest,active,Independent medium-term-trend published-only and private-source validator with mandatory exact eleven artifact evidence,,
+tests/test_tdcc_stealth_accumulation_medium_term_trend_research.py,test_python,research_backtest,active,Independent medium-term-trend producer synthetic regression tests,,
+tests/test_validate_tdcc_stealth_accumulation_medium_term_trend_research.py,test_python,research_backtest,active,Independent medium-term-trend validator synthetic mutation and mandatory published evidence tests,,
