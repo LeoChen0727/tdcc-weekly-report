@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5371 中光電
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:07 Asia/Taipei
+- generated_at: 2026-09-20 22:17:29 Asia/Taipei
 - stock_id: 5371
 - stock_name: 中光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260821
-- price_rows: 203
-- current_main_price_date: 20260911
+- price_rows: 238
+- current_main_price_date: 20260918
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 20260821
 - tdcc_rows: 17
 - tdcc_history_status: historical_only_noncurrent

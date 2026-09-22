@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:24 Asia/Taipei
+- generated_at: 2026-09-20 22:16:36 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 969
+- date: 20260918
+- open: 973
 - high: 990
-- low: 958
-- close: 977
-- volume: 11445626
-- ma5: 973.4
-- ema23_primary: 996.43
-- distance_to_ema23_pct: -1.95
-- ma20: 1043.75
-- ma60: 956.27
-- ma120: 875.02
-- return_5d: 8.31
-- return_20d: -4.22
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -6.4
-- distance_to_high_60_pct: -20.57
+- low: 971
+- close: 981
+- volume: 14576719
+- ma5: 960.6
+- ema23_primary: 983.88
+- distance_to_ema23_pct: -0.29
+- ma20: 1002.9
+- ma60: 954.68
+- ma120: 894.45
+- return_5d: 0.41
+- return_20d: -9.59
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -2.18
+- distance_to_high_60_pct: -20.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,1045,1120,1035,1120,53834958,938.89,19.29,904,936.73,2.28
-20260818,1130,1200,1115,1145,38561591,956.07,19.76,920,939.65,1.57
-20260819,1110,1165,1085,1130,24496587,970.56,16.43,931.15,941.98,1
-20260820,1165,1165,1085,1140,16346229,984.68,15.77,943.35,942.9,0.68
-20260821,1120,1120,1030,1085,23202820,993.04,9.26,955.65,942.98,0.96
 20260824,1100,1120,1065,1075,10751981,999.87,7.51,967,943.82,0.45
 20260825,1070,1095,1030,1095,15157518,1007.8,8.65,983.55,944.48,0.64
 20260826,1090,1180,1080,1160,22926945,1020.48,13.67,1007.15,946.32,0.98
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,980,1005,980,993,21332775,998.58,-0.56,1046.2,956.23,0.79
 20260910,993,1005,966,994,19157314,998.2,-0.42,1045.9,956.45,0.7
 20260911,969,990,958,977,11445626,996.43,-1.95,1043.75,956.27,0.42
+20260914,947,979,932,970,13143338,994.23,-2.44,1036.25,956.3,0.52
+20260915,969,986,951,951,9646657,990.63,-4,1026.55,955.4,0.4
+20260916,961,971,940,961,11860204,988.16,-2.75,1018.1,955.18,0.51
+20260917,979,993,940,940,16743181,984.14,-4.49,1008.1,955.33,0.71
+20260918,973,990,971,981,14576719,983.88,-0.29,1002.9,954.68,0.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 77.95
-- over_600_ratio: 74.51
-- over_800_ratio: 72.48
+- as_of_date: 20260918
+- over_400_ratio: 77.83
+- over_600_ratio: 74.7
+- over_800_ratio: 72.79
 - over_1000_ratio: 70.19
-- over_400_change_1w: 0.26
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
+- over_400_change_1w: -0.12
+- over_800_change_1w: 0.31
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,76.08,0.36,70.93,0.59,68.45,0.2,2,True,True
 20260703,75.61,-0.47,70.22,-0.71,68.11,-0.34,0,False,False
 20260709,74.34,-1.27,69.35,-0.87,67.08,-1.03,0,False,False
 20260717,74.71,0.37,69.7,0.35,67.5,0.42,1,True,True
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,77.63,0.15,71.91,-0.1,69.48,-0.09,4,False,False
 20260904,77.69,0.06,72.4,0.49,69.95,0.47,5,False,True
 20260911,77.95,0.26,72.48,0.08,70.19,0.24,6,True,True
+20260918,77.83,-0.12,72.79,0.31,70.19,0,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3037 | 欣興 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:欣興電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)因應公司營運需求，本公司董事會決議授權董事長於授權金額範圍內， 全權處理購置不動產之相關事宜。 (2)俟後續確定交易條件及對象時，依本公司「取得或處分資產處理程序」之規定辦理 並發佈重大訊息。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:欣興電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)因應公司營運需求，本公司董事會決議授權董事長於授權金額範圍內， 全權處理購置不動產之相關事宜。 (2)俟後續確定交易條件及對象時，依本公司「取得或處分資產處理程序」之規定辦理 並發佈重大訊息。 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3037 | 欣興 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:114/9/18~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年09月17日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批；交易總金額：新台幣1,757,345,050元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: NIKKO-MATERIALS CO.,LTD；非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款，契約限制條款與其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:議價 價格決定之參考依據:按市場行情 決策單位:公司採購管理規定呈核決定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:114/9/18~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年09月17日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批；交易總金額：新台幣1,757,345,050元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: NIKKO-MATERIALS CO.,LTD；非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款，契約限制條款與其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:議價 價格決定之參考依據:按市場行情 決策單位:公司採購管理規定呈核決定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3037 | 欣興 | 12 | 7 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3037 | 欣興 | 15 | 10 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3037 | 欣興 | 95 | 10 | 1721850.0 | 9420.0 | 182.79 | no_signal |
+| 20260918 | 3037 | 欣興 | 91 | 10 | 3456770.0 | 11130.0 | 310.58 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

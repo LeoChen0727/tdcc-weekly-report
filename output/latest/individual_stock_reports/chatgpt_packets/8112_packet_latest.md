@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8112 至上
 
 ## Metadata
-- generated_at: 2026-09-12 22:18:00 Asia/Taipei
+- generated_at: 2026-09-20 22:18:36 Asia/Taipei
 - stock_id: 8112
 - stock_name: 至上
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 84.8
-- high: 85.1
-- low: 84.2
-- close: 84.6
-- volume: 6187886
-- ma5: 87.38
-- ema23_primary: 89.7
-- distance_to_ema23_pct: -5.68
-- ma20: 90.88
-- ma60: 89.52
-- ma120: 87.57
-- return_5d: -6.52
-- return_20d: -11.69
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -6.91
-- distance_to_high_60_pct: -18.26
+- date: 20260918
+- open: 83.6
+- high: 83.9
+- low: 82.9
+- close: 83.1
+- volume: 4809582
+- ma5: 82.92
+- ema23_primary: 87.3
+- distance_to_ema23_pct: -4.81
+- ma20: 88.51
+- ma60: 88.34
+- ma120: 87.68
+- return_5d: -1.77
+- return_20d: -11.12
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -6.11
+- distance_to_high_60_pct: -18.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,96.2,96.2,93,93.5,15462674,89.84,4.07,87.75,89.69,0.73
-20260818,93.3,94.2,90.3,90.3,11463283,89.88,0.46,87.96,89.76,0.54
-20260819,88.9,91.8,88.3,91,8972080,89.98,1.14,88.11,89.89,0.45
-20260820,91.8,93.8,90.4,93.7,10851249,90.29,3.78,88.39,90.06,0.54
-20260821,93.5,94.5,92.7,93.5,9150843,90.55,3.25,88.65,90.19,0.47
 20260824,93.5,98,93.4,95.4,18117535,90.96,4.88,89.2,90.34,0.95
 20260825,95,95,92.8,94,10743592,91.21,3.06,90,90.44,0.57
 20260826,94.1,94.5,92.9,93.1,8221408,91.37,1.9,90.81,90.46,0.44
@@ -173,17 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,86.3,86.7,84.6,86.5,21363125,90.55,-4.47,92.03,89.89,1.98
 20260910,86.5,86.5,85.4,85.9,5639452,90.16,-4.73,91.44,89.72,0.57
 20260911,84.8,85.1,84.2,84.6,6187886,89.7,-5.68,90.88,89.52,0.67
+20260914,84,84.1,82.8,83.6,4438980,89.19,-6.27,90.39,89.28,0.51
+20260915,83.2,83.9,82.5,82.6,3987720,88.64,-6.81,90,88.98,0.48
+20260916,83,83.4,82.4,82.5,4889102,88.13,-6.39,89.58,88.75,0.61
+20260917,83.4,83.7,82.7,82.8,5188936,87.68,-5.57,89.03,88.54,0.67
+20260918,83.6,83.9,82.9,83.1,4809582,87.3,-4.81,88.51,88.34,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 38.3
-- over_600_ratio: 36.58
-- over_800_ratio: 35.23
-- over_1000_ratio: 34.41
-- over_400_change_1w: -2.26
-- over_800_change_1w: -2.42
-- over_1000_change_1w: -1.98
+- as_of_date: 20260918
+- over_400_ratio: 37.02
+- over_600_ratio: 35.01
+- over_800_ratio: 33.8
+- over_1000_ratio: 32.82
+- over_400_change_1w: -1.28
+- over_800_change_1w: -1.43
+- over_1000_change_1w: -1.59
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,38.56,-0.54,36.22,0.07,34.72,-0.25,2,False,True
 20260703,36.1,-2.46,33.93,-2.29,32.09,-2.63,0,False,False
 20260709,35.67,-0.43,32.37,-1.56,31.36,-0.73,0,False,False
 20260717,35.05,-0.62,31.57,-0.8,31.04,-0.32,0,False,False
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,43.48,-0.07,40.4,0.17,39.57,0.14,1,False,True
 20260904,40.56,-2.92,37.65,-2.75,36.39,-3.18,0,False,False
 20260911,38.3,-2.26,35.23,-2.42,34.41,-1.98,0,False,False
+20260918,37.02,-1.28,33.8,-1.43,32.82,-1.59,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/24 2.公司名稱:至上電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間自115年7月24日至115年8月24日  15時30分止。 6.因應措施: (1)未於催繳期間繳納股款之股東及員工，自115年8月24日15時30分停止繳納並喪失其    權利。 (2)於催繳期間繳納股款之股東及員工，所認購之股數預計於115年09月04日劃撥至該股    東及員工之集保帳戶。 (3)若股東有任何疑問，敬請洽詢群益金鼎證券股份有限公司股務代理部    （地址：台北市大安區敦化南路二段97號B2，電話：02-2702-3999） 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 14 | 39 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/24 2.公司名稱:至上電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間自115年7月24日至115年8月24日  15時30分止。 6.因應措施: (1)未於催繳期間繳納股款之股東及員工，自115年8月24日15時30分停止繳納並喪失其    權利。 (2)於催繳期間繳納股款之股東及員工，所認購之股數預計於115年09月04日劃撥至該股    東及員工之集保帳戶。 (3)若股東有任何疑問，敬請洽詢群益金鼎證券股份有限公司股務代理部    （地址：台北市大安區敦化南路二段97號B2，電話：02-2702-3999） 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8112 | 至上 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/24 2.公司名稱:至上電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間自115年7月24日至115年8月24日  15時30分止。 6.因應措施: (1)未於催繳期間繳納股款之股東及員工，自115年8月24日15時30分停止繳納並喪失其    權利。 (2)於催繳期間繳納股款之股東及員工，所認購之股數預計於115年09月04日劃撥至該股    東及員工之集保帳戶。 (3)若股東有任何疑問，敬請洽詢群益金鼎證券股份有限公司股務代理部    （地址：台北市大安區敦化南路二段97號B2，電話：02-2702-3999） 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8112 | 至上 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 40 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/08/24 2.公司名稱:至上電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司115年現金增資股款繳納催繳期間自115年7月24日至115年8月24日  15時30分止。 6.因應措施: (1)未於催繳期間繳納股款之股東及員工，自115年8月24日15時30分停止繳納並喪失其    權利。 (2)於催繳期間繳納股款之股東及員工，所認購之股數預計於115年09月04日劃撥至該股    東及員工之集保帳戶。 (3)若股東有任何疑問，敬請洽詢群益金鼎證券股份有限公司股務代理部    （地址：台北市大安區敦化南路二段97號B2，電話：02-2702-3999） 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8112 | 至上 | 20 | 16 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 8112 | 至上 | 23 | 19 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8112 | 至上 | 133 | 6 | 2595180.0 | 12130.0 | 213.95 | no_signal |
+| 20260918 | 8112 | 至上 | 125 | 4 | 1580700.0 | 2800.0 | 564.54 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3718 中光電投控
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:46 Asia/Taipei
+- generated_at: 2026-09-20 22:17:03 Asia/Taipei
 - stock_id: 3718
 - stock_name: 中光電投控
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260911
-- price_rows: 7
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 12
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 65
-- high: 66.5
-- low: 63.1
-- close: 63.1
-- volume: 5343000
-- ma5: 66.76
-- ema23_primary: 73.98
-- distance_to_ema23_pct: -14.71
-- ma20: 69.66
-- ma60: 69.66
-- ma120: 69.66
-- return_5d: -16.42
+- date: 20260918
+- open: 64.6
+- high: 67.1
+- low: 64.6
+- close: 67.1
+- volume: 3383000
+- ma5: 63.32
+- ema23_primary: 70.32
+- distance_to_ema23_pct: -4.58
+- ma20: 67.02
+- ma60: 67.02
+- ma120: 67.02
+- return_5d: 6.34
 - return_20d:
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -9.41
-- distance_to_high_60_pct: -26.63
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.12
+- distance_to_high_60_pct: -21.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -154,6 +155,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,66.3,69,66.2,68.1,4431000,75.82,-10.18,71.78,71.78,0.87
 20260910,67.4,67.4,65.1,65.6,4240000,74.97,-12.5,70.75,70.75,0.86
 20260911,65,66.5,63.1,63.1,5343000,73.98,-14.71,69.66,69.66,1.07
+20260914,63,63.5,60.8,60.9,5424000,72.89,-16.45,68.56,68.56,1.07
+20260915,60.3,61.5,59.3,59.6,6222000,71.78,-16.97,67.57,67.57,1.2
+20260916,59.6,65.4,59.6,64.9,5315000,71.21,-8.86,67.3,67.3,1.02
+20260917,64.4,65.5,63.9,64.1,3196000,70.62,-9.23,67.01,67.01,0.64
+20260918,64.6,67.1,64.6,67.1,3383000,70.32,-4.58,67.02,67.02,0.69
 ```
 
 ## Latest TDCC Snapshot

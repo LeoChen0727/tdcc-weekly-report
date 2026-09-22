@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2254 巨鎧精密-創
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:00 Asia/Taipei
+- generated_at: 2026-09-20 22:16:05 Asia/Taipei
 - stock_id: 2254
 - stock_name: 巨鎧精密-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 343
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 348
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,42 +69,41 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 等待回檔
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 65.6
-- high: 66
-- low: 64.9
-- close: 65.8
-- volume: 834010
-- ma5: 64.42
-- ema23_primary: 62.12
-- distance_to_ema23_pct: 5.93
-- ma20: 61.45
-- ma60: 60.58
-- ma120: 64.27
-- return_5d: 5.96
-- return_20d: 10.96
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 7.09
-- distance_to_high_60_pct: -2.23
+- date: 20260918
+- open: 75.2
+- high: 76.8
+- low: 74.7
+- close: 76.8
+- volume: 1697739
+- ma5: 74.02
+- ema23_primary: 66.4
+- distance_to_ema23_pct: 15.66
+- ma20: 65.07
+- ma60: 61.69
+- ma120: 64.47
+- return_5d: 16.72
+- return_20d: 27.36
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: 18.03
+- distance_to_high_60_pct: -0.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260814,59.7,59.7,58.8,58.8,7000,60.4,-2.66,60.43,60.8,0.9
-20260817,59.4,59.4,58.4,59.3,8003,60.31,-1.68,60.42,60.81,1.02
-20260819,59.1,59.1,58.2,58.7,5000,60.18,-2.46,60.38,60.82,0.65
-20260820,62,62,59.7,60.5,13006,60.2,0.49,60.48,60.84,1.66
-20260821,59.9,60.3,59.8,60.3,3000,60.21,0.15,60.43,60.88,0.46
 20260824,59.4,59.4,58.6,58.6,15000,60.08,-2.46,60.34,60.89,2.08
 20260825,58.9,59.6,57.1,58.9,54037,59.98,-1.8,60.26,60.9,5.87
 20260826,59.9,61.5,59.9,60.6,165000,60.03,0.95,60.26,60.94,9.64
@@ -167,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,63.1,65.2,63,65.2,1538000,61.44,6.13,60.88,60.45,3
 20260910,65.1,67.3,64.3,65.6,1835190,61.78,6.18,61.12,60.49,3.04
 20260911,65.6,66,64.9,65.8,834010,62.12,5.93,61.45,60.58,1.29
+20260914,65.8,70.8,65.8,70.8,1166200,62.84,12.66,62.05,60.76,1.66
+20260915,70.9,74.4,70.9,73.1,1509097,63.7,14.76,62.73,60.98,1.94
+20260916,73.1,77,73,74.2,2865537,64.57,14.91,63.51,61.22,3.11
+20260917,74.2,75.2,72.8,75.2,1708137,65.46,14.88,64.25,61.44,1.7
+20260918,75.2,76.8,74.7,76.8,1697739,66.4,15.66,65.07,61.69,1.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 93.34
-- over_600_ratio: 92.66
-- over_800_ratio: 90.64
-- over_1000_ratio: 88
-- over_400_change_1w: -0.26
-- over_800_change_1w: 0.33
-- over_1000_change_1w: 0.34
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 93.62
+- over_600_ratio: 92.94
+- over_800_ratio: 91.97
+- over_1000_ratio: 89.33
+- over_400_change_1w: 0.28
+- over_800_change_1w: 1.33
+- over_1000_change_1w: 1.33
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,92.88,0.01,88.89,0.01,86.23,0,1,False,True
 20260703,92.88,0,90.55,1.66,87.89,1.66,2,False,True
 20260709,92.89,0.01,90.56,0.01,87.89,0,3,False,True
 20260717,92.88,-0.01,90.55,-0.01,87.89,0,0,False,False
@@ -198,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,92.88,-0.02,90.55,-0.02,87.9,0,0,False,False
 20260904,93.6,0.72,90.31,-0.24,87.66,-0.24,1,False,False
 20260911,93.34,-0.26,90.64,0.33,88,0.34,2,False,True
+20260918,93.62,0.28,91.97,1.33,89.33,1.33,3,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2254 | 巨鎧精密-創 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2254 | 巨鎧精密-創 | 3 | 3 | 4 | 8 | 8 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

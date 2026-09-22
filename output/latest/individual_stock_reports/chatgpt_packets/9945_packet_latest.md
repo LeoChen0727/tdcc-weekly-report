@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-09-12 22:18:11 Asia/Taipei
+- generated_at: 2026-09-20 22:18:51 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 27.75
-- high: 28.1
-- low: 27.6
-- close: 28.1
-- volume: 5061036
-- ma5: 28
-- ema23_primary: 28.11
-- distance_to_ema23_pct: -0.03
-- ma20: 28.65
-- ma60: 27.3
-- ma120: 25.91
-- return_5d: -1.23
-- return_20d: -5.7
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: -1.93
-- distance_to_high_60_pct: -8.91
+- date: 20260918
+- open: 29.65
+- high: 29.65
+- low: 28.7
+- close: 28.95
+- volume: 11972321
+- ma5: 28.35
+- ema23_primary: 28.21
+- distance_to_ema23_pct: 2.61
+- ma20: 28.29
+- ma60: 27.41
+- ma120: 26.05
+- return_5d: 3.02
+- return_20d: -1.53
+- volume_ratio: 2.22
+- distance_to_ma20_pct_auxiliary: 2.32
+- distance_to_high_60_pct: -6.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,30.1,30.85,29.8,30.2,20253757,27.16,11.17,26.96,26.11,2.41
-20260818,30.2,30.2,29.6,29.7,11027127,27.38,8.49,27.12,26.22,1.28
-20260819,29.5,29.95,29.35,29.8,7505342,27.58,8.06,27.29,26.34,0.87
-20260820,29.95,30.2,29.7,29.85,4993004,27.77,7.5,27.47,26.44,0.57
-20260821,29.95,30.05,29.3,29.4,8692959,27.9,5.36,27.63,26.54,0.97
 20260824,29.3,29.55,28.55,29,9606216,27.99,3.59,27.77,26.64,1.04
 20260825,28.85,29.1,28.55,28.75,7643701,28.06,2.47,27.9,26.73,0.82
 20260826,28.7,29,28.6,28.9,4263893,28.13,2.75,28.05,26.81,0.47
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,28,28.2,27.8,28.2,3065040,28.14,0.2,28.7,27.26,0.38
 20260910,27.9,28.05,27.7,27.75,2448901,28.11,-1.28,28.74,27.28,0.31
 20260911,27.75,28.1,27.6,28.1,5061036,28.11,-0.03,28.65,27.3,0.79
+20260914,27.85,27.95,27.65,27.85,2798187,28.09,-0.85,28.54,27.3,0.51
+20260915,27.8,27.95,27.65,27.95,3583516,28.08,-0.45,28.45,27.32,0.7
+20260916,28.1,28.4,27.95,28.05,4061805,28.07,-0.09,28.36,27.34,0.82
+20260917,28.15,28.95,28.05,28.95,10535444,28.15,2.85,28.32,27.38,2.01
+20260918,29.65,29.65,28.7,28.95,11972321,28.21,2.61,28.29,27.41,2.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 66.1
-- over_600_ratio: 63.84
-- over_800_ratio: 62.61
-- over_1000_ratio: 61.86
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.01
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 66.26
+- over_600_ratio: 63.95
+- over_800_ratio: 62.74
+- over_1000_ratio: 62.09
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,64.92,0.11,61.6,0.2,60.94,0.08,1,True,True
 20260703,64.96,0.04,61.6,0,60.8,-0.14,2,False,False
 20260709,64.53,-0.43,61.06,-0.54,60.44,-0.36,0,False,False
 20260717,64.84,0.31,61.38,0.32,60.79,0.35,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,66.15,-0.05,62.84,-0.07,62.07,-0.09,0,False,False
 20260904,66.03,-0.12,62.6,-0.24,61.89,-0.18,0,False,False
 20260911,66.1,0.07,62.61,0.01,61.86,-0.03,1,False,True
+20260918,66.26,0.16,62.74,0.13,62.09,0.23,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/02 1.召開法人說明會之日期：115/07/02 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號) 4.法人說明會擇要訊息：說明本公司近期之營運成果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/02 1.召開法人說明會之日期：115/07/02 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號) 4.法人說明會擇要訊息：說明本公司近期之營運成果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 9945 | 潤泰新 | 1 | 1 | 1 | 1 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 9945 | 潤泰新 | 4 | 4 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 9945 | 潤泰新 | 13 | 0 | 1451700.0 | 0.0 |  | no_signal |
+| 20260918 | 9945 | 潤泰新 | 15 | 0 | 4543590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

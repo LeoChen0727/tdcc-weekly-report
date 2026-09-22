@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:04 Asia/Taipei
+- generated_at: 2026-09-20 22:16:10 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 343.5
-- high: 350.5
-- low: 342.5
-- close: 349
-- volume: 3432007
-- ma5: 354.3
-- ema23_primary: 352.5
-- distance_to_ema23_pct: -0.99
-- ma20: 351.68
-- ma60: 344.48
-- ma120: 322.49
-- return_5d: -3.32
-- return_20d: -12.2
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -0.76
-- distance_to_high_60_pct: -13.18
+- date: 20260918
+- open: 360
+- high: 367.5
+- low: 356
+- close: 356
+- volume: 6645773
+- ma5: 349.6
+- ema23_primary: 351.7
+- distance_to_ema23_pct: 1.22
+- ma20: 352.18
+- ma60: 345.5
+- ma120: 327.3
+- return_5d: 2.01
+- return_20d: 4.86
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 1.09
+- distance_to_high_60_pct: -11.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,380,381.5,358,358,22954921,351.32,1.9,348.1,345.39,2.38
-20260818,359,362.5,346,348,13207722,351.04,-0.87,348.45,345.82,1.31
-20260819,343,352.5,339,348.5,6754187,350.83,-0.66,348.48,346.02,0.67
-20260820,354,355,342,344,5861465,350.26,-1.79,347.95,346.15,0.59
-20260821,342.5,344,338.5,339.5,3485613,349.37,-2.82,347.2,346.27,0.36
 20260824,338.5,343.5,337,341,2793179,348.67,-2.2,346.77,346.32,0.29
 20260825,338.5,349.5,335.5,347.5,3197185,348.57,-0.31,347.8,345.95,0.35
 20260826,348.5,354,346.5,351.5,5282809,348.82,0.77,349.3,345.36,0.58
@@ -174,26 +168,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,355.5,358.5,349.5,349.5,4694218,352.94,-0.98,356.2,344.4,0.61
 20260910,348,353,342.5,351.5,5228028,352.82,-0.38,354.1,344.46,0.75
 20260911,343.5,350.5,342.5,349,3432007,352.5,-0.99,351.68,344.48,0.53
+20260914,346,348.5,343,344,2974248,351.8,-2.22,350.98,344.48,0.55
+20260915,346.5,346.5,341.5,343,2237694,351.06,-2.3,350.73,344.54,0.46
+20260916,344.5,350,341,350,4050554,350.97,-0.28,350.8,344.87,0.85
+20260917,353.5,357.5,351.5,355,4850854,351.31,1.05,351.35,345.13,1.03
+20260918,360,367.5,356,356,6645773,351.7,1.22,352.18,345.5,1.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 72.34
-- over_600_ratio: 69.69
-- over_800_ratio: 66.87
-- over_1000_ratio: 64.57
-- over_400_change_1w: 0.43
-- over_800_change_1w: 0.51
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 72.61
+- over_600_ratio: 70.02
+- over_800_ratio: 67.32
+- over_1000_ratio: 65.14
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.45
+- over_1000_change_1w: 0.57
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,68.68,-0.99,63.25,-0.5,61.78,-1.04,0,False,False
 20260703,69.14,0.46,63.68,0.43,61.55,-0.23,1,False,True
 20260709,69.31,0.17,63.7,0.02,62.11,0.56,2,False,True
 20260717,69.6,0.29,64.01,0.31,62.29,0.18,3,True,True
@@ -205,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,71.72,-0.42,65.52,-0.67,63.76,-0.54,0,False,False
 20260904,71.91,0.19,66.36,0.84,64.59,0.83,1,True,True
 20260911,72.34,0.43,66.87,0.51,64.57,-0.02,2,False,True
+20260918,72.61,0.27,67.32,0.45,65.14,0.57,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 36 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 21 | 9 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2376 | 技嘉 | 24 | 20 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2376 | 技嘉 | 27 | 23 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2376 | 技嘉 | 179 | 0 | 11681580.0 | 0.0 |  | no_signal |
+| 20260918 | 2376 | 技嘉 | 179 | 0 | 11906990.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

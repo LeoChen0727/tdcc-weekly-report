@@ -3,14 +3,17 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 from collections import defaultdict
 
 import pytest
 
 from scripts import stage_daily_latest_mirrors
+from scripts import capture_daily_price_diagnostics as price_diagnostics
 from scripts import validate_apps_script_workflow_triggers
 from scripts import validate_daily_production_boundaries as boundaries
 from scripts import validate_daily_staged_paths
@@ -19,6 +22,118 @@ from scripts import validate_research_production_boundaries
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLED_NODE = Path(r"C:\Users\p4693\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe")
+
+
+def price_recovery_steps():
+    import yaml
+    workflow = yaml.safe_load(boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8"))
+    return {step["name"]: step for step in workflow["jobs"]["daily-full-pipeline"]["steps"]}
+
+
+def test_official_price_fetch_recovery_workflow_contract():
+    steps = price_recovery_steps()
+    initial = steps["Fetch latest official daily price"]
+    repair = steps["Repair missing daily price source files"]
+    upload = steps["Upload daily price source recovery evidence"]
+    assert initial["id"] == "official_price_fetch"
+    assert initial["continue-on-error"] is True
+    assert initial["timeout-minutes"] == 9
+    assert repair["timeout-minutes"] == 12
+    assert not repair.get("continue-on-error", False)
+    assert repair["if"] == initial["if"] == "env.RECOVERY_SOURCE_BUNDLE_COMMIT_SHA == ''"
+    assert repair["env"]["INITIAL_FETCH_OUTCOME"] == "${{ steps.official_price_fetch.outcome }}"
+    for step in (initial, repair):
+        assert step["env"]["OFFICIAL_PRICE_TARGET_DATE"] == "${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
+        assert step["env"]["OFFICIAL_PRICE_FETCH_MAX_SECONDS"] == "480"
+        assert step["run"].count("python fetch_official_daily_price.py") == 1
+    assert "--max-repair-dates 3" in repair["run"]
+    assert "--retries 2" in repair["run"]
+    assert upload["if"] == "always()"
+    assert upload["continue-on-error"] is True
+    assert upload["with"]["path"] == "${{ runner.temp }}/daily-price-source-recovery/"
+    assert not steps["Verify open-confirmed target date"].get("continue-on-error", False)
+    for name in ("Build per-stock price history", "Run daily stock monitor"):
+        assert "always()" not in steps[name].get("if", "")
+
+
+def test_official_price_diagnostics_preserve_failure_without_stale_reports(tmp_path, monkeypatch):
+    root = tmp_path / "repo"
+    root.mkdir()
+    old = root / "output/latest/daily_price_source_recovery_latest.json"
+    old.parent.mkdir(parents=True)
+    old.write_text('{"status":"pass","required_end_date":"20260911"}')
+    monkeypatch.setenv("GITHUB_RUN_ID", "34838047802")
+    monkeypatch.setenv("GITHUB_RUN_ATTEMPT", "1")
+    monkeypatch.setenv("GITHUB_SHA", "a" * 40)
+    monkeypatch.setenv("EXPECTED_MAIN_PRICE_DATE", "20260914")
+    evidence = tmp_path / "evidence"
+    program = (
+        "from pathlib import Path; import sys; "
+        "p=Path('output/latest/official_price_fetch_latest.json'); "
+        "p.write_text(sys.argv[1]); "
+        "p.with_suffix('.md').write_text(sys.argv[1]); "
+        "d=Path('output/debug/official_price_fetch_debug_latest.md'); "
+        "d.parent.mkdir(parents=True, exist_ok=True); d.write_text(sys.argv[1]); "
+        "print(sys.argv[1]); sys.exit(int(sys.argv[2]))"
+    )
+    assert price_diagnostics.capture(root, evidence, "initial-fetch", [sys.executable, "-c", program, "HTTP/parse/stale failure", "1"]) == 1
+    assert price_diagnostics.capture(root, evidence, "recovery-fetch", [sys.executable, "-c", program, "full-market success", "0"]) == 0
+    for path in price_diagnostics.DIAGNOSTIC_PATHS[:3]:
+        assert (evidence / "initial-fetch" / path).read_text() == "HTTP/parse/stale failure"
+        assert (evidence / "recovery-fetch" / path).read_text() == "full-market success"
+    record = json.loads((evidence / "initial-fetch/attempt.json").read_text())
+    assert record["github_run_id"] == "34838047802"
+    assert record["expected_main_price_date"] == "20260914"
+    assert record["exit_code"] == 1
+    assert record["files"][old.relative_to(root).as_posix()]["written_this_attempt"] is False
+    assert not (evidence / "initial-fetch" / old.relative_to(root)).exists()
+    assert "HTTP/parse/stale failure" in (evidence / "initial-fetch/command.log").read_text()
+
+
+@pytest.mark.parametrize("initial_exit,recovery_exit,repair_exit,fetch_count,expected_exit", [(0, 0, 0, 1, 0), (1, 0, 0, 2, 0), (1, 1, 0, 2, 1), (1, 0, 1, 2, 1)])
+def test_official_price_fetch_recovery_executes_bounded_real_shell(tmp_path, initial_exit, recovery_exit, repair_exit, fetch_count, expected_exit):
+    bash = shutil.which("bash")
+    if not bash and Path("C:/Program Files/Git/bin/bash.exe").exists():
+        bash = "C:/Program Files/Git/bin/bash.exe"
+    if not bash:
+        pytest.skip("bash is required to exercise GitHub's actual shell contract")
+    root = tmp_path / "repo"
+    (root / "scripts").mkdir(parents=True)
+    shutil.copyfile(price_diagnostics.__file__, root / "scripts/capture_daily_price_diagnostics.py")
+    (root / "fetch_official_daily_price.py").write_text(
+        "from pathlib import Path\nimport os, sys\np=Path('fetch-count')\n"
+        "n=int(p.read_text())+1 if p.exists() else 1\np.write_text(str(n))\n"
+        "assert os.environ['OFFICIAL_PRICE_TARGET_DATE']=='20260914'\n"
+        "print('current-fetch-attempt', n)\n"
+        "sys.exit(int(os.environ['INITIAL_EXIT' if n==1 else 'RECOVERY_EXIT']))\n"
+    )
+    (root / "scripts/repair_missing_daily_price_files.py").write_text(
+        "from pathlib import Path\nimport os, sys\nPath('repair-called').write_text('yes')\n"
+        "sys.exit(int(os.environ['REPAIR_EXIT']))\n"
+    )
+    steps = price_recovery_steps()
+    env = dict(os.environ, RUNNER_TEMP=str(tmp_path / "runner"), OFFICIAL_PRICE_TARGET_DATE="20260914", EXPECTED_MAIN_PRICE_DATE="20260914", INITIAL_EXIT=str(initial_exit), RECOVERY_EXIT=str(recovery_exit), REPAIR_EXIT=str(repair_exit))
+    initial = subprocess.run([bash, "--noprofile", "--norc", "-eo", "pipefail", "-c", steps["Fetch latest official daily price"]["run"]], cwd=root, env=env, capture_output=True, text=True)
+    assert initial.returncode == initial_exit, initial.stderr
+    # GitHub conclusion=success (continue-on-error) preserves outcome=failure.
+    env["INITIAL_FETCH_OUTCOME"] = "failure" if initial.returncode else "success"
+    repair = subprocess.run([bash, "--noprofile", "--norc", "-eo", "pipefail", "-c", steps["Repair missing daily price source files"]["run"] + "\nprintf allowed > downstream-allowed\n"], cwd=root, env=env, capture_output=True, text=True)
+    assert repair.returncode == expected_exit, repair.stderr
+    assert int((root / "fetch-count").read_text()) == fetch_count
+    assert (root / "downstream-allowed").exists() is (expected_exit == 0)
+    if initial_exit and recovery_exit:
+        assert not (root / "repair-called").exists()
+
+
+@pytest.mark.parametrize("saved,full,phase,status,accepted", [("20260914", True, "confirm", "open_confirmed", True), ("20260911", True, "confirm", "open_confirmed", False), ("20260914", False, "confirm", "open_confirmed", False), ("20260914", True, "preflight", "open_confirmed", False), ("20260914", True, "confirm", "unknown", False)])
+def test_official_price_fetch_recovery_rejects_stale_partial_or_unconfirmed(tmp_path, saved, full, phase, status, accepted):
+    latest = tmp_path / "output/latest"
+    latest.mkdir(parents=True)
+    (latest / "official_price_fetch_latest.json").write_text(json.dumps({"saved_price_date": saved, "full_market_ok": full}))
+    (latest / "market_session_status_latest.json").write_text(json.dumps({"phase": phase, "market_status": status, "market_session_date": "20260914", "expected_main_price_date": "20260914"}))
+    code = price_recovery_steps()["Verify open-confirmed target date"]["run"].split("\n", 1)[1].rsplit("\nPY", 1)[0]
+    result = subprocess.run([sys.executable, "-c", code], cwd=tmp_path, env=dict(os.environ, EXPECTED_MAIN_PRICE_DATE="20260914"), capture_output=True, text=True)
+    assert (result.returncode == 0) is accepted, result.stderr
 
 
 def replace_workflow_step_literal(
@@ -1216,6 +1331,25 @@ def test_runtime_critical_mode_rejects_core_contract_mutations(
     assert old in text
     mutated = text.replace(old, new, 1)
     assert boundaries.validate_daily_runtime_critical_contracts(mutated)
+
+
+@pytest.mark.parametrize("step_name", ["Fetch latest official daily price", "Repair missing daily price source files"])
+@pytest.mark.parametrize("replacement", ["          OFFICIAL_PRICE_TARGET_DATE: 20260820", "          UNRELATED_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}"])
+def test_runtime_critical_price_target_is_bound_to_each_step(step_name, replacement):
+    text = boundaries.read_text(boundaries.DAILY_WORKFLOW)
+    original = "          OFFICIAL_PRICE_TARGET_DATE: ${{ needs.market-session-preflight.outputs.expected_main_price_date }}"
+    mutated = replace_workflow_step_literal(text, step_name, original, replacement)
+    assert original in mutated  # The other correct step cannot mask this one.
+    errors = boundaries.validate_daily_runtime_critical_contracts(mutated)
+    assert any(step_name in error and "exact preflight date" in error for error in errors)
+
+
+def test_full_mode_uses_same_price_target_step_contract(monkeypatch):
+    def observed_contract(_text):
+        raise RuntimeError("step-bound price target contract")
+    monkeypatch.setattr(boundaries, "validate_daily_price_target_step_contract", observed_contract)
+    with pytest.raises(RuntimeError, match="step-bound price target contract"):
+        boundaries.main()
 
 
 def test_runtime_critical_mode_rejects_unknown_argument() -> None:

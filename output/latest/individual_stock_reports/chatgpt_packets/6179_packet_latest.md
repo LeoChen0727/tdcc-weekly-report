@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:18 Asia/Taipei
+- generated_at: 2026-09-20 22:17:44 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 38.2
-- high: 38.55
-- low: 34.9
-- close: 35.75
-- volume: 22023000
-- ma5: 34.71
-- ema23_primary: 30.51
-- distance_to_ema23_pct: 17.18
-- ma20: 29.93
-- ma60: 27.45
-- ma120: 25.94
-- return_5d: 20.78
-- return_20d: 32.16
-- volume_ratio: 2.82
-- distance_to_ma20_pct_auxiliary: 19.43
-- distance_to_high_60_pct: -9.49
+- date: 20260918
+- open: 41.6
+- high: 41.9
+- low: 37.75
+- close: 37.9
+- volume: 29422000
+- ma5: 37.26
+- ema23_primary: 32.97
+- distance_to_ema23_pct: 14.94
+- ma20: 32.47
+- ma60: 28.31
+- ma120: 26.4
+- return_5d: 6.01
+- return_20d: 39.34
+- volume_ratio: 2.63
+- distance_to_ma20_pct_auxiliary: 16.71
+- distance_to_high_60_pct: -9.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,28,29.3,27.65,27.75,5003000,26.38,5.21,25.81,25.57,3.52
-20260818,27.95,28.05,27.05,27.3,1613000,26.45,3.2,25.93,25.6,1.09
-20260819,26.6,27.2,26.6,26.85,781000,26.49,1.37,26,25.63,0.53
-20260820,27.15,27.45,26.4,26.45,850000,26.48,-0.13,26.04,25.67,0.57
-20260821,26.8,27.6,26.5,27.2,1649000,26.54,2.47,26.16,25.72,1.06
 20260824,27,27.6,26.95,26.95,998000,26.58,1.4,26.29,25.78,0.63
 20260825,27.55,27.8,27.05,27.4,2554000,26.65,2.83,26.46,25.84,1.54
 20260826,27.45,28.15,27.45,27.95,2643000,26.75,4.47,26.7,25.91,1.56
@@ -166,18 +161,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,33.05,36.4,32.5,36.4,25818000,29.29,24.27,28.98,27.06,5.47
 20260910,38.65,39.5,36.95,38.2,42706000,30.03,27.19,29.5,27.28,6.31
 20260911,38.2,38.55,34.9,35.75,22023000,30.51,17.18,29.93,27.45,2.82
+20260914,35.5,36.1,32.85,34.4,13147000,30.83,11.57,30.27,27.57,1.6
+20260915,33.9,35.4,33.15,34.85,9417000,31.17,11.81,30.64,27.71,1.1
+20260916,34.4,38,34.4,37.7,11799000,31.71,18.88,31.19,27.88,1.29
+20260917,38,41.45,37.75,41.45,13501000,32.52,27.44,31.94,28.12,1.38
+20260918,41.6,41.9,37.75,37.9,29422000,32.97,14.94,32.47,28.31,2.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 48.33
-- over_600_ratio: 44.07
-- over_800_ratio: 40.31
-- over_1000_ratio: 37.22
-- over_400_change_1w: 5.38
-- over_800_change_1w: 5.7
-- over_1000_change_1w: 4.76
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260918
+- over_400_ratio: 50.22
+- over_600_ratio: 46.03
+- over_800_ratio: 43.4
+- over_1000_ratio: 40.35
+- over_400_change_1w: 1.89
+- over_800_change_1w: 3.09
+- over_1000_change_1w: 3.13
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,41.79,1.68,33.76,1.69,30.65,1.11,3,True,True
 20260703,41.9,0.11,33.86,0.1,31.28,0.63,4,True,True
 20260709,42.16,0.26,34.4,0.54,32.8,1.52,5,True,True
 20260717,41.8,-0.36,33.6,-0.8,31.56,-1.24,0,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,41.84,0.85,34.71,0.8,31.63,0.28,1,True,True
 20260904,42.95,1.11,34.61,-0.1,32.46,0.83,2,False,True
 20260911,48.33,5.38,40.31,5.7,37.22,4.76,3,True,True
+20260918,50.22,1.89,43.4,3.09,40.35,3.13,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6179 | 亞通 | 15 | 1 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260918 | 6179 | 亞通 | 18 | 1 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

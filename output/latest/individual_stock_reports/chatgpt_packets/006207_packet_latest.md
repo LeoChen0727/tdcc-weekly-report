@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:31 Asia/Taipei
+- generated_at: 2026-09-20 22:15:29 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260911
-- price_rows: 86
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 91
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 31.92
-- high: 31.92
-- low: 31.58
-- close: 31.71
-- volume: 303125
-- ma5: 31.94
-- ema23_primary: 32.34
-- distance_to_ema23_pct: -1.94
-- ma20: 32.3
-- ma60: 33.02
-- ma120: 32.62
-- return_5d: -1.95
-- return_20d: -3.5
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: -1.82
-- distance_to_high_60_pct: -9.17
+- date: 20260918
+- open: 31.88
+- high: 32.1
+- low: 31.88
+- close: 32.1
+- volume: 214166
+- ma5: 31.81
+- ema23_primary: 32.16
+- distance_to_ema23_pct: -0.17
+- ma20: 32.07
+- ma60: 32.82
+- ma120: 32.58
+- return_5d: 1.23
+- return_20d: -1.53
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 0.09
+- distance_to_high_60_pct: -7.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,33.06,33.25,33.04,33.25,106977,33.14,0.33,33.1,33.39,0.53
-20260818,33.25,33.3,32.98,32.98,119330,33.13,-0.44,33.09,33.39,0.63
-20260819,33.1,33.1,32.28,32.28,192509,33.06,-2.35,33.03,33.37,0.99
-20260820,32.54,32.54,32.39,32.49,142038,33.01,-1.57,32.98,33.35,0.74
-20260821,32.66,32.66,32.6,32.6,214334,32.98,-1.14,32.95,33.33,1.12
 20260824,32.15,32.18,32.05,32.06,237803,32.9,-2.55,32.9,33.31,1.21
 20260825,32,32.2,31.98,32.2,203645,32.84,-1.95,32.88,33.29,1.01
 20260826,32.22,32.52,32.22,32.49,140871,32.81,-0.98,32.86,33.27,0.74
@@ -168,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,32.18,32.18,31.9,31.9,106364,32.43,-1.63,32.43,33.09,0.69
 20260910,31.86,32.1,31.86,32.03,141440,32.39,-1.13,32.36,33.06,0.91
 20260911,31.92,31.92,31.58,31.71,303125,32.34,-1.94,32.3,33.02,1.85
+20260914,31.65,31.86,31.59,31.72,118834,32.29,-1.75,32.22,32.98,0.72
+20260915,31.82,31.82,31.73,31.73,105315,32.24,-1.58,32.16,32.94,0.64
+20260916,31.66,31.76,31.5,31.7,111764,32.19,-1.54,32.13,32.9,0.7
+20260917,31.69,31.78,31.69,31.78,171853,32.16,-1.18,32.09,32.86,1.07
+20260918,31.88,32.1,31.88,32.1,214166,32.16,-0.17,32.07,32.82,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -193,12 +193,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6207 | 雷科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6207 | 雷科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6207 | 雷科 | 4 | 3 | 4 | 8 | 15 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 6207 | 雷科 | 7 | 6 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

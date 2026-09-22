@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1310 台苯
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:39 Asia/Taipei
+- generated_at: 2026-09-20 22:15:40 Asia/Taipei
 - stock_id: 1310
 - stock_name: 台苯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 8.8
-- high: 8.83
-- low: 8.62
-- close: 8.63
-- volume: 1644380
-- ma5: 8.68
-- ema23_primary: 8.58
-- distance_to_ema23_pct: 0.58
-- ma20: 8.48
-- ma60: 9.1
-- ma120: 9.23
-- return_5d: -1.03
-- return_20d: 3.98
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 1.77
-- distance_to_high_60_pct: -30.68
+- date: 20260918
+- open: 8.99
+- high: 8.99
+- low: 8.73
+- close: 8.75
+- volume: 5166568
+- ma5: 8.67
+- ema23_primary: 8.62
+- distance_to_ema23_pct: 1.53
+- ma20: 8.61
+- ma60: 9
+- ma120: 9.12
+- return_5d: 1.39
+- return_20d: 6.58
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 1.58
+- distance_to_high_60_pct: -29.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,8.5,8.5,8.07,8.12,3420792,8.5,-4.49,8.34,9.09,0.54
-20260818,8.12,8.28,8.07,8.15,3251161,8.47,-3.81,8.25,9.1,0.52
-20260819,8.2,8.21,8.06,8.1,2899666,8.44,-4.05,8.15,9.1,0.47
-20260820,8.1,8.2,8.06,8.1,2228597,8.41,-3.72,8.04,9.1,0.37
-20260821,8.15,8.23,8.1,8.21,3166805,8.4,-2.22,7.96,9.11,0.53
 20260824,8.16,8.2,8.04,8.06,4148000,8.37,-3.68,7.91,9.11,0.7
 20260825,8.02,8.07,7.96,8.03,2236100,8.34,-3.72,7.91,9.11,0.38
 20260826,8.22,8.55,8.09,8.2,5494310,8.33,-1.54,7.94,9.11,1.16
@@ -167,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,8.57,8.9,8.57,8.87,3865106,8.56,3.59,8.43,9.1,1.05
 20260910,8.91,8.91,8.66,8.72,1693720,8.58,1.68,8.46,9.1,0.47
 20260911,8.8,8.83,8.62,8.63,1644380,8.58,0.58,8.48,9.1,0.48
+20260914,8.6,8.7,8.51,8.65,1330470,8.59,0.75,8.51,9.09,0.4
+20260915,8.68,8.68,8.45,8.45,1468489,8.57,-1.45,8.52,9.06,0.45
+20260916,8.45,8.59,8.45,8.49,1295664,8.57,-0.91,8.54,9.04,0.41
+20260917,8.51,9.11,8.51,9.03,10239090,8.61,4.93,8.59,9.03,2.86
+20260918,8.99,8.99,8.73,8.75,5166568,8.62,1.53,8.61,9,1.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 30.57
-- over_600_ratio: 27.24
-- over_800_ratio: 25.2
-- over_1000_ratio: 24.69
-- over_400_change_1w: 0.35
-- over_800_change_1w: 0.59
-- over_1000_change_1w: 1.09
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260918
+- over_400_ratio: 30.87
+- over_600_ratio: 27.44
+- over_800_ratio: 25.51
+- over_1000_ratio: 24.82
+- over_400_change_1w: 0.3
+- over_800_change_1w: 0.31
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,30.09,0.33,24.94,0.32,23.21,-0.37,3,False,True
 20260703,30.58,0.49,25.96,1.02,24.06,0.85,4,True,True
 20260709,29.92,-0.66,25.4,-0.56,24.03,-0.03,0,False,False
 20260717,29.71,-0.21,25.09,-0.31,23.91,-0.12,0,False,False
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,30.39,0.23,25.02,0.35,23.48,-0.33,5,False,True
 20260904,30.22,-0.17,24.61,-0.41,23.6,0.12,6,False,True
 20260911,30.57,0.35,25.2,0.59,24.69,1.09,7,True,True
+20260918,30.87,0.3,25.51,0.31,24.82,0.13,8,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1310 | 台苯 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.發生變動日期:115/06/18 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:法人董事 3.舊任者職稱及姓名: (1)法人董事安慶開發(股)公司(代表人：徐定睿) (2)法人董事開疆(股)公司(代表人：張國欽) 4.舊任者簡歷:台灣苯乙烯工業(股)公司法人董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:法人董事辭任 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/05/31~116/05/30 11.新任生效日期:不適用 12.同任期董事變動比率:2/11 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:無 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 本公司於115年6月18日接獲法人董事辭職書，辭任生效日為115年6月18日。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1310 | 台苯 | 6 | 2 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

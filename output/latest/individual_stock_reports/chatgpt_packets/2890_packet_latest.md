@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:20 Asia/Taipei
+- generated_at: 2026-09-20 22:16:30 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 42.8
-- high: 44.1
-- low: 42.6
-- close: 43.7
-- volume: 32601711
-- ma5: 43.17
-- ema23_primary: 41.36
-- distance_to_ema23_pct: 5.66
-- ma20: 41.01
-- ma60: 40.16
-- ma120: 35.92
-- return_5d: 1.98
-- return_20d: 7.77
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 6.57
-- distance_to_high_60_pct: -0.91
+- date: 20260918
+- open: 46.05
+- high: 46.05
+- low: 44.8
+- close: 45.25
+- volume: 52002471
+- ma5: 45.17
+- ema23_primary: 42.72
+- distance_to_ema23_pct: 5.93
+- ma20: 42.42
+- ma60: 40.61
+- ma120: 36.48
+- return_5d: 3.55
+- return_20d: 14.27
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 6.67
+- distance_to_high_60_pct: -2.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,40,40.05,38.75,39.6,49677583,39.39,0.52,39.42,37.32,1.41
-20260818,39.55,40.5,39.35,39.6,30985498,39.41,0.48,39.39,37.5,0.91
-20260819,39.6,39.7,39.1,39.4,24546731,39.41,-0.02,39.34,37.67,0.78
-20260820,39.8,39.8,39.1,39.35,14323553,39.4,-0.14,39.4,37.83,0.5
-20260821,39.3,39.8,39.15,39.6,12337566,39.42,0.45,39.45,38,0.45
 20260824,39.55,39.8,38.95,38.95,17164821,39.38,-1.1,39.42,38.16,0.66
 20260825,38.85,39.5,38.85,39.3,18700105,39.37,-0.19,39.45,38.31,0.73
 20260826,39.25,39.85,39,39.15,17073543,39.36,-0.52,39.48,38.46,0.7
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,43.5,44.1,42.85,43.2,28031635,40.99,5.4,40.7,39.91,1.07
 20260910,42.6,43.5,42.55,42.9,22672446,41.15,4.27,40.85,40.03,0.86
 20260911,42.8,44.1,42.6,43.7,32601711,41.36,5.66,41.01,40.16,1.25
+20260914,43.7,45.1,43.4,44.8,31277251,41.64,7.58,41.27,40.24,1.24
+20260915,44.8,45.2,44.1,44.55,26932735,41.89,6.36,41.52,40.32,1.08
+20260916,44.75,45.3,43.95,45.3,39272275,42.17,7.42,41.81,40.41,1.52
+20260917,45.5,46.3,44.8,45.95,36030980,42.49,8.15,42.14,40.52,1.34
+20260918,46.05,46.05,44.8,45.25,52002471,42.72,5.93,42.42,40.61,1.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 81.14
-- over_600_ratio: 79.86
-- over_800_ratio: 78.8
-- over_1000_ratio: 78.01
-- over_400_change_1w: 0.04
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260918
+- over_400_ratio: 81.27
+- over_600_ratio: 80
+- over_800_ratio: 78.92
+- over_1000_ratio: 78.13
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,80.72,0.24,78.35,0.31,77.49,0.29,4,True,True
 20260703,80.81,0.09,78.46,0.11,77.59,0.1,5,True,True
 20260709,80.89,0.08,78.56,0.1,77.67,0.08,6,True,True
 20260717,80.81,-0.08,78.48,-0.08,77.57,-0.1,0,False,False
@@ -198,24 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,80.94,-0.36,78.59,-0.39,77.77,-0.34,0,False,False
 20260904,81.1,0.16,78.77,0.18,77.96,0.19,1,True,True
 20260911,81.14,0.04,78.8,0.03,78.01,0.05,2,True,True
+20260918,81.27,0.13,78.92,0.12,78.13,0.12,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2890 | 永豐金 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:永豐金證券股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:補充114年度年報部分內容 6.更正資訊項目/報表名稱:114年度年報 7.更正前金額/內容/頁次:第90頁業務狀況未提及分割或 重整之情形 8.更正後金額/內容/頁次:第90頁業務狀況補充無分割或 重整之情形 9.因應措施:修正後重新上傳年報至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:永豐金證券股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:補充114年度年報部分內容 6.更正資訊項目/報表名稱:114年度年報 7.更正前金額/內容/頁次:第90頁業務狀況未提及分割或 重整之情形 8.更正後金額/內容/頁次:第90頁業務狀況補充無分割或 重整之情形 9.因應措施:修正後重新上傳年報至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2890 | 永豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:永豐金證券股份有限公司 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:補充114年度年報部分內容 6.更正資訊項目/報表名稱:114年度年報 7.更正前金額/內容/頁次:第90頁業務狀況未提及分割或 重整之情形 8.更正後金額/內容/頁次:第90頁業務狀況補充無分割或 重整之情形 9.因應措施:修正後重新上傳年報至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/09/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過2025年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過2025年度財務報告暨會計師查核報告書。 5.重要決議事項四、董監事選舉:不適用。 6.重要決議事項五、其他事項: (一)通過2025年度董事酬金案。 (二)通過2026年4月1日董事委任案。 (三)通過2026年度會計師委任案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 2890 | 永豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.股東常會日期:115/09/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過2025年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表: 通過2025年度財務報告暨會計師查核報告書。 5.重要決議事項四、董監事選舉:不適用。 6.重要決議事項五、其他事項: (一)通過2025年度董事酬金案。 (二)通過2026年4月1日董事委任案。 (三)通過2026年度會計師委任案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2890 | 永豐金 | 33 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2890 | 永豐金 | 36 | 1 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2890 | 永豐金 | 21 | 0 | 4739430.0 | 0.0 |  | call_strong_inflow |
+| 20260918 | 2890 | 永豐金 | 22 | 0 | 3008090.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

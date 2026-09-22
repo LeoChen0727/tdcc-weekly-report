@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2882 國泰金
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:19 Asia/Taipei
+- generated_at: 2026-09-20 22:16:29 Asia/Taipei
 - stock_id: 2882
 - stock_name: 國泰金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 109
-- high: 111
-- low: 108
+- date: 20260918
+- open: 113
+- high: 113
+- low: 109
 - close: 110.5
-- volume: 15394406
-- ma5: 111.9
-- ema23_primary: 106.89
-- distance_to_ema23_pct: 3.38
-- ma20: 106.19
-- ma60: 101.75
-- ma120: 91.37
-- return_5d: -3.91
-- return_20d: 8.87
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 4.06
-- distance_to_high_60_pct: -5.96
+- volume: 43826072
+- ma5: 111.5
+- ema23_primary: 108.5
+- distance_to_ema23_pct: 1.84
+- ma20: 109.37
+- ma60: 101.65
+- ma120: 93.05
+- return_5d: 0
+- return_20d: 9.95
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: 1.03
+- distance_to_high_60_pct: -5.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,101,101,97.3,98.1,34916545,98.7,-0.6,98.41,97.83,1.63
-20260818,98.2,99.5,98,99.2,15171632,98.74,0.47,98.58,98.16,0.72
-20260819,99.2,99.2,98,98.3,11073498,98.7,-0.41,98.65,98.44,0.54
-20260820,98.5,98.8,97,97.7,17053270,98.62,-0.93,98.67,98.68,0.84
-20260821,97.3,101,97.3,100.5,21874820,98.77,1.75,98.84,98.93,1.04
 20260824,101,101,98.8,98.9,10491603,98.79,0.12,98.86,99.17,0.51
 20260825,99,104,99,103,28472695,99.14,3.9,99.25,99.45,1.36
 20260826,104,106.5,102,102.5,25034402,99.42,3.1,99.67,99.69,1.21
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,112.5,113,109,110.5,23548014,106.2,4.04,105.19,101.78,1
 20260910,109.5,111,109,110.5,13713393,106.56,3.7,105.73,101.8,0.58
 20260911,109,111,108,110.5,15394406,106.89,3.38,106.19,101.75,0.66
+20260914,109,114,108.5,112.5,18700175,107.36,4.79,106.91,101.7,0.83
+20260915,113.5,114,109.5,110,16604431,107.58,2.25,107.44,101.65,0.74
+20260916,110.5,112.5,109.5,112.5,27370591,107.99,4.18,108.16,101.63,1.17
+20260917,113,114,111,112,19698413,108.32,3.39,108.87,101.66,0.84
+20260918,113,113,109,110.5,43826072,108.5,1.84,109.37,101.65,1.78
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 85.9
-- over_600_ratio: 84.85
+- as_of_date: 20260918
+- over_400_ratio: 85.93
+- over_600_ratio: 84.87
 - over_800_ratio: 84.06
-- over_1000_ratio: 83.52
-- over_400_change_1w: -0.03
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 0
+- over_1000_ratio: 83.53
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,85.87,0.01,84.17,0.02,83.55,0,6,False,True
 20260703,85.57,-0.3,83.83,-0.34,83.21,-0.34,0,False,False
 20260709,85.54,-0.03,83.8,-0.03,83.19,-0.02,0,False,False
 20260717,85.54,0,83.74,-0.06,83.14,-0.05,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,85.76,0.1,83.94,0.11,83.38,0.14,1,True,True
 20260904,85.93,0.17,84.09,0.15,83.54,0.16,2,True,True
 20260911,85.9,-0.03,84.06,-0.03,83.52,-0.02,0,False,False
+20260918,85.93,0.03,84.06,0,83.53,0.01,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2882 | 國泰金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 聯合授信資產之轉讓 2.事實發生日:115/9/17~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:總經理核決 民國115年09月17日 5.交易單位數量、每單位價格及交易總金額: 美金65,973,334元整 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 遠東國際商業銀行與合作金庫銀行/ 無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依原案聯合授信合約之規定辦理 12.本次交易之決定方式、價格決定之參考依據及決策單位: 總經理核定，相關條件依聯合授信合約及一般市場慣例為之 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 原聯合授信資產配置之管理 18.本次交易表示異議董事之意見: 不適用 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: USD:TWD=1:31.91；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2882 | 國泰金 | 3 | 2 | 3 | 6 | 12 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2882 | 國泰金 | 52 | 5 | 5658760.0 | 316000.0 | 17.91 | call_put_bullish |
+| 20260918 | 2882 | 國泰金 | 53 | 4 | 1969910.0 | 116740.0 | 16.87 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2609 陽明
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:14 Asia/Taipei
+- generated_at: 2026-09-20 22:16:23 Asia/Taipei
 - stock_id: 2609
 - stock_name: 陽明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 57.6
-- high: 60.7
-- low: 57.6
-- close: 59.4
-- volume: 79512906
-- ma5: 58.26
-- ema23_primary: 57.26
-- distance_to_ema23_pct: 3.74
-- ma20: 58.8
-- ma60: 53.58
-- ma120: 52.42
-- return_5d: 2.06
-- return_20d: 15.12
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 1.03
-- distance_to_high_60_pct: -11.74
+- date: 20260918
+- open: 61.5
+- high: 63.1
+- low: 60.3
+- close: 61
+- volume: 47583928
+- ma5: 60.26
+- ema23_primary: 58.36
+- distance_to_ema23_pct: 4.53
+- ma20: 59.15
+- ma60: 54.3
+- ma120: 52.73
+- return_5d: 2.69
+- return_20d: -4.69
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 3.13
+- distance_to_high_60_pct: -9.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,51.7,54.8,51.7,54.7,97224950,51.34,6.54,51.16,51.48,4.68
-20260818,55.1,57.2,54.6,56.2,86793977,51.75,8.61,51.43,51.54,3.66
-20260819,55.6,59,54.9,59,114832016,52.35,12.7,51.81,51.66,4.02
-20260820,59.9,61,58.6,60.3,153031407,53.01,13.74,52.3,51.8,4.29
-20260821,60.7,64.6,60.1,64,198985656,53.93,18.67,52.92,51.98,4.5
 20260824,65.8,66.8,63.5,64.5,170173225,54.81,17.68,53.59,52.19,3.26
 20260825,65.9,67.3,62.9,63.6,192985885,55.54,14.51,54.24,52.37,3.16
 20260826,63.5,64.4,57.3,57.6,157663706,55.71,3.39,54.62,52.41,2.32
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,57.1,58.6,56.5,58.5,31633364,56.98,2.67,58.08,53.33,0.36
 20260910,58.8,59.8,57.4,58,43320399,57.07,1.64,58.41,53.45,0.48
 20260911,57.6,60.7,57.6,59.4,79512906,57.26,3.74,58.8,53.58,0.86
+20260914,60,60,58.3,59.3,30195141,57.43,3.26,59.02,53.71,0.34
+20260915,59.4,59.9,58.6,58.8,22032722,57.54,2.18,59.16,53.82,0.26
+20260916,58.8,61.2,58.7,60.2,41409617,57.77,4.21,59.22,53.97,0.5
+20260917,59.8,62,59.8,62,41269391,58.12,6.68,59.3,54.14,0.54
+20260918,61.5,63.1,60.3,61,47583928,58.36,4.53,59.15,54.3,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 61.98
-- over_600_ratio: 60.57
-- over_800_ratio: 59.91
-- over_1000_ratio: 59.14
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 63.59
+- over_600_ratio: 62.23
+- over_800_ratio: 61.45
+- over_1000_ratio: 60.59
+- over_400_change_1w: 1.61
+- over_800_change_1w: 1.54
+- over_1000_change_1w: 1.45
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,55.87,0.28,53.88,0.26,53.14,0.14,1,True,True
 20260703,55.29,-0.58,53.3,-0.58,52.43,-0.71,0,False,False
 20260709,55.67,0.38,53.58,0.28,52.79,0.36,1,True,True
 20260717,55.55,-0.12,53.52,-0.06,52.81,0.02,2,False,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,62.23,1.07,60.02,1.08,59.18,1.06,8,True,True
 20260904,61.77,-0.46,59.82,-0.2,59.12,-0.06,0,False,False
 20260911,61.98,0.21,59.91,0.09,59.14,0.02,1,True,True
+20260918,63.59,1.61,61.45,1.54,60.59,1.45,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2609 | 陽明 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | continued_overheated | 1.發生變動日期:115/09/08 2.法人名稱:陽明海運股份有限公司 3.舊任者姓名:劉政得/陳飛傑 4.舊任者簡歷: 劉政得:陽明(新加坡)有限公司船舶管理部主管 陳飛傑:陽明(新加坡)有限公司業務部主管 5.新任者姓名:卓承佑/洪啟勛 6.新任者簡歷: 卓承佑:陽明(新加坡)有限公司船舶管理部主管 洪啟勛:陽明(新加坡)有限公司業務部主管 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）: 劉政得:111/10/03至115/09/30 陳飛傑:115/05/01至115/09/30 9.新任生效日期:115/10/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2609 | 陽明 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | continued_overheated | 1.發生變動日期:115/09/08 2.法人名稱:陽明海運股份有限公司 3.舊任者姓名:劉政得/陳飛傑 4.舊任者簡歷: 劉政得:陽明(新加坡)有限公司船舶管理部主管 陳飛傑:陽明(新加坡)有限公司業務部主管 5.新任者姓名:卓承佑/洪啟勛 6.新任者簡歷: 卓承佑:陽明(新加坡)有限公司船舶管理部主管 洪啟勛:陽明(新加坡)有限公司業務部主管 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）: 劉政得:111/10/03至115/09/30 陳飛傑:115/05/01至115/09/30 9.新任生效日期:115/10/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2609 | 陽明 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/09/08 2.法人名稱:陽明海運股份有限公司 3.舊任者姓名:劉政得/陳飛傑 4.舊任者簡歷: 劉政得:陽明(新加坡)有限公司船舶管理部主管 陳飛傑:陽明(新加坡)有限公司業務部主管 5.新任者姓名:卓承佑/洪啟勛 6.新任者簡歷: 卓承佑:陽明(新加坡)有限公司船舶管理部主管 洪啟勛:陽明(新加坡)有限公司業務部主管 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）: 劉政得:111/10/03至115/09/30 陳飛傑:115/05/01至115/09/30 9.新任生效日期:115/10/01 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2609 | 陽明 | 18 | 9 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260918 | 2609 | 陽明 | 21 | 4 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2609 | 陽明 | 100 | 8 | 18783660.0 | 490830.0 | 38.27 | call_inflow |
+| 20260918 | 2609 | 陽明 | 104 | 8 | 15915260.0 | 229300.0 | 69.41 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:09 Asia/Taipei
+- generated_at: 2026-09-20 22:17:31 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 71.1
-- high: 72.9
-- low: 70.9
-- close: 72.3
-- volume: 1025524
-- ma5: 71.96
-- ema23_primary: 72.58
-- distance_to_ema23_pct: -0.38
-- ma20: 72.48
-- ma60: 75.61
-- ma120: 80.32
-- return_5d: 0.98
-- return_20d: -2.43
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -0.25
-- distance_to_high_60_pct: -23.09
+- date: 20260918
+- open: 74.1
+- high: 74.1
+- low: 72.8
+- close: 72.8
+- volume: 2260341
+- ma5: 72.86
+- ema23_primary: 72.69
+- distance_to_ema23_pct: 0.15
+- ma20: 72.53
+- ma60: 74.42
+- ma120: 79.92
+- return_5d: 0.69
+- return_20d: 2.97
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -22.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,74.1,75.5,74,74.9,991150,73.72,1.61,71.11,79.4,0.52
-20260818,74.7,75.4,73.9,74,1124803,73.74,0.35,71.29,79.25,0.59
-20260819,73.6,74.1,72,72.2,1683957,73.61,-1.92,71.31,79.06,0.87
-20260820,73,73.4,70.9,71.6,1149942,73.44,-2.51,71.31,78.87,0.59
-20260821,71.6,72.1,70.6,70.7,1197096,73.22,-3.44,71.24,78.6,0.62
 20260824,71.4,72.4,70.6,70.6,1187307,73,-3.28,71.2,78.38,0.61
 20260825,70.6,71.5,69.8,71.4,969090,72.86,-2.01,71.39,78.14,0.51
 20260826,71.3,72.8,71.2,72.1,865014,72.8,-0.96,71.73,77.91,0.48
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,71.2,72.8,71.2,72.4,799014,72.68,-0.39,72.83,76.08,0.69
 20260910,72.2,72.4,71.5,71.7,494686,72.6,-1.24,72.57,75.85,0.45
 20260911,71.1,72.9,70.9,72.3,1025524,72.58,-0.38,72.48,75.61,0.99
+20260914,71.7,72.4,70.9,72.3,884631,72.55,-0.35,72.35,75.37,0.86
+20260915,72.3,73,71.3,71.5,704295,72.47,-1.33,72.22,75.05,0.7
+20260916,72,75.2,71.1,74.7,2173084,72.65,2.82,72.35,74.85,2.09
+20260917,75.6,75.9,73,73,2251688,72.68,0.44,72.42,74.64,2.06
+20260918,74.1,74.1,72.8,72.8,2260341,72.69,0.15,72.53,74.42,1.97
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 72.46
-- over_600_ratio: 70.93
-- over_800_ratio: 69.4
-- over_1000_ratio: 68.1
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.49
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20260918
+- over_400_ratio: 72.85
+- over_600_ratio: 71.24
+- over_800_ratio: 69.69
+- over_1000_ratio: 68.18
+- over_400_change_1w: 0.39
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,71.91,0.24,68.23,0.68,66.9,0.3,7,True,True
 20260703,72.45,0.54,68.26,0.03,66.77,-0.13,8,False,True
 20260709,72.64,0.19,68.51,0.25,67.16,0.39,9,True,True
 20260717,71.79,-0.85,67.85,-0.66,66.55,-0.61,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,72.54,0.17,68.72,0.02,67.2,0.32,5,True,True
 20260904,72.36,-0.18,68.91,0.19,67.98,0.78,6,False,True
 20260911,72.46,0.1,69.4,0.49,68.1,0.12,7,True,True
+20260918,72.85,0.39,69.69,0.29,68.18,0.08,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5469 | 瀚宇博 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):24,305,679,000 2.原預定買回之期間:115/07/31~115/09/29 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):62.00~74.00 5.本次實際買回期間:115/07/31~115/08/19 6.本次已買回股份數量(股):2,000,000 7.本次已買回股份總金額(元):141,487,012 8.本次平均每股買回價格(元):70.74 9.累積已持有自己公司股份數量(股):2,227,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.46 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 5469 | 瀚宇博 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):24,305,679,000 2.原預定買回之期間:115/07/31~115/09/29 3.原預定買回之數量(股):2,000,000 4.原預定買回區間價格(元):62.00~74.00 5.本次實際買回期間:115/07/31~115/08/19 6.本次已買回股份數量(股):2,000,000 7.本次已買回股份總金額(元):141,487,012 8.本次平均每股買回價格(元):70.74 9.累積已持有自己公司股份數量(股):2,227,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.46 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5469 | 瀚宇博 | 1 | 1 | 1 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 5469 | 瀚宇博 | 4 | 4 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5469 | 瀚宇博 | 27 | 0 | 63040.0 | 0.0 |  | no_signal |
+| 20260918 | 5469 | 瀚宇博 | 26 | 0 | 156940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:12 Asia/Taipei
+- generated_at: 2026-09-20 22:17:36 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 42
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 43
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 47.1
-- high: 48.75
-- low: 47.1
-- close: 48.65
-- volume: 7005480
-- ma5: 47.95
-- ema23_primary: 45.45
-- distance_to_ema23_pct: 7.04
-- ma20: 44.91
-- ma60: 44.02
-- ma120: 41.99
-- return_5d: 5.08
-- return_20d: 14.88
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 8.33
-- distance_to_high_60_pct: -0.21
+- date: 20260918
+- open: 49.8
+- high: 49.8
+- low: 48.65
+- close: 49.45
+- volume: 10090377
+- ma5: 49.77
+- ema23_primary: 46.97
+- distance_to_ema23_pct: 5.28
+- ma20: 46.51
+- ma60: 44.68
+- ma120: 42.43
+- return_5d: 1.64
+- return_20d: 12
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 6.32
+- distance_to_high_60_pct: -1.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,42.1,42.55,41.9,42.25,7192187,43.53,-2.93,44.16,42.72,0.61
-20260818,42.45,43.2,42.25,43.2,6595939,43.5,-0.69,44.03,42.77,0.59
-20260819,42.85,43.55,42.35,43.5,7353841,43.5,-0,43.96,42.83,0.68
-20260820,43.5,43.9,43.05,43.65,7352504,43.51,0.32,43.9,42.9,0.71
-20260821,43.5,44.15,43.4,44.15,6475010,43.57,1.34,43.8,42.98,0.68
 20260824,44.1,44.35,43.4,43.4,4049402,43.55,-0.35,43.62,43.06,0.47
 20260825,43.3,43.95,43.3,43.75,3540013,43.57,0.42,43.61,43.13,0.45
 20260826,43.6,44,43.15,43.3,4701798,43.55,-0.56,43.56,43.18,0.64
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,48.25,48.6,47.2,47.5,6283664,44.91,5.77,44.31,43.83,0.72
 20260910,46.9,48.05,46.9,47.9,7098758,45.16,6.07,44.59,43.92,0.82
 20260911,47.1,48.75,47.1,48.65,7005480,45.45,7.04,44.91,44.02,0.8
+20260914,48.25,49.95,48.25,49.9,9082786,45.82,8.9,45.29,44.14,1.03
+20260915,49.85,50,49.3,49.8,5628831,46.15,7.9,45.62,44.28,0.64
+20260916,49.9,50,49.15,49.75,6244581,46.45,7.1,45.93,44.41,0.72
+20260917,49.75,50,48.85,49.95,6710336,46.74,6.86,46.25,44.55,0.77
+20260918,49.8,49.8,48.65,49.45,10090377,46.97,5.28,46.51,44.68,1.14
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 88.64
-- over_600_ratio: 86.22
-- over_800_ratio: 84.45
-- over_1000_ratio: 83.19
-- over_400_change_1w: 0.28
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 0.39
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260918
+- over_400_ratio: 88.75
+- over_600_ratio: 86.34
+- over_800_ratio: 84.67
+- over_1000_ratio: 83.38
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.19
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,86.79,-0.14,82.58,-0.06,81.12,-0.11,0,False,False
 20260703,86.88,0.09,82.67,0.09,81.31,0.19,1,True,True
 20260709,86.85,-0.03,82.6,-0.07,81.21,-0.1,0,False,False
 20260717,87.33,0.48,83.12,0.52,81.77,0.56,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,88.18,-0.03,84.03,0.03,82.63,0.02,2,False,True
 20260904,88.36,0.18,84.11,0.08,82.8,0.17,3,True,True
 20260911,88.64,0.28,84.45,0.34,83.19,0.39,4,True,True
+20260918,88.75,0.11,84.67,0.22,83.38,0.19,5,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/08 2.公司名稱:上海商業儲蓄銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年8月份合併自結損益 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   公告本公司115年8月份合併自結損益：   單位:億元   ------8月損益-----------------累計1-8月損益---------------    合併    母公司        合併       母公司     基本EPS(元)    稅前   業主稅後       稅前      業主稅後    18.81   14.66        202.19      136.58        2.79   ----------------------------------------------------------；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5876 | 上海商銀 | 9 | 3 | 5 | 9 | 13 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5876 | 上海商銀 | 1 | 0 | 272680.0 | 0.0 |  | no_signal |
+| 20260918 | 5876 | 上海商銀 | 1 | 0 | 155630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

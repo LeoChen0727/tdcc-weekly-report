@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:30 Asia/Taipei
+- generated_at: 2026-09-20 22:17:58 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,9 +104,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +122,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 239
-- high: 239.5
-- low: 231
-- close: 232.5
-- volume: 1125823
-- ma5: 249
-- ema23_primary: 250.26
-- distance_to_ema23_pct: -7.1
-- ma20: 254.68
-- ma60: 229.42
-- ma120: 222.6
-- return_5d: -11.93
-- return_20d: -5.68
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -8.71
-- distance_to_high_60_pct: -17.7
+- date: 20260918
+- open: 255
+- high: 276
+- low: 250
+- close: 270.5
+- volume: 4601141
+- ma5: 241.5
+- ema23_primary: 247.83
+- distance_to_ema23_pct: 9.15
+- ma20: 253.43
+- ma60: 232.51
+- ma120: 224.86
+- return_5d: 16.34
+- return_20d: 8.2
+- volume_ratio: 2.78
+- distance_to_ma20_pct_auxiliary: 6.74
+- distance_to_high_60_pct: -4.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,246.5,247,240.5,243.5,733485,231.99,4.96,230.43,217.73,0.4
-20260818,244,248.5,243,245,913515,233.08,5.12,230.95,217.82,0.55
-20260819,244,253,244,248.5,924123,234.36,6.03,231.65,217.88,0.57
-20260820,249,252.5,244,245.5,610699,235.29,4.34,233.22,218.07,0.39
-20260821,245,250,243,250,437354,236.52,5.7,234.88,218.43,0.28
 20260824,248.5,250.5,245,246.5,403141,237.35,3.86,236.53,218.88,0.26
 20260825,245,252,245,251.5,694938,238.53,5.44,238.88,219.43,0.45
 20260826,251.5,273,249,269,3206805,241.07,11.59,242.43,220.22,1.96
@@ -167,17 +167,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,257.5,258,253,253.5,563432,252.41,0.43,255.55,228.16,0.4
 20260910,253.5,255,245,246,993166,251.88,-2.33,255.38,228.9,0.71
 20260911,239,239.5,231,232.5,1125823,250.26,-7.1,254.68,229.42,0.81
+20260914,230,240,230,232,1020624,248.74,-6.73,254.1,229.93,0.73
+20260915,232,234,224,224.5,612997,246.72,-9.01,253.07,230.22,0.44
+20260916,224.5,229,224.5,229,503592,245.25,-6.62,252.1,230.59,0.37
+20260917,232,251.5,232,251.5,2132108,245.77,2.33,252.4,231.38,1.47
+20260918,255,276,250,270.5,4601141,247.83,9.15,253.43,232.51,2.78
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 19.93
-- over_600_ratio: 17.99
-- over_800_ratio: 17.99
-- over_1000_ratio: 16.11
-- over_400_change_1w: -0.82
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260918
+- over_400_ratio: 19.69
+- over_600_ratio: 17.75
+- over_800_ratio: 17.75
+- over_1000_ratio: 15.87
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.24
+- over_1000_change_1w: -0.24
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,21.94,0.02,18.26,0,16.37,0,1,False,False
 20260703,21.94,0,18.26,0,16.37,0,0,False,False
 20260709,21.94,0,18.26,0,16.37,0,0,False,False
 20260717,22.76,0.82,18.23,-0.03,16.34,-0.03,1,False,False
@@ -198,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,20.81,0.05,17.98,-0.04,16.1,-0.04,2,False,False
 20260904,20.75,-0.06,17.99,0.01,16.11,0.01,3,False,True
 20260911,19.93,-0.82,17.99,0,16.11,0,0,False,False
+20260918,19.69,-0.24,17.75,-0.24,15.87,-0.24,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會決議或公司決定增資基準日期:115/08/10 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/08/10 4.董事會決議(追補)發行日期:115/05/11 5.發行總金額及股數: 發行總金額：發行總面額新台幣68,000,000元。 發行總股數：普通股6,800,000股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元 9.發行價格:每股新台幣195.00元。(補充公告) 10.員工認股股數: 依公司法第267條規定，保留發行新股總額10%計680,000股由本公司員工認購。 11.原股東認購比率: 80%，計5,440,000股，由原股東按照認股基準日股東名簿記載之持股比例認購， 每仟股可認購107.40181948股。 12.公開銷售方式及股數: 依證券交易法第28條之1規定，提撥發行新股總額10%計680,000股對外公開承銷。 13.畸零股及逾期未認購股份之處理方式: 原股東認購不足一股之畸零股得由股東自行在停止過戶日起五日內，逕向本公司 股務代理機構辦理拼湊成一整股認購，其拼湊不足一股之畸零股及原股東、員工 放棄認購或認購不足及逾期未辦理拼湊之部份，擬授權董事長洽特定人按發行價 格認購。 14.本次發行新股之權利義務:與原已發行之股份相同。 15.本次增資資金用途:充實營運資金。 16.現金增資認股基準日:115/09/13 17.最後過戶日:115/09/08 18.停止過戶起始日期:115/09/09 19.停止過戶截止日期:115/09/13 20.股款繳納期間: 原股東及員工股款繳納期間：115年9月17日至115年10月19日 特定人認股繳款日期：115年10月20日至115年10月27日 21.與代收及專戶存儲價款行庫訂約日期:115年8月31日(補充公告) 22.委託代收存款機構:永豐商業銀行股份有限公司新竹分行。(補充公告) 23.委託存儲款項機構:聯邦商業銀行股份有限公司竹北分行。(補充公告) 24.其他應敘明事項: (1)本公司辦理115年現金增資發行新股6,800,000股乙案，業經金管會115年    8月10日金管證發字第1150350140號函生效在案。 (2)最後過戶日:115年9月8日 (3)本次現金增資發行計劃所訂之內容及其他相關未盡事宜，如遇法令變更、    經主管機關修正、客觀環境改變或因應主客觀環境需要而須修正或調整時    ，包括向主管機關申請延期或撤銷，授權董事長得全權辦理修正或調整。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6533 | 晶心科 | 2 | 2 | 2 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6533 | 晶心科 | 2 | 0 | 14400.0 | 0.0 |  | no_signal |
+| 20260918 | 6533 | 晶心科 | 2 | 0 | 148370.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

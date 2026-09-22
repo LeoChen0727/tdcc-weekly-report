@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-09-12 22:18:01 Asia/Taipei
+- generated_at: 2026-09-20 22:18:37 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 回檔後短線轉強
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 88.2
-- high: 88.2
-- low: 85.5
-- close: 86.7
-- volume: 22223021
-- ma5: 90.14
-- ema23_primary: 90.11
-- distance_to_ema23_pct: -3.79
-- ma20: 89.6
-- ma60: 95.08
-- ma120: 86.78
-- return_5d: -3.77
-- return_20d: -5.66
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -3.24
-- distance_to_high_60_pct: -30.64
+- date: 20260918
+- open: 89
+- high: 95.1
+- low: 88.8
+- close: 94
+- volume: 41434324
+- ma5: 87.76
+- ema23_primary: 89.39
+- distance_to_ema23_pct: 5.15
+- ma20: 89.42
+- ma60: 93.67
+- ma120: 88.03
+- return_5d: 8.42
+- return_20d: 8.42
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 5.13
+- distance_to_high_60_pct: -24.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,92.5,94,90,91.5,30736479,91.57,-0.07,87.78,96.88,0.62
-20260818,91.5,92.4,87.6,89.1,28382010,91.36,-2.47,87.03,97.05,0.6
-20260819,85.7,88.6,85.4,87.3,18501550,91.02,-4.09,86.4,97.06,0.43
-20260820,88,89.5,85.8,87.9,19506572,90.76,-3.15,85.89,97.1,0.48
-20260821,88,88,86.3,86.7,10194701,90.42,-4.12,85.68,96.98,0.26
 20260824,86.6,90.3,86.3,87.7,14493308,90.2,-2.77,85.57,96.72,0.39
 20260825,87.7,87.7,82.8,87.5,20005575,89.97,-2.75,85.89,96.3,0.53
 20260826,87.9,93.4,87.1,91.1,32700202,90.07,1.15,86.81,96.04,0.86
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,90.8,95.4,90.7,91.5,38445198,90.38,1.24,89.96,95.28,1.48
 20260910,90.7,91.5,90,90.9,11730848,90.42,0.53,89.86,95.21,0.51
 20260911,88.2,88.2,85.5,86.7,22223021,90.11,-3.79,89.6,95.08,1.01
+20260914,85.5,88.2,84.3,86.6,10859992,89.82,-3.59,89.36,94.79,0.51
+20260915,86,88.1,84.4,84.4,11605119,89.37,-5.56,89.12,94.29,0.57
+20260916,85.2,87.3,84.7,87.1,8426884,89.18,-2.33,89.11,93.97,0.43
+20260917,88.1,90.1,86.3,86.7,15264426,88.97,-2.55,89.05,93.7,0.78
+20260918,89,95.1,88.8,94,41434324,89.39,5.15,89.42,93.67,1.96
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 61.96
-- over_600_ratio: 59.83
-- over_800_ratio: 57.87
-- over_1000_ratio: 55.86
-- over_400_change_1w: 0.34
-- over_800_change_1w: 0.7
-- over_1000_change_1w: 1.49
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 60.22
+- over_600_ratio: 58.01
+- over_800_ratio: 56
+- over_1000_ratio: 53.66
+- over_400_change_1w: -1.74
+- over_800_change_1w: -1.87
+- over_1000_change_1w: -2.2
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,68.99,0.69,65.51,0.61,63.62,1.15,1,True,True
 20260703,71.99,3,68.34,2.83,66.33,2.71,2,True,True
 20260709,72.27,0.28,68.29,-0.05,66.28,-0.05,3,False,False
 20260717,75.73,3.46,71.21,2.92,69.54,3.26,4,True,True
@@ -198,22 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,60.15,0.14,56.2,-0.07,53.28,-0.6,1,False,False
 20260904,61.62,1.47,57.17,0.97,54.37,1.09,2,True,True
 20260911,61.96,0.34,57.87,0.7,55.86,1.49,3,True,True
+20260918,60.22,-1.74,56,-1.87,53.66,-2.2,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 ~ 115/09/16 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：台北W酒店 4.法人說明會擇要訊息：本公司應瑞銀證券之邀請，參加瑞銀證券Taiwan Summit 2026，就已公開發布之財務數字及經營績效等相關資訊進行說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8150 | 南茂 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 ~ 115/09/16 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：台北W酒店 4.法人說明會擇要訊息：本公司應瑞銀證券之邀請，參加瑞銀證券Taiwan Summit 2026，就已公開發布之財務數字及經營績效等相關資訊進行說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 8150 | 南茂 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 ~ 115/09/16 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：台北W酒店 4.法人說明會擇要訊息：本公司應瑞銀證券之邀請，參加瑞銀證券Taiwan Summit 2026，就已公開發布之財務數字及經營績效等相關資訊進行說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8150 | 南茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/15 1.召開法人說明會之日期：115/09/15 ~ 115/09/16 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：台北W酒店 4.法人說明會擇要訊息：本公司應瑞銀證券之邀請，參加瑞銀證券Taiwan Summit 2026，就已公開發布之財務數字及經營績效等相關資訊進行說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8150 | 南茂 | 7 | 7 | 5 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 8150 | 南茂 | 10 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8150 | 南茂 | 171 | 3 | 4019710.0 | 5350.0 | 751.35 | no_signal |
+| 20260918 | 8150 | 南茂 | 166 | 3 | 20478840.0 | 104590.0 | 195.8 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

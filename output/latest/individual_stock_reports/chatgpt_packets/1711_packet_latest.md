@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1711 永光
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:50 Asia/Taipei
+- generated_at: 2026-09-20 22:15:53 Asia/Taipei
 - stock_id: 1711
 - stock_name: 永光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 38.2
-- high: 39
-- low: 38.1
-- close: 38.45
-- volume: 2395790
-- ma5: 39.55
-- ema23_primary: 40.38
-- distance_to_ema23_pct: -4.79
-- ma20: 41.1
-- ma60: 40.38
-- ma120: 43.93
-- return_5d: -9.1
-- return_20d: -0.13
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -6.45
-- distance_to_high_60_pct: -22.79
+- date: 20260918
+- open: 40.15
+- high: 40.2
+- low: 39.1
+- close: 39.4
+- volume: 2704394
+- ma5: 38.86
+- ema23_primary: 39.87
+- distance_to_ema23_pct: -1.19
+- ma20: 41.05
+- ma60: 39.69
+- ma120: 43.92
+- return_5d: 2.47
+- return_20d: -1.75
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -4.01
+- distance_to_high_60_pct: -20.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,38.55,39.85,38.5,39.55,3666173,37.73,4.83,35.72,42.2,0.75
-20260818,39.2,39.4,38.35,38.45,3032634,37.79,1.75,35.76,41.98,0.62
-20260819,37.95,38.95,37.7,37.95,2854190,37.8,0.39,35.77,41.77,0.59
-20260820,38.65,39.6,38.5,39.35,2505066,37.93,3.74,35.85,41.58,0.52
-20260821,39.1,41.2,38.7,40.1,4559807,38.11,5.22,36.08,41.39,0.94
 20260824,40.25,42.9,39.8,41.4,8666046,38.39,7.85,36.38,41.27,1.72
 20260825,40.9,41.4,40.05,41.25,3168427,38.62,6.8,36.81,41.14,0.65
 20260826,42.5,44.2,42.25,44.2,10820094,39.09,13.08,37.45,41.05,2.19
@@ -172,26 +167,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,39.65,40.4,39.25,39.85,2080850,40.7,-2.08,41.13,40.55,0.38
 20260910,40,40.25,39.05,39.05,2446392,40.56,-3.72,41.1,40.48,0.46
 20260911,38.2,39,38.1,38.45,2395790,40.38,-4.79,41.1,40.38,0.46
+20260914,37.95,38.15,37.05,37.95,2550921,40.18,-5.55,41.02,40.26,0.49
+20260915,37.95,39.1,37.95,38.1,2825800,40.01,-4.77,41,40.07,0.54
+20260916,38.5,39.8,38.2,39.25,2924715,39.95,-1.74,41.07,39.94,0.56
+20260917,39.7,40.8,39.6,39.6,4245817,39.92,-0.79,41.08,39.8,0.8
+20260918,40.15,40.2,39.1,39.4,2704394,39.87,-1.19,41.05,39.69,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 44.87
-- over_600_ratio: 42.19
-- over_800_ratio: 40.57
-- over_1000_ratio: 39.6
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.49
-- over_1000_change_1w: -0.3
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 44.9
+- over_600_ratio: 42.01
+- over_800_ratio: 40.79
+- over_1000_ratio: 39.45
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.22
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,43.78,-0.09,40.47,-0.14,39.01,0.03,4,False,True
 20260703,44,0.22,40.61,0.14,39.3,0.29,5,True,True
 20260709,43.44,-0.56,39.79,-0.82,38.65,-0.65,0,False,False
 20260717,44.05,0.61,40.87,1.08,39.74,1.09,1,True,True
@@ -203,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,44.93,1.22,41.06,0.95,40.1,1.26,1,True,True
 20260904,45.01,0.08,41.06,0,39.9,-0.2,2,False,False
 20260911,44.87,-0.14,40.57,-0.49,39.6,-0.3,0,False,False
+20260918,44.9,0.03,40.79,0.22,39.45,-0.15,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1711 | 永光 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 1711 | 永光 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1711 | 永光 | 1 | 1 | 3 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 1711 | 永光 | 4 | 4 | 4 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1711 | 永光 | 60 | 1 | 777240.0 | 0.0 |  | no_signal |
+| 20260918 | 1711 | 永光 | 57 | 1 | 766920.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:00 Asia/Taipei
+- generated_at: 2026-09-20 22:16:06 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 220
-- high: 224
-- low: 218.5
-- close: 221.5
-- volume: 9352804
-- ma5: 229.2
-- ema23_primary: 227.76
-- distance_to_ema23_pct: -2.75
-- ma20: 228.93
-- ma60: 220.43
-- ma120: 238.99
-- return_5d: -11.22
-- return_20d: 2.78
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -3.24
-- distance_to_high_60_pct: -17.2
+- date: 20260918
+- open: 223.5
+- high: 228.5
+- low: 221.5
+- close: 228.5
+- volume: 29688041
+- ma5: 222.3
+- ema23_primary: 225.93
+- distance_to_ema23_pct: 1.14
+- ma20: 231.47
+- ma60: 218.37
+- ma120: 238.5
+- return_5d: 3.16
+- return_20d: 7.03
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -1.29
+- distance_to_high_60_pct: -12.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,213,214.5,208.5,211,13952474,209.29,0.82,200.7,233.06,0.46
-20260818,212.5,214,209,211,15115726,209.43,0.75,200.75,231.94,0.51
-20260819,206,210,204,207.5,13397617,209.27,-0.84,200.72,230.43,0.47
-20260820,214,222,213.5,217.5,35269129,209.95,3.59,200.9,229.31,1.24
-20260821,216,222,211,213.5,24343203,210.25,1.55,201.5,228.17,0.85
 20260824,214,220.5,212.5,212.5,13628503,210.44,0.98,202.15,227.39,0.49
 20260825,212,218,205.5,217.5,18222023,211.03,3.07,203.93,226.28,0.68
 20260826,218,224,215.5,222,30057074,211.94,4.75,206.47,225.28,1.15
@@ -167,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,231.5,234.5,227.5,228,20923903,228.59,-0.26,227.95,221.53,0.59
 20260910,225,227,222.5,225.5,14054910,228.33,-1.24,228.62,221.13,0.4
 20260911,220,224,218.5,221.5,9352804,227.76,-2.75,228.93,220.43,0.27
+20260914,215.5,222,213,221,13242484,227.2,-2.73,229.43,219.78,0.39
+20260915,218.5,224,217,218.5,11772158,226.47,-3.52,229.8,219.1,0.35
+20260916,221.5,225,216,225,18970240,226.35,-0.6,230.68,218.8,0.55
+20260917,232.5,235,218,218.5,30339891,225.7,-3.19,230.72,218.44,0.89
+20260918,223.5,228.5,221.5,228.5,29688041,225.93,1.14,231.47,218.37,0.87
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 59.59
-- over_600_ratio: 57.79
-- over_800_ratio: 56
-- over_1000_ratio: 54.44
-- over_400_change_1w: -1.95
-- over_800_change_1w: -1.85
-- over_1000_change_1w: -1.95
+- as_of_date: 20260918
+- over_400_ratio: 59.24
+- over_600_ratio: 57.34
+- over_800_ratio: 55.39
+- over_1000_ratio: 54.07
+- over_400_change_1w: -0.35
+- over_800_change_1w: -0.61
+- over_1000_change_1w: -0.37
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,57.07,-3.02,53.41,-2.89,51.8,-2.82,0,False,False
 20260703,56.5,-0.57,52.79,-0.62,51.49,-0.31,0,False,False
 20260709,56.2,-0.3,52.59,-0.2,50.69,-0.8,0,False,False
 20260717,58.16,1.96,54.45,1.86,52.81,2.12,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,61,1.79,57.2,1.56,56.03,1.79,2,True,True
 20260904,61.54,0.54,57.85,0.65,56.39,0.36,3,True,True
 20260911,59.59,-1.95,56,-1.85,54.44,-1.95,0,False,False
+20260918,59.24,-0.35,55.39,-0.61,54.07,-0.37,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2313 | 華通 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：15 時 15 分 3.召開法人說明會之地點：台北君悅酒店(台北市信義區松壽路2號) 4.法人說明會擇要訊息：本公司受邀參加統一證券舉辦之2026Q3秋季投資論壇,於會中說明公司營運概況與產業趨勢 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2313 | 華通 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備一批 2.事實發生日:115/8/12~115/9/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長 民國115年09月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：一批；交易總金額：約新台幣454,432仟元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Pelican Cove Investment Ltd.；與公司關係：關係企業 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款。契約限制條款:無。其他重要約定事項:無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式:議價 價格決定之參考依據:按市場行情 決策單位:公司採購管理規定呈核決定 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 供生產用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用，代子公司公告 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2313 | 華通 | 7 | 5 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2313 | 華通 | 10 | 8 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2313 | 華通 | 373 | 35 | 16407720.0 | 1094090.0 | 15.0 | put_inflow |
+| 20260918 | 2313 | 華通 | 357 | 33 | 20485450.0 | 1031960.0 | 19.85 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

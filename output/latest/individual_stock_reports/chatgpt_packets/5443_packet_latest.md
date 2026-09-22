@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5443 均豪
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:08 Asia/Taipei
+- generated_at: 2026-09-20 22:17:31 Asia/Taipei
 - stock_id: 5443
 - stock_name: 均豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 106.5
-- high: 107.5
-- low: 104
-- close: 105.5
-- volume: 1350000
-- ma5: 111.9
-- ema23_primary: 108.19
-- distance_to_ema23_pct: -2.49
+- date: 20260918
+- open: 111
+- high: 111.5
+- low: 108
+- close: 109
+- volume: 1628000
+- ma5: 105.3
+- ema23_primary: 107.29
+- distance_to_ema23_pct: 1.6
 - ma20: 108.65
-- ma60: 104.91
-- ma120: 110.37
-- return_5d: -6.22
-- return_20d: -0.47
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -2.9
-- distance_to_high_60_pct: -16.93
+- ma60: 104.78
+- ma120: 110.45
+- return_5d: 3.32
+- return_20d: 3.81
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 0.32
+- distance_to_high_60_pct: -14.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,106.5,108.5,106,106.5,1197000,101.23,5.21,97.14,106.98,0.67
-20260818,107,109,105,106.5,1341000,101.67,4.75,97.57,106.73,0.76
-20260819,105,107.5,103,104.5,933000,101.9,2.55,97.75,106.28,0.55
-20260820,106,106,102.5,104,702000,102.08,1.88,97.92,105.85,0.42
-20260821,103,105,103,105,444000,102.32,2.62,98.33,105.49,0.27
 20260824,104,106,101.5,101.5,697000,102.25,-0.74,98.56,105.15,0.42
 20260825,102,103.5,99,102.5,730000,102.27,0.22,99.18,104.75,0.45
 20260826,104,105.5,102.5,105.5,798000,102.54,2.88,100.31,104.39,0.53
@@ -168,17 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,113,113.5,110,111.5,3011000,108.47,2.79,108.62,104.83,1.21
 20260910,110,110.5,108,108,1227000,108.43,-0.4,108.67,104.89,0.51
 20260911,106.5,107.5,104,105.5,1350000,108.19,-2.49,108.65,104.91,0.57
+20260914,103,105,102,102.5,930000,107.72,-4.84,108.45,104.83,0.4
+20260915,103,105,102,102,943000,107.24,-4.89,108.22,104.69,0.41
+20260916,103.5,105.5,103,105,757000,107.05,-1.92,108.25,104.65,0.33
+20260917,106,114,106,108,2680000,107.13,0.81,108.45,104.69,1.11
+20260918,111,111.5,108,109,1628000,107.29,1.6,108.65,104.78,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 39.75
-- over_600_ratio: 36.9
-- over_800_ratio: 35.25
-- over_1000_ratio: 33.63
-- over_400_change_1w: -0.64
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.72
+- as_of_date: 20260918
+- over_400_ratio: 39.33
+- over_600_ratio: 36.84
+- over_800_ratio: 35.14
+- over_1000_ratio: 33.61
+- over_400_change_1w: -0.42
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,38.82,-0.96,35,-0.23,33.99,-0.74,0,False,False
 20260703,40.84,2.02,36.22,1.22,34.61,0.62,1,True,True
 20260709,40.24,-0.6,36.3,0.08,34.68,0.07,2,False,True
 20260717,39.5,-0.74,35.18,-1.12,33.54,-1.14,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,41,0.44,36.1,0.38,35.07,0.32,6,False,True
 20260904,40.39,-0.61,35.37,-0.73,34.35,-0.72,0,False,False
 20260911,39.75,-0.64,35.25,-0.12,33.63,-0.72,0,False,False
+20260918,39.33,-0.42,35.14,-0.11,33.61,-0.02,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5443 | 均豪 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 5443 | 均豪 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 5443 | 均豪 | 12 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 5443 | 均豪 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

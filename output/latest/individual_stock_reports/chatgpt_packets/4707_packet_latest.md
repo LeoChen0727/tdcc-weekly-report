@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:55 Asia/Taipei
+- generated_at: 2026-09-20 22:17:15 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 26.1
-- high: 26.7
-- low: 26.1
-- close: 26.15
-- volume: 2050000
-- ma5: 27.34
-- ema23_primary: 30.33
-- distance_to_ema23_pct: -13.77
-- ma20: 31.33
-- ma60: 31.45
-- ma120: 23.37
-- return_5d: -13.12
-- return_20d: -16.98
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -16.53
-- distance_to_high_60_pct: -41.89
+- date: 20260918
+- open: 27
+- high: 28.25
+- low: 27
+- close: 28
+- volume: 1483000
+- ma5: 26.76
+- ema23_primary: 29.1
+- distance_to_ema23_pct: -3.76
+- ma20: 29.92
+- ma60: 31.75
+- ma120: 24.05
+- return_5d: 7.07
+- return_20d: -14.89
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -6.42
+- distance_to_high_60_pct: -37.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,31.25,33.2,31.25,32.2,2797000,31.11,3.5,30.48,27.4,0.54
-20260818,32.2,33.05,31.75,32.9,3326000,31.26,5.24,30.48,27.69,0.63
-20260819,32,33.7,31.25,31.4,3027000,31.27,0.41,30.28,27.98,0.57
-20260820,31.4,32.55,31.3,32.55,1737000,31.38,3.73,30.3,28.27,0.33
-20260821,32.55,33.3,32.1,32.9,2248000,31.51,4.42,30.18,28.57,0.45
 20260824,35,36.15,34.3,35.8,13175000,31.86,12.35,30.39,28.92,2.55
 20260825,35.1,35.55,33.9,35.15,5041000,32.14,9.37,30.71,29.24,0.94
 20260826,35.15,35.7,33.8,34.65,4688000,32.35,7.12,31.15,29.52,0.85
@@ -167,17 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,28,28.85,26.7,27.2,5861000,31.06,-12.44,31.88,31.29,1.44
 20260910,27.2,27.2,26.2,26.75,2621000,30.7,-12.88,31.6,31.39,0.7
 20260911,26.1,26.7,26.1,26.15,2050000,30.33,-13.77,31.33,31.45,0.56
+20260914,26.1,26.3,25.2,26.1,1552000,29.97,-12.92,31.02,31.51,0.43
+20260915,25.85,26.3,25.65,26.15,993000,29.65,-11.82,30.69,31.55,0.28
+20260916,26.15,27.5,26.15,26.75,1596000,29.41,-9.05,30.45,31.65,0.46
+20260917,27,27.65,26.8,26.8,1568000,29.19,-8.2,30.17,31.71,0.46
+20260918,27,28.25,27,28,1483000,29.1,-3.76,29.92,31.75,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 70.89
-- over_600_ratio: 69.2
-- over_800_ratio: 67.54
-- over_1000_ratio: 65.57
-- over_400_change_1w: -0.55
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -1.23
+- as_of_date: 20260918
+- over_400_ratio: 70.74
+- over_600_ratio: 69.16
+- over_800_ratio: 67.48
+- over_1000_ratio: 65.27
+- over_400_change_1w: -0.15
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.3
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,71.14,0.02,66.7,-0.03,65.36,0.4,8,False,True
 20260703,71.84,0.7,68.65,1.95,65.94,0.58,9,True,True
 20260709,71.24,-0.6,68.29,-0.36,66.07,0.13,10,False,True
 20260717,71.54,0.3,68.48,0.19,66.21,0.14,11,True,True
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,71.75,-0.24,68.46,-0.27,67.38,-0.27,0,False,False
 20260904,71.44,-0.31,67.88,-0.58,66.8,-0.58,0,False,False
 20260911,70.89,-0.55,67.54,-0.34,65.57,-1.23,0,False,False
+20260918,70.74,-0.15,67.48,-0.06,65.27,-0.3,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 4707 | 磐亞 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:磐亞股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:115年6月財務狀況及其他對股東權益或證券價格有重大影響之情事 6.因應措施:每月評價調整 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 一.現金及約當現金：509,031仟元。 二.有價證券持有成本：4,417,161仟元。 1.透過損益按公允價值衡量之金融資產-流動持有成本:21,768仟元， 評價調整:41,957仟元。 2.透過其他綜合損益按公允價值衡量之權益工具投資-非流動持有成本:2,445,513仟元， 評價調整:1,299,728仟元。 3.採權益法之長期股權投資持有成本:1,949,880仟元。 4.質押變動情形: 截至本月質押股票：持有成本437,780仟元、帳面價值450,279仟元： 三.長期借款餘額：386,000仟元 四.短期借款餘額：1,825,000仟元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 4707 | 磐亞 | 1 | 1 | 1 | 1 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

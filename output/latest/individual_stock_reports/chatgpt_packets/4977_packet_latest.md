@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:01 Asia/Taipei
+- generated_at: 2026-09-20 22:17:22 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 352
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 357
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 173.5
-- high: 176.5
-- low: 171.5
+- date: 20260918
+- open: 175
+- high: 178
+- low: 172
 - close: 175
-- volume: 3931111
-- ma5: 174.2
-- ema23_primary: 165.61
-- distance_to_ema23_pct: 5.67
-- ma20: 166.68
-- ma60: 154.01
-- ma120: 180.98
-- return_5d: -5.41
-- return_20d: 21.53
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 4.99
-- distance_to_high_60_pct: -10.03
+- volume: 3420485
+- ma5: 170.4
+- ema23_primary: 167.48
+- distance_to_ema23_pct: 4.49
+- ma20: 171.22
+- ma60: 152.87
+- ma120: 180.06
+- return_5d: 0
+- return_20d: 16.28
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 2.2
+- distance_to_high_60_pct: -7.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,147,158,143.5,158,3202647,142.95,10.53,135,164.89,0.96
-20260818,157,160,149,151,4511096,143.62,5.14,135.85,163.75,1.28
-20260819,146,151,144.5,145,1961724,143.74,0.88,136.4,162.32,0.56
-20260820,147,157,144.5,156.5,4598590,144.8,8.08,137.5,161.01,1.27
-20260821,159,160,150,150.5,6080444,145.28,3.59,138.07,159.83,1.73
 20260824,150,154,145,145,2354174,145.25,-0.17,138.65,158.74,0.69
 20260825,144,157,142,155,3299223,146.07,6.12,140.2,157.82,0.97
 20260826,156,170.5,155,170.5,7963102,148.1,15.12,143.12,157.04,2.15
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,178,183.5,169,170.5,4955917,164.01,3.96,164.05,154.2,1.05
 20260910,171.5,178,169,173,3408383,164.76,5,165.12,154.07,0.73
 20260911,173.5,176.5,171.5,175,3931111,165.61,5.67,166.68,154.01,0.82
+20260914,170,173,167,167,1991220,165.73,0.77,167.12,153.72,0.42
+20260915,166,166.5,160.5,160.5,2090246,165.29,-2.9,167.6,153.21,0.45
+20260916,163,176.5,162.5,176.5,5346322,166.23,6.18,169.18,153.06,1.12
+20260917,180.5,180.5,171.5,173,6116371,166.79,3.72,170,152.9,1.26
+20260918,175,178,172,175,3420485,167.48,4.49,171.22,152.87,0.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 16.92
-- over_600_ratio: 13.03
-- over_800_ratio: 9.49
+- as_of_date: 20260918
+- over_400_ratio: 16.93
+- over_600_ratio: 13.94
+- over_800_ratio: 9.58
 - over_1000_ratio: 8.43
-- over_400_change_1w: -2.28
-- over_800_change_1w: -2.11
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.09
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,19.23,-0.04,14.09,3.36,10.73,0,5,False,True
 20260703,19.44,0.21,14.16,0.07,12.16,1.43,6,True,True
 20260709,19.01,-0.43,12.94,-1.22,10.73,-1.43,0,False,False
 20260717,22.82,3.81,13.46,0.52,12.4,1.67,1,True,True
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,21.08,-0.11,12.09,-0.84,10.06,0.35,4,False,True
 20260904,19.2,-1.88,11.6,-0.49,8.43,-1.63,0,False,False
 20260911,16.92,-2.28,9.49,-2.11,8.43,0,0,False,False
+20260918,16.93,0.01,9.58,0.09,8.43,0,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 4977 | 眾達-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.事實發生日:115/09/09 2.接受資金貸與之: (1)公司名稱:PCL INTERNATIONAL TECHNOLOGIES (PENANG) SDN. BHD. (2)與資金貸與他人公司之關係: 該子公司100%持股之孫公司。 (3)資金貸與之限額(仟元):3,244,475 (4)原資金貸與之餘額(仟元):26,837 (5)本次新增資金貸與之金額(仟元):205,953 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):232,790 (8)本次新增資金貸與之原因: 支付土地廠房10%價款及機器設備價金。 3.接受資金貸與公司所提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):164,091 (2)累積盈虧金額(仟元):68,125 5.計息方式: 年利率3.80% 6.還款之: (1)條件: 依合約規定。 (2)日期: 依合約規定，自首次動撥日起不得超過一年。 7.迄事實發生日為止，資金貸與餘額(仟元): 698,560 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 16.25 9.公司貸與他人資金之來源: 其他 10.其他應敘明事項: 資金貸與他人資金來源係該子公司向銀行動撥借款。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 4977 | 眾達-KY | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_2_3d | 1.事實發生日:115/09/09 2.接受資金貸與之: (1)公司名稱:PCL INTERNATIONAL TECHNOLOGIES (PENANG) SDN. BHD. (2)與資金貸與他人公司之關係: 該子公司100%持股之孫公司。 (3)資金貸與之限額(仟元):3,244,475 (4)原資金貸與之餘額(仟元):26,837 (5)本次新增資金貸與之金額(仟元):205,953 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):232,790 (8)本次新增資金貸與之原因: 支付土地廠房10%價款及機器設備價金。 3.接受資金貸與公司所提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):164,091 (2)累積盈虧金額(仟元):68,125 5.計息方式: 年利率3.80% 6.還款之: (1)條件: 依合約規定。 (2)日期: 依合約規定，自首次動撥日起不得超過一年。 7.迄事實發生日為止，資金貸與餘額(仟元): 698,560 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 16.25 9.公司貸與他人資金之來源: 其他 10.其他應敘明事項: 資金貸與他人資金來源係該子公司向銀行動撥借款。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 4977 | 眾達-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.接受資金貸與之: (1)公司名稱:PCL INTERNATIONAL TECHNOLOGIES (PENANG) SDN. BHD. (2)與資金貸與他人公司之關係: 該子公司100%持股之孫公司。 (3)資金貸與之限額(仟元):3,244,475 (4)原資金貸與之餘額(仟元):26,837 (5)本次新增資金貸與之金額(仟元):205,953 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):232,790 (8)本次新增資金貸與之原因: 支付土地廠房10%價款及機器設備價金。 3.接受資金貸與公司所提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):164,091 (2)累積盈虧金額(仟元):68,125 5.計息方式: 年利率3.80% 6.還款之: (1)條件: 依合約規定。 (2)日期: 依合約規定，自首次動撥日起不得超過一年。 7.迄事實發生日為止，資金貸與餘額(仟元): 698,560 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 16.25 9.公司貸與他人資金之來源: 其他 10.其他應敘明事項: 資金貸與他人資金來源係該子公司向銀行動撥借款。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 4977 | 眾達-KY | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.接受資金貸與之: (1)公司名稱:PCL INTERNATIONAL TECHNOLOGIES (PENANG) SDN. BHD. (2)與資金貸與他人公司之關係: 該子公司100%持股之孫公司。 (3)資金貸與之限額(仟元):3,244,475 (4)原資金貸與之餘額(仟元):26,837 (5)本次新增資金貸與之金額(仟元):205,953 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否 (7)迄事實發生日止資金貸與餘額(仟元):232,790 (8)本次新增資金貸與之原因: 支付土地廠房10%價款及機器設備價金。 3.接受資金貸與公司所提供擔保品之: (1)內容: 無。 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):164,091 (2)累積盈虧金額(仟元):68,125 5.計息方式: 年利率3.80% 6.還款之: (1)條件: 依合約規定。 (2)日期: 依合約規定，自首次動撥日起不得超過一年。 7.迄事實發生日為止，資金貸與餘額(仟元): 698,560 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 16.25 9.公司貸與他人資金之來源: 其他 10.其他應敘明事項: 資金貸與他人資金來源係該子公司向銀行動撥借款。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 4977 | 眾達-KY | 3 | 3 | 3 | 4 | 8 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260918 | 4977 | 眾達-KY | 6 | 4 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 4977 | 眾達-KY | 122 | 7 | 7065440.0 | 0.0 |  | no_signal |
+| 20260918 | 4977 | 眾達-KY | 117 | 6 | 4434590.0 | 69180.0 | 64.1 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

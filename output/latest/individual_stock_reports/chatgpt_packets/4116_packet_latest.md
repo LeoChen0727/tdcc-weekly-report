@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4116 明基醫
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:46 Asia/Taipei
+- generated_at: 2026-09-20 22:17:04 Asia/Taipei
 - stock_id: 4116
 - stock_name: 明基醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 39.5
-- high: 39.65
+- date: 20260918
+- open: 39.4
+- high: 39.55
 - low: 39.4
-- close: 39.6
-- volume: 6000
-- ma5: 39.89
-- ema23_primary: 39.66
-- distance_to_ema23_pct: -0.16
-- ma20: 39.69
-- ma60: 38.84
+- close: 39.4
+- volume: 16000
+- ma5: 39.46
+- ema23_primary: 39.59
+- distance_to_ema23_pct: -0.49
+- ma20: 39.74
+- ma60: 38.98
 - ma120: 38.84
-- return_5d: -1.61
-- return_20d: 0.51
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -0.23
-- distance_to_high_60_pct: -4.35
+- return_5d: -0.51
+- return_20d: 0.25
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -0.86
+- distance_to_high_60_pct: -4.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,39.45,39.75,39.3,39.3,47000,38.98,0.82,38.95,38.18,1.03
-20260818,39.9,40,39.3,39.3,17000,39.01,0.75,38.98,38.2,0.38
-20260819,39.15,39.25,39.15,39.2,11000,39.02,0.45,39,38.23,0.25
-20260820,39.2,39.55,39.05,39.2,51000,39.04,0.42,39.02,38.25,1.12
-20260821,39.2,39.5,39.1,39.3,34000,39.06,0.62,39.05,38.28,0.74
 20260824,39.3,39.3,39.15,39.15,39000,39.07,0.21,39.09,38.31,0.82
 20260825,39.1,39.35,39,39.35,31000,39.09,0.66,39.21,38.35,0.66
 20260826,39.25,39.4,39,39.3,20000,39.11,0.49,39.29,38.38,0.48
@@ -168,10 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,40,40,39.7,39.7,15000,39.65,0.13,39.66,38.77,0.54
 20260910,39.7,39.9,39.35,39.9,35000,39.67,0.58,39.68,38.81,1.25
 20260911,39.5,39.65,39.4,39.6,6000,39.66,-0.16,39.69,38.84,0.22
+20260914,39.3,39.3,39.3,39.3,12000,39.63,-0.84,39.69,38.86,0.46
+20260915,39.3,39.6,39.25,39.6,30000,39.63,-0.08,39.71,38.89,1.13
+20260916,39.6,39.65,39.45,39.45,9000,39.62,-0.42,39.72,38.92,0.34
+20260917,39.5,39.65,39.4,39.55,21000,39.61,-0.15,39.74,38.95,0.84
+20260918,39.4,39.55,39.4,39.4,16000,39.59,-0.49,39.74,38.98,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
+- as_of_date: 20260918
 - over_400_ratio: 54.95
 - over_600_ratio: 54.95
 - over_800_ratio: 54.95
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,54.95,0,54.95,0,54.95,0,0,False,False
 20260703,54.95,0,54.95,0,54.95,0,0,False,False
 20260709,54.95,0,54.95,0,54.95,0,0,False,False
 20260717,54.95,0,54.95,0,54.95,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,54.95,0,54.95,0,54.95,0,0,False,False
 20260904,54.95,0,54.95,0,54.95,0,0,False,False
 20260911,54.95,0,54.95,0,54.95,0,0,False,False
+20260918,54.95,0,54.95,0,54.95,0,0,False,False
 ```
 
 ## Candidate Context

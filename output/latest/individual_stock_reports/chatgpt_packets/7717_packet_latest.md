@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7717 萊德光電-KY
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:52 Asia/Taipei
+- generated_at: 2026-09-20 22:18:26 Asia/Taipei
 - stock_id: 7717
 - stock_name: 萊德光電-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 201
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 206
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,31 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
-- confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_support
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -99,8 +101,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -124,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 470
-- high: 528
-- low: 463
-- close: 517
-- volume: 1286000
-- ma5: 494.5
-- ema23_primary: 448.72
-- distance_to_ema23_pct: 15.22
-- ma20: 436.3
-- ma60: 439.65
-- ma120: 573.19
-- return_5d: 15.02
-- return_20d: 20.79
-- volume_ratio: 2.83
-- distance_to_ma20_pct_auxiliary: 18.5
-- distance_to_high_60_pct: -6.85
+- date: 20260918
+- open: 601
+- high: 624
+- low: 594
+- close: 600
+- volume: 2049000
+- ma5: 534.5
+- ema23_primary: 480.99
+- distance_to_ema23_pct: 24.74
+- ma20: 467.73
+- ma60: 441.46
+- ma120: 567.69
+- return_5d: 16.05
+- return_20d: 51.52
+- volume_ratio: 2.37
+- distance_to_ma20_pct_auxiliary: 28.28
+- distance_to_high_60_pct: -3.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,426,426,415.5,425,56000,430.03,-1.17,415.23,500.3,0.3
-20260818,424,432,418.5,423,70000,429.44,-1.5,414.95,495.73,0.38
-20260819,417,420.5,398,398,157000,426.82,-6.75,413.43,490.27,0.87
-20260820,401,405,398,402,65000,424.75,-5.36,410.48,485.53,0.4
-20260821,423,429.5,396,396,131000,422.36,-6.24,408.45,481.32,0.84
 20260824,388,403,385,386,102000,419.33,-7.95,405.82,477.28,0.65
 20260825,386,394.5,377,394,81000,417.22,-5.56,405.5,472.35,0.53
 20260826,394,431,394,417.5,239000,417.24,0.06,408.23,468.16,1.59
@@ -166,16 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,476,512,472,509,1343000,438.51,16.07,428.93,441.21,3.91
 20260910,515,519,483,486.5,1213000,442.51,9.94,431.85,440.13,3.07
 20260911,470,528,463,517,1286000,448.72,15.22,436.3,439.65,2.83
+20260914,505,540,485,487,1863000,451.91,7.76,439.4,438.67,3.42
+20260915,478.5,503,472,479.5,566000,454.21,5.57,442.23,437.59,0.99
+20260916,500,527,492,527,918000,460.28,14.5,448.68,438.08,1.51
+20260917,544,579,530,579,3258000,470.17,23.15,457.52,439.32,4.25
+20260918,601,624,594,600,2049000,480.99,24.74,467.73,441.46,2.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 53.29
-- over_600_ratio: 45.64
-- over_800_ratio: 39.3
+- as_of_date: 20260918
+- over_400_ratio: 51.39
+- over_600_ratio: 45.47
+- over_800_ratio: 39.14
 - over_1000_ratio: 35.38
-- over_400_change_1w: -1.11
-- over_800_change_1w: -0.06
+- over_400_change_1w: -1.9
+- over_800_change_1w: -0.16
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,55.74,-0.18,43.43,-0.17,35.38,-4.2,0,False,False
 20260703,55.7,-0.04,43.39,-0.04,35.38,0,0,False,False
 20260709,55.7,0,43.39,0,35.38,0,0,False,False
 20260717,55.69,-0.01,43.39,0,35.38,0,0,False,False
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,54.89,-0.47,42.63,-0.47,35.38,0,0,False,False
 20260904,54.4,-0.49,39.36,-3.27,35.38,0,0,False,False
 20260911,53.29,-1.11,39.3,-0.06,35.38,0,0,False,False
+20260918,51.39,-1.9,39.14,-0.16,35.38,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 7717 | 萊德光電-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 7717 | 萊德光電-KY | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 7717 | 萊德光電-KY | 4 | 3 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 7717 | 萊德光電-KY | 2 | 2 | 4 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7689 大鵬科CLMX
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:51 Asia/Taipei
+- generated_at: 2026-09-20 22:18:25 Asia/Taipei
 - stock_id: 7689
 - stock_name: 大鵬科CLMX
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260911
-- price_rows: 34
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 39
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 157
-- high: 158
-- low: 155
-- close: 156.5
-- volume: 65177
-- ma5: 163.7
-- ema23_primary: 170.15
-- distance_to_ema23_pct: -8.02
-- ma20: 172.03
-- ma60: 171.88
-- ma120: 171.88
-- return_5d: -9.28
-- return_20d: -9.54
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -9.02
-- distance_to_high_60_pct: -13.77
+- date: 20260918
+- open: 162.5
+- high: 163
+- low: 161
+- close: 161.5
+- volume: 23114
+- ma5: 156.9
+- ema23_primary: 165.61
+- distance_to_ema23_pct: -2.48
+- ma20: 168.1
+- ma60: 169.96
+- ma120: 169.96
+- return_5d: 3.19
+- return_20d: -6.1
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -3.93
+- distance_to_high_60_pct: -11.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,174,174,170,174,64374,172.65,0.78,171.83,171.83,0.3
-20260818,173,173,170.5,172,51947,172.6,-0.35,171.84,171.84,0.25
-20260819,172,172.5,170.5,172,47846,172.55,-0.32,171.85,171.85,0.25
-20260820,172,174.5,171.5,173,68171,172.58,0.24,171.92,171.92,0.36
-20260821,173,173.5,171.5,172,42678,172.54,-0.31,171.92,171.92,0.24
 20260824,173,181.5,171.5,180,351617,173.16,3.95,172.32,172.32,1.86
 20260825,178.5,181,174.5,180.5,186282,173.77,3.87,172.6,172.71,1.16
 20260826,180,180,175,180,127168,174.29,3.28,172.78,173.05,0.85
@@ -167,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,166.5,166.5,163,163.5,48770,172.47,-5.2,173.57,172.75,0.59
 20260910,163,163,159,159.5,71067,171.39,-6.94,172.85,172.35,0.86
 20260911,157,158,155,156.5,65177,170.15,-8.02,172.03,171.88,0.8
+20260914,155,156,152.5,154.5,16454,168.85,-8.5,171.05,171.39,0.21
+20260915,154.5,154.5,153.5,153.5,15716,167.57,-8.4,170.12,170.89,0.2
+20260916,153,155,153,154,16425,166.44,-7.47,169.22,170.43,0.22
+20260917,159.5,166.5,159.5,161,56666,165.98,-3,168.62,170.18,0.76
+20260918,162.5,163,161,161.5,23114,165.61,-2.48,168.1,169.96,0.31
 ```
 
 ## Latest TDCC Snapshot

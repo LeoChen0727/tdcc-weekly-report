@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:13 Asia/Taipei
+- generated_at: 2026-09-20 22:16:22 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 42
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 43
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 77
-- high: 79.3
-- low: 76.3
-- close: 76.5
-- volume: 5184382
-- ma5: 78.2
-- ema23_primary: 73.97
-- distance_to_ema23_pct: 3.42
-- ma20: 74.6
-- ma60: 66.8
-- ma120: 65.37
-- return_5d: -2.17
-- return_20d: 15.38
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 2.55
-- distance_to_high_60_pct: -6.36
+- date: 20260918
+- open: 77.3
+- high: 77.5
+- low: 75.7
+- close: 77.4
+- volume: 2655269
+- ma5: 76.24
+- ema23_primary: 74.8
+- distance_to_ema23_pct: 3.47
+- ma20: 76.18
+- ma60: 68.01
+- ma120: 66.09
+- return_5d: 1.18
+- return_20d: 6.61
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 1.6
+- distance_to_high_60_pct: -5.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,66.7,68.7,66.3,68.3,5088669,64.78,5.43,64.36,64.8,1.3
-20260818,68.4,69.9,68,69,6005637,65.13,5.94,64.67,64.86,1.51
-20260819,68.6,69.9,68,69.5,5172015,65.5,6.11,64.94,64.88,1.29
-20260820,70,70.4,68.4,70.2,7901099,65.89,6.54,65.28,64.89,1.87
-20260821,70.5,73,70.2,72.6,15910892,66.45,9.26,65.72,64.89,3.32
 20260824,73.5,76,72.1,72.3,14604626,66.94,8.01,66.19,64.91,2.71
 20260825,74,79.5,73.6,78,55868985,67.86,14.95,66.98,65.06,6.98
 20260826,76,78.8,71,72,22974195,68.2,5.57,67.52,65.06,2.56
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,77.4,79.9,76.5,79.7,4709277,73.32,8.71,73.44,66.27,0.44
 20260910,79.7,81.7,77.8,78.4,6465791,73.74,6.32,74.09,66.56,0.6
 20260911,77,79.3,76.3,76.5,5184382,73.97,3.42,74.6,66.8,0.47
+20260914,76.5,77,75.2,76.2,2841174,74.16,2.76,75,67.04,0.26
+20260915,75.7,76,73.9,74.6,4503726,74.19,0.55,75.28,67.25,0.42
+20260916,74.9,77.5,74.6,76,5725760,74.34,2.23,75.6,67.49,0.53
+20260917,76,77,74.6,77,3653421,74.56,3.27,75.94,67.75,0.35
+20260918,77.3,77.5,75.7,77.4,2655269,74.8,3.47,76.18,68.01,0.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 79.01
-- over_600_ratio: 77.4
-- over_800_ratio: 76.5
-- over_1000_ratio: 75.09
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.17
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260918
+- over_400_ratio: 78.89
+- over_600_ratio: 77.25
+- over_800_ratio: 76.44
+- over_1000_ratio: 75.36
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,74.91,-0.44,72.82,-0.07,71.95,-0.08,0,False,False
 20260703,74.3,-0.61,72.34,-0.48,71.46,-0.49,0,False,False
 20260709,74.69,0.39,72.6,0.26,71.95,0.49,1,True,True
 20260717,75.11,0.42,73.02,0.42,72.49,0.54,2,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,78.26,1.68,75.9,1.62,75.35,1.83,4,True,True
 20260904,78.93,0.67,76.33,0.43,75.15,-0.2,5,False,True
 20260911,79.01,0.08,76.5,0.17,75.09,-0.06,6,False,True
+20260918,78.89,-0.12,76.44,-0.06,75.36,0.27,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2606 | 裕民 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/07/17 2.發放股利種類及金額:發放115年度現金股利，計US$20,000仟元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2606 | 裕民 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：台北君悅酒店 (台北市信義區松壽路2號3樓) 4.法人說明會擇要訊息：本公司受邀參加永豐金證券舉辦之2026 Q3產業論壇 5.其他應敘明事項：法說會資料揭露於公開資訊觀測站之法說會專區 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2606 | 裕民 | 1 | 1 | 2 | 4 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2606 | 裕民 | 4 | 4 | 4 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2606 | 裕民 | 37 | 2 | 2600580.0 | 0.0 |  | no_signal |
+| 20260918 | 2606 | 裕民 | 38 | 2 | 2059370.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

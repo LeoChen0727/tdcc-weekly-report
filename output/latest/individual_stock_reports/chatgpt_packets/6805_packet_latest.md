@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:40 Asia/Taipei
+- generated_at: 2026-09-20 22:18:11 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: high_level_distribution_risk
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,13 +100,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -124,6 +116,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -131,33 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 2135
-- high: 2230
-- low: 2110
-- close: 2150
-- volume: 1018040
-- ma5: 2211
-- ema23_primary: 2043.81
-- distance_to_ema23_pct: 5.2
-- ma20: 2075
-- ma60: 1731.08
-- ma120: 1806.46
-- return_5d: -2.27
-- return_20d: 19.11
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 3.61
-- distance_to_high_60_pct: -11.7
+- date: 20260918
+- open: 2195
+- high: 2295
+- low: 2155
+- close: 2295
+- volume: 1519334
+- ma5: 2124
+- ema23_primary: 2074.27
+- distance_to_ema23_pct: 10.64
+- ma20: 2141
+- ma60: 1759.83
+- ma120: 1816.5
+- return_5d: 6.74
+- return_20d: 30.03
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 7.19
+- distance_to_high_60_pct: -5.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,1795,1950,1785,1925,2566805,1639.13,17.44,1567.25,1662.17,1.44
-20260818,1950,1995,1900,1960,2057755,1665.87,17.66,1594.5,1664.92,1.12
-20260819,1860,1935,1770,1800,1866928,1677.04,7.33,1614.75,1665.83,0.98
-20260820,1800,1875,1750,1850,1662518,1691.46,9.37,1634.5,1666.92,0.87
-20260821,1870,1875,1760,1765,880852,1697.59,3.97,1652.25,1667.33,0.46
 20260824,1765,1765,1690,1710,870314,1698.62,0.67,1665,1666.42,0.45
 20260825,1680,1845,1665,1845,1156863,1710.82,7.84,1690.25,1665,0.6
 20260826,1830,2025,1825,2025,3229488,1737,16.58,1728.25,1663.42,1.62
@@ -173,26 +161,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,2170,2325,2155,2295,1576206,2019.98,13.61,2039.75,1716.08,0.87
 20260910,2260,2310,2155,2190,1486989,2034.15,7.66,2057.75,1723.83,0.83
 20260911,2135,2230,2110,2150,1018040,2043.81,5.2,2075,1731.08,0.57
+20260914,2095,2210,2085,2165,917127,2053.9,5.41,2087,1737.92,0.54
+20260915,2175,2195,2010,2025,1303815,2051.5,-1.29,2090.25,1741.33,0.79
+20260916,2035,2070,2010,2045,1046754,2050.95,-0.29,2102.5,1746,0.65
+20260917,2095,2200,2080,2090,1107601,2054.21,1.74,2114.5,1750.75,0.7
+20260918,2195,2295,2155,2295,1519334,2074.27,10.64,2141,1759.83,0.94
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 64.03
-- over_600_ratio: 57.57
-- over_800_ratio: 52.34
-- over_1000_ratio: 52.34
-- over_400_change_1w: 0.27
-- over_800_change_1w: -1.31
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260918
+- over_400_ratio: 63.53
+- over_600_ratio: 56.69
+- over_800_ratio: 52.48
+- over_1000_ratio: 51.27
+- over_400_change_1w: -0.5
+- over_800_change_1w: 0.14
+- over_1000_change_1w: -1.07
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,58.67,1.09,48.67,-0.79,46.2,0.51,2,False,True
 20260703,59.43,0.76,50.03,1.36,47.69,1.49,3,False,True
 20260709,59.33,-0.1,47.75,-2.28,45.22,-2.47,0,False,False
 20260717,58.24,-1.09,47.71,-0.04,45.23,0.01,1,False,True
@@ -204,22 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,63.25,1.8,54.48,1.67,53.12,4.33,7,True,True
 20260904,63.76,0.51,53.65,-0.83,52.48,-0.64,8,False,False
 20260911,64.03,0.27,52.34,-1.31,52.34,-0.14,9,False,False
+20260918,63.53,-0.5,52.48,0.14,51.27,-1.07,10,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6805 | 富世達 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/09/22 1.召開法人說明會之日期：115/09/22 ~ 115/09/24 2.召開法人說明會之時間：08 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加(1) BofA Securities 於9/22 ~ 9/23舉辦之BofA Securities 2026 Asia Pacific Conference. (2) CLSA於9/23 ~ 9/24舉辦之33rd Investors' Forum 2026，說明本公司之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/09/22 1.召開法人說明會之日期：115/09/22 ~ 115/09/24 2.召開法人說明會之時間：08 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加(1) BofA Securities 於9/22 ~ 9/23舉辦之BofA Securities 2026 Asia Pacific Conference. (2) CLSA於9/23 ~ 9/24舉辦之33rd Investors' Forum 2026，說明本公司之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6805 | 富世達 | 2 | 1 | 2 | 2 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6805 | 富世達 | 5 | 4 | 5 | 5 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6805 | 富世達 | 219 | 9 | 22983710.0 | 1041760.0 | 22.06 | put_inflow |
+| 20260918 | 6805 | 富世達 | 218 | 9 | 27350680.0 | 426090.0 | 64.19 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

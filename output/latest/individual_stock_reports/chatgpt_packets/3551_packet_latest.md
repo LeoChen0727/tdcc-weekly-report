@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3551 世禾
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:40 Asia/Taipei
+- generated_at: 2026-09-20 22:16:55 Asia/Taipei
 - stock_id: 3551
 - stock_name: 世禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 174
-- high: 174
-- low: 169.5
-- close: 169.5
-- volume: 457000
-- ma5: 177.4
-- ema23_primary: 178.05
-- distance_to_ema23_pct: -4.8
-- ma20: 176.9
-- ma60: 186.12
-- ma120: 191.45
-- return_5d: -6.87
-- return_20d: -3.14
-- volume_ratio: 1.79
-- distance_to_ma20_pct_auxiliary: -4.18
-- distance_to_high_60_pct: -26.3
+- date: 20260918
+- open: 180
+- high: 188.5
+- low: 178
+- close: 187.5
+- volume: 1455000
+- ma5: 174.7
+- ema23_primary: 177.14
+- distance_to_ema23_pct: 5.85
+- ma20: 177.03
+- ma60: 183.59
+- ma120: 191.32
+- return_5d: 10.62
+- return_20d: 7.76
+- volume_ratio: 4.74
+- distance_to_ma20_pct_auxiliary: 5.92
+- distance_to_high_60_pct: -18.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,175,175,172.5,175,249000,180.96,-3.29,177.03,194.19,0.51
-20260818,178,178,171.5,172.5,245000,180.25,-4.3,176.07,193.69,0.52
-20260819,170,174.5,168.5,173.5,178000,179.69,-3.44,175.15,193.21,0.39
-20260820,174,176.5,173,176,232000,179.38,-1.88,174.6,192.77,0.52
-20260821,175.5,175.5,173,174,103000,178.93,-2.76,174.18,192.21,0.24
 20260824,173,176,173,173,124000,178.44,-3.05,173.65,191.47,0.3
 20260825,172,175.5,170,175.5,213000,178.19,-1.51,173.88,190.64,0.54
 20260826,176,176.5,172.5,176,242000,178.01,-1.13,174.65,189.93,0.69
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,182,182,178,178.5,169000,178.95,-0.25,177.28,186.99,0.64
 20260910,179,179,177,177.5,144000,178.83,-0.74,177.18,186.62,0.57
 20260911,174,174,169.5,169.5,457000,178.05,-4.8,176.9,186.12,1.79
+20260914,169.5,171,168.5,169.5,153000,177.34,-4.42,176.62,185.47,0.61
+20260915,169.5,170.5,168,168.5,86000,176.6,-4.59,176.43,184.74,0.35
+20260916,169.5,172.5,169.5,172,62000,176.22,-2.4,176.35,184.2,0.26
+20260917,172,177.5,172,176,291000,176.2,-0.11,176.35,183.77,1.21
+20260918,180,188.5,178,187.5,1455000,177.14,5.85,177.03,183.59,4.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 50.55
-- over_600_ratio: 43.92
-- over_800_ratio: 37.15
+- as_of_date: 20260918
+- over_400_ratio: 50.32
+- over_600_ratio: 42.85
+- over_800_ratio: 37.16
 - over_1000_ratio: 34.23
-- over_400_change_1w: -0.04
-- over_800_change_1w: 0
+- over_400_change_1w: -0.23
+- over_800_change_1w: 0.01
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,50.14,0.77,37.15,0,34.24,0,2,False,False
 20260703,49.6,-0.54,37.15,0,34.24,0,0,False,False
 20260709,50.45,0.85,37.15,0,34.24,0,1,False,False
 20260717,51.75,1.3,37.14,-0.01,34.23,-0.01,2,False,False
@@ -199,17 +198,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,50.33,0.12,37.15,0,34.23,0,2,False,False
 20260904,50.59,0.26,37.15,0,34.23,0,3,False,False
 20260911,50.55,-0.04,37.15,0,34.23,0,0,False,False
+20260918,50.32,-0.23,37.16,0.01,34.23,0,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 3551 | 世禾 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | 1.董事會召集通知日:115/07/29 2.董事會預計召開日期:115/08/06 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季: 民國一一五年第二季合併財務報告。 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 3551 | 世禾 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | 1.董事會召集通知日:115/07/29 2.董事會預計召開日期:115/08/06 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季: 民國一一五年第二季合併財務報告。 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3551 | 世禾 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | 1.董事會召集通知日:115/07/29 2.董事會預計召開日期:115/08/06 3.預計提報董事會或經董事會決議之財務報告或年度自結財務資訊年季: 民國一一五年第二季合併財務報告。 4.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 3551 | 世禾 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

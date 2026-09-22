@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:41 Asia/Taipei
+- generated_at: 2026-09-20 22:18:12 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 102.5
-- high: 114.5
-- low: 100.5
-- close: 108
-- volume: 15065804
-- ma5: 102.04
-- ema23_primary: 96.58
-- distance_to_ema23_pct: 11.83
-- ma20: 94.79
-- ma60: 102.04
-- ma120: 76.6
-- return_5d: 14.89
-- return_20d: 6.93
-- volume_ratio: 3.55
-- distance_to_ma20_pct_auxiliary: 13.94
-- distance_to_high_60_pct: -24.48
+- date: 20260918
+- open: 104
+- high: 110.5
+- low: 100
+- close: 110.5
+- volume: 6734855
+- ma5: 101.46
+- ema23_primary: 98.48
+- distance_to_ema23_pct: 12.2
+- ma20: 96.33
+- ma60: 100.96
+- ma120: 79.55
+- return_5d: 2.31
+- return_20d: 23.19
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: 14.7
+- distance_to_high_60_pct: -22.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,99,101,96.8,100,1950971,97.69,2.36,92.87,96.51,0.44
-20260818,99.5,102.5,94.2,95.2,2452546,97.49,-2.35,92.67,96.92,0.58
-20260819,93.4,102,93.4,98,5152793,97.53,0.48,92.55,97.27,1.24
-20260820,98.8,99.6,92.3,93.5,2732888,97.19,-3.8,92.38,97.46,0.67
-20260821,93.4,95,89.7,89.7,2147862,96.57,-7.11,92.36,97.66,0.52
 20260824,90.2,92.8,89.8,89.9,1389912,96.01,-6.37,92.28,97.98,0.35
 20260825,88.8,90.8,85.5,90.1,1616273,95.52,-5.68,92.67,98.23,0.4
 20260826,90,91.8,88.1,90.2,2090896,95.08,-5.13,93.47,98.45,0.52
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,99.2,107,98.5,101,6748749,94.64,6.73,94.54,101.42,1.76
 20260910,99.9,110,96.4,105.5,7261240,95.54,10.42,94.44,101.78,1.96
 20260911,102.5,114.5,100.5,108,15065804,96.58,11.83,94.79,102.04,3.55
+20260914,104,104.5,98.1,98.2,7659329,96.71,1.54,94.7,101.99,1.69
+20260915,98.2,102,97,97.1,5641078,96.75,0.37,94.8,101.75,1.2
+20260916,98.8,100.5,97.5,100,2882279,97.02,3.07,94.89,101.56,0.63
+20260917,100,107,100,101.5,6365386,97.39,4.22,95.3,101.21,1.34
+20260918,104,110.5,100,110.5,6734855,98.48,12.2,96.33,100.96,1.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 60.2
-- over_600_ratio: 55.68
-- over_800_ratio: 49.52
-- over_1000_ratio: 46.3
-- over_400_change_1w: 3.9
-- over_800_change_1w: 2.37
-- over_1000_change_1w: 1.35
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260918
+- over_400_ratio: 60.84
+- over_600_ratio: 57.41
+- over_800_ratio: 51.95
+- over_1000_ratio: 47.8
+- over_400_change_1w: 0.64
+- over_800_change_1w: 2.43
+- over_1000_change_1w: 1.5
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,59.62,-4.67,50.41,-3.06,46.34,-0.07,0,False,False
 20260703,60.86,1.24,50.82,0.41,45.79,-0.55,1,False,True
 20260709,61.49,0.63,50.6,-0.22,45.34,-0.45,2,False,False
 20260717,58.21,-3.28,47.01,-3.59,44.81,-0.53,0,False,False
@@ -199,24 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,56.72,-0.52,47.15,0,44.95,0,3,False,False
 20260904,56.3,-0.42,47.15,0,44.95,0,4,False,False
 20260911,60.2,3.9,49.52,2.37,46.3,1.35,5,True,True
+20260918,60.84,0.64,51.95,2.43,47.8,1.5,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6834 | 天二科技 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/25 2.人員別（請輸入董事長或總經理）:副董事長 3.舊任者姓名:詹清輝 4.舊任者簡歷:天二科技股份有限公司 副董事長 5.新任者姓名:無 6.新任者簡歷:無 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:天二科技於115年6月25日接獲詹清輝先生辭任副董事長職務， 辭任生效日為115年6月30日，辭任後仍為本公司之法人董事代表人。 9.新任生效日期:無 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6834 | 天二科技 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/25 2.人員別（請輸入董事長或總經理）:副董事長 3.舊任者姓名:詹清輝 4.舊任者簡歷:天二科技股份有限公司 副董事長 5.新任者姓名:無 6.新任者簡歷:無 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:天二科技於115年6月25日接獲詹清輝先生辭任副董事長職務， 辭任生效日為115年6月30日，辭任後仍為本公司之法人董事代表人。 9.新任生效日期:無 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 6834 | 天二科技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期或發生變動日期:115/06/25 2.人員別（請輸入董事長或總經理）:副董事長 3.舊任者姓名:詹清輝 4.舊任者簡歷:天二科技股份有限公司 副董事長 5.新任者姓名:無 6.新任者簡歷:無 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:天二科技於115年6月25日接獲詹清輝先生辭任副董事長職務， 辭任生效日為115年6月30日，辭任後仍為本公司之法人董事代表人。 9.新任生效日期:無 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6834 | 天二科技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 65.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.董事會決議或公司決定增資基準日期:115/09/15 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/09/10 4.董事會決議(追補)發行日期:115/07/30 5.發行總金額及股數: (1)發行總金額:新台幣100,000仟元 (2)發行股數:普通股10,000仟股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元 9.發行價格:實際發行價格俟訂定後另行公告。 10.員工認股股數:依公司法第267條規定，保留增資發行股數之10%，計1,000仟 股由員工認購。 11.原股東認購比率:增資發行股數之80%，計8,000仟股由原股東按照認股基準日之 股東名簿記載之持股比例認購。 12.公開銷售方式及股數:依證券交易法第28條之1規定，提撥增資發行股數之10%， 計1,000仟股採公開申購方式對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，由股東於停止過 戶日起五日內，逕向本公司股務代理機構辦理併湊。原股東及員工放棄認購之股份或併 湊後不足一股之畸零股，授權董事長洽特定人按發行價格認購。 14.本次發行新股之權利義務:與原已發行普通股股份相同。 15.本次增資資金用途:償還銀行借款、充實營運資金。 16.現金增資認股基準日:115/10/10 17.最後過戶日:115/10/05 18.停止過戶起始日期:115/10/06 19.停止過戶截止日期:115/10/10 20.股款繳納期間: 原股東及員工股款繳納期間：115/10/14/~115/11/16 特定人繳納期間：115/11/17~115/11/19 21.與代收及專戶存儲價款行庫訂約日期:俟正式簽約後另行公告。 22.委託代收存款機構:俟正式簽約後另行公告。 23.委託存儲款項機構:俟正式簽約後另行公告。 24.其他應敘明事項: (1)本次現金增資發行普通股10,000仟股，每股面額新臺幣10元整，業經 金融監督管理委員會115年09月10日金管證發字第1150354253號函申報生效。 (2)本次現金增資籌資計畫有關之發行金額、發行股數、發行價格、發行時程、 發行條件，以及計畫所需資金總額、資金運用計畫項目、資金來源、預計資金 運用進度、預計可能產生效益及其他相關事宜，如經主管機關指示、相關法令 修正，或因應金融市場狀況或基於營運評估或客觀環境有所變化而需修訂或修 正時，授權董事長全權處理。 (3)本次現金增資如有未盡事宜授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6834 | 天二科技 | 6 | 6 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 6834 | 天二科技 | 9 | 1 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6834 | 天二科技 | 14 | 0 | 11199840.0 | 0.0 |  | call_strong_inflow |
+| 20260918 | 6834 | 天二科技 | 15 | 0 | 6398130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00757 統一FANG+
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:32 Asia/Taipei
+- generated_at: 2026-09-20 22:15:31 Asia/Taipei
 - stock_id: 00757
 - stock_name: 統一FANG+
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260911
-- price_rows: 86
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 91
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 137.05
-- high: 137.25
-- low: 136.85
-- close: 137.2
-- volume: 411667
-- ma5: 138.3
-- ema23_primary: 137.94
-- distance_to_ema23_pct: -0.54
-- ma20: 138.31
-- ma60: 134.06
-- ma120: 131.33
-- return_5d: -3.07
-- return_20d: -3.04
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -0.8
-- distance_to_high_60_pct: -3.62
+- date: 20260918
+- open: 140.05
+- high: 140.8
+- low: 139.9
+- close: 140.65
+- volume: 1440893
+- ma5: 138.93
+- ema23_primary: 138.34
+- distance_to_ema23_pct: 1.67
+- ma20: 138.58
+- ma60: 135.01
+- ma120: 131.75
+- return_5d: 2.51
+- return_20d: 2.44
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: 1.49
+- distance_to_high_60_pct: -1.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,140.55,140.8,140.05,140.3,466178,136.09,3.09,135.36,131.73,0.27
-20260818,138.55,138.6,137.25,137.45,2594741,136.21,0.91,135.6,131.86,1.48
-20260819,137.05,137.35,136.2,136.35,3429942,136.22,0.1,135.8,131.98,1.85
-20260820,137.85,138.35,137.75,137.8,1908768,136.35,1.06,136.15,132.12,1
-20260821,137.4,137.5,137.2,137.3,1231899,136.43,0.64,136.59,132.22,0.64
 20260824,137.35,137.75,136.95,137.1,1321571,136.49,0.45,136.94,132.33,0.68
 20260825,136.55,137.25,136.5,137.25,269050,136.55,0.51,137.4,132.39,0.14
 20260826,137.2,137.5,136.8,137.2,566620,136.6,0.44,137.88,132.38,0.34
@@ -168,6 +163,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,137.55,137.75,137.4,137.4,737260,138.02,-0.45,138.62,133.82,0.7
 20260910,137.5,137.85,137.35,137.85,498700,138.01,-0.11,138.53,133.93,0.49
 20260911,137.05,137.25,136.85,137.2,411667,137.94,-0.54,138.31,134.06,0.41
+20260914,136.85,137.35,136.8,137.15,507787,137.87,-0.53,138.15,134.2,0.5
+20260915,139.25,139.55,138.75,138.85,1930267,137.96,0.65,138.22,134.33,1.98
+20260916,138.5,138.9,138.45,138.6,1026949,138.01,0.43,138.34,134.55,1.2
+20260917,139.1,139.55,139.05,139.4,869798,138.13,0.92,138.41,134.78,1.08
+20260918,140.05,140.8,139.9,140.65,1440893,138.34,1.67,138.58,135.01,1.77
 ```
 
 ## Latest TDCC Snapshot

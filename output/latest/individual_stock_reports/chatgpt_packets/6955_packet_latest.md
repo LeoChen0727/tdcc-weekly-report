@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:45 Asia/Taipei
+- generated_at: 2026-09-20 22:18:18 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 312
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 316
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 99
-- high: 99
-- low: 99
-- close: 99
-- volume: 1002
-- ma5: 99.42
-- ema23_primary: 107.61
-- distance_to_ema23_pct: -8
-- ma20: 108.67
-- ma60: 116.47
-- ma120: 137.67
-- return_5d: -1
-- return_20d: -19.51
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: -8.9
-- distance_to_high_60_pct: -27.74
+- date: 20260918
+- open: 95
+- high: 96
+- low: 95
+- close: 95
+- volume: 6010
+- ma5: 96.56
+- ema23_primary: 104.16
+- distance_to_ema23_pct: -8.8
+- ma20: 103.97
+- ma60: 113.9
+- ma120: 135.24
+- return_5d: -4.52
+- return_20d: -20.5
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -8.62
+- distance_to_high_60_pct: -27.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,122,123,120,120,14114,120.28,-0.24,117.5,128.64,1.51
-20260818,121.5,121.5,119,119,9020,120.18,-0.98,117.85,128.07,1.12
-20260819,120,122.5,119.5,119.5,10862,120.12,-0.52,118.2,127.55,1.28
-20260820,120,121,119.5,119.5,5105,120.07,-0.47,118.5,127.01,0.59
 20260821,120,120.5,119.5,119.5,5000,120.02,-0.43,118.78,126.47,0.59
 20260824,119.5,120,118.5,120,11357,120.02,-0.02,119.03,125.95,1.26
 20260825,119,120,118.5,120,9361,120.02,-0.01,119.25,125.42,1
@@ -167,10 +163,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,99.2,99.2,98.7,98.7,4282,109.2,-9.62,111.17,117.78,0.42
 20260910,100.5,100.5,99.5,99.5,6000,108.4,-8.21,109.88,117.12,0.6
 20260911,99,99,99,99,1002,107.61,-8,108.67,116.47,0.1
+20260915,98.5,98.5,97.7,97.7,5000,106.79,-8.51,107.56,115.81,0.54
+20260916,97.6,97.6,95.1,95.1,12190,105.81,-10.12,106.36,115.14,1.3
+20260917,96.8,96.8,96,96,16063,105,-8.57,105.19,114.52,1.67
+20260918,95,96,95,95,6010,104.16,-8.8,103.97,113.9,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
+- as_of_date: 20260918
 - over_400_ratio: 60.3
 - over_600_ratio: 52.37
 - over_800_ratio: 49.64
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,60.3,0.03,49.64,0,49.64,0,1,False,False
 20260703,60.3,0,49.64,0,49.64,0,0,False,False
 20260709,60.3,0,49.64,0,49.64,0,0,False,False
 20260717,60.3,0,49.64,0,49.64,0,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,60.3,0,49.64,0,49.64,0,0,False,False
 20260904,60.3,0,49.64,0,49.64,0,0,False,False
 20260911,60.3,0,49.64,0,49.64,0,0,False,False
+20260918,60.3,0,49.64,0,49.64,0,0,False,False
 ```
 
 ## Candidate Context

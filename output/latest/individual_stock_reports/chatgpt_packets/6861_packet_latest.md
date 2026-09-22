@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:41 Asia/Taipei
+- generated_at: 2026-09-20 22:18:13 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 205
-- high: 221.5
-- low: 188.5
-- close: 214.5
-- volume: 3995263
-- ma5: 197.2
-- ema23_primary: 198.94
-- distance_to_ema23_pct: 7.82
-- ma20: 193
-- ma60: 235.85
-- ma120: 264.4
-- return_5d: 17.21
-- return_20d: -0.23
-- volume_ratio: 6.28
-- distance_to_ma20_pct_auxiliary: 11.14
-- distance_to_high_60_pct: -47.43
+- date: 20260918
+- open: 216
+- high: 229.5
+- low: 216
+- close: 229.5
+- volume: 1451647
+- ma5: 225
+- ema23_primary: 207.96
+- distance_to_ema23_pct: 10.36
+- ma20: 200.05
+- ma60: 224.7
+- ma120: 267.8
+- return_5d: 6.99
+- return_20d: 22.73
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 14.72
+- distance_to_high_60_pct: -34.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,215,215,207,209,189107,223.12,-6.33,206.03,292.88,0.49
-20260818,208,209,197,198.5,297814,221.07,-10.21,205.4,288.7,0.79
-20260819,194.5,203,193,193,199947,218.73,-11.76,204.15,284.88,0.54
-20260820,194,197,191.5,196.5,200125,216.88,-9.4,203.28,280.67,0.54
-20260821,195.5,196,185.5,187,460578,214.39,-12.78,202.32,276.08,1.23
 20260824,188,191.5,182.5,187.5,349960,212.15,-11.62,201.35,272.27,0.94
 20260825,184.5,188,178.5,188,259718,210.14,-10.53,201.12,268.07,0.71
 20260826,188,198,188,193.5,335481,208.75,-7.31,201.75,264.7,1
@@ -168,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,198,200,182,185.5,969831,196.94,-5.81,193.85,240.2,2.43
 20260910,190.5,204,188.5,204,1493423,197.52,3.28,193.03,237.9,3.26
 20260911,205,221.5,188.5,214.5,3995263,198.94,7.82,193,235.85,6.28
+20260914,226.5,235.5,226.5,235.5,1105031,201.99,16.59,194.32,233.59,1.62
+20260915,235.5,242.5,222,228,3944720,204.15,11.68,195.8,231.08,4.56
+20260916,227.5,233.5,219,223,2650095,205.72,8.4,197.3,228.83,2.69
+20260917,224,229.5,207.5,209,2357371,206,1.46,197.93,226.43,2.15
+20260918,216,229.5,216,229.5,1451647,207.96,10.36,200.05,224.7,1.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 51.3
-- over_600_ratio: 50.23
+- as_of_date: 20260918
+- over_400_ratio: 48.55
+- over_600_ratio: 48.55
 - over_800_ratio: 48.55
 - over_1000_ratio: 48.55
-- over_400_change_1w: -1.76
-- over_800_change_1w: -2.47
-- over_1000_change_1w: -2.47
+- over_400_change_1w: -2.75
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,58.5,0.37,52.16,0,52.16,0,2,False,False
 20260703,58.65,0.15,52.16,0,52.16,0,3,False,False
 20260709,56.82,-1.83,52.16,0,52.16,0,0,False,False
 20260717,53.26,-3.56,52.16,0,52.16,0,0,False,False
@@ -199,24 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,53.39,-0.51,51.23,-0.47,51.23,-0.47,0,False,False
 20260904,53.06,-0.33,51.02,-0.21,51.02,-0.21,0,False,False
 20260911,51.3,-1.76,48.55,-2.47,48.55,-2.47,0,False,False
+20260918,48.55,-2.75,48.55,0,48.55,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6861 | 睿生光電 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6861 | 睿生光電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 6861 | 睿生光電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6861 | 睿生光電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6861 | 睿生光電 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6861 | 睿生光電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6861 | 睿生光電 | 2 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260918 | 6861 | 睿生光電 | 5 | 4 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6861 | 睿生光電 | 9 | 0 | 5065530.0 | 0.0 |  | call_strong_inflow |
+| 20260918 | 6861 | 睿生光電 | 21 | 0 | 543880.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

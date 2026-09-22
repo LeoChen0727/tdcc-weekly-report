@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2836 高雄銀
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:18 Asia/Taipei
+- generated_at: 2026-09-20 22:16:28 Asia/Taipei
 - stock_id: 2836
 - stock_name: 高雄銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 12.15
-- high: 12.3
-- low: 12.15
-- close: 12.3
-- volume: 1550728
-- ma5: 12.26
-- ema23_primary: 12.15
-- distance_to_ema23_pct: 1.24
-- ma20: 12.11
+- date: 20260918
+- open: 12.5
+- high: 12.55
+- low: 12.3
+- close: 12.4
+- volume: 3046702
+- ma5: 12.34
+- ema23_primary: 12.22
+- distance_to_ema23_pct: 1.48
+- ma20: 12.19
 - ma60: 12.24
-- ma120: 12.12
-- return_5d: 0.41
-- return_20d: 4.24
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 1.57
-- distance_to_high_60_pct: -5.38
+- ma120: 12.13
+- return_5d: 0.81
+- return_20d: 2.48
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: 1.76
+- distance_to_high_60_pct: -4.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,11.8,12.1,11.8,12.1,3764470,12.11,-0.12,12.2,12.21,0.84
-20260818,12,12.05,11.95,12,980604,12.1,-0.86,12.17,12.21,0.23
-20260819,12,12,11.9,11.9,886413,12.09,-1.55,12.12,12.22,0.23
-20260820,11.95,12.1,11.95,12.1,767264,12.09,0.09,12.09,12.22,0.21
-20260821,12.1,12.1,12,12.1,857578,12.09,0.09,12.05,12.22,0.24
 20260824,12.1,12.15,12.05,12.1,938442,12.09,0.08,12.01,12.23,0.29
 20260825,12.1,12.1,12,12,275718,12.08,-0.69,11.96,12.24,0.11
 20260826,12.05,12.1,12,12.05,589646,12.08,-0.25,11.96,12.24,0.33
@@ -173,18 +168,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,12.35,12.35,12.2,12.35,1916259,12.13,1.81,12.07,12.24,1.32
 20260910,12.25,12.3,12.15,12.2,1768422,12.14,0.53,12.09,12.24,1.18
 20260911,12.15,12.3,12.15,12.3,1550728,12.15,1.24,12.11,12.24,1.06
+20260914,12.25,12.4,12.15,12.3,2752714,12.16,1.13,12.12,12.24,1.94
+20260915,12.3,12.35,12.15,12.25,1143253,12.17,0.66,12.13,12.24,0.8
+20260916,12.3,12.3,12.2,12.25,1178354,12.18,0.61,12.15,12.24,0.82
+20260917,12.25,12.6,12.25,12.5,4235154,12.2,2.43,12.17,12.24,2.63
+20260918,12.5,12.55,12.3,12.4,3046702,12.22,1.48,12.19,12.24,1.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 85.53
-- over_600_ratio: 84.1
-- over_800_ratio: 83.24
-- over_1000_ratio: 82.76
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260918
+- over_400_ratio: 85.63
+- over_600_ratio: 84.19
+- over_800_ratio: 83.3
+- over_1000_ratio: 82.72
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.06
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,85.27,0.07,82.74,0.09,82.15,0.04,8,True,True
 20260703,85.2,-0.07,82.77,0.03,82.27,0.12,9,False,True
 20260709,85.31,0.11,82.76,-0.01,82.31,0.04,10,False,True
 20260717,85.46,0.15,83.08,0.32,82.7,0.39,11,True,True
@@ -204,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,85.47,-0.01,83.2,0.09,82.73,0.2,2,False,True
 20260904,85.55,0.08,83.28,0.08,82.75,0.02,3,True,True
 20260911,85.53,-0.02,83.24,-0.04,82.76,0.01,4,False,True
+20260918,85.63,0.1,83.3,0.06,82.72,-0.04,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2836 | 高雄銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/09/09 2.公司名稱:高雄銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年8月份自結盈餘  單位:新台幣仟元            本月份               累計 ═════════════════════════════════════ 稅前盈餘                  160,158　　　   　1,238,744 稅後盈餘                  126,086           1,039,081 稅前每股盈餘(元)                                 0.65 稅後每股盈餘(元)                                 0.54 ═════════════════════════════════════ (註)以上數字係本公司自行結算金額。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2836 | 高雄銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/09/09 2.公司名稱:高雄銀行股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年8月份自結盈餘  單位:新台幣仟元            本月份               累計 ═════════════════════════════════════ 稅前盈餘                  160,158　　　   　1,238,744 稅後盈餘                  126,086           1,039,081 稅前每股盈餘(元)                                 0.65 稅後每股盈餘(元)                                 0.54 ═════════════════════════════════════ (註)以上數字係本公司自行結算金額。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2836 | 高雄銀 | 10 | 1 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 2836 | 高雄銀 | 13 | 2 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

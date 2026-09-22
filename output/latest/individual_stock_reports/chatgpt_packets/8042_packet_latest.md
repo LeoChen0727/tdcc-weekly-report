@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8042 金山電
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:57 Asia/Taipei
+- generated_at: 2026-09-20 22:18:32 Asia/Taipei
 - stock_id: 8042
 - stock_name: 金山電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 116
-- high: 121.5
-- low: 112.5
+- date: 20260918
+- open: 114
+- high: 114
+- low: 110.5
 - close: 113
-- volume: 11068000
-- ma5: 116.1
-- ema23_primary: 111.73
-- distance_to_ema23_pct: 1.14
-- ma20: 107.38
-- ma60: 132.29
-- ma120: 115.08
-- return_5d: 2.26
-- return_20d: 0.44
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: 5.24
+- volume: 1579000
+- ma5: 111.7
+- ema23_primary: 111.75
+- distance_to_ema23_pct: 1.12
+- ma20: 109.19
+- ma60: 125.67
+- ma120: 117.52
+- return_5d: 0
+- return_20d: 13.45
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 3.48
 - distance_to_high_60_pct: -50.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,110.5,111,106,108.5,2189000,120.28,-9.8,111.69,147.75,0.43
-20260818,108.5,109.5,101,101.5,2233000,118.72,-14.5,110.75,147.39,0.46
-20260819,99.2,111.5,98.5,111.5,5692000,118.12,-5.6,109.84,147,1.18
-20260820,110.5,111,100.5,101,8503000,116.69,-13.45,108.72,146.23,1.69
-20260821,101,103,99,99.6,2616000,115.27,-13.59,108,145.38,0.52
 20260824,98.9,102.5,98.9,99,1512000,113.91,-13.09,107.08,144.51,0.31
 20260825,97.6,99.4,93.2,98.9,2357000,112.66,-12.21,106.72,143.58,0.49
 20260826,99,100.5,97.1,99,1900000,111.52,-11.23,106.9,142.41,0.4
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,115,117,112,112.5,4856000,110.81,1.53,107.15,134.87,0.9
 20260910,111.5,123.5,107.5,120.5,9919000,111.61,7.96,107.35,133.66,1.8
 20260911,116,121.5,112.5,113,11068000,111.73,1.14,107.38,132.29,1.88
+20260914,110,114.5,108.5,111,3235000,111.67,-0.6,107.5,130.89,0.55
+20260915,111,116,110,110,4211000,111.53,-1.37,107.92,129.55,0.7
+20260916,111.5,114,110.5,114,1976000,111.74,2.03,108.05,128.49,0.34
+20260917,115.5,118,110.5,110.5,3433000,111.63,-1.01,108.53,127.13,0.61
+20260918,114,114,110.5,113,1579000,111.75,1.12,109.19,125.67,0.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 66.83
-- over_600_ratio: 62.86
-- over_800_ratio: 60.28
-- over_1000_ratio: 59.59
-- over_400_change_1w: 3.2
-- over_800_change_1w: 1.36
-- over_1000_change_1w: 1.39
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 64.08
+- over_600_ratio: 60.69
+- over_800_ratio: 58.61
+- over_1000_ratio: 57.24
+- over_400_change_1w: -2.75
+- over_800_change_1w: -1.67
+- over_1000_change_1w: -2.35
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,73,0.9,66.41,0.46,65,-0.33,2,False,True
 20260703,72.5,-0.5,66.5,0.09,64.46,-0.54,3,False,True
 20260709,68.07,-4.43,62.19,-4.31,59.48,-4.98,0,False,False
 20260717,67.15,-0.92,59.52,-2.67,57.65,-1.83,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,65.01,0.88,58.82,0,58.16,0,1,False,False
 20260904,63.63,-1.38,58.92,0.1,58.2,0.04,2,False,True
 20260911,66.83,3.2,60.28,1.36,59.59,1.39,3,True,True
+20260918,64.08,-2.75,58.61,-1.67,57.24,-2.35,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8042 | 金山電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.董事會決議或公司決定增資基準日期:115/08/27 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/08/19 4.董事會決議(追補)發行日期:115/07/31 5.發行總金額及股數:新臺幣90,000仟元、普通股9,000仟股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新臺幣10元 9.發行價格:俟定價後另行公告 10.員工認股股數:依公司法第267條規定，保留10%計900仟股由員工認購。 11.原股東認購比率:提撥本次發行股數之80%，計7,200仟股由原股東按認股基準日之股 東名簿所載持股比例認購。 12.公開銷售方式及股數:提撥發行新股總額10%，計900仟股辦理公開申購。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，自停止過戶日 起五日內由股東向本公司股務代理機構辦理拼湊，原股東及員工放棄認購之股份或拼湊 不足一股之畸零股，授權董事長洽特定人按發行價格認購之。 14.本次發行新股之權利義務:與原已發行普通股股份相同 15.本次增資資金用途:償還銀行借款 16.現金增資認股基準日:115/09/28 17.最後過戶日:115/09/23 18.停止過戶起始日期:115/09/24 19.停止過戶截止日期:115/09/28 20.股款繳納期間: 原股東及員工繳款期間：115/10/06~115/11/06 特定人繳款期間：115/11/09~115/11/13 21.與代收及專戶存儲價款行庫訂約日期:待正式簽約後另行公告之。 22.委託代收存款機構:待正式簽約後另行公告之。 23.委託存儲款項機構:待正式簽約後另行公告之。 24.其他應敘明事項: (1)本次現金增資發行普通股9,000仟股乙案，業經金融監督管理委員會115年8月19日金 管證發字第1150352269號函申報生效在案。 (2)除權交易日：115/09/22（最後含權買進日115/09/21） (3)本公司國內第六次無擔保轉換公司債停止受理轉換登記起訖日期115/09/03至 115/09/28日止。債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日 （115/09/03）之前一營業日前（115/09/01），向往來證券商辦理轉換手續。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 8042 | 金山電 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議或公司決定增資基準日期:115/08/27 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/08/19 4.董事會決議(追補)發行日期:115/07/31 5.發行總金額及股數:新臺幣90,000仟元、普通股9,000仟股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新臺幣10元 9.發行價格:每股新台幣98元 10.員工認股股數:依公司法第267條規定，保留10%計900仟股由員工認購。 11.原股東認購比率:提撥本次發行股數之80%，計7,200仟股由原股東按認股基準日之股 東名簿所載持股比例認購。 12.公開銷售方式及股數:提撥發行新股總額10%，計900仟股辦理公開申購。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，自停止過戶日 起五日內由股東向本公司股務代理機構辦理拼湊，原股東及員工放棄認購之股份或拼湊 不足一股之畸零股，授權董事長洽特定人按發行價格認購之。 14.本次發行新股之權利義務:與原已發行普通股股份相同 15.本次增資資金用途:償還銀行借款 16.現金增資認股基準日:115/09/28 17.最後過戶日:115/09/23 18.停止過戶起始日期:115/09/24 19.停止過戶截止日期:115/09/28 20.股款繳納期間: 原股東及員工繳款期間：115/10/06~115/11/06 特定人繳款期間：115/11/09~115/11/13 21.與代收及專戶存儲價款行庫訂約日期:115/09/15 22.委託代收存款機構:台北富邦商業銀行土城分行。 23.委託存儲款項機構:第一商業銀行頭前分行。 24.其他應敘明事項: (1)本次現金增資發行普通股9,000仟股乙案，業經金融監督管理委員會115年8月19日金 管證發字第1150352269號函申報生效在案。 (2)除權交易日：115/09/22（最後含權買進日115/09/21） (3)本公司國內第六次無擔保轉換公司債停止受理轉換登記起訖日期115/09/03至 115/09/28日止。債券持有人如擬申請轉換，最遲應於停止受理轉換登記之始日 （115/09/03）之前一營業日前（115/09/01），向往來證券商辦理轉換手續。 (4)本次現金增資之增資基準日為115年11月16日，並授權董事長視日後特定人繳款情 形，如有變更增資基準日之必要時，得調整訂定之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8042 | 金山電 | 6 | 1 | 5 | 8 | 17 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 8042 | 金山電 | 9 | 4 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

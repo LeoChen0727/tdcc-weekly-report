@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2221 大甲
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:58 Asia/Taipei
+- generated_at: 2026-09-20 22:16:04 Asia/Taipei
 - stock_id: 2221
 - stock_name: 大甲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 256
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,31 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
-- confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_support
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -99,8 +101,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -124,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 103
-- high: 105.5
-- low: 95.4
-- close: 95.4
-- volume: 10136000
-- ma5: 90.44
-- ema23_primary: 75.75
-- distance_to_ema23_pct: 25.95
-- ma20: 75.03
-- ma60: 57.45
-- ma120: 47.82
-- return_5d: 5.07
-- return_20d: 82.41
-- volume_ratio: 2.97
-- distance_to_ma20_pct_auxiliary: 27.15
-- distance_to_high_60_pct: -9.57
+- date: 20260918
+- open: 124
+- high: 127.5
+- low: 119
+- close: 127.5
+- volume: 13517000
+- ma5: 107
+- ema23_primary: 87.36
+- distance_to_ema23_pct: 45.95
+- ma20: 88.14
+- ma60: 62.24
+- ma120: 50.99
+- return_5d: 33.65
+- return_20d: 121.35
+- volume_ratio: 2.47
+- distance_to_ma20_pct_auxiliary: 44.66
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,52.7,54.9,51.7,54,468000,48.84,10.57,48.03,47.08,1.15
-20260818,54,54.7,53.2,54.4,328000,49.3,10.35,48.23,47.24,0.83
-20260819,53.7,53.7,51.8,52.6,264000,49.57,6.1,48.27,47.38,0.81
-20260820,53.2,55,53.2,54.3,320000,49.97,8.67,48.45,47.56,1
-20260821,54.5,57.9,54.3,57.6,480000,50.6,13.82,48.86,47.82,1.45
 20260824,59.4,63.3,58.5,63.3,1174000,51.66,22.53,49.6,48.19,3.13
 20260825,64,69.5,63,67.3,4116000,52.97,27.06,50.65,48.6,7.43
 20260826,68,71.6,67.5,71.4,2012000,54.5,31.01,52.02,49.07,3.17
@@ -166,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,85.8,90,85.6,87.8,2759000,71.91,22.1,70.73,55.74,1.05
 20260910,87.8,96.5,86.3,96.5,6394000,73.96,30.48,72.88,56.63,2.19
 20260911,103,105.5,95.4,95.4,10136000,75.75,25.95,75.03,57.45,2.97
+20260914,92.8,97.8,89.2,89.9,5239000,76.93,16.87,76.83,58.15,1.44
+20260915,88.3,98.8,88.2,96.1,7201000,78.52,22.38,78.91,58.87,1.8
+20260916,96.1,105.5,95.6,105.5,8981000,80.77,30.62,81.56,59.8,2.03
+20260917,110.5,116,108,116,8366000,83.71,38.58,84.64,60.91,1.73
+20260918,124,127.5,119,127.5,13517000,87.36,45.95,88.14,62.24,2.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 66.58
-- over_600_ratio: 64.24
-- over_800_ratio: 64.24
-- over_1000_ratio: 64.24
-- over_400_change_1w: -1.66
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 68.86
+- over_600_ratio: 68.86
+- over_800_ratio: 68.86
+- over_1000_ratio: 66.93
+- over_400_change_1w: 2.28
+- over_800_change_1w: 4.62
+- over_1000_change_1w: 2.69
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,64.71,0,64.71,0,64.71,0,0,False,False
 20260703,64.71,0,64.71,0,64.71,0,0,False,False
 20260709,64.71,0,64.71,0,64.71,0,0,False,False
 20260717,65.83,1.12,64.71,0,64.71,0,1,False,False
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,69.46,3.33,64.71,0,64.71,0,3,False,False
 20260904,68.24,-1.22,64.24,-0.47,64.24,-0.47,4,False,False
 20260911,66.58,-1.66,64.24,0,64.24,0,0,False,False
+20260918,68.86,2.28,68.86,4.62,66.93,2.69,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2221 | 大甲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/09/09 2.公司名稱:大甲永和機械工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款辦理公告， 本公司發行國內第一次無擔保轉換公司債至公告日止，債款代收銀行業已收足所有應 募款項共計新台幣伍億元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2221 | 大甲 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/09/09 2.公司名稱:大甲永和機械工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款辦理公告， 本公司發行國內第一次無擔保轉換公司債至公告日止，債款代收銀行業已收足所有應 募款項共計新台幣伍億元整，並匯撥至存儲專戶銀行，特此公告。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2221 | 大甲 | 14 | 2 | 5 | 10 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260918 | 2221 | 大甲 | 2 | 2 | 4 | 9 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

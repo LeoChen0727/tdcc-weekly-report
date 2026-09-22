@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-09-12 22:18:00 Asia/Taipei
+- generated_at: 2026-09-20 22:18:36 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 346
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 351
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,36 +69,37 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -124,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 110
-- high: 115
-- low: 108.5
-- close: 113
-- volume: 3454472
-- ma5: 115.8
-- ema23_primary: 107.04
-- distance_to_ema23_pct: 5.57
-- ma20: 107.98
-- ma60: 93.43
-- ma120: 97.03
-- return_5d: -7.76
-- return_20d: 43.22
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 4.65
-- distance_to_high_60_pct: -11.72
+- date: 20260918
+- open: 127
+- high: 130.5
+- low: 122.5
+- close: 129.5
+- volume: 20154901
+- ma5: 121.7
+- ema23_primary: 112.52
+- distance_to_ema23_pct: 15.09
+- ma20: 116.76
+- ma60: 95.33
+- ma120: 98.63
+- return_5d: 14.6
+- return_20d: 37.77
+- volume_ratio: 2.93
+- distance_to_ma20_pct_auxiliary: 10.91
+- distance_to_high_60_pct: -1.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,79.6,82.9,78.9,80,852185,80.72,-0.89,77.44,90.95,1.02
-20260818,80.1,88,80,83.4,3721183,80.94,3.03,77.73,90.58,3.75
-20260819,81.1,84.4,80.5,83.6,1654196,81.17,3,77.91,90.19,1.59
-20260820,83.8,91.9,83.8,91.9,4045360,82.06,11.99,78.54,89.94,3.29
-20260821,91.5,96.3,90.2,94,6918574,83.06,13.18,79.31,89.73,4.43
 20260824,91.1,102,88.2,97.2,6471410,84.23,15.39,80.25,89.66,3.48
 20260825,99.3,105,97.3,103.5,10724370,85.84,20.57,81.78,89.53,4.56
 20260826,102,113.5,102,113.5,10909449,88.14,28.77,84,89.53,3.89
@@ -166,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,116,117,112,113,4299159,106.18,6.43,104.78,92.84,0.79
 20260910,112.5,113.5,108.5,110,2321551,106.49,3.29,106.28,93.13,0.42
 20260911,110,115,108.5,113,3454472,107.04,5.57,107.98,93.43,0.61
+20260914,110,117.5,108.5,113,2666232,107.53,5.08,109.63,93.7,0.46
+20260915,111,116.5,111,114,1820514,108.07,5.48,111.16,93.98,0.32
+20260916,114.5,124,113.5,120,5849716,109.07,10.02,112.98,94.36,0.99
+20260917,120,132,119,132,10401607,110.98,18.94,114.98,94.92,1.67
+20260918,127,130.5,122.5,129.5,20154901,112.52,15.09,116.76,95.33,2.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 47.53
-- over_600_ratio: 42.65
-- over_800_ratio: 34.43
-- over_1000_ratio: 30.78
-- over_400_change_1w: -1.52
-- over_800_change_1w: -1.95
-- over_1000_change_1w: -2.04
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 50.75
+- over_600_ratio: 45.29
+- over_800_ratio: 35.99
+- over_1000_ratio: 33.79
+- over_400_change_1w: 3.22
+- over_800_change_1w: 1.56
+- over_1000_change_1w: 3.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,47.23,1.06,30.81,0.77,27.47,-1.49,2,False,True
 20260703,47.68,0.45,31.26,0.45,27.95,0.48,3,False,True
 20260709,46.74,-0.94,31.47,0.21,29.18,1.23,4,False,True
 20260717,43.11,-3.63,30.25,-1.22,29.17,-0.01,0,False,False
@@ -197,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,47.21,4.85,33.25,4.16,32.16,7.95,2,True,True
 20260904,49.05,1.84,36.38,3.13,32.82,0.66,3,True,True
 20260911,47.53,-1.52,34.43,-1.95,30.78,-2.04,0,False,False
+20260918,50.75,3.22,35.99,1.56,33.79,3.01,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | continued_overheated | 1.事實發生日:115/08/31 2.公司名稱:瀚荃股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/29工商時報B03版 6.報導內容:第一段報導:”7月自結損益，單月每股稅後純益（EPS）0.81元... 累計前七月達3.56元...今年獲利挑戰逾7元，明年有機會一個股本。” 7.發生緣由:依主管機關要求，應予澄清說明。 8.因應措施:媒體報導有關本公司營收之預測性資訊，本公司不予評論，實際財務資 訊及獲利狀況均以公開資訊觀測站之公告內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | 1.事實發生日:115/08/31 2.公司名稱:瀚荃股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/29工商時報B03版 6.報導內容:第一段報導:”7月自結損益，單月每股稅後純益（EPS）0.81元... 累計前七月達3.56元...今年獲利挑戰逾7元，明年有機會一個股本。” 7.發生緣由:依主管機關要求，應予澄清說明。 8.因應措施:媒體報導有關本公司營收之預測性資訊，本公司不予評論，實際財務資 訊及獲利狀況均以公開資訊觀測站之公告內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 8103 | 瀚荃 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.事實發生日:115/08/31 2.公司名稱:瀚荃股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/29工商時報B03版 6.報導內容:第一段報導:”7月自結損益，單月每股稅後純益（EPS）0.81元... 累計前七月達3.56元...今年獲利挑戰逾7元，明年有機會一個股本。” 7.發生緣由:依主管機關要求，應予澄清說明。 8.因應措施:媒體報導有關本公司營收之預測性資訊，本公司不予評論，實際財務資 訊及獲利狀況均以公開資訊觀測站之公告內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8103 | 瀚荃 | 2 | 2 | 2 | 4 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260918 | 8103 | 瀚荃 | 5 | 1 | 5 | 5 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 8103 | 瀚荃 | 18 | 0 | 4769720.0 | 0.0 |  | call_inflow |
+| 20260918 | 8103 | 瀚荃 | 20 | 0 | 10691320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

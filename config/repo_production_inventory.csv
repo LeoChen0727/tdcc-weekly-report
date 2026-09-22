@@ -1,4 +1,5 @@
 path,kind,owner,status,purpose,allowed_workflows,allowed_stage_patterns
+scripts/capture_daily_price_diagnostics.py,python,repo_infrastructure,active,current-attempt official price command diagnostics without changing producer exit semantics,.github/workflows/daily_full_pipeline.yml,
 scripts/repair_historical_tpex_prices.py,python,official_price_data,active,bounded official raw TPEx history correction with listed physical row parity and offline replay,,
 tests/test_historical_tpex_price_repair.py,test_python,official_price_data,active,TPEx historical correction listed parity identity date repetition and validation scope regressions,,
 tests/test_backfill_official_daily_price.py,test_python,official_price_data,active,official TPEx backfill response date full identity and repeated batch regressions,,

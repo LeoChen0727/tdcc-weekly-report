@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:21 Asia/Taipei
+- generated_at: 2026-09-20 22:17:47 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
+- date: 20260918
 - open: 503
-- high: 537
+- high: 525
 - low: 501
-- close: 509
-- volume: 17380948
-- ma5: 514.8
-- ema23_primary: 497.11
-- distance_to_ema23_pct: 2.39
-- ma20: 522.67
-- ma60: 406.89
-- ma120: 325.13
-- return_5d: -1.55
-- return_20d: 6.04
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: -2.62
-- distance_to_high_60_pct: -15.03
+- close: 505
+- volume: 22460318
+- ma5: 516.8
+- ema23_primary: 503.77
+- distance_to_ema23_pct: 0.24
+- ma20: 528.08
+- ma60: 424.67
+- ma120: 340.7
+- return_5d: -0.79
+- return_20d: -1.56
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -4.37
+- distance_to_high_60_pct: -15.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,475.5,491.5,466,481,2341561,380.75,26.33,359.35,324.12,0.13
-20260818,486,500,477,488,3600293,389.69,25.23,366.02,327.89,0.21
-20260819,466.5,500,466.5,484,3111366,397.55,21.75,371.88,331.51,0.2
-20260820,508,510,490,510,3222151,406.92,25.33,380.2,335.43,0.22
-20260821,534,555,498.5,513,38855929,415.76,23.39,390.38,339.38,2.48
 20260824,509,525,478,482.5,17393180,421.32,14.52,399.15,343.07,1.1
 20260825,482,530,480.5,530,26109789,430.38,23.15,411.82,347.43,1.62
 20260826,530,583,525,583,29746728,443.09,31.57,428.52,352.23,1.75
@@ -167,17 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,513,542,512,523,14888663,493.94,5.88,518.73,398.52,0.96
 20260910,516,520,507,519,6925997,496.03,4.63,521.23,402.87,0.45
 20260911,503,537,501,509,17380948,497.11,2.39,522.67,406.89,1.08
+20260914,492,521,482,515,10165821,498.6,3.29,524.38,410.81,0.61
+20260915,514,531,511,519,11540383,500.3,3.74,525.92,414.32,0.68
+20260916,525,555,514,550,21280091,504.44,9.03,529.23,418.81,1.19
+20260917,548,548,495,495,37381131,503.66,-1.72,528.48,421.91,1.91
+20260918,503,525,501,505,22460318,503.77,0.24,528.08,424.67,1.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 66.94
-- over_600_ratio: 64.91
-- over_800_ratio: 61.68
-- over_1000_ratio: 59.41
-- over_400_change_1w: -0.77
-- over_800_change_1w: -1.85
-- over_1000_change_1w: -1.9
+- as_of_date: 20260918
+- over_400_ratio: 63.83
+- over_600_ratio: 62.06
+- over_800_ratio: 58.78
+- over_1000_ratio: 55.69
+- over_400_change_1w: -3.11
+- over_800_change_1w: -2.9
+- over_1000_change_1w: -3.72
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,65.32,7.69,60.85,7.51,59.09,8,6,True,True
 20260703,65.3,-0.02,61.36,0.51,58.8,-0.29,7,False,True
 20260709,65.25,-0.05,60.55,-0.81,58.55,-0.25,0,False,False
 20260717,63.82,-1.43,58.92,-1.63,56.7,-1.85,0,False,False
@@ -198,23 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,68.94,0.17,64.95,0.71,62.64,0.4,4,True,True
 20260904,67.71,-1.23,63.53,-1.42,61.31,-1.33,0,False,False
 20260911,66.94,-0.77,61.68,-1.85,59.41,-1.9,0,False,False
+20260918,63.83,-3.11,58.78,-2.9,55.69,-3.72,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6213 | 聯茂 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_inflow | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6213 | 聯茂 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6213 | 聯茂 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6213 | 聯茂 | 7 | 7 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6213 | 聯茂 | 10 | 10 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6213 | 聯茂 | 111 | 7 | 12749380.0 | 529160.0 | 24.09 | call_inflow |
+| 20260918 | 6213 | 聯茂 | 106 | 7 | 16855150.0 | 551970.0 | 30.54 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

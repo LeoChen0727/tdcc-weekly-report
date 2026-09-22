@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2497 怡利電
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:11 Asia/Taipei
+- generated_at: 2026-09-20 22:16:19 Asia/Taipei
 - stock_id: 2497
 - stock_name: 怡利電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 352
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 357
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 42.2
-- high: 43.2
-- low: 42.2
-- close: 43.1
-- volume: 162185
-- ma5: 43.65
-- ema23_primary: 45.5
-- distance_to_ema23_pct: -5.28
-- ma20: 44.91
-- ma60: 50.97
-- ma120: 53.69
-- return_5d: -4.22
-- return_20d: -7.41
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -4.03
-- distance_to_high_60_pct: -39.12
+- date: 20260918
+- open: 44.25
+- high: 44.5
+- low: 43.6
+- close: 44.35
+- volume: 292126
+- ma5: 43.47
+- ema23_primary: 44.8
+- distance_to_ema23_pct: -1.02
+- ma20: 44.43
+- ma60: 49.69
+- ma120: 53.67
+- return_5d: 2.9
+- return_20d: -2.74
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: -0.17
+- distance_to_high_60_pct: -37.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,46.6,46.85,45.8,46.4,226525,49.65,-6.55,48.22,56.26,0.3
-20260818,45.9,46.15,45.05,45.05,276273,49.27,-8.56,47.77,56.06,0.36
-20260819,45.5,45.5,44.5,44.6,212810,48.88,-8.75,47.28,55.82,0.28
-20260820,44.8,45.55,44.8,45.35,174710,48.58,-6.66,46.91,55.6,0.24
-20260821,45.35,46.1,45.35,45.6,166469,48.34,-5.66,46.58,55.39,0.23
 20260824,45.95,46.2,45.15,45.3,157757,48.08,-5.79,46.21,55.13,0.22
 20260825,45.2,45.3,43.95,45.25,145671,47.85,-5.43,46.18,54.89,0.22
 20260826,45.5,45.9,45.15,45.65,130274,47.66,-4.22,46.33,54.56,0.25
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,43.8,44.05,43.65,44,188335,45.97,-4.28,45.28,51.6,0.77
 20260910,43.65,43.75,42.9,43,320974,45.72,-5.95,45.08,51.27,1.46
 20260911,42.2,43.2,42.2,43.1,162185,45.5,-5.28,44.91,50.97,0.76
+20260914,43.1,43.55,42.3,43.05,127267,45.3,-4.96,44.74,50.68,0.61
+20260915,43.05,43.65,42.85,42.95,155751,45.1,-4.77,44.64,50.41,0.77
+20260916,43,43.5,43,43.35,117302,44.96,-3.57,44.58,50.16,0.59
+20260917,43.5,43.9,43.35,43.65,466074,44.85,-2.67,44.49,49.91,2.19
+20260918,44.25,44.5,43.6,44.35,292126,44.8,-1.02,44.43,49.69,1.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 65.38
-- over_600_ratio: 63.17
-- over_800_ratio: 60.54
-- over_1000_ratio: 57.71
-- over_400_change_1w: -0.41
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.77
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 65.5
+- over_600_ratio: 62.88
+- over_800_ratio: 59.76
+- over_1000_ratio: 57.65
+- over_400_change_1w: 0.12
+- over_800_change_1w: -0.78
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,68.82,-0.13,60.54,-0.5,57,0.11,3,False,True
 20260703,68.55,-0.27,61.65,1.11,57.39,0.39,4,False,True
 20260709,70.17,1.62,63.85,2.2,58.96,1.57,5,True,True
 20260717,69.74,-0.43,62.76,-1.09,58.59,-0.37,6,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,65.67,-0.41,60.6,-0.24,58.49,-0.24,0,False,False
 20260904,65.79,0.12,60.59,-0.01,58.48,-0.01,1,False,False
 20260911,65.38,-0.41,60.54,-0.05,57.71,-0.77,0,False,False
+20260918,65.5,0.12,59.76,-0.78,57.65,-0.06,1,False,False
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2497 | 怡利電 | 6 | 0 | 1200.0 | 0.0 |  | no_signal |
+| 20260918 | 2497 | 怡利電 | 6 | 0 | 3500.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

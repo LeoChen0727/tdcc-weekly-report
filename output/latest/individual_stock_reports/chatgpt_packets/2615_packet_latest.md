@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2615 萬海
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:14 Asia/Taipei
+- generated_at: 2026-09-20 22:16:23 Asia/Taipei
 - stock_id: 2615
 - stock_name: 萬海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 109
-- high: 114.5
-- low: 109
-- close: 112
-- volume: 27656631
-- ma5: 113
-- ema23_primary: 108.82
-- distance_to_ema23_pct: 2.92
-- ma20: 113.81
-- ma60: 92.91
-- ma120: 85.78
-- return_5d: -2.61
-- return_20d: 23.62
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: -1.59
-- distance_to_high_60_pct: -16.73
+- date: 20260918
+- open: 118
+- high: 125
+- low: 115
+- close: 120.5
+- volume: 30550377
+- ma5: 116.2
+- ema23_primary: 111.57
+- distance_to_ema23_pct: 8
+- ma20: 115.4
+- ma60: 95.99
+- ma120: 87.51
+- return_5d: 7.59
+- return_20d: -3.21
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 4.42
+- distance_to_high_60_pct: -10.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,91.3,99.6,90.8,99.6,49767959,86.36,15.33,86.48,83.01,3.56
-20260818,99.9,108,98.9,105,77404867,87.92,19.43,87.47,83.36,4.69
-20260819,102.5,107,99.8,106.5,41215791,89.47,19.04,88.55,83.75,2.32
-20260820,106.5,113.5,105.5,113.5,76406624,91.47,24.09,90,84.28,3.61
-20260821,113,124.5,111.5,124.5,87111618,94.22,32.14,91.87,84.99,3.57
 20260824,130,130,123,124.5,89461603,96.74,28.69,93.89,85.72,3.16
 20260825,128.5,134.5,124.5,126.5,90375370,99.22,27.49,96.04,86.46,2.78
 20260826,127,129.5,114,115,81128921,100.54,14.38,97.54,86.97,2.27
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,113,117.5,110.5,116,25417973,108.36,7.05,111.58,91.9,0.59
 20260910,116,117,106.5,110.5,35958208,108.53,1.81,112.73,92.39,0.81
 20260911,109,114.5,109,112,27656631,108.82,2.92,113.81,92.91,0.62
+20260914,113,114.5,110,113,13184172,109.17,3.51,114.47,93.46,0.31
+20260915,113.5,115,111,112,8078477,109.41,2.37,114.83,93.98,0.21
+20260916,112.5,118.5,112,115,25797544,109.87,4.67,115.25,94.59,0.67
+20260917,114.5,121,113.5,120.5,18631521,110.76,8.79,115.6,95.28,0.52
+20260918,118,125,115,120.5,30550377,111.57,8,115.4,95.99,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 89.27
-- over_600_ratio: 87.9
-- over_800_ratio: 87.25
-- over_1000_ratio: 86.4
-- over_400_change_1w: -0.35
-- over_800_change_1w: -0.61
-- over_1000_change_1w: -0.74
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 89.72
+- over_600_ratio: 88.44
+- over_800_ratio: 87.73
+- over_1000_ratio: 86.89
+- over_400_change_1w: 0.45
+- over_800_change_1w: 0.48
+- over_1000_change_1w: 0.49
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,85.12,-0.24,83.5,-0.2,82.59,-0.31,0,False,False
 20260703,85.02,-0.1,83.39,-0.11,82.57,-0.02,0,False,False
 20260709,85.1,0.08,83.3,-0.09,82.57,0,1,False,False
 20260717,85.38,0.28,83.62,0.32,82.83,0.26,2,True,True
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,89.74,0.7,88.06,0.56,87.33,0.65,8,True,True
 20260904,89.62,-0.12,87.86,-0.2,87.14,-0.19,0,False,False
 20260911,89.27,-0.35,87.25,-0.61,86.4,-0.74,0,False,False
+20260918,89.72,0.45,87.73,0.48,86.89,0.49,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2615 | 萬海 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2615 | 萬海 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 2615 | 萬海 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2615 | 萬海 | 6 | 6 | 5 | 6 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260918 | 2615 | 萬海 | 9 | 9 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2615 | 萬海 | 124 | 15 | 21543820.0 | 431050.0 | 49.98 | no_signal |
+| 20260918 | 2615 | 萬海 | 128 | 15 | 59665430.0 | 1443940.0 | 41.32 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2603 長榮
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:13 Asia/Taipei
+- generated_at: 2026-09-20 22:16:22 Asia/Taipei
 - stock_id: 2603
 - stock_name: 長榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 229
-- high: 235.5
-- low: 228.5
-- close: 234.5
-- volume: 8626038
-- ma5: 232.3
-- ema23_primary: 230.41
-- distance_to_ema23_pct: 1.77
-- ma20: 236.93
-- ma60: 211.62
-- ma120: 210.55
-- return_5d: 0.64
-- return_20d: 7.08
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -1.02
-- distance_to_high_60_pct: -8.58
+- date: 20260918
+- open: 242
+- high: 245.5
+- low: 238.5
+- close: 240.5
+- volume: 10734765
+- ma5: 238.5
+- ema23_primary: 233.36
+- distance_to_ema23_pct: 3.06
+- ma20: 236.18
+- ma60: 215.72
+- ma120: 212.01
+- return_5d: 2.56
+- return_20d: -4.37
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 1.83
+- distance_to_high_60_pct: -6.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,220,232,219,231.5,38361520,209.32,10.6,208.55,206.53,3.68
-20260818,232,242,231,238,30600277,211.71,12.42,210.3,206.85,2.78
-20260819,236,240.5,232,240.5,20579536,214.11,12.33,212.03,207.29,1.8
-20260820,241.5,249,240.5,246,31259008,216.77,13.49,214.15,207.87,2.46
-20260821,246.5,254,246,251.5,33249355,219.66,14.49,216.43,208.53,2.37
 20260824,254,256.5,248.5,250.5,22432318,222.23,12.72,218.78,209.19,1.52
 20260825,251,253,242.5,246,24200494,224.21,9.72,221.07,209.74,1.55
 20260826,243,245.5,228,231,28187454,224.78,2.77,222.55,209.86,1.72
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,229,234,227,234,8646886,229.96,1.76,235.38,210.77,0.48
 20260910,232.5,235,228,231,6710165,230.04,0.42,236.15,210.94,0.37
 20260911,229,235.5,228.5,234.5,8626038,230.41,1.77,236.93,211.62,0.49
+20260914,235,237,230.5,237,12908688,230.96,2.61,237.2,212.35,0.78
+20260915,235,237,231.5,233.5,6962846,231.17,1.01,236.97,213.03,0.46
+20260916,234,241,233,239,12583031,231.83,3.09,236.9,213.86,0.85
+20260917,236.5,242.5,236,242.5,8766454,232.72,4.2,236.72,214.79,0.64
+20260918,242,245.5,238.5,240.5,10734765,233.36,3.06,236.18,215.72,0.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 75.21
-- over_600_ratio: 73.26
-- over_800_ratio: 71.68
-- over_1000_ratio: 70.01
-- over_400_change_1w: -0.29
-- over_800_change_1w: -0.4
-- over_1000_change_1w: -0.43
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 75.44
+- over_600_ratio: 73.58
+- over_800_ratio: 71.81
+- over_1000_ratio: 70.35
+- over_400_change_1w: 0.23
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.34
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,69.95,-1.21,66.74,-1.21,65.21,-1.22,0,False,False
 20260703,69.42,-0.53,66.19,-0.55,64.53,-0.68,0,False,False
 20260709,70.17,0.75,67.11,0.92,65.26,0.73,1,True,True
 20260717,70.59,0.42,67.49,0.38,65.94,0.68,2,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,75.39,0.35,72.17,0.32,70.47,0.43,8,True,True
 20260904,75.5,0.11,72.08,-0.09,70.44,-0.03,9,False,False
 20260911,75.21,-0.29,71.68,-0.4,70.01,-0.43,0,False,False
+20260918,75.44,0.23,71.81,0.13,70.35,0.34,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2603 | 長榮 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 344/346/348 Carabelas Street - 950/952/954 Presidente Roque&#8239;Saenz Pena Avenue, San&#8239;Nicolas, Buenos&#8239;Aires, Argentina 2.事實發生日:115/9/7~115/9/7 3.董事會通過日期: 民國115年9月7日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 土地面積：301.735平方公尺 建物面積：3,577.15平方公尺 交易總金額：USD 2,647,211.89 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: Evergreen Argentina S.A. (Evergreen Shipping Agency (Argentina) S.A.U.之關係人) 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：地點符合營運需求 前次移轉之所有人：VARIG S.A. 前次移轉之所有人與公司及交易相對人間相互之關係：非關係人 前次移轉日期及移轉金額：1999/5/10，USD 2,500,000 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依合約規定 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易決定方式：議價 價格決定之參考依據：市價 決策單位：Evergreen Shipping Agency (Argentina) S.A.U.之董事會 12.專業估價者事務所或公司名稱及其估價金額: 世邦魏理仕不動產估價師聯合事務所：USD 2,990,000 13.專業估價師姓名: 施甫學 14.專業估價師開業證書字號: (108)北市估字第000273號 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供營業使用 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2603 | 長榮 | 3 | 3 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2603 | 長榮 | 149 | 4 | 22045790.0 | 102240.0 | 215.63 | call_inflow |
+| 20260918 | 2603 | 長榮 | 144 | 4 | 18954810.0 | 48770.0 | 388.66 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

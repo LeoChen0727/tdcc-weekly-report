@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2421 建準
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:06 Asia/Taipei
+- generated_at: 2026-09-20 22:16:13 Asia/Taipei
 - stock_id: 2421
 - stock_name: 建準
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 161
-- high: 166.5
-- low: 160
-- close: 164.5
-- volume: 2503930
-- ma5: 167.3
-- ema23_primary: 159.84
-- distance_to_ema23_pct: 2.91
-- ma20: 159.53
-- ma60: 146.46
-- ma120: 146.22
-- return_5d: -7.58
-- return_20d: 12.67
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 3.12
-- distance_to_high_60_pct: -10.6
+- date: 20260918
+- open: 164.5
+- high: 169
+- low: 164.5
+- close: 167
+- volume: 3294198
+- ma5: 162.1
+- ema23_primary: 160.72
+- distance_to_ema23_pct: 3.91
+- ma20: 163.8
+- ma60: 147.68
+- ma120: 147.35
+- return_5d: 1.52
+- return_20d: 17.19
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 1.95
+- distance_to_high_60_pct: -9.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,146,149.5,144,148,1495083,142.29,4.01,138.57,145.22,0.55
-20260818,149,149.5,144.5,145.5,1976757,142.56,2.06,139.43,145.01,0.72
-20260819,143,147.5,142,145,1663081,142.76,1.57,140.07,144.72,0.61
-20260820,146,148,143,144,1064410,142.87,0.79,140.6,144.37,0.39
-20260821,144,144.5,141,142.5,924879,142.84,-0.24,141.22,144.04,0.34
 20260824,141.5,146,141.5,143.5,1242470,142.89,0.43,141.82,143.82,0.46
 20260825,143.5,144,140.5,144,1166133,142.98,0.71,142.7,143.57,0.43
 20260826,144,151.5,143.5,151.5,2780994,143.69,5.43,144.05,143.35,1.04
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,165.5,169,160,167.5,4682920,158.91,5.4,157.82,145.75,0.88
 20260910,166,168.5,164,165,1957046,159.42,3.5,158.6,146.12,0.37
 20260911,161,166.5,160,164.5,2503930,159.84,2.91,159.53,146.46,0.47
+20260914,161,165,161,163,2126649,160.11,1.81,160.28,146.76,0.4
+20260915,163.5,163.5,158,158,2719238,159.93,-1.21,160.9,146.89,0.5
+20260916,159,161.5,158,160.5,1439873,159.98,0.33,161.68,147.12,0.27
+20260917,161,166.5,161,162,2197326,160.15,1.16,162.57,147.32,0.4
+20260918,164.5,169,164.5,167,3294198,160.72,3.91,163.8,147.68,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 64.26
-- over_600_ratio: 57.66
-- over_800_ratio: 54.75
-- over_1000_ratio: 52.8
-- over_400_change_1w: -0.09
-- over_800_change_1w: -0.6
-- over_1000_change_1w: -0.62
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 64.09
+- over_600_ratio: 57.86
+- over_800_ratio: 54.45
+- over_1000_ratio: 52.55
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.3
+- over_1000_change_1w: -0.25
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,57.22,-0.28,46.97,-0.59,44.69,-0.29,0,False,False
 20260703,57.01,-0.21,47.22,0.25,45.89,1.2,1,False,True
 20260709,57.24,0.23,47.15,-0.07,46.14,0.25,2,False,True
 20260717,57.11,-0.13,47.48,0.33,45.47,-0.67,3,False,True
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,60.29,1.15,51.47,1.5,49.91,1.56,2,True,True
 20260904,64.35,4.06,55.35,3.88,53.42,3.51,3,True,True
 20260911,64.26,-0.09,54.75,-0.6,52.8,-0.62,0,False,False
+20260918,64.09,-0.17,54.45,-0.3,52.55,-0.25,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2421 | 建準 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2421 | 建準 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2421 | 建準 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 華潤元大現金通貨幣B類 2.事實發生日:115/8/18~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依公司核定權限辦理 民國115年08月18日 5.交易數量、每單位價格及交易總金額: 交易單位數量：72,000,000 每單位價格：人民幣1元 交易總金額：人民幣72,000,000元 (新台幣342,432,000元，匯率4.756) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人：華潤元大基金公司 與公司關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 處分利益：人民幣118,795.22元(新台幣564,990.07，匯率4.756) 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 現金匯款一次付清 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依公司核定權限辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有本交易證券數量：68,280,867.11 累積持有本交易證券金額：人民幣68,280,867.11元 持股比例：不適用 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：2.344% 占業主權益比例：3.853% 營運資金數額：新台幣2,743,997,398元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 保本固定收益型理財投資 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 2421 | 建準 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_inflow | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 華潤元大現金通貨幣B類 2.事實發生日:115/8/18~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依公司核定權限辦理 民國115年08月18日 5.交易數量、每單位價格及交易總金額: 交易單位數量：72,000,000 每單位價格：人民幣1元 交易總金額：人民幣72,000,000元 (新台幣342,432,000元，匯率4.756) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人：華潤元大基金公司 與公司關係：無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 處分利益：人民幣118,795.22元(新台幣564,990.07，匯率4.756) 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 現金匯款一次付清 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依公司核定權限辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有本交易證券數量：68,280,867.11 累積持有本交易證券金額：人民幣68,280,867.11元 持股比例：不適用 權利受限情形：無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：2.344% 占業主權益比例：3.853% 營運資金數額：新台幣2,743,997,398元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 保本固定收益型理財投資 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2421 | 建準 | 3 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2421 | 建準 | 6 | 5 | 5 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2421 | 建準 | 78 | 1 | 7921750.0 | 0.0 |  | no_signal |
+| 20260918 | 2421 | 建準 | 84 | 2 | 8656430.0 | 1590.0 | 5444.3 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

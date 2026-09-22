@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:22 Asia/Taipei
+- generated_at: 2026-09-20 22:17:48 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: high_level_consolidation
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,6 +100,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -124,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 33.05
-- high: 33.35
-- low: 30
-- close: 30
-- volume: 41710661
-- ma5: 30.85
-- ema23_primary: 28.33
-- distance_to_ema23_pct: 5.91
-- ma20: 28.32
-- ma60: 23.39
-- ma120: 18.11
-- return_5d: -10.45
-- return_20d: 57.48
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: 5.95
-- distance_to_high_60_pct: -18.03
+- date: 20260918
+- open: 44.05
+- high: 48
+- low: 42.3
+- close: 45.7
+- volume: 129839900
+- ma5: 39.75
+- ema23_primary: 32.56
+- distance_to_ema23_pct: 40.37
+- ma20: 33.01
+- ma60: 25.53
+- ma120: 19.23
+- return_5d: 52.33
+- return_20d: 115.57
+- volume_ratio: 4.35
+- distance_to_ma20_pct_auxiliary: 38.43
+- distance_to_high_60_pct: -4.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,19.05,19.65,18.7,19.2,5520455,20.52,-6.44,20.25,18.39,0.34
-20260818,19.4,21.1,19.4,21.1,15604523,20.57,2.58,20.39,18.52,0.93
-20260819,21.1,23.2,21.05,21.3,55232956,20.63,3.25,20.5,18.64,2.99
-20260820,21.7,22.3,21.5,22,20639230,20.74,6.05,20.7,18.79,1.09
-20260821,21.65,22.05,21.2,21.2,7637747,20.78,2.01,20.82,18.92,0.42
 20260824,21.2,23.3,21,23.3,19067009,20.99,10.99,21.05,19.09,1.02
 20260825,23.35,25.6,23.1,25.6,74889096,21.38,19.76,21.3,19.3,3.52
 20260826,27.8,28.15,27.7,28.15,7681500,21.94,28.3,21.58,19.54,0.37
@@ -166,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,30.05,31.8,29.55,29.65,15254890,27.77,6.77,27.12,22.75,0.79
 20260910,29.65,32.6,29.45,32.6,15232595,28.17,15.71,27.77,23.1,0.78
 20260911,33.05,33.35,30,30,41710661,28.33,5.91,28.32,23.39,1.95
+20260914,29.5,33,29.4,33,33483872,28.72,14.92,29,23.73,1.47
+20260915,33.95,36.3,33.05,36.3,81114487,29.35,23.69,29.77,24.13,3.11
+20260916,39.85,39.9,39.6,39.9,6533964,30.23,32,30.7,24.57,0.28
+20260917,43.85,43.85,42.15,43.85,23028325,31.36,39.82,31.79,25.04,0.97
+20260918,44.05,48,42.3,45.7,129839900,32.56,40.37,33.01,25.53,4.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 29.66
-- over_600_ratio: 26.46
-- over_800_ratio: 25.29
-- over_1000_ratio: 20.73
-- over_400_change_1w: 2.67
-- over_800_change_1w: 2.3
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 32.59
+- over_600_ratio: 29.07
+- over_800_ratio: 25.79
+- over_1000_ratio: 24.98
+- over_400_change_1w: 2.93
+- over_800_change_1w: 0.5
+- over_1000_change_1w: 4.25
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,29.68,3.9,23.48,3.79,20.99,3.57,5,True,True
 20260703,29.2,-0.48,23.56,0.08,22.05,1.06,6,False,True
 20260709,31.87,2.67,23.94,0.38,23.18,1.13,7,True,True
 20260717,31.4,-0.47,25.61,1.67,24.86,1.68,8,False,True
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,28.73,9.01,25.12,9.5,24.39,9.51,2,True,True
 20260904,26.99,-1.74,22.99,-2.13,20.59,-3.8,0,False,False
 20260911,29.66,2.67,25.29,2.3,20.73,0.14,1,True,True
+20260918,32.59,2.93,25.79,0.5,24.98,4.25,2,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6226 | 光鼎 | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/08/26 2.發生緣由:因本公司有價證券於集中交易市場達公布注意交易資訊標準， 故依「臺灣證券交易所股份有限公司」通知公告辦理。 3.財務業務資訊:            (月)                      (季)              (最近四季累計) --------------------------    ---------------------   -----------------         最近一月    與去年      最近一季     與去年      (114年第3季 科目   (115年07月)  同期       (115年第2季)  同期        至115年第2季)         (自結數)    增減%       (核閱數)     增減%       (查核/核閱數) ==========================    =====================   ================= 營業收入    60    16.52%          175       13.18%           624 (百萬) 稅前淨利   -13         -           10      442.94%             5 (百萬) 歸屬母公司 業主淨利   -14         -            2      116.21%            -3 (百萬) 每股盈餘   -0.12         -        0.02     115.38%          -0.04 (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6226 | 光鼎 | 3 | 3 | 3 | 3 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

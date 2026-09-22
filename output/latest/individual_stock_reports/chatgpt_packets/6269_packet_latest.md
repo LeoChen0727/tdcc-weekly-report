@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:24 Asia/Taipei
+- generated_at: 2026-09-20 22:17:51 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 65.3
-- high: 67.3
-- low: 64.7
-- close: 66.1
-- volume: 3488730
-- ma5: 67.12
-- ema23_primary: 66.73
-- distance_to_ema23_pct: -0.94
-- ma20: 67.39
-- ma60: 64.67
-- ma120: 64.54
-- return_5d: -2.36
-- return_20d: 0.61
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -1.91
-- distance_to_high_60_pct: -28
+- date: 20260918
+- open: 64.5
+- high: 65
+- low: 63
+- close: 64.1
+- volume: 4387337
+- ma5: 64.16
+- ema23_primary: 65.82
+- distance_to_ema23_pct: -2.61
+- ma20: 67.44
+- ma60: 63.25
+- ma120: 64.64
+- return_5d: -3.03
+- return_20d: 2.72
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -4.96
+- distance_to_high_60_pct: -22.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,66,67.6,65.3,66.5,2758212,61.9,7.44,58.7,65.08,0.52
-20260818,65.8,66.5,63.9,64.4,2974942,62.1,3.7,59.12,65.12,0.55
-20260819,62.5,64.7,62.4,62.7,2635427,62.15,0.88,59.35,65.08,0.49
-20260820,63.5,63.9,62.2,63.6,1982743,62.27,2.13,59.75,65.07,0.37
-20260821,63.6,63.6,62.4,62.4,1373512,62.28,0.19,60.16,65.07,0.26
 20260824,62.3,63.5,61.9,61.9,1305140,62.25,-0.57,60.55,65.08,0.25
 20260825,61.9,61.9,59,61.9,2672818,62.22,-0.52,61.08,65.07,0.52
 20260826,62.8,67.2,62.4,66.3,4899914,62.56,5.97,61.94,65.02,0.97
@@ -167,18 +162,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,66.5,71,66.5,69.3,7771233,66.8,3.74,67.28,65.01,0.88
 20260910,69,69,65.6,66.6,6765899,66.78,-0.27,67.36,64.9,0.76
 20260911,65.3,67.3,64.7,66.1,3488730,66.73,-0.94,67.39,64.67,0.39
+20260914,65.8,66.4,63.7,64.7,3565607,66.56,-2.79,67.3,64.42,0.4
+20260915,64.3,64.8,63.1,63.3,2615223,66.28,-4.5,67.24,64.02,0.29
+20260916,63.5,65.8,63.5,65,2523412,66.18,-1.78,67.36,63.7,0.28
+20260917,65.8,66.6,63.3,63.7,2709677,65.97,-3.44,67.36,63.45,0.3
+20260918,64.5,65,63,64.1,4387337,65.82,-2.61,67.44,63.25,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 32
-- over_600_ratio: 28.78
-- over_800_ratio: 27.12
-- over_1000_ratio: 25.52
-- over_400_change_1w: -0.68
-- over_800_change_1w: -0.88
-- over_1000_change_1w: -0.63
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260918
+- over_400_ratio: 32.02
+- over_600_ratio: 28.72
+- over_800_ratio: 26.66
+- over_1000_ratio: 25.29
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.46
+- over_1000_change_1w: -0.23
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,35.81,-1.59,30.13,-1.64,28.24,-1.89,0,False,False
 20260703,32.38,-3.43,26.34,-3.79,25.23,-3.01,0,False,False
 20260709,31.19,-1.19,25.33,-1.01,24.21,-1.02,0,False,False
 20260717,30.3,-0.89,23.84,-1.49,22.72,-1.49,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,34.95,2.6,29.27,2.42,27.62,2.15,4,True,True
 20260904,32.68,-2.27,28,-1.27,26.15,-1.47,0,False,False
 20260911,32,-0.68,27.12,-0.88,25.52,-0.63,0,False,False
+20260918,32.02,0.02,26.66,-0.46,25.29,-0.23,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6269 | 台郡 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間         (月)                   (季)                    (最近四季累計) -----------------------------------------------------------------------------            最近一月   與去年同期     最近一季   與去年同期     114年第3季至           (115年06月)      增減%    115年第2季       增減%      115年第2季            IFRS合併                   會計師                      會計師             自結數                   查核(合併)                 查核(合併) ----------------------------------------------------------------------------- 營業收入     1,716        -0.99%       5,380       -2.13%        22,528 (百萬) 稅前淨利      -179        30.48%        -638         8.7%        -3,121 (百萬) 歸屬母公司 業主淨利      -152        17.61%        -535      -17.48%        -2,571 (百萬) 每股盈餘     -0.47        17.54%       -1.68      -18.44%         -8.05 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6269 | 台郡 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/10 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊: 期間         (月)                   (季)                    (最近四季累計) -----------------------------------------------------------------------------            最近一月   與去年同期     最近一季   與去年同期     114年第3季至           (115年06月)      增減%    115年第2季       增減%      115年第2季            IFRS合併                   會計師                      會計師             自結數                   查核(合併)                 查核(合併) ----------------------------------------------------------------------------- 營業收入     1,716        -0.99%       5,380       -2.13%        22,528 (百萬) 稅前淨利      -179        30.48%        -638         8.7%        -3,121 (百萬) 歸屬母公司 業主淨利      -152        17.61%        -535      -17.48%        -2,571 (百萬) 每股盈餘     -0.47        17.54%       -1.68      -18.44%         -8.05 (元)  4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6269 | 台郡 | 6 | 6 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6269 | 台郡 | 9 | 9 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6269 | 台郡 | 74 | 0 | 1374520.0 | 0.0 |  | no_signal |
+| 20260918 | 6269 | 台郡 | 77 | 1 | 693100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:35 Asia/Taipei
+- generated_at: 2026-09-20 22:16:49 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -124,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 30.25
-- high: 31.15
-- low: 30.25
-- close: 30.75
-- volume: 2234714
-- ma5: 30.31
-- ema23_primary: 29.25
-- distance_to_ema23_pct: 5.13
-- ma20: 28.62
-- ma60: 30.33
-- ma120: 33.07
-- return_5d: 2.5
-- return_20d: 10.61
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 7.42
-- distance_to_high_60_pct: -15.64
+- date: 20260918
+- open: 30.7
+- high: 30.7
+- low: 30
+- close: 30.15
+- volume: 1524750
+- ma5: 30.04
+- ema23_primary: 29.53
+- distance_to_ema23_pct: 2.08
+- ma20: 29.29
+- ma60: 29.95
+- ma120: 32.84
+- return_5d: -1.95
+- return_20d: 9.44
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -17.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,27.85,28.1,27.6,28,850727,29.26,-4.32,28.68,32.71,0.51
-20260818,27.9,28.05,26.8,26.9,1869863,29.07,-7.46,28.5,32.59,1.12
-20260819,26.6,27.35,26.3,27.15,1133809,28.91,-6.08,28.32,32.44,0.68
-20260820,27.35,27.65,27,27.3,1015325,28.77,-5.12,28.16,32.31,0.62
-20260821,27.3,27.75,27.1,27.55,642692,28.67,-3.91,28.05,32.17,0.4
 20260824,27.55,27.8,27.1,27.15,754925,28.54,-4.89,27.89,32.02,0.49
 20260825,27.4,27.4,26.85,27.25,658150,28.44,-4.17,27.83,31.84,0.45
 20260826,27.3,27.9,27.3,27.75,757937,28.38,-2.22,27.87,31.65,0.58
@@ -166,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,30.1,31,30.1,30.4,3006036,28.97,4.93,28.36,30.47,1.19
 20260910,30.1,31.2,30.1,30.65,2862913,29.11,5.28,28.48,30.41,1.1
 20260911,30.25,31.15,30.25,30.75,2234714,29.25,5.13,28.62,30.33,0.85
+20260914,30.3,30.65,29.7,29.95,2563653,29.31,2.19,28.72,30.25,0.95
+20260915,29.95,30,29.5,29.55,1117376,29.33,0.76,28.86,30.15,0.42
+20260916,29.5,30.35,29.5,30.2,1395282,29.4,2.72,29.01,30.08,0.52
+20260917,30.5,30.7,30,30.35,2338685,29.48,2.95,29.16,30.01,0.85
+20260918,30.7,30.7,30,30.15,1524750,29.53,2.08,29.29,29.95,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 65.5
-- over_600_ratio: 64.17
-- over_800_ratio: 64.03
-- over_1000_ratio: 63.36
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.46
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 65.51
+- over_600_ratio: 64.29
+- over_800_ratio: 64.02
+- over_1000_ratio: 63.37
+- over_400_change_1w: 0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,67.57,-0.86,65.57,-0.66,65.12,-0.66,0,False,False
 20260703,67.18,-0.39,65.11,-0.46,64.81,-0.31,0,False,False
 20260709,67.08,-0.1,65.22,0.11,64.55,-0.26,1,False,True
 20260717,66.66,-0.42,65.39,0.17,64.61,0.06,2,False,True
@@ -197,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,65.8,-0.09,63.84,-0.08,63.07,-0.06,0,False,False
 20260904,65.38,-0.42,63.57,-0.27,63.08,0.01,1,False,True
 20260911,65.5,0.12,64.03,0.46,63.36,0.28,2,True,True
+20260918,65.51,0.01,64.02,-0.01,63.37,0.01,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3380 | 明泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 3380 | 明泰 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3380 | 明泰 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 3380 | 明泰 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3380 | 明泰 | 3 | 1 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3380 | 明泰 | 6 | 4 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3380 | 明泰 | 16 | 0 | 212920.0 | 0.0 |  | no_signal |
+| 20260918 | 3380 | 明泰 | 16 | 0 | 31900.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

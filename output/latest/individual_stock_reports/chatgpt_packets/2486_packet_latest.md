@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:10 Asia/Taipei
+- generated_at: 2026-09-20 22:16:18 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 236
-- high: 243
-- low: 235
+- date: 20260918
+- open: 233.5
+- high: 238
+- low: 231
 - close: 237.5
-- volume: 4035275
-- ma5: 245.8
-- ema23_primary: 248.48
-- distance_to_ema23_pct: -4.42
-- ma20: 253.18
-- ma60: 240.03
-- ma120: 234.78
-- return_5d: -7.23
-- return_20d: 5.32
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -6.19
+- volume: 3776310
+- ma5: 231.7
+- ema23_primary: 242.61
+- distance_to_ema23_pct: -2.11
+- ma20: 250.97
+- ma60: 237.38
+- ma120: 238.26
+- return_5d: 0
+- return_20d: -2.46
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -5.37
 - distance_to_high_60_pct: -22.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,223,245,222,238,9215472,226.74,4.97,218.97,243.01,1.21
-20260818,241.5,249,235,235,9207171,227.42,3.33,219.8,242.41,1.21
-20260819,227,246.5,224.5,235,10318984,228.06,3.04,219.93,241.37,1.34
-20260820,240,255,227,251,16747756,229.97,9.15,220.53,240.73,2.08
-20260821,249,251,238.5,243.5,17124147,231.1,5.37,221.75,240.19,2
 20260824,247,257,243.5,249,14006202,232.59,7.06,222.82,239.99,1.58
 20260825,244.5,258,241,258,13936306,234.71,9.93,225.47,239.88,1.52
 20260826,255,267.5,250,262.5,17556293,237.02,10.75,229.38,239.82,1.81
@@ -172,17 +167,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,247.5,255.5,246,249.5,4246570,250.16,-0.26,252.05,240.32,0.41
 20260910,248,249,242,242,3984694,249.48,-3,252.57,240.26,0.39
 20260911,236,243,235,237.5,4035275,248.48,-4.42,253.18,240.03,0.4
+20260914,231.5,238.5,228,234.5,3668068,247.32,-5.18,253,239.32,0.37
+20260915,234,237.5,228,228,3063177,245.71,-7.21,252.65,238.59,0.32
+20260916,229,235,228,229.5,2991564,244.36,-6.08,252.38,238,0.33
+20260917,234.5,237,229,229,3144822,243.08,-5.79,251.28,237.57,0.37
+20260918,233.5,238,231,237.5,3776310,242.61,-2.11,250.97,237.38,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 37.89
-- over_600_ratio: 35.07
-- over_800_ratio: 33.3
-- over_1000_ratio: 30.74
-- over_400_change_1w: -1.52
-- over_800_change_1w: -1.59
-- over_1000_change_1w: -1.17
+- as_of_date: 20260918
+- over_400_ratio: 36.83
+- over_600_ratio: 33.75
+- over_800_ratio: 31.36
+- over_1000_ratio: 29.19
+- over_400_change_1w: -1.06
+- over_800_change_1w: -1.94
+- over_1000_change_1w: -1.55
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,39.73,-0.16,35.74,0.5,33.96,0.5,2,False,True
 20260703,40.14,0.41,34.71,-1.03,32.91,-1.05,3,False,False
 20260709,39.29,-0.85,35.09,0.38,33.7,0.79,4,False,True
 20260717,42.6,3.31,37.71,2.62,35.9,2.2,5,True,True
@@ -203,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,40.66,-0.26,36.2,-0.5,33.63,-0.12,2,False,False
 20260904,39.41,-1.25,34.89,-1.31,31.91,-1.72,0,False,False
 20260911,37.89,-1.52,33.3,-1.59,30.74,-1.17,0,False,False
+20260918,36.83,-1.06,31.36,-1.94,29.19,-1.55,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:一詮精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定辦理，公告本公  司國內第七次無擔保轉換公司債之委託代收債款及存儲專戶行庫等相關事宜。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  (1)訂約日期：民國115年07月09日  (2)委託代收債款行庫：第一商業銀行仁和分行  (3)委託存儲專戶行庫：兆豐國際商業銀行南三重分行；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2486 | 一詮 | 10 | 7 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2486 | 一詮 | 13 | 10 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2486 | 一詮 | 13 | 0 | 117700.0 | 0.0 |  | no_signal |
+| 20260918 | 2486 | 一詮 | 12 | 0 | 344630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

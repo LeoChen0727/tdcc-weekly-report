@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2340 台亞
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:01 Asia/Taipei
+- generated_at: 2026-09-20 22:16:07 Asia/Taipei
 - stock_id: 2340
 - stock_name: 台亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,10 +104,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +122,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 31.4
-- high: 32.1
-- low: 30.7
-- close: 31.65
-- volume: 2286140
-- ma5: 32.21
-- ema23_primary: 32.57
-- distance_to_ema23_pct: -2.82
-- ma20: 32.6
-- ma60: 33.64
-- ma120: 34.04
-- return_5d: -7.05
-- return_20d: 4.28
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -2.93
-- distance_to_high_60_pct: -30.9
+- date: 20260918
+- open: 33.5
+- high: 34.25
+- low: 33.3
+- close: 34
+- volume: 3839465
+- ma5: 32.65
+- ema23_primary: 32.63
+- distance_to_ema23_pct: 4.19
+- ma20: 33.07
+- ma60: 32.9
+- ma120: 34.24
+- return_5d: 7.42
+- return_20d: 8.97
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 2.82
+- distance_to_high_60_pct: -18.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,30.35,32.25,30.2,31.45,3819731,31.77,-1.01,30.59,34.92,1.13
-20260818,31.9,32.3,30.25,30.3,2185732,31.65,-4.26,30.54,34.78,0.66
-20260819,29.6,30.7,29.25,29.9,2026848,31.5,-5.09,30.38,34.62,0.62
-20260820,30.3,31.2,30.1,31.15,3303995,31.47,-1.03,30.32,34.49,1.01
-20260821,31.1,31.8,30.6,31.2,3693226,31.45,-0.8,30.34,34.34,1.12
 20260824,30.95,33.8,30.95,32.15,5924251,31.51,2.03,30.42,34.24,1.69
 20260825,31.85,32.75,30.9,32.6,3172703,31.6,3.16,30.63,34.15,0.91
 20260826,32.25,35,31.75,34.75,7533659,31.86,9.06,31.05,34.12,2.1
@@ -168,18 +167,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,32.35,32.8,31.85,32.2,1795719,32.74,-1.65,32.53,33.87,0.54
 20260910,32.1,32.1,31.5,31.65,1559487,32.65,-3.06,32.54,33.75,0.48
 20260911,31.4,32.1,30.7,31.65,2286140,32.57,-2.82,32.6,33.64,0.71
+20260914,31.1,33.2,30.8,32.05,3265244,32.52,-1.46,32.63,33.5,1.02
+20260915,32.05,32.35,31.15,31.15,1931697,32.41,-3.89,32.68,33.31,0.61
+20260916,31.75,33.65,31.65,33.1,4536464,32.47,1.95,32.84,33.14,1.38
+20260917,33.2,34.2,32.85,32.95,2641617,32.51,1.36,32.93,32.98,0.81
+20260918,33.5,34.25,33.3,34,3839465,32.63,4.19,33.07,32.9,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 38.05
-- over_600_ratio: 35.75
-- over_800_ratio: 34.37
-- over_1000_ratio: 33.34
-- over_400_change_1w: -0.24
-- over_800_change_1w: -0.15
+- as_of_date: 20260918
+- over_400_ratio: 38.11
+- over_600_ratio: 35.57
+- over_800_ratio: 34.18
+- over_1000_ratio: 33.18
+- over_400_change_1w: 0.06
+- over_800_change_1w: -0.19
 - over_1000_change_1w: -0.16
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,40.45,2.15,37.19,2.74,35.99,3.16,2,True,True
 20260703,39.54,-0.91,36.02,-1.17,34.61,-1.38,0,False,False
 20260709,38.53,-1.01,34.87,-1.15,33.86,-0.75,0,False,False
 20260717,37.79,-0.74,34.2,-0.67,33.4,-0.46,0,False,False
@@ -199,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,37.86,0.64,34.53,0.39,33.53,0.61,4,True,True
 20260904,38.29,0.43,34.52,-0.01,33.5,-0.03,5,False,False
 20260911,38.05,-0.24,34.37,-0.15,33.34,-0.16,0,False,False
+20260918,38.11,0.06,34.18,-0.19,33.18,-0.16,1,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2340 | 台亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.事實發生日:115/07/01 2.公司名稱:台亞半導體股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:週刊王 6.報導內容: 115/07/01 CTWant週刊王報導：德勝光電2022年間向知名 科技大廠台亞半導體採購，...台亞多次通知德勝應給付 210萬元的貨款，卻遭對方拒絕，更拒絕受領7500個已 製成之產品。...等內容。 7.發生緣由: 1.德勝光電股份有限公司（以下簡稱 德勝光電）於民國111年間 與本公司簽訂採購單，訂購特殊規格基板之封裝品，本公司已 依約完成，惟德勝光電因惡意違約，拒絕受領並未支付貨款。 2.本案業經臺灣桃園地方法民事判決，就部分已履行之交易價款 及相關損害賠償請求作成判決。 8.因應措施: 1.本公司已自 113 年啟動追償貨款及請求損害賠償，經起訴 審理後，本公司於114年底取得一審全面勝訴判決且全案已確定。 2.目前案件已全面進入強制執行與財產查扣階段，正積極 透過律師進行最終債權回收程序中。 3.本案不影響本公司銷售之業務，對本公司財務業務無重大影響。 9.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 2340 | 台亞 | 3 | 1 | 3 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2340 | 台亞 | 30 | 0 | 304890.0 | 0.0 |  | no_signal |
+| 20260918 | 2340 | 台亞 | 28 | 0 | 342300.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:19 Asia/Taipei
+- generated_at: 2026-09-20 22:16:29 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,7 +104,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 36.95
-- high: 37.85
-- low: 36.75
-- close: 37.85
-- volume: 44415166
-- ma5: 37.21
-- ema23_primary: 34.29
-- distance_to_ema23_pct: 10.39
-- ma20: 33.88
-- ma60: 31.38
-- ma120: 26.93
-- return_5d: 3.13
-- return_20d: 19.59
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 11.73
-- distance_to_high_60_pct: 0
+- date: 20260918
+- open: 40
+- high: 40
+- low: 38.4
+- close: 39.3
+- volume: 84041486
+- ma5: 39.01
+- ema23_primary: 35.97
+- distance_to_ema23_pct: 9.26
+- ma20: 35.89
+- ma60: 32.1
+- ma120: 27.72
+- return_5d: 3.83
+- return_20d: 24.56
+- volume_ratio: 1.66
+- distance_to_ma20_pct_auxiliary: 9.49
+- distance_to_high_60_pct: -2.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,31.5,31.65,30.9,31.4,52124434,30.57,2.71,30.64,28.72,1.14
-20260818,31.1,31.35,30.85,30.95,50381336,30.6,1.14,30.7,28.87,1.09
-20260819,30.7,30.85,30.3,30.4,41106180,30.59,-0.61,30.7,29.02,0.91
-20260820,30.7,30.7,30.05,30.4,26497717,30.57,-0.56,30.68,29.16,0.6
-20260821,30.4,31.55,30.3,31.55,49167372,30.65,2.93,30.72,29.32,1.09
 20260824,31.75,31.95,30.7,31,36847710,30.68,1.04,30.73,29.47,0.81
 20260825,31,31.7,30.9,31.7,37151287,30.77,3.04,30.84,29.62,0.83
 20260826,31.65,33.1,31.6,32.25,65204736,30.89,4.41,31,29.78,1.45
@@ -167,18 +168,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,37.05,37.25,36,36.75,52826646,33.67,9.15,33.28,31.12,1.09
 20260910,36.45,37.4,36.45,37.2,41645435,33.96,9.53,33.56,31.25,0.86
 20260911,36.95,37.85,36.75,37.85,44415166,34.29,10.39,33.88,31.38,0.93
+20260914,37.85,39,37.25,38.8,43390833,34.66,11.94,34.24,31.51,0.91
+20260915,38.7,38.95,38,38.15,54357732,34.95,9.15,34.6,31.64,1.14
+20260916,38.3,39.2,38.05,39.15,44169972,35.3,10.9,35.04,31.79,0.92
+20260917,39.45,40.15,39.2,39.65,47181728,35.67,11.17,35.51,31.96,0.97
+20260918,40,40,38.4,39.3,84041486,35.97,9.26,35.89,32.1,1.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 69.14
-- over_600_ratio: 67.44
-- over_800_ratio: 66.34
-- over_1000_ratio: 65.36
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.11
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260918
+- over_400_ratio: 69.29
+- over_600_ratio: 67.61
+- over_800_ratio: 66.52
+- over_1000_ratio: 65.55
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0.18
+- over_1000_change_1w: 0.19
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,67.59,-0.1,64.72,-0.14,63.78,-0.15,0,False,False
 20260703,67.26,-0.33,64.28,-0.44,63.32,-0.46,0,False,False
 20260709,67.7,0.44,64.75,0.47,63.82,0.5,1,True,True
 20260717,67.79,0.09,64.81,0.06,63.84,0.02,2,True,True
@@ -198,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,68.83,0.28,65.99,0.35,65.01,0.35,1,True,True
 20260904,69.04,0.21,66.23,0.24,65.27,0.26,2,True,True
 20260911,69.14,0.1,66.34,0.11,65.36,0.09,3,True,True
+20260918,69.29,0.15,66.52,0.18,65.55,0.19,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2883 | 凱基金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_strong_inflow | continued_2_3d | 1.主管機關核准減資日期:115/09/07 2.辦理資本變更登記完成日期:115/09/07 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:   (1)收回已發行限制員工權利新股註銷減資前：本公司實收資本額為新臺幣        185,569,894,140元，發行股數為18,556,989,414股。   (2)收回已發行限制員工權利新股註銷減資後：本公司實收資本額為新臺幣        185,567,548,490元，發行股數為18,556,754,849股（減資普通股234,565股）。   (3)收回已發行限制員工權利新股註銷對本公司每股淨值無影響。 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:本公司於115年9月9日收到經濟部變更登記核准函，特此公告。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 2883 | 凱基金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.主管機關核准減資日期:115/09/07 2.辦理資本變更登記完成日期:115/09/07 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:   (1)收回已發行限制員工權利新股註銷減資前：本公司實收資本額為新臺幣        185,569,894,140元，發行股數為18,556,989,414股。   (2)收回已發行限制員工權利新股註銷減資後：本公司實收資本額為新臺幣        185,567,548,490元，發行股數為18,556,754,849股（減資普通股234,565股）。   (3)收回已發行限制員工權利新股註銷對本公司每股淨值無影響。 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:本公司於115年9月9日收到經濟部變更登記核准函，特此公告。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2883 | 凱基金 | 2 | 2 | 3 | 7 | 16 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260918 | 2883 | 凱基金 | 5 | 1 | 5 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2883 | 凱基金 | 31 | 0 | 7774890.0 | 0.0 |  | call_strong_inflow |
+| 20260918 | 2883 | 凱基金 | 35 | 0 | 7011020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:44 Asia/Taipei
+- generated_at: 2026-09-20 22:17:00 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 518
-- high: 524
-- low: 508
-- close: 510
-- volume: 1626000
-- ma5: 532.2
-- ema23_primary: 501.82
-- distance_to_ema23_pct: 1.63
-- ma20: 499.73
-- ma60: 486.33
-- ma120: 489.43
-- return_5d: -1.54
-- return_20d: 10.03
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.06
-- distance_to_high_60_pct: -10.99
+- date: 20260918
+- open: 530
+- high: 536
+- low: 523
+- close: 533
+- volume: 1417000
+- ma5: 513.3
+- ema23_primary: 506.44
+- distance_to_ema23_pct: 5.25
+- ma20: 510.82
+- ma60: 485.07
+- ma120: 494.02
+- return_5d: 4.51
+- return_20d: 13.16
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 4.34
+- distance_to_high_60_pct: -6.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,464,476,463,471,691000,457.11,3.04,443.43,495.28,0.57
-20260818,471.5,496,470,473.5,1733000,458.47,3.28,443.05,493.71,1.44
-20260819,465,474,458.5,461,999000,458.68,0.51,441.4,491.48,0.88
-20260820,470.5,471,458,468,519000,459.46,1.86,440.77,489.46,0.48
-20260821,473,479,463,471,771000,460.42,2.3,441.32,488.02,0.72
 20260824,472,488,464,464,993000,460.72,0.71,442,486.84,0.93
 20260825,464,464,448.5,461.5,608000,460.78,0.16,444.55,485.53,0.59
 20260826,466,491.5,462.5,488,1352000,463.05,5.39,449.7,484.73,1.39
@@ -168,18 +163,23 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,573,573,563,566,7513000,497.99,13.66,494.25,485.87,4.56
 20260910,567,570,533,535,3515000,501.08,6.77,497.4,486.45,2
 20260911,518,524,508,510,1626000,501.82,1.63,499.73,486.33,0.91
+20260914,500,516,492,507,1157000,502.25,0.94,501.52,485.75,0.64
+20260915,498,504,488.5,488.5,1315000,501.11,-2.52,502.27,484.77,0.74
+20260916,489,514,489,511,1273000,501.93,1.81,504.77,484.34,0.71
+20260917,508,535,506,527,1980000,504.02,4.56,507.73,484.61,1.06
+20260918,530,536,523,533,1417000,506.44,5.25,510.82,485.07,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 58.18
-- over_600_ratio: 53.71
-- over_800_ratio: 47.04
-- over_1000_ratio: 43.43
-- over_400_change_1w: 1.6
-- over_800_change_1w: -1.1
-- over_1000_change_1w: 1.55
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260918
+- over_400_ratio: 57.15
+- over_600_ratio: 53.15
+- over_800_ratio: 48.43
+- over_1000_ratio: 43.98
+- over_400_change_1w: -1.03
+- over_800_change_1w: 1.39
+- over_1000_change_1w: 0.55
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,56.3,-0.52,48.56,-0.97,43.86,0.73,2,False,True
 20260703,57.83,1.53,47.84,-0.72,43.32,-0.54,3,False,False
 20260709,56.73,-1.1,47.66,-0.18,43.01,-0.31,4,False,False
 20260717,55.72,-1.01,46.49,-1.17,42.82,-0.19,0,False,False
@@ -199,18 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,54.48,0.42,44.71,-0.35,40.13,-0.35,4,False,False
 20260904,56.58,2.1,48.14,3.43,41.88,1.75,5,True,True
 20260911,58.18,1.6,47.04,-1.1,43.43,1.55,6,False,True
+20260918,57.15,-1.03,48.43,1.39,43.98,0.55,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3680 | 家登 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：15 時 40 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址:台北市中正區中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心所舉辦之業績發表會，說明公司營運成果及未來展望。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 3680 | 家登 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：15 時 40 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址:台北市中正區中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心所舉辦之業績發表會，說明公司營運成果及未來展望。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3680 | 家登 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：15 時 40 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址:台北市中正區中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心所舉辦之業績發表會，說明公司營運成果及未來展望。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 3680 | 家登 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：15 時 40 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址:台北市中正區中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心所舉辦之業績發表會，說明公司營運成果及未來展望。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3680 | 家登 | 11 | 2 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 3680 | 家登 | 14 | 5 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

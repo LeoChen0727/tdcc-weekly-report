@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4576 大銀微系統
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:54 Asia/Taipei
+- generated_at: 2026-09-20 22:17:14 Asia/Taipei
 - stock_id: 4576
 - stock_name: 大銀微系統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 234
-- high: 250
-- low: 232.5
-- close: 242
-- volume: 3945958
-- ma5: 241.3
-- ema23_primary: 225.61
-- distance_to_ema23_pct: 7.27
-- ma20: 222.43
-- ma60: 213.58
-- ma120: 209.99
-- return_5d: 1.68
-- return_20d: 9.5
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 8.8
-- distance_to_high_60_pct: -6.2
+- date: 20260918
+- open: 236
+- high: 240
+- low: 229
+- close: 240
+- volume: 2055799
+- ma5: 232.6
+- ema23_primary: 228.23
+- distance_to_ema23_pct: 5.16
+- ma20: 227.85
+- ma60: 214.28
+- ma120: 214.34
+- return_5d: -0.83
+- return_20d: 18.52
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 5.33
+- distance_to_high_60_pct: -6.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,220,233,220,225.5,2760470,211.12,6.81,203.62,217.32,1.32
-20260818,223.5,226.5,209,210.5,1617769,211.07,-0.27,204.6,216.47,0.76
-20260819,206.5,219,205,208,1528579,210.82,-1.34,205.1,215.32,0.71
-20260820,213,228.5,206.5,208,5311189,210.58,-1.23,205.55,214.05,2.22
-20260821,208,208.5,199,202.5,1584800,209.91,-3.53,206.1,212.88,0.65
 20260824,207,207,198,198,1011856,208.92,-5.22,206.18,211.92,0.41
 20260825,197.5,197.5,190.5,197,1048318,207.92,-5.25,207,210.76,0.42
 20260826,199,204,195.5,203,1034928,207.51,-2.17,208.35,209.76,0.43
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,239,249,236.5,244,4290540,222.86,9.49,220.68,212.38,1.31
 20260910,241,244.5,233,238,2857031,224.12,6.19,221.38,212.9,0.89
 20260911,234,250,232.5,242,3945958,225.61,7.27,222.43,213.58,1.18
+20260914,238,238.5,227.5,228,2983328,225.81,0.97,222.55,213.7,0.89
+20260915,224,237.5,223.5,230.5,1857842,226.2,1.9,223.55,213.61,0.55
+20260916,230,234.5,228,233,1353618,226.77,2.75,224.8,213.72,0.4
+20260917,234,237.5,230.5,231.5,1365542,227.16,1.91,225.97,213.93,0.43
+20260918,236,240,229,240,2055799,228.23,5.16,227.85,214.28,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 67.73
-- over_600_ratio: 64.3
-- over_800_ratio: 62.67
-- over_1000_ratio: 60.42
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.8
-- over_1000_change_1w: 0.73
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260918
+- over_400_ratio: 67.05
+- over_600_ratio: 63.58
+- over_800_ratio: 61.93
+- over_1000_ratio: 60.39
+- over_400_change_1w: -0.68
+- over_800_change_1w: -0.74
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,66.06,0.42,63.91,1.08,60.86,0.96,1,True,True
 20260703,66.47,0.41,63.58,-0.33,61.23,0.37,2,False,True
 20260709,65.32,-1.15,62.5,-1.08,59.32,-1.91,0,False,False
 20260717,65.64,0.32,62.86,0.36,60.49,1.17,1,True,True
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,66.47,0.15,60.87,0.05,58.64,0.06,1,True,True
 20260904,67.75,1.28,63.47,2.6,59.69,1.05,2,True,True
 20260911,67.73,-0.02,62.67,-0.8,60.42,0.73,3,False,True
+20260918,67.05,-0.68,61.93,-0.74,60.39,-0.03,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 4576 | 大銀微系統 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/07 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容: 『…大銀預期…今年營收挑戰兩位數成長…大銀今年營收破40億元…』 7.發生緣由: 應主管機關要求說明 8.因應措施: 本公司並未公布對未來財務數字的預測。有關本公司之財務、業務資訊， 請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/07 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容: 『…大銀預期…今年營收挑戰兩位數成長…大銀今年營收破40億元…』 7.發生緣由: 應主管機關要求說明 8.因應措施: 本公司並未公布對未來財務數字的預測。有關本公司之財務、業務資訊， 請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 4576 | 大銀微系統 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容: 『…大銀預期…今年營收挑戰兩位數成長…大銀今年營收破40億元…』 7.發生緣由: 應主管機關要求說明 8.因應措施: 本公司並未公布對未來財務數字的預測。有關本公司之財務、業務資訊， 請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 4576 | 大銀微系統 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:大銀微系統股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容: 『…大銀預期…今年營收挑戰兩位數成長…大銀今年營收破40億元…』 7.發生緣由: 應主管機關要求說明 8.因應措施: 本公司並未公布對未來財務數字的預測。有關本公司之財務、業務資訊， 請依公開資訊觀測站公告為準。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 4576 | 大銀微系統 | 19 | 4 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 4576 | 大銀微系統 | 22 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 4576 | 大銀微系統 | 89 | 1 | 23123110.0 | 0.0 |  | call_inflow |
+| 20260918 | 4576 | 大銀微系統 | 90 | 1 | 12339000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

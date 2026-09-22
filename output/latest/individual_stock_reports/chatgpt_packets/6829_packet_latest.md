@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6829 千附精密
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:40 Asia/Taipei
+- generated_at: 2026-09-20 22:18:12 Asia/Taipei
 - stock_id: 6829
 - stock_name: 千附精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 231.5
-- high: 235.5
-- low: 228
-- close: 228
-- volume: 1099000
-- ma5: 244.1
-- ema23_primary: 231.85
-- distance_to_ema23_pct: -1.66
-- ma20: 234.05
-- ma60: 217.12
-- ma120: 205.53
-- return_5d: -6.37
-- return_20d: -6.56
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -2.58
-- distance_to_high_60_pct: -14.29
+- date: 20260918
+- open: 215
+- high: 232.5
+- low: 214
+- close: 224.5
+- volume: 1000000
+- ma5: 213.6
+- ema23_primary: 225.58
+- distance_to_ema23_pct: -0.48
+- ma20: 232.62
+- ma60: 217.13
+- ma120: 209.77
+- return_5d: -1.54
+- return_20d: 6.9
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -3.49
+- distance_to_high_60_pct: -15.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,240,244.5,232,238.5,2292000,206.54,15.47,196.65,209.81,2.35
-20260818,242.5,242.5,220.5,220.5,1202000,207.71,6.16,197.35,209.96,1.23
-20260819,216,222,213,213.5,700000,208.19,2.55,197.43,209.76,0.73
-20260820,215,223.5,213,214,662000,208.67,2.55,198.28,209.7,0.71
-20260821,215,215,205.5,210,454000,208.78,0.58,199,209.68,0.5
 20260824,206.5,218,206.5,215,594000,209.3,2.72,200.22,209.67,0.66
 20260825,214,219,210.5,217.5,455000,209.99,3.58,202.1,209.57,0.51
 20260826,219,239,218,239,1649000,212.4,12.52,205.6,209.46,1.79
@@ -167,15 +162,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,249.5,264,247,254,2006000,231.54,9.7,233.97,216.19,1.58
 20260910,254,254,237,239.5,1493000,232.2,3.14,234.85,216.68,1.16
 20260911,231.5,235.5,228,228,1099000,231.85,-1.66,234.05,217.12,0.91
+20260914,222,229.5,215.5,215.5,1008000,230.49,-6.5,232.9,217.32,0.88
+20260915,211,213,202.5,204,1228000,228.28,-10.64,232.07,217.27,1.08
+20260916,204,213,204,212.5,622000,226.96,-6.37,232.03,217.38,0.55
+20260917,213,217.5,211,211.5,527000,225.68,-6.28,231.9,217.12,0.47
+20260918,215,232.5,214,224.5,1000000,225.58,-0.48,232.62,217.13,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 67.75
+- as_of_date: 20260918
+- over_400_ratio: 66.11
 - over_600_ratio: 65.28
 - over_800_ratio: 63
 - over_1000_ratio: 63
-- over_400_change_1w: -0.1
+- over_400_change_1w: -1.64
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,67.27,0.7,63,0,63,0,1,False,False
 20260703,67.36,0.09,63,0,63,0,2,False,False
 20260709,67.39,0.03,63,0,63,0,3,False,False
 20260717,67.49,0.1,63,0,63,0,4,False,False
@@ -198,18 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,67.79,-0.19,63,0,63,0,0,False,False
 20260904,67.85,0.06,63,0,63,0,1,False,False
 20260911,67.75,-0.1,63,0,63,0,0,False,False
+20260918,66.11,-1.64,63,0,63,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6829 | 千附精密 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6829 | 千附精密 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6829 | 千附精密 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6829 | 千附精密 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6829 | 千附精密 | 5 | 2 | 5 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 6829 | 千附精密 | 1 | 1 | 3 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

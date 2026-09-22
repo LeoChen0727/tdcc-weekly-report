@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:13 Asia/Taipei
+- generated_at: 2026-09-20 22:17:37 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 回檔後短線轉強
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 31
-- high: 31.75
-- low: 30.9
+- date: 20260918
+- open: 31.5
+- high: 31.6
+- low: 31.2
 - close: 31.5
-- volume: 4322098
-- ma5: 32.13
-- ema23_primary: 31.99
-- distance_to_ema23_pct: -1.53
-- ma20: 31.34
-- ma60: 33.97
-- ma120: 33.04
-- return_5d: -3.82
-- return_20d: 1.94
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 0.49
-- distance_to_high_60_pct: -21.93
+- volume: 10227792
+- ma5: 31.37
+- ema23_primary: 31.77
+- distance_to_ema23_pct: -0.83
+- ma20: 31.57
+- ma60: 33.31
+- ma120: 33.18
+- return_5d: 0
+- return_20d: 2.77
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: -0.24
+- distance_to_high_60_pct: -20.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,30.9,30.9,30.35,30.55,5746891,33.26,-8.14,33.26,36.3,0.61
-20260818,30.45,30.7,30.4,30.5,4757516,33.03,-7.65,33.1,36.28,0.52
-20260819,30.3,30.4,30.05,30.2,4854276,32.79,-7.91,32.91,36.24,0.54
-20260820,30.45,30.6,30.05,30.35,4451360,32.59,-6.87,32.7,36.19,0.51
-20260821,30.35,30.9,30.2,30.65,3692690,32.43,-5.48,32.49,36.12,0.43
 20260824,30.65,30.85,30.25,30.25,3707669,32.25,-6.19,32.23,36.02,0.45
 20260825,30.15,30.45,29.95,30.35,3197904,32.09,-5.42,32.06,35.89,0.41
 20260826,30.4,31.05,30.4,30.7,3933891,31.97,-3.98,31.95,35.74,0.54
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,32.6,32.6,32.1,32.2,5092691,32.07,0.4,31.27,34.24,0.95
 20260910,32,32.15,31.6,31.6,5068260,32.03,-1.35,31.32,34.1,0.97
 20260911,31,31.75,30.9,31.5,4322098,31.99,-1.53,31.34,33.97,0.84
+20260914,31.4,32.15,31.05,32.1,3957126,32,0.32,31.42,33.85,0.78
+20260915,31.85,31.85,31.1,31.1,9479912,31.92,-2.58,31.45,33.7,1.79
+20260916,31.1,31.45,30.85,30.85,9755873,31.83,-3.09,31.48,33.55,1.76
+20260917,31.05,31.55,30.95,31.3,6321704,31.79,-1.54,31.53,33.43,1.12
+20260918,31.5,31.6,31.2,31.5,10227792,31.77,-0.83,31.57,33.31,1.72
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 70.07
-- over_600_ratio: 68.42
-- over_800_ratio: 67.55
-- over_1000_ratio: 66.31
-- over_400_change_1w: -0.12
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 70.4
+- over_600_ratio: 68.74
+- over_800_ratio: 67.65
+- over_1000_ratio: 66.88
+- over_400_change_1w: 0.33
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.57
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,73.94,-0.87,71.72,-0.94,70.77,-0.93,0,False,False
 20260703,73.37,-0.57,71.02,-0.7,70.07,-0.7,0,False,False
 20260709,72.74,-0.63,70.34,-0.68,69.35,-0.72,0,False,False
 20260717,72.17,-0.57,69.78,-0.56,68.75,-0.6,0,False,False
@@ -199,17 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,70.03,-0.02,67.59,0,66.31,0,0,False,False
 20260904,70.19,0.16,67.61,0.02,66.36,0.05,1,True,True
 20260911,70.07,-0.12,67.55,-0.06,66.31,-0.05,0,False,False
+20260918,70.4,0.33,67.65,0.1,66.88,0.57,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司115年第二季財務業務相關資訊說明 5.其他應敘明事項：報名連結：https://forms.cloud.microsoft/r/S06sYSiPjm 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
+| 20260918 | 6005 | 群益證 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司115年第二季財務業務相關資訊說明 5.其他應敘明事項：報名連結：https://forms.cloud.microsoft/r/S06sYSiPjm 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司115年第二季財務業務相關資訊說明 5.其他應敘明事項：報名連結：https://forms.cloud.microsoft/r/S06sYSiPjm 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6005 | 群益證 | 7 | 7 | 5 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260918 | 6005 | 群益證 | 10 | 10 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

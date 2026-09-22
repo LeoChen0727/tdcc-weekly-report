@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6689 伊雲谷
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:36 Asia/Taipei
+- generated_at: 2026-09-20 22:18:06 Asia/Taipei
 - stock_id: 6689
 - stock_name: 伊雲谷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 60.1
-- high: 65
-- low: 60.1
-- close: 64.1
-- volume: 658239
-- ma5: 61.72
-- ema23_primary: 61.68
-- distance_to_ema23_pct: 3.92
-- ma20: 61.52
-- ma60: 62.13
-- ma120: 66.61
-- return_5d: 5.08
-- return_20d: 1.75
-- volume_ratio: 5.9
-- distance_to_ma20_pct_auxiliary: 4.2
-- distance_to_high_60_pct: -6.83
+- date: 20260918
+- open: 66.2
+- high: 68.4
+- low: 65.5
+- close: 66.8
+- volume: 1050703
+- ma5: 67.82
+- ema23_primary: 63.78
+- distance_to_ema23_pct: 4.74
+- ma20: 63.24
+- ma60: 62.24
+- ma120: 65.98
+- return_5d: 4.21
+- return_20d: 9.33
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 5.62
+- distance_to_high_60_pct: -10.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,62.6,63.3,61.3,61.3,66601,61.88,-0.94,60.83,64.49,0.49
-20260818,60.7,61,60.2,60.2,67888,61.74,-2.49,60.73,64.38,0.5
-20260819,60.1,61.6,60.1,60.7,81179,61.65,-1.55,60.66,64.26,0.6
-20260820,60.8,61.2,60.4,61.2,29646,61.62,-0.67,60.65,64.16,0.22
-20260821,61,61.3,60.7,61.1,51778,61.57,-0.77,60.66,64.09,0.39
 20260824,63,63,60.9,61.4,107474,61.56,-0.26,60.68,64.04,0.8
 20260825,60.8,61.6,60.7,61.4,45973,61.55,-0.24,60.8,63.98,0.36
 20260826,60.7,63,60.7,63,107217,61.67,2.16,61.17,63.84,0.93
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,61,61.9,61,61.4,73109,61.58,-0.3,61.63,62.33,0.9
 20260910,61.1,61.5,60,60.1,135177,61.46,-2.21,61.46,62.2,1.65
 20260911,60.1,65,60.1,64.1,658239,61.68,3.92,61.52,62.13,5.9
+20260914,66.1,70.5,66.1,70.5,2999752,62.42,12.95,61.98,62.19,11.61
+20260915,71,74.7,68,69.3,7763172,62.99,10.02,62.43,62.23,12.07
+20260916,69.1,71.5,66.1,67,2460921,63.32,5.81,62.74,62.24,3.23
+20260917,67,67,63.9,65.5,940604,63.51,3.14,62.96,62.22,1.16
+20260918,66.2,68.4,65.5,66.8,1050703,63.78,4.74,63.24,62.24,1.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 48.95
-- over_600_ratio: 44.58
-- over_800_ratio: 37.24
-- over_1000_ratio: 35.77
-- over_400_change_1w: 0.67
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 49.07
+- over_600_ratio: 44.91
+- over_800_ratio: 36.68
+- over_1000_ratio: 33.95
+- over_400_change_1w: 0.12
+- over_800_change_1w: -0.56
+- over_1000_change_1w: -1.82
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,48.09,0.06,37.01,0,35.54,0,1,False,False
 20260703,48.11,0.02,37.03,0.02,35.56,0.02,2,True,True
 20260709,48.11,0,37.03,0,35.56,0,0,False,False
 20260717,48.11,0,37.03,0,35.56,0,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,48.17,0.03,37.08,0.02,35.61,0.02,1,True,True
 20260904,48.28,0.11,37.19,0.11,35.72,0.11,2,True,True
 20260911,48.95,0.67,37.24,0.05,35.77,0.05,3,True,True
+20260918,49.07,0.12,36.68,-0.56,33.95,-1.82,4,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6689 | 伊雲谷 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260918 | 6689 | 伊雲谷 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

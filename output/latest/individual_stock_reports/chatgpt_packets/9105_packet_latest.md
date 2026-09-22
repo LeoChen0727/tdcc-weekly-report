@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-09-12 22:18:09 Asia/Taipei
+- generated_at: 2026-09-20 22:18:47 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 8.52
-- high: 8.67
-- low: 8.47
-- close: 8.59
-- volume: 15246314
-- ma5: 8.73
-- ema23_primary: 8.55
-- distance_to_ema23_pct: 0.41
-- ma20: 8.54
-- ma60: 8.65
-- ma120: 7.77
-- return_5d: -0.69
-- return_20d: -0.23
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 0.53
-- distance_to_high_60_pct: -15.78
+- date: 20260918
+- open: 8.48
+- high: 8.51
+- low: 8.35
+- close: 8.37
+- volume: 12668205
+- ma5: 8.41
+- ema23_primary: 8.5
+- distance_to_ema23_pct: -1.56
+- ma20: 8.52
+- ma60: 8.55
+- ma120: 7.89
+- return_5d: -2.56
+- return_20d: -0.59
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -1.8
+- distance_to_high_60_pct: -17.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,8.74,9.09,8.42,8.82,37949777,8.42,4.81,8.26,8.97,1.8
-20260818,8.82,8.83,8.38,8.42,25110344,8.42,0.05,8.25,9,1.19
-20260819,8.33,8.52,8.32,8.45,12036528,8.42,0.37,8.24,9.01,0.59
-20260820,8.54,8.59,8.35,8.35,12600372,8.41,-0.75,8.22,9.02,0.62
-20260821,8.25,8.42,8.22,8.42,10950360,8.41,0.08,8.22,9.02,0.54
 20260824,8.46,8.74,8.42,8.42,20277191,8.41,0.07,8.22,9.01,1
 20260825,8.42,8.44,8.22,8.3,12353874,8.4,-1.24,8.25,9.01,0.64
 20260826,8.35,8.45,8.32,8.32,8703051,8.4,-0.92,8.29,8.98,0.48
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,8.69,8.93,8.67,8.89,20965788,8.54,4.05,8.53,8.68,1.09
 20260910,8.76,8.77,8.49,8.63,26344647,8.55,0.92,8.55,8.67,1.32
 20260911,8.52,8.67,8.47,8.59,15246314,8.55,0.41,8.54,8.65,0.8
+20260914,8.55,8.61,8.31,8.38,16196412,8.54,-1.88,8.52,8.63,0.91
+20260915,8.38,8.54,8.32,8.42,11512792,8.53,-1.29,8.52,8.61,0.67
+20260916,8.48,8.52,8.39,8.44,10939555,8.52,-0.97,8.52,8.6,0.64
+20260917,8.49,8.56,8.42,8.43,10456156,8.51,-1,8.53,8.57,0.61
+20260918,8.48,8.51,8.35,8.37,12668205,8.5,-1.56,8.52,8.55,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 27.03
-- over_600_ratio: 21.94
-- over_800_ratio: 19.37
-- over_1000_ratio: 17.01
-- over_400_change_1w: -0.1
-- over_800_change_1w: -0.06
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 11
+- as_of_date: 20260918
+- over_400_ratio: 26.54
+- over_600_ratio: 21.67
+- over_800_ratio: 18.85
+- over_1000_ratio: 16.46
+- over_400_change_1w: -0.49
+- over_800_change_1w: -0.52
+- over_1000_change_1w: -0.55
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,23.37,-0.99,15.73,-1.11,13.22,-0.84,0,False,False
 20260703,23.36,-0.01,16.21,0.48,13.49,0.27,1,False,True
 20260709,23.41,0.05,16.4,0.19,13.9,0.41,2,True,True
 20260717,23.7,0.29,16.7,0.3,14.02,0.12,3,True,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,26.58,0.42,18.87,0.16,16.37,0.15,9,True,True
 20260904,27.13,0.55,19.43,0.56,16.93,0.56,10,True,True
 20260911,27.03,-0.1,19.37,-0.06,17.01,0.08,11,False,True
+20260918,26.54,-0.49,18.85,-0.52,16.46,-0.55,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 9105 | 泰金寶-DR | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 9105 | 泰金寶-DR | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 9105 | 泰金寶-DR | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 9105 | 泰金寶-DR | 1 | 1 | 2 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 9105 | 泰金寶-DR | 4 | 4 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 9105 | 泰金寶-DR | 26 | 0 | 487820.0 | 0.0 |  | no_signal |
+| 20260918 | 9105 | 泰金寶-DR | 28 | 0 | 488450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

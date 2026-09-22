@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:23 Asia/Taipei
+- generated_at: 2026-09-20 22:16:34 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 3360
-- high: 3390
-- low: 3300
-- close: 3370
-- volume: 2111512
-- ma5: 3383
-- ema23_primary: 3191.9
-- distance_to_ema23_pct: 5.58
-- ma20: 3236
-- ma60: 2735.17
-- ma120: 2600.08
-- return_5d: -5.6
-- return_20d: 4.17
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 4.14
-- distance_to_high_60_pct: -6.26
+- date: 20260918
+- open: 3345
+- high: 3450
+- low: 3290
+- close: 3430
+- volume: 3785048
+- ma5: 3243
+- ema23_primary: 3212.04
+- distance_to_ema23_pct: 6.79
+- ma20: 3290.25
+- ma60: 2800.75
+- ma120: 2647.62
+- return_5d: 1.78
+- return_20d: 19.72
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 4.25
+- distance_to_high_60_pct: -4.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,3230,3230,3115,3150,3126245,2693.56,16.95,2609.75,2522.33,0.63
-20260818,3150,3180,2990,3035,3613625,2722.02,11.5,2645.5,2530.5,0.72
-20260819,2915,3160,2900,3095,3982151,2753.1,12.42,2687,2539.17,0.8
-20260820,3175,3175,2925,2985,3219927,2772.42,7.67,2714.25,2543.5,0.67
-20260821,2995,3035,2850,2865,2515057,2780.14,3.05,2738.5,2546.25,0.54
 20260824,2865,2935,2830,2855,2274318,2786.38,2.46,2761.25,2550.83,0.49
 20260825,2835,2950,2740,2950,2905308,2800.01,5.36,2796.75,2555.58,0.62
 20260826,2880,3155,2850,3155,5242984,2829.6,11.5,2849.75,2561.75,1.14
@@ -172,26 +167,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,3285,3395,3265,3380,2364600,3149.86,7.31,3216.25,2700.25,0.57
 20260910,3405,3470,3380,3460,2574023,3175.7,8.95,3229.25,2718.42,0.68
 20260911,3360,3390,3300,3370,2111512,3191.9,5.58,3236,2735.17,0.6
+20260914,3255,3360,3210,3310,2215371,3201.74,3.38,3244,2750.33,0.64
+20260915,3265,3300,3100,3115,3217593,3194.51,-2.49,3248,2761.92,0.93
+20260916,3115,3225,3100,3175,2744795,3192.88,-0.56,3252,2774.42,0.81
+20260917,3285,3350,3175,3185,3034388,3192.23,-0.23,3262,2785.33,0.9
+20260918,3345,3450,3290,3430,3785048,3212.04,6.79,3290.25,2800.75,1.1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 68.37
-- over_600_ratio: 61.33
-- over_800_ratio: 58.36
-- over_1000_ratio: 54.65
-- over_400_change_1w: -0.29
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.49
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260918
+- over_400_ratio: 67.72
+- over_600_ratio: 61.25
+- over_800_ratio: 58.26
+- over_1000_ratio: 55.03
+- over_400_change_1w: -0.65
+- over_800_change_1w: -0.1
+- over_1000_change_1w: 0.38
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,65.59,0.42,55.51,0.22,52.29,0.25,2,True,True
 20260703,65.59,0,55.49,-0.02,52.77,0.48,3,False,True
 20260709,65.29,-0.3,55.43,-0.06,52.18,-0.59,0,False,False
 20260717,65.24,-0.05,55.07,-0.36,52.3,0.12,1,False,True
@@ -203,22 +202,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,68.49,-0.03,58.24,-0.23,54.59,-0.01,0,False,False
 20260904,68.66,0.17,58.63,0.39,55.14,0.55,1,False,True
 20260911,68.37,-0.29,58.36,-0.27,54.65,-0.49,2,False,False
+20260918,67.72,-0.65,58.26,-0.1,55.03,0.38,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.契約種類:工程合約 2.事實發生日:115/9/8~115/9/8 3.董事會通過日期: 民國115年9月8日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：創興國際建設有限公司 與公司之關係：無。 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 與創興國際建設有限公司簽訂AVC TECH. (VIETNAM) CO., LTD.第五期廠房機電工程 契約總金額：約越南盾9,868億（匯率820，約新台幣12.04億元) 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運用 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | mixed_flow | stale_signal | 1.契約種類:工程合約 2.事實發生日:115/9/8~115/9/8 3.董事會通過日期: 民國115年9月8日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：創興國際建設有限公司 與公司之關係：無。 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 與創興國際建設有限公司簽訂AVC TECH. (VIETNAM) CO., LTD.第五期廠房機電工程 契約總金額：約越南盾9,868億（匯率820，約新台幣12.04億元) 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運用 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 3017 | 奇鋐 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | mixed_flow | stale_signal | 1.契約種類:工程合約 2.事實發生日:115/9/8~115/9/8 3.董事會通過日期: 民國115年9月8日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：創興國際建設有限公司 與公司之關係：無。 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 與創興國際建設有限公司簽訂AVC TECH. (VIETNAM) CO., LTD.第五期廠房機電工程 契約總金額：約越南盾9,868億（匯率820，約新台幣12.04億元) 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 供生產及營運用 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 不適用 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3017 | 奇鋐 | 5 | 5 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 3017 | 奇鋐 | 8 | 8 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 3017 | 奇鋐 | 485 | 27 | 57941810.0 | 569360.0 | 101.77 | no_signal |
+| 20260918 | 3017 | 奇鋐 | 485 | 26 | 80659620.0 | 1169370.0 | 68.98 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

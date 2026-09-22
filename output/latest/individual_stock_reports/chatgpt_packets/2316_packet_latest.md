@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:00 Asia/Taipei
+- generated_at: 2026-09-20 22:16:06 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 157.5
+- date: 20260918
+- open: 158
 - high: 159.5
-- low: 154
-- close: 158
-- volume: 1489229
-- ma5: 159.4
-- ema23_primary: 159.93
-- distance_to_ema23_pct: -1.2
-- ma20: 159.25
-- ma60: 173.88
-- ma120: 152.61
-- return_5d: 1.94
-- return_20d: -1.25
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -0.78
-- distance_to_high_60_pct: -36.42
+- low: 155
+- close: 156.5
+- volume: 1200550
+- ma5: 156.1
+- ema23_primary: 158.6
+- distance_to_ema23_pct: -1.32
+- ma20: 158.5
+- ma60: 168.48
+- ma120: 154.85
+- return_5d: -0.95
+- return_20d: -1.26
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -1.26
+- distance_to_high_60_pct: -34.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,160.5,169,158,167,2077633,163.62,2.07,155.75,176.06,0.8
-20260818,168,168.5,158.5,159,3092112,163.23,-2.59,155.93,176.15,1.18
-20260819,153,163,153,155.5,3257021,162.59,-4.36,155.62,175.93,1.28
-20260820,157.5,159.5,153,155.5,4138705,162,-4.01,155.12,175.67,1.68
-20260821,157.5,163,155.5,158.5,1669559,161.71,-1.98,155.25,175.51,0.69
 20260824,159,161.5,154,155.5,1477778,161.19,-3.53,155.28,175.29,0.61
 20260825,154,156,150,156,1067840,160.76,-2.96,155.95,175.08,0.45
 20260826,157.5,161,157,161,1575441,160.78,0.14,157.18,175,0.7
@@ -173,26 +168,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,159,164,158.5,161,1838311,160.02,0.61,159.5,174.51,0.82
 20260910,160.5,161.5,157,161,1437940,160.1,0.56,159.35,174.36,0.67
 20260911,157.5,159.5,154,158,1489229,159.93,-1.2,159.25,173.88,0.7
+20260914,156.5,157.5,152.5,155,1087025,159.51,-2.83,158.65,173.03,0.52
+20260915,157,160,154.5,155,1022268,159.14,-2.6,158.45,171.85,0.51
+20260916,155.5,159.5,154,158.5,1103894,159.09,-0.37,158.6,170.87,0.59
+20260917,160.5,163,155.5,155.5,1739252,158.79,-2.07,158.6,169.78,0.99
+20260918,158,159.5,155,156.5,1200550,158.6,-1.32,158.5,168.48,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 64.49
-- over_600_ratio: 61.42
-- over_800_ratio: 58.78
-- over_1000_ratio: 56.89
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.61
-- over_1000_change_1w: 0.34
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260918
+- over_400_ratio: 64.41
+- over_600_ratio: 61.27
+- over_800_ratio: 58.32
+- over_1000_ratio: 56.42
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.46
+- over_1000_change_1w: -0.47
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,68.03,0.15,61.09,1.16,59.59,1.17,3,True,True
 20260703,67.33,-0.7,61.31,0.22,59.84,0.25,4,False,True
 20260709,67.25,-0.08,61.38,0.07,59.78,-0.06,5,False,True
 20260717,65.81,-1.44,60.26,-1.12,58.67,-1.11,0,False,False
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,64.09,-0.22,59.53,-0.46,57.13,-0.42,0,False,False
 20260904,64.4,0.31,59.39,-0.14,56.55,-0.58,1,False,False
 20260911,64.49,0.09,58.78,-0.61,56.89,0.34,2,False,True
+20260918,64.41,-0.08,58.32,-0.46,56.42,-0.47,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 滬士電子股份有限公司H股股票 2.交易日期:115/9/3~115/9/3 3.董事會通過日期: 民國115年9月3日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易價格與數量：待實際交易後再補充公告。 交易總金額：最高上限為美金2,500萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 採權益法之轉投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 待實際交易後再補充公告。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資（含本次交易）占總資產之比例：57.64% (2)有價證券投資（含本次交易）占歸屬於母公司業主之權益比例：71.88% (3)最近期財務報表營運資金數額：新台幣301,247仟元 10.取得或處分之具體目的: 為深化與滬士電子之戰略合作關係，並提升海外資產之長期投資效益。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 本次交易係參與滬士電子擬於香港交易所申請初次上市之H股認購，交易對象為發行公司 或其指定之主辦承銷商。 14.監察人承認或審計委員會同意日期: 民國115年9月3日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260911 | 2316 | 楠梓電 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 54 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.證券名稱: 滬士電子股份有限公司H股股票 2.交易日期:115/9/3~115/9/3 3.董事會通過日期: 民國115年9月3日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易價格與數量：待實際交易後再補充公告。 交易總金額：最高上限為美金2,500萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 採權益法之轉投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 待實際交易後再補充公告。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資（含本次交易）占總資產之比例：57.64% (2)有價證券投資（含本次交易）占歸屬於母公司業主之權益比例：71.88% (3)最近期財務報表營運資金數額：新台幣301,247仟元 10.取得或處分之具體目的: 為深化與滬士電子之戰略合作關係，並提升海外資產之長期投資效益。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 本次交易係參與滬士電子擬於香港交易所申請初次上市之H股認購，交易對象為發行公司 或其指定之主辦承銷商。 14.監察人承認或審計委員會同意日期: 民國115年9月3日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 滬士電子股份有限公司H股股票 2.交易日期:115/9/3~115/9/3 3.董事會通過日期: 民國115年9月3日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易價格與數量：待實際交易後再補充公告。 交易總金額：最高上限為美金2,500萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 採權益法之轉投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 待實際交易後再補充公告。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資（含本次交易）占總資產之比例：57.64% (2)有價證券投資（含本次交易）占歸屬於母公司業主之權益比例：71.88% (3)最近期財務報表營運資金數額：新台幣301,247仟元 10.取得或處分之具體目的: 為深化與滬士電子之戰略合作關係，並提升海外資產之長期投資效益。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 本次交易係參與滬士電子擬於香港交易所申請初次上市之H股認購，交易對象為發行公司 或其指定之主辦承銷商。 14.監察人承認或審計委員會同意日期: 民國115年9月3日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2316 | 楠梓電 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 16 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.證券名稱: 滬士電子股份有限公司H股股票 2.交易日期:115/9/3~115/9/3 3.董事會通過日期: 民國115年9月3日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易價格與數量：待實際交易後再補充公告。 交易總金額：最高上限為美金2,500萬元。 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 採權益法之轉投資公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 待實際交易後再補充公告。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: (1)有價證券投資（含本次交易）占總資產之比例：57.64% (2)有價證券投資（含本次交易）占歸屬於母公司業主之權益比例：71.88% (3)最近期財務報表營運資金數額：新台幣301,247仟元 10.取得或處分之具體目的: 為深化與滬士電子之戰略合作關係，並提升海外資產之長期投資效益。 11.本次交易表示異議董事之意見: 無。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 本次交易係參與滬士電子擬於香港交易所申請初次上市之H股認購，交易對象為發行公司 或其指定之主辦承銷商。 14.監察人承認或審計委員會同意日期: 民國115年9月3日 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2316 | 楠梓電 | 20 | 9 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2316 | 楠梓電 | 23 | 12 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2316 | 楠梓電 | 89 | 0 | 6720190.0 | 0.0 |  | no_signal |
+| 20260918 | 2316 | 楠梓電 | 92 | 1 | 4857630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

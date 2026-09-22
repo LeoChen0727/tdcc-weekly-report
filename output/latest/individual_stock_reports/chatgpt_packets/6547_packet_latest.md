@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6547 高端疫苗
 
 ## Metadata
-- generated_at: 2026-09-12 22:17:30 Asia/Taipei
+- generated_at: 2026-09-20 22:17:59 Asia/Taipei
 - stock_id: 6547
 - stock_name: 高端疫苗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 218
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 258
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 61.6
-- high: 62.4
-- low: 58.7
-- close: 58.8
-- volume: 7604000
-- ma5: 63.14
-- ema23_primary: 58.97
-- distance_to_ema23_pct: -0.29
-- ma20: 59.52
-- ma60: 51.45
-- ma120: 50.7
-- return_5d: -4.39
-- return_20d: 14.17
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -1.21
-- distance_to_high_60_pct: -18.56
+- date: 20260918
+- open: 60.5
+- high: 61
+- low: 58.5
+- close: 59.7
+- volume: 4709000
+- ma5: 59.74
+- ema23_primary: 59.27
+- distance_to_ema23_pct: 0.73
+- ma20: 61.31
+- ma60: 52.63
+- ma120: 50.89
+- return_5d: 1.53
+- return_20d: 7.18
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -2.63
+- distance_to_high_60_pct: -17.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,51.2,51.8,50.3,50.4,1705000,49.13,2.58,48.73,47.14,0.61
-20260818,51,53.7,50.7,52.2,4069000,49.39,5.7,49.01,47.21,1.38
-20260819,52.2,52.9,51.4,51.7,2811000,49.58,4.28,49.21,47.3,0.93
-20260820,53.6,53.9,52.2,52.9,4462000,49.86,6.11,49.52,47.41,1.43
-20260821,53.5,57.6,53.5,55.7,6327000,50.34,10.64,49.95,47.58,1.87
 20260824,55.5,57.5,55.1,55.5,5174000,50.77,9.31,50.35,47.77,1.47
 20260825,55.5,56.7,54.9,56.3,4032000,51.23,9.89,50.84,47.96,1.12
 20260826,59.1,61.9,59.1,61.9,10171000,52.12,18.76,51.65,48.22,2.54
@@ -168,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,64.1,68.3,63.6,68.1,6563000,58.77,15.88,58.7,50.96,1.13
 20260910,71,72.2,61.3,61.4,19245000,58.99,4.09,59.16,51.23,2.92
 20260911,61.6,62.4,58.7,58.8,7604000,58.97,-0.29,59.52,51.45,1.11
+20260914,58.4,59.3,56.5,58.1,5796000,58.9,-1.36,59.91,51.66,0.82
+20260915,58.7,60.7,58,59.7,2531000,58.97,1.24,60.28,51.91,0.36
+20260916,59.7,60.8,59.1,60.5,2486000,59.09,2.38,60.72,52.16,0.36
+20260917,60.9,61.7,60.3,60.7,2311000,59.23,2.49,61.11,52.4,0.34
+20260918,60.5,61,58.5,59.7,4709000,59.27,0.73,61.31,52.63,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 35.56
-- over_600_ratio: 31.78
-- over_800_ratio: 28.97
-- over_1000_ratio: 27.9
-- over_400_change_1w: -0.79
-- over_800_change_1w: -1.57
-- over_1000_change_1w: -1.35
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260918
+- over_400_ratio: 35.8
+- over_600_ratio: 32.19
+- over_800_ratio: 30
+- over_1000_ratio: 28.74
+- over_400_change_1w: 0.24
+- over_800_change_1w: 1.03
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,35.19,-0.13,29.23,0.18,28.4,0.45,1,False,True
 20260703,35.24,0.05,29.36,0.13,28.28,-0.12,2,False,True
 20260709,35.48,0.24,29.99,0.63,28.33,0.05,3,True,True
 20260717,35.43,-0.05,29.95,-0.04,28.33,0,0,False,False
@@ -199,18 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,36.61,0.92,30.48,0.71,29.42,1.28,5,True,True
 20260904,36.35,-0.26,30.54,0.06,29.25,-0.17,6,False,True
 20260911,35.56,-0.79,28.97,-1.57,27.9,-1.35,0,False,False
+20260918,35.8,0.24,30,1.03,28.74,0.84,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6547 | 高端疫苗 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台開大樓19樓  1901會議室（台北市重慶南路一段2號） 4.法人說明會擇要訊息：本公司受邀參加永豐金證券舉辦之法人說明會，說明公司營運概況及未來展望 5.其他應敘明事項：報名請洽永豐金鄒小姐(02)23828166或 E-MAIL:ECM@sinopac.com 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 6547 | 高端疫苗 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | continued_2_3d | 符合條款第四條第XX款：12 事實發生日：115/08/25 1.召開法人說明會之日期：115/08/25 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台開大樓19樓  1901會議室（台北市重慶南路一段2號） 4.法人說明會擇要訊息：本公司受邀參加永豐金證券舉辦之法人說明會，說明公司營運概況及未來展望 5.其他應敘明事項：報名請洽永豐金鄒小姐(02)23828166或 E-MAIL:ECM@sinopac.com 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 6547 | 高端疫苗 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 內容：依高端疫苗二發行及轉換辦法第十八條規定辦理。 發行公司於115年10月08日至115年11月06日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)依本公司「國內第二次有擔保轉換公司債發行及轉換辦法」第十八條第一項規定，該轉換公司債發行滿三個月後翌日起(民國115年6月20日)至發&#64008;期間屆滿前四十日止(民國118年2月7日)，本公司普通股收盤價連續三十個營業日超過當時轉換價格百分之三十(含)時，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本轉換公司債之面額，以現&#63754;收回其全部債券，並函請櫃檯買賣中心公告。本公司執&#64008;收回請求，應於債券收回基準日後七個營業日內以現&#63754;贖回本轉換公司債。 (二)通知及受理轉換公司債收回期間：115年10月8日至115年11月6日。 (三)掛號寄發債券收回通知書日期：115年10月8日。 (四)轉換公司債收回基準日：115年11月6日。 (五)轉換公司債終止櫃檯買賣日期：115年11月9日。 (六)收回價款發放日：115年11月17日。 (七)每張債券收回價款：新台幣壹拾萬元整。 (八)債券收回手續 1.因本轉換公司債為無實體發行，債券持有人請攜帶1.證券存摺2.集保帳戶印鑑，至原交易證券商填具『轉換公司債帳簿劃撥轉換/贖回/賣回申請書』127表單（註明贖回）辦理債券收回手續即可；交易證券商於收件後會向臺灣集中保管結算所提出申請，臺灣集中保管結算所於接受申請後送交本公司股務代理機構，於送達時即生收回之效力，且不得申請撤銷。 2.若債券持有人於「債券收回通知書」所載債權收回基準日前，未以書面回覆本公司股務代理機構(於送達時即生效力，採郵寄者已郵戳日為憑)者，本公司於債券收回基準日後七個營業日內(預計於115年11月17日)按債券面額以現&#63754;贖回。 3.債券持有人得自債券收回通知之始日(115年10月8日)起至屆滿日(115年11月6日)之前一營業日(115年11月5日)止，向往來券商辦理贖回手續。 4.如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年11月10日前至往來證券商辦理轉換手續。 (九)、本公司股務代理機構： 永豐金證券股份有限公司股務代理部 地址：100台北市博愛路17號3樓 電話:02-2381-6288 警語：請投資人注意，具有請求轉換資格者，如未於115年11月10日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 6547 | 高端疫苗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 內容：依高端疫苗二發行及轉換辦法第十八條規定辦理。 發行公司於115年10月08日至115年11月06日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)依本公司「國內第二次有擔保轉換公司債發行及轉換辦法」第十八條第一項規定，該轉換公司債發行滿三個月後翌日起(民國115年6月20日)至發&#64008;期間屆滿前四十日止(民國118年2月7日)，本公司普通股收盤價連續三十個營業日超過當時轉換價格百分之三十(含)時，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之債券持有人，則以公告方式為之)，贖回價格訂為本轉換公司債之面額，以現&#63754;收回其全部債券，並函請櫃檯買賣中心公告。本公司執&#64008;收回請求，應於債券收回基準日後七個營業日內以現&#63754;贖回本轉換公司債。 (二)通知及受理轉換公司債收回期間：115年10月8日至115年11月6日。 (三)掛號寄發債券收回通知書日期：115年10月8日。 (四)轉換公司債收回基準日：115年11月6日。 (五)轉換公司債終止櫃檯買賣日期：115年11月9日。 (六)收回價款發放日：115年11月17日。 (七)每張債券收回價款：新台幣壹拾萬元整。 (八)債券收回手續 1.因本轉換公司債為無實體發行，債券持有人請攜帶1.證券存摺2.集保帳戶印鑑，至原交易證券商填具『轉換公司債帳簿劃撥轉換/贖回/賣回申請書』127表單（註明贖回）辦理債券收回手續即可；交易證券商於收件後會向臺灣集中保管結算所提出申請，臺灣集中保管結算所於接受申請後送交本公司股務代理機構，於送達時即生收回之效力，且不得申請撤銷。 2.若債券持有人於「債券收回通知書」所載債權收回基準日前，未以書面回覆本公司股務代理機構(於送達時即生效力，採郵寄者已郵戳日為憑)者，本公司於債券收回基準日後七個營業日內(預計於115年11月17日)按債券面額以現&#63754;贖回。 3.債券持有人得自債券收回通知之始日(115年10月8日)起至屆滿日(115年11月6日)之前一營業日(115年11月5日)止，向往來券商辦理贖回手續。 4.如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年11月10日前至往來證券商辦理轉換手續。 (九)、本公司股務代理機構： 永豐金證券股份有限公司股務代理部 地址：100台北市博愛路17號3樓 電話:02-2381-6288 警語：請投資人注意，具有請求轉換資格者，如未於115年11月10日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 6547 | 高端疫苗 | 2 | 2 | 4 | 4 | 12 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260918 | 6547 | 高端疫苗 | 5 | 5 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

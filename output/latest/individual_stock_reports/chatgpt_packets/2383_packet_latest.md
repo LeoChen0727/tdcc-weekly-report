@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:04 Asia/Taipei
+- generated_at: 2026-09-20 22:16:11 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,33 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 5270
-- high: 5420
-- low: 5210
-- close: 5365
-- volume: 1100726
-- ma5: 5390
-- ema23_primary: 5460.92
-- distance_to_ema23_pct: -1.76
-- ma20: 5611.75
-- ma60: 5346.58
-- ma120: 4816.12
-- return_5d: -0.92
-- return_20d: -12.98
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -4.4
-- distance_to_high_60_pct: -17.08
+- date: 20260918
+- open: 4910
+- high: 5000
+- low: 4810
+- close: 4890
+- volume: 3783127
+- ma5: 5026
+- ema23_primary: 5299.49
+- distance_to_ema23_pct: -7.73
+- ma20: 5363.25
+- ma60: 5293.33
+- ma120: 4907.38
+- return_5d: -8.85
+- return_20d: -13.91
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: -8.82
+- distance_to_high_60_pct: -24.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,6165,6445,6110,6350,1910755,5330.71,19.12,5143,5178.58,0.79
-20260818,6350,6470,6170,6205,2005998,5403.57,14.83,5211.75,5198.58,0.85
-20260819,5855,6130,5810,5880,3119237,5443.27,8.02,5249.5,5204.83,1.29
-20260820,6100,6200,5780,5985,2514908,5488.42,9.05,5294,5216.42,1.02
-20260821,6005,6015,5650,5680,2568603,5504.38,3.19,5340.25,5222.67,1.03
 20260824,5690,5705,5415,5430,1846142,5498.18,-1.24,5371,5228.92,0.73
 20260825,5410,5605,5255,5595,1867477,5506.25,1.61,5430.25,5236.83,0.75
 20260826,5565,5920,5555,5895,1871519,5538.65,6.43,5520,5250.58,0.78
@@ -174,26 +168,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,5350,5645,5350,5375,1752002,5478.25,-1.88,5667.5,5339.58,0.85
 20260910,5380,5450,5320,5375,1367538,5469.64,-1.73,5651.75,5343.83,0.67
 20260911,5270,5420,5210,5365,1100726,5460.92,-1.76,5611.75,5346.58,0.56
+20260914,5270,5395,5230,5345,1226363,5451.26,-1.95,5561.5,5342.33,0.64
+20260915,5300,5365,5110,5115,1525730,5423.24,-5.68,5507,5330.5,0.81
+20260916,5060,5175,5030,5085,1686031,5395.05,-5.75,5467.25,5320.25,0.93
+20260917,5135,5255,4635,4695,5813349,5336.72,-12.02,5402.75,5305.83,2.93
+20260918,4910,5000,4810,4890,3783127,5299.49,-7.73,5363.25,5293.33,1.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 67.88
-- over_600_ratio: 62.8
-- over_800_ratio: 58.62
-- over_1000_ratio: 55.93
-- over_400_change_1w: -0.46
-- over_800_change_1w: 0.5
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 68.04
+- over_600_ratio: 62.69
+- over_800_ratio: 58.47
+- over_1000_ratio: 55.54
+- over_400_change_1w: 0.16
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.39
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,69.34,0.14,60.56,0.03,57.91,1.39,4,True,True
 20260703,69.09,-0.25,60.84,0.28,57.96,0.05,5,False,True
 20260709,69.13,0.04,60.29,-0.55,57.16,-0.8,6,False,False
 20260717,69.24,0.11,61.03,0.74,57.95,0.79,7,True,True
@@ -205,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,68.67,-0.31,58.66,-0.56,56.24,-0.09,1,False,False
 20260904,68.34,-0.33,58.12,-0.54,55.68,-0.56,0,False,False
 20260911,67.88,-0.46,58.62,0.5,55.93,0.25,1,False,True
+20260918,68.04,0.16,58.47,-0.15,55.54,-0.39,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：台北 4.法人說明會擇要訊息：本公司受邀參加花旗證券舉辦之法人說明會，說明本公司之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/04 1.召開法人說明會之日期：115/09/04 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：台北 4.法人說明會擇要訊息：本公司受邀參加花旗證券舉辦之法人說明會，說明本公司之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2383 | 台光電 | 15 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2383 | 台光電 | 18 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2383 | 台光電 | 49 | 5 | 808570.0 | 890.0 | 908.51 | no_signal |
+| 20260918 | 2383 | 台光電 | 47 | 4 | 1813620.0 | 1000.0 | 1813.62 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

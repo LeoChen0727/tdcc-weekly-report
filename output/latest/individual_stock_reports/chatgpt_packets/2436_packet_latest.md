@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:07 Asia/Taipei
+- generated_at: 2026-09-20 22:16:14 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,33 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 67
-- high: 67.4
-- low: 66.4
-- close: 67.1
-- volume: 3317408
-- ma5: 68.62
-- ema23_primary: 66.18
-- distance_to_ema23_pct: 1.39
-- ma20: 66.06
-- ma60: 65.69
-- ma120: 67.64
-- return_5d: 2.91
-- return_20d: -2.89
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 1.58
-- distance_to_high_60_pct: -17.57
+- date: 20260918
+- open: 68.5
+- high: 68.8
+- low: 67.6
+- close: 67.9
+- volume: 2345779
+- ma5: 67.54
+- ema23_primary: 66.67
+- distance_to_ema23_pct: 1.85
+- ma20: 66.82
+- ma60: 64.96
+- ma120: 67.83
+- return_5d: 1.19
+- return_20d: 7.95
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -14.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,69.2,69.4,66.2,66.4,4439635,63.84,4,60.99,67.68,1.06
-20260818,66.6,66.7,63.4,64.7,7222927,63.92,1.23,61.25,67.47,1.63
-20260819,63.7,66.4,63.2,65.1,3547106,64.01,1.7,61.44,67.21,0.79
-20260820,65.8,66.2,62.9,63.3,4229222,63.96,-1.02,61.59,66.94,0.92
-20260821,63.3,63.4,62.3,62.9,1780222,63.87,-1.51,61.77,66.68,0.39
 20260824,63.1,65.7,62.9,63.2,3247359,63.81,-0.96,62.02,66.46,0.69
 20260825,62.7,63.6,61.3,63.6,3224119,63.79,-0.3,62.45,66.23,0.68
 20260826,62.9,64.7,62.9,64.3,3745958,63.84,0.73,63.08,66.04,0.79
@@ -167,26 +162,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,67.3,69.6,66.6,69,8162413,65.91,4.69,66.31,65.73,1.31
 20260910,69,70.4,67.9,68.2,6880453,66.1,3.18,66.16,65.75,1.11
 20260911,67,67.4,66.4,67.1,3317408,66.18,1.39,66.06,65.69,0.55
+20260914,66.2,69.3,65.6,67.9,3888239,66.33,2.37,66.13,65.6,0.64
+20260915,68,68.1,66,66.3,3379379,66.32,-0.03,66.21,65.4,0.58
+20260916,66.6,68.2,66.6,68,2346850,66.46,2.31,66.36,65.24,0.4
+20260917,68.4,69,67.5,67.6,3054512,66.56,1.57,66.57,65.09,0.53
+20260918,68.5,68.8,67.6,67.9,2345779,66.67,1.85,66.82,64.96,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 26.71
-- over_600_ratio: 24.33
-- over_800_ratio: 20.87
-- over_1000_ratio: 18.38
-- over_400_change_1w: 0.66
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.61
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260918
+- over_400_ratio: 26.19
+- over_600_ratio: 23.9
+- over_800_ratio: 21.33
+- over_1000_ratio: 18.14
+- over_400_change_1w: -0.52
+- over_800_change_1w: 0.46
+- over_1000_change_1w: -0.24
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,28.2,2.93,23.14,3.41,21.82,3.44,2,True,True
 20260703,28.99,0.79,22.7,-0.44,21.41,-0.41,3,False,False
 20260709,28.78,-0.21,23.48,0.78,20.84,-0.57,4,False,True
 20260717,26.76,-2.02,21.34,-2.14,20.07,-0.77,0,False,False
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,24.91,-1.58,19.36,-2.35,17.35,-2.67,0,False,False
 20260904,26.05,1.14,21.01,1.65,18.99,1.64,1,True,True
 20260911,26.71,0.66,20.87,-0.14,18.38,-0.61,2,False,False
+20260918,26.19,-0.52,21.33,0.46,18.14,-0.24,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2436 | 偉詮電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d |
-| 20260911 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260918 | 2436 | 偉詮電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260918 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2436 | 偉詮電 | 16 | 4 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2436 | 偉詮電 | 19 | 7 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2436 | 偉詮電 | 54 | 0 | 1714860.0 | 0.0 |  | no_signal |
+| 20260918 | 2436 | 偉詮電 | 55 | 1 | 1309460.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

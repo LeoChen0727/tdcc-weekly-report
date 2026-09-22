@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-09-12 22:16:13 Asia/Taipei
+- generated_at: 2026-09-20 22:16:21 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,33 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 38.5
-- high: 38.75
-- low: 37.9
-- close: 37.9
-- volume: 1344710
-- ma5: 38.82
-- ema23_primary: 38.73
-- distance_to_ema23_pct: -2.13
-- ma20: 38.66
-- ma60: 38.86
-- ma120: 44.22
-- return_5d: -1.43
-- return_20d: -2.57
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: -1.98
-- distance_to_high_60_pct: -18.67
+- date: 20260918
+- open: 39.95
+- high: 40.4
+- low: 39.2
+- close: 39.45
+- volume: 1833223
+- ma5: 38.42
+- ema23_primary: 38.65
+- distance_to_ema23_pct: 2.07
+- ma20: 38.62
+- ma60: 38.61
+- ma120: 43.16
+- return_5d: 4.09
+- return_20d: 1.28
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: 2.15
+- distance_to_high_60_pct: -5.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,38.7,38.85,38.4,38.75,649756,38.9,-0.38,38.42,41.14,0.51
-20260818,38.75,38.8,38.2,38.25,532397,38.84,-1.53,38.34,41.02,0.43
-20260819,38,38.65,37.8,38.1,998458,38.78,-1.76,38.29,40.95,0.81
-20260820,38.6,39.45,38.45,38.95,1011631,38.8,0.4,38.28,40.92,0.81
-20260821,38.9,38.95,38.5,38.95,430518,38.81,0.36,38.3,40.87,0.35
 20260824,38.7,39.5,38.6,38.65,414975,38.8,-0.38,38.28,40.82,0.35
 20260825,38.6,38.9,38.35,38.5,484823,38.77,-0.7,38.27,40.7,0.42
 20260826,38.75,38.8,38.2,38.6,538623,38.76,-0.41,38.38,40.56,0.53
@@ -172,26 +167,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,38.8,39.6,38.8,39.4,638076,38.77,1.61,38.74,39.14,0.85
 20260910,39.25,39.5,38.45,39.1,619978,38.8,0.77,38.72,39.01,0.9
 20260911,38.5,38.75,37.9,37.9,1344710,38.73,-2.13,38.66,38.86,1.85
+20260914,37.8,38,37.2,37.6,549966,38.63,-2.67,38.61,38.76,0.76
+20260915,37.5,37.8,37.35,37.35,525134,38.53,-3.05,38.56,38.66,0.73
+20260916,37.5,39.25,37.5,38.7,923137,38.54,0.41,38.59,38.61,1.29
+20260917,38.8,39.3,38.65,39,1149841,38.58,1.09,38.59,38.61,1.59
+20260918,39.95,40.4,39.2,39.45,1833223,38.65,2.07,38.62,38.61,2.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 71.39
-- over_600_ratio: 69.53
-- over_800_ratio: 68.17
-- over_1000_ratio: 67.68
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260918
+- over_400_ratio: 71.44
+- over_600_ratio: 69.5
+- over_800_ratio: 68.14
+- over_1000_ratio: 67.48
+- over_400_change_1w: 0.05
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,71.38,-0.46,67.87,-0.32,67.03,-0.67,0,False,False
 20260703,71.16,-0.22,67.7,-0.17,66.86,-0.17,0,False,False
 20260709,71.13,-0.03,67.67,-0.03,66.86,0,0,False,False
 20260717,71.28,0.15,67.68,0.01,66.82,-0.04,1,False,True
@@ -203,23 +202,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,71.45,-0.05,68.17,0.06,67.34,0.05,1,False,True
 20260904,71.3,-0.15,68.1,-0.07,67.61,0.27,2,False,True
 20260911,71.39,0.09,68.17,0.07,67.68,0.07,3,True,True
+20260918,71.44,0.05,68.14,-0.03,67.48,-0.2,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):4,192,993,463 2.原預定買回之期間:115/05/19~115/07/18 3.原預定買回之數量(股):20,000,000 4.原預定買回區間價格(元):35.00~70.00 5.本次實際買回期間:115/05/21~115/06/16 6.本次已買回股份數量(股):14,235,000 7.本次已買回股份總金額(元):661,434,108 8.本次平均每股買回價格(元):46.47 9.累積已持有自己公司股份數量(股):14,235,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.69 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回， 故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260911 | 2543 | 皇昌 | revenue_breakout_low_response | 營收爆發低反應股 | 14 | 23 | B_可觀察 |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):4,192,993,463 2.原預定買回之期間:115/05/19~115/07/18 3.原預定買回之數量(股):20,000,000 4.原預定買回區間價格(元):35.00~70.00 5.本次實際買回期間:115/05/21~115/06/16 6.本次已買回股份數量(股):14,235,000 7.本次已買回股份總金額(元):661,434,108 8.本次平均每股買回價格(元):46.47 9.累積已持有自己公司股份數量(股):14,235,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.69 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回， 故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260918 | 2543 | 皇昌 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):4,192,993,463 2.原預定買回之期間:115/05/19~115/07/18 3.原預定買回之數量(股):20,000,000 4.原預定買回區間價格(元):35.00~70.00 5.本次實際買回期間:115/05/21~115/06/16 6.本次已買回股份數量(股):14,235,000 7.本次已買回股份總金額(元):661,434,108 8.本次平均每股買回價格(元):46.47 9.累積已持有自己公司股份數量(股):14,235,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.69 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回， 故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260918 | 2543 | 皇昌 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 23 | B_可觀察 |  |  | no_signal | stale_signal | 1.原預定買回股份總金額上限(元):4,192,993,463 2.原預定買回之期間:115/05/19~115/07/18 3.原預定買回之數量(股):20,000,000 4.原預定買回區間價格(元):35.00~70.00 5.本次實際買回期間:115/05/21~115/06/16 6.本次已買回股份數量(股):14,235,000 7.本次已買回股份總金額(元):661,434,108 8.本次平均每股買回價格(元):46.47 9.累積已持有自己公司股份數量(股):14,235,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):2.69 11.本次未執行完畢之原因: 維護股東權益並兼顧市場機制，視股價變化及成交量狀況分批買回， 故未能執行完畢 12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2543 | 皇昌 | 1 | 1 | 1 | 3 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260918 | 2543 | 皇昌 | 2 | 2 | 3 | 3 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 2543 | 皇昌 | 12 | 0 | 63220.0 | 0.0 |  | no_signal |
+| 20260918 | 2543 | 皇昌 | 10 | 0 | 38130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

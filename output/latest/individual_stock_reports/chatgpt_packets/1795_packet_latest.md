@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1795 美時
 
 ## Metadata
-- generated_at: 2026-09-12 22:15:53 Asia/Taipei
+- generated_at: 2026-09-20 22:15:56 Asia/Taipei
 - stock_id: 1795
 - stock_name: 美時
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260911
-- price_rows: 353
-- current_main_price_date: 20260911
+- latest_price_date: 20260918
+- price_rows: 358
+- current_main_price_date: 20260918
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260911-3ac576b2856cc687
-- official_tdcc_signal_date: 20260911
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
+- official_tdcc_signal_date: 20260918
+- latest_tdcc_date: 20260918
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,11 +100,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -123,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -131,33 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260911
-- open: 175
-- high: 176
-- low: 172
-- close: 173.5
-- volume: 1335501
-- ma5: 178.1
-- ema23_primary: 184.51
-- distance_to_ema23_pct: -5.97
-- ma20: 186.43
-- ma60: 189.16
-- ma120: 199.75
-- return_5d: -4.67
-- return_20d: -3.88
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -6.93
-- distance_to_high_60_pct: -20.05
+- date: 20260918
+- open: 180
+- high: 181
+- low: 178.5
+- close: 180
+- volume: 672438
+- ma5: 178
+- ema23_primary: 182.3
+- distance_to_ema23_pct: -1.26
+- ma20: 183.65
+- ma60: 188.03
+- ma120: 198.47
+- return_5d: 3.75
+- return_20d: -8.4
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -1.99
+- distance_to_high_60_pct: -17.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260817,180,185,180,183.5,806081,187.46,-2.11,185.15,192.18,0.56
-20260818,183,185,182,184,702196,187.17,-1.7,184.82,191.89,0.49
-20260819,184.5,188,182,186.5,838054,187.12,-0.33,184.53,191.71,0.61
-20260820,191.5,197.5,190,195,3028421,187.77,3.85,184.85,191.74,2.17
-20260821,195,197,190.5,196.5,1724029,188.5,4.24,185.43,191.82,1.23
 20260824,202,202.5,196,196,2264609,189.13,3.63,186.03,191.94,1.56
 20260825,196,198,191,194,1299632,189.53,2.36,186.9,191.93,0.93
 20260826,193,198.5,193,195.5,897630,190.03,2.88,187.9,191.88,0.67
@@ -173,26 +163,30 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260909,180,180,178,179,714788,186.29,-3.91,187.32,189.72,0.64
 20260910,179,179.5,176,177,712244,185.52,-4.59,186.78,189.49,0.63
 20260911,175,176,172,173.5,1335501,184.51,-5.97,186.43,189.16,1.23
+20260914,173,175,170.5,173.5,542369,183.6,-5.5,185.93,188.83,0.51
+20260915,175,178.5,173,178.5,725132,183.17,-2.55,185.65,188.62,0.68
+20260916,179,179.5,176,178,875931,182.74,-2.59,185.22,188.41,0.82
+20260917,179,181.5,177.5,180,772740,182.51,-1.38,184.47,188.18,0.8
+20260918,180,181,178.5,180,672438,182.3,-1.26,183.65,188.03,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 57.15
-- over_600_ratio: 55.03
-- over_800_ratio: 54.26
-- over_1000_ratio: 52.5
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260918
+- over_400_ratio: 57.28
+- over_600_ratio: 55.05
+- over_800_ratio: 53.7
+- over_1000_ratio: 52.28
+- over_400_change_1w: 0.13
+- over_800_change_1w: -0.56
+- over_1000_change_1w: -0.22
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,57.14,-0.25,54.48,-0.51,52.68,-0.18,0,False,False
 20260703,57.2,0.06,54.45,-0.03,52.66,-0.02,1,False,False
 20260709,58.2,1,54.68,0.23,53.24,0.58,2,True,True
 20260717,57.45,-0.75,54.5,-0.18,52.73,-0.51,0,False,False
@@ -204,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,58.09,0.12,55.37,0.41,53.65,0.07,4,False,True
 20260904,57.18,-0.91,54.23,-1.14,52.48,-1.17,0,False,False
 20260911,57.15,-0.03,54.26,0.03,52.5,0.02,1,False,True
+20260918,57.28,0.13,53.7,-0.56,52.28,-0.22,2,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1795 | 美時 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:Norwich Pharmaceuticals, Inc. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:本公司100%持有子公司Norwich Pharmaceuticals, Inc.於今日(美東時間 115/08/25) 接獲美國聯邦哥倫比亞特區巡迴上訴法院就Norwich之Rifaximin 550毫克 錠劑學名藥（原廠藥為Xifaxan）申請（ANDA）相關上訴案之判決。 FDA原先認為，因另一家藥廠仍享有180天市場獨占權，因此僅給予Norwich之rifaximin 學名藥暫時性核准。法院審理後認為，FDA應重新審查該第一申請人之市場獨占權，並 重新判斷該獨占權是否仍阻礙Norwich取得最終核准。本次判決使Rifaximin學名藥之 最終核准能獲得FDA重新審查。 6.因應措施:本公司將持續依FDA審查程序準備藥證審核相關文件並配合後續審查作業。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): Rifaximin 550毫克錠劑學名藥主要係用於治療腹瀉型腸躁症 (IBS-D）。依據Bausch Health之2025年年度報告，原廠藥Xifaxan截至2025年12月止前12個月之全美銷售金額 約為22億美元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1795 | 美時 | 1 | 1 | 1 | 1 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260911 | 1795 | 美時 | 116 | 2 | 1090600.0 | 14600.0 | 74.7 | no_signal |
+| 20260918 | 1795 | 美時 | 106 | 2 | 3253840.0 | 2680.0 | 1214.12 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
