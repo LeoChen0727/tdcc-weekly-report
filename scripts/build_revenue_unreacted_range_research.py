@@ -33,6 +33,9 @@ from model_research_artifact_guard import (
     changed_during_run,
     model_owned_artifact_guard,
 )
+from build_revenue_unreacted_range_projection_v3 import (
+    build_and_write as build_and_write_projection_v3_candidate,
+)
 from revenue_unreacted_range_close_confirmation_timing import write_close_confirmation_timing_audit
 from revenue_unreacted_range_fixed_confirmation_feature_contrast import (
     build_fixed_confirmation_feature_contrast,
@@ -672,6 +675,7 @@ def parse_args() -> argparse.Namespace:
             "source_first_condition_audit",
             "source_snapshot_projection",
             "source_snapshot_projection_chain",
+            "source_snapshot_projection_v3_candidate",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
@@ -688,6 +692,11 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    if args.stage == "source_snapshot_projection_v3_candidate":
+        # Explicit opt-in only: this helper owns its exact-six sparse-safe guard.
+        # Neither all nor the scheduled workflow selects this candidate stage.
+        build_and_write_projection_v3_candidate(ROOT)
+        return 0
     if args.stage in SOURCE_FIRST_BOUND_COMMIT_STAGES:
         ensure_source_first_bound_commit_available()
     if args.stage == "source_snapshot_projection_chain":

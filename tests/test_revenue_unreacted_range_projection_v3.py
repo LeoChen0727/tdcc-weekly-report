@@ -133,3 +133,61 @@ def test_git_blob_batch_rejects_wrong_identity(monkeypatch, tmp_path):
     monkeypatch.setattr(source_io, "_git", git)
     with pytest.raises(RuntimeError, match="identity mismatch"):
         source_io.read_git_payloads(tmp_path, source_io.V2_SOURCE_COMMIT, ("input.csv",))
+
+
+def test_candidate_stage_dispatches_only_through_registered_owner(monkeypatch):
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+    monkeypatch.setattr(sys, "argv", [owner.__file__, "--stage", "source_snapshot_projection_v3_candidate"])
+    monkeypatch.setattr(owner, "build_and_write_projection_v3_candidate", lambda root: calls.append(root))
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("candidate stage entered a legacy stage or its guard")
+
+    for name in ("ensure_source_first_bound_commit_available", "load_bound_source_context", "model_owned_artifact_guard", "build_and_write"):
+        monkeypatch.setattr(owner, name, forbidden)
+    assert owner.main() == 0
+    assert calls == [owner.ROOT]
+    assert subject.OWNER_ID == owner.MODEL_ID
+    assert subject.PRODUCER == owner.PRODUCER
+
+
+@pytest.mark.parametrize("arguments", [[], ["--stage", "all"]])
+def test_default_and_all_never_select_v3_candidate(monkeypatch, arguments):
+    from contextlib import nullcontext
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+    monkeypatch.setattr(sys, "argv", [owner.__file__, *arguments])
+    monkeypatch.setattr(owner, "ensure_source_first_bound_commit_available", lambda: None)
+    monkeypatch.setattr(owner, "model_owned_artifact_guard", lambda *args: nullcontext())
+    monkeypatch.setattr(owner, "build_and_write", lambda: calls.append("all"))
+    monkeypatch.setattr(owner, "build_and_write_projection_v3_candidate", lambda *args: pytest.fail("all selected candidate"))
+    assert owner.main() == 0
+    assert calls == ["all"]
+
+
+def test_helper_cli_cannot_write(monkeypatch):
+    monkeypatch.setattr(subject, "build_and_write", lambda *args: pytest.fail("helper CLI wrote artifacts"))
+    with pytest.raises(SystemExit, match="--stage source_snapshot_projection_v3_candidate"):
+        subject.main()
+
+
+def test_candidate_helper_calculation_and_write_remain_guarded(monkeypatch, tmp_path):
+    from contextlib import contextmanager
+
+    calls = []
+
+    @contextmanager
+    def guard(root):
+        assert root == tmp_path
+        calls.append("guard_enter")
+        yield
+        calls.append("guard_exit")
+
+    monkeypatch.setattr(subject, "model_owned_artifact_guard", guard)
+    monkeypatch.setattr(subject, "build", lambda root: calls.append("build") or {"fixture": b"bytes"})
+    monkeypatch.setattr(subject, "write_outputs", lambda root, payloads: calls.append(("write", root, payloads)))
+    subject.build_and_write(tmp_path)
+    assert calls == ["guard_enter", "build", ("write", tmp_path, {"fixture": b"bytes"}), "guard_exit"]

@@ -20,6 +20,7 @@ from revenue_unreacted_range_projection_source_io import (
     PRICE_RESOLUTION_REL,
     V2_SOURCE_COMMIT,
     load_source_payloads,
+    read_git_payloads,
 )
 V1_PROJECTION_VERSION = "source_snapshot_projection_v1_20260731"
 V2_PROJECTION_VERSION = "source_snapshot_projection_v2_20260822"
@@ -103,6 +104,10 @@ ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
 ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
 V2_ARTIFACT_VERSION = "low_mid_falling_candidate_v2_20260822"
 V3_ARTIFACT_VERSION = "low_mid_falling_candidate_v3_20260829"
+SOURCE_FIRST_CODE_REVISIONS = {
+    V2_ARTIFACT_VERSION: "2ad082d89565e249817e6e7d817e729c85a2d12e",
+    V3_ARTIFACT_VERSION: "f9d76fe1ace0d61c303b73c42981482daeef7938",
+}
 EXPECTED_DATA_CONTRACT_SHA256 = (
     "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
 )
@@ -1127,6 +1132,31 @@ def _normalized_file_sha256(
     ).replace(b"\r\n", b"\n")
     return hashlib.sha256(payload).hexdigest()
 
+def _source_first_producer_sha256(
+    source_root: Path,
+    *,
+    artifact_version: str,
+    trusted_revision: str | None = None,
+) -> str:
+    revision = SOURCE_FIRST_CODE_REVISIONS.get(artifact_version)
+    if (
+        trusted_revision is None
+        and revision is not None
+        and source_root.resolve() == ROOT.resolve()
+    ):
+        payloads = read_git_payloads(
+            source_root, revision, (SOURCE_FIRST_PRODUCER_RELATIVE_PATH,)
+        )
+        if SOURCE_FIRST_PRODUCER_RELATIVE_PATH not in payloads:
+            raise RuntimeError("bound source-first producer Git blob is missing")
+        payload = payloads[SOURCE_FIRST_PRODUCER_RELATIVE_PATH].replace(b"\r\n", b"\n")
+        return hashlib.sha256(payload).hexdigest()
+    return _normalized_file_sha256(
+        source_root, SOURCE_FIRST_PRODUCER_RELATIVE_PATH,
+        trusted_revision=trusted_revision,
+    )
+
+
 def _registered_data_contract_sha256(
     source_root: Path,
     *,
@@ -2145,9 +2175,9 @@ def _expected_detail(
         PRODUCER_RELATIVE_PATH,
         trusted_revision=trusted_revision,
     )
-    source_first_producer_sha = _normalized_file_sha256(
+    source_first_producer_sha = _source_first_producer_sha256(
         source_root,
-        SOURCE_FIRST_PRODUCER_RELATIVE_PATH,
+        artifact_version=expected_artifact_version,
         trusted_revision=trusted_revision,
     )
     rearmed_producer_sha = _normalized_file_sha256(

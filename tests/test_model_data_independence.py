@@ -1428,6 +1428,30 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 47
+    routing_migration = rows[-1]
+    assert routing_migration["migration_id"] == (
+        "revenue_projection_v3_opt_in_wrapper_routing_20260923"
+    )
+    assert routing_migration["changed_data_families"] == (
+        "revenue_unreacted_range_source_snapshot_projection_v3_candidate"
+    )
+    assert routing_migration["previous_contract_sha256s"] == (
+        "57cd468849bb49307c99468f3895614fe6cb4ca311a555bd6cf204d169400130"
+    )
+    assert routing_migration["new_contract_sha256s"] == (
+        "752ae22bbe1cdba25eebc6b8578ae1d2a875f7192f72116606f01ccf0ab5f228"
+    )
+    assert routing_migration["affected_models"] == "revenue_unreacted_range"
+    assert routing_migration["user_approval_reference"] == (
+        "user_approved_revenue_projection_price_binding_v3_diff_20260923_wrapper_routing"
+    )
+    assert routing_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(routing_migration) == (
+        "6291742ff0e3b4269a784857917257b826f3c241747d8fb758abb511dbb8d1b3"
+    )
+    # Preserve the committed migration chain before the opt-in entrypoint repair.
+    rows = rows[:-1]
     assert len(rows) == 46
     price_binding_migration = rows[-1]
     assert price_binding_migration["migration_id"] == (

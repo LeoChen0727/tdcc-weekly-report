@@ -1,7 +1,6 @@
 """One model, two fixed source versions, six new research-only artifacts."""
 from __future__ import annotations
 
-import argparse
 from contextlib import contextmanager
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
@@ -28,10 +27,10 @@ from revenue_unreacted_range_source_snapshot_projection import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ID = "revenue_unreacted_range"
-OWNER_ID = "revenue_unreacted_range_source_snapshot_projection_v3_candidate"
+OWNER_ID = MODEL_ID
 VERSION = "source_snapshot_projection_v3_20260923"
 CUTOFF = "20260713"
-PRODUCER = "scripts/build_revenue_unreacted_range_projection_v3.py"
+PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
 PREFIX = "output/research/revenue_unreacted_range/revenue_unreacted_range_source_snapshot_projection_v3_20260923_"
 OUTPUTS = {name: PREFIX + name + suffix for name, suffix in (
     ("manifest", ".csv"), ("detail", ".csv"), ("price_diff", ".csv"),
@@ -285,13 +284,17 @@ def write_outputs(root: Path, payloads: dict[str, bytes]) -> None:
             with path.open("xb") as handle: handle.write(payload)
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.parse_args()
-    with model_owned_artifact_guard(ROOT):
-        write_outputs(ROOT, build(ROOT))
+def build_and_write(repository_root: Path = ROOT) -> None:
+    with model_owned_artifact_guard(repository_root):
+        write_outputs(repository_root, build(repository_root))
     print("v3 candidate produced; canonical v2 and formal surfaces retained")
-    return 0
+
+
+def main() -> int:
+    raise SystemExit(
+        "Use python scripts/build_revenue_unreacted_range_research.py "
+        "--stage source_snapshot_projection_v3_candidate"
+    )
 
 
 if __name__ == "__main__":

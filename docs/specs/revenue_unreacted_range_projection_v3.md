@@ -16,9 +16,22 @@ cutoff 內行情及逐股 semantic SHA 與既有 manifest 相同；它是明確�
 及 price resolution，再照原公式與 cutoff 重播。獨立 validator 不匯入 producer 的業務計算。
 月營收的 current cutoff gate 保留；新日資料正常追加不會被誤稱歷史行情毀損。
 
+下游 low-mid 既有證據另綁定其建立時的 source-first 程式 provenance：
+`low_mid_falling_candidate_v2_20260822` 使用
+`2ad082d89565e249817e6e7d817e729c85a2d12e`；
+`low_mid_falling_candidate_v3_20260829` 使用
+`f9d76fe1ace0d61c303b73c42981482daeef7938`。
+驗證器讀取不可變 Git blob，依原 LF-normalized bytes 規則實算程式雜湊；
+不接受從產物注入雜湊，不把原 semantic 欄位降為 diagnostic。
+程式 provenance 與行情來源版本分開標示，不能把兩者混成同一次執行 HEAD。
+獨立事件／報酬重播、原明細雜湊、v1 trusted audit 及合成資料隔離規則均保留。
+
 ## 新候選
 
-唯一 producer：`scripts/build_revenue_unreacted_range_projection_v3.py`。
+唯一 producer：`scripts/build_revenue_unreacted_range_research.py`，必須明確指定
+`--stage source_snapshot_projection_v3_candidate`。既有 `all` 與排程不會執行此候選階段。
+`scripts/build_revenue_unreacted_range_projection_v3.py` 僅為同模型 helper，直接 CLI 拒絕寫入；
+專用階段保留六檔 allowlist 與完整 sentinel 保護，不擴張 workflow 或 local exception。
 新來源固定為 `231d2e279a99a89f1888ece0361ea64d45f69ecd`，觀察截止日仍為 `20260713`。
 新、舊 cutoff 月營收 semantic identity 必須相同，兩份 resolution registry 不得改變；
 不符即停止價格單因子比較。原條件與事件算法直接重用同模型既有 producer，僅增加記憶體 bytes IO。

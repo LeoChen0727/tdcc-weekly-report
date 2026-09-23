@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import hashlib
 import sys
 from pathlib import Path
 import subprocess
@@ -896,6 +897,11 @@ def test_canonical_v2_validation_binds_prices_but_not_synthetic_source_roots(
     monkeypatch.setattr(validator, "load_source_payloads", load)
     assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
     assert calls == []
+    captured_code = (tmp_path / validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH).read_bytes()
+    monkeypatch.setattr(
+        validator, "read_git_payloads",
+        lambda root, revision, paths: {validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH: captured_code},
+    )
     monkeypatch.setattr(validator, "ROOT", tmp_path)
     for price_path in price_dir.glob("*.csv"):
         price_path.write_text("invalid current price input", encoding="utf-8")
@@ -1460,3 +1466,64 @@ def test_bound_v2_price_payload_reuses_independent_adjustment_calculation(tmp_pa
         validator._load_resolutions(
             registry_path, source_payloads=payloads, trusted_revision="e" * 40,
         )
+
+
+@pytest.mark.parametrize("artifact_version,revision", [
+    (validator.V2_ARTIFACT_VERSION, "2ad082d89565e249817e6e7d817e729c85a2d12e"),
+    (validator.V3_ARTIFACT_VERSION, "f9d76fe1ace0d61c303b73c42981482daeef7938"),
+])
+def test_code_provenance_uses_exact_artifact_version_not_price_version(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, artifact_version: str, revision: str,
+) -> None:
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    code_path = tmp_path / validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH
+    code_path.parent.mkdir()
+    code_path.write_bytes(b"current implementation\n")
+    original = b"original implementation\r\n"
+    calls = []
+    def read(root, commit, paths):
+        calls.append((root, commit, paths))
+        return {validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH: original}
+    monkeypatch.setattr(validator, "read_git_payloads", read)
+    expected = hashlib.sha256(original.replace(b"\r\n", b"\n")).hexdigest()
+    assert validator._source_first_producer_sha256(tmp_path, artifact_version=artifact_version) == expected
+    code_path.write_bytes(b"new current I/O implementation\n")
+    assert validator._source_first_producer_sha256(tmp_path, artifact_version=artifact_version) == expected
+    assert calls == [(tmp_path, revision, (validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH,))] * 2
+    assert revision != validator.V2_SOURCE_COMMIT
+
+
+@pytest.mark.parametrize("failure", ["missing_commit", "missing_blob"])
+def test_bound_code_provenance_fails_closed_without_current_fallback(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, failure: str,
+) -> None:
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    code_path = tmp_path / validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH
+    code_path.parent.mkdir()
+    code_path.write_bytes(b"available current file is not a substitute\n")
+    def missing(*_args):
+        if failure == "missing_commit":
+            raise RuntimeError("fixed source commit is missing")
+        return {}
+    monkeypatch.setattr(validator, "read_git_payloads", missing)
+    with pytest.raises(RuntimeError, match="missing"):
+        validator._source_first_producer_sha256(tmp_path, artifact_version=validator.V3_ARTIFACT_VERSION)
+
+
+def test_code_provenance_preserves_custom_root_and_trusted_v1_semantics(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls = []
+    def physical(root, path, *, trusted_revision):
+        calls.append((root, path, trusted_revision))
+        return "a" * 64
+    monkeypatch.setattr(validator, "_normalized_file_sha256", physical)
+    monkeypatch.setattr(validator, "read_git_payloads", lambda *_args: pytest.fail("bound Git path must not run"))
+    assert validator._source_first_producer_sha256(tmp_path, artifact_version=validator.V3_ARTIFACT_VERSION) == "a" * 64
+    assert validator._source_first_producer_sha256(
+        validator.ROOT, artifact_version=validator.ARTIFACT_VERSION, trusted_revision="e" * 40,
+    ) == "a" * 64
+    assert calls == [
+        (tmp_path, validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH, None),
+        (validator.ROOT, validator.SOURCE_FIRST_PRODUCER_RELATIVE_PATH, "e" * 40),
+    ]
