@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping
 from decimal import Decimal, InvalidOperation
 import hashlib
+from io import BytesIO
 import json
 from pathlib import Path
 import re
@@ -13,6 +15,12 @@ import warnings
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_projection_source_io import (
+    PRICE_PREFIX,
+    PRICE_RESOLUTION_REL,
+    V2_SOURCE_COMMIT,
+    load_source_payloads,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 V1_V2_DIFF_VALIDATOR = (
@@ -921,9 +929,24 @@ def _applied_monthly_lineage(
     return ids, _resolution_subset_sha256(applied)
 
 
-def _price_paths_by_stock(price_dir: Path) -> dict[str, Path]:
+def _price_paths_by_stock(
+    price_dir: Path,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
+) -> dict[str, Path]:
     paths: dict[str, Path] = {}
-    for path in sorted(Path(price_dir).glob("*.csv")):
+    candidates = (
+        Path(price_dir).glob("*.csv")
+        if source_payloads is None
+        else (
+            Path(relative)
+            for relative in source_payloads
+            if relative.startswith(PRICE_PREFIX)
+            and "/" not in relative[len(PRICE_PREFIX):]
+            and relative.endswith(".csv")
+        )
+    )
+    for path in sorted(candidates):
         stock_id = _stock_id(path.stem)
         if not stock_id:
             continue
@@ -939,6 +962,8 @@ def _price_paths_by_stock(price_dir: Path) -> dict[str, Path]:
 def _cutoff_price_input_stock_ids(
     cutoff_monthly: pd.DataFrame,
     price_dir: Path,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> list[str]:
     if "stock_id" not in cutoff_monthly.columns:
         raise RuntimeError("cutoff canonical monthly revenue is missing stock_id")
@@ -947,11 +972,25 @@ def _cutoff_price_input_stock_ids(
         for value in cutoff_monthly["stock_id"]
         if _stock_id(value)
     }
-    return sorted(revenue_stock_ids & set(_price_paths_by_stock(price_dir)))
+    return sorted(revenue_stock_ids & set(_price_paths_by_stock(
+        price_dir, source_payloads=source_payloads
+    )))
 
 
-def _price_file(path: Path, stock_id: str, cutoff: str) -> pd.DataFrame:
-    frame = pd.read_csv(path, dtype=str, keep_default_na=False, low_memory=False)
+def _price_file(
+    path: Path,
+    stock_id: str,
+    cutoff: str,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
+) -> pd.DataFrame:
+    source = path
+    if source_payloads is not None:
+        relative = f"{PRICE_PREFIX}{path.name}"
+        if relative not in source_payloads:
+            raise RuntimeError(f"bound price payload is missing: {relative}")
+        source = BytesIO(source_payloads[relative])
+    frame = pd.read_csv(source, dtype=str, keep_default_na=False, low_memory=False)
     missing = sorted(set(PRICE_INPUT_COLUMNS) - set(frame.columns))
     if missing:
         raise RuntimeError(f"price history {stock_id} is missing columns: {missing}")
@@ -975,12 +1014,18 @@ def _price_input_lineage(
     cutoff_monthly: pd.DataFrame,
     price_dir: Path,
     cutoff: str,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> dict[str, object]:
-    price_paths = _price_paths_by_stock(price_dir)
+    price_paths = _price_paths_by_stock(price_dir, source_payloads=source_payloads)
     descriptors: list[list[object]] = []
     total_rows = 0
-    for stock_id in _cutoff_price_input_stock_ids(cutoff_monthly, price_dir):
-        frame = _price_file(price_paths[stock_id], stock_id, cutoff)
+    for stock_id in _cutoff_price_input_stock_ids(
+        cutoff_monthly, price_dir, source_payloads=source_payloads
+    ):
+        frame = _price_file(
+            price_paths[stock_id], stock_id, cutoff, source_payloads=source_payloads
+        )
         semantic_sha = _canonical_frame_sha256(frame, columns=list(PRICE_INPUT_COLUMNS))
         descriptors.append([stock_id, len(frame), semantic_sha])
         total_rows += len(frame)
@@ -1204,8 +1249,10 @@ def _replay_stock_price(
     path: Path,
     stock_id: str,
     resolutions: pd.DataFrame,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
-    frame = _price_file(path, stock_id, CUTOFF_DATE)
+    frame = _price_file(path, stock_id, CUTOFF_DATE, source_payloads=source_payloads)
     for column in ("open", "high", "low", "close", "volume", "volume_ratio"):
         frame[column] = pd.to_numeric(frame[column], errors="coerce")
     frame = frame.dropna(subset=["close"]).reset_index(drop=True)
@@ -1604,6 +1651,7 @@ def _rebuild_cutoff_source_detail(
     monthly_blob_sha: str,
     cutoff_monthly_sha: str,
     monthly_registry_sha: str,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
     revenue = _prepare_replay_revenue(cutoff_monthly)
     masks = _replay_condition_masks(revenue)
@@ -1614,12 +1662,19 @@ def _rebuild_cutoff_source_detail(
         "cross_market_resolution_registry_canonical_sha256": monthly_registry_sha,
     }
     rows: list[dict[str, object]] = []
-    for path in sorted(Path(price_dir).glob("*.csv")):
+    price_paths = (
+        sorted(Path(price_dir).glob("*.csv"))
+        if source_payloads is None
+        else sorted(_price_paths_by_stock(price_dir, source_payloads=source_payloads).values())
+    )
+    for path in price_paths:
         stock_id = _stock_id(path.stem)
         stock_revenue = revenue.loc[revenue["stock_id"].eq(stock_id)].copy()
         if stock_revenue.empty:
             continue
-        price = _replay_stock_price(path, stock_id, resolutions)
+        price = _replay_stock_price(
+            path, stock_id, resolutions, source_payloads=source_payloads
+        )
         if price.empty:
             continue
         stock_name = str(stock_revenue["stock_name"].iloc[-1])
@@ -1874,13 +1929,16 @@ def validate_frames(
     price_dir: Path,
     monthly_resolution_path: Path,
     price_resolution_path: Path,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> list[str]:
-    """Validate the pinned cutoff projection against cutoff-only current inputs.
+    """Validate cutoff monthly rows and replay explicitly selected price inputs.
 
     The mutable source-first latest artifact can legitimately advance after
     this projection was pinned, so it is deliberately not an input here.  The
     manifest/detail binding above preserves the historical capture hashes; the
     replay below independently verifies every cutoff-scoped input and row.
+    Bound price payloads do not replace the mutable-current cutoff monthly gate.
+    With no payloads, explicit physical inputs retain their original contract.
     """
 
     errors = _binding_errors(manifest, projected_detail)
@@ -1900,19 +1958,26 @@ def validate_frames(
             keep_default_na=False,
         )
         cutoff_monthly = _resolve_monthly(raw, monthly_registry, CUTOFF_DATE)
+        price_registry_source = price_resolution_path
+        if source_payloads is not None:
+            if PRICE_RESOLUTION_REL not in source_payloads:
+                raise RuntimeError("bound price resolution payload is missing")
+            price_registry_source = BytesIO(source_payloads[PRICE_RESOLUTION_REL])
         price_registry = pd.read_csv(
-            price_resolution_path,
+            price_registry_source,
             dtype=str,
             keep_default_na=False,
         )
         price_input_stock_ids = _cutoff_price_input_stock_ids(
             cutoff_monthly,
             price_dir,
+            source_payloads=source_payloads,
         )
         price_lineage = _price_input_lineage(
             cutoff_monthly,
             price_dir,
             CUTOFF_DATE,
+            source_payloads=source_payloads,
         )
         monthly_ids, monthly_resolution_sha = _applied_monthly_lineage(
             cutoff_monthly,
@@ -1947,6 +2012,7 @@ def validate_frames(
             monthly_registry_sha=_payload_value(
                 row["cross_market_resolution_registry_canonical_sha256"]
             ),
+            source_payloads=source_payloads,
         )
         errors.extend(_replay_detail_errors(projected_detail, rebuilt_detail))
         max_source, max_trade, max_end = _max_dates(projected_detail)
@@ -2232,6 +2298,7 @@ def _validate_versioned_v2_closure(
     v2_detail_path: Path = V2_PROJECTED_DETAIL_CSV,
     diff_summary_path: Path = V1_V2_DIFF_SUMMARY_CSV,
     diff_detail_path: Path = V1_V2_DIFF_DETAIL_CSV,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> list[str]:
     artifact_paths = {
         "v1 archive manifest": Path(v1_manifest_path),
@@ -2256,12 +2323,23 @@ def _validate_versioned_v2_closure(
     ]
     if missing:
         return missing
+    if (
+        source_payloads is None
+        and Path(v2_manifest_path).resolve() == V2_MANIFEST_CSV.resolve()
+        and Path(v2_detail_path).resolve() == V2_PROJECTED_DETAIL_CSV.resolve()
+    ):
+        try:
+            source_payloads = load_source_payloads(ROOT, V2_SOURCE_COMMIT)
+        except (RuntimeError, OSError, ValueError) as exc:
+            return [f"versioned v2 bound price source unavailable: {exc}"]
     errors = _validate_v1_archive_evidence(
         v1_manifest_path=Path(v1_manifest_path),
         v1_detail_path=Path(v1_detail_path),
         evidence_path=Path(v1_evidence_path),
     )
-    replay_paths = (revenue_path, monthly_resolution_path, price_resolution_path)
+    replay_paths = (revenue_path, monthly_resolution_path)
+    if source_payloads is None:
+        replay_paths += (price_resolution_path,)
     replay_missing = [str(path) for path in replay_paths if not Path(path).is_file()]
     if replay_missing:
         errors.extend(
@@ -2289,6 +2367,7 @@ def _validate_versioned_v2_closure(
                     price_dir=Path(price_dir),
                     monthly_resolution_path=Path(monthly_resolution_path),
                     price_resolution_path=Path(price_resolution_path),
+                    source_payloads=source_payloads,
                 )
             )
         except (OSError, pd.errors.ParserError) as exc:
@@ -2517,6 +2596,16 @@ def validate(
         if len(manifest) == 1
         else ""
     )
+    registered_v2_paths = (
+        Path(manifest_path).resolve() == V2_MANIFEST_CSV.resolve()
+        and Path(projected_detail_path).resolve() == V2_PROJECTED_DETAIL_CSV.resolve()
+    )
+    source_payloads = None
+    if (canonical_paths or registered_v2_paths) and canonical_projection_version == V2_ARTIFACT_VERSION:
+        try:
+            source_payloads = load_source_payloads(ROOT, V2_SOURCE_COMMIT)
+        except (RuntimeError, OSError, ValueError) as exc:
+            return [f"canonical v2 bound price source unavailable: {exc}"]
     if (
         migration_closure
         and canonical_paths
@@ -2534,6 +2623,7 @@ def validate(
             v2_detail_path=V2_PROJECTED_DETAIL_CSV,
             diff_summary_path=V1_V2_DIFF_SUMMARY_CSV,
             diff_detail_path=V1_V2_DIFF_DETAIL_CSV,
+            source_payloads=source_payloads,
         )
         errors.extend(
             _validate_canonical_v2_supersede(
@@ -2586,7 +2676,9 @@ def validate(
                 "v2 supersede evidence exists while canonical latest remains v1"
             )
         return errors
-    replay_paths = (revenue_path, monthly_resolution_path, price_resolution_path)
+    replay_paths = (revenue_path, monthly_resolution_path)
+    if source_payloads is None:
+        replay_paths += (price_resolution_path,)
     missing = [str(path) for path in replay_paths if not Path(path).is_file()]
     if missing:
         return [f"missing source snapshot projection input: {path}" for path in missing]
@@ -2597,6 +2689,7 @@ def validate(
         price_dir=Path(price_dir),
         monthly_resolution_path=Path(monthly_resolution_path),
         price_resolution_path=Path(price_resolution_path),
+        source_payloads=source_payloads,
     )
 
 

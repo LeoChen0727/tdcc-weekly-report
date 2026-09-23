@@ -692,3 +692,59 @@ def test_trusted_price_replay_ignores_current_calendar_drift(
     assert relative == "data/stock_price_history/1111.csv"
     assert replay["date"].tolist() == ["20260710", "20260713"]
     assert replay["analysis_close"].tolist() == [10.0, 11.0]
+
+
+def test_v2_bound_price_and_resolution_preserve_features_despite_current_drift(
+    tmp_path: Path,
+) -> None:
+    price = _price_frame()
+    source = _operation_source(price)
+    source = validator._prepare_source(source, _rearmed_lineage(source))
+    price_dir = tmp_path / "data/stock_price_history"
+    price_dir.mkdir(parents=True)
+    resolution_path = tmp_path / validator.PRICE_RESOLUTION_REL
+    resolution_path.parent.mkdir(parents=True)
+    resolution_payload = b"stock_id,resume_date,exchange_ratio,resolution_id,root_cause_status\n"
+    resolution_path.write_bytes(resolution_payload)
+    payloads = {validator.PRICE_RESOLUTION_REL: resolution_payload}
+    for stock_id in ("1111", "2222"):
+        payload = price.to_csv(index=False).encode()
+        (price_dir / f"{stock_id}.csv").write_bytes(payload)
+        payloads[f"{validator.PRICE_PREFIX}{stock_id}.csv"] = payload
+    expected = validator._expected_detail(source, tmp_path)
+    for stock_id in ("1111", "2222"):
+        (price_dir / f"{stock_id}.csv").write_text("date,close\n20250101,999\n", encoding="utf-8")
+    resolution_path.write_text("invalid current registry\n", encoding="utf-8")
+    observed = validator._expected_detail(source, tmp_path, bound_source_payloads=payloads)
+    pd.testing.assert_frame_equal(observed, expected)
+
+
+@pytest.mark.parametrize("explicit_source_root", [False, True])
+def test_v2_default_validation_binds_source_but_explicit_fixture_root_stays_local(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, explicit_source_root: bool,
+) -> None:
+    manifest = pd.DataFrame({"projection_version": [validator.V2_PROJECTION_VERSION]})
+    source = pd.DataFrame({"stock_id": ["1111"]})
+    monkeypatch.setattr(validator, "_validate_mirrors_and_markdown", lambda paths: [])
+    monkeypatch.setattr(validator, "load_source_snapshot_projection_manifest", lambda path: manifest)
+    monkeypatch.setattr(validator, "load_projected_source_detail", lambda path: source)
+    monkeypatch.setattr(validator, "validate_projection_binding", lambda *args: None)
+    monkeypatch.setattr(validator, "_read_source_frames", lambda *args, **kwargs: (source, source, "a", "b", "c", "d"))
+    monkeypatch.setattr(validator, "_prepare_source", lambda *args, **kwargs: source)
+    payloads = {"test-bound": b"immutable"}
+    calls = []
+
+    def bound(root, revision, *, price_stock_ids):
+        calls.append((root, revision, price_stock_ids))
+        return payloads
+
+    def inspect(source, source_root, *, trusted_revision, bound_source_payloads):
+        assert trusted_revision is None
+        assert bound_source_payloads is (None if explicit_source_root else payloads)
+        raise RuntimeError("synthetic replay boundary reached")
+
+    monkeypatch.setattr(validator, "load_source_payloads", bound)
+    monkeypatch.setattr(validator, "_expected_detail", inspect)
+    errors = validator.validate(source_root=tmp_path if explicit_source_root else validator.ROOT)
+    assert any("synthetic replay boundary reached" in error for error in errors)
+    assert calls == ([] if explicit_source_root else [(validator.ROOT, validator.V2_SOURCE_COMMIT, {"1111"})])

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping
 import hashlib
 from io import BytesIO
 import json
@@ -11,6 +12,11 @@ import subprocess
 
 import pandas as pd
 
+from revenue_unreacted_range_projection_source_io import (
+    PRICE_PREFIX,
+    V2_SOURCE_COMMIT,
+    load_source_payloads,
+)
 from revenue_unreacted_range_source_snapshot_projection import (
     LATEST_DETAIL_CSV as SOURCE_CONDITION_DETAIL_CSV,
     LATEST_MANIFEST_CSV as SOURCE_PROJECTION_MANIFEST_CSV,
@@ -156,7 +162,10 @@ def _canonical_source_frames(
     return current_manifest, operations, episodes
 
 def _current_price_frames(
-    stock_ids: set[str], manifest: pd.DataFrame
+    stock_ids: set[str],
+    manifest: pd.DataFrame,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> dict[str, pd.DataFrame]:
     projection_version = str(manifest.iloc[0]["projection_version"]).strip()
     _expected_versions(projection_version)
@@ -167,15 +176,26 @@ def _current_price_frames(
         omitted = sorted(stock_ids - set(descriptors))
         if omitted:
             raise RuntimeError(f"canonical v2 price descriptors omit stocks: {omitted[:5]}")
+        if source_payloads is None and stock_ids:
+            source_payloads = load_source_payloads(
+                ROOT, V2_SOURCE_COMMIT, price_stock_ids=stock_ids
+            )
     frames: dict[str, pd.DataFrame] = {}
     for stock_id in sorted(stock_ids):
         normalized = str(stock_id).strip()
         if re.fullmatch(r"\d{4,6}", normalized) is None:
             raise RuntimeError(f"canonical source has unsafe stock id: {stock_id!r}")
         path = PRICE_HISTORY_DIR / f"{normalized}.csv"
-        if path.is_symlink() or not path.is_file():
-            raise RuntimeError(f"canonical price history is missing or unsafe: {path}")
-        raw = pd.read_csv(path, dtype=str, keep_default_na=False, low_memory=False)
+        source = path
+        if source_payloads is None:
+            if path.is_symlink() or not path.is_file():
+                raise RuntimeError(f"canonical price history is missing or unsafe: {path}")
+        else:
+            relative = f"{PRICE_PREFIX}{normalized}.csv"
+            if relative not in source_payloads:
+                raise RuntimeError(f"bound canonical v2 price payload is missing: {relative}")
+            source = BytesIO(source_payloads[relative])
+        raw = pd.read_csv(source, dtype=str, keep_default_na=False, low_memory=False)
         missing = sorted(set(PRICE_INPUT_COLUMNS) - set(raw.columns))
         if missing:
             raise RuntimeError(f"canonical price CSV is missing columns: {normalized}: {missing}")

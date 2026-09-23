@@ -1428,7 +1428,7 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
-    assert len(rows) == 45
+    assert len(rows) == 48
     medium_term_migration = rows[-1]
     assert medium_term_migration["migration_id"] == "tdcc_stealth_accumulation_medium_term_trend_research_20260913"
     assert medium_term_migration["changed_data_families"] == "tdcc_stealth_accumulation_medium_term_trend_research"
@@ -1439,6 +1439,81 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert medium_term_migration["migration_status"] == "validated_user_approved_migration"
     assert data_migration_row_sha256(medium_term_migration) == "206b2f6d2d64e1994b91038c451d5ef443a2a6c0dde03e43156bffdf07b826b5"
     # Preserve every pre-medium-term assertion against its original prefix.
+    rows = rows[:-1]
+    assert len(rows) == 47
+    routing_migration = rows[-1]
+    assert routing_migration["migration_id"] == (
+        "revenue_projection_v3_opt_in_wrapper_routing_20260923"
+    )
+    assert routing_migration["changed_data_families"] == (
+        "revenue_unreacted_range_source_snapshot_projection_v3_candidate"
+    )
+    assert routing_migration["previous_contract_sha256s"] == (
+        "57cd468849bb49307c99468f3895614fe6cb4ca311a555bd6cf204d169400130"
+    )
+    assert routing_migration["new_contract_sha256s"] == (
+        "752ae22bbe1cdba25eebc6b8578ae1d2a875f7192f72116606f01ccf0ab5f228"
+    )
+    assert routing_migration["affected_models"] == "revenue_unreacted_range"
+    assert routing_migration["user_approval_reference"] == (
+        "user_approved_revenue_projection_price_binding_v3_diff_20260923_wrapper_routing"
+    )
+    assert routing_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(routing_migration) == (
+        "6291742ff0e3b4269a784857917257b826f3c241747d8fb758abb511dbb8d1b3"
+    )
+    # Preserve the committed migration chain before the opt-in entrypoint repair.
+    rows = rows[:-1]
+    assert len(rows) == 46
+    price_binding_migration = rows[-1]
+    assert price_binding_migration["migration_id"] == (
+        "revenue_projection_price_binding_v3_diff_20260923"
+    )
+    assert price_binding_migration["changed_data_families"].split(";") == [
+        "revenue_unreacted_range_source_snapshot_projection",
+        "revenue_unreacted_range_source_snapshot_projection_v3_candidate",
+    ]
+    assert price_binding_migration["previous_contract_sha256s"].split(";") == [
+        "bb4e654263668b750b73e2009a1fcdee5a334e9493603c849fd393b25a418bfe",
+        "NEW",
+    ]
+    assert price_binding_migration["new_contract_sha256s"].split(";") == [
+        "6d1e6946a86b7099c1fbea8ae12fc724cae292f1c4879cb9506afcd5aac9242e",
+        "57cd468849bb49307c99468f3895614fe6cb4ca311a555bd6cf204d169400130",
+    ]
+    assert price_binding_migration["affected_models"] == "revenue_unreacted_range"
+    assert price_binding_migration["user_approval_reference"] == (
+        "user_approved_revenue_projection_price_binding_v3_diff_20260923"
+    )
+    assert price_binding_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(price_binding_migration) == (
+        "68cf3b0a128928211123ff4c31a3d4b4c22a148c4ad6bec1f616476441d831be"
+    )
+    # Retain every earlier migration assertion against its exact original prefix.
+    rows = rows[:-1]
+    assert len(rows) == 45
+    binding_migration = rows[-1]
+    assert binding_migration["migration_id"] == (
+        "revenue_source_first_source_version_binding_20260923"
+    )
+    assert binding_migration["changed_data_families"] == (
+        "revenue_unreacted_range_source_first_condition_audit"
+    )
+    assert binding_migration["previous_contract_sha256s"] == (
+        "fca68c6a1eab47d9fca82720981f08afe496f473a9602efd641337adb95acd94"
+    )
+    assert binding_migration["new_contract_sha256s"] == (
+        "05f9f3fac0433d0a7134b8b5e026ee573865656a9cb503ecc21395a33e07f174"
+    )
+    assert binding_migration["affected_models"] == "revenue_unreacted_range"
+    assert binding_migration["user_approval_reference"] == (
+        "user_approved_revenue_source_version_binding_repair_20260923"
+    )
+    assert binding_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(binding_migration) == (
+        "8d113702f5da089df92e0697c542df8ec189ce946f286342a7a6e641509f949e"
+    )
+    # Keep every original migration and baseline assertion on its unchanged prefix.
     rows = rows[:-1]
     assert len(rows) == 44
     stratification_migration = rows[-1]
@@ -2099,7 +2174,9 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     ] = "revenue_forward_confirmation_source_snapshot_projection_20260731"
     for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
         expected_current_hash = (
-            snapshot_contracts[family]
+            binding_migration["new_contract_sha256s"]
+            if family == binding_migration["changed_data_families"]
+            else snapshot_contracts[family]
             if family in snapshot_contracts
             else expected_cutoff_contracts[family][1]
             if family in expected_cutoff_contracts
@@ -2107,14 +2184,18 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         )
         assert sharing_by_family[family]["data_contract_sha256"] == expected_current_hash
         assert sharing_by_family[family]["last_migration_id"] == (
-            snapshot_migration_ids[family]
+            binding_migration["migration_id"]
+            if family == binding_migration["changed_data_families"]
+            else snapshot_migration_ids[family]
             if family in snapshot_contracts
             else cutoff_migration["migration_id"]
             if family in expected_cutoff_contracts
             else "revenue_monthly_cross_market_lineage_resolution_20260720"
         )
         assert sharing_by_family[family]["sharing_decision_reference"] == (
-            "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+            binding_migration["user_approval_reference"]
+            if family == binding_migration["changed_data_families"]
+            else "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
             if family in snapshot_contracts
             else "user_authorized_research_only_observation_cutoff_20260802"
             if family in expected_cutoff_contracts
@@ -2323,8 +2404,8 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         "NEW",
     ]
     assert supersede_migration["new_contract_sha256s"].split(";") == [
-        data_contract_sha256(background_by_family[family])
-        for family in supersede_families
+        price_binding_migration["previous_contract_sha256s"].split(";")[0],
+        data_contract_sha256(background_by_family[supersede_families[1]]),
     ]
     assert supersede_migration["user_approval_reference"] == (
         "user_authorized_revenue_source_snapshot_projection_v2_"
@@ -2342,17 +2423,22 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         assert sharing["data_contract_sha256"] == data_contract_sha256(
             background_by_family[family]
         )
-        assert sharing["last_migration_id"] == supersede_migration["migration_id"]
-        assert sharing["sharing_decision_reference"] == supersede_migration[
+        current_migration = (
+            price_binding_migration
+            if family == "revenue_unreacted_range_source_snapshot_projection"
+            else supersede_migration
+        )
+        assert sharing["last_migration_id"] == current_migration["migration_id"]
+        assert sharing["sharing_decision_reference"] == current_migration[
             "user_approval_reference"
         ]
         assert sharing["ownership_mode"] == "model_owned_not_shared"
         assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
     assert projection["data_contract_sha256"] == (
-        "bb4e654263668b750b73e2009a1fcdee5a334e9493603c849fd393b25a418bfe"
+        "6d1e6946a86b7099c1fbea8ae12fc724cae292f1c4879cb9506afcd5aac9242e"
     )
     assert projection["last_migration_id"] == (
-        "revenue_source_snapshot_projection_v2_supersede_and_chain_20260822"
+        "revenue_projection_price_binding_v3_diff_20260923"
     )
 
     forward_migration = next(

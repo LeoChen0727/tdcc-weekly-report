@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import subprocess
+import hashlib
+import json
 import sys
 from pathlib import Path
 
@@ -142,6 +144,44 @@ def test_operation_lag_canonical_v2_uses_current_sources_without_trusted_replay(
 
 def test_operation_lag_bucket_audit_passes() -> None:
     assert validate() == []
+
+
+def test_operation_lag_v2_uses_bound_price_bytes_and_checks_descriptor(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    price = pd.DataFrame([{
+        "date": "20260713", "open": "10", "high": "11", "low": "9",
+        "close": "10", "volume": "100", "volume_ratio": "1",
+    }])
+    payload = price.to_csv(index=False).encode("utf-8")
+    canonical = json.dumps(
+        [validator.CANONICAL_JSON_VERSION, list(validator.PRICE_INPUT_COLUMNS), price.values.tolist()],
+        ensure_ascii=False, separators=(",", ":"),
+    ).encode("utf-8")
+    manifest = pd.DataFrame([{
+        "projection_version": V2_PROJECTION_VERSION,
+        "cutoff_price_input_stock_count": 1,
+        "cutoff_price_input_row_count": 1,
+        "cutoff_price_input_file_semantic_sha256s": f"1111:1:{hashlib.sha256(canonical).hexdigest()}",
+    }])
+    monkeypatch.setattr(validator, "PRICE_HISTORY_DIR", tmp_path / "absent")
+    calls = []
+    def load(root, commit, *, price_stock_ids):
+        calls.append((root, commit, price_stock_ids))
+        return {f"{validator.PRICE_PREFIX}1111.csv": payload}
+    monkeypatch.setattr(validator, "load_source_payloads", load)
+    observed = validator._current_price_frames({"1111"}, manifest)
+    assert observed["1111"]["close"].tolist() == ["10"]
+    assert calls == [(validator.ROOT, validator.V2_SOURCE_COMMIT, {"1111"})]
+    with pytest.raises(RuntimeError, match="payload is missing"):
+        validator._current_price_frames({"1111"}, manifest, source_payloads={})
+    changed = price.copy()
+    changed.loc[0, "close"] = "99"
+    with pytest.raises(RuntimeError, match="descriptor drift"):
+        validator._current_price_frames(
+            {"1111"}, manifest,
+            source_payloads={f"{validator.PRICE_PREFIX}1111.csv": changed.to_csv(index=False).encode("utf-8")},
+        )
 
 
 def test_operation_lag_trusted_v1_source_and_price_descriptor_probe() -> None:

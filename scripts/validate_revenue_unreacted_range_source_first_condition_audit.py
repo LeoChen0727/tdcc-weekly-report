@@ -5,6 +5,10 @@ from pathlib import Path
 
 import pandas as pd
 
+from validate_revenue_unreacted_range_source_first_source_binding import (
+    load_bound_source_context,
+)
+
 from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
     canonical_monthly_revenue_history_table_sha256,
     cross_market_resolution_registry_canonical_sha256,
@@ -369,16 +373,17 @@ def _full_lineage_capture_errors(
     if raw_values != {current_raw_blob} and diagnostics is not None:
         diagnostics.append(
             "source-first revenue condition "
-            f"{name} monthly_revenue_history_blob_sha256 differs from the current "
-            "mutable blob; raw byte identity is provenance-only and canonical table, "
-            "cutoff, and row hashes remain blocking"
+            f"{name} monthly_revenue_history_blob_sha256 differs from the expected "
+            "source blob; raw capture identity is provenance-only in this consistency "
+            "check; published artifact binding, canonical table, cutoff, and row "
+            "hashes remain blocking"
         )
     for column, expected in current_full_lineage.items():
         if column == "monthly_revenue_history_blob_sha256":
             continue
         if set(frame[column].astype(str).str.strip().str.lower()) != {expected}:
             errors.append(
-                f"source-first revenue condition {name} current full monthly "
+                f"source-first revenue condition {name} bound full monthly "
                 f"revenue lineage drift: {column}"
             )
     return errors
@@ -413,6 +418,7 @@ def validate(
         return errors
 
     try:
+        bound = load_bound_source_context(repository_root=ROOT)
         (
             _manifest_capture_lineage,
             expected_cutoff_row_count,
@@ -427,8 +433,30 @@ def validate(
             revenue_path,
             resolution_path,
         )
-    except (RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
-        return [f"source-first current monthly revenue lineage cannot be verified: {exc}"]
+    except (OSError, RuntimeError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        return [f"source-first bound/current monthly revenue lineage cannot be verified: {exc}"]
+
+    if (bound.cutoff_count, bound.cutoff_sha) != (
+        expected_cutoff_row_count, expected_cutoff_semantic_sha
+    ):
+        errors.append("source-first bound cutoff lineage differs from the immutable projection")
+    if diagnostics is not None:
+        diagnostics.append(
+            "source-first retained_frozen_source_evidence: "
+            f"source_commit={bound.source_commit}; research_only=True; "
+            "not_a_new_backtest_or_formal_win_rate"
+        )
+        drift = [
+            key for key in RUN_LINEAGE_COLUMNS
+            if current_full_lineage[key] != bound.full_lineage[key]
+        ]
+        if drift:
+            diagnostics.append(
+                "current_source_differs_from_bound_snapshot: "
+                f"fields={','.join(drift)}; current freshness is separate from "
+                "frozen research integrity; raw byte identity is provenance-only; "
+                "bound source/artifact hashes and current cutoff remain blocking"
+            )
 
     if current_cutoff_row_count != expected_cutoff_row_count:
         errors.append(
@@ -478,7 +506,7 @@ def validate(
             _full_lineage_capture_errors(
                 frame,
                 name=name,
-                current_full_lineage=current_full_lineage,
+                current_full_lineage=bound.full_lineage,
                 diagnostics=diagnostics,
             )
         )
@@ -678,12 +706,12 @@ def validate(
             source_row_hashes,
             canonical_source_dates,
         ):
-            expected = current_source_lineage.get(
+            expected = bound.source_lineage.get(
                 (_stock_id(row.stock_id), _digits(period, 6))
             )
             if expected is None:
                 errors.append(
-                    f"source-first qualifying row is absent from current canonical monthly revenue: "
+                    f"source-first qualifying row is absent from bound canonical monthly revenue: "
                     f"{row.episode_key}/{period}"
                 )
                 continue
@@ -700,7 +728,7 @@ def validate(
             ]
             if drift:
                 errors.append(
-                    f"source-first qualifying row current input lineage drift: "
+                    f"source-first qualifying row bound input lineage drift: "
                     f"{row.episode_key}/{period}/{drift}"
                 )
 
