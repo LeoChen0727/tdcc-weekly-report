@@ -431,6 +431,7 @@ REVENUE_MARKERS = (
 FINANCIAL_STATEMENT_MARKERS = ("financial_statement",)
 
 MODEL_LIKE_MARKERS = (
+    "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation",
     "tdcc_stealth_accumulation_condition_stratification",
     "tdcc_stealth_accumulation_medium_term_trend_research",
     "tdcc_stealth_accumulation_current_version_horizon_extension",
@@ -485,6 +486,21 @@ MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS = frozenset(
 )
 
 MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
+    {
+        "scripts/build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+        "scripts/validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+        "config/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v1.json",
+        "docs/specs/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v1.md",
+        "tests/test_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+        "tests/test_validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_source_manifest_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_events_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_positions_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_blocked_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_report_v1.md",
+    }
+    |
     {
         f"scripts/{prefix}_{model_id}_research.py"
         for model_id in (

@@ -1,0 +1,104 @@
+{
+  "appended_fields": [
+    "source_trade_row_sha256",
+    "matched_event_ids",
+    "theoretical_exit_shares",
+    "theoretical_whole_shares",
+    "unresolved_fractional_shares",
+    "pending_share_rights",
+    "known_action_gross_price_proxy_pct",
+    "known_action_costed_proxy_pct",
+    "reconciliation_status",
+    "reconciliation_block_reasons",
+    "corporate_action_coverage_complete",
+    "verified_total_return_pct",
+    "reconciliation_total_return_verified",
+    "reconciliation_formal_use",
+    "reconciliation_promotion_evidence_allowed"
+  ],
+  "artifact_version": "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v1",
+  "artifacts": {
+    "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_blocked_v1.csv.gz": {
+      "bytes": 13286190,
+      "sha256": "a9f726c2778208e3f51cf2988eeb0ed5565ae9d47bb1ee6b4a0316d6e0578051"
+    },
+    "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_events_v1.csv": {
+      "bytes": 710,
+      "sha256": "73b01452e170b0d3f7356f078329143c1ad0754ebbf765cc8b3cf9ef548559ee"
+    },
+    "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_positions_v1.csv.gz": {
+      "bytes": 44551931,
+      "sha256": "69833b679f4ed7f9af29e2c6e49f9a6293daa3817868c7b6f34240a568399fe2"
+    },
+    "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_report_v1.md": {
+      "bytes": 1286,
+      "sha256": "39be140bf141f5e3c0bfb91a216440dc9caca956ced17992903d967bcdc6f5e8"
+    },
+    "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_summary_v1.csv": {
+      "bytes": 24760,
+      "sha256": "59b5dcdf594d819a8a8587c68bd7422c18be71dda5e5792cc3fa45ede52ad37a"
+    }
+  },
+  "contract_sha256": "44379fb80db5b6c1f2dd83bed610b31c56fba9d68ca4c9182adc66987ae16f57",
+  "coverage_complete": false,
+  "formal_use": false,
+  "model_id": "tdcc_stealth_accumulation",
+  "original_fields": [
+    "profile",
+    "strategy",
+    "partition",
+    "feature_id",
+    "trade_id",
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "market",
+    "horizon",
+    "slippage_bps",
+    "entry_date",
+    "exit_date",
+    "entry_open",
+    "exit_close",
+    "shares",
+    "entry_notional",
+    "buy_fee",
+    "entry_cash",
+    "exit_notional",
+    "sell_fee",
+    "sell_tax",
+    "net_exit_cash",
+    "net_pnl",
+    "gross_return_pct",
+    "net_return_pct",
+    "outcome",
+    "simulation_status",
+    "strict_v3_status",
+    "strict_missing_evidence",
+    "ca_cashflow_assumption",
+    "total_return_verified",
+    "input_ref",
+    "receipt_id",
+    "outcome_ref",
+    "entry_source_path",
+    "entry_source_sha256",
+    "exit_source_path",
+    "exit_source_sha256",
+    "history_gap_count",
+    "anomaly_candidate",
+    "primary_row_retained",
+    "formal_use",
+    "promotion_evidence_allowed",
+    "entry_index",
+    "exit_target_index"
+  ],
+  "owner_id": "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation",
+  "promotion_evidence_allowed": false,
+  "source_ref": "001b82f856c4ca1a863d64998890fb1fdfba8030",
+  "source_trade_count": 305673,
+  "source_trades": {
+    "bytes": 30352445,
+    "path": "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_trades_v1.csv.gz",
+    "sha256": "0636fc459583c5e8620fa0c42c948a3d4aaa215e15a6ae27019476d1b9875cc0"
+  },
+  "total_return_verified": false
+}

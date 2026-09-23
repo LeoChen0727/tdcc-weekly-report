@@ -11,6 +11,39 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+TDCC_OUTCOME_UNIT_EXACT_PATHS = frozenset({
+    "scripts/build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+    "scripts/validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+    "config/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v1.json",
+    "docs/specs/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v1.md",
+    "tests/test_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+    "tests/test_validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_events_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_positions_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_blocked_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_report_v1.md",
+})
+
+
+@pytest.mark.parametrize("path", sorted(TDCC_OUTCOME_UNIT_EXACT_PATHS))
+def test_tdcc_outcome_unit_exact_paths_route_to_shared_research(path):
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({
+        scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH})
+
+
+@pytest.mark.parametrize("path", (
+    "config/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v2.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_summary_v2.csv",
+    "scripts/build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_unregistered.py",
+))
+def test_tdcc_outcome_unit_unknown_paths_fail_closed(path):
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
+
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 
 FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(
@@ -511,6 +544,7 @@ def test_tdcc_medium_term_unregistered_paths_fail_closed(path: str) -> None:
 
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
+        TDCC_OUTCOME_UNIT_EXACT_PATHS |
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
         | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
