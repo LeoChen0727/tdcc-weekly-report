@@ -1428,6 +1428,18 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 48
+    medium_term_migration = rows[-1]
+    assert medium_term_migration["migration_id"] == "tdcc_stealth_accumulation_medium_term_trend_research_20260913"
+    assert medium_term_migration["changed_data_families"] == "tdcc_stealth_accumulation_medium_term_trend_research"
+    assert medium_term_migration["previous_contract_sha256s"] == "NEW"
+    assert medium_term_migration["new_contract_sha256s"] == "9d735e37d6d2cef746f266fea8b4fcf296cf80fc184918e14c56b568368e0fed"
+    assert medium_term_migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert medium_term_migration["user_approval_reference"] == "user_authorized_20260913_tdcc_medium_term_trend_research_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde"
+    assert medium_term_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(medium_term_migration) == "206b2f6d2d64e1994b91038c451d5ef443a2a6c0dde03e43156bffdf07b826b5"
+    # Preserve every pre-medium-term assertion against its original prefix.
+    rows = rows[:-1]
     assert len(rows) == 47
     routing_migration = rows[-1]
     assert routing_migration["migration_id"] == (
@@ -2730,6 +2742,64 @@ def test_tdcc_condition_stratification_is_an_explicit_same_owner_family() -> Non
     assert {row["producer"] for row in lineage} == {current["registered_producers"]}
     assert {row["publisher"] for row in lineage} == {"manual_research_validator_run"}
     assert {row["validator"] for row in lineage} == {"scripts/validate_tdcc_stealth_accumulation_condition_stratification.py"}
+
+
+def test_tdcc_medium_term_has_an_independent_owner_and_exact_eleven_lineage_rows() -> None:
+    family = "tdcc_stealth_accumulation_medium_term_trend_research"
+    background = {row["data_family_id"]: row for row in read_csv(
+        "config/daily_model_background_data_registry.csv"
+    )}
+    sharing = {row["data_family_id"]: row for row in read_csv(
+        "config/daily_model_data_sharing_registry.csv"
+    )}
+    current = sharing[family]
+    assert current["owner_model_or_family"] == family
+    assert current["registered_producers"] == "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py"
+    assert current["ownership_mode"] == "model_owned_not_shared"
+    assert current["consumer_access_mode"] == "owner_model_research_only"
+    assert current["approved_consumer_models"] == "tdcc_stealth_accumulation"
+    assert current["sharing_decision_reference"] == "user_authorized_20260913_tdcc_medium_term_trend_research_thread_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde"
+    assert current["producer_write_scope"] == background[family]["artifact_path"] == "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_*_v1.*"
+    assert current["data_contract_sha256"] == data_contract_sha256(background[family]) == "9d735e37d6d2cef746f266fea8b4fcf296cf80fc184918e14c56b568368e0fed"
+    for previous_family, expected_hash in (
+        ("tdcc_stealth_accumulation_current_version_annual_replay_outputs",
+         "11fb8dd124409b186243a247d5f23bbcf3c5cc85e42eeb2159e087c8b1667599"),
+        ("tdcc_stealth_accumulation_current_version_horizon_extension_outputs",
+         "de5b14dc976074df1249c9d027faf2e66801da08e6ea839a5f9e4fcdbe4905fa"),
+        ("tdcc_stealth_accumulation_condition_stratification_outputs",
+         "9d2036e6067cede763b5a8d87ff02097e9f387bd3e8756312f859ffd99a5d04e"),
+    ):
+        old = sharing[previous_family]
+        assert old["owner_model_or_family"] == "tdcc_stealth_accumulation_current_version_annual_replay"
+        assert old["registered_producers"] == "scripts/build_tdcc_stealth_accumulation_current_version_annual_replay.py"
+        assert old["data_contract_sha256"] == data_contract_sha256(background[previous_family]) == expected_hash
+        assert not _data_write_scopes_overlap(old["producer_write_scope"], current["producer_write_scope"])
+    ownership = [row for row in read_csv("config/model_research_artifact_ownership.csv")
+                 if row["artifact_glob"] == current["producer_write_scope"]]
+    assert len(ownership) == 1
+    assert ownership[0]["owner_model_id"] == family
+    assert ownership[0]["producer"] == current["registered_producers"]
+    assert ownership[0]["change_policy"] == "model_owned_write"
+    assert ownership[0]["formal_evidence_status"] == "research_only"
+    lineage = [row for row in read_csv("config/report_artifact_lineage.csv")
+               if row["producer"] == current["registered_producers"]]
+    assert {row["artifact_path"] for row in lineage} == {
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_source_manifest_v1.json",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_coverage_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_weekly_features_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_features_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_signals_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_trades_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_blocked_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_feature_contrasts_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_anomalies_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_report_v1.md",
+    }
+    assert len(lineage) == 11
+    assert sum(row["artifact_path"].endswith(".csv.gz") for row in lineage) == 5
+    assert {row["validator"] for row in lineage} == {"scripts/validate_tdcc_stealth_accumulation_medium_term_trend_research.py"}
+    assert {row["publisher"] for row in lineage} == {"manual_research_validator_run"}
 
 
 def test_data_contract_hash_detects_point_in_time_or_forbidden_use_drift() -> None:

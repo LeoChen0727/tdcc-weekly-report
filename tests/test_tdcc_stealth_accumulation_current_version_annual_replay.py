@@ -21,6 +21,19 @@ import build_tdcc_stealth_accumulation_current_version_annual_replay as producer
 import tdcc_stealth_accumulation_current_version_horizon_extension as horizon_extension  # noqa: E402
 
 
+def test_medium_term_independent_producer_synthetic_ci_entrypoint(tmp_path):
+    """Keep the existing CI invocation while running the independent model tests."""
+    import subprocess
+
+    result = subprocess.run(
+        [sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+         "--basetemp", str(tmp_path / "medium-term-producer"),
+         "tests/test_tdcc_stealth_accumulation_medium_term_trend_research.py"],
+        cwd=ROOT, capture_output=True, text=True, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
 TDCC_LEVELS = (
     "400,001-600,000", "600,001-800,000", "800,001-1,000,000",
     "more than 1,000,001",

@@ -21,7 +21,9 @@ OWNERSHIP_REGISTRY = ROOT / "config/model_research_artifact_ownership.csv"
 WORKFLOW = ROOT / ".github/workflows/research_backtest_pipeline.yml"
 PR_VALIDATION_WORKFLOW = ROOT / ".github/workflows/daily_model_maintenance_pr_validation.yml"
 
-# One approved private-input consumer, not a general local execution registry.
+# Two explicitly approved private-input owners, not a general local registry.
+MEDIUM_TERM_LOCAL_OWNER = "tdcc_stealth_accumulation_medium_term_trend_research"
+MEDIUM_TERM_LOCAL_PRODUCER = "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py"
 ANNUAL_LOCAL_OWNER = "tdcc_stealth_accumulation_current_version_annual_replay"
 ANNUAL_LOCAL_PRODUCER = f"scripts/build_{ANNUAL_LOCAL_OWNER}.py"
 ANNUAL_LOCAL_CONFIG = f"config/{ANNUAL_LOCAL_OWNER}_v1.json"
@@ -590,7 +592,10 @@ def validate_registry_contract(
 ) -> list[str]:
     errors: list[str] = []
     registry_models = {row.model_id: row.producer for row in rows}
-    annual_local = {ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER}
+    annual_local = {
+        ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER,
+        MEDIUM_TERM_LOCAL_OWNER: MEDIUM_TERM_LOCAL_PRODUCER,
+    }
     if set(registry_models) & set(annual_local) or set(registry_models.values()) & set(annual_local.values()):
         errors.append("annual local-private producer and remote workflow ownership must be disjoint")
     if {**registry_models, **annual_local} != model_owned_producers:
@@ -653,6 +658,10 @@ def validate_annual_local_workflow_exclusion(workflow_texts: dict[str, str]) -> 
         f"annual local-private producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()
         if Path(ANNUAL_LOCAL_PRODUCER).stem in text
+    ] + [
+        f"medium-term local-private producer is forbidden in every workflow: {path}"
+        for path, text in workflow_texts.items()
+        if Path(MEDIUM_TERM_LOCAL_PRODUCER).stem in text
     ]
 
 
@@ -2052,7 +2061,7 @@ def main() -> int:
         return 1
     print("model research workflow isolation validation passed: " + ", ".join(WORKFLOW_WRITER_JOBS))
     print(f"validated_entrypoints={len(load_registry())}")
-    print("validated_local_private_entrypoints=1: " + ANNUAL_LOCAL_OWNER)
+    print("validated_local_private_entrypoints=2: " + ANNUAL_LOCAL_OWNER + ", " + MEDIUM_TERM_LOCAL_OWNER)
     return 0
 
 

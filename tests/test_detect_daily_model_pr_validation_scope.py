@@ -452,6 +452,63 @@ TDCC_CONDITION_STRATIFICATION_EXACT_PATHS = frozenset({
 })
 
 
+TDCC_MEDIUM_TERM_TREND_EXACT_PATHS = frozenset({
+    "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py",
+    "scripts/validate_tdcc_stealth_accumulation_medium_term_trend_research.py",
+    "config/tdcc_stealth_accumulation_medium_term_trend_research_v1.json",
+    "docs/specs/tdcc_stealth_accumulation_medium_term_trend_research_v1.md",
+    "tests/test_tdcc_stealth_accumulation_medium_term_trend_research.py",
+    "tests/test_validate_tdcc_stealth_accumulation_medium_term_trend_research.py",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_source_manifest_v1.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_coverage_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_weekly_features_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_features_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_signals_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_trades_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_blocked_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_feature_contrasts_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_anomalies_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_report_v1.md",
+})
+
+
+@pytest.mark.parametrize("path", sorted(TDCC_MEDIUM_TERM_TREND_EXACT_PATHS))
+def test_tdcc_medium_term_paths_select_exact_research_domains(path: str) -> None:
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset(
+        {scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH}
+    )
+
+
+def test_medium_term_has_eleven_disjoint_exact_artifacts() -> None:
+    assert TDCC_MEDIUM_TERM_TREND_EXACT_PATHS.isdisjoint(
+        TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
+        | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
+        | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
+    )
+    artifacts = {path for path in TDCC_MEDIUM_TERM_TREND_EXACT_PATHS
+                 if path.startswith("output/")}
+    assert len(artifacts) == 11
+    assert sum(path.endswith(".csv.gz") for path in artifacts) == 5
+    assert not any("*" in path for path in artifacts)
+
+
+@pytest.mark.parametrize("path", (
+    "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research_unregistered.py",
+    "config/tdcc_stealth_accumulation_medium_term_trend_research_v2.json",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_weekly_features_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_features_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_signals_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_trades_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_blocked_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_medium_term_trend_research_summary_v2.csv",
+))
+def test_tdcc_medium_term_unregistered_paths_fail_closed(path: str) -> None:
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
+
+
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
@@ -459,6 +516,7 @@ def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
         | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
         | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
+        | TDCC_MEDIUM_TERM_TREND_EXACT_PATHS
     )
     for path in sorted(
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
@@ -466,6 +524,7 @@ def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
         | TDCC_CURRENT_VERSION_ANNUAL_REPLAY_EXACT_PATHS
         | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
         | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
+        | TDCC_MEDIUM_TERM_TREND_EXACT_PATHS
     ):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(

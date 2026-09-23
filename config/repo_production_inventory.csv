@@ -694,3 +694,7 @@ scripts/validate_revenue_unreacted_range_projection_v3.py,python,research_backte
 tests/test_revenue_unreacted_range_projection_v3.py,test_python,research_backtest,active,Synthetic producer Git source and exact output guard regressions,,
 tests/test_validate_revenue_unreacted_range_projection_v3.py,test_python,research_backtest,active,Independent v3 replay and mutation rejection synthetic regressions,,
 tests/test_revenue_unreacted_range_projection_payload_io.py,test_python,research_backtest,active,Payload-versus-filesystem parity and fail-closed monthly and price IO regressions,,
+scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py,python,research_backtest,active,Independent model-owned medium-term-trend private-input research producer; never invoked by remote workflows,,
+scripts/validate_tdcc_stealth_accumulation_medium_term_trend_research.py,python,research_backtest,active,Independent medium-term-trend published-only and private-source validator with mandatory exact eleven artifact evidence,,
+tests/test_tdcc_stealth_accumulation_medium_term_trend_research.py,test_python,research_backtest,active,Independent medium-term-trend producer synthetic regression tests,,
+tests/test_validate_tdcc_stealth_accumulation_medium_term_trend_research.py,test_python,research_backtest,active,Independent medium-term-trend validator synthetic mutation and mandatory published evidence tests,,

@@ -1623,6 +1623,68 @@ def _annual_local_inputs():
     )
 
 
+def test_medium_term_ci_bridge_runs_full_validator_suite_without_duplicate_cli():
+    import ast
+
+    path = validator.ROOT / "tests/test_validate_tdcc_stealth_accumulation_current_version_annual_replay.py"
+    tree = ast.parse(path.read_text(encoding="utf-8"))
+    bridge = next(node for node in tree.body if isinstance(node, ast.FunctionDef)
+                  and node.name == "test_medium_term_real_published_eleven_and_independent_validator_ci_entrypoint")
+    calls = [node for node in ast.walk(bridge) if isinstance(node, ast.Call)
+             and isinstance(node.func, ast.Attribute)
+             and isinstance(node.func.value, ast.Name)
+             and node.func.value.id == "subprocess" and node.func.attr == "run"]
+    assert len(calls) == 1
+    assert isinstance(calls[0].args[0], ast.List)
+    literals = [node.value for node in calls[0].args[0].elts if isinstance(node, ast.Constant)]
+    assert literals == [
+        "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider", "--basetemp",
+        "tests/test_validate_tdcc_stealth_accumulation_medium_term_trend_research.py",
+    ]
+    assert bridge.decorator_list == []
+    assert not any(isinstance(node, (ast.If, ast.Return)) for node in ast.walk(bridge))
+    assert not any(isinstance(node, ast.Attribute) and node.attr in {"skip", "importorskip"}
+                   for node in ast.walk(bridge))
+
+
+def test_medium_term_local_private_owner_has_exact_unique_registration():
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    assert validator.validate_registry_contract(rows, owned) == []
+    assert validator.MEDIUM_TERM_LOCAL_OWNER not in {row.model_id for row in rows}
+    assert owned[validator.MEDIUM_TERM_LOCAL_OWNER] == validator.MEDIUM_TERM_LOCAL_PRODUCER
+    assert owned[validator.ANNUAL_LOCAL_OWNER] == validator.ANNUAL_LOCAL_PRODUCER
+
+
+@pytest.mark.parametrize("mutation", ("unknown_owner", "missing_owner", "wrong_producer", "overlap_owner", "overlap_producer"))
+def test_medium_term_local_private_registration_is_not_a_generic_exemption(mutation):
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    if mutation == "unknown_owner":
+        owned["unapproved_medium_term_owner"] = "scripts/unapproved_medium_term.py"
+    elif mutation == "missing_owner":
+        del owned[validator.MEDIUM_TERM_LOCAL_OWNER]
+    elif mutation == "wrong_producer":
+        owned[validator.MEDIUM_TERM_LOCAL_OWNER] = validator.ANNUAL_LOCAL_PRODUCER
+    elif mutation == "overlap_owner":
+        rows.append(replace(rows[0], model_id=validator.MEDIUM_TERM_LOCAL_OWNER,
+                            producer=validator.MEDIUM_TERM_LOCAL_PRODUCER))
+    else:
+        rows.append(replace(rows[0], model_id="unapproved_remote_medium_term_alias",
+                            producer=validator.MEDIUM_TERM_LOCAL_PRODUCER))
+    errors = validator.validate_registry_contract(rows, owned)
+    assert any("disjoint" in error or "cover every model_owned_write" in error for error in errors)
+
+
+@pytest.mark.parametrize("path", (".github/workflows/research_backtest_pipeline.yml",
+                                 ".github/workflows/unregistered.yml",
+                                 ".github/workflows/unregistered.yaml"))
+def test_medium_term_private_producer_is_forbidden_in_every_workflow(path):
+    text = "steps:\n  - run: python " + validator.MEDIUM_TERM_LOCAL_PRODUCER + " --input-root private"
+    errors = validator.validate_annual_local_workflow_exclusion({path: text})
+    assert errors == [f"medium-term local-private producer is forbidden in every workflow: {path}"]
+    public = "steps:\n  - run: python scripts/validate_tdcc_stealth_accumulation_medium_term_trend_research.py --published-only"
+    assert validator.validate_annual_local_workflow_exclusion({path: public}) == []
+
+
 def test_annual_local_private_contract_and_disjoint_ownership_pass():
     contract, producer = _annual_local_inputs()
     assert validator.validate_annual_local_contract(contract, producer) == []
