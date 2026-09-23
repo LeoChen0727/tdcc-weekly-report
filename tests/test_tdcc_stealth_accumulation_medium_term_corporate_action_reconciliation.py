@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from copy import deepcopy
 from decimal import Decimal
-import importlib.util
 import json
 from pathlib import Path
 import sys
@@ -11,11 +10,8 @@ import sys
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-STEM = "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation"
 sys.path.insert(0, str(ROOT / "scripts"))
-spec = importlib.util.spec_from_file_location("tdcc_ca_reconciliation_producer_test", ROOT / f"scripts/build_{STEM}.py")
-p = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(p)
+import build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation as p
 
 
 def event(**updates):
