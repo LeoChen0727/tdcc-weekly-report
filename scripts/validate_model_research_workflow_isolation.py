@@ -21,7 +21,9 @@ OWNERSHIP_REGISTRY = ROOT / "config/model_research_artifact_ownership.csv"
 WORKFLOW = ROOT / ".github/workflows/research_backtest_pipeline.yml"
 PR_VALIDATION_WORKFLOW = ROOT / ".github/workflows/daily_model_maintenance_pr_validation.yml"
 
-# Two explicitly approved private-input owners, not a general local registry.
+# Exact approved local owners; these are not a generic writer exemption.
+REVENUE_OUTCOME_UNIT_LOCAL_OWNER = "revenue_unreacted_range_outcome_unit_reconciliation"
+REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER = "scripts/build_revenue_unreacted_range_outcome_unit_reconciliation.py"
 MEDIUM_TERM_LOCAL_OWNER = "tdcc_stealth_accumulation_medium_term_trend_research"
 MEDIUM_TERM_LOCAL_PRODUCER = "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py"
 ANNUAL_LOCAL_OWNER = "tdcc_stealth_accumulation_current_version_annual_replay"
@@ -593,6 +595,7 @@ def validate_registry_contract(
     errors: list[str] = []
     registry_models = {row.model_id: row.producer for row in rows}
     annual_local = {
+        REVENUE_OUTCOME_UNIT_LOCAL_OWNER: REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER,
         ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER,
         MEDIUM_TERM_LOCAL_OWNER: MEDIUM_TERM_LOCAL_PRODUCER,
     }
@@ -655,6 +658,10 @@ def validate_registry_contract(
 def validate_annual_local_workflow_exclusion(workflow_texts: dict[str, str]) -> list[str]:
     """Private raw inputs cannot be made available to any remote workflow."""
     return [
+        f"frozen-outcome revenue_unreacted_range producer is forbidden in every workflow: {path}"
+        for path, text in workflow_texts.items()
+        if Path(REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER).stem in text
+    ] + [
         f"annual local-private producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()
         if Path(ANNUAL_LOCAL_PRODUCER).stem in text
@@ -2061,6 +2068,7 @@ def main() -> int:
         return 1
     print("model research workflow isolation validation passed: " + ", ".join(WORKFLOW_WRITER_JOBS))
     print(f"validated_entrypoints={len(load_registry())}")
+    print("validated_local_frozen_outcome_owner=" + REVENUE_OUTCOME_UNIT_LOCAL_OWNER)
     print("validated_local_private_entrypoints=2: " + ANNUAL_LOCAL_OWNER + ", " + MEDIUM_TERM_LOCAL_OWNER)
     return 0
 
