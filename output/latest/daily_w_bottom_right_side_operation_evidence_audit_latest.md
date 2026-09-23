@@ -5,146 +5,146 @@
 
 | model_id | operation_asof_date | stock_id | stock_name | report_line | signal_date | entry_date | audit_status | included_in_daily_adapter | operation_lifecycle_state | exit_date | exit_reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| w_bottom_right_side | 20260922 | 1618 | 合機 | mainstream | 20260529 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2241 | 艾姆勒 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260629 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2374 | 佳能 | mainstream | 20260529 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2597 | 潤弘 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d40_close_exit | 20260728 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 8213 | 志超 | mainstream | 20260529 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260608 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1449 | 佳和 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | d40_close_exit | 20260729 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2014 | 中鴻 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2241 | 艾姆勒 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260630 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2597 | 潤弘 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | d40_close_exit | 20260729 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1476 | 儒鴻 | non_mainstream | 20260602 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260623 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1590 | 亞德客-KY | mainstream | 20260602 |  | lifecycle_suppressed | False | d40_close_exit | 20260730 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1810 | 和成 | non_mainstream | 20260602 |  | lifecycle_suppressed | False | d40_close_exit | 20260730 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1449 | 佳和 | non_mainstream | 20260603 |  | lifecycle_suppressed | False | d40_close_exit | 20260731 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1808 | 潤隆 | non_mainstream | 20260603 |  | lifecycle_suppressed | False | d40_close_exit | 20260731 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1618 | 合機 | mainstream | 20260605 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2201 | 裕隆 | non_mainstream | 20260605 |  | lifecycle_suppressed | False | d40_close_exit | 20260804 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2241 | 艾姆勒 | non_mainstream | 20260605 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260706 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2363 | 矽統 | non_mainstream | 20260605 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1618 | 合機 | mainstream | 20260612 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1447 | 力鵬 | non_mainstream | 20260616 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260716 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2323 | 中環 | mainstream | 20260616 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1447 | 力鵬 | non_mainstream | 20260617 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260717 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2331 | 精英 | mainstream | 20260617 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1447 | 力鵬 | non_mainstream | 20260618 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260720 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2331 | 精英 | mainstream | 20260618 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 9958 | 世紀鋼 | non_mainstream | 20260618 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1447 | 力鵬 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260721 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 1808 | 潤隆 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2027 | 大成鋼 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2637 | 慧洋-KY | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6191 | 精成科 | mainstream | 20260622 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 6757 | 台灣虎航 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1447 | 力鵬 | non_mainstream | 20260623 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260722 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2331 | 精英 | mainstream | 20260623 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260626 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 6134 | 萬旭 | mainstream | 20260623 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 6472 | 保瑞 | non_mainstream | 20260623 |  | lifecycle_suppressed | False | d40_close_exit | 20260819 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6668 | 中揚光 | mainstream | 20260623 |  | lifecycle_suppressed | False | d40_close_exit | 20260819 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 8104 | 錸寶 | mainstream | 20260623 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260724 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 9941 | 裕融 | non_mainstream | 20260623 |  | lifecycle_suppressed | False | d40_close_exit | 20260819 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1808 | 潤隆 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | d40_close_exit | 20260820 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2317 | 鴻海 | mainstream | 20260624 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260702 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 4162 | 智擎 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260723 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 8104 | 錸寶 | mainstream | 20260624 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260724 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 9941 | 裕融 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | d40_close_exit | 20260820 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 9958 | 世紀鋼 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1216 | 統一 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1609 | 大亞 | mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1904 | 正隆 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2301 | 光寶科 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260720 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2323 | 中環 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6153 | 嘉聯益 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 6179 | 亞通 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 6282 | 康舒 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 9958 | 世紀鋼 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260629 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260629 |  | lifecycle_suppressed | False | d40_close_exit | 20260825 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 3596 | 智易 | mainstream | 20260629 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 9958 | 世紀鋼 | non_mainstream | 20260629 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260630 |  | lifecycle_suppressed | False | d40_close_exit | 20260826 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260701 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260701 |  | lifecycle_suppressed | False | d40_close_exit | 20260827 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 5469 | 瀚宇博 | mainstream | 20260701 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 6191 | 精成科 | mainstream | 20260701 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1216 | 統一 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 3029 | 零壹 | mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2348 | 海悅 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 3029 | 零壹 | mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1618 | 合機 | mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | d40_close_exit | 20260901 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | d40_close_exit | 20260901 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6176 | 瑞儀 | mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 8422 | 可寧衛* | non_mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | mainstream | 20260707 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2913 | 農林 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 3029 | 零壹 | mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6191 | 精成科 | mainstream | 20260707 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260708 |  | lifecycle_suppressed | False | d40_close_exit | 20260903 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260708 |  | lifecycle_suppressed | False | d40_close_exit | 20260903 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2913 | 農林 | non_mainstream | 20260708 |  | lifecycle_suppressed | False | d40_close_exit | 20260903 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | d40_close_exit | 20260904 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 4763 | 材料*-KY | non_mainstream | 20260709 |  | lifecycle_suppressed | False | d40_close_exit | 20260904 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6191 | 精成科 | mainstream | 20260709 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1477 | 聚陽 | non_mainstream | 20260713 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260713 |  | lifecycle_suppressed | False | d40_close_exit | 20260907 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 4763 | 材料*-KY | non_mainstream | 20260713 |  | lifecycle_suppressed | False | d40_close_exit | 20260907 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 6191 | 精成科 | mainstream | 20260713 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | mainstream | 20260714 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | non_mainstream | 20260714 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260714 |  | lifecycle_suppressed | False | d40_close_exit | 20260908 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260714 |  | lifecycle_suppressed | False | d40_close_exit | 20260908 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | mainstream | 20260715 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | d40_close_exit | 20260909 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | d40_close_exit | 20260909 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2913 | 農林 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | d40_close_exit | 20260909 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | mainstream | 20260716 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 1536 | 和大 | non_mainstream | 20260716 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2348 | 海悅 | non_mainstream | 20260716 |  | lifecycle_suppressed | False | d40_close_exit | 20260910 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2913 | 農林 | non_mainstream | 20260716 |  | lifecycle_suppressed | False | d40_close_exit | 20260910 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 4763 | 材料*-KY | non_mainstream | 20260716 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260813 | d20_gain10_close_exit |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260717 |  | lifecycle_suppressed | False | d40_close_exit | 20260911 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2348 | 海悅 | non_mainstream | 20260717 |  | lifecycle_suppressed | False | d40_close_exit | 20260911 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2646 | 星宇航空 | non_mainstream | 20260717 |  | lifecycle_suppressed | False | d40_close_exit | 20260911 | d40_close_exit |
-| w_bottom_right_side | 20260922 | 2106 | 建大 | non_mainstream | 20260810 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260914 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 4114 | 健喬 | non_mainstream | 20260811 | 20260812 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260820 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 4114 | 健喬 | non_mainstream | 20260820 | 20260821 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260821 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2204 | 中華 | non_mainstream | 20260821 | 20260824 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 4114 | 健喬 | non_mainstream | 20260821 | 20260824 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260825 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 2101 | 南港 | non_mainstream | 20260827 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
-| w_bottom_right_side | 20260922 | 3293 | 鈊象 | non_mainstream | 20260831 | 20260901 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2009 | 第一銅 | non_mainstream | 20260903 | 20260904 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2641 | 正德 | non_mainstream | 20260903 | 20260904 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 6199 | 天品 | non_mainstream | 20260903 | 20260904 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2009 | 第一銅 | non_mainstream | 20260904 | 20260907 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2641 | 正德 | non_mainstream | 20260904 | 20260907 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 6199 | 天品 | non_mainstream | 20260904 | 20260907 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2641 | 正德 | non_mainstream | 20260907 | 20260908 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 6199 | 天品 | non_mainstream | 20260907 | 20260908 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 6199 | 天品 | non_mainstream | 20260908 | 20260909 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2641 | 正德 | non_mainstream | 20260909 | 20260910 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 6199 | 天品 | non_mainstream | 20260909 | 20260910 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 6199 | 天品 | non_mainstream | 20260910 | 20260911 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 2009 | 第一銅 | non_mainstream | 20260911 | 20260914 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 3293 | 鈊象 | non_mainstream | 20260917 | 20260918 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 4416 | 三圓 | non_mainstream | 20260917 | 20260918 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 3293 | 鈊象 | non_mainstream | 20260918 | 20260921 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 3293 | 鈊象 | non_mainstream | 20260921 | 20260922 | candidate_evaluated | True | active_operation |  |  |
-| w_bottom_right_side | 20260922 | 3293 | 鈊象 | non_mainstream | 20260922 |  | lifecycle_suppressed | False | same_stock_already_active_operation |  |  |
+| w_bottom_right_side | 20260923 | 1618 | 合機 | mainstream | 20260529 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2241 | 艾姆勒 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260629 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2374 | 佳能 | mainstream | 20260529 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2597 | 潤弘 | non_mainstream | 20260529 |  | lifecycle_suppressed | False | d40_close_exit | 20260728 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 8213 | 志超 | mainstream | 20260529 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260608 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1449 | 佳和 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | d40_close_exit | 20260729 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2014 | 中鴻 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2241 | 艾姆勒 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260630 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2597 | 潤弘 | non_mainstream | 20260601 |  | lifecycle_suppressed | False | d40_close_exit | 20260729 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1476 | 儒鴻 | non_mainstream | 20260602 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260623 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1590 | 亞德客-KY | mainstream | 20260602 |  | lifecycle_suppressed | False | d40_close_exit | 20260730 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1810 | 和成 | non_mainstream | 20260602 |  | lifecycle_suppressed | False | d40_close_exit | 20260730 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1449 | 佳和 | non_mainstream | 20260603 |  | lifecycle_suppressed | False | d40_close_exit | 20260731 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1808 | 潤隆 | non_mainstream | 20260603 |  | lifecycle_suppressed | False | d40_close_exit | 20260731 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1618 | 合機 | mainstream | 20260605 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2201 | 裕隆 | non_mainstream | 20260605 |  | lifecycle_suppressed | False | d40_close_exit | 20260804 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2241 | 艾姆勒 | non_mainstream | 20260605 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260706 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2363 | 矽統 | non_mainstream | 20260605 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1618 | 合機 | mainstream | 20260612 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1447 | 力鵬 | non_mainstream | 20260616 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260716 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2323 | 中環 | mainstream | 20260616 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1447 | 力鵬 | non_mainstream | 20260617 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260717 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2331 | 精英 | mainstream | 20260617 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1447 | 力鵬 | non_mainstream | 20260618 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260720 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2331 | 精英 | mainstream | 20260618 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 9958 | 世紀鋼 | non_mainstream | 20260618 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1447 | 力鵬 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260721 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 1808 | 潤隆 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2027 | 大成鋼 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2637 | 慧洋-KY | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6191 | 精成科 | mainstream | 20260622 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 6757 | 台灣虎航 | non_mainstream | 20260622 |  | lifecycle_suppressed | False | d40_close_exit | 20260818 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1447 | 力鵬 | non_mainstream | 20260623 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260722 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2331 | 精英 | mainstream | 20260623 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260626 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 6134 | 萬旭 | mainstream | 20260623 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 6472 | 保瑞 | non_mainstream | 20260623 |  | lifecycle_suppressed | False | d40_close_exit | 20260819 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6668 | 中揚光 | mainstream | 20260623 |  | lifecycle_suppressed | False | d40_close_exit | 20260819 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 8104 | 錸寶 | mainstream | 20260623 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260724 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 9941 | 裕融 | non_mainstream | 20260623 |  | lifecycle_suppressed | False | d40_close_exit | 20260819 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1808 | 潤隆 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | d40_close_exit | 20260820 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2317 | 鴻海 | mainstream | 20260624 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260702 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 4162 | 智擎 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260723 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 8104 | 錸寶 | mainstream | 20260624 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260724 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 9941 | 裕融 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | d40_close_exit | 20260820 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 9958 | 世紀鋼 | non_mainstream | 20260624 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1216 | 統一 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1609 | 大亞 | mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1904 | 正隆 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2301 | 光寶科 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260720 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2323 | 中環 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | d40_close_exit | 20260824 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6153 | 嘉聯益 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 6179 | 亞通 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 6282 | 康舒 | mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 9958 | 世紀鋼 | non_mainstream | 20260626 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260629 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260629 |  | lifecycle_suppressed | False | d40_close_exit | 20260825 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 3596 | 智易 | mainstream | 20260629 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 9958 | 世紀鋼 | non_mainstream | 20260629 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260819 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260630 |  | lifecycle_suppressed | False | d40_close_exit | 20260826 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260701 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260701 |  | lifecycle_suppressed | False | d40_close_exit | 20260827 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 5469 | 瀚宇博 | mainstream | 20260701 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 6191 | 精成科 | mainstream | 20260701 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1216 | 統一 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 3029 | 零壹 | mainstream | 20260702 |  | lifecycle_suppressed | False | d40_close_exit | 20260828 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2348 | 海悅 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 3029 | 零壹 | mainstream | 20260703 |  | lifecycle_suppressed | False | d40_close_exit | 20260831 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1618 | 合機 | mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260714 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | d40_close_exit | 20260901 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260706 |  | lifecycle_suppressed | False | d40_close_exit | 20260901 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6176 | 瑞儀 | mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260717 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 8422 | 可寧衛* | non_mainstream | 20260706 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | mainstream | 20260707 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2913 | 農林 | non_mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 3029 | 零壹 | mainstream | 20260707 |  | lifecycle_suppressed | False | d40_close_exit | 20260902 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6191 | 精成科 | mainstream | 20260707 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260708 |  | lifecycle_suppressed | False | d40_close_exit | 20260903 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260708 |  | lifecycle_suppressed | False | d40_close_exit | 20260903 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2913 | 農林 | non_mainstream | 20260708 |  | lifecycle_suppressed | False | d40_close_exit | 20260903 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260709 |  | lifecycle_suppressed | False | d40_close_exit | 20260904 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 4763 | 材料*-KY | non_mainstream | 20260709 |  | lifecycle_suppressed | False | d40_close_exit | 20260904 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6191 | 精成科 | mainstream | 20260709 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1477 | 聚陽 | non_mainstream | 20260713 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260818 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260713 |  | lifecycle_suppressed | False | d40_close_exit | 20260907 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 4763 | 材料*-KY | non_mainstream | 20260713 |  | lifecycle_suppressed | False | d40_close_exit | 20260907 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 6191 | 精成科 | mainstream | 20260713 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260728 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | mainstream | 20260714 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | non_mainstream | 20260714 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260714 |  | lifecycle_suppressed | False | d40_close_exit | 20260908 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260714 |  | lifecycle_suppressed | False | d40_close_exit | 20260908 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | mainstream | 20260715 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | d40_close_exit | 20260909 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | d40_close_exit | 20260909 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2913 | 農林 | non_mainstream | 20260715 |  | lifecycle_suppressed | False | d40_close_exit | 20260909 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | mainstream | 20260716 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 1536 | 和大 | non_mainstream | 20260716 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260729 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2348 | 海悅 | non_mainstream | 20260716 |  | lifecycle_suppressed | False | d40_close_exit | 20260910 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2913 | 農林 | non_mainstream | 20260716 |  | lifecycle_suppressed | False | d40_close_exit | 20260910 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 4763 | 材料*-KY | non_mainstream | 20260716 |  | lifecycle_suppressed | False | d20_gain10_close_exit | 20260813 | d20_gain10_close_exit |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260717 |  | lifecycle_suppressed | False | d40_close_exit | 20260911 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2348 | 海悅 | non_mainstream | 20260717 |  | lifecycle_suppressed | False | d40_close_exit | 20260911 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2646 | 星宇航空 | non_mainstream | 20260717 |  | lifecycle_suppressed | False | d40_close_exit | 20260911 | d40_close_exit |
+| w_bottom_right_side | 20260923 | 2106 | 建大 | non_mainstream | 20260810 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260914 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 4114 | 健喬 | non_mainstream | 20260811 | 20260812 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260820 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 4114 | 健喬 | non_mainstream | 20260820 | 20260821 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260821 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2204 | 中華 | non_mainstream | 20260821 | 20260824 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 4114 | 健喬 | non_mainstream | 20260821 | 20260824 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260825 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 2101 | 南港 | non_mainstream | 20260827 |  | lifecycle_suppressed | False | w_structure_low_close_stop | 20260908 | w_structure_low_close_stop |
+| w_bottom_right_side | 20260923 | 3293 | 鈊象 | non_mainstream | 20260831 | 20260901 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2009 | 第一銅 | non_mainstream | 20260903 | 20260904 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2641 | 正德 | non_mainstream | 20260903 | 20260904 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 6199 | 天品 | non_mainstream | 20260903 | 20260904 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2009 | 第一銅 | non_mainstream | 20260904 | 20260907 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2641 | 正德 | non_mainstream | 20260904 | 20260907 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 6199 | 天品 | non_mainstream | 20260904 | 20260907 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2641 | 正德 | non_mainstream | 20260907 | 20260908 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 6199 | 天品 | non_mainstream | 20260907 | 20260908 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 6199 | 天品 | non_mainstream | 20260908 | 20260909 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2641 | 正德 | non_mainstream | 20260909 | 20260910 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 6199 | 天品 | non_mainstream | 20260909 | 20260910 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 6199 | 天品 | non_mainstream | 20260910 | 20260911 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 2009 | 第一銅 | non_mainstream | 20260911 | 20260914 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 3293 | 鈊象 | non_mainstream | 20260917 | 20260918 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 4416 | 三圓 | non_mainstream | 20260917 | 20260918 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 3293 | 鈊象 | non_mainstream | 20260918 | 20260921 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 3293 | 鈊象 | non_mainstream | 20260921 | 20260922 | candidate_evaluated | True | active_operation |  |  |
+| w_bottom_right_side | 20260923 | 3293 | 鈊象 | non_mainstream | 20260922 | 20260923 | candidate_evaluated | True | active_operation |  |  |

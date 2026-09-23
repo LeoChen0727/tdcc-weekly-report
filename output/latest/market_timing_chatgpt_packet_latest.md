@@ -1,33 +1,33 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-09-22 19:43:17 Asia/Taipei
-- main_price_date: 20260922
+- generated_at: 2026-09-23 21:08:01 Asia/Taipei
+- main_price_date: 20260923
 - packet_source: daily_market_regime_dashboard
 - packet_status: ready
 - packet_status_note: all source rows aligned with main_price_date
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260922
-- futures_options_indicators_latest.csv: 20260922
-- TWSE market index: 20260922
-- TPEx market index: 20260922
+- market_regime_latest.csv: 20260923
+- futures_options_indicators_latest.csv: 20260923
+- TWSE market index: 20260923
+- TPEx market index: 20260923
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260922 | 47,800 | 5.03% | 5.82% | True | True | strong_bull | neutral |
-| TPEx | 20260922 | 415.17 | 6.8% | 6.62% | True | True | strong_bull | neutral |
+| TWSE | 20260923 | 48,157 | 5.03% | 5.07% | True | True | mild_bull | neutral |
+| TPEx | 20260923 | 413.76 | 3.64% | 4.57% | True | True | mild_bull | neutral |
 
 ## Futures Options Context
 | item | value | note |
 | --- | ---: | --- |
-| foreign_tx_futures_net_oi | -75,568 | TX futures direction anchor |
-| foreign_futures_net_oi | -446,612 | broad futures exposure only, not TX direction |
-| put_call_oi_ratio_pct | 87.33% | hedging background only |
-| taiwan_vix | 22.05 | volatility / hedging context only |
-| retail_mtx_net_oi_proxy | 2,912 | contrarian sentiment proxy only |
+| foreign_tx_futures_net_oi | -76,084 | TX futures direction anchor |
+| foreign_futures_net_oi | -465,301 | broad futures exposure only, not TX direction |
+| put_call_oi_ratio_pct | 79.83% | hedging background only |
+| taiwan_vix | 21.83 | volatility / hedging context only |
+| retail_mtx_net_oi_proxy | 4,144 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
 ## Usage Boundary
@@ -41,20 +41,20 @@
 
 market_sentiment_context:
   taiwan_vix:
-    latest: 22.05
-    percentile_252d: 1.9481
+    latest: 21.83
+    percentile_252d: 1.9355
     percentile_504d: 
     rank_label: lower_quartile
     context_label: complacency_low_vol
     index_interpretation: low_vol_complacency_at_high
   retail_mtx:
-    latest_proxy: 2912.0
+    latest_proxy: 4144.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
-    percentile_252d: 18.75
+    percentile_252d: 28.3951
     percentile_504d: 
-    rank_label: lower_quartile
-    context_label: retail_short_elevated
-    index_interpretation: retail_positioning_observe
+    rank_label: middle_range
+    context_label: retail_normal_range
+    index_interpretation: retail_positioning_normal
   combined:
     combined_sentiment_interpretation: sentiment_mixed_observe
     sentiment_warning_level: low
@@ -63,7 +63,7 @@ market_sentiment_context:
 
 ChatGPT-friendly summary:
 - VIX context: complacency_low_vol / low_vol_complacency_at_high
-- Retail MTX context: retail_short_elevated / retail_positioning_observe
+- Retail MTX context: retail_normal_range / retail_positioning_normal
 - Combined: sentiment_mixed_observe (warning=low)
 - VIX / PutCall / retail MTX are auxiliary context only; cross-check market_regime and foreign_tx_futures_net_oi.
 <!-- MARKET_SENTIMENT_CONTEXT_END -->

@@ -1,8 +1,9 @@
 {
   "status": "pass",
-  "main_price_date": "20260923",
+  "main_price_date": "20260922",
   "lookback_days": 20,
   "expected_trading_dates": [
+    "20260902",
     "20260903",
     "20260904",
     "20260907",
@@ -16,11 +17,22 @@
     "20260917",
     "20260918",
     "20260921",
-    "20260922",
-    "20260923"
+    "20260922"
   ],
   "non_trading_days_in_window": [],
   "daily_price_files": {
+    "20260902": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260902.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2119,
+      "date_rows": 2119,
+      "stock_rows": 2101,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
     "20260903": {
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260903.csv",
       "exists": true,
@@ -184,18 +196,6 @@
       "rows": 2139,
       "date_rows": 2139,
       "stock_rows": 2116,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20260923": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260923.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2131,
-      "date_rows": 2131,
-      "stock_rows": 2110,
       "markets": [
         "TPEx",
         "TWSE"
