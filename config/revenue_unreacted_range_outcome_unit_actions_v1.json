@@ -1,0 +1,55 @@
+{
+  "model_id": "revenue_unreacted_range",
+  "version": "outcome_unit_reconciliation_v1_20260923",
+  "approval_reference": "user_authorized_all_requested_model_owned_corporate_action_research_repairs_20260923",
+  "historical_availability": "retrospective_current_version_receipt_not_first_publication_PIT",
+  "coverage": "one_verified_share_unit_event_not_complete_corporate_action_or_cash_flow_coverage",
+  "events": [
+    {
+      "event_id": "4763_20250630_par_value_change_1_to_10",
+      "stock_id": "4763",
+      "effective_date": "20250630",
+      "new_shares_per_old_share": "10",
+      "verification_status": "official_share_unit_event_verified",
+      "cash_component_status": "not_modelled_not_total_return",
+      "authority": "TWSE",
+      "authority_url": "https://www.twse.com.tw/rwd/zh/announcement/announcement_detail?response=json&id=2D588C48527B11F0AC832D9568472C08",
+      "documents": [
+        "twse_4763_20250606",
+        "twse_4763_20250626"
+      ]
+    }
+  ],
+  "documents": {
+    "twse_4763_20250606": {
+      "url": "https://www.twse.com.tw/rwd/zh/announcement/announcement_detail?response=json&id=EC22AE98429D11F0AC832D9568472C08",
+      "payload_base64": "eyJzdGF0Ijoib2siLCJmaWVsZHMiOlsi55m85paH5qmf6ZecIiwi55m85paH5pel5pyfIiwi55m85paH5a2X6JmfIiwi5Li75peoIiwi5L6d5pOaIiwi5YWs5ZGK5LqL6aCFIl0sImRhdGEiOltbIuiHuueBo+itieWIuOS6pOaYk+aJgOiCoeS7veaciemZkOWFrOWPuCAg5YWs5ZGKIiwi5Lit6I+v5rCR5ZyLMTE05bm0MDbmnIgwNuaXpSIsIuiHuuitieS4iuS6jOWtl+esrDExNDAwMTAyNTfomZ8iLCLmv5/ljZflpKfoh6rnhLbmlrDmnZDmlpnogqHku73mnInpmZDlhazlj7jvvIjlhazlj7jku6PomZ/vvJo0NzYz77yJ5Zug6IKh56Wo6Z2i6aGN6K6K5pu05o+b55m85paw6IKh77yM5YGc5q2i6IKh5p2x5ZCN57C/6KiY6LyJ5LmL6K6K5pu077yI5Y2z5pqr5YGc6IKh56Wo6YGO5oi277yJ44CCIiwi5LiK6ZaL5YWs5Y+4MTE05bm0NuaciDTml6XogqHnpajpnaLpoY3orormm7Tmj5vnmbzogqHnpajlhazlkYrnlLPloLHmm7jjgIIiLCLkuIDjgIHlgZzmraLogqHmnbHlkI3nsL/oqJjovInorormm7TkuYvkuovnlLHvvJrogqHnpajpnaLpoY3nlLHmr4/ogqHmlrDlj7DluaMxMOWFg+iuiuabtOeCuuaWsOWPsOW5ozHlhYPvvIzlhajpnaLmj5vnmbzogqHnpajjgIJcbuS6jOOAgeaPm+eZvOWFp+Wuue+8mlxuKOS4gCnmv5/ljZflpKfoh6rnhLbmlrDmnZDmlpnogqHku73mnInpmZDlhazlj7jogqHnpajpnaLpoY3nlLHmr4/ogqHmlrDlj7DluaMxMOWFg+iuiuabtOeCuuaWsOWPsOW5ozHlhYPjgIJcbijkuowp5oyJ5Z+65rqW5pel6IKh5p2x5ZCN57C/6KiY6LyJ5LmL6IKh5p2x5Y+K5YW25oyB5pyJ6IKh5Lu977yM5q+PMeiCoeaPm+eZvOaWsOiCoeelqDEw6IKh44CCXG7kuInjgIHlgZzmraLogqHnpajluILloLTosrfos6Pml6XmnJ/vvJrmsJHlnIsxMTTlubQ25pyIMTnml6Xotbfoh7MxMTTlubQ25pyIMjfml6XmraLjgIJcbuWbm+OAgeWBnOatouiCoeadseWQjeewv+iomOi8ieiuiuabtOi1t+i/hOaXpeacn++8muawkeWcizExNOW5tDbmnIgyM+aXpei1t+iHszExNOW5tDbmnIgyN+aXpeatouOAglxu5LqU44CB5paw6IKh56Wo5o+b55m85Z+65rqW5pel77ya5rCR5ZyLMTE05bm0NuaciDI35pel44CCXG7lha3jgIHmlrDogqHnpajplovlp4vmj5vnmbzml6XmnJ/vvJroh6rmsJHlnIsxMTTlubQ25pyIMzDml6XotbfjgIJcbuS4g+OAgeaWsOiCoeelqOS4iuW4gumWi+Wni+iyt+izo++8jOaaqOiIiuiCoeelqOe1guatouS4iuW4guaXpeacn++8muawkeWcizExNOW5tDbmnIgzMOaXpeOAglxu5YWr44CB5YW25LuW77ya5pys5qyh5o+b55m85LmL5paw6IKh6IKh56Wo5YW25qyK5Yip576p5YuZ6IiH6IiK6IKh56Wo55u45ZCM44CC6Ieq5paw6IKh56Wo5LiK5biC6LK36LOj5LmL5pel6LW377yM5Y6f5LiK5biC6LK36LOj5LmL6IiK6IKh56Wo5LiN5b6X5L2c54K66LK36LOj5Lqk5Ymy5LmL5qiZ55qE44CCIl1dfQ==",
+      "retrieved_at": "2026-09-23T14:15:13.1230285Z",
+      "bytes": 1426,
+      "sha256": "95fedb4a005b238a3c7959ce34bc16fce375c4c82bcb23334697efbf36ff06e9",
+      "first_publication_verified": false,
+      "storage_encoding": "UTF-8 re-encoding of HTTP response text; not transport wire bytes",
+      "original_revision_chain_verified": false,
+      "required_tokens": [
+        "4763",
+        "每1股換發新股票10股",
+        "民國114年6月30日"
+      ]
+    },
+    "twse_4763_20250626": {
+      "url": "https://www.twse.com.tw/rwd/zh/announcement/announcement_detail?response=json&id=2D588C48527B11F0AC832D9568472C08",
+      "payload_base64": "eyJzdGF0Ijoib2siLCJmaWVsZHMiOlsi55m85paH5qmf6ZecIiwi55m85paH5pel5pyfIiwi55m85paH5a2X6JmfIiwi5Li75peoIiwi5L6d5pOaIiwi5YWs5ZGK5LqL6aCFIl0sImRhdGEiOltbIuiHuueBo+itieWIuOS6pOaYk+aJgOiCoeS7veaciemZkOWFrOWPuCAg5YWs5ZGKIiwi5Lit6I+v5rCR5ZyLMTE05bm0MDbmnIgyNuaXpSIsIuiHuuitieS4iuS6jOWtl+esrDExNDAwMTE4MTnomZ8iLCLmv5/ljZflpKfoh6rnhLbmlrDmnZDmlpnogqHku73mnInpmZDlhazlj7jvvIjlhazlj7jku6PomZ/vvJo0NzYz77yJ5Zug6K6K5pu06IKh56Wo6Z2i6aGN77yI55Sx5q+P6IKhMTDlhYPorormm7Tngrrmr4/ogqEx5YWD77yJ5YWo6Z2i5o+b55m85paw6IKh56Wo5LiK5biC6ZaL5aeL6LK36LOj5pel5pyf5Y+K6IiK6IKh56Wo57WC5q2i5LiK5biC5pel5pyf44CCIiwi5peo5o+t5YWs5Y+4MTE05bm0NuaciDI15pel5LiK5biC6IKh56Wo5YWn5a656K6K5pu05o+b55m85paw6IKh5LiK5biC55Sz5aCx5pu444CCIiwi5LiA44CB5LiK5biC6IKh56Wo56iu6aGe5Y+K5pW46YeP77ya5pmu6YCa6IKhOTg5LDE0Niw2NzDogqHjgIJcbuS6jOOAgeaWsOiCoeelqOS4iuW4gumWi+Wni+iyt+izo+aXpeacn+WPiuiIiuiCoeelqOe1guatouS4iuW4guaXpeacn++8muawkeWcizExNOW5tDbmnIgzMOaXpeOAglxu5LiJ44CB5LiK5biC6IKh56Wo5qyK5Yip77ya5qyK5Yip576p5YuZ6IiH5Y6f55m86KGM6IKh5Lu955u45ZCM44CCXG7lm5vjgIHkuIrluILogqHnpajjgIHlhazlj7jlgrXlj4rlgrXliLjmj5vogqHmrIrliKnorYnmm7jku6PomZ/lj4rnsKHnqLHvvJpcbijkuIAp5Luj6Jmf77yaNDc2M1xuKOS6jCnljp/nsKHnqLHvvJrmnZDmlpktS1lcbijkuIkp5paw57Ch56ix77ya5p2Q5paZKi1LWVxu5LqU44CB5LiK5biC6IKh56Wo6Iux5paH5ZCN56ix5Y+K57Ch56ix77yaXG4o5LiAKeWQjeeose+8mkppbmFuIEFjZXRhdGUgQ2hlbWljYWwgQ28uLCBMVEQuXG4o5LqMKeewoeeose+8mkFDRVxu5YWt44CB5YWs5Y+454ef5Yip5LqL5qWt57Wx5LiA57eo6Jmf77yaNDIzMjg4NTjjgIJcbuS4g+OAgeWFtuS7lu+8mlxuKOS4gCnoqbLlhazlj7jorormm7TogqHnpajpnaLpoY3mj5vnmbzmnInlg7norYnliLjlhazlkYrmpa3mlrwxMTTlubQ25pyINOaXpei8uOWFpeOAjOWFrOmWi+izh+ioiuingOa4rOermeOAjeOAglxuKOS6jCnmnKzmrKHmj5vnmbzmnInlg7norYnliLjmjqHnhKHlr6bpq5TnmbzooYzvvIzlhajmlbjpgI/pgY7oh7rngaPpm4bkuK3kv53nrqHntZDnrpfmiYDogqHku73mnInpmZDlhazlj7jovqbnkIbluLPnsL/lioPmkqXmlK/ku5jjgIJcbijkuIkp6Kmy5YWs5Y+45YmN5Zug6L6m55CG6IKh56Wo6Z2i6aGN6K6K5pu05YWo6Z2i5o+b55m86IKh56Wo77yM57aT5pys5YWs5Y+45pa86Ie66K2J5LiK5LqM5a2X56ysMTE0MDAxMDI1N+iZn+WFrOWRiuiHqjExNOW5tDbmnIgxOeaXpei1t+iHszExNOW5tDbmnIgyN+aXpeatou+8jOWBnOatouipsuiCoeelqOW4guWgtOiyt+izo+S6pOaYk+OAglxuKOWbmynlhazlj7jorormm7TliY3ogqHnpajmr4/ogqHpnaLpoY0xMOWFg+OAgeaZrumAmuiCoTk4LDkxNCw2NjfogqHvvIzorormm7TlvozogqHnpajpnaLpoY3ngrrmr4/ogqEx5YWD44CB5pmu6YCa6IKhOTg5LDE0Niw2NzDogqHjgIIiXV19",
+      "retrieved_at": "2026-09-23T14:15:13.1610191Z",
+      "bytes": 1671,
+      "sha256": "33116fef9d83a263a03908697c399d1edcc9b1cb030efb7a09e647180c2d96f9",
+      "first_publication_verified": false,
+      "storage_encoding": "UTF-8 re-encoding of HTTP response text; not transport wire bytes",
+      "original_revision_chain_verified": false,
+      "required_tokens": [
+        "4763",
+        "民國114年6月30日",
+        "普通股989,146,670股"
+      ]
+    }
+  }
+}

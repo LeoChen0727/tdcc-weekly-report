@@ -1,0 +1,2 @@
+event_id,stock_id,effective_date,new_shares_per_old_share,verification_status,cash_component_status,authority,authority_url,documents
+4763_20250630_par_value_change_1_to_10,4763,20250630,10,official_share_unit_event_verified,not_modelled_not_total_return,TWSE,https://www.twse.com.tw/rwd/zh/announcement/announcement_detail?response=json&id=2D588C48527B11F0AC832D9568472C08,twse_4763_20250606|twse_4763_20250626
