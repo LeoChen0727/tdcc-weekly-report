@@ -1428,6 +1428,24 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 50
+    outcome_unit_migration = rows[-1]
+    assert outcome_unit_migration["migration_id"] == (
+        "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_20260923"
+    )
+    assert outcome_unit_migration["changed_data_families"] == "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation"
+    assert outcome_unit_migration["previous_contract_sha256s"] == "NEW"
+    assert outcome_unit_migration["new_contract_sha256s"] == "7ea71cfae51ba463afff20f1daf91df7d8706e574f1aee6397996780a9dada93"
+    assert outcome_unit_migration["affected_models"] == "tdcc_stealth_accumulation"
+    assert outcome_unit_migration["user_approval_reference"] == (
+        "user_authorized_two_model_corporate_action_research_repairs_20260923"
+    )
+    assert outcome_unit_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(outcome_unit_migration) == (
+        "10d3edc05d5f155a8e9b23ab20fbb674795993fbfb4cc7c76274c1a41cbe2621"
+    )
+    # Preserve the landed revenue migration before the appended TDCC migration.
+    rows = rows[:-1]
     assert len(rows) == 49
     outcome_unit_migration = rows[-1]
     assert outcome_unit_migration["migration_id"] == (
