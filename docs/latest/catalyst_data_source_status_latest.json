@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22 19:37:07 Asia/Taipei",
+  "generated_at": "2026-09-23 18:13:24 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -21,7 +21,7 @@
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 3623
+      "rows": 3653
     }
   },
   "sources": {
@@ -37,32 +37,32 @@
     },
     "TPEX monthly revenue OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "status": "ok",
-      "rows": 892,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 119,
-      "stored_rows": 119,
+      "status": "failed",
+      "rows": 0,
+      "error": "403 Client Error: Forbidden for url: https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
+      "http_status": 403,
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
       "status": "ok",
-      "rows": 107,
+      "rows": 84,
       "error": "",
       "http_status": 200,
-      "matched_tracked_rows": 51,
-      "stored_rows": 51,
+      "matched_tracked_rows": 34,
+      "stored_rows": 34,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     },
     "TPEX material information OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
-      "status": "ok",
-      "rows": 53,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 11,
-      "stored_rows": 11,
+      "status": "failed",
+      "rows": 0,
+      "error": "403 Client Error: Forbidden for url: https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O",
+      "http_status": 403,
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
     }
   }
