@@ -1,12 +1,19 @@
 from __future__ import annotations
 
+import hashlib
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import datetime
+from io import BytesIO
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
+
+from validate_revenue_unreacted_range_source_first_source_binding import (
+    load_bound_source_context,
+)
 
 from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
     RESOLUTION_CSV as MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
@@ -348,16 +355,41 @@ def _period_ordinal(series: pd.Series) -> pd.Series:
     return year * 12 + month
 
 
+class _SourcePayloadReader(BytesIO):
+    """Present supplied bytes to the unchanged model-owned CSV loaders."""
+
+    def is_file(self) -> bool:
+        return True
+
+
+def _source_payload_reader(
+    source_payloads: Mapping[str, bytes],
+    relative_path: str,
+) -> _SourcePayloadReader:
+    if relative_path not in source_payloads:
+        raise RuntimeError(f"source-first source payload is missing: {relative_path}")
+    payload = source_payloads[relative_path]
+    if not isinstance(payload, bytes):
+        raise RuntimeError(f"source-first source payload must be bytes: {relative_path}")
+    return _SourcePayloadReader(payload)
+
+
 def load_revenue_history(
     path: Path = REVENUE_HISTORY_CSV,
     resolution_path: Path = MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     *,
     observation_cutoff_date: str | None = None,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
     cutoff = _normalize_observation_cutoff_date(observation_cutoff_date)
     frame = load_canonical_monthly_revenue_history(
-        path,
-        resolution_path,
+        path if source_payloads is None else _source_payload_reader(
+            source_payloads, REVENUE_HISTORY_CSV.relative_to(ROOT).as_posix()
+        ),
+        resolution_path if source_payloads is None else _source_payload_reader(
+            source_payloads,
+            MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV.relative_to(ROOT).as_posix(),
+        ),
         observation_cutoff_date=cutoff,
     )
     required = {
@@ -541,17 +573,29 @@ def _monthly_revenue_run_lineage(
     *,
     revenue_path: Path,
     resolution_path: Path,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> dict[str, str]:
     return {
-        "monthly_revenue_history_blob_sha256": monthly_revenue_history_blob_sha256(
-            revenue_path
+        "monthly_revenue_history_blob_sha256": (
+            monthly_revenue_history_blob_sha256(revenue_path)
+            if source_payloads is None
+            else hashlib.sha256(
+                _source_payload_reader(
+                    source_payloads, REVENUE_HISTORY_CSV.relative_to(ROOT).as_posix()
+                ).getvalue()
+            ).hexdigest()
         ),
         "monthly_revenue_canonical_table_sha256": (
             canonical_monthly_revenue_history_table_sha256(revenue)
         ),
         "cross_market_resolution_registry_canonical_sha256": (
             cross_market_resolution_registry_canonical_sha256(
-                load_cross_market_resolutions(resolution_path)
+                load_cross_market_resolutions(
+                    resolution_path if source_payloads is None else _source_payload_reader(
+                        source_payloads,
+                        MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV.relative_to(ROOT).as_posix(),
+                    )
+                )
             )
         ),
     }
@@ -592,10 +636,20 @@ def condition_masks(revenue: pd.DataFrame) -> dict[str, pd.Series]:
     return {key: value.fillna(False) for key, value in masks.items()}
 
 
-def _load_price_resolutions(path: Path = PRICE_RESOLUTION_CSV) -> pd.DataFrame:
-    if not path.is_file():
+def _load_price_resolutions(
+    path: Path = PRICE_RESOLUTION_CSV,
+    *,
+    source_payloads: Mapping[str, bytes] | None = None,
+) -> pd.DataFrame:
+    if source_payloads is None and not path.is_file():
         return pd.DataFrame(columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"])
-    frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
+    frame = pd.read_csv(
+        path if source_payloads is None else _source_payload_reader(
+            source_payloads, PRICE_RESOLUTION_CSV.relative_to(ROOT).as_posix()
+        ),
+        dtype={"stock_id": str},
+        keep_default_na=False,
+    )
     required = {"stock_id", "resume_date", "exchange_ratio", "resolution_id", "root_cause_status"}
     missing = sorted(required - set(frame.columns))
     if missing:
@@ -615,9 +669,16 @@ def load_stock_price(
     resolutions: pd.DataFrame,
     *,
     observation_cutoff_date: str | None = None,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
     cutoff = _normalize_observation_cutoff_date(observation_cutoff_date)
-    frame = pd.read_csv(path, low_memory=False)
+    frame = pd.read_csv(
+        path if source_payloads is None else _source_payload_reader(
+            source_payloads,
+            f"{PRICE_HISTORY_DIR.relative_to(ROOT).as_posix()}/{_normalize_stock_id(stock_id)}.csv",
+        ),
+        low_memory=False,
+    )
     required = {"date", "open", "high", "low", "close", "volume", "volume_ratio"}
     missing = sorted(required - set(frame.columns))
     if missing:
@@ -1044,6 +1105,7 @@ def build_source_first_condition_audit(
     price_resolution_path: Path = PRICE_RESOLUTION_CSV,
     *,
     observation_cutoff_date: str | None = None,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     cutoff = _normalize_observation_cutoff_date(observation_cutoff_date)
     generated_at = _now_text()
@@ -1051,16 +1113,30 @@ def build_source_first_condition_audit(
         revenue_path,
         resolution_path,
         observation_cutoff_date=cutoff,
+        source_payloads=source_payloads,
     )
     monthly_revenue_run_lineage = _monthly_revenue_run_lineage(
         revenue,
         revenue_path=revenue_path,
         resolution_path=resolution_path,
+        source_payloads=source_payloads,
     )
     masks = condition_masks(revenue)
-    resolutions = _load_price_resolutions(price_resolution_path)
+    resolutions = _load_price_resolutions(
+        price_resolution_path, source_payloads=source_payloads
+    )
     rows: list[dict[str, object]] = []
-    price_paths = sorted(price_dir.glob("*.csv"))
+    price_paths = (
+        sorted(price_dir.glob("*.csv"))
+        if source_payloads is None
+        else sorted(
+            ROOT / relative_path
+            for relative_path in source_payloads
+            if Path(relative_path).parent.as_posix()
+            == PRICE_HISTORY_DIR.relative_to(ROOT).as_posix()
+            and relative_path.endswith(".csv")
+        )
+    )
     price_stock_ids = {_normalize_stock_id(path.stem) for path in price_paths}
     source_counts = {
         spec.condition_variant_id: int(
@@ -1099,6 +1175,7 @@ def build_source_first_condition_audit(
             path,
             resolutions,
             observation_cutoff_date=cutoff,
+            source_payloads=source_payloads,
         )
         if price.empty:
             continue
@@ -1339,24 +1416,29 @@ def _markdown(summary: pd.DataFrame, detail: pd.DataFrame) -> str:
 
 
 def write_source_first_condition_audit(summary: pd.DataFrame, detail: pd.DataFrame) -> None:
+    # Preserve this published version, including its timestamps, before any write.
+    # The core calculation remains available to independently versioned research.
+    load_bound_source_context(repository_root=ROOT)
+    payloads: dict[str, bytes] = {}
     for path, frame in (
         (LATEST_CSV, summary),
         (DETAIL_CSV, detail),
         (HISTORY_CSV, summary),
         (DOCS_CSV, summary),
     ):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        frame.to_csv(path, index=False, encoding="utf-8-sig", lineterminator="\n")
+        payloads[path.relative_to(ROOT).as_posix()] = frame.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8-sig")
     markdown = _markdown(summary, detail)
     for path in (LATEST_MD, DOCS_MD):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(markdown, encoding="utf-8", newline="\n")
+        payloads[path.relative_to(ROOT).as_posix()] = markdown.encode("utf-8")
+    load_bound_source_context(repository_root=ROOT, artifacts=payloads)
+    print("retained_frozen_source_evidence: artifacts=6; writes=0; recompute=False")
 
 
 if __name__ == "__main__":
-    built_summary, built_detail = build_source_first_condition_audit()
-    write_source_first_condition_audit(built_summary, built_detail)
+    bound = load_bound_source_context(repository_root=ROOT)
     print(
-        f"wrote {LATEST_CSV.relative_to(ROOT)} rows={len(built_summary)} "
-        f"detail_rows={len(built_detail)}"
+        "retained_frozen_source_evidence: "
+        f"source_commit={bound.source_commit}; artifacts=6; writes=0; recompute=False"
     )

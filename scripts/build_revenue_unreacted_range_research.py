@@ -4,6 +4,7 @@ import argparse
 import gc
 from contextlib import contextmanager
 from pathlib import Path
+import subprocess
 import sys
 from typing import Iterator, Mapping
 
@@ -31,6 +32,9 @@ from model_research_artifact_guard import (
     _dirty_snapshot,
     changed_during_run,
     model_owned_artifact_guard,
+)
+from build_revenue_unreacted_range_projection_v3 import (
+    build_and_write as build_and_write_projection_v3_candidate,
 )
 from revenue_unreacted_range_close_confirmation_timing import write_close_confirmation_timing_audit
 from revenue_unreacted_range_fixed_confirmation_feature_contrast import (
@@ -84,13 +88,17 @@ from revenue_unreacted_range_operation_lag_bucket_audit import (
     build_operation_lag_bucket_audit,
     write_operation_lag_bucket_audit,
 )
+from revenue_unreacted_range_source_first_condition_audit import (
+    build_source_first_condition_audit,
+    write_source_first_condition_audit,
+)
 from revenue_unreacted_range_position_shape_transition_matrix import (
     build_position_shape_transition_matrix,
     write_position_shape_transition_matrix,
 )
-from revenue_unreacted_range_source_first_condition_audit import (
-    build_source_first_condition_audit,
-    write_source_first_condition_audit,
+from validate_revenue_unreacted_range_source_first_source_binding import (
+    SOURCE_COMMIT as SOURCE_FIRST_BOUND_COMMIT,
+    load_bound_source_context,
 )
 from revenue_unreacted_range_source_snapshot_projection import (
     V1_PROJECTION_VERSION,
@@ -107,6 +115,51 @@ from revenue_unreacted_range_research_frame import (
 
 MODEL_ID = "revenue_unreacted_range"
 PRODUCER = "scripts/build_revenue_unreacted_range_research.py"
+SOURCE_FIRST_BOUND_COMMIT_STAGES = frozenset({
+    "all", "source_first_condition_audit", "source_snapshot_projection_chain",
+})
+
+
+def ensure_source_first_bound_commit_available() -> None:
+    """Fetch only the fixed object needed by revenue's shallow-checkout stages.
+
+    Validators remain read-only. This CLI preparation neither moves a ref nor
+    checks out files, writes FETCH_HEAD, changes settings, or unshallows history.
+    """
+    git = ["git", "--no-replace-objects", "-C", str(ROOT)]
+    verify = ["rev-parse", "--verify", f"{SOURCE_FIRST_BOUND_COMMIT}^{{commit}}"]
+
+    def run(arguments: list[str]) -> subprocess.CompletedProcess[bytes]:
+        try:
+            return subprocess.run(
+                [*git, *arguments], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                check=False, timeout=300 if arguments[0] == "fetch" else 30,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise RuntimeError("cannot inspect the fixed revenue source commit") from exc
+
+    present = run(verify)
+    expected = SOURCE_FIRST_BOUND_COMMIT.encode("ascii")
+    if present.returncode == 0:
+        if present.stdout.strip() != expected:
+            raise RuntimeError("fixed revenue source commit identity drift")
+        return
+
+    shallow = run(["rev-parse", "--is-shallow-repository"])
+    if shallow.returncode != 0 or shallow.stdout.strip() != b"true":
+        raise RuntimeError(
+            "fixed revenue source commit is missing; automatic retrieval is "
+            "allowed only in a shallow research checkout"
+        )
+    fetched = run([
+        "fetch", "--no-tags", "--depth=1", "--no-write-fetch-head", "origin",
+        SOURCE_FIRST_BOUND_COMMIT,
+    ])
+    if fetched.returncode != 0:
+        raise RuntimeError("fixed revenue source commit fetch failed; no research was run")
+    verified = run(verify)
+    if verified.returncode != 0 or verified.stdout.strip() != expected:
+        raise RuntimeError("fetched revenue source commit could not be verified exactly")
 
 
 def validate_forward_holdout_stage_changed_paths(
@@ -196,6 +249,8 @@ def load_immutable_source_snapshot_projection() -> tuple[pd.DataFrame, pd.DataFr
 
 
 def build_and_write() -> None:
+    # This version is frozen. Check before any calculation or other artifact write.
+    build_and_write_source_first_condition_audit()
     frame = build_revenue_unreacted_range_research_frame()
     if frame.empty:
         raise RuntimeError("No price history available for revenue_unreacted_range research")
@@ -217,7 +272,6 @@ def build_and_write() -> None:
         numeric_specs=REVENUE_UNREACTED_FEATURE_CONTRAST_NUMERIC_SPECS,
     )
     extreme_return_audit = build_extreme_return_path_audit(fixed_detail)
-    source_first_summary, source_first_detail = build_source_first_condition_audit()
     source_projection_manifest, projected_source_detail = (
         load_immutable_source_snapshot_projection()
     )
@@ -272,7 +326,6 @@ def build_and_write() -> None:
     write_extreme_return_path_audit(extreme_return_audit)
     write_lag_strength_matrix(lag_strength_summary, lag_strength_detail)
     write_launch_timing_feature_audit(launch_summary, launch_detail, launch_feature)
-    write_source_first_condition_audit(source_first_summary, source_first_detail)
     write_forward_confirmation_feature_audit(
         forward_summary,
         forward_detail,
@@ -325,8 +378,12 @@ def build_and_write_launch_timing_feature_audit() -> None:
 
 
 def build_and_write_source_first_condition_audit() -> None:
-    summary, detail = build_source_first_condition_audit()
-    write_source_first_condition_audit(summary, detail)
+    bound = load_bound_source_context(repository_root=ROOT)
+    print(
+        "retained_frozen_source_evidence: "
+        f"source_commit={bound.source_commit}; artifacts=6; writes=0; "
+        "recompute=False; a new source version requires a new research artifact version"
+    )
 
 
 def build_and_write_source_snapshot_projection() -> None:
@@ -618,6 +675,7 @@ def parse_args() -> argparse.Namespace:
             "source_first_condition_audit",
             "source_snapshot_projection",
             "source_snapshot_projection_chain",
+            "source_snapshot_projection_v3_candidate",
             "forward_confirmation_feature_audit",
             "rearmed_operation_grid",
             "operation_lag_bucket_audit",
@@ -634,6 +692,17 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    if args.stage == "source_snapshot_projection_v3_candidate":
+        # Explicit opt-in only: this helper owns its exact-six sparse-safe guard.
+        # Neither all nor the scheduled workflow selects this candidate stage.
+        build_and_write_projection_v3_candidate(ROOT)
+        return 0
+    if args.stage in SOURCE_FIRST_BOUND_COMMIT_STAGES:
+        ensure_source_first_bound_commit_available()
+    if args.stage == "source_snapshot_projection_chain":
+        # The workflow validates source-first after this stage. Reject corrupt
+        # frozen evidence before allowing any downstream research artifact write.
+        load_bound_source_context(repository_root=ROOT)
     with model_owned_artifact_guard(MODEL_ID, PRODUCER):
         if args.stage == "launch_timing_feature_audit":
             build_and_write_launch_timing_feature_audit()

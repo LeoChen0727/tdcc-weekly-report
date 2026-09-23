@@ -11,6 +11,13 @@ import subprocess
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_projection_source_io import (
+    PRICE_PREFIX,
+    PRICE_RESOLUTION_REL,
+    V2_SOURCE_COMMIT,
+    load_source_payloads,
+)
+
 from revenue_unreacted_range_source_snapshot_projection import (
     V1_PROJECTION_VERSION,
     V2_PROJECTION_VERSION,
@@ -989,6 +996,7 @@ def _load_resolutions(
     path: Path,
     *,
     trusted_revision: str | None = None,
+    source_payload: bytes | None = None,
 ) -> pd.DataFrame:
     if trusted_revision is not None:
         relative = SOURCE_RELATIVE_PATHS["resolution"]
@@ -1000,11 +1008,14 @@ def _load_resolutions(
             keep_default_na=False,
         )
     else:
-        if not path.is_file():
+        if source_payload is None and not path.is_file():
             return pd.DataFrame(
                 columns=["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
             )
-        frame = pd.read_csv(path, dtype={"stock_id": str}, keep_default_na=False)
+        frame = pd.read_csv(
+            BytesIO(source_payload) if source_payload is not None else path,
+            dtype={"stock_id": str}, keep_default_na=False,
+        )
     required = {
         "stock_id",
         "resume_date",
@@ -1044,6 +1055,7 @@ def _load_adjusted_price(
     resolutions: pd.DataFrame,
     *,
     trusted_revision: str | None = None,
+    source_payload: bytes | None = None,
 ) -> pd.DataFrame:
     if trusted_revision is not None:
         relative = _trusted_stock_path(stock_id)
@@ -1051,9 +1063,12 @@ def _load_adjusted_price(
         frame = _read_csv_payload(payload, label=relative, low_memory=False)
     else:
         path = price_dir / f"{stock_id}.csv"
-        if not path.is_file():
+        if source_payload is None and not path.is_file():
             raise RuntimeError(f"price history is missing: {path}")
-        frame = pd.read_csv(path, low_memory=False)
+        frame = pd.read_csv(
+            BytesIO(source_payload) if source_payload is not None else path,
+            low_memory=False,
+        )
     required = {"date", "open", "high", "low", "close"}
     missing = sorted(required - set(frame.columns))
     if missing:
@@ -1193,11 +1208,16 @@ def _expected_detail(
     source_root: Path,
     *,
     trusted_revision: str | None = None,
+    bound_source_payloads: dict[str, bytes] | None = None,
 ) -> pd.DataFrame:
     price_dir = source_root / SOURCE_RELATIVE_PATHS["price_dir"]
     resolutions = _load_resolutions(
         source_root / SOURCE_RELATIVE_PATHS["resolution"],
         trusted_revision=trusted_revision,
+        source_payload=(
+            bound_source_payloads[PRICE_RESOLUTION_REL]
+            if bound_source_payloads is not None else None
+        ),
     )
     anchor_meta = {
         anchor_id: (order, date_rule, definition)
@@ -1221,6 +1241,10 @@ def _expected_detail(
                 price_dir,
                 resolutions,
                 trusted_revision=trusted_revision,
+                source_payload=(
+                    bound_source_payloads[f"{PRICE_PREFIX}{stock_id}.csv"]
+                    if bound_source_payloads is not None else None
+                ),
             )
         price = price_cache[stock_id]
         date_index = {
@@ -1944,6 +1968,14 @@ def validate(
             trusted_revision=(
                 TRUSTED_SOURCE_REVISION
                 if historical_v1_source_audit
+                else None
+            ),
+            bound_source_payloads=(
+                load_source_payloads(
+                    ROOT, V2_SOURCE_COMMIT,
+                    price_stock_ids=set(source["stock_id"].astype(str)),
+                )
+                if source_root == ROOT and projection_version == V2_PROJECTION_VERSION
                 else None
             ),
         )
