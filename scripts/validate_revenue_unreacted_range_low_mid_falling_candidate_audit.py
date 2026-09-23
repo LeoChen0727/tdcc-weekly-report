@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping
 from decimal import Decimal, InvalidOperation
 import hashlib
 from io import BytesIO
@@ -14,6 +15,13 @@ import subprocess
 import numpy as np
 import pandas as pd
 
+from revenue_unreacted_range_projection_source_io import (
+    PRICE_PREFIX,
+    PRICE_RESOLUTION_REL,
+    V2_SOURCE_COMMIT,
+    load_source_payloads,
+    read_git_payloads,
+)
 V1_PROJECTION_VERSION = "source_snapshot_projection_v1_20260731"
 V2_PROJECTION_VERSION = "source_snapshot_projection_v2_20260822"
 PROJECTION_ARTIFACT_ID = "revenue_unreacted_range_source_snapshot_projection"
@@ -96,6 +104,10 @@ ARTIFACT_ID = "revenue_unreacted_range_low_mid_falling_candidate_audit"
 ARTIFACT_VERSION = "low_mid_falling_candidate_v1_20260720"
 V2_ARTIFACT_VERSION = "low_mid_falling_candidate_v2_20260822"
 V3_ARTIFACT_VERSION = "low_mid_falling_candidate_v3_20260829"
+SOURCE_FIRST_CODE_REVISIONS = {
+    V2_ARTIFACT_VERSION: "2ad082d89565e249817e6e7d817e729c85a2d12e",
+    V3_ARTIFACT_VERSION: "f9d76fe1ace0d61c303b73c42981482daeef7938",
+}
 EXPECTED_DATA_CONTRACT_SHA256 = (
     "4aff77863a07ba5fe7c574731ea84ac778b85daffbbfe7123d38cccd4cc61432"
 )
@@ -1120,6 +1132,31 @@ def _normalized_file_sha256(
     ).replace(b"\r\n", b"\n")
     return hashlib.sha256(payload).hexdigest()
 
+def _source_first_producer_sha256(
+    source_root: Path,
+    *,
+    artifact_version: str,
+    trusted_revision: str | None = None,
+) -> str:
+    revision = SOURCE_FIRST_CODE_REVISIONS.get(artifact_version)
+    if (
+        trusted_revision is None
+        and revision is not None
+        and source_root.resolve() == ROOT.resolve()
+    ):
+        payloads = read_git_payloads(
+            source_root, revision, (SOURCE_FIRST_PRODUCER_RELATIVE_PATH,)
+        )
+        if SOURCE_FIRST_PRODUCER_RELATIVE_PATH not in payloads:
+            raise RuntimeError("bound source-first producer Git blob is missing")
+        payload = payloads[SOURCE_FIRST_PRODUCER_RELATIVE_PATH].replace(b"\r\n", b"\n")
+        return hashlib.sha256(payload).hexdigest()
+    return _normalized_file_sha256(
+        source_root, SOURCE_FIRST_PRODUCER_RELATIVE_PATH,
+        trusted_revision=trusted_revision,
+    )
+
+
 def _registered_data_contract_sha256(
     source_root: Path,
     *,
@@ -1289,9 +1326,21 @@ def _load_resolutions(
     trusted_revision: str | None = None,
     strict_rooted_path: bool = False,
     strict_source_root: Path | None = None,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
     columns = ["stock_id", "resume_date", "exchange_ratio", "resolution_id"]
-    if trusted_revision is not None:
+    if source_payloads is not None:
+        if trusted_revision is not None:
+            raise RuntimeError("price sources cannot mix bound payloads and trusted v1 replay")
+        if PRICE_RESOLUTION_REL not in source_payloads:
+            raise RuntimeError("bound price resolution payload is missing")
+        frame = _read_csv_payload(
+            source_payloads[PRICE_RESOLUTION_REL],
+            label=PRICE_RESOLUTION_REL,
+            dtype={"stock_id": str},
+            keep_default_na=False,
+        )
+    elif trusted_revision is not None:
         relative = SOURCE_RELATIVE_PATHS["resolution"]
         payload = _trusted_blobs({relative}, revision=trusted_revision)[relative]
         frame = _read_csv_payload(
@@ -1350,8 +1399,16 @@ def _load_adjusted_price(
     trusted_revision: str | None = None,
     strict_rooted_path: bool = False,
     strict_source_root: Path | None = None,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
-    if trusted_revision is not None:
+    if source_payloads is not None:
+        if trusted_revision is not None:
+            raise RuntimeError("price sources cannot mix bound payloads and trusted v1 replay")
+        relative = _trusted_stock_path(stock_id)
+        if relative not in source_payloads:
+            raise RuntimeError(f"bound price history payload is missing: {relative}")
+        frame = _read_csv_payload(source_payloads[relative], label=relative, low_memory=False)
+    elif trusted_revision is not None:
         relative = _trusted_stock_path(stock_id)
         payload = _trusted_blobs({relative}, revision=trusted_revision)[relative]
         frame = _read_csv_payload(payload, label=relative, low_memory=False)
@@ -2093,6 +2150,7 @@ def _expected_detail(
     expected_rearmed_artifact_version: str = REARMED_ARTIFACT_VERSION,
     trusted_revision: str | None = None,
     strict_rooted_paths: bool = False,
+    source_payloads: Mapping[str, bytes] | None = None,
 ) -> pd.DataFrame:
     pre_hash_artifact_version = (
         expected_artifact_version
@@ -2110,15 +2168,16 @@ def _expected_detail(
         trusted_revision=trusted_revision,
         strict_rooted_path=strict_rooted_paths,
         strict_source_root=source_root if strict_rooted_paths else None,
+        source_payloads=source_payloads,
     )
     producer_sha = _normalized_file_sha256(
         source_root,
         PRODUCER_RELATIVE_PATH,
         trusted_revision=trusted_revision,
     )
-    source_first_producer_sha = _normalized_file_sha256(
+    source_first_producer_sha = _source_first_producer_sha256(
         source_root,
-        SOURCE_FIRST_PRODUCER_RELATIVE_PATH,
+        artifact_version=expected_artifact_version,
         trusted_revision=trusted_revision,
     )
     rearmed_producer_sha = _normalized_file_sha256(
@@ -2153,6 +2212,7 @@ def _expected_detail(
             trusted_revision=trusted_revision,
             strict_rooted_path=strict_rooted_paths,
             strict_source_root=source_root if strict_rooted_paths else None,
+            source_payloads=source_payloads,
         )
         price_hash_cache[stock_id] = _canonical_frame_sha256(price_cache[stock_id])
     price_manifest_sha = _canonical_table_sha256(
@@ -3491,11 +3551,17 @@ def validate(
         )
         if "stock_id" not in source_raw.columns:
             raise RuntimeError("source-first detail is missing stock_id for price manifest")
+        price_stock_ids = {_stock_id(value) for value in source_raw["stock_id"]}
+        source_payloads = None
+        if projection_version == V2_PROJECTION_VERSION and source_root.resolve() == ROOT.resolve():
+            source_payloads = load_source_payloads(
+                ROOT, V2_SOURCE_COMMIT, price_stock_ids=price_stock_ids
+            )
         expected_detail = _expected_detail(
             source,
             operations,
             source_root,
-            {_stock_id(value) for value in source_raw["stock_id"]},
+            price_stock_ids,
             expected_artifact_version=expected_artifact_version,
             expected_rearmed_artifact_version=expected_rearmed_artifact_version,
             trusted_revision=(
@@ -3504,6 +3570,7 @@ def validate(
                 else None
             ),
             strict_rooted_paths=promotion_contract is not None,
+            source_payloads=source_payloads,
         )
         expected_detail.loc[:, "artifact_version"] = expected_artifact_version
         if "rearmed_artifact_version" in expected_detail.columns:

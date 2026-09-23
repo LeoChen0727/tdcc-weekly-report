@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import hashlib
+import json
 from pathlib import Path
 
 import numpy as np
@@ -143,6 +145,84 @@ def test_rearmed_canonical_v2_uses_current_sources_without_trusted_replay(
     assert grid_validator._current_price_frames(set(), manifest) == {}
     with pytest.raises(RuntimeError, match="requires the default ROOT canonical v1"):
         grid_validator._canonical_source_frames(historical_v1_source_audit=True)
+
+
+@pytest.mark.parametrize("tamper_bound", [False, True])
+def test_v2_price_replay_binds_historical_bytes_not_current_calendar(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, tamper_bound: bool,
+) -> None:
+    columns = list(grid_validator.PRICE_INPUT_COLUMNS)
+    rows = [["20260710", "10", "11", "9", "10", "1000", "1"]]
+    sha = hashlib.sha256(json.dumps(
+        [grid_validator.CANONICAL_JSON_VERSION, columns, rows],
+        ensure_ascii=False, separators=(",", ":"),
+    ).encode()).hexdigest()
+    manifest = pd.DataFrame({
+        "projection_version": [V2_PROJECTION_VERSION],
+        "cutoff_price_input_stock_count": [1],
+        "cutoff_price_input_row_count": [1],
+        "cutoff_price_input_file_semantic_sha256s": [f"1111:1:{sha}"],
+    })
+    current = tmp_path / "data/stock_price_history"
+    current.mkdir(parents=True)
+    (current / "1111.csv").write_text("date,close\n20250101,999\n", encoding="utf-8")
+    monkeypatch.setattr(grid_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(grid_validator, "PRICE_HISTORY_DIR", current)
+    supplied = [list(row) for row in rows]
+    if tamper_bound:
+        supplied[0][4] = "999"
+    payload = pd.DataFrame(supplied, columns=columns).to_csv(index=False).encode()
+    calls = []
+
+    def bound(root, revision, *, price_stock_ids):
+        calls.append((root, revision, price_stock_ids))
+        return {"data/stock_price_history/1111.csv": payload}
+
+    monkeypatch.setattr(grid_validator, "load_source_payloads", bound)
+    if tamper_bound:
+        with pytest.raises(RuntimeError, match="descriptor drift"):
+            grid_validator._current_price_frames({"1111"}, manifest)
+    else:
+        frame = grid_validator._current_price_frames({"1111"}, manifest)["1111"]
+        assert frame["date"].tolist() == ["20260710"]
+        assert frame["close"].tolist() == ["10"]
+    assert calls == [(tmp_path, grid_validator.V2_SOURCE_COMMIT, {"1111"})]
+
+
+def test_v2_bound_price_source_failure_never_falls_back_to_current(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame({
+        "projection_version": [V2_PROJECTION_VERSION],
+        "cutoff_price_input_stock_count": [1],
+        "cutoff_price_input_row_count": [1],
+        "cutoff_price_input_file_semantic_sha256s": [f"1111:1:{'a' * 64}"],
+    })
+
+    def missing(*args, **kwargs):
+        raise RuntimeError("bound source unavailable")
+
+    monkeypatch.setattr(grid_validator, "load_source_payloads", missing)
+    with pytest.raises(RuntimeError, match="bound source unavailable"):
+        grid_validator._current_price_frames({"1111"}, manifest)
+
+
+def test_v2_canonical_resolution_uses_the_same_bound_source(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = pd.DataFrame({"projection_version": [V2_PROJECTION_VERSION]})
+    monkeypatch.setattr(grid_validator, "load_source_snapshot_projection_manifest", lambda path: manifest)
+    monkeypatch.setattr(grid_validator, "load_projected_source_detail", lambda path: pd.DataFrame())
+    monkeypatch.setattr(grid_validator, "validate_projection_binding", lambda *args: None)
+    calls = []
+
+    def bound(root, revision, paths):
+        calls.append((root, revision, paths))
+        return {grid_validator.PRICE_RESOLUTION_REL: b"stock_id\n1111\n"}
+
+    monkeypatch.setattr(grid_validator, "read_git_payloads", bound)
+    assert grid_validator._canonical_source_frames()[2]["stock_id"].tolist() == ["1111"]
+    assert calls == [(grid_validator.ROOT, grid_validator.V2_SOURCE_COMMIT, (grid_validator.PRICE_RESOLUTION_REL,))]
 
 
 def _stock_frame(
