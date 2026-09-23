@@ -880,6 +880,30 @@ def test_validator_accepts_synthetic_v2_governance(tmp_path: Path) -> None:
         }
 
 
+def test_canonical_v2_validation_binds_prices_but_not_synthetic_source_roots(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _build_fixture(tmp_path, projection_version=validator.V2_PROJECTION_VERSION)
+    price_dir = tmp_path / validator.SOURCE_RELATIVE_PATHS["price_dir"]
+    payloads = {
+        validator.PRICE_RESOLUTION_REL: b"stock_id,resume_date,exchange_ratio,resolution_id,root_cause_status\n",
+        **{f"{validator.PRICE_PREFIX}{path.name}": path.read_bytes() for path in price_dir.glob("*.csv")},
+    }
+    calls = []
+    def load(root, commit, *, price_stock_ids):
+        calls.append((root, commit, price_stock_ids))
+        return payloads
+    monkeypatch.setattr(validator, "load_source_payloads", load)
+    assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
+    assert calls == []
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    for price_path in price_dir.glob("*.csv"):
+        price_path.write_text("invalid current price input", encoding="utf-8")
+    assert validator.validate(artifact_root=tmp_path, source_root=tmp_path) == []
+    assert len(calls) == 1
+    assert calls[0][:2] == (tmp_path, validator.V2_SOURCE_COMMIT)
+
+
 @pytest.mark.parametrize(
     ("family", "label"),
     (
@@ -1397,3 +1421,42 @@ def test_trusted_price_replay_ignores_current_calendar_drift(
     assert relative == "data/stock_price_history/1111.csv"
     assert replay["date"].tolist() == ["20260710", "20260713"]
     assert replay["analysis_close"].tolist() == [10.0, 11.0]
+
+
+def test_bound_v2_price_payload_reuses_independent_adjustment_calculation(tmp_path: Path) -> None:
+    price_dir = tmp_path / "prices"
+    price_dir.mkdir()
+    price_path = price_dir / "1111.csv"
+    pd.DataFrame({
+        "date": ["20260710", "20260713", "20260714"],
+        "open": [10.0, 11.0, 999.0], "high": [11.0, 12.0, 999.0],
+        "low": [9.0, 10.0, 999.0], "close": [10.0, 11.0, 999.0],
+    }).to_csv(price_path, index=False)
+    registry_path = tmp_path / "resolution.csv"
+    pd.DataFrame([{
+        "stock_id": "1111", "resume_date": "20260713", "exchange_ratio": 2,
+        "resolution_id": "synthetic", "root_cause_status": "verified_non_comparable_raw_price_scale",
+    }]).to_csv(registry_path, index=False)
+    payloads = {
+        validator._trusted_stock_path("1111"): price_path.read_bytes(),
+        validator.PRICE_RESOLUTION_REL: registry_path.read_bytes(),
+    }
+    expected_resolutions = validator._load_resolutions(registry_path)
+    expected = validator._load_adjusted_price("1111", price_dir, expected_resolutions)
+    price_path.write_text("invalid current input", encoding="utf-8")
+    registry_path.write_text("invalid current input", encoding="utf-8")
+    resolutions = validator._load_resolutions(registry_path, source_payloads=payloads)
+    pd.testing.assert_frame_equal(resolutions, expected_resolutions)
+    actual = validator._load_adjusted_price(
+        "1111", price_dir, resolutions, source_payloads=payloads,
+    )
+    pd.testing.assert_frame_equal(actual, expected)
+    assert actual["analysis_close"].tolist() == [5.0, 11.0]
+    with pytest.raises(RuntimeError, match="payload is missing"):
+        validator._load_adjusted_price("1111", price_dir, resolutions, source_payloads={})
+    with pytest.raises(RuntimeError, match="payload is missing"):
+        validator._load_resolutions(registry_path, source_payloads={})
+    with pytest.raises(RuntimeError, match="cannot mix"):
+        validator._load_resolutions(
+            registry_path, source_payloads=payloads, trusted_revision="e" * 40,
+        )

@@ -73,6 +73,9 @@ def _bind_source_first_audit_outputs(
         path = tmp_path / f"{name}.txt"
         path.write_text("present\n", encoding="utf-8")
         monkeypatch.setattr(source_first_validator, name, path)
+    monkeypatch.setattr(
+        source_first_validator, "load_bound_source_context", lambda **_kwargs: object()
+    )
 
 
 def _prepare_v2_supersede_fixture(
@@ -501,6 +504,82 @@ def _build(inputs: dict[str, object]) -> pd.DataFrame:
         monthly_resolution_path=inputs["monthly_registry_path"],
         price_resolution_path=inputs["price_registry_path"],
         generated_at="2026-07-31 00:00:00 Asia/Taipei",
+    )
+
+
+def _bound_price_payloads(inputs: dict[str, object]) -> dict[str, bytes]:
+    return {
+        validator.PRICE_RESOLUTION_REL: inputs["price_registry_path"].read_bytes(),
+        **{
+            f"{validator.PRICE_PREFIX}{path.name}": path.read_bytes()
+            for path in inputs["price_dir"].glob("*.csv")
+        },
+    }
+
+
+def test_bound_price_payloads_replay_without_using_changed_current_prices(
+    source_inputs: dict[str, object],
+) -> None:
+    manifest = _build(source_inputs)
+    payloads = _bound_price_payloads(source_inputs)
+    price_path = source_inputs["price_dir"] / "1111.csv"
+    frame = pd.read_csv(price_path)
+    frame.loc[0, "close"] = 99999
+    frame.to_csv(price_path, index=False)
+    kwargs = {
+        "revenue_path": source_inputs["revenue_path"],
+        "price_dir": source_inputs["price_dir"],
+        "monthly_resolution_path": source_inputs["monthly_registry_path"],
+        "price_resolution_path": source_inputs["price_registry_path"],
+    }
+    assert validator.validate_frames(manifest, source_inputs["projected_detail"], **kwargs)
+    assert validator.validate_frames(
+        manifest, source_inputs["projected_detail"], source_payloads=payloads, **kwargs
+    ) == []
+
+
+@pytest.mark.parametrize("mutation", ["price", "missing_stock", "missing_resolution"])
+def test_bound_price_payloads_fail_closed_on_incomplete_or_changed_source(
+    source_inputs: dict[str, object], mutation: str,
+) -> None:
+    manifest = _build(source_inputs)
+    payloads = _bound_price_payloads(source_inputs)
+    relative = f"{validator.PRICE_PREFIX}5555.csv"
+    if mutation == "missing_resolution":
+        del payloads[validator.PRICE_RESOLUTION_REL]
+    elif mutation == "missing_stock":
+        del payloads[relative]
+    else:
+        frame = pd.read_csv(source_inputs["price_dir"] / "5555.csv")
+        frame.loc[0, "close"] = 99999
+        payloads[relative] = frame.to_csv(index=False).encode("utf-8")
+    assert validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        source_payloads=payloads,
+    )
+
+
+def test_bound_prices_do_not_freeze_current_cutoff_monthly_gate(
+    source_inputs: dict[str, object],
+) -> None:
+    manifest = _build(source_inputs)
+    payloads = _bound_price_payloads(source_inputs)
+    frame = pd.read_csv(source_inputs["revenue_path"], dtype=str, keep_default_na=False)
+    frame.loc[0, "latest_revenue_yoy_pct"] = "99999"
+    frame.to_csv(source_inputs["revenue_path"], index=False)
+    assert validator.validate_frames(
+        manifest,
+        source_inputs["projected_detail"],
+        revenue_path=source_inputs["revenue_path"],
+        price_dir=source_inputs["price_dir"],
+        monthly_resolution_path=source_inputs["monthly_registry_path"],
+        price_resolution_path=source_inputs["price_registry_path"],
+        source_payloads=payloads,
     )
 
 
@@ -1348,7 +1427,7 @@ def test_source_first_default_manifest_routes_v1_and_v2_to_canonical_latest(
     )
 
     assert source_first_validator.validate() == [
-        "source-first current monthly revenue lineage cannot be verified: "
+        "source-first bound/current monthly revenue lineage cannot be verified: "
         "routing probe stop"
     ]
     assert routed == [canonical_manifest]
@@ -1482,7 +1561,7 @@ def test_source_first_projection_manifest_cli_default_and_explicit_bypass(
     assert source_first_validator.validate(
         projection_manifest_path=explicit_manifest
     ) == [
-        "source-first current monthly revenue lineage cannot be verified: "
+        "source-first bound/current monthly revenue lineage cannot be verified: "
         "explicit routing probe stop"
     ]
     assert routed == [explicit_manifest]
@@ -2308,6 +2387,12 @@ def test_default_canonical_v2_ignores_historical_migration_closure(
         path.write_text("value\npresent\n", encoding="utf-8")
     price_dir = tmp_path / "prices"
     calls: list[str] = []
+    bound_payloads = {"bound": b"original price bytes"}
+    monkeypatch.setattr(
+        validator,
+        "load_source_payloads",
+        lambda root, commit: calls.append(f"bound:{commit}") or bound_payloads,
+    )
     monkeypatch.setattr(
         validator,
         "_validate_versioned_v2_closure",
@@ -2325,7 +2410,10 @@ def test_default_canonical_v2_ignores_historical_migration_closure(
     monkeypatch.setattr(
         validator,
         "validate_frames",
-        lambda *_args, **_kwargs: calls.append("validate_frames") or [],
+        lambda *_args, **_kwargs: calls.append(
+            "validate_frames" if _kwargs.get("source_payloads") is bound_payloads
+            else "unbound_validate_frames"
+        ) or [],
     )
 
     assert validator.validate(
@@ -2336,12 +2424,30 @@ def test_default_canonical_v2_ignores_historical_migration_closure(
         monthly_resolution_path=replay_paths[1],
         price_resolution_path=replay_paths[2],
     ) == []
-    assert calls == ["validate_frames"]
+    assert calls == [f"bound:{validator.V2_SOURCE_COMMIT}", "validate_frames"]
+    calls.clear()
+    def unavailable(*_args):
+        raise RuntimeError("fixed source object is missing")
+    monkeypatch.setattr(validator, "load_source_payloads", unavailable)
+    errors = validator.validate(
+        manifest_path=manifest_path,
+        projected_detail_path=detail_path,
+        revenue_path=replay_paths[0],
+        price_dir=price_dir,
+        monthly_resolution_path=replay_paths[1],
+        price_resolution_path=replay_paths[2],
+    )
+    assert errors == [
+        "canonical v2 bound price source unavailable: fixed source object is missing"
+    ]
+    assert calls == []
 
 
+@pytest.mark.parametrize("registered", [False, True])
 def test_explicit_v2_validation_does_not_reenter_default_closure(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
+    registered: bool,
 ) -> None:
     manifest_path = tmp_path / "v2_manifest.csv"
     detail_path = tmp_path / "v2_detail.csv"
@@ -2350,6 +2456,15 @@ def test_explicit_v2_validation_does_not_reenter_default_closure(
         index=False,
     )
     pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
+    payloads = {"bound": b"historical"}
+    load_calls = []
+    if registered:
+        monkeypatch.setattr(validator, "V2_MANIFEST_CSV", manifest_path)
+        monkeypatch.setattr(validator, "V2_PROJECTED_DETAIL_CSV", detail_path)
+    monkeypatch.setattr(
+        validator, "load_source_payloads",
+        lambda root, commit: load_calls.append(commit) or payloads,
+    )
     replay_paths = [tmp_path / name for name in ("revenue.csv", "monthly.csv", "price.csv")]
     for path in replay_paths:
         path.write_text("value\npresent\n", encoding="utf-8")
@@ -2360,7 +2475,10 @@ def test_explicit_v2_validation_does_not_reenter_default_closure(
         "_validate_versioned_v2_closure",
         lambda **_kwargs: pytest.fail("explicit v2 validation re-entered default closure"),
     )
-    monkeypatch.setattr(validator, "validate_frames", lambda *_args, **_kwargs: [])
+    def validate_frames(*_args, **kwargs):
+        assert kwargs.get("source_payloads") == (payloads if registered else None)
+        return []
+    monkeypatch.setattr(validator, "validate_frames", validate_frames)
 
     assert validator.validate(
         manifest_path=manifest_path,
@@ -2370,6 +2488,7 @@ def test_explicit_v2_validation_does_not_reenter_default_closure(
         monthly_resolution_path=replay_paths[1],
         price_resolution_path=replay_paths[2],
     ) == []
+    assert load_calls == ([validator.V2_SOURCE_COMMIT] if registered else [])
 
 
 def test_migration_closure_requires_v2_history_and_supersede_evidence(
@@ -2385,6 +2504,8 @@ def test_migration_closure_requires_v2_history_and_supersede_evidence(
     pd.DataFrame([{"stock_id": "1111"}]).to_csv(detail_path, index=False)
     monkeypatch.setattr(validator, "MANIFEST_CSV", manifest_path)
     monkeypatch.setattr(validator, "PROJECTED_DETAIL_CSV", detail_path)
+    payloads = {"bound": b"historical"}
+    monkeypatch.setattr(validator, "load_source_payloads", lambda root, commit: payloads)
     monkeypatch.setattr(
         validator,
         "validate_frames",
@@ -2393,11 +2514,14 @@ def test_migration_closure_requires_v2_history_and_supersede_evidence(
         ),
     )
     calls: list[str] = []
+    def closure(**kwargs):
+        assert kwargs["source_payloads"] is payloads
+        calls.append("immutable_v1_v2_diff_closure")
+        return ["closure evidence"]
     monkeypatch.setattr(
         validator,
         "_validate_versioned_v2_closure",
-        lambda **_kwargs: calls.append("immutable_v1_v2_diff_closure")
-        or ["closure evidence"],
+        closure,
     )
     monkeypatch.setattr(
         validator,
@@ -2431,3 +2555,17 @@ def test_projection_validator_cli_migration_closure_is_explicit_only(
 
     monkeypatch.setattr(sys, "argv", ["validator", "--migration-closure"])
     assert validator.parse_args().migration_closure is True
+
+
+def test_projection_v3_regressions_run_through_existing_revenue_ci(tmp_path: Path) -> None:
+    result = subprocess.run(
+        [
+            sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+            str(ROOT / "tests/test_revenue_unreacted_range_projection_v3.py"),
+            str(ROOT / "tests/test_revenue_unreacted_range_projection_payload_io.py"),
+            str(ROOT / "tests/test_validate_revenue_unreacted_range_projection_v3.py"),
+            "--basetemp", str(tmp_path / "projection-v3"),
+        ],
+        cwd=ROOT, capture_output=True, text=True, check=False, timeout=900,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
