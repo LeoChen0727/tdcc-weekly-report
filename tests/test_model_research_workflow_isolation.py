@@ -107,6 +107,25 @@ def test_tdcc_stealth_accumulation_outcome_owner_is_exact_and_local(mutation):
     assert bool(errors) == (mutation != "none")
 
 
+@pytest.mark.parametrize("mutation", ("none", "missing", "wrong", "unknown", "remote"))
+def test_revenue_unreacted_range_outcome_owner_is_exact_and_local(mutation):
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    owner = validator.REVENUE_OUTCOME_UNIT_LOCAL_OWNER
+    producer = validator.REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER
+    assert owned[owner] == producer
+    assert owner not in {row.model_id for row in rows}
+    if mutation == "missing":
+        del owned[owner]
+    elif mutation == "wrong":
+        owned[owner] = "scripts/unapproved.py"
+    elif mutation == "unknown":
+        owned["unapproved_outcome_owner"] = "scripts/unapproved.py"
+    elif mutation == "remote":
+        rows.append(replace(rows[0], model_id=owner, producer=producer))
+    errors = validator.validate_registry_contract(rows, owned)
+    assert bool(errors) == (mutation != "none")
+
+
 @pytest.mark.parametrize("path", (".github/workflows/unregistered.yml", ".github/workflows/unregistered.yaml"))
 def test_tdcc_stealth_accumulation_outcome_producer_remote_blocked_validator_allowed(path):
     assert validator.validate_annual_local_workflow_exclusion({
@@ -114,6 +133,16 @@ def test_tdcc_stealth_accumulation_outcome_producer_remote_blocked_validator_all
     })
     assert validator.validate_annual_local_workflow_exclusion({
         path: "run: python scripts/validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py"
+    }) == []
+
+
+@pytest.mark.parametrize("path", (".github/workflows/unregistered.yml", ".github/workflows/unregistered.yaml"))
+def test_revenue_unreacted_range_outcome_producer_remote_blocked_validator_allowed(path):
+    assert validator.validate_annual_local_workflow_exclusion({
+        path: "run: python " + validator.REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER
+    })
+    assert validator.validate_annual_local_workflow_exclusion({
+        path: "run: python scripts/validate_revenue_unreacted_range_outcome_unit_reconciliation.py"
     }) == []
 
 

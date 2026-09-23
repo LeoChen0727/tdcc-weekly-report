@@ -75,6 +75,18 @@ TPEX_HISTORY_REPAIR_PATTERNS = (
 )
 
 WATCHED_PATH_PATTERNS = (
+    "scripts/build_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "scripts/validate_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "config/revenue_unreacted_range_outcome_unit_actions_v1.json",
+    "docs/specs/revenue_unreacted_range_outcome_unit_reconciliation_v1.md",
+    "tests/test_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "tests/test_validate_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_manifest.json",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_detail.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_actions.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_comparison.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_changes.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_report.md",
     *TPEX_HISTORY_REPAIR_PATTERNS,
     ".github/workflows/daily_full_pipeline.yml",
     ".github/workflows/daily_model_maintenance_pr_validation.yml",

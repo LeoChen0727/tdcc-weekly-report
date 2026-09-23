@@ -44,6 +44,25 @@ def test_tdcc_outcome_unit_unknown_paths_fail_closed(path):
     with pytest.raises(scope.ScopeDetectionError):
         scope.domains_for_path(path)
 
+@pytest.mark.parametrize("path", (
+    "scripts/build_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "scripts/validate_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "config/revenue_unreacted_range_outcome_unit_actions_v1.json",
+    "docs/specs/revenue_unreacted_range_outcome_unit_reconciliation_v1.md",
+    "tests/test_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "tests/test_validate_revenue_unreacted_range_outcome_unit_reconciliation.py",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_manifest.json",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_detail.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_actions.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_comparison.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_changes.csv",
+    "output/research/revenue_unreacted_range/revenue_unreacted_range_outcome_unit_reconciliation_v1_20260923_report.md",
+))
+def test_revenue_outcome_unit_routes_to_own_research(path):
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({
+        scope.RESEARCH_SAFETY_LITE, scope.REVENUE_RESEARCH})
+
 WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validation.yml"
 
 FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS = frozenset(

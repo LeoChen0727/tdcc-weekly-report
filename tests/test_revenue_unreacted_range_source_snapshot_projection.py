@@ -12,6 +12,21 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+
+
+def test_revenue_unreacted_range_outcome_unit_mandatory_published_ci_bridge(tmp_path):
+    """Run synthetic and mandatory published evidence checks through existing CI."""
+    import subprocess
+    import sys
+
+    result = subprocess.run(
+        [sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+         "--basetemp", str(tmp_path / "revenue_unreacted_range-outcome-unit"),
+         "tests/test_revenue_unreacted_range_outcome_unit_reconciliation.py",
+         "tests/test_validate_revenue_unreacted_range_outcome_unit_reconciliation.py"],
+        cwd=ROOT, capture_output=True, text=True, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
