@@ -1,15 +1,15 @@
 {
-  "assessment_date": "20260921",
-  "authority_base_commit_sha": "8984c31bfcaf52f8f0d2cd0e31cafaef009c15ca",
-  "authority_generation_id": "daily-authority-20260921-35593891634-1",
+  "assessment_date": "20260922",
+  "authority_base_commit_sha": "9793fe1819cd6f4281f2d4ab6b48955f0280f36a",
+  "authority_generation_id": "daily-authority-20260922-35721278600-1",
   "authority_producer": "daily_full_pipeline",
-  "authority_release_id": "daily-authority-20260921-35593891634-1",
+  "authority_release_id": "daily-authority-20260922-35721278600-1",
   "exceptional_non_trading_days": [
     "20260710"
   ],
-  "expected_main_price_date": "20260921",
-  "generated_at": "2026-09-21T19:33:31+08:00",
-  "market_session_date": "20260921",
+  "expected_main_price_date": "20260922",
+  "generated_at": "2026-09-22T19:32:04+08:00",
+  "market_session_date": "20260922",
   "market_status": "open_confirmed",
   "official_sources": {
     "dgpa_emergency_closure": {
@@ -17,7 +17,7 @@
       "byte_len": 10882,
       "conflict_dates": [],
       "latest_taipei_notice_dates": [],
-      "queried_at": "2026-09-21T19:27:57+08:00",
+      "queried_at": "2026-09-22T19:27:55+08:00",
       "sha256": "199bdc6c5a67dd302f98c2b62b6baae7bd68220488d355abce596f5ae8f9741d",
       "source": "dgpa_emergency_closure",
       "status": "ok",
@@ -31,7 +31,7 @@
       "covered_years": [
         2026
       ],
-      "queried_at": "2026-09-21T19:27:57+08:00",
+      "queried_at": "2026-09-22T19:27:55+08:00",
       "sha256": "7644c1a8af784c09f54670fd7413f536b13eb76c54d658058e8873d1aee32117",
       "source": "twse_annual_calendar",
       "status": "ok",
@@ -43,21 +43,21 @@
     }
   },
   "phase": "confirm",
-  "preflight_generated_at": "2026-09-21T19:27:57+08:00",
+  "preflight_generated_at": "2026-09-22T19:27:55+08:00",
   "preflight_reused": true,
   "price_confirmation": {
-    "fetch_markdown_bytes": 2048,
+    "fetch_markdown_bytes": 2102,
     "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
-    "fetch_markdown_sha256": "6719375ced466353bb0e98fb5f895f0f6f8123c6573d4774ffde99c38035ca4e",
+    "fetch_markdown_sha256": "989c6a7a41cfdbb08277fafa8c508cf31db7f2f311c050630ce8ecda7797a4b1",
     "fetch_result": "success_target_full_market",
-    "fetch_status_bytes": 1494,
+    "fetch_status_bytes": 1511,
     "fetch_status_path": "output/latest/official_price_fetch_latest.json",
-    "fetch_status_sha256": "90463c354016d0c46e1b1a217a8d97abc64ac8d424c0d19f1d82253688cb7d81",
-    "path": "data/daily_price/daily_price_20260921.csv",
-    "price_bytes": 195371,
-    "price_sha256": "dcb22c66b2fa3d38f8affff41dfda67099a21f86c91cd7602775daf9bc52dd85",
-    "total_rows": 2142,
-    "tpex_rows": 894,
+    "fetch_status_sha256": "2e04312085e5db23e54beb89f64a6cc71fcd460662a07b78f7b3b1d87a0579ac",
+    "path": "data/daily_price/daily_price_20260922.csv",
+    "price_bytes": 195351,
+    "price_sha256": "c20bb0d3d8b206c47d2a3628d2a33a3d1b608e8d10251c6e21d0a52b4d53b6b1",
+    "total_rows": 2139,
+    "tpex_rows": 891,
     "twse_rows": 1248,
     "wrong_date_rows": 0
   },

@@ -1,16 +1,16 @@
 {
   "status": "pass",
-  "as_of_date": "20260921",
+  "as_of_date": "20260922",
   "date_boundary": "include_as_of_date_if_trading",
-  "target_end_date": "20260921",
+  "target_end_date": "20260922",
   "lookback_days": 7,
   "expected_trading_dates": [
-    "20260914",
     "20260915",
     "20260916",
     "20260917",
     "20260918",
-    "20260921"
+    "20260921",
+    "20260922"
   ],
   "non_trading_days_in_window": [],
   "legacy_only_before": [],
@@ -24,56 +24,56 @@
     "official_price_fetch": {
       "attempts": [
         {
-          "date": "20260921",
+          "date": "20260922",
           "full_market_ok": true,
-          "total_rows": 2142,
+          "total_rows": 2139,
           "tpex_ok": true,
-          "tpex_rows": 894,
+          "tpex_rows": 891,
           "twse_ok": true,
           "twse_rows": 1248,
-          "universe_rows": 2130
+          "universe_rows": 2142
         }
       ],
       "data_quality_note": "",
-      "fetch_markdown_bytes": 2048,
+      "fetch_markdown_bytes": 2102,
       "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
-      "fetch_markdown_sha256": "6719375ced466353bb0e98fb5f895f0f6f8123c6573d4774ffde99c38035ca4e",
+      "fetch_markdown_sha256": "989c6a7a41cfdbb08277fafa8c508cf31db7f2f311c050630ce8ecda7797a4b1",
       "full_market_ok": true,
-      "generated_at": "2026-09-21 19:33:29 Asia/Taipei",
+      "generated_at": "2026-09-22 19:32:04 Asia/Taipei",
       "is_target_date": true,
-      "latest_price_bytes": 195371,
+      "latest_price_bytes": 195351,
       "latest_price_path": "output/latest/official_daily_price_latest.csv",
-      "latest_price_sha256": "dcb22c66b2fa3d38f8affff41dfda67099a21f86c91cd7602775daf9bc52dd85",
+      "latest_price_sha256": "c20bb0d3d8b206c47d2a3628d2a33a3d1b608e8d10251c6e21d0a52b4d53b6b1",
       "market_same_ratios": {
-        "TPEx": 0.0,
+        "TPEx": 0.001141552511415525,
         "TWSE": 0.0
       },
       "paths": {
-        "dated_alt_csv": "data/daily_price/daily_price_20260921.csv",
-        "dated_csv": "data/daily_price/20260921.csv",
+        "dated_alt_csv": "data/daily_price/daily_price_20260922.csv",
+        "dated_csv": "data/daily_price/20260922.csv",
         "latest_csv": "output/latest/official_daily_price_latest.csv"
       },
-      "price_bytes": 195371,
-      "price_path": "data/daily_price/daily_price_20260921.csv",
-      "price_sha256": "dcb22c66b2fa3d38f8affff41dfda67099a21f86c91cd7602775daf9bc52dd85",
+      "price_bytes": 195351,
+      "price_path": "data/daily_price/daily_price_20260922.csv",
+      "price_sha256": "c20bb0d3d8b206c47d2a3628d2a33a3d1b608e8d10251c6e21d0a52b4d53b6b1",
       "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
       "result": "success_target_full_market",
-      "saved_price_date": "20260921",
+      "saved_price_date": "20260922",
       "stale_market_rows": 0,
       "stale_markets": [],
-      "target_date": "20260921",
-      "total_rows": 2142,
-      "tpex_rows": 894,
+      "target_date": "20260922",
+      "total_rows": 2139,
+      "tpex_rows": 891,
       "twse_rows": 1248
     },
     "market_session": {
       "schema_version": 1,
-      "generated_at": "2026-09-21T20:33:55+08:00",
+      "generated_at": "2026-09-22T20:34:11+08:00",
       "phase": "confirm",
-      "assessment_date": "20260921",
-      "market_session_date": "20260921",
+      "assessment_date": "20260922",
+      "market_session_date": "20260922",
       "market_status": "open_confirmed",
-      "expected_main_price_date": "20260921",
+      "expected_main_price_date": "20260922",
       "should_run_daily_pipeline": true,
       "reason_code": "twse_tpex_target_date_confirmed",
       "reason": "TWSE and TPEx target-date prices confirmed",
@@ -81,7 +81,7 @@
         "twse_annual_calendar": {
           "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule",
           "status": "ok",
-          "queried_at": "2026-09-21T20:33:55+08:00",
+          "queried_at": "2026-09-22T20:34:11+08:00",
           "source": "twse_annual_calendar",
           "attempt_count": 1,
           "byte_len": 3774,
@@ -94,7 +94,7 @@
         "dgpa_emergency_closure": {
           "url": "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33",
           "status": "ok",
-          "queried_at": "2026-09-21T20:33:55+08:00",
+          "queried_at": "2026-09-22T20:34:11+08:00",
           "source": "dgpa_emergency_closure",
           "attempt_count": 1,
           "byte_len": 10882,
@@ -132,20 +132,20 @@
         "20260710"
       ],
       "price_confirmation": {
-        "path": "data/daily_price/daily_price_20260921.csv",
-        "price_bytes": 195371,
-        "price_sha256": "dcb22c66b2fa3d38f8affff41dfda67099a21f86c91cd7602775daf9bc52dd85",
+        "path": "data/daily_price/daily_price_20260922.csv",
+        "price_bytes": 195351,
+        "price_sha256": "c20bb0d3d8b206c47d2a3628d2a33a3d1b608e8d10251c6e21d0a52b4d53b6b1",
         "twse_rows": 1248,
-        "tpex_rows": 894,
-        "total_rows": 2142,
+        "tpex_rows": 891,
+        "total_rows": 2139,
         "wrong_date_rows": 0,
         "fetch_result": "success_target_full_market",
         "fetch_status_path": "output/latest/official_price_fetch_latest.json",
-        "fetch_status_bytes": 1494,
-        "fetch_status_sha256": "90463c354016d0c46e1b1a217a8d97abc64ac8d424c0d19f1d82253688cb7d81",
+        "fetch_status_bytes": 1511,
+        "fetch_status_sha256": "2e04312085e5db23e54beb89f64a6cc71fcd460662a07b78f7b3b1d87a0579ac",
         "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
-        "fetch_markdown_bytes": 2048,
-        "fetch_markdown_sha256": "6719375ced466353bb0e98fb5f895f0f6f8123c6573d4774ffde99c38035ca4e"
+        "fetch_markdown_bytes": 2102,
+        "fetch_markdown_sha256": "989c6a7a41cfdbb08277fafa8c508cf31db7f2f311c050630ce8ecda7797a4b1"
       }
     }
   },
