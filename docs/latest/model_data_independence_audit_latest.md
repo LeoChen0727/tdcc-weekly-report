@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-09-18 02:03:23 Asia/Taipei`
-- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=95`
+- 產生時間：`2026-09-23 09:47:38 Asia/Taipei`
+- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=96`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -130,3 +130,4 @@
 | validator_independence | scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_tdcc_stealth_accumulation_current_version_horizon_extension.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_tdcc_stealth_accumulation_condition_stratification.py | PASS | independent_research_replay_validator | none |
+| validator_independence | scripts/validate_revenue_unreacted_range_source_first_source_binding.py | PASS | independent_contract_artifact_binding_validator | none |

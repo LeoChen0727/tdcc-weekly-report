@@ -8,6 +8,10 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
+from validate_revenue_unreacted_range_source_first_source_binding import (
+    load_bound_source_context,
+)
+
 from revenue_unreacted_range_monthly_revenue_cross_market_resolution import (
     RESOLUTION_CSV as MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     canonical_monthly_revenue_history_table_sha256,
@@ -1339,24 +1343,29 @@ def _markdown(summary: pd.DataFrame, detail: pd.DataFrame) -> str:
 
 
 def write_source_first_condition_audit(summary: pd.DataFrame, detail: pd.DataFrame) -> None:
+    # Preserve this published version, including its timestamps, before any write.
+    # The core calculation remains available to independently versioned research.
+    load_bound_source_context(repository_root=ROOT)
+    payloads: dict[str, bytes] = {}
     for path, frame in (
         (LATEST_CSV, summary),
         (DETAIL_CSV, detail),
         (HISTORY_CSV, summary),
         (DOCS_CSV, summary),
     ):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        frame.to_csv(path, index=False, encoding="utf-8-sig", lineterminator="\n")
+        payloads[path.relative_to(ROOT).as_posix()] = frame.to_csv(
+            index=False, lineterminator="\n"
+        ).encode("utf-8-sig")
     markdown = _markdown(summary, detail)
     for path in (LATEST_MD, DOCS_MD):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(markdown, encoding="utf-8", newline="\n")
+        payloads[path.relative_to(ROOT).as_posix()] = markdown.encode("utf-8")
+    load_bound_source_context(repository_root=ROOT, artifacts=payloads)
+    print("retained_frozen_source_evidence: artifacts=6; writes=0; recompute=False")
 
 
 if __name__ == "__main__":
-    built_summary, built_detail = build_source_first_condition_audit()
-    write_source_first_condition_audit(built_summary, built_detail)
+    bound = load_bound_source_context(repository_root=ROOT)
     print(
-        f"wrote {LATEST_CSV.relative_to(ROOT)} rows={len(built_summary)} "
-        f"detail_rows={len(built_detail)}"
+        "retained_frozen_source_evidence: "
+        f"source_commit={bound.source_commit}; artifacts=6; writes=0; recompute=False"
     )

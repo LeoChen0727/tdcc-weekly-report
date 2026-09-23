@@ -1428,6 +1428,30 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 45
+    binding_migration = rows[-1]
+    assert binding_migration["migration_id"] == (
+        "revenue_source_first_source_version_binding_20260923"
+    )
+    assert binding_migration["changed_data_families"] == (
+        "revenue_unreacted_range_source_first_condition_audit"
+    )
+    assert binding_migration["previous_contract_sha256s"] == (
+        "fca68c6a1eab47d9fca82720981f08afe496f473a9602efd641337adb95acd94"
+    )
+    assert binding_migration["new_contract_sha256s"] == (
+        "05f9f3fac0433d0a7134b8b5e026ee573865656a9cb503ecc21395a33e07f174"
+    )
+    assert binding_migration["affected_models"] == "revenue_unreacted_range"
+    assert binding_migration["user_approval_reference"] == (
+        "user_approved_revenue_source_version_binding_repair_20260923"
+    )
+    assert binding_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(binding_migration) == (
+        "8d113702f5da089df92e0697c542df8ec189ce946f286342a7a6e641509f949e"
+    )
+    # Keep every original migration and baseline assertion on its unchanged prefix.
+    rows = rows[:-1]
     assert len(rows) == 44
     stratification_migration = rows[-1]
     assert stratification_migration["migration_id"] == (
@@ -2087,7 +2111,9 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     ] = "revenue_forward_confirmation_source_snapshot_projection_20260731"
     for family, (_old_hash, new_hash) in expected_cross_market_contracts.items():
         expected_current_hash = (
-            snapshot_contracts[family]
+            binding_migration["new_contract_sha256s"]
+            if family == binding_migration["changed_data_families"]
+            else snapshot_contracts[family]
             if family in snapshot_contracts
             else expected_cutoff_contracts[family][1]
             if family in expected_cutoff_contracts
@@ -2095,14 +2121,18 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
         )
         assert sharing_by_family[family]["data_contract_sha256"] == expected_current_hash
         assert sharing_by_family[family]["last_migration_id"] == (
-            snapshot_migration_ids[family]
+            binding_migration["migration_id"]
+            if family == binding_migration["changed_data_families"]
+            else snapshot_migration_ids[family]
             if family in snapshot_contracts
             else cutoff_migration["migration_id"]
             if family in expected_cutoff_contracts
             else "revenue_monthly_cross_market_lineage_resolution_20260720"
         )
         assert sharing_by_family[family]["sharing_decision_reference"] == (
-            "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
+            binding_migration["user_approval_reference"]
+            if family == binding_migration["changed_data_families"]
+            else "user_authorized_20260713_source_snapshot_projection_and_955_baseline_20260731"
             if family in snapshot_contracts
             else "user_authorized_research_only_observation_cutoff_20260802"
             if family in expected_cutoff_contracts

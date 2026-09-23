@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import subprocess
 import sys
 from pathlib import Path
 
@@ -38,6 +39,20 @@ def current_monthly_revenue_lineage() -> MonthlyRevenueLineage:
         validator.REVENUE_HISTORY_CSV,
         validator.MONTHLY_REVENUE_CROSS_MARKET_RESOLUTION_CSV,
     )
+
+
+@pytest.fixture(scope="module")
+def bound_source_context():
+    return validator.load_bound_source_context(repository_root=ROOT)
+
+
+@pytest.fixture
+def verified_bound_source(monkeypatch, bound_source_context):
+    # Differential tests vary current inputs or the old consistency layer, not
+    # frozen Git evidence. Verify that immutable context once; the default
+    # integration test and dedicated binding suite retain their full gates.
+    monkeypatch.setattr(validator, "load_bound_source_context", lambda **_kwargs: bound_source_context)
+    return bound_source_context
 
 
 def _bind_outputs_to_current_full_lineage(
@@ -187,12 +202,12 @@ def test_source_first_condition_preserves_aligned_qualifying_revenue_lineage() -
         assert trade_dates[-1] == str(row.latest_qualifying_trade_date)
 
 
-def test_source_first_condition_emits_valid_lineage_and_current_canonical_hashes(
-    current_monthly_revenue_lineage: MonthlyRevenueLineage,
+def test_source_first_condition_emits_valid_lineage_and_bound_canonical_hashes(
+    bound_source_context,
 ) -> None:
     summary = pd.read_csv(LATEST_CSV, keep_default_na=False, low_memory=False)
     detail = pd.read_csv(DETAIL_CSV, keep_default_na=False, low_memory=False)
-    current_full_lineage = current_monthly_revenue_lineage[3]
+    current_full_lineage = bound_source_context.full_lineage
     for frame in (summary, detail):
         for column in validator.RUN_LINEAGE_COLUMNS:
             assert frame[column].astype(str).str.fullmatch(r"[0-9a-f]{64}").all()
@@ -208,6 +223,7 @@ def test_source_first_validator_allows_current_blob_rewrite_when_canonical_rows_
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
+    verified_bound_source,
 ) -> None:
     revenue_path = tmp_path / "monthly_revenue_history.csv"
     original = validator.REVENUE_HISTORY_CSV.read_bytes()
@@ -235,11 +251,6 @@ def test_source_first_validator_allows_current_blob_rewrite_when_canonical_rows_
     assert current[3]["monthly_revenue_canonical_table_sha256"] == (
         current_monthly_revenue_lineage[3]["monthly_revenue_canonical_table_sha256"]
     )
-    _bind_outputs_to_current_full_lineage(
-        tmp_path,
-        monkeypatch,
-        current_monthly_revenue_lineage[3],
-    )
     diagnostics: list[str] = []
     assert validator.validate(
         revenue_path=revenue_path,
@@ -252,6 +263,7 @@ def test_source_first_validator_allows_post_cutoff_revenue_append(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
+    verified_bound_source,
 ) -> None:
     revenue_path = tmp_path / "monthly_revenue_history.csv"
     revenue_path.write_bytes(validator.REVENUE_HISTORY_CSV.read_bytes())
@@ -277,21 +289,18 @@ def test_source_first_validator_allows_post_cutoff_revenue_append(
     assert current[3]["monthly_revenue_canonical_table_sha256"] != (
         current_monthly_revenue_lineage[3]["monthly_revenue_canonical_table_sha256"]
     )
-    summary, detail = _bind_outputs_to_current_full_lineage(
-        tmp_path,
-        monkeypatch,
-        current[3],
-    )
-    assert validator.validate(revenue_path=revenue_path) == []
-    for frame in (summary, detail):
-        for column, expected in current[3].items():
-            assert set(frame[column].astype(str)) == {expected}
+    before = (LATEST_CSV.read_bytes(), DETAIL_CSV.read_bytes())
+    diagnostics: list[str] = []
+    assert validator.validate(revenue_path=revenue_path, diagnostics=diagnostics) == []
+    assert (LATEST_CSV.read_bytes(), DETAIL_CSV.read_bytes()) == before
+    assert any("current_source_differs_from_bound_snapshot" in item for item in diagnostics)
 
 
 def test_source_first_validator_does_not_bind_current_outputs_to_manifest_full_lineage(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
+    verified_bound_source,
 ) -> None:
     manifest_path = tmp_path / "projection_manifest.csv"
     manifest = pd.read_csv(
@@ -306,11 +315,6 @@ def test_source_first_validator_does_not_bind_current_outputs_to_manifest_full_l
         for column in validator.RUN_LINEAGE_COLUMNS
     }
     current_full_lineage = _lineage_distinct_from(manifest_lineage)
-    _bind_outputs_to_current_full_lineage(
-        tmp_path,
-        monkeypatch,
-        current_full_lineage,
-    )
     monkeypatch.setattr(
         validator,
         "_current_monthly_revenue_lineage",
@@ -331,6 +335,7 @@ def test_source_first_validator_rejects_manifest_full_lineage_in_current_outputs
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
+    verified_bound_source,
 ) -> None:
     manifest = pd.read_csv(
         validator.SOURCE_SNAPSHOT_PROJECTION_MANIFEST_CSV,
@@ -366,17 +371,20 @@ def test_source_first_validator_rejects_manifest_full_lineage_in_current_outputs
         "monthly_revenue_canonical_table_sha256",
         "cross_market_resolution_registry_canonical_sha256",
     ):
-        assert any(
-            f"current full monthly revenue lineage drift: {column}" in error
+        observed_error = any(
+            f"bound full monthly revenue lineage drift: {column}" in error
             for error in errors
         )
+        assert observed_error == (
+            manifest_lineage[column] != verified_bound_source.full_lineage[column]
+        )
     assert not any(
-        "current full monthly revenue lineage drift: "
+        "bound full monthly revenue lineage drift: "
         "monthly_revenue_history_blob_sha256" in error
         for error in errors
     )
     assert any(
-        "monthly_revenue_history_blob_sha256 differs from the current mutable blob"
+        "monthly_revenue_history_blob_sha256 differs from the expected source blob"
         in diagnostic
         for diagnostic in diagnostics
     )
@@ -418,6 +426,7 @@ def test_source_first_validator_rejects_projection_contract_drift(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
+    verified_bound_source,
     column: str,
     value: str,
     expected_error: str,
@@ -444,6 +453,7 @@ def test_source_first_validator_rejects_projection_contract_drift(
 
 def test_source_first_validator_rejects_pre_cutoff_source_payload_mutation(
     tmp_path: Path,
+    verified_bound_source,
 ) -> None:
     revenue_path = tmp_path / "monthly_revenue_history.csv"
     raw = pd.read_csv(
@@ -519,6 +529,7 @@ def test_source_first_validator_rejects_monthly_revenue_lineage_mutation(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     current_monthly_revenue_lineage: MonthlyRevenueLineage,
+    verified_bound_source,
     mutation: str,
 ) -> None:
     summary_path = tmp_path / "summary.csv"
@@ -603,3 +614,244 @@ def test_full_lineage_raw_blob_is_diagnostic_and_canonical_hashes_are_hard() -> 
         current_full_lineage=current,
     )
     assert any("monthly_revenue_canonical_table_sha256" in error for error in errors)
+
+
+def test_current_post_cutoff_revision_is_disclosed_without_rebinding_old_evidence(
+    tmp_path: Path,
+    verified_bound_source,
+) -> None:
+    raw = pd.read_csv(validator.REVENUE_HISTORY_CSV, dtype=str, keep_default_na=False)
+    target = raw["stock_id"].eq("1101") & raw["revenue_period"].eq("202608")
+    assert int(target.sum()) == 1
+    raw.loc[target, "monthly_revenue"] = str(int(raw.loc[target, "monthly_revenue"].iloc[0]) + 1)
+    raw.loc[target, "source_table_date"] = "20260918"
+    revenue_path = tmp_path / "revised_current_monthly.csv"
+    raw.to_csv(revenue_path, index=False)
+    before = (LATEST_CSV.read_bytes(), DETAIL_CSV.read_bytes())
+    diagnostics: list[str] = []
+    assert validator.validate(revenue_path=revenue_path, diagnostics=diagnostics) == []
+    assert any("current_source_differs_from_bound_snapshot" in item for item in diagnostics)
+    assert (LATEST_CSV.read_bytes(), DETAIL_CSV.read_bytes()) == before
+
+
+def test_source_first_wrapper_retains_frozen_evidence_without_recomputing(monkeypatch, capsys):
+    from types import SimpleNamespace
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+    monkeypatch.setattr(
+        owner, "load_bound_source_context",
+        lambda **kwargs: calls.append(kwargs) or SimpleNamespace(source_commit="a" * 40),
+    )
+    owner.build_and_write_source_first_condition_audit()
+    assert calls == [{"repository_root": owner.ROOT}]
+    output = capsys.readouterr().out
+    assert "retained_frozen_source_evidence" in output
+    assert "writes=0" in output and "recompute=False" in output
+
+
+def test_full_owner_checks_frozen_evidence_before_other_calculation_or_writes(monkeypatch):
+    import build_revenue_unreacted_range_research as owner
+
+    def reject_binding(**_kwargs):
+        raise RuntimeError("frozen source binding drift")
+
+    def unexpected_calculation():
+        pytest.fail("full producer calculated before the frozen evidence gate")
+
+    monkeypatch.setattr(owner, "load_bound_source_context", reject_binding)
+    monkeypatch.setattr(owner, "build_revenue_unreacted_range_research_frame", unexpected_calculation)
+    with pytest.raises(RuntimeError, match="frozen source binding drift"):
+        owner.build_and_write()
+
+
+def test_legacy_writer_checks_all_payloads_before_any_write(monkeypatch):
+    import revenue_unreacted_range_source_first_condition_audit as core
+
+    calls = []
+
+    def binding_gate(**kwargs):
+        calls.append(kwargs)
+        if "artifacts" in kwargs:
+            raise RuntimeError("new evidence requires a new artifact version")
+
+    monkeypatch.setattr(core, "load_bound_source_context", binding_gate)
+    monkeypatch.setattr(core, "_markdown", lambda *_args: "proposed replacement")
+    before = {path: path.exists() for path in (
+        core.LATEST_CSV, core.DETAIL_CSV, core.HISTORY_CSV,
+        core.DOCS_CSV, core.LATEST_MD, core.DOCS_MD,
+    )}
+    with pytest.raises(RuntimeError, match="new artifact version"):
+        core.write_source_first_condition_audit(pd.DataFrame({"x": [1]}), pd.DataFrame({"y": [2]}))
+    assert len(calls) == 2 and len(calls[1]["artifacts"]) == 6
+    assert {path: path.exists() for path in before} == before
+
+
+def test_source_binding_regressions_run_through_existing_revenue_ci(tmp_path: Path):
+    result = subprocess.run(
+        [
+            sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+            str(ROOT / "tests/test_revenue_unreacted_range_source_first_source_binding.py"),
+            "--basetemp", str(tmp_path / "binding-regression"),
+        ],
+        cwd=ROOT, capture_output=True, text=True, check=False, timeout=300,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+@pytest.mark.parametrize(
+    "case,results,error",
+    (
+        ("already_present", [(0, "bound")], ""),
+        ("existing_wrong_identity", [(0, "wrong")], "identity drift"),
+        ("missing_nonshallow", [(128, ""), (0, "false")], "only in a shallow"),
+        ("unknown_repository", [(128, ""), (128, "")], "only in a shallow"),
+        ("shallow_success", [(128, ""), (0, "true"), (0, ""), (0, "bound")], ""),
+        ("fetch_failed", [(128, ""), (0, "true"), (1, "")], "fetch failed"),
+        ("postfetch_missing", [(128, ""), (0, "true"), (0, ""), (128, "")], "verified exactly"),
+        ("postfetch_wrong", [(128, ""), (0, "true"), (0, ""), (0, "wrong")], "verified exactly"),
+    ),
+)
+def test_source_commit_preparation_is_exact_and_fail_closed(monkeypatch, case, results, error):
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+    queued = list(results)
+
+    def git_result(command, **kwargs):
+        calls.append((command, kwargs))
+        assert queued, "unexpected extra Git operation"
+        returncode, value = queued.pop(0)
+        if value == "bound":
+            value = owner.SOURCE_FIRST_BOUND_COMMIT
+        return subprocess.CompletedProcess(command, returncode, (value + "\n").encode("ascii"), b"")
+
+    monkeypatch.setattr(owner.subprocess, "run", git_result)
+    if error:
+        with pytest.raises(RuntimeError, match=error):
+            owner.ensure_source_first_bound_commit_available()
+    else:
+        owner.ensure_source_first_bound_commit_available()
+    assert queued == []
+    prefix = ["git", "--no-replace-objects", "-C", str(owner.ROOT)]
+    verify = ["rev-parse", "--verify", f"{owner.SOURCE_FIRST_BOUND_COMMIT}^{{commit}}"]
+    expected = [prefix + verify]
+    if len(results) >= 2:
+        expected.append(prefix + ["rev-parse", "--is-shallow-repository"])
+    if len(results) >= 3:
+        expected.append(prefix + [
+            "fetch", "--no-tags", "--depth=1", "--no-write-fetch-head", "origin",
+            owner.SOURCE_FIRST_BOUND_COMMIT,
+        ])
+    if len(results) >= 4:
+        expected.append(prefix + verify)
+    assert [command for command, _kwargs in calls] == expected
+    assert all(kwargs["check"] is False for _command, kwargs in calls)
+    for command, kwargs in calls:
+        assert kwargs["timeout"] == (300 if command[4] == "fetch" else 30)
+
+
+@pytest.mark.parametrize("failure", ["missing_git", "local_timeout", "fetch_timeout"])
+def test_source_commit_preparation_subprocess_errors_fail_closed(monkeypatch, failure):
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+
+    def fail_git(command, **kwargs):
+        calls.append(command)
+        if failure == "missing_git":
+            raise FileNotFoundError("git")
+        if failure == "local_timeout" or command[4] == "fetch":
+            raise subprocess.TimeoutExpired(command, kwargs["timeout"])
+        result = (0, b"true\n") if "--is-shallow-repository" in command else (128, b"")
+        return subprocess.CompletedProcess(command, result[0], result[1], b"")
+
+    monkeypatch.setattr(owner.subprocess, "run", fail_git)
+    with pytest.raises(RuntimeError, match="fixed revenue source commit"):
+        owner.ensure_source_first_bound_commit_available()
+    assert len(calls) == (3 if failure == "fetch_timeout" else 1)
+
+
+@pytest.mark.parametrize("stage,function_name", (
+    ("all", "build_and_write"),
+    ("source_first_condition_audit", "build_and_write_source_first_condition_audit"),
+    ("source_snapshot_projection_chain", "build_and_write_source_snapshot_projection_chain"),
+    ("source_snapshot_projection", "build_and_write_source_snapshot_projection"),
+    ("launch_timing_feature_audit", "build_and_write_launch_timing_feature_audit"),
+    ("forward_confirmation_feature_audit", "build_and_write_forward_confirmation_feature_audit"),
+    ("rearmed_operation_grid", "build_and_write_rearmed_operation_grid"),
+    ("operation_lag_bucket_audit", "build_and_write_operation_lag_bucket_audit"),
+    ("position_shape_transition_matrix", "build_and_write_position_shape_transition_matrix"),
+    ("low_mid_falling_candidate_audit", "build_and_write_low_mid_falling_candidate_audit"),
+    ("forward_holdout", "build_and_write_forward_holdout"),
+    ("forward_holdout_v2", "build_and_write_forward_holdout_v2"),
+))
+def test_model_owned_cli_prepares_bound_commit_once_only_for_affected_stages(monkeypatch, stage, function_name):
+    from contextlib import contextmanager, nullcontext
+    from types import SimpleNamespace
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+
+    @contextmanager
+    def guard(*_args):
+        calls.append("artifact_guard")
+        yield
+
+    monkeypatch.setattr(owner, "parse_args", lambda: SimpleNamespace(stage=stage))
+    monkeypatch.setattr(owner, "ensure_source_first_bound_commit_available", lambda: calls.append("prepare_commit"))
+    monkeypatch.setattr(owner, "load_bound_source_context", lambda **_kwargs: calls.append("verify_binding"))
+    monkeypatch.setattr(owner, "model_owned_artifact_guard", guard)
+    monkeypatch.setattr(owner, "forward_holdout_stage_artifact_guard", nullcontext)
+    monkeypatch.setattr(owner, "forward_holdout_v2_stage_artifact_guard", nullcontext)
+    monkeypatch.setattr(owner, function_name, lambda: calls.append(stage))
+    assert owner.main() == 0
+    affected = {"all", "source_first_condition_audit", "source_snapshot_projection_chain"}
+    assert owner.SOURCE_FIRST_BOUND_COMMIT_STAGES == affected
+    assert calls == (
+        (["prepare_commit"] if stage in affected else [])
+        + (["verify_binding"] if stage == "source_snapshot_projection_chain" else [])
+        + ["artifact_guard", stage]
+    )
+
+
+@pytest.mark.parametrize("stage", ("all", "source_first_condition_audit", "source_snapshot_projection_chain"))
+def test_failed_source_commit_preparation_prevents_any_model_stage(monkeypatch, stage):
+    from types import SimpleNamespace
+    import build_revenue_unreacted_range_research as owner
+
+    def reject():
+        raise RuntimeError("fixed source commit retrieval failed")
+
+    def forbidden_guard(*_args):
+        pytest.fail("entered an artifact-producing stage after failed source preparation")
+
+    monkeypatch.setattr(owner, "parse_args", lambda: SimpleNamespace(stage=stage))
+    monkeypatch.setattr(owner, "ensure_source_first_bound_commit_available", reject)
+    monkeypatch.setattr(owner, "model_owned_artifact_guard", forbidden_guard)
+    with pytest.raises(RuntimeError, match="retrieval failed"):
+        owner.main()
+
+
+def test_projection_chain_binding_failure_prevents_all_stage_calculation_and_writes(monkeypatch):
+    from types import SimpleNamespace
+    import build_revenue_unreacted_range_research as owner
+
+    calls = []
+
+    def reject_binding(**kwargs):
+        assert kwargs == {"repository_root": owner.ROOT}
+        calls.append("verify_binding")
+        raise RuntimeError("frozen artifact content drift")
+
+    def forbidden(*_args, **_kwargs):
+        pytest.fail("projection chain started after corrupt frozen evidence")
+
+    monkeypatch.setattr(owner, "parse_args", lambda: SimpleNamespace(stage="source_snapshot_projection_chain"))
+    monkeypatch.setattr(owner, "ensure_source_first_bound_commit_available", lambda: calls.append("prepare_commit"))
+    monkeypatch.setattr(owner, "load_bound_source_context", reject_binding)
+    monkeypatch.setattr(owner, "model_owned_artifact_guard", forbidden)
+    monkeypatch.setattr(owner, "build_and_write_source_snapshot_projection_chain", forbidden)
+    with pytest.raises(RuntimeError, match="frozen artifact content drift"):
+        owner.main()
+    assert calls == ["prepare_commit", "verify_binding"]
