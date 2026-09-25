@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24 19:41:38 Asia/Taipei",
+  "generated_at": "2026-09-25 08:08:45 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -21,7 +21,7 @@
     "event_catalyst_log": {
       "path": "data/event_catalysts/event_catalyst_log.csv",
       "exists": true,
-      "rows": 3702
+      "rows": 3740
     }
   },
   "sources": {
@@ -48,7 +48,7 @@
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
       "status": "ok",
-      "rows": 102,
+      "rows": 96,
       "error": "",
       "http_status": 200,
       "matched_tracked_rows": 41,
