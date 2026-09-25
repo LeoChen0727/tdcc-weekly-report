@@ -58,6 +58,13 @@ producer 與獨立 validator 各自校驗；所有新列以 `source_artifacts` �
 launch evidence、績效揭露及核准版本不變；不聲稱完整總報酬、公司行動現金流
 或嚴格首次發布 PIT 已獲驗證。季度／年度財報與 EPS 等基本面仍完全排除。
 
+本次 readiness 重綁亦須驗證實際 runtime artifact 的唯一報表日、該日的完整
+semantic SHA 命名歷史檔及獨立 validator 的精確回應，不得沿用 20260828 的
+空狀態快照日期或筆數。舊 readiness 到新模組的遷移只允許本次明確核准、
+綁定不可變 base commit 與精確舊列及新雜湊的組合；一般 readiness metadata
+比對保持嚴格。這不覆寫既有 adapter 或歷史檔，也不把新模組宣称為舊快照
+當時的實際 producer；新模組的正式逐日輸出仍由既有 production 流程生成。
+
 ## 凍結規則
 
 `rule_spec_id=revenue_unreacted_range_source_mid_falling_d30_v1`，
