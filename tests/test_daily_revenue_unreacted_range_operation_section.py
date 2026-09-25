@@ -414,3 +414,215 @@ def test_validator_rejects_byte_tamper_and_baseline_row_metric_misuse(
         match="improperly exposes baseline as row-level metric",
     ):
         validator.validate_artifact(misuse)
+
+
+@pytest.mark.parametrize(
+    ("stock_id", "last_date", "resume_date", "ratio", "raw_close"),
+    [
+        ("3593", "20251210", "20251222", 0.6, 8.10),
+        ("2380", "20260616", "20260629", 0.27658171, 6.60),
+    ],
+)
+def test_formal_price_basis_adjusts_exact_authorized_action_asof_without_raw_mutation(
+    tmp_path: Path, stock_id: str, last_date: str, resume_date: str,
+    ratio: float, raw_close: float,
+) -> None:
+    price_path = tmp_path / f"{stock_id}.csv"
+    raw = pd.DataFrame({
+        "date": [last_date, resume_date],
+        "open": [raw_close, raw_close / ratio],
+        "high": [raw_close * 1.01, raw_close / ratio * 1.01],
+        "low": [raw_close * 0.99, raw_close / ratio * 0.99],
+        "close": [raw_close, raw_close / ratio],
+    })
+    raw.to_csv(price_path, index=False, lineterminator="\n")
+    original = price_path.read_bytes()
+
+    before = builder.load_price_history(price_path, asof_date=last_date)
+    assert before["date"].tolist() == [last_date]
+    assert before.iloc[0]["analysis_close"] == pytest.approx(raw_close)
+    adjusted = builder.load_price_history(price_path, asof_date=resume_date)
+    independent = validator._independent_adjusted_prices(
+        price_path, stock_id=stock_id, asof_date=resume_date,
+        events=validator._read_formal_price_basis(builder.FORMAL_PRICE_BASIS_PATH),
+    )
+    for column in ("open", "high", "low", "close"):
+        expected = [float(raw.at[0, column]) / ratio, float(raw.at[1, column])]
+        assert adjusted[f"analysis_{column}"].tolist() == pytest.approx(expected)
+        assert [row[column] for row in independent] == pytest.approx(expected)
+    # A second load starts from raw units, not the already adjusted frame.
+    pd.testing.assert_frame_equal(adjusted, builder.load_price_history(price_path))
+    assert price_path.read_bytes() == original
+
+
+def test_formal_price_basis_replays_source_anchor_in_approved_adjusted_units(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    prices = pd.read_csv(fixture["price_dir"] / "1234.csv")
+    # Synthetic 3593 history straddles the authorized 20251222 event, without
+    # inventing trading sessions inside the documented suspension window.
+    prices["date"] = (
+        pd.bdate_range(end="2025-12-10", periods=115).strftime("%Y%m%d").tolist()
+        + pd.bdate_range(start="2025-12-22", periods=55).strftime("%Y%m%d").tolist()
+    )
+    columns = ["open", "high", "low", "close"]
+    raw = prices.copy()
+    raw.loc[:114, columns] *= 0.6
+    repaired_path = fixture["price_dir"] / "3593.csv"
+    unregistered_path = fixture["price_dir"] / "9999.csv"
+    raw.to_csv(repaired_path, index=False, lineterminator="\n")
+    raw.to_csv(unregistered_path, index=False, lineterminator="\n")
+    adjusted = builder.load_price_history(repaired_path)
+    unadjusted = builder.load_price_history(unregistered_path)
+    repaired_features = builder._source_anchor_features(adjusted, 125)
+    raw_features = builder._source_anchor_features(unadjusted, 125)
+    assert builder._selected_source_mid_falling(repaired_features)
+    assert not builder._selected_source_mid_falling(raw_features)
+    for column in columns:
+        assert adjusted[f"analysis_{column}"].tolist() == pytest.approx(prices[column].tolist())
+        assert unadjusted[f"analysis_{column}"].tolist() == pytest.approx(raw[column].tolist())
+    assert repaired_features["shape_return20_pct"] < -5
+    assert raw_features["shape_return20_pct"] > 0
+
+
+def test_formal_price_basis_pin_rejects_modified_config_in_both_implementations(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    config_path = tmp_path / builder.FORMAL_PRICE_BASIS_PATH.name
+    text = builder.FORMAL_PRICE_BASIS_PATH.read_text(encoding="utf-8-sig")
+    config_path.write_text(text.replace(",0.6,", ",0.7,"), encoding="utf-8")
+    with pytest.raises(builder.RevenueOperationAdapterError, match="SHA-256 mismatch"):
+        builder.load_price_history(
+            fixture["price_dir"] / "1234.csv", price_basis_path=config_path,
+        )
+    with pytest.raises(validator.ValidationError, match="canonical hash drift"):
+        validator._read_formal_price_basis(config_path)
+
+
+@pytest.mark.parametrize("field", [
+    "signal_close", "source_position_120d_pct", "source_shape_return20_pct",
+    "source_shape_ema23_slope5_pct",
+])
+def test_independent_validator_rejects_wrong_price_units_with_valid_row_hash(
+    tmp_path: Path, field: str,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    section = _build(
+        fixture, report_date=fixture["dates"][130],
+        history_dir=tmp_path / "history",
+    )
+    data_index = section.index[section["row_type"].eq("data")][0]
+    section.at[data_index, field] = str(float(section.at[data_index, field]) * 0.6)
+    section.at[data_index, "row_canonical_sha256"] = builder._history_row_hash(
+        section.loc[data_index].to_dict()
+    )
+    artifact = tmp_path / "bad-price-units.csv"
+    section.to_csv(artifact, index=False, lineterminator="\n")
+    with pytest.raises(validator.ValidationError, match=f"adjusted price basis mismatch: {field}"):
+        validator.validate_artifact(artifact)
+
+
+def test_price_basis_marker_cannot_be_removed_from_current_artifact(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    section = _build(
+        fixture, report_date="20260828", history_dir=tmp_path / "history",
+    )
+    for index in section.index:
+        section.at[index, "source_artifacts"] = ";".join(
+            path for path in section.at[index, "source_artifacts"].split(";")
+            if Path(path).name != validator.FORMAL_PRICE_BASIS_FILENAME
+        )
+        section.at[index, "row_canonical_sha256"] = builder._history_row_hash(
+            section.loc[index].to_dict()
+        )
+    artifact = tmp_path / "legacy.csv"
+    section.to_csv(artifact, index=False, lineterminator="\n")
+    assert validator.validate_artifact(artifact)["data_row_count"] == 0
+    for index in section.index:
+        section.at[index, "operation_asof_date"] = "20260925"
+        section.at[index, "row_canonical_sha256"] = builder._history_row_hash(
+            section.loc[index].to_dict()
+        )
+    section.to_csv(artifact, index=False, lineterminator="\n")
+    with pytest.raises(validator.ValidationError, match="missing required formal price basis"):
+        validator.validate_artifact(artifact)
+
+
+def test_validator_rejects_formal_price_binding_removed_from_source_module(
+    tmp_path: Path,
+) -> None:
+    source = tmp_path / "source.py"
+    source.write_text(
+        validator.DEFAULT_SOURCE_MODULE.read_text(encoding="utf-8").replace(
+            validator.FORMAL_PRICE_BASIS_CANONICAL_SHA256, "0" * 64,
+        ), encoding="utf-8",
+    )
+    with pytest.raises(validator.ValidationError, match="hash binding drift"):
+        validator._validate_source_module(source)
+
+
+def test_formal_price_basis_pin_accepts_bom_crlf_transport_without_changing_units(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    price_path = fixture["price_dir"] / "1234.csv"
+    expected = builder.load_price_history(price_path)
+    canonical = builder.FORMAL_PRICE_BASIS_PATH.read_text(encoding="utf-8-sig")
+    transported = b"\xef\xbb\xbf" + canonical.replace("\n", "\r\n").encode("utf-8")
+    config_path = tmp_path / builder.FORMAL_PRICE_BASIS_PATH.name
+    config_path.write_bytes(transported)
+
+    actual = builder.load_price_history(price_path, price_basis_path=config_path)
+    pd.testing.assert_frame_equal(actual, expected)
+    assert validator._read_formal_price_basis(config_path) == (
+        validator._read_formal_price_basis(builder.FORMAL_PRICE_BASIS_PATH)
+    )
+    assert config_path.read_bytes() == transported
+
+
+@pytest.mark.parametrize("field", ["confirmation_close", "entry_price"])
+def test_independent_validator_rejects_wrong_lifecycle_price_with_valid_row_hash(
+    tmp_path: Path, field: str,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    destination = tmp_path / "artifacts"
+    section = _build(
+        fixture, report_date=fixture["dates"][131],
+        history_dir=destination / "history",
+    )
+    if field == "entry_price":
+        _write(section, destination)
+        section = _build(
+            fixture, report_date=fixture["dates"][132],
+            history_dir=destination / "history",
+        )
+    data_index = section.index[section["row_type"].eq("data")][0]
+    section.at[data_index, field] = str(float(section.at[data_index, field]) * 0.6)
+    section.at[data_index, "row_canonical_sha256"] = builder._history_row_hash(
+        section.loc[data_index].to_dict()
+    )
+    artifact = tmp_path / "bad-lifecycle-price.csv"
+    section.to_csv(artifact, index=False, lineterminator="\n")
+    with pytest.raises(validator.ValidationError, match=f"adjusted price basis mismatch: {field}"):
+        validator.validate_artifact(artifact)
+
+
+def test_independent_validator_rejects_raw_source_hash_drift(
+    tmp_path: Path,
+) -> None:
+    fixture = _objective_fixture(tmp_path / "fixture")
+    section = _build(
+        fixture, report_date=fixture["dates"][130], history_dir=tmp_path / "history",
+    )
+    artifact = tmp_path / "original-row-hashes.csv"
+    section.to_csv(artifact, index=False, lineterminator="\n")
+    price_path = fixture["price_dir"] / "1234.csv"
+    prices = pd.read_csv(price_path)
+    prices.at[0, "close"] *= 0.6
+    prices.to_csv(price_path, index=False, lineterminator="\n")
+    with pytest.raises(validator.ValidationError, match="raw price source hash drift"):
+        validator.validate_artifact(artifact)

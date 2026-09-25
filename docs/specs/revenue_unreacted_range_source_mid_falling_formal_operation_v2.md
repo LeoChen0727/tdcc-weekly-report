@@ -21,6 +21,7 @@ producer 只讀：
 
 - `data/monthly_revenue_history/monthly_revenue_history.csv`
 - `data/stock_price_history/<stock_id>.csv`
+- `config/approved_operation_evidence/revenue_unreacted_range_formal_price_basis_v1_20260925.csv`
 - `config/stock_theme_map.csv`
 - `config/stock_theme_taxonomy_manual.csv`
 - `config/stock_theme_authorized_seed.csv`
@@ -35,6 +36,27 @@ source 看見上述欄位會 fail closed。
 
 股票 taxonomy 只決定 `mainstream` 或 `non_mainstream` 報表線；缺少明確
 mainstream 標籤時，fail closed 到 `non_mainstream`，不改變模型條件。
+
+### 20260925 正式 adapter 價格口徑修復
+
+正式 `analysis_open/high/low/close` 與既有核准的 adjusted 規則一致：
+先從完整原始 OHLC 讀取、截取至報表日，再於計算任何指標前，將已生效且
+登錄的減資事件之前價格除以換股比例。事件生效日之後的價格維持原值；
+沒有登錄事件的股票不變。不得使用報表日以後生效的事件或來源預算的指標。
+目前正式登錄僅包含 3593／20251222 與 2380／20260629，均早於正式訊號生效日。
+新增事件需另行審查版本與授權，不得把本登錄視為全市場完整公司行動 coverage。
+
+此 model-owned input 是另外核准的正式用途版本，不讀取或擴大舊 research-only
+resolution registry 的權限。其 canonical UTF-8（去 BOM、換行統一 LF）SHA-256
+固定為 `29071d978c5cc8e7a3000c7ecfe2d37292a37f882dbc4146fd3cc3b4a3f35d7d`，
+producer 與獨立 validator 各自校驗；所有新列以 `source_artifacts` 綁定精確版本路徑。
+自 `operation_asof_date=20260925` 起缺少此綁定必須 fail closed；舊不可變歷史
+仍按原契約讀取，不回寫或偽造過去採用版本。當期 raw price SHA 仍綁定原始檔案。
+
+這是同一已核准口徑的實作修復，不是條件或策略升級。3593／20260119 的
+歷史 component parity 差異早於上線，不代表已證明上線後漏單。原 53 筆
+launch evidence、績效揭露及核准版本不變；不聲稱完整總報酬、公司行動現金流
+或嚴格首次發布 PIT 已獲驗證。季度／年度財報與 EPS 等基本面仍完全排除。
 
 ## 凍結規則
 

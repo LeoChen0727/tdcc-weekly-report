@@ -3,7 +3,7 @@ from __future__ import annotations
 """Formal revenue_unreacted_range/source_mid_falling v2 operation producer.
 
 Runtime inputs are limited to objective monthly-revenue history, per-stock price
-history, and repository taxonomy configuration. Candidate signals, research
+history, pinned model-owned price-basis facts, and taxonomy configuration. Candidate signals, research
 outputs, readiness artifacts, and mutable latest artifacts are never inputs.
 """
 
@@ -28,6 +28,14 @@ MONTHLY_REVENUE_HISTORY_CSV = (
     ROOT / "data" / "monthly_revenue_history" / "monthly_revenue_history.csv"
 )
 STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
+PRICE_BASIS_VERSION = "revenue_unreacted_range_formal_price_basis_v1_20260925"
+FORMAL_PRICE_BASIS_PATH = (
+    ROOT / "config" / "approved_operation_evidence"
+    / "revenue_unreacted_range_formal_price_basis_v1_20260925.csv"
+)
+FORMAL_PRICE_BASIS_CANONICAL_SHA256 = (
+    "29071d978c5cc8e7a3000c7ecfe2d37292a37f882dbc4146fd3cc3b4a3f35d7d"
+)
 TAXONOMY_PATHS = (
     ROOT / "config" / "stock_theme_map.csv",
     ROOT / "config" / "stock_theme_taxonomy_manual.csv",
@@ -721,7 +729,25 @@ def _price_file_map(directory: Path) -> dict[str, Path]:
     return result
 
 
-def load_price_history(path: Path) -> pd.DataFrame:
+def _load_formal_price_basis(path: Path) -> pd.DataFrame:
+    _assert_objective_input_path(path, label="formal price basis")
+    if not path.is_file():
+        raise RevenueOperationAdapterError(f"formal price basis missing: {path}")
+    canonical = path.read_text(encoding="utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+    if hashlib.sha256(canonical.encode("utf-8")).hexdigest() != FORMAL_PRICE_BASIS_CANONICAL_SHA256:
+        raise RevenueOperationAdapterError("formal price basis canonical SHA-256 mismatch")
+    # This immutable pin authorizes exactly two official loss-offset reductions.
+    # It is not the old research-only resolution registry or a total-return feed.
+    return _read_objective_csv(path, label="formal price basis")
+
+
+def load_price_history(
+    path: Path,
+    *,
+    asof_date: str | None = None,
+    price_basis_path: Path = FORMAL_PRICE_BASIS_PATH,
+) -> pd.DataFrame:
+    resolutions = _load_formal_price_basis(price_basis_path)
     frame = _read_objective_csv(path, label="stock price history")
     required = {"date", "open", "high", "low", "close"}
     missing = sorted(required - set(frame.columns))
@@ -761,6 +787,15 @@ def load_price_history(path: Path) -> pd.DataFrame:
     normalized = normalized.sort_values(
         "date", kind="mergesort"
     ).reset_index(drop=True)
+    asof = _date_text(asof_date, label="price asof_date") if asof_date else (
+        str(normalized["date"].max()) if not normalized.empty else ""
+    )
+    normalized = normalized.loc[normalized["date"].le(asof)].reset_index(drop=True)
+    for resolution in resolutions.to_dict(orient="records"):
+        if resolution["stock_id"] != path.stem or resolution["resume_date"] > asof:
+            continue
+        before_resume = normalized["date"].lt(resolution["resume_date"])
+        normalized.loc[before_resume, ohlc] /= float(resolution["exchange_ratio"])
     close = normalized["analysis_close"]
     normalized["analysis_ema23"] = close.ewm(
         span=SHAPE_EMA_SPAN_SESSIONS, adjust=False
@@ -1026,6 +1061,7 @@ def replay_stock_lifecycle(
     price_source_path: Path,
     taxonomy_paths: Sequence[Path],
     prior_confirmed_history: Mapping[str, tuple[str, str]],
+    price_basis_path: Path = FORMAL_PRICE_BASIS_PATH,
 ) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     blocked_through_index = -1
@@ -1033,6 +1069,7 @@ def replay_stock_lifecycle(
     base_source_artifacts = [
         _display_path(monthly_source_path),
         _display_path(price_source_path),
+        _display_path(price_basis_path),
         *(_display_path(path) for path in taxonomy_paths),
     ]
     for trigger_index in range(len(frame)):
@@ -1527,9 +1564,11 @@ def build_operation_section(
     stock_price_history_dir: Path = STOCK_PRICE_HISTORY_DIR,
     taxonomy_paths: Sequence[Path] = TAXONOMY_PATHS,
     prior_history_dir: Path = HISTORY_DIR,
+    price_basis_path: Path = FORMAL_PRICE_BASIS_PATH,
     report_date: str | None = None,
     generated_at: str | None = None,
 ) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
+    _load_formal_price_basis(price_basis_path)
     revenue = load_monthly_revenue_history(monthly_revenue_path)
     taxonomy_map = load_taxonomy(taxonomy_paths)
     price_files = _price_file_map(stock_price_history_dir)
@@ -1555,7 +1594,11 @@ def build_operation_section(
             if price_path is None:
                 continue
             loaded_prices[stock_id] = (
-                load_price_history(price_path),
+                load_price_history(
+                    price_path,
+                    asof_date=normalized_report_date or None,
+                    price_basis_path=price_basis_path,
+                ),
                 price_path,
             )
     if not normalized_report_date:
@@ -1633,6 +1676,7 @@ def build_operation_section(
                 price_source_path=price_path,
                 taxonomy_paths=taxonomy_paths,
                 prior_confirmed_history=prior_confirmed,
+                price_basis_path=price_basis_path,
             )
             all_records.extend(records)
             current_records.extend(
@@ -1662,6 +1706,7 @@ def build_operation_section(
         (
             _display_path(monthly_revenue_path),
             _display_path(stock_price_history_dir),
+            _display_path(price_basis_path),
             *(_display_path(path) for path in taxonomy_paths),
         )
     )

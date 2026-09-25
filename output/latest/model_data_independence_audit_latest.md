@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-09-25 02:16:07 Asia/Taipei`
-- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=104`
+- 產生時間：`2026-09-25 14:04:15 Asia/Taipei`
+- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=106`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -89,6 +89,7 @@
 | data_family_ownership | tdcc_stealth_accumulation_medium_term_trend_research | PASS | model_owned_not_shared | none |
 | data_family_ownership | revenue_unreacted_range_outcome_unit_reconciliation | PASS | model_owned_not_shared | none |
 | data_family_ownership | tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation | PASS | model_owned_not_shared | none |
+| data_family_ownership | revenue_unreacted_range_formal_price_basis_operation_adapter | PASS | model_owned_not_shared | none |
 | numerical_anomaly_governance | repo_wide_root_cause_disposition_contract | PASS | repo_wide_governance_contract | none |
 | numerical_anomaly_governance | monthly_revenue_history_legacy_threshold_flag | CONTAINED | legacy_threshold_flag_candidate_only | source schema still uses a legacy anomaly field name and must be treated as candidate-only |
 | numerical_anomaly_governance | revenue_unreacted_range | CONTAINED | model_owned_root_cause_pending | corporate-action PIT, independent-source corroboration, and adjustment-basis checks remain incomplete |
@@ -139,3 +140,4 @@
 | validator_independence | scripts/validate_tdcc_stealth_accumulation_medium_term_trend_research.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_revenue_unreacted_range_outcome_unit_reconciliation.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py | PASS | independent_research_replay_validator | none |
+| validator_independence | scripts/validate_daily_revenue_unreacted_range_operation_section.py | PASS | independent_contract_artifact_binding_validator | none |
