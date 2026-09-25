@@ -458,8 +458,18 @@ def revenue_summary() -> dict[str, str | int]:
     }
 
 
+@pytest.mark.parametrize(
+    ("row_count", "data_row_count", "expected_status"),
+    [
+        (12, 0, "ready_empty_no_operation_rows"),
+        (27, 22, "ready_approved_operation_guidance"),
+    ],
+)
 def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
     monkeypatch: pytest.MonkeyPatch,
+    row_count: int,
+    data_row_count: int,
+    expected_status: str,
 ) -> None:
     monkeypatch.setattr(
         syncer,
@@ -477,8 +487,8 @@ def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
             lifecycle_contract_version=(
                 syncer.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION
             ),
-            row_count=12,
-            data_row_count=0,
+            row_count=row_count,
+            data_row_count=data_row_count,
             sections=syncer.REVENUE_FORMAL_ADAPTER_SECTIONS,
         ),
     )
@@ -517,7 +527,7 @@ def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
     assert summary["operation_module_status"] == (
         "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
     )
-    assert summary["daily_adapter_status"] == "ready_empty_no_operation_rows"
+    assert summary["daily_adapter_status"] == expected_status
     assert summary["formal_model_use_allowed"] == "True"
     assert summary["approved_for_daily"] == "True"
     assert summary["presentation_allowed"] == "True"
@@ -527,8 +537,8 @@ def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
     )
     assert summary["pdf_integration_status"] == "pdf_integrated_daily_adapter"
     assert summary["packet_integration_status"] == "pending_packet_consumer"
-    assert summary["daily_adapter_row_count"] == 12
-    assert summary["daily_adapter_data_row_count"] == 0
+    assert summary["daily_adapter_row_count"] == row_count
+    assert summary["daily_adapter_data_row_count"] == data_row_count
     assert summary["daily_adapter_sections"] == ",".join(
         syncer.REVENUE_FORMAL_ADAPTER_SECTIONS
     )
@@ -1423,12 +1433,20 @@ def test_current_canonical_sources_build_exact_v6_provisional_revenue_row() -> N
     assert revenue["operation_module_status"] == (
         "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
     )
-    assert revenue["daily_adapter_status"] == "ready_empty_no_operation_rows"
+    artifact = pd.read_csv(
+        ROOT / syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL, dtype=str,
+    ).fillna("")
+    data_row_count = int(artifact["row_type"].eq("data").sum())
+    assert revenue["daily_adapter_status"] == (
+        "ready_approved_operation_guidance"
+        if data_row_count > 0
+        else "ready_empty_no_operation_rows"
+    )
     assert revenue["operation_module_id"] == (
         "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
     )
-    assert revenue["daily_adapter_row_count"] == "12"
-    assert revenue["daily_adapter_data_row_count"] == "0"
+    assert revenue["daily_adapter_row_count"] == str(len(artifact))
+    assert revenue["daily_adapter_data_row_count"] == str(data_row_count)
     assert revenue["daily_adapter_sections"] == ",".join(
         syncer.REVENUE_FORMAL_ADAPTER_SECTIONS
     )
