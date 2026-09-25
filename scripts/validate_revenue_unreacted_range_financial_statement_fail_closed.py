@@ -156,6 +156,7 @@ REVENUE_ACTIVATED_CONTRACT_PHASE_FIELDS = {
         "source_mid_falling_v2_dedicated_adapter_"
         "provisional_backtest_supported_oos_unconfirmed_"
         "legacy_generic_selector_retired_2026-08-30"
+        "_formal_price_basis_repaired_2026-09-25"
     ),
 }
 REVENUE_LEGACY_CONDITION_PHASE_FIELDS = {

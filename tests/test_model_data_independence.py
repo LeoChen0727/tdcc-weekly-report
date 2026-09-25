@@ -291,7 +291,7 @@ def test_shared_business_semantics_are_disclosed_as_contained_not_technical() ->
         assert no_longer_shared_item not in by_item
 
 
-def test_revenue_v2_adapter_migrations_pin_activation_and_history_repair() -> None:
+def test_revenue_v2_adapter_migrations_pin_activation_history_and_price_basis_repair() -> None:
     ownership = {
         row["model_id"]: row
         for row in read_csv("config/daily_model_semantic_ownership.csv")
@@ -309,6 +309,12 @@ def test_revenue_v2_adapter_migrations_pin_activation_and_history_repair() -> No
         if row["migration_id"]
         == "revenue_operation_history_filename_contract_repair_20260902"
     )
+    price_basis_repair = next(
+        row
+        for row in migrations
+        if row["migration_id"]
+        == "revenue_formal_adapter_price_basis_repair_20260925"
+    )
 
     assert ownership["production_source_file"] == (
         "scripts/build_daily_revenue_unreacted_range_operation_section.py"
@@ -317,16 +323,27 @@ def test_revenue_v2_adapter_migrations_pin_activation_and_history_repair() -> No
         "_selected_source_mid_falling;build_operation_section"
     )
     assert ownership["ownership_status"] == "model_owned_module"
-    assert ownership["last_migration_id"] == history_repair["migration_id"]
-    assert ownership["approval_reference"] == history_repair["user_approval_reference"]
+    assert ownership["last_migration_id"] == price_basis_repair["migration_id"]
+    assert ownership["approval_reference"] == price_basis_repair["user_approval_reference"]
     assert history_repair["changed_semantics"] == "model:revenue_unreacted_range"
     assert history_repair["previous_sha256s"] == activation["new_sha256s"].split(";")[0]
-    assert history_repair["new_sha256s"] == semantic_record_sha256(
-        "model:revenue_unreacted_range", ownership
+    assert history_repair["new_sha256s"] == (
+        "ad3be2f09011bee015d97e83e8577ddab9cac5ba53ecee637476b25762b1d8ea"
     )
     assert history_repair["affected_models"] == "revenue_unreacted_range"
     assert history_repair["migration_status"] == "validated_user_approved_migration"
     assert "generic rN published snapshots" in history_repair["notes"]
+    assert price_basis_repair["source_file"] == ownership["production_source_file"]
+    assert price_basis_repair["changed_semantics"] == "model:revenue_unreacted_range"
+    assert price_basis_repair["previous_sha256s"] == history_repair["new_sha256s"]
+    assert price_basis_repair["new_sha256s"] == semantic_record_sha256(
+        "model:revenue_unreacted_range", ownership
+    )
+    assert price_basis_repair["affected_models"] == "revenue_unreacted_range"
+    assert price_basis_repair["user_approval_reference"] == (
+        "user_authorized_revenue_formal_adapter_price_basis_repair_20260925"
+    )
+    assert price_basis_repair["migration_status"] == "validated_user_approved_migration"
 
     changed = activation["changed_semantics"].split(";")
     previous = activation["previous_sha256s"].split(";")
@@ -1426,8 +1443,83 @@ def test_volume_v2_watch_committed_lineage_audit_is_exactly_registered() -> None
     assert migration["migration_status"] == "validated_user_approved_migration"
 
 
+def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer() -> None:
+    family = "revenue_unreacted_range_formal_price_basis_operation_adapter"
+    background = next(
+        row
+        for row in read_csv("config/daily_model_background_data_registry.csv")
+        if row["data_family_id"] == family
+    )
+    sharing = next(
+        row
+        for row in read_csv("config/daily_model_data_sharing_registry.csv")
+        if row["data_family_id"] == family
+    )
+    assert background["scope"] == "model_specific"
+    assert background["owner_lane"] == "daily_model_maintenance"
+    assert background["producer"] == (
+        "scripts/build_daily_revenue_unreacted_range_operation_section.py"
+    )
+    assert background["artifact_path"] == (
+        "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv"
+    )
+    assert background["consumer_models"] == "revenue_unreacted_range"
+    sources = background["source_artifacts"].split(";")
+    assert (
+        "config/approved_operation_evidence/"
+        "revenue_unreacted_range_formal_price_basis_v1_20260925.csv"
+    ) in sources
+    assert "config/revenue_unreacted_range_price_comparability_resolution.csv" not in sources
+    assert sharing["ownership_mode"] == "model_owned_not_shared"
+    assert sharing["owner_model_or_family"] == "revenue_unreacted_range"
+    assert sharing["registered_producers"] == background["producer"]
+    assert sharing["producer_write_scope"] == background["artifact_path"]
+    assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
+    assert sharing["data_contract_sha256"] == data_contract_sha256(background)
+    assert sharing["last_migration_id"] == (
+        "revenue_formal_adapter_price_basis_repair_20260925"
+    )
+    assert sharing["sharing_decision_reference"] == (
+        "user_authorized_revenue_formal_adapter_price_basis_repair_20260925"
+    )
+    independent = next(
+        row
+        for row in read_csv("config/daily_model_validator_independence.csv")
+        if row["validator_path"] == background["validator"]
+    )
+    assert independent["production_source_file"] == background["producer"]
+    assert independent["independence_claim"] == "True"
+    assert independent["imported_production_symbols"] == ""
+    assert independent["validator_role"] == (
+        "independent_contract_artifact_binding_validator"
+    )
+    assert "not_new_backtest_or_PIT_proof" in independent["allowed_evidence_use"]
+
+
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 51
+    price_basis_migration = rows[-1]
+    assert price_basis_migration["migration_id"] == (
+        "revenue_formal_adapter_price_basis_repair_20260925"
+    )
+    assert price_basis_migration["changed_data_families"] == (
+        "revenue_unreacted_range_formal_price_basis_operation_adapter"
+    )
+    assert price_basis_migration["previous_contract_sha256s"] == "NEW"
+    assert price_basis_migration["new_contract_sha256s"] == (
+        "f52a36f8befb48a1d989aadf2c30c72f843df5de785e381596378cd0c2cc2b57"
+    )
+    assert price_basis_migration["affected_models"] == "revenue_unreacted_range"
+    assert price_basis_migration["user_approval_reference"] == (
+        "user_authorized_revenue_formal_adapter_price_basis_repair_20260925"
+    )
+    assert price_basis_migration["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(price_basis_migration) == (
+        "93af1e944ab1ca159572c0a1c7c4d443e4d69bcd416f6cd6234500747507e329"
+    )
+    # Preserve every prior research migration and its exact row hash.
+    rows = rows[:-1]
     assert len(rows) == 50
     outcome_unit_migration = rows[-1]
     assert outcome_unit_migration["migration_id"] == (

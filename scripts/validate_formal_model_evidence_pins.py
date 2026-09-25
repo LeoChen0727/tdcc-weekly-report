@@ -102,10 +102,12 @@ PREPARED_REVENUE_CONTRACT = {
 ACTIVATED_REVENUE_CONTRACT = {
     **PREPARED_REVENUE_CONTRACT,
     "approved_for_daily_pdf": "true",
+    "input_columns": PREPARED_REVENUE_CONTRACT["input_columns"] + ";resume_date;exchange_ratio",
     "change_reason": (
         "source_mid_falling_v2_dedicated_adapter_"
         "provisional_backtest_supported_oos_unconfirmed_"
         "legacy_generic_selector_retired_2026-08-30"
+        "_formal_price_basis_repaired_2026-09-25"
     ),
 }
 

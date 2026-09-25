@@ -10,9 +10,11 @@ row hashes, and append-only history proof from first principles.
 import argparse
 import ast
 import csv
+from datetime import datetime
 import hashlib
 import io
 import json
+import math
 from pathlib import Path
 import re
 from typing import Iterable, Mapping, Sequence
@@ -30,6 +32,13 @@ DEFAULT_SOURCE_MODULE = (
     / "scripts"
     / "build_daily_revenue_unreacted_range_operation_section.py"
 )
+FORMAL_PRICE_BASIS_FILENAME = (
+    "revenue_unreacted_range_formal_price_basis_v1_20260925.csv"
+)
+FORMAL_PRICE_BASIS_CANONICAL_SHA256 = (
+    "29071d978c5cc8e7a3000c7ecfe2d37292a37f882dbc4146fd3cc3b4a3f35d7d"
+)
+FORMAL_PRICE_BASIS_REQUIRED_FROM = "20260925"
 
 MODEL_ID = "revenue_unreacted_range"
 MODEL_VARIANT_ID = "source_mid_falling"
@@ -405,12 +414,22 @@ def _validate_source_module(path: Path) -> None:
         '"data" / "stock_price_history"',
         '"config" / "stock_theme_map.csv"',
         "FORMAL_SIGNAL_EFFECTIVE_FROM = \"20260831\"",
+        FORMAL_PRICE_BASIS_FILENAME,
     )
     missing = [token for token in required_tokens if token not in text]
     if missing:
         raise ValidationError(
             f"producer objective-source/effective-date declarations drifted: {missing}"
         )
+    bound_hashes = [
+        node.value.value
+        for node in tree.body
+        if isinstance(node, ast.Assign)
+        and any(isinstance(target, ast.Name) and target.id == "FORMAL_PRICE_BASIS_CANONICAL_SHA256" for target in node.targets)
+        and isinstance(node.value, ast.Constant)
+    ]
+    if bound_hashes != [FORMAL_PRICE_BASIS_CANONICAL_SHA256]:
+        raise ValidationError("producer formal price basis hash binding drift")
 
 
 def _validate_history_snapshot(path: Path) -> None:
@@ -497,6 +516,131 @@ def _validate_source_artifacts(row: Mapping[str, str], *, row_number: int) -> No
         )
 
 
+def _read_formal_price_basis(path: Path) -> list[dict[str, str]]:
+    if not path.is_file():
+        raise ValidationError(f"formal price basis is missing: {path}")
+    canonical = path.read_text(encoding="utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+    if hashlib.sha256(canonical.encode("utf-8")).hexdigest() != (
+        FORMAL_PRICE_BASIS_CANONICAL_SHA256
+    ):
+        raise ValidationError(f"formal price basis canonical hash drift: {path}")
+    _header, events = _read_csv(path)
+    return events
+
+
+def _independent_adjusted_prices(
+    path: Path, *, stock_id: str, asof_date: str,
+    events: Sequence[Mapping[str, str]],
+) -> list[dict[str, str | float]]:
+    """Replay the pinned price units independently, without model imports."""
+    header, raw = _read_csv(path)
+    if not {"date", "open", "high", "low", "close"}.issubset(header):
+        raise ValidationError(f"raw price schema drift: {path}")
+    prices: list[dict[str, str | float]] = []
+    seen: set[str] = set()
+    for record in raw:
+        date = re.sub(r"[^0-9]", "", record["date"])
+        try:
+            if len(date) != 8:
+                raise ValueError("not YYYYMMDD")
+            datetime.strptime(date, "%Y%m%d")
+        except ValueError as exc:
+            raise ValidationError(f"invalid raw price date: {path}/{date}") from exc
+        if date in seen:
+            raise ValidationError(f"duplicate raw price date: {path}/{date}")
+        seen.add(date)
+        if date > asof_date:
+            continue
+        item: dict[str, str | float] = {"date": date}
+        for column in ("open", "high", "low", "close"):
+            try:
+                value = float(record[column].replace(",", ""))
+            except ValueError as exc:
+                raise ValidationError(f"invalid raw OHLC: {path}/{date}") from exc
+            if not math.isfinite(value) or value <= 0:
+                raise ValidationError(f"invalid raw OHLC: {path}/{date}")
+            for event in events:
+                if (
+                    event["stock_id"] == stock_id
+                    and date < event["resume_date"] <= asof_date
+                ):
+                    value /= float(event["exchange_ratio"])
+            item[column] = value
+        prices.append(item)
+    prices.sort(key=lambda item: str(item["date"]))
+    return prices
+
+
+def _validate_formal_price_row(
+    row: Mapping[str, str], *, row_number: int,
+    events: Sequence[Mapping[str, str]],
+    cache: dict[tuple[str, str, str], list[dict[str, str | float]]],
+) -> None:
+    paths = [_resolve_artifact_path(part.strip()) for part in row["source_artifacts"].split(";")]
+    price_paths = [
+        path for path in paths
+        if path.name == f"{row['stock_id']}.csv"
+        and path.parent.name == "stock_price_history"
+    ]
+    if len(price_paths) != 1:
+        raise ValidationError(f"row {row_number} must bind one raw stock price source")
+    price_path = price_paths[0]
+    key = (str(price_path), row["operation_asof_date"], row["price_source_sha256"])
+    if key not in cache:
+        if not price_path.is_file() or hashlib.sha256(price_path.read_bytes()).hexdigest() != row["price_source_sha256"]:
+            raise ValidationError(f"row {row_number} raw price source hash drift")
+        cache[key] = _independent_adjusted_prices(
+            price_path, stock_id=row["stock_id"],
+            asof_date=row["operation_asof_date"], events=events,
+        )
+    prices = cache[key]
+    if not prices or prices[-1]["date"] != row["operation_asof_date"]:
+        raise ValidationError(f"row {row_number} raw prices do not reach operation date")
+
+    def assert_number(field: str, expected: float, digits: int) -> None:
+        try:
+            actual = float(row[field])
+        except ValueError as exc:
+            raise ValidationError(f"row {row_number} invalid price-basis value {field}") from exc
+        if not math.isfinite(actual) or not math.isclose(
+            actual, round(expected, digits), rel_tol=0.0, abs_tol=10 ** (-digits) / 2,
+        ):
+            raise ValidationError(f"row {row_number} adjusted price basis mismatch: {field}")
+
+    source_index = _int(row, "source_sequence_index", row_number=row_number)
+    if not 120 <= source_index < len(prices):
+        raise ValidationError(f"row {row_number} source anchor lacks 120 prior sessions")
+    if prices[source_index]["date"] != row["source_trade_date"] or any(
+        str(item["date"]) >= row["source_table_date"] for item in prices[:source_index]
+    ) or row["source_trade_date"] < row["source_table_date"]:
+        raise ValidationError(f"row {row_number} source anchor date/index drift")
+    prior = prices[source_index - 120:source_index]
+    high = max(float(item["high"]) for item in prior)
+    low = min(float(item["low"]) for item in prior)
+    if high <= low:
+        raise ValidationError(f"row {row_number} invalid source price range")
+    close = float(prices[source_index]["close"])
+    ema: list[float] = []
+    for item in prices[:source_index + 1]:
+        current = float(item["close"])
+        ema.append(current if not ema else current / 12.0 + ema[-1] * 11.0 / 12.0)
+    assert_number("source_position_120d_pct", (close - low) / (high - low) * 100, 4)
+    assert_number("source_shape_return20_pct", (close / float(prices[source_index - 20]["close"]) - 1) * 100, 4)
+    assert_number("source_shape_ema23_slope5_pct", (ema[-1] / ema[-6] - 1) * 100, 4)
+    for date_field, index_field, value_field, price_column in (
+        ("signal_date", "signal_sequence_index", "signal_close", "close"),
+        ("confirmation_date", "confirmation_sequence_index", "confirmation_close", "close"),
+        ("entry_date", "entry_sequence_index", "entry_price", "open"),
+        ("exit_date", "planned_exit_sequence_index", "exit_price", "close"),
+    ):
+        if not row[date_field]:
+            continue
+        index = _int(row, index_field, row_number=row_number)
+        if not 0 <= index < len(prices) or prices[index]["date"] != row[date_field]:
+            raise ValidationError(f"row {row_number} price date/index drift: {date_field}")
+        assert_number(value_field, float(prices[index][price_column]), 8)
+
+
 def validate_artifact(
     artifact: Path,
     *,
@@ -526,6 +670,8 @@ def validate_artifact(
     grouped: dict[tuple[str, str, str], list[dict[str, str]]] = {}
     data_identity: set[tuple[str, str, str, str]] = set()
     replay_hashes: set[str] = set()
+    price_basis_cache: dict[str, list[dict[str, str]]] = {}
+    adjusted_price_cache: dict[tuple[str, str, str], list[dict[str, str | float]]] = {}
     for row_number, row in enumerate(rows, start=2):
         for field, expected in {**FIXED_FIELDS, **BASELINE_METRICS}.items():
             if row[field] != expected:
@@ -544,6 +690,22 @@ def validate_artifact(
             )
         replay_hashes.add(row["lifecycle_replay_sha256"])
         _validate_source_artifacts(row, row_number=row_number)
+        basis_paths = [
+            _resolve_artifact_path(part.strip())
+            for part in row["source_artifacts"].split(";")
+            if Path(part.strip()).name == FORMAL_PRICE_BASIS_FILENAME
+        ]
+        if len(basis_paths) > 1:
+            raise ValidationError(f"row {row_number} duplicates formal price basis")
+        # Earlier append-only artifacts predate the authorized repair. They retain
+        # their original serialized contract; current rows may not remove the
+        # marker to downgrade themselves to that legacy validation path.
+        if report_date >= FORMAL_PRICE_BASIS_REQUIRED_FROM and not basis_paths:
+            raise ValidationError(f"row {row_number} is missing required formal price basis")
+        if basis_paths:
+            basis_key = str(basis_paths[0])
+            if basis_key not in price_basis_cache:
+                price_basis_cache[basis_key] = _read_formal_price_basis(basis_paths[0])
         group = (row["pdf_view"], row["report_line"], row["pdf_section"])
         if group not in EXPECTED_GROUPS:
             raise ValidationError(f"row {row_number} has forbidden PDF group {group}")
@@ -577,6 +739,11 @@ def validate_artifact(
         if row["row_type"] != "data":
             raise ValidationError(
                 f"row {row_number} invalid row_type={row['row_type']!r}"
+            )
+        if basis_paths:
+            _validate_formal_price_row(
+                row, row_number=row_number,
+                events=price_basis_cache[basis_key], cache=adjusted_price_cache,
             )
         if report_date < FORMAL_SIGNAL_EFFECTIVE_FROM:
             raise ValidationError(

@@ -4,6 +4,7 @@ import argparse
 from bisect import bisect_left
 import csv
 from dataclasses import dataclass
+from datetime import datetime
 from decimal import Decimal, InvalidOperation
 import hashlib
 import importlib.metadata
@@ -213,6 +214,17 @@ REVENUE_FORMAL_ADAPTER_HISTORY_DIRECTORY_REL = (
     "output/history/daily_model_snapshots"
 )
 REVENUE_FORMAL_ADAPTER_REPORT_DATE = "20260828"
+# One reviewed price-basis migration, not a general permission to refresh pins.
+PRICE_BASIS_REBIND_BASE_REF = "9cf187024ef681ba8dcad5248dbda40b4c6b272d"
+PRICE_BASIS_REBIND_BASE_ROW_SHA256 = (
+    "21be60c3d791f0961123a40a60acf5edf66fdf31a1a8b91c4f328b80cf364453"
+)
+PRICE_BASIS_REBIND_TARGET_MODULE_SHA256 = (
+    "e13ba6bee197d6bcba56bcacb01f2fff5d61d4f84769781d73f6cc7018f00594"
+)
+PRICE_BASIS_REBIND_TARGET_ARTIFACT_SHA256 = (
+    "5f37f252d5c4116cb3f027734419ad59b499895dc5f69618e7c7ebf47f4b2497"
+)
 REVENUE_FORWARD_HOLDOUT_V2_ARTIFACT_ID = (
     "revenue_unreacted_range_forward_holdout_v2"
 )
@@ -3738,10 +3750,23 @@ def validate_formal_adapter_runtime(
     if worktree_semantic != committed_semantic:
         raise RuntimeError("formal adapter runtime artifact has semantic drift from HEAD")
     artifact_sha = hashlib.sha256(committed_semantic).hexdigest()
+    frame = _frame_from_csv_bytes(
+        committed_artifact,
+        f"HEAD:{REVENUE_FORMAL_ADAPTER_ARTIFACT_REL}",
+    )
+    _required_columns(frame, {"operation_asof_date"}, REVENUE_FORMAL_ADAPTER_ARTIFACT_REL)
+    dates = set(frame["operation_asof_date"].astype(str))
+    if len(dates) != 1:
+        raise RuntimeError("formal adapter runtime must have one operation_asof_date")
+    report_date = _strict_date(dates.pop(), "formal adapter operation_asof_date")
+    try:
+        datetime.strptime(report_date, "%Y%m%d")
+    except ValueError as exc:
+        raise RuntimeError("formal adapter operation_asof_date is not a calendar date") from exc
     history_rel = (
         f"{REVENUE_FORMAL_ADAPTER_HISTORY_DIRECTORY_REL}/"
         "daily_revenue_unreacted_range_operation_section_"
-        f"{REVENUE_FORMAL_ADAPTER_REPORT_DATE}_{artifact_sha}.csv"
+        f"{report_date}_{artifact_sha}.csv"
     )
     history_path = (repo / history_rel).resolve()
     history_fs_path = (
@@ -3773,10 +3798,6 @@ def validate_formal_adapter_runtime(
             "the canonical runtime artifact"
         )
 
-    frame = _frame_from_csv_bytes(
-        committed_artifact,
-        f"HEAD:{REVENUE_FORMAL_ADAPTER_ARTIFACT_REL}",
-    )
     if frame.empty:
         raise RuntimeError("formal adapter runtime artifact is empty")
     exact_metadata = {
@@ -3842,7 +3863,7 @@ def validate_formal_adapter_runtime(
         raise RuntimeError("formal adapter runtime validator could not complete") from exc
     expected_protocol = re.compile(
         r"^PASS: formal revenue operation adapter is independently valid "
-        r"asof=20260828 rows=(?P<rows>\d+) data_rows=(?P<data>\d+) "
+        rf"asof={re.escape(report_date)} rows=(?P<rows>\d+) data_rows=(?P<data>\d+) "
         r"empty_rows=(?P<empty>\d+)\r?\n?$"
     )
     match = expected_protocol.fullmatch(completed.stdout or "")
@@ -3856,7 +3877,7 @@ def validate_formal_adapter_runtime(
     data_row_count = int(match.group("data"))
     if row_count != len(frame) or data_row_count != int(
         frame["row_type"].astype(str).eq("data").sum()
-    ):
+    ) or int(match.group("empty")) != int(frame["row_type"].astype(str).eq("empty_state").sum()):
         raise RuntimeError("formal adapter validator counts disagree with artifact")
 
     return FormalAdapterRuntimeValidationResult(
@@ -4815,11 +4836,56 @@ def validate_base_readiness(
                 )
 
 
+def _price_basis_rebind_prior_metadata(
+    base: pd.DataFrame,
+    expected_metadata: dict[str, str],
+) -> dict[str, str]:
+    """Authorize only the exact 20260925 old row and two reviewed new pins."""
+    if tuple(base.columns) != TARGET_COLUMNS:
+        raise RuntimeError("price-basis rebind requires exact prior readiness schema")
+    prior_rows = base.loc[base["model_id"].astype(str).eq(MODEL_ID)]
+    if len(prior_rows) != 1:
+        raise RuntimeError("price-basis rebind requires one exact prior revenue row")
+    row = {str(key): str(value) for key, value in prior_rows.iloc[0].items()}
+    if _canonical_json_sha256(row) != PRICE_BASIS_REBIND_BASE_ROW_SHA256:
+        raise RuntimeError("price-basis rebind prior revenue row differs from approved pin")
+    prior = {key: row[key] for key in FORMAL_ADAPTER_METADATA_COLUMNS}
+    authorized = {
+        **prior,
+        "operation_module_canonical_sha256": PRICE_BASIS_REBIND_TARGET_MODULE_SHA256,
+        "adapter_artifact_canonical_sha256": PRICE_BASIS_REBIND_TARGET_ARTIFACT_SHA256,
+    }
+    if expected_metadata != authorized:
+        raise RuntimeError("price-basis rebind target differs from exact authorized metadata")
+    return prior
+
+
+def _load_price_basis_rebind_prior_metadata(
+    repo: Path,
+    base: pd.DataFrame,
+    expected_metadata: dict[str, str],
+) -> dict[str, str]:
+    # The caller has already independently validated current runtime. This
+    # historical read is authorization lineage, not a replacement for that gate.
+    result = subprocess.run(
+        ["git", "--no-replace-objects", "show", f"{PRICE_BASIS_REBIND_BASE_REF}:{OUT_CSV_REL}"],
+        cwd=repo, check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    if result.returncode:
+        raise RuntimeError("price-basis rebind approved baseline is unavailable")
+    pinned = _frame_from_csv_bytes(result.stdout, "approved price-basis rebind baseline")
+    prior = _price_basis_rebind_prior_metadata(pinned, expected_metadata)
+    if _price_basis_rebind_prior_metadata(base, expected_metadata) != prior:
+        raise RuntimeError("price-basis rebind baseline metadata differs")
+    return prior
+
+
 def build_revenue_only_readiness(
     base: pd.DataFrame,
     revenue_summary: dict[str, Any],
     *,
     generated_at: str,
+    price_basis_rebind_prior_metadata: dict[str, str] | None = None,
 ) -> pd.DataFrame:
     if set(revenue_summary) != SUMMARY_COLUMNS:
         missing = sorted(SUMMARY_COLUMNS - set(revenue_summary))
@@ -4864,10 +4930,16 @@ def build_revenue_only_readiness(
             raise RuntimeError("enabled revenue readiness summary has blank formal metadata")
     elif any(expected_metadata.values()):
         raise RuntimeError("disabled revenue readiness summary cannot expose formal metadata")
+    prior_metadata = expected_metadata
+    if price_basis_rebind_prior_metadata is not None:
+        authorized_prior = _price_basis_rebind_prior_metadata(base, expected_metadata)
+        if price_basis_rebind_prior_metadata != authorized_prior:
+            raise RuntimeError("price-basis rebind prior metadata is not the approved baseline")
+        prior_metadata = authorized_prior
     validate_base_readiness(
         base,
         expected_revenue_permission=expected_permission,
-        expected_formal_metadata=expected_metadata,
+        expected_formal_metadata=prior_metadata,
         allow_legacy_pre_activation=True,
     )
 
@@ -5040,10 +5112,23 @@ def sync(repo: Path, *, generated_at: str | None = None) -> tuple[pd.DataFrame, 
         anomaly_result=anomaly_result,
     )
     generated = generated_at or now_text()
+    rebind_prior_metadata = None
+    expected_metadata = {
+        key: str(revenue_summary[key]) for key in FORMAL_ADAPTER_METADATA_COLUMNS
+    }
+    if tuple(base.columns) == TARGET_COLUMNS:
+        prior_rows = base.loc[base["model_id"].astype(str).eq(MODEL_ID)]
+        if len(prior_rows) == 1 and {
+            key: str(prior_rows.iloc[0][key]) for key in FORMAL_ADAPTER_METADATA_COLUMNS
+        } != expected_metadata:
+            rebind_prior_metadata = _load_price_basis_rebind_prior_metadata(
+                repo, base, expected_metadata,
+            )
     readiness = build_revenue_only_readiness(
         base,
         revenue_summary,
         generated_at=generated,
+        price_basis_rebind_prior_metadata=rebind_prior_metadata,
     )
     validate_revenue_readiness_exact_replay(
         forward_holdout_v2_manifest,

@@ -374,18 +374,18 @@ def cache_verified_current_cheap_inputs(monkeypatch: pytest.MonkeyPatch) -> None
         lambda _repo: syncer.FormalAdapterRuntimeValidationResult(
             operation_module_path=syncer.REVENUE_FORMAL_ADAPTER_MODULE_REL,
             operation_module_canonical_sha256=(
-                "91d857f4a00795b747cc4c8698b2d4d706e57e684e638f2c6d075fe50593a635"
+                "e13ba6bee197d6bcba56bcacb01f2fff5d61d4f84769781d73f6cc7018f00594"
             ),
             adapter_artifact_id=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_ID,
             adapter_artifact_version=syncer.REVENUE_FORMAL_ADAPTER_APPROVAL_VERSION,
             adapter_artifact_path=syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL,
             adapter_artifact_canonical_sha256=(
-                "68e9e920c6fe91167fb0c2eaacb3772c2a4c586bbfe43e439fca302d83426969"
+                "5f37f252d5c4116cb3f027734419ad59b499895dc5f69618e7c7ebf47f4b2497"
             ),
             adapter_schema_version=syncer.REVENUE_FORMAL_ADAPTER_SCHEMA_VERSION,
             lifecycle_contract_version=syncer.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION,
-            row_count=12,
-            data_row_count=0,
+            row_count=27,
+            data_row_count=22,
             sections=syncer.REVENUE_FORMAL_ADAPTER_SECTIONS,
         ),
     )
@@ -458,8 +458,18 @@ def revenue_summary() -> dict[str, str | int]:
     }
 
 
+@pytest.mark.parametrize(
+    ("row_count", "data_row_count", "expected_status"),
+    [
+        (12, 0, "ready_empty_no_operation_rows"),
+        (27, 22, "ready_approved_operation_guidance"),
+    ],
+)
 def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
     monkeypatch: pytest.MonkeyPatch,
+    row_count: int,
+    data_row_count: int,
+    expected_status: str,
 ) -> None:
     monkeypatch.setattr(
         syncer,
@@ -477,8 +487,8 @@ def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
             lifecycle_contract_version=(
                 syncer.REVENUE_FORMAL_ADAPTER_LIFECYCLE_VERSION
             ),
-            row_count=12,
-            data_row_count=0,
+            row_count=row_count,
+            data_row_count=data_row_count,
             sections=syncer.REVENUE_FORMAL_ADAPTER_SECTIONS,
         ),
     )
@@ -517,7 +527,7 @@ def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
     assert summary["operation_module_status"] == (
         "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
     )
-    assert summary["daily_adapter_status"] == "ready_empty_no_operation_rows"
+    assert summary["daily_adapter_status"] == expected_status
     assert summary["formal_model_use_allowed"] == "True"
     assert summary["approved_for_daily"] == "True"
     assert summary["presentation_allowed"] == "True"
@@ -527,8 +537,8 @@ def test_v6_summary_enables_formal_adapter_and_keeps_holdout_as_monitoring(
     )
     assert summary["pdf_integration_status"] == "pdf_integrated_daily_adapter"
     assert summary["packet_integration_status"] == "pending_packet_consumer"
-    assert summary["daily_adapter_row_count"] == 12
-    assert summary["daily_adapter_data_row_count"] == 0
+    assert summary["daily_adapter_row_count"] == row_count
+    assert summary["daily_adapter_data_row_count"] == data_row_count
     assert summary["daily_adapter_sections"] == ",".join(
         syncer.REVENUE_FORMAL_ADAPTER_SECTIONS
     )
@@ -561,6 +571,8 @@ def formal_adapter_runtime_repo(
     monkeypatch: pytest.MonkeyPatch,
     *,
     committed_history_semantic_drift: bool = False,
+    report_date: str | None = None,
+    protocol_date: str | None = None,
 ) -> tuple[Path, Path, Path, bytes]:
     repo = tmp_path / "repo"
     repo.mkdir()
@@ -583,8 +595,11 @@ def formal_adapter_runtime_repo(
         "with artifact.open(encoding='utf-8-sig', newline='') as handle:\n"
         "    rows = list(csv.DictReader(handle))\n"
         "data_rows = sum(row['row_type'] == 'data' for row in rows)\n"
+        + (f"asof = {protocol_date!r}\n" if protocol_date is not None else
+           "asof = rows[0]['operation_asof_date']\n")
+        +
         "print('PASS: formal revenue operation adapter is independently valid '"
-        "f'asof=20260828 rows={len(rows)} data_rows={data_rows} '"
+        "f'asof={asof} rows={len(rows)} data_rows={data_rows} '"
         "f'empty_rows={len(rows) - data_rows}')\n",
         encoding="utf-8",
     )
@@ -593,6 +608,11 @@ def formal_adapter_runtime_repo(
         (ROOT / "output/latest/daily_revenue_unreacted_range_operation_section_latest.csv").read_bytes(),
         "runtime fixture",
     )
+    runtime = syncer._frame_from_csv_bytes(runtime_semantic, "runtime fixture")
+    if report_date is not None:
+        runtime["operation_asof_date"] = report_date
+        runtime_semantic = runtime.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    actual_report_date = str(runtime.iloc[0]["operation_asof_date"])
     runtime_path = repo / "runtime.csv"
     runtime_path.write_bytes(runtime_semantic)
     runtime_sha = hashlib.sha256(runtime_semantic).hexdigest()
@@ -601,7 +621,7 @@ def formal_adapter_runtime_repo(
         / "history"
         / (
             "daily_revenue_unreacted_range_operation_section_"
-            f"{syncer.REVENUE_FORMAL_ADAPTER_REPORT_DATE}_{runtime_sha}.csv"
+            f"{actual_report_date}_{runtime_sha}.csv"
         )
     )
     history_path.parent.mkdir(parents=True)
@@ -911,6 +931,162 @@ def test_formal_adapter_runtime_rejects_history_semantic_drift(
 
     with pytest.raises(RuntimeError, match="does not semantically bind"):
         _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+
+
+@pytest.mark.parametrize("report_date", ["20260828", "20260924"])
+def test_formal_adapter_runtime_binds_actual_date_history_and_protocol(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, report_date: str,
+) -> None:
+    repo, _artifact, history, payload = formal_adapter_runtime_repo(
+        tmp_path, monkeypatch, report_date=report_date,
+    )
+    result = _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+    assert f"_{report_date}_" in history.name
+    assert result.adapter_artifact_canonical_sha256 == hashlib.sha256(payload).hexdigest()
+
+
+def test_formal_adapter_runtime_rejects_stale_date_pass_protocol(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, *_rest = formal_adapter_runtime_repo(
+        tmp_path, monkeypatch, report_date="20260924", protocol_date="20260828",
+    )
+    with pytest.raises(RuntimeError, match="failed exact protocol"):
+        _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+
+
+@pytest.mark.parametrize("report_date", ["20260931", "2026-09-24", ""])
+def test_formal_adapter_runtime_rejects_invalid_actual_date(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, report_date: str,
+) -> None:
+    repo, *_rest = formal_adapter_runtime_repo(
+        tmp_path, monkeypatch, report_date=report_date,
+    )
+    with pytest.raises(RuntimeError, match="operation_asof_date"):
+        _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+
+
+def test_formal_adapter_runtime_rejects_mixed_actual_dates(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, artifact, _history, payload = formal_adapter_runtime_repo(tmp_path, monkeypatch)
+    frame = syncer._frame_from_csv_bytes(payload, "fixture")
+    frame.at[0, "operation_asof_date"] = "20260828"
+    frame.at[1, "operation_asof_date"] = "20260924"
+    artifact.write_text(frame.to_csv(index=False), encoding="utf-8")
+    git(repo, "add", "runtime.csv")
+    git(repo, "commit", "-m", "mixed operation date")
+    with pytest.raises(RuntimeError, match="one operation_asof_date"):
+        _REAL_VALIDATE_FORMAL_ADAPTER_RUNTIME(repo)
+
+
+def price_basis_rebind_fixture() -> tuple[pd.DataFrame, dict[str, str], dict[str, str]]:
+    payload = subprocess.run(
+        ["git", "--no-replace-objects", "show",
+         f"{syncer.PRICE_BASIS_REBIND_BASE_REF}:{syncer.OUT_CSV_REL}"],
+        cwd=ROOT, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    ).stdout
+    base = syncer._frame_from_csv_bytes(payload, "approved baseline")
+    row = base.loc[base["model_id"].eq(syncer.MODEL_ID)].iloc[0]
+    summary = {key: str(row[key]) for key in syncer.SUMMARY_COLUMNS}
+    summary.update({
+        "operation_module_canonical_sha256": syncer.PRICE_BASIS_REBIND_TARGET_MODULE_SHA256,
+        "adapter_artifact_canonical_sha256": syncer.PRICE_BASIS_REBIND_TARGET_ARTIFACT_SHA256,
+    })
+    expected = {key: summary[key] for key in syncer.FORMAL_ADAPTER_METADATA_COLUMNS}
+    return base, summary, expected
+
+
+def test_price_basis_rebind_is_exact_and_default_baseline_validation_stays_strict() -> None:
+    base, summary, expected = price_basis_rebind_fixture()
+    with pytest.raises(RuntimeError, match="operation_module_canonical_sha256"):
+        syncer.build_revenue_only_readiness(base, summary, generated_at="repair-time")
+    prior = syncer._load_price_basis_rebind_prior_metadata(ROOT, base, expected)
+    result = syncer.build_revenue_only_readiness(
+        base, summary, generated_at="repair-time", price_basis_rebind_prior_metadata=prior,
+    )
+    pd.testing.assert_frame_equal(
+        base.loc[~base["model_id"].eq(syncer.MODEL_ID)],
+        result.loc[~result["model_id"].eq(syncer.MODEL_ID)],
+    )
+    syncer.validate_base_readiness(
+        result, expected_revenue_permission="True", expected_formal_metadata=expected,
+    )
+
+
+@pytest.mark.parametrize("field", ["generated_at", "status_note_zh", "operation_module_canonical_sha256"])
+def test_price_basis_rebind_rejects_any_prior_revenue_row_tamper(field: str) -> None:
+    base, _summary, expected = price_basis_rebind_fixture()
+    base.loc[base["model_id"].eq(syncer.MODEL_ID), field] = "unauthorized"
+    with pytest.raises(RuntimeError, match="prior revenue row differs"):
+        syncer._price_basis_rebind_prior_metadata(base, expected)
+
+
+@pytest.mark.parametrize("field", ["operation_module_canonical_sha256", "adapter_artifact_canonical_sha256"])
+def test_price_basis_rebind_rejects_unapproved_target_hash(field: str) -> None:
+    base, summary, expected = price_basis_rebind_fixture()
+    prior = syncer._price_basis_rebind_prior_metadata(base, expected)
+    expected[field] = "f" * 64
+    summary[field] = "f" * 64
+    with pytest.raises(RuntimeError, match="exact authorized metadata"):
+        syncer._price_basis_rebind_prior_metadata(base, expected)
+    with pytest.raises(RuntimeError, match="exact authorized metadata"):
+        syncer.build_revenue_only_readiness(
+            base, summary, generated_at="repair-time", price_basis_rebind_prior_metadata=prior,
+        )
+
+
+def test_price_basis_rebind_checks_pinned_git_baseline_and_rejects_fake_prior_metadata(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base, summary, expected = price_basis_rebind_fixture()
+    prior = syncer._price_basis_rebind_prior_metadata(base, expected)
+    prior["operation_module_canonical_sha256"] = "f" * 64
+    with pytest.raises(RuntimeError, match="not the approved baseline"):
+        syncer.build_revenue_only_readiness(
+            base, summary, generated_at="repair-time", price_basis_rebind_prior_metadata=prior,
+        )
+    corrupted = base.copy()
+    corrupted.loc[corrupted["model_id"].eq(syncer.MODEL_ID), "status_note_zh"] = "tampered"
+    monkeypatch.setattr(syncer.subprocess, "run", lambda *_a, **_k: SimpleNamespace(
+        returncode=0, stdout=corrupted.to_csv(index=False).encode("utf-8"), stderr=b"",
+    ))
+    with pytest.raises(RuntimeError, match="prior revenue row differs"):
+        syncer._load_price_basis_rebind_prior_metadata(ROOT, base, expected)
+
+
+def test_price_basis_rebind_sync_keeps_exact_replay_gate_before_any_write(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base, summary, _expected = price_basis_rebind_fixture()
+    placeholder = pd.DataFrame()
+    monkeypatch.setattr(syncer, "load_committed_inputs", lambda _repo: (
+        base, placeholder, placeholder, placeholder, placeholder, placeholder,
+        placeholder, placeholder, [],
+    ))
+    promotion = pd.read_csv(ROOT / syncer.PROMOTION_REGISTRY_REL, dtype=str).fillna("")
+    monkeypatch.setattr(syncer, "validate_revenue_promotion_registry", lambda _path: (
+        promotion.iloc[-1].to_dict(), [],
+    ))
+    monkeypatch.setattr(syncer, "validate_current_anomaly_dispositions", lambda *_a, **_k: (
+        SimpleNamespace(errors=[])
+    ))
+    calls: list[str] = []
+
+    def validated_summary(*_args: object, **_kwargs: object) -> dict[str, str]:
+        calls.append("validated_summary")
+        return summary
+
+    def reject_exact(*_args: object, **_kwargs: object) -> None:
+        calls.append("exact_replay")
+        raise RuntimeError("reject exact replay before write")
+
+    monkeypatch.setattr(syncer, "summarize_revenue_promotion_readiness", validated_summary)
+    monkeypatch.setattr(syncer, "validate_revenue_readiness_exact_replay", reject_exact)
+    monkeypatch.setattr(syncer, "write_readiness_mirrors", lambda *_a, **_k: calls.append("write"))
+    with pytest.raises(RuntimeError, match="reject exact replay before write"):
+        syncer.sync(ROOT, generated_at="repair-time")
+    assert calls == ["validated_summary", "exact_replay"]
 
 
 def test_committed_source_treats_crlf_as_diagnostic_and_semantic_drift_as_error(
@@ -1257,12 +1433,20 @@ def test_current_canonical_sources_build_exact_v6_provisional_revenue_row() -> N
     assert revenue["operation_module_status"] == (
         "approved_operation_v2_provisional_backtest_supported_oos_unconfirmed"
     )
-    assert revenue["daily_adapter_status"] == "ready_empty_no_operation_rows"
+    artifact = pd.read_csv(
+        ROOT / syncer.REVENUE_FORMAL_ADAPTER_ARTIFACT_REL, dtype=str,
+    ).fillna("")
+    data_row_count = int(artifact["row_type"].eq("data").sum())
+    assert revenue["daily_adapter_status"] == (
+        "ready_approved_operation_guidance"
+        if data_row_count > 0
+        else "ready_empty_no_operation_rows"
+    )
     assert revenue["operation_module_id"] == (
         "revenue_unreacted_range_source_mid_falling_v2_operation_v2"
     )
-    assert revenue["daily_adapter_row_count"] == "12"
-    assert revenue["daily_adapter_data_row_count"] == "0"
+    assert revenue["daily_adapter_row_count"] == str(len(artifact))
+    assert revenue["daily_adapter_data_row_count"] == str(data_row_count)
     assert revenue["daily_adapter_sections"] == ",".join(
         syncer.REVENUE_FORMAL_ADAPTER_SECTIONS
     )
