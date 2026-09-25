@@ -126,6 +126,43 @@ def test_financial_guard_accepts_only_exact_revenue_formal_phases(
     ) == phase
 
 
+def test_financial_guard_accepts_current_price_basis_repair_contract() -> None:
+    contract = guard._single_row(
+        guard._read_rows(ROOT / "config/stock_model_contract_registry.csv"),
+        key="model_id",
+        value=guard.MODEL_ID,
+    )
+    assert contract is not None
+    assert contract["change_reason"] == (
+        "source_mid_falling_v2_dedicated_adapter_"
+        "provisional_backtest_supported_oos_unconfirmed_"
+        "legacy_generic_selector_retired_2026-08-30"
+        "_formal_price_basis_repaired_2026-09-25"
+    )
+    assert guard._classify_revenue_formal_phase(
+        contract,
+        guard.REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS,
+        guard.REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS,
+        guard.REVENUE_ACTIVATED_PARAMETER_PHASE_FIELDS,
+    ) == guard.REVENUE_ACTIVATED_PHASE
+
+
+@pytest.mark.parametrize("suffix", ["", "_formal_price_basis_repaired_2026-09-26", "_unapproved"])
+def test_financial_guard_rejects_unapproved_price_basis_change_reason(suffix: str) -> None:
+    contract = dict(guard.REVENUE_ACTIVATED_CONTRACT_PHASE_FIELDS)
+    contract["change_reason"] = (
+        "source_mid_falling_v2_dedicated_adapter_"
+        "provisional_backtest_supported_oos_unconfirmed_"
+        "legacy_generic_selector_retired_2026-08-30" + suffix
+    )
+    assert guard._classify_revenue_formal_phase(
+        contract,
+        guard.REVENUE_ACTIVATED_CONDITION_PHASE_FIELDS,
+        guard.REVENUE_ACTIVATED_SURFACE_PHASE_FIELDS,
+        guard.REVENUE_ACTIVATED_PARAMETER_PHASE_FIELDS,
+    ) is None
+
+
 @pytest.mark.parametrize("mixed_component", ["contract", "condition", "surface", "parameter"])
 def test_financial_guard_rejects_prepared_activated_mixed_state(
     mixed_component: str,
