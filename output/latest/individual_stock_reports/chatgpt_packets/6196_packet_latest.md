@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:45 Asia/Taipei
+- generated_at: 2026-09-26 15:52:52 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,9 +100,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -131,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 526
-- high: 541
-- low: 521
-- close: 540
-- volume: 2100117
-- ma5: 523
-- ema23_primary: 513.3
-- distance_to_ema23_pct: 5.2
-- ma20: 508.6
-- ma60: 518.58
-- ma120: 473.45
-- return_5d: 5.68
-- return_20d: 10.09
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 6.17
-- distance_to_high_60_pct: -11.04
+- date: 20260924
+- open: 547
+- high: 566
+- low: 541
+- close: 565
+- volume: 1521343
+- ma5: 544.8
+- ema23_primary: 523.25
+- distance_to_ema23_pct: 7.98
+- ma20: 519.42
+- ma60: 518.51
+- ma120: 482.34
+- return_5d: 9.5
+- return_20d: 13.57
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 8.77
+- distance_to_high_60_pct: -6.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,491.5,506,488,493,435722,504.7,-2.32,492.62,524.63,0.31
-20260825,488,488,462.5,477,1010426,502.39,-5.05,492.75,524.07,0.72
-20260826,489,504,486,500,1566653,502.19,-0.44,495.4,523.85,1.15
-20260827,508,508,492.5,497.5,962905,501.8,-0.86,498.48,523.52,0.71
 20260828,501,502,491,492.5,901280,501.03,-1.7,499.7,523.23,0.72
 20260831,492.5,492.5,476.5,485,757578,499.69,-2.94,499.25,522.92,0.63
 20260901,485,511,485,507,1607397,500.3,1.34,500,522.97,1.34
@@ -173,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,521,528,516,521,795146,510.41,2.08,505.12,519.29,0.55
 20260917,524,535,516,516,973428,510.87,1,506.12,518.89,0.67
 20260918,526,541,521,540,2100117,513.3,5.2,508.6,518.58,1.4
+20260921,549,549,532,535,1270481,515.11,3.86,510.7,518.64,0.83
+20260922,542,549,534,535,1220757,516.77,3.53,513.6,518.69,0.79
+20260923,538,558,534,549,1773924,519.45,5.69,516.05,518.61,1.14
+20260924,547,566,541,565,1521343,523.25,7.98,519.42,518.51,0.96
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 70.28
-- over_600_ratio: 68.74
-- over_800_ratio: 66.61
-- over_1000_ratio: 65.84
-- over_400_change_1w: -0.76
-- over_800_change_1w: -0.67
-- over_1000_change_1w: -1.08
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 70.95
+- over_600_ratio: 68.47
+- over_800_ratio: 66.63
+- over_1000_ratio: 65.86
+- over_400_change_1w: 0.67
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,72.02,-0.37,68.38,-0.37,66.31,-0.3,0,False,False
 20260709,71.94,-0.08,67.99,-0.39,66.31,0,0,False,False
 20260717,72.48,0.54,67.47,-0.52,67.07,0.76,1,False,True
 20260724,71.66,-0.82,67.49,0.02,66.67,-0.4,2,False,True
@@ -204,24 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,71.47,-0.12,68,1.27,66.37,0.09,4,False,True
 20260911,71.04,-0.43,67.28,-0.72,66.92,0.55,5,False,True
 20260918,70.28,-0.76,66.61,-0.67,65.84,-1.08,0,False,False
+20260924,70.95,0.67,66.63,0.02,65.86,0.02,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6196 | 帆宣 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 6196 | 帆宣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 6196 | 帆宣 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6196 | 帆宣 | 1 | 1 | 3 | 8 | 12 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 6196 | 帆宣 | 5 | 5 | 5 | 8 | 14 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6196 | 帆宣 | 119 | 5 | 16735950.0 | 41670.0 | 401.63 | call_put_bullish |
+| 20260924 | 6196 | 帆宣 | 121 | 5 | 28196180.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2440 太空梭
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:15 Asia/Taipei
+- generated_at: 2026-09-26 15:51:22 Asia/Taipei
 - stock_id: 2440
 - stock_name: 太空梭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 14.2
-- high: 14.35
+- date: 20260924
+- open: 14.45
+- high: 14.45
 - low: 14.1
 - close: 14.35
-- volume: 197812
-- ma5: 14.05
-- ema23_primary: 14.28
-- distance_to_ema23_pct: 0.5
-- ma20: 14.15
-- ma60: 15.16
+- volume: 237173
+- ma5: 14.37
+- ema23_primary: 14.31
+- distance_to_ema23_pct: 0.31
+- ma20: 14.22
+- ma60: 15.01
 - ma120: 16.01
-- return_5d: 2.14
-- return_20d: 2.14
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.38
+- return_5d: 1.06
+- return_20d: 0.7
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 0.88
 - distance_to_high_60_pct: -21.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,13.9,14,13.75,13.85,180648,14.81,-6.5,14.74,16.25,0.45
-20260825,13.6,14,13.6,14,200086,14.74,-5.05,14.69,16.19,0.53
-20260826,13.8,14.2,13.8,14,181305,14.68,-4.65,14.64,16.12,0.51
-20260827,14,14.4,14,14.25,266737,14.65,-2.71,14.62,16.05,0.76
 20260828,14.3,14.45,14.05,14.45,212530,14.63,-1.23,14.59,15.98,0.61
 20260831,14.4,14.4,14,14.25,235775,14.6,-2.39,14.52,15.88,0.67
 20260901,14.15,14.35,14.15,14.3,176203,14.57,-1.88,14.46,15.81,0.5
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,13.75,14.2,13.75,13.95,115953,14.28,-2.3,14.12,15.25,0.53
 20260917,13.9,14.2,13.9,14.2,154146,14.27,-0.51,14.14,15.2,0.7
 20260918,14.2,14.35,14.1,14.35,197812,14.28,0.5,14.15,15.16,0.9
+20260921,14.3,14.5,14.2,14.4,409475,14.29,0.78,14.18,15.13,1.78
+20260922,14.5,14.55,14.3,14.4,173002,14.3,0.71,14.2,15.09,0.76
+20260923,14.45,14.45,14.25,14.35,140401,14.3,0.33,14.22,15.05,0.62
+20260924,14.45,14.45,14.1,14.35,237173,14.31,0.31,14.22,15.01,1.05
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 70.28
 - over_600_ratio: 69.02
 - over_800_ratio: 67.57
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,70.35,0.27,66.87,0.17,66.87,0.17,2,True,True
 20260709,70.35,0,66.87,0,66.87,0,3,False,False
 20260717,70.5,0.15,67.22,0.35,67.22,0.35,4,False,True
 20260724,69.71,-0.79,67.24,0.02,67.24,0.02,5,False,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,70.28,0.01,67.57,0,67.57,0,1,False,False
 20260911,70.28,0,67.57,0,67.57,0,0,False,False
 20260918,70.28,0,67.57,0,67.57,0,0,False,False
+20260924,70.28,0,67.57,0,67.57,0,0,False,False
 ```
 
 ## Candidate Context

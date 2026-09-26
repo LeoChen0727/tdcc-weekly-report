@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5202 力新
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:24 Asia/Taipei
+- generated_at: 2026-09-26 15:52:31 Asia/Taipei
 - stock_id: 5202
 - stock_name: 力新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 13.9
+- date: 20260924
+- open: 14.4
 - high: 15.4
-- low: 13.9
-- close: 15.4
-- volume: 4907000
-- ma5: 14.08
-- ema23_primary: 12.75
-- distance_to_ema23_pct: 20.78
-- ma20: 12.43
-- ma60: 12.83
-- ma120: 13.16
-- return_5d: 31.06
-- return_20d: 29.41
-- volume_ratio: 6.62
-- distance_to_ma20_pct_auxiliary: 23.89
-- distance_to_high_60_pct: -3.75
+- low: 14.4
+- close: 14.6
+- volume: 1347000
+- ma5: 14.76
+- ema23_primary: 13.29
+- distance_to_ema23_pct: 9.87
+- ma20: 12.95
+- ma60: 12.84
+- ma120: 13.22
+- return_5d: 4.29
+- return_20d: 21.67
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 12.74
+- distance_to_high_60_pct: -8.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,12.15,12.3,12,12,138000,12.32,-2.61,12.01,13.61,0.61
-20260825,11.85,12,11.8,11.95,82000,12.29,-2.77,12.01,13.61,0.39
-20260826,11.8,12.15,11.8,12.05,148000,12.27,-1.8,12.04,13.59,0.79
-20260827,12.05,12.2,12,12,122000,12.25,-2.03,12.07,13.56,0.68
 20260828,12,12.15,11.9,11.9,111000,12.22,-2.61,12.08,13.54,0.65
 20260831,11.8,12.25,11.8,11.95,93000,12.2,-2.02,12.09,13.49,0.56
 20260901,12.05,12.05,12,12,76000,12.18,-1.48,12.1,13.43,0.46
@@ -168,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,14.35,14.85,13.6,13.95,4216000,12.37,12.74,12.15,12.85,9.3
 20260917,13.6,14.05,13.55,14,1033000,12.51,11.92,12.26,12.82,2.06
 20260918,13.9,15.4,13.9,15.4,4907000,12.75,20.78,12.43,12.83,6.62
+20260921,15.4,15.9,14.9,15.15,3191000,12.95,16.99,12.59,12.84,3.57
+20260922,14.85,14.9,14.25,14.5,1239000,13.08,10.86,12.71,12.85,1.3
+20260923,14.15,14.6,14,14.15,529000,13.17,7.45,12.82,12.84,0.55
+20260924,14.4,15.4,14.4,14.6,1347000,13.29,9.87,12.95,12.84,1.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 52.87
-- over_600_ratio: 51.68
-- over_800_ratio: 51.68
-- over_1000_ratio: 48.62
-- over_400_change_1w: -1.04
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.04
+- as_of_date: 20260924
+- over_400_ratio: 52.84
+- over_600_ratio: 51.66
+- over_800_ratio: 51.66
+- over_1000_ratio: 48.6
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,53.6,-0.52,51.81,0,48.73,0,0,False,False
 20260709,53.15,-0.45,51.84,0.03,48.76,0.03,1,False,True
 20260717,53.12,-0.03,51.85,0.01,48.77,0.01,2,False,True
 20260724,53.12,0,51.85,0,48.77,0,0,False,False
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,53.43,0.41,51.73,-0.03,48.66,-0.02,1,False,False
 20260911,53.91,0.48,51.73,0,48.66,0,2,False,False
 20260918,52.87,-1.04,51.68,-0.05,48.62,-0.04,0,False,False
+20260924,52.84,-0.03,51.66,-0.02,48.6,-0.02,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5202 | 力新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 5202 | 力新 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5202 | 力新 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260924 | 5202 | 力新 | 1 | 1 | 3 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3576 聯合再生
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:56 Asia/Taipei
+- generated_at: 2026-09-26 15:52:03 Asia/Taipei
 - stock_id: 3576
 - stock_name: 聯合再生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 16.5
-- high: 17.1
-- low: 16.25
-- close: 17.1
-- volume: 13416440
-- ma5: 16.47
-- ema23_primary: 16.9
-- distance_to_ema23_pct: 1.17
-- ma20: 16.98
-- ma60: 17.16
-- ma120: 17.52
-- return_5d: 4.27
-- return_20d: -1.16
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 0.74
-- distance_to_high_60_pct: -17.79
+- date: 20260924
+- open: 18.3
+- high: 18.8
+- low: 18.2
+- close: 18.25
+- volume: 48864258
+- ma5: 17.68
+- ema23_primary: 17.18
+- distance_to_ema23_pct: 6.23
+- ma20: 17.13
+- ma60: 17.22
+- ma120: 17.41
+- return_5d: 11.96
+- return_20d: 7.04
+- volume_ratio: 4.04
+- distance_to_ma20_pct_auxiliary: 6.54
+- distance_to_high_60_pct: -12.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,17.3,17.55,17,17,6960137,17.28,-1.59,17.05,17.54,0.65
-20260825,16.95,17.3,16.65,17.1,7057887,17.26,-0.93,17.06,17.52,0.66
-20260826,17.35,17.5,17.05,17.05,7360775,17.24,-1.12,17.11,17.5,0.73
-20260827,17.4,17.5,17.05,17.05,7136519,17.23,-1.03,17.18,17.48,0.71
 20260828,17.4,18.15,17.4,17.5,22670417,17.25,1.45,17.25,17.46,2.13
 20260831,17.35,18.2,17.1,18.2,37850636,17.33,5.03,17.32,17.46,3.14
 20260901,17.95,18.1,17.7,17.8,11871847,17.37,2.49,17.38,17.47,0.97
@@ -172,26 +168,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,16.05,16.4,16.05,16.3,3071511,16.94,-3.76,17.02,17.18,0.37
 20260917,16.4,16.65,16.3,16.3,3162711,16.88,-3.46,16.98,17.16,0.38
 20260918,16.5,17.1,16.25,17.1,13416440,16.9,1.17,16.98,17.16,1.57
+20260921,17.5,18.5,17.15,17.7,26492615,16.97,4.31,17.01,17.18,2.79
+20260922,18,18.25,17.4,17.6,13074950,17.02,3.4,17.04,17.19,1.33
+20260923,17.6,18,17.55,17.75,11347648,17.08,3.91,17.07,17.2,1.13
+20260924,18.3,18.8,18.2,18.25,48864258,17.18,6.23,17.13,17.22,4.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 39.02
-- over_600_ratio: 36.77
-- over_800_ratio: 35.61
-- over_1000_ratio: 34.28
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.15
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 39.59
+- over_600_ratio: 37.43
+- over_800_ratio: 36.27
+- over_1000_ratio: 35.11
+- over_400_change_1w: 0.57
+- over_800_change_1w: 0.66
+- over_1000_change_1w: 0.83
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,36.1,-0.76,32.95,-0.73,31.78,-0.79,0,False,False
 20260709,35.38,-0.72,32.23,-0.72,31.07,-0.71,0,False,False
 20260717,37.37,1.99,34.23,2,32.96,1.89,1,True,True
 20260724,38.96,1.59,35.82,1.59,34.61,1.65,2,True,True
@@ -203,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,39.03,0.17,35.79,0.16,34.47,0,1,False,True
 20260911,39.04,0.01,35.75,-0.04,34.43,-0.04,2,False,False
 20260918,39.02,-0.02,35.61,-0.14,34.28,-0.15,0,False,False
+20260924,39.59,0.57,36.27,0.66,35.11,0.83,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3576 | 聯合再生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/08/28 1.召開法人說明會之日期：115/08/28 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市忠孝西路一段6號4樓 (中信證券忠孝分公司) 4.法人說明會擇要訊息：說明公司營運概況及未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3576 | 聯合再生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/28 1.召開法人說明會之日期：115/08/28 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市忠孝西路一段6號4樓 (中信證券忠孝分公司) 4.法人說明會擇要訊息：說明公司營運概況及未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3576 | 聯合再生 | 1 | 1 | 1 | 1 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260924 | 3576 | 聯合再生 | 2 | 2 | 4 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

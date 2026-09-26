@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00893 國泰智能電動車
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:32 Asia/Taipei
+- generated_at: 2026-09-26 15:50:39 Asia/Taipei
 - stock_id: 00893
 - stock_name: 國泰智能電動車
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260918
-- price_rows: 91
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 95
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 43.19
-- high: 43.65
-- low: 43.19
-- close: 43.64
-- volume: 601934
-- ma5: 42.7
-- ema23_primary: 42.84
-- distance_to_ema23_pct: 1.88
-- ma20: 42.58
-- ma60: 43.76
-- ma120: 43.18
-- return_5d: 2.59
-- return_20d: 2.3
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 2.48
-- distance_to_high_60_pct: -8.51
+- date: 20260924
+- open: 46.14
+- high: 46.2
+- low: 45.91
+- close: 45.96
+- volume: 178011
+- ma5: 45.19
+- ema23_primary: 43.66
+- distance_to_ema23_pct: 5.28
+- ma20: 43.19
+- ma60: 43.73
+- ma120: 43.28
+- return_5d: 7.33
+- return_20d: 7.56
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 6.42
+- distance_to_high_60_pct: -1.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,42.66,42.95,42.66,42.73,949866,43.56,-1.91,43.1,45.01,1.21
-20260825,42.4,42.4,41.79,42.07,452875,43.44,-3.15,43.11,44.91,0.63
-20260826,42.07,42.75,42.01,42.66,677707,43.37,-1.65,43.19,44.83,1.08
-20260827,42.76,42.88,42.73,42.73,521950,43.32,-1.36,43.33,44.75,0.94
 20260828,42.86,43.02,42.86,42.89,313051,43.28,-0.91,43.32,44.67,0.58
 20260831,42,42.18,41.8,42.18,798489,43.19,-2.34,43.29,44.58,1.49
 20260901,42.61,42.61,42.4,42.49,387487,43.13,-1.49,43.26,44.5,0.8
@@ -168,6 +163,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,42.21,42.7,42.21,42.37,696912,42.76,-0.91,42.54,43.86,1.26
 20260917,42.65,42.92,42.65,42.82,206334,42.76,0.13,42.53,43.8,0.38
 20260918,43.19,43.65,43.19,43.64,601934,42.84,1.88,42.58,43.76,1.05
+20260921,44.04,44.39,44.04,44.37,2877641,42.96,3.27,42.67,43.75,4.3
+20260922,45.74,45.96,45.74,45.77,942856,43.2,5.95,42.85,43.76,1.36
+20260923,45.86,46.37,45.86,46.19,831772,43.45,6.31,43.03,43.76,1.19
+20260924,46.14,46.2,45.91,45.96,178011,43.66,5.28,43.19,43.73,0.26
 ```
 
 ## Latest TDCC Snapshot

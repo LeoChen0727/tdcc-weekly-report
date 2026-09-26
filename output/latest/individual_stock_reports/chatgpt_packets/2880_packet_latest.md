@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:29 Asia/Taipei
+- generated_at: 2026-09-26 15:51:36 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,7 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -130,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 47.55
-- high: 48
-- low: 46.25
-- close: 47.65
-- volume: 35776337
-- ma5: 47.22
-- ema23_primary: 44.21
-- distance_to_ema23_pct: 7.78
-- ma20: 43.63
-- ma60: 41.45
-- ma120: 37.79
-- return_5d: 3.93
-- return_20d: 20.33
-- volume_ratio: 1.92
-- distance_to_ma20_pct_auxiliary: 9.21
-- distance_to_high_60_pct: -1.35
+- date: 20260924
+- open: 45.3
+- high: 46.2
+- low: 45.3
+- close: 45.75
+- volume: 5910247
+- ma5: 46.48
+- ema23_primary: 44.78
+- distance_to_ema23_pct: 2.17
+- ma20: 44.97
+- ma60: 42.04
+- ma120: 38.22
+- return_5d: -4.49
+- return_20d: 16.26
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 1.74
+- distance_to_high_60_pct: -5.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,39.5,40.25,39.15,39.25,12930557,40.56,-3.22,41.63,38.94,0.43
-20260825,39.15,40.5,39.15,39.8,17557402,40.49,-1.71,41.55,39.09,0.59
-20260826,39.6,40.1,39.25,39.6,13831992,40.42,-2.03,41.44,39.21,0.48
-20260827,39.8,40.05,39.35,39.35,9459728,40.33,-2.43,41.27,39.3,0.34
 20260828,39.35,41.2,39.35,40.25,30246901,40.32,-0.18,41.1,39.36,1.1
 20260831,40.25,41.4,40.2,41.35,48578786,40.41,2.33,41.02,39.42,1.72
 20260901,40.8,42.2,40.8,41.95,23432105,40.54,3.48,40.95,39.54,0.83
@@ -172,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,46.95,47.7,46.5,47.35,18245339,43.53,8.77,42.77,41.1,1.04
 20260917,47.25,48.3,46.95,47.9,16181633,43.9,9.12,43.23,41.28,0.92
 20260918,47.55,48,46.25,47.65,35776337,44.21,7.78,43.63,41.45,1.92
+20260921,47.15,47.55,46.6,46.65,8530932,44.41,5.04,44,41.61,0.46
+20260922,47.35,47.35,46.35,46.55,8500509,44.59,4.39,44.34,41.76,0.47
+20260923,46.6,46.6,45.6,45.8,12821890,44.69,2.48,44.65,41.89,0.72
+20260924,45.3,46.2,45.3,45.75,5910247,44.78,2.17,44.97,42.04,0.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 82.15
-- over_600_ratio: 81.06
-- over_800_ratio: 80.34
-- over_1000_ratio: 79.74
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 82.08
+- over_600_ratio: 80.97
+- over_800_ratio: 80.25
+- over_1000_ratio: 79.63
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,81.31,0.05,79.51,0.05,78.88,0.08,5,True,True
 20260709,81.43,0.12,79.65,0.14,79,0.12,6,True,True
 20260717,81.5,0.07,79.69,0.04,79.05,0.05,7,True,True
 20260724,81.71,0.21,79.93,0.24,79.28,0.23,8,True,True
@@ -203,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,81.97,0.11,80.17,0.1,79.58,0.11,3,True,True
 20260911,82.05,0.08,80.25,0.08,79.63,0.05,4,True,True
 20260918,82.15,0.1,80.34,0.09,79.74,0.11,5,True,True
+20260924,82.08,-0.07,80.25,-0.09,79.63,-0.11,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2880 | 華南金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/09/17 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:吳嘉欽 4.舊任者簡歷:華南永昌投信總經理 5.新任者姓名:陳人壽 6.新任者簡歷:華南永昌投信資產管理群副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:辭職 8.異動原因:辭職(生效日為115/10/01) 9.新任生效日期:俟母公司華南金控董事會通過暨主管機關核准後生效 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2880 | 華南金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/09/17 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:吳嘉欽 4.舊任者簡歷:華南永昌投信總經理 5.新任者姓名:陳人壽 6.新任者簡歷:華南永昌投信資產管理群副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:辭職 8.異動原因:辭職(生效日為115/10/01) 9.新任生效日期:俟母公司華南金控董事會通過暨主管機關核准後生效 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2880 | 華南金 | 2 | 1 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2880 | 華南金 | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2880 | 華南金 | 4 | 0 | 797350.0 | 0.0 |  | no_signal |
+| 20260924 | 2880 | 華南金 | 4 | 0 | 3750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:44 Asia/Taipei
+- generated_at: 2026-09-26 15:52:51 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 營收成長股價回檔
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 營收成長股價回檔 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -124,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 41.6
-- high: 41.9
-- low: 37.75
-- close: 37.9
-- volume: 29422000
-- ma5: 37.26
-- ema23_primary: 32.97
-- distance_to_ema23_pct: 14.94
-- ma20: 32.47
-- ma60: 28.31
-- ma120: 26.4
-- return_5d: 6.01
-- return_20d: 39.34
-- volume_ratio: 2.63
-- distance_to_ma20_pct_auxiliary: 16.71
-- distance_to_high_60_pct: -9.55
+- date: 20260924
+- open: 35.1
+- high: 36.65
+- low: 35.1
+- close: 36.6
+- volume: 5996000
+- ma5: 36.56
+- ema23_primary: 33.92
+- distance_to_ema23_pct: 7.9
+- ma20: 34.22
+- ma60: 29.01
+- ma120: 26.8
+- return_5d: -11.7
+- return_20d: 32.37
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 6.96
+- distance_to_high_60_pct: -12.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,27,27.6,26.95,26.95,998000,26.58,1.4,26.29,25.78,0.63
-20260825,27.55,27.8,27.05,27.4,2554000,26.65,2.83,26.46,25.84,1.54
-20260826,27.45,28.15,27.45,27.95,2643000,26.75,4.47,26.7,25.91,1.56
-20260827,28.1,28.3,27.6,27.65,1248000,26.83,3.06,26.95,25.97,0.72
 20260828,27.9,30.4,27.85,30.4,10885000,27.13,12.07,27.25,26.07,4.88
 20260831,30.4,32.95,29.65,30.5,11056000,27.41,11.28,27.55,26.18,4.02
 20260901,30.45,30.6,29.55,30.2,3869000,27.64,9.26,27.77,26.29,1.34
@@ -166,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,34.4,38,34.4,37.7,11799000,31.71,18.88,31.19,27.88,1.29
 20260917,38,41.45,37.75,41.45,13501000,32.52,27.44,31.94,28.12,1.38
 20260918,41.6,41.9,37.75,37.9,29422000,32.97,14.94,32.47,28.31,2.63
+20260921,38.5,39.9,37.35,37.35,17762000,33.34,12.04,32.99,28.5,1.48
+20260922,37.7,37.7,35.6,35.85,12486000,33.55,6.87,33.41,28.67,1
+20260923,36.1,36.1,34.7,35.1,6245000,33.68,4.23,33.77,28.83,0.49
+20260924,35.1,36.65,35.1,36.6,5996000,33.92,7.9,34.22,29.01,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 50.22
-- over_600_ratio: 46.03
-- over_800_ratio: 43.4
-- over_1000_ratio: 40.35
-- over_400_change_1w: 1.89
-- over_800_change_1w: 3.09
-- over_1000_change_1w: 3.13
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 44.24
+- over_600_ratio: 41.02
+- over_800_ratio: 36.55
+- over_1000_ratio: 33.99
+- over_400_change_1w: -5.98
+- over_800_change_1w: -6.85
+- over_1000_change_1w: -6.36
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,41.9,0.11,33.86,0.1,31.28,0.63,4,True,True
 20260709,42.16,0.26,34.4,0.54,32.8,1.52,5,True,True
 20260717,41.8,-0.36,33.6,-0.8,31.56,-1.24,0,False,False
 20260724,41.2,-0.6,32.97,-0.63,30.91,-0.65,0,False,False
@@ -197,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,42.95,1.11,34.61,-0.1,32.46,0.83,2,False,True
 20260911,48.33,5.38,40.31,5.7,37.22,4.76,3,True,True
 20260918,50.22,1.89,43.4,3.09,40.35,3.13,4,True,True
+20260924,44.24,-5.98,36.55,-6.85,33.99,-6.36,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6179 | 亞通 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 6179 | 亞通 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/06/26 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:   發放股東現金每股0.5元(總額新台幣88,662,325元)；發放方式為   (1)資本公積發放現金新台幣88,662,325元 4.除權（息）交易日:115/08/14 5.最後過戶日:115/08/17 6.停止過戶起始日期:115/08/18 7.停止過戶截止日期:115/08/22 8.除權（息）基準日:115/08/22 9.債券最後申請轉換日期:115/07/24 10.債券停止轉換起始日期:115/07/28 11.債券停止轉換截止日期:115/08/22 12.普通股現金股利發放日期:115/09/10 13.其他應敘明事項:配合本公司第三次無擔保轉換公司債到期相關作業，   爰依董事會授權，調整除息基準日及相關作業時程，以維護投資人權益。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6179 | 亞通 | 18 | 1 | 5 | 10 | 18 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260924 | 6179 | 亞通 | 3 | 3 | 4 | 9 | 19 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

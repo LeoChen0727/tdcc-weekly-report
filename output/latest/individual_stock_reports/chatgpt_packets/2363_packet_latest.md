@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2363 矽統
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:09 Asia/Taipei
+- generated_at: 2026-09-26 15:51:16 Asia/Taipei
 - stock_id: 2363
 - stock_name: 矽統
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 54.3
-- high: 55.2
-- low: 53.6
-- close: 53.7
-- volume: 11333532
-- ma5: 52.06
-- ema23_primary: 52.14
-- distance_to_ema23_pct: 3
-- ma20: 51.51
-- ma60: 55.85
-- ma120: 57.03
-- return_5d: 5.92
-- return_20d: 5.92
-- volume_ratio: 2.18
-- distance_to_ma20_pct_auxiliary: 4.26
-- distance_to_high_60_pct: -29.25
+- date: 20260924
+- open: 59
+- high: 60.4
+- low: 58.1
+- close: 58.7
+- volume: 7602462
+- ma5: 58.18
+- ema23_primary: 54.24
+- distance_to_ema23_pct: 8.23
+- ma20: 53.22
+- ma60: 55.14
+- ma120: 57.44
+- return_5d: 10.96
+- return_20d: 15.78
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 10.31
+- distance_to_high_60_pct: -19.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,50.4,52.6,50.4,50.6,4165416,53.59,-5.58,51.55,59.52,0.76
-20260825,50.6,50.6,49.2,50.4,2903922,53.32,-5.48,51.61,59.25,0.55
-20260826,50.5,51.6,50.4,51.3,1927373,53.15,-3.49,51.9,58.98,0.39
-20260827,51.6,51.8,50.5,50.7,2743280,52.95,-4.25,52.2,58.71,0.6
 20260828,51,53.3,51,51.8,5590442,52.85,-1.99,52.33,58.49,1.26
 20260831,50.6,51.3,50.4,51.1,3164672,52.71,-3.05,52.39,58.29,0.74
 20260901,51.8,53.1,51.2,51.5,4380842,52.61,-2.1,52.4,58.1,1.03
@@ -173,18 +169,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,50.6,52.3,50.6,52,3055894,51.91,0.17,51.26,56.5,0.68
 20260917,52.5,53.7,52.2,52.9,6735653,52,1.74,51.35,56.22,1.42
 20260918,54.3,55.2,53.6,53.7,11333532,52.14,3,51.51,55.85,2.18
+20260921,54.7,59,54.7,59,14131099,52.71,11.93,51.92,55.69,2.48
+20260922,60,63,58,60.3,45225870,53.34,13.04,52.42,55.55,5.78
+20260923,60.5,61.1,58.6,59.2,13048631,53.83,9.98,52.81,55.39,1.56
+20260924,59,60.4,58.1,58.7,7602462,54.24,8.23,53.22,55.14,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 35.16
-- over_600_ratio: 33.58
-- over_800_ratio: 32.14
-- over_1000_ratio: 30.96
-- over_400_change_1w: 0.52
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 0.35
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 35.58
+- over_600_ratio: 34.06
+- over_800_ratio: 32.85
+- over_1000_ratio: 31.47
+- over_400_change_1w: 0.42
+- over_800_change_1w: 0.71
+- over_1000_change_1w: 0.51
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,38.8,-2.57,36.16,-2.24,34.61,-2.37,0,False,False
 20260709,37.49,-1.31,34.98,-1.18,32.7,-1.91,0,False,False
 20260717,36.73,-0.76,34.2,-0.78,31.27,-1.43,0,False,False
 20260724,35.95,-0.78,32.97,-1.23,30.53,-0.74,0,False,False
@@ -204,23 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,34.71,-0.07,32.13,-0.27,30.74,-0.11,2,False,False
 20260911,34.64,-0.07,31.63,-0.5,30.61,-0.13,0,False,False
 20260918,35.16,0.52,32.14,0.51,30.96,0.35,1,True,True
+20260924,35.58,0.42,32.85,0.71,31.47,0.51,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.提報董事會或經董事會決議日期:115/07/27 2.審計委員會通過日期:115/07/27 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):2026/01/01~2026/06/30 4.1月1日累計至本期止營業收入(仟元):2,211,081 5.1月1日累計至本期止營業毛利(毛損) (仟元):628,335 6.1月1日累計至本期止營業利益(損失) (仟元):121,979 7.1月1日累計至本期止稅前淨利(淨損) (仟元):175,408 8.1月1日累計至本期止本期淨利(淨損) (仟元):106,329 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):103,177 10.1月1日累計至本期止基本每股盈餘(損失) (元):0.20 11.期末總資產(仟元):52,079,509 12.期末總負債(仟元):3,088,848 13.期末歸屬於母公司業主之權益(仟元):48,864,470 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 2363 | 矽統 | revenue_breakout_low_response | 營收爆發低反應股 | 13 | 51 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.提報董事會或經董事會決議日期:115/07/27 2.審計委員會通過日期:115/07/27 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):2026/01/01~2026/06/30 4.1月1日累計至本期止營業收入(仟元):2,211,081 5.1月1日累計至本期止營業毛利(毛損) (仟元):628,335 6.1月1日累計至本期止營業利益(損失) (仟元):121,979 7.1月1日累計至本期止稅前淨利(淨損) (仟元):175,408 8.1月1日累計至本期止本期淨利(淨損) (仟元):106,329 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):103,177 10.1月1日累計至本期止基本每股盈餘(損失) (元):0.20 11.期末總資產(仟元):52,079,509 12.期末總負債(仟元):3,088,848 13.期末歸屬於母公司業主之權益(仟元):48,864,470 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2363 | 矽統 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.提報董事會或經董事會決議日期:115/07/27 2.審計委員會通過日期:115/07/27 3.財務報告或年度自結財務資訊報導期間 起訖日期(XXX/XX/XX~XXX/XX/XX):2026/01/01~2026/06/30 4.1月1日累計至本期止營業收入(仟元):2,211,081 5.1月1日累計至本期止營業毛利(毛損) (仟元):628,335 6.1月1日累計至本期止營業利益(損失) (仟元):121,979 7.1月1日累計至本期止稅前淨利(淨損) (仟元):175,408 8.1月1日累計至本期止本期淨利(淨損) (仟元):106,329 9.1月1日累計至本期止歸屬於母公司業主淨利(損) (仟元):103,177 10.1月1日累計至本期止基本每股盈餘(損失) (元):0.20 11.期末總資產(仟元):52,079,509 12.期末總負債(仟元):3,088,848 13.期末歸屬於母公司業主之權益(仟元):48,864,470 14.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2363 | 矽統 | 56 | 19 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2363 | 矽統 | 60 | 2 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2363 | 矽統 | 120 | 5 | 3951150.0 | 45400.0 | 87.03 | no_signal |
+| 20260924 | 2363 | 矽統 | 121 | 5 | 2961980.0 | 35400.0 | 83.67 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

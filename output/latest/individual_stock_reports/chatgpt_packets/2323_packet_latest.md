@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2323 中環
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:06 Asia/Taipei
+- generated_at: 2026-09-26 15:51:13 Asia/Taipei
 - stock_id: 2323
 - stock_name: 中環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 10.85
+- date: 20260924
+- open: 10.8
 - high: 10.85
-- low: 10.65
-- close: 10.7
-- volume: 4985357
-- ma5: 10.58
-- ema23_primary: 10.69
-- distance_to_ema23_pct: 0.06
+- low: 10.7
+- close: 10.8
+- volume: 3157028
+- ma5: 10.79
+- ema23_primary: 10.73
+- distance_to_ema23_pct: 0.67
 - ma20: 10.75
-- ma60: 10.71
-- ma120: 10.74
-- return_5d: 0
-- return_20d: -1.38
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: -0.49
-- distance_to_high_60_pct: -12.3
+- ma60: 10.69
+- ma120: 10.73
+- return_5d: 0.47
+- return_20d: -0.92
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 0.44
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,10.95,10.95,10.65,10.7,4193727,10.65,0.43,10.42,10.91,0.51
-20260825,10.75,10.85,10.55,10.8,4668530,10.67,1.25,10.46,10.92,0.58
-20260826,10.85,10.9,10.7,10.85,3275609,10.68,1.58,10.53,10.92,0.43
-20260827,10.9,11.1,10.85,10.9,4969594,10.7,1.87,10.61,10.91,0.66
 20260828,10.95,11.1,10.9,10.9,4645823,10.72,1.71,10.65,10.88,0.62
 20260831,10.95,11,10.8,10.95,2535189,10.74,1.99,10.7,10.86,0.34
 20260901,10.95,11.05,10.9,10.95,4591611,10.75,1.83,10.73,10.85,0.62
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,10.5,10.65,10.45,10.55,2707759,10.69,-1.29,10.76,10.74,0.63
 20260917,10.6,10.85,10.6,10.75,5535867,10.69,0.53,10.76,10.73,1.31
 20260918,10.85,10.85,10.65,10.7,4985357,10.69,0.06,10.75,10.71,1.17
+20260921,10.8,10.9,10.75,10.8,3610061,10.7,0.91,10.76,10.71,0.86
+20260922,10.9,10.95,10.75,10.85,6359248,10.71,1.26,10.76,10.71,1.48
+20260923,10.85,10.9,10.75,10.8,4136637,10.72,0.73,10.76,10.7,0.95
+20260924,10.8,10.85,10.7,10.8,3157028,10.73,0.67,10.75,10.69,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 46.13
-- over_600_ratio: 42.79
-- over_800_ratio: 40.87
-- over_1000_ratio: 39.21
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.51
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 46.3
+- over_600_ratio: 42.93
+- over_800_ratio: 41.08
+- over_1000_ratio: 39.33
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,45.33,-0.17,40.31,-0.06,38.78,-0.07,0,False,False
 20260709,46.3,0.97,41.2,0.89,39.84,1.06,1,True,True
 20260717,46.22,-0.08,41.03,-0.17,39.46,-0.38,0,False,False
 20260724,46.04,-0.18,40.98,-0.05,39.3,-0.16,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,46.24,0.08,40.8,-0.06,39.07,-0.22,1,False,False
 20260911,45.91,-0.33,40.59,-0.21,38.7,-0.37,0,False,False
 20260918,46.13,0.22,40.87,0.28,39.21,0.51,1,True,True
+20260924,46.3,0.17,41.08,0.21,39.33,0.12,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2323 | 中環 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.證券名稱: 華星光 普通股 2.交易日期:115/8/25~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年09月17日 5.交易數量、每單位價格及交易總金額: 交易數量（仟股）：527 每單位價格（元）：590.49 交易總金額（元）：311,186,880 6.處分利益（或損失）（取得有價證券者不適用）: 處分利益3,321,668元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:333,000股、金額:198,957,270元 持股比例:0.23%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:84.76% 占歸屬於母公司業主之權益比例:113.96% 營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/06/30授權有權交易人在115年第三季期間，得於集中交易市場進行有價證券交易；calendar event: ex_dividend on 20261001; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2323 | 中環 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.證券名稱: 華星光 普通股 2.交易日期:115/9/8~115/9/23 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年09月23日 5.交易數量、每單位價格及交易總金額: 交易數量（仟股）：590 每單位價格（元）：600.07 交易總金額（元）：354,042,972 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 持有餘額:383,000股、金額:230,169,053元 持股比例:0.27%、權利受限情形: 無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:85.23% 占歸屬於母公司業主之權益比例:114.59% 營運資金數額:8,285,327仟元 10.取得或處分之具體目的: 投資組合 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 已於115/06/30授權有權交易人在115年第三季期間，得於集中交易市場進行有價證券交易；calendar event: ex_dividend on 20261001; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2323 | 中環 | 4 | 4 | 4 | 4 | 12 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2323 | 中環 | 8 | 8 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2323 | 中環 | 18 | 0 | 443170.0 | 0.0 |  | no_signal |
+| 20260924 | 2323 | 中環 | 17 | 0 | 141380.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

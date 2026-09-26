@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1709 和益
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:53 Asia/Taipei
+- generated_at: 2026-09-26 15:50:59 Asia/Taipei
 - stock_id: 1709
 - stock_name: 和益
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 43
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 44
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 41.85
-- high: 42
-- low: 38.7
-- close: 39.2
-- volume: 48187619
-- ma5: 38.55
-- ema23_primary: 35.16
-- distance_to_ema23_pct: 11.5
-- ma20: 35.79
-- ma60: 29.57
-- ma120: 24.42
-- return_5d: 8.29
-- return_20d: 17.72
-- volume_ratio: 2.67
-- distance_to_ma20_pct_auxiliary: 9.54
-- distance_to_high_60_pct: -8.73
+- date: 20260924
+- open: 45.85
+- high: 46.45
+- low: 43.5
+- close: 43.5
+- volume: 48879995
+- ma5: 44.01
+- ema23_primary: 38.12
+- distance_to_ema23_pct: 14.11
+- ma20: 37.85
+- ma60: 31.13
+- ma120: 25.33
+- return_5d: 1.28
+- return_20d: 27.38
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 14.93
+- distance_to_high_60_pct: -13.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,34.25,36.3,33.55,34.65,20640510,29.05,19.27,28.2,24.77,2.54
-20260825,34.4,35,32.8,33.75,8311982,29.44,14.62,28.66,25.01,1
-20260826,35,37.1,33.15,37.1,19572536,30.08,23.33,29.31,25.3,2.15
-20260827,37.35,37.7,33.8,34.15,26503787,30.42,12.26,29.89,25.54,2.58
 20260828,34.5,36.45,34.15,36.15,22958086,30.9,17,30.55,25.81,2.03
 20260831,35.85,36.25,33.35,33.45,12716527,31.11,7.52,31.07,26.02,1.07
 20260901,33.8,36.75,33.55,36.4,31426363,31.55,15.37,31.63,26.29,2.38
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,35.95,39.05,35.9,39.05,21302413,34.05,14.7,34.86,28.92,1.42
 20260917,40.8,42.95,39.1,42.95,35011882,34.79,23.46,35.49,29.28,2.14
 20260918,41.85,42,38.7,39.2,48187619,35.16,11.5,35.79,29.57,2.67
+20260921,39.2,43.1,39.05,43.1,27383341,35.82,20.33,36.21,29.94,1.49
+20260922,43.1,47.4,41.35,45.95,82848609,36.66,25.33,36.82,30.35,3.75
+20260923,47.5,50.5,45.5,48.3,84777905,37.63,28.35,37.38,30.79,3.34
+20260924,45.85,46.45,43.5,43.5,48879995,38.12,14.11,37.85,31.13,1.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 73.04
-- over_600_ratio: 69.78
-- over_800_ratio: 66.87
-- over_1000_ratio: 64.24
-- over_400_change_1w: 1.63
-- over_800_change_1w: 1.57
-- over_1000_change_1w: 1.4
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 70.92
+- over_600_ratio: 67.82
+- over_800_ratio: 64.93
+- over_1000_ratio: 62.12
+- over_400_change_1w: -2.12
+- over_800_change_1w: -1.94
+- over_1000_change_1w: -2.12
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,63.54,0.63,56.98,0.63,54.3,0.64,19,True,True
 20260709,63.96,0.42,57.7,0.72,54.86,0.56,20,True,True
 20260717,66.75,2.79,60.51,2.81,57.63,2.77,21,True,True
 20260724,67.37,0.62,60.81,0.3,57.93,0.3,22,True,True
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,70.95,0.05,64.64,0.25,61.78,0.22,1,False,True
 20260911,71.41,0.46,65.3,0.66,62.84,1.06,2,True,True
 20260918,73.04,1.63,66.87,1.57,64.24,1.4,3,True,True
+20260924,70.92,-2.12,64.93,-1.94,62.12,-2.12,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1709 | 和益 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/09/16 2.公司名稱:和益化學工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:自由時報電子報、MoneyDJ理財網 6.報導內容:115/09/16自由時報電子報報導：「市場消息指出，和益新產品 碳氫樹脂跨入半導體領域，…，中期目標則是在明年底有初步成果。」 115/09/16 MoneyDJ理財網報導：「和益(1709)新產品碳氫樹脂傳出跨入 半導體應用，…，並力拚2027年底前出貨」 7.發生緣由:針對自由時報電子報、MoneyDJ理財網於115年9月16日，刊載有 關本公司碳氫樹脂產品跨入半導體領域之報導，相關內容與本公司目前實際 情形不符，為避免投資人誤解，爰予以澄清。 8.因應措施:無 9.其他應敘明事項:有關本公司之財務及業務資訊，皆以公開資訊觀測站公告 為準，特此說明。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 1709 | 和益 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/09/23 2.發生緣由:依據臺灣證券交易所股份有限公司通知辦理 3.財務業務資訊:以下為IFRS合併財務資訊(單位：新台幣) 期間          (月)                      (季)                   (最近四季累計) ------        --------                ---------              最近1月       與去年     最近1季        與去年      114年第3季至 科目         (115年8月)    同期增減   (115年第2季)   同期增減    115年第2季              合併自結        (%)         核閱數        (%)         查核數 ========================================================================== 營業收入(百萬)    1,208       83%       2,689           23%      9,307 稅前淨利(百萬)      263      271%         432          535%      1,183 歸屬母公司業主    淨利            211       271%        356          492%        957 每股盈餘(元)       0.44      267%        0.75          477%       2.00 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告: 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1709 | 和益 | 10 | 1 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 1709 | 和益 | 14 | 1 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

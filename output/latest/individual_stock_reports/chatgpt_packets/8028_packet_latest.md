@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:31 Asia/Taipei
+- generated_at: 2026-09-26 15:53:37 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 250
-- high: 258
-- low: 242.5
-- close: 257
-- volume: 11292233
-- ma5: 236.4
-- ema23_primary: 243.75
-- distance_to_ema23_pct: 5.44
-- ma20: 240.22
-- ma60: 270.62
-- ma120: 265.62
-- return_5d: 13.97
-- return_20d: 5.98
-- volume_ratio: 3.24
-- distance_to_ma20_pct_auxiliary: 6.98
-- distance_to_high_60_pct: -29.4
+- date: 20260924
+- open: 256.5
+- high: 272.5
+- low: 253
+- close: 269
+- volume: 10321779
+- ma5: 261
+- ema23_primary: 249.21
+- distance_to_ema23_pct: 7.94
+- ma20: 243.65
+- ma60: 268.04
+- ma120: 268.38
+- return_5d: 10.25
+- return_20d: 8.25
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 10.4
+- distance_to_high_60_pct: -26.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,242.5,249.5,242.5,242.5,1249637,264.86,-8.44,257.82,296.06,0.45
-20260825,240,243,231,242,1801046,262.96,-7.97,255.93,294.64,0.66
-20260826,241.5,246.5,240.5,246.5,1327218,261.59,-5.77,255.65,292.81,0.49
-20260827,249.5,251.5,244,248.5,1894678,260.5,-4.61,256.7,291.37,0.7
 20260828,251.5,255.5,249,249,2310457,259.54,-4.06,256.9,289.77,0.84
 20260831,246.5,246.5,237,241,3870838,257.99,-6.59,255.93,288.11,1.35
 20260901,242.5,256,242.5,255,3511893,257.74,-1.06,255.28,286.73,1.17
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,228,236.5,227,233,3815963,242.41,-3.88,239.65,272.47,1.46
 20260917,237.5,249.5,235.5,244,9261432,242.55,0.6,239.5,271.38,3.1
 20260918,250,258,242.5,257,11292233,243.75,5.44,240.22,270.62,3.24
+20260921,262,268,254.5,257.5,12260077,244.9,5.15,240.97,270.16,3.03
+20260922,262,274,257,263.5,13456615,246.45,6.92,242.05,269.74,2.91
+20260923,264,265,254,258,5523337,247.41,4.28,242.62,268.76,1.14
+20260924,256.5,272.5,253,269,10321779,249.21,7.94,243.65,268.04,1.96
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 47.96
-- over_600_ratio: 43.48
-- over_800_ratio: 38.8
-- over_1000_ratio: 36.8
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.42
-- over_1000_change_1w: 0.95
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 48.07
+- over_600_ratio: 41.67
+- over_800_ratio: 38.29
+- over_1000_ratio: 35.77
+- over_400_change_1w: 0.11
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -1.03
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,51.66,1.34,40.27,-0.32,37.4,0.34,1,False,True
 20260709,51.65,-0.01,39.5,-0.77,38.5,1.1,2,False,True
 20260717,55.83,4.18,45.44,5.94,42.89,4.39,3,True,True
 20260724,53.04,-2.79,43.04,-2.4,39.55,-3.34,0,False,False
@@ -199,24 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,48.63,-1.01,39.72,-0.85,38.2,-0.9,0,False,False
 20260911,47.75,-0.88,38.38,-1.34,35.85,-2.35,0,False,False
 20260918,47.96,0.21,38.8,0.42,36.8,0.95,1,True,True
+20260924,48.07,0.11,38.29,-0.51,35.77,-1.03,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8028 | 昇陽半導體 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_put_bullish | continued_2_3d | 1.原預定買回股份總金額上限(元):3,483,787,097 2.原預定買回之期間:115/08/13~115/10/12 3.原預定買回之數量(股):300,000 4.原預定買回區間價格(元):210.00~430.00 5.本次實際買回期間:115/08/14~115/08/24 6.本次已買回股份數量(股):300,000 7.本次已買回股份總金額(元):77,256,299 8.本次平均每股買回價格(元):257.52 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.56 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | continued_2_3d | 1.原預定買回股份總金額上限(元):3,483,787,097 2.原預定買回之期間:115/08/13~115/10/12 3.原預定買回之數量(股):300,000 4.原預定買回區間價格(元):210.00~430.00 5.本次實際買回期間:115/08/14~115/08/24 6.本次已買回股份數量(股):300,000 7.本次已買回股份總金額(元):77,256,299 8.本次平均每股買回價格(元):257.52 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.56 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 8028 | 昇陽半導體 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | 1.原預定買回股份總金額上限(元):3,483,787,097 2.原預定買回之期間:115/08/13~115/10/12 3.原預定買回之數量(股):300,000 4.原預定買回區間價格(元):210.00~430.00 5.本次實際買回期間:115/08/14~115/08/24 6.本次已買回股份數量(股):300,000 7.本次已買回股份總金額(元):77,256,299 8.本次平均每股買回價格(元):257.52 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.56 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 8028 | 昇陽半導體 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):3,483,787,097 2.原預定買回之期間:115/08/13~115/10/12 3.原預定買回之數量(股):300,000 4.原預定買回區間價格(元):210.00~430.00 5.本次實際買回期間:115/08/14~115/08/24 6.本次已買回股份數量(股):300,000 7.本次已買回股份總金額(元):77,256,299 8.本次平均每股買回價格(元):257.52 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.56 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 8028 | 昇陽半導體 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):3,483,787,097 2.原預定買回之期間:115/08/13~115/10/12 3.原預定買回之數量(股):300,000 4.原預定買回區間價格(元):210.00~430.00 5.本次實際買回期間:115/08/14~115/08/24 6.本次已買回股份數量(股):300,000 7.本次已買回股份總金額(元):77,256,299 8.本次平均每股買回價格(元):257.52 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.56 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 8028 | 昇陽半導體 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | repeated_but_no_breakout | 1.原預定買回股份總金額上限(元):3,483,787,097 2.原預定買回之期間:115/08/13~115/10/12 3.原預定買回之數量(股):300,000 4.原預定買回區間價格(元):210.00~430.00 5.本次實際買回期間:115/08/14~115/08/24 6.本次已買回股份數量(股):300,000 7.本次已買回股份總金額(元):77,256,299 8.本次平均每股買回價格(元):257.52 9.累積已持有自己公司股份數量(股):1,000,000 10.累積已持有自己公司股份數量占公司已發行股份總數之比率(%):0.56 11.本次未執行完畢之原因:  12.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8028 | 昇陽半導體 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260924 | 8028 | 昇陽半導體 | 6 | 5 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8028 | 昇陽半導體 | 123 | 5 | 19011920.0 | 76940.0 | 247.1 | call_put_bullish |
+| 20260924 | 8028 | 昇陽半導體 | 127 | 5 | 18360780.0 | 48840.0 | 375.94 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

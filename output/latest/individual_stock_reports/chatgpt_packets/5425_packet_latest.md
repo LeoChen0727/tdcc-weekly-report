@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5425 台半
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:30 Asia/Taipei
+- generated_at: 2026-09-26 15:52:37 Asia/Taipei
 - stock_id: 5425
 - stock_name: 台半
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 93.2
-- high: 94.1
-- low: 92.5
-- close: 92.6
-- volume: 7140000
-- ma5: 91.9
-- ema23_primary: 91.16
-- distance_to_ema23_pct: 1.58
-- ma20: 91.78
-- ma60: 95.69
-- ma120: 88.68
-- return_5d: 7.55
-- return_20d: 4.99
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 0.89
-- distance_to_high_60_pct: -35.69
+- date: 20260924
+- open: 95.3
+- high: 96.8
+- low: 94.2
+- close: 94.5
+- volume: 9955000
+- ma5: 93.92
+- ema23_primary: 92.09
+- distance_to_ema23_pct: 2.62
+- ma20: 92.34
+- ma60: 94.19
+- ma120: 90.04
+- return_5d: 2.05
+- return_20d: -0.74
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 2.34
+- distance_to_high_60_pct: -34.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,87.8,89.3,86.1,86.1,11105000,88.97,-3.22,83.39,100.64,0.84
-20260825,85.7,88.1,83.8,87.9,6428000,88.88,-1.1,84.02,100.17,0.49
-20260826,87.9,96.6,87.2,96.6,26209000,89.52,7.91,85.34,100,1.88
-20260827,97,98.3,95,95.2,41549000,89.99,5.78,86.74,99.86,2.66
 20260828,97.2,104.5,96,96.3,49158000,90.52,6.39,87.9,99.72,2.76
 20260831,94.9,96.3,93.2,94.8,10039000,90.88,4.32,88.62,99.61,0.56
 20260901,94.4,97.6,94.1,95.2,13265000,91.24,4.34,89.3,99.51,0.74
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,89.4,95.5,89.4,94.8,25123000,90.89,4.31,91.44,96.92,1.54
 20260917,95.6,95.7,91.6,92.6,14436000,91.03,1.72,91.56,96.26,0.92
 20260918,93.2,94.1,92.5,92.6,7140000,91.16,1.58,91.78,95.69,0.48
+20260921,93,93.5,92.3,93.3,3155000,91.34,2.15,92.14,95.33,0.22
+20260922,94.5,95.3,93.5,93.5,9070000,91.52,2.16,92.42,95.06,0.61
+20260923,95.4,97,93.9,95.7,21118000,91.87,4.17,92.38,94.64,1.46
+20260924,95.3,96.8,94.2,94.5,9955000,92.09,2.62,92.34,94.19,0.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 35.18
-- over_600_ratio: 33.44
-- over_800_ratio: 31.43
-- over_1000_ratio: 28.29
-- over_400_change_1w: 1.59
-- over_800_change_1w: 1.58
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 35.88
+- over_600_ratio: 33.64
+- over_800_ratio: 31.83
+- over_1000_ratio: 29.42
+- over_400_change_1w: 0.7
+- over_800_change_1w: 0.4
+- over_1000_change_1w: 1.13
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,42.47,2.09,38.49,1.97,36.66,2.59,1,True,True
 20260709,44.99,2.52,41.65,3.16,40.22,3.56,2,True,True
 20260717,40.02,-4.97,36.8,-4.85,34,-6.22,0,False,False
 20260724,39,-1.02,36.34,-0.46,33.51,-0.49,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,33.93,-3.21,30.76,-3.81,28.41,-1.7,0,False,False
 20260911,33.59,-0.34,29.85,-0.91,28.15,-0.26,0,False,False
 20260918,35.18,1.59,31.43,1.58,28.29,0.14,1,True,True
+20260924,35.88,0.7,31.83,0.4,29.42,1.13,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5425 | 台半 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：晶華國際酒店(台北市中山北路二段39巷3號4樓) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之投資論壇 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 5425 | 台半 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：10 時 00 分 3.召開法人說明會之地點：晶華國際酒店(台北市中山北路二段39巷3號4樓) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之投資論壇 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5425 | 台半 | 3 | 2 | 3 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 5425 | 台半 | 7 | 1 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

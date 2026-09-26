@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006206 元大上證50
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:29 Asia/Taipei
+- generated_at: 2026-09-26 15:50:36 Asia/Taipei
 - stock_id: 006206
 - stock_name: 元大上證50
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260918
-- price_rows: 91
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 95
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 37.27
-- high: 37.49
-- low: 37.27
-- close: 37.35
-- volume: 16933
-- ma5: 37.24
+- date: 20260924
+- open: 37.64
+- high: 37.64
+- low: 37.21
+- close: 37.21
+- volume: 9192
+- ma5: 37.5
 - ema23_primary: 37.53
-- distance_to_ema23_pct: -0.47
-- ma20: 37.53
-- ma60: 37.85
-- ma120: 37.19
-- return_5d: 0.78
-- return_20d: -0.4
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.47
-- distance_to_high_60_pct: -4.74
+- distance_to_ema23_pct: -0.85
+- ma20: 37.52
+- ma60: 37.83
+- ma120: 37.2
+- return_5d: 0.03
+- return_20d: -1.56
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -0.83
+- distance_to_high_60_pct: -5.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,37.44,37.44,37.18,37.25,10939,37.9,-1.72,38.08,37.6,0.25
-20260825,37.07,37.43,37.07,37.43,10772,37.86,-1.14,38.04,37.62,0.25
-20260826,37.48,38,37.42,37.73,63311,37.85,-0.32,38.01,37.64,1.43
-20260827,37.8,37.8,37.58,37.8,68431,37.85,-0.13,38,37.66,1.52
 20260828,37.88,37.88,37.56,37.72,7195,37.84,-0.31,37.95,37.67,0.18
 20260831,37.48,37.75,37.31,37.75,67812,37.83,-0.21,37.94,37.7,1.61
 20260901,37.73,38.05,37.73,38.05,61606,37.85,0.53,37.95,37.72,1.38
@@ -168,6 +164,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,37.24,37.49,37.11,37.21,13648,37.58,-0.97,37.55,37.86,0.37
 20260917,38.08,38.08,37.13,37.2,21341,37.54,-0.92,37.53,37.86,0.58
 20260918,37.27,37.49,37.27,37.35,16933,37.53,-0.47,37.53,37.85,0.49
+20260921,37.19,37.63,37.19,37.43,60029,37.52,-0.24,37.54,37.85,1.63
+20260922,38.39,38.39,37.71,37.85,12286,37.55,0.81,37.56,37.85,0.33
+20260923,37.83,37.83,37.5,37.65,6480,37.56,0.25,37.55,37.85,0.19
+20260924,37.64,37.64,37.21,37.21,9192,37.53,-0.85,37.52,37.83,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -203,7 +203,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6206 | 飛捷 | 31 | 0 | 4154570.0 | 0.0 |  | call_inflow |
+| 20260924 | 6206 | 飛捷 | 31 | 0 | 539720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

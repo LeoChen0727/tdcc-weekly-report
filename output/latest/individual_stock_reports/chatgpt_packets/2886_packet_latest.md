@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:30 Asia/Taipei
+- generated_at: 2026-09-26 15:51:37 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,7 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 51.9
-- high: 51.9
-- low: 50.1
-- close: 51.1
-- volume: 47531956
-- ma5: 51.64
-- ema23_primary: 49.96
-- distance_to_ema23_pct: 2.27
-- ma20: 49.59
-- ma60: 48.57
-- ma120: 44.67
-- return_5d: -1.16
-- return_20d: 8.84
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: 3.06
-- distance_to_high_60_pct: -4.84
+- date: 20260924
+- open: 49.4
+- high: 49.85
+- low: 49.35
+- close: 49.6
+- volume: 8333068
+- ma5: 50.46
+- ema23_primary: 50.05
+- distance_to_ema23_pct: -0.89
+- ma20: 50.31
+- ma60: 48.85
+- ma120: 45.06
+- return_5d: -4.43
+- return_20d: 7.48
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -1.42
+- distance_to_high_60_pct: -7.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,46.85,47.15,46.4,46.85,20203847,47.99,-2.37,49.09,46.56,0.55
-20260825,46.85,47.15,46.5,47,23421654,47.91,-1.89,48.96,46.68,0.64
-20260826,46.9,47.65,46.35,46.6,23809379,47.8,-2.5,48.8,46.76,0.68
-20260827,46.6,46.65,46.1,46.15,22503030,47.66,-3.17,48.53,46.84,0.66
 20260828,46.9,49.05,46.55,48.2,62205583,47.7,1.04,48.28,46.95,1.78
 20260831,47.9,48.6,47.75,48.55,33911276,47.78,1.62,48.13,47.05,0.98
 20260901,48.2,49,48.1,48.5,30744770,47.84,1.39,48.02,47.16,0.89
@@ -173,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,51.6,51.6,50.3,50.9,26462696,49.68,2.46,49.1,48.38,0.94
 20260917,51,52,50.6,51.9,24220366,49.86,4.09,49.38,48.5,0.87
 20260918,51.9,51.9,50.1,51.1,47531956,49.96,2.27,49.59,48.57,1.64
+20260921,51,51.2,50,51.1,12052512,50.06,2.08,49.8,48.66,0.42
+20260922,51.8,51.8,50.3,50.5,21285539,50.1,0.81,49.97,48.73,0.75
+20260923,50.9,50.9,49.65,50,20938255,50.09,-0.18,50.14,48.79,0.74
+20260924,49.4,49.85,49.35,49.6,8333068,50.05,-0.89,50.31,48.85,0.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 83.47
-- over_600_ratio: 82.84
-- over_800_ratio: 82.34
-- over_1000_ratio: 81.93
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 83.42
+- over_600_ratio: 82.8
+- over_800_ratio: 82.33
+- over_1000_ratio: 81.94
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,83.07,0.13,81.97,0.13,81.6,0.12,8,True,True
 20260709,83.04,-0.03,81.93,-0.04,81.56,-0.04,0,False,False
 20260717,83.1,0.06,81.96,0.03,81.6,0.04,1,True,True
 20260724,83.25,0.15,82.13,0.17,81.78,0.18,2,True,True
@@ -204,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,83.38,0.21,82.28,0.2,81.86,0.2,1,True,True
 20260911,83.37,-0.01,82.26,-0.02,81.86,0,0,False,False
 20260918,83.47,0.1,82.34,0.08,81.93,0.07,1,True,True
+20260924,83.42,-0.05,82.33,-0.01,81.94,0.01,2,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2886 | 兆豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/09/15 2.發行股數:19,231,000股 3.每股面額:新台幣10元 4.發行總金額:新台幣500,006,000元 5.發行價格:新台幣26元 6.員工認股股數:不適用 7.原股東認購比率:100% 8.公開銷售方式及股數:不適用 9.畸零股及逾期未認購股份之處理方式:不適用 10.本次發行新股之權利義務:與原股份相同 11.本次增資資金用途:業務發展及強化財務結構之需求 12.現金增資認股基準日:115/09/15 13.最後過戶日:不適用 14.停止過戶起始日期:不適用 15.停止過戶截止日期:不適用 16.股款繳納期間:115/09/16 17.與代收及專戶存儲價款行庫訂約日期:無 18.委託代收存款機構:無 19.委託存儲款項機構:無 20.其他應敘明事項: (1)本增資案經金融監督管理委員會115年09月15日金管證期字第　 1150355306號函核准在案。 (2)於115年08月26日第十屆董事會第三次會議，授權董事長訂定 現金增資認股基準日及相關作業日期。 (3)現金增資基準日為115年09月16日。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2886 | 兆豐金 | 14 | 1 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2886 | 兆豐金 | 12 | 0 | 2610750.0 | 0.0 |  | call_inflow |
+| 20260924 | 2886 | 兆豐金 | 12 | 0 | 383860.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

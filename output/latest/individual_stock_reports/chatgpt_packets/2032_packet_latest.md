@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2032 新鋼
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:00 Asia/Taipei
+- generated_at: 2026-09-26 15:51:07 Asia/Taipei
 - stock_id: 2032
 - stock_name: 新鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,8 +104,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 17.05
-- high: 17.15
-- low: 16.85
-- close: 17.1
-- volume: 483364
-- ma5: 16.81
-- ema23_primary: 16.93
-- distance_to_ema23_pct: 0.98
-- ma20: 17.07
-- ma60: 16.63
-- ma120: 16.8
-- return_5d: 0.59
-- return_20d: -1.16
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 0.16
-- distance_to_high_60_pct: -5.52
+- date: 20260924
+- open: 17.5
+- high: 19
+- low: 17.45
+- close: 18.55
+- volume: 3573551
+- ma5: 17.53
+- ema23_primary: 17.16
+- distance_to_ema23_pct: 8.13
+- ma20: 17.14
+- ma60: 16.7
+- ma120: 16.83
+- return_5d: 10.09
+- return_20d: 8.16
+- volume_ratio: 7.27
+- distance_to_ma20_pct_auxiliary: 8.23
+- distance_to_high_60_pct: -2.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,17.5,17.65,17.25,17.35,775952,16.72,3.74,16.53,16.85,1.23
-20260825,17.45,17.5,17.15,17.4,343906,16.78,3.69,16.62,16.84,0.54
-20260826,17.45,17.5,16.65,17.3,420725,16.82,2.83,16.72,16.82,0.66
-20260827,17.3,17.35,17.05,17.15,232856,16.85,1.78,16.8,16.81,0.37
 20260828,17.15,17.15,17.05,17.15,172096,16.88,1.62,16.88,16.79,0.27
 20260831,17.15,17.25,17.05,17.25,230291,16.91,2.03,16.97,16.77,0.37
 20260901,17.2,17.35,17.2,17.35,126206,16.94,2.4,17.06,16.75,0.2
@@ -168,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,16.6,16.65,16.55,16.6,514042,16.92,-1.92,17.09,16.64,1.63
 20260917,16.65,16.9,16.65,16.85,248449,16.92,-0.4,17.08,16.63,0.83
 20260918,17.05,17.15,16.85,17.1,483364,16.93,0.98,17.07,16.63,1.58
+20260921,17.05,17.05,16.8,17,153099,16.94,0.36,17.05,16.63,0.56
+20260922,17,17.8,16.9,17.45,1139914,16.98,2.76,17.06,16.64,3.63
+20260923,17.5,17.65,17.25,17.55,626370,17.03,3.06,17.07,16.66,1.93
+20260924,17.5,19,17.45,18.55,3573551,17.16,8.13,17.14,16.7,7.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 59.23
-- over_600_ratio: 54.78
-- over_800_ratio: 50.94
-- over_1000_ratio: 49.58
-- over_400_change_1w: -0.06
-- over_800_change_1w: 0.62
-- over_1000_change_1w: 0.62
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 59.9
+- over_600_ratio: 55.51
+- over_800_ratio: 51.71
+- over_1000_ratio: 49.74
+- over_400_change_1w: 0.67
+- over_800_change_1w: 0.77
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,58.71,-0.24,51.07,-0.24,47.65,-0.86,0,False,False
 20260709,58.99,0.28,50.5,-0.57,48.49,0.84,1,False,True
 20260717,58.95,-0.04,49.94,-0.56,48.58,0.09,2,False,True
 20260724,58.62,-0.33,50.06,0.12,48.7,0.12,3,False,True
@@ -199,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,59.6,0.06,50.96,0.02,48.92,0.07,5,True,True
 20260911,59.29,-0.31,50.32,-0.64,48.96,0.04,6,False,True
 20260918,59.23,-0.06,50.94,0.62,49.58,0.62,7,False,True
+20260924,59.9,0.67,51.71,0.77,49.74,0.16,8,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 2032 | 新鋼 | true_breakout | 嚴格突破 | 129.0 |  |  | platform_breakout |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/09/22 1.召開法人說明會之日期：115/09/22 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台灣證券交易所1樓資訊展示中心 4.法人說明會擇要訊息：本公司營運概況及成果說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 2032 | 新鋼 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

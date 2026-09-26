@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:31 Asia/Taipei
+- generated_at: 2026-09-26 15:53:37 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 177
-- high: 180
-- low: 173.5
-- close: 180
-- volume: 4010000
-- ma5: 171.4
-- ema23_primary: 176.72
-- distance_to_ema23_pct: 1.86
-- ma20: 176.15
-- ma60: 191.2
-- ma120: 201.22
-- return_5d: 7.46
-- return_20d: 6.82
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 2.19
-- distance_to_high_60_pct: -31.03
+- date: 20260924
+- open: 175.5
+- high: 188
+- low: 175.5
+- close: 184
+- volume: 3342000
+- ma5: 180.2
+- ema23_primary: 177.79
+- distance_to_ema23_pct: 3.49
+- ma20: 177.5
+- ma60: 188.88
+- ma120: 202.32
+- return_5d: 6.36
+- return_20d: 2.79
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 3.66
+- distance_to_high_60_pct: -29.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,169,173,167.5,167.5,942000,182.57,-8.26,173.62,215.62,0.41
-20260825,167.5,169.5,161,169.5,913000,181.48,-6.6,173.38,214.14,0.42
-20260826,169,182,167.5,178,3053000,181.19,-1.76,174.4,212.39,1.42
-20260827,179.5,187,176.5,179,3186000,181.01,-1.11,176.15,210.75,1.55
 20260828,183.5,192,181,185,4581000,181.34,2.02,177.5,208.98,2.03
 20260831,182.5,183,173,179.5,2242000,181.19,-0.93,178.18,207.1,1.03
 20260901,179.5,192,179,185,2992000,181.51,1.92,178.65,205.3,1.38
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,165,174,165,174,1962000,176.73,-1.55,175.45,193.06,0.8
 20260917,174.5,183.5,172,173,2630000,176.42,-1.94,175.57,192.08,1.05
 20260918,177,180,173.5,180,4010000,176.72,1.86,176.15,191.2,1.51
+20260921,180,182,176.5,179.5,1843000,176.95,1.44,176.75,190.69,0.68
+20260922,183,189,180,181,3220000,177.29,2.09,177.32,190.43,1.14
+20260923,183,185,176,176.5,1426000,177.22,-0.41,177.25,189.76,0.52
+20260924,175.5,188,175.5,184,3342000,177.79,3.49,177.5,188.88,1.22
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 26.96
-- over_600_ratio: 22.87
-- over_800_ratio: 18
-- over_1000_ratio: 14.72
-- over_400_change_1w: 0.61
-- over_800_change_1w: 0.94
-- over_1000_change_1w: 0.95
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 26.77
+- over_600_ratio: 23.1
+- over_800_ratio: 19.98
+- over_1000_ratio: 16.73
+- over_400_change_1w: -0.19
+- over_800_change_1w: 1.98
+- over_1000_change_1w: 2.01
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,28.36,-0.25,20.29,-0.13,18.59,0.57,3,False,True
 20260709,27.39,-0.97,18.17,-2.12,15.71,-2.88,0,False,False
 20260717,27.29,-0.1,18.14,-0.03,16.54,0.83,1,False,True
 20260724,27.14,-0.15,18.52,0.38,15.48,-1.06,2,False,True
@@ -198,19 +197,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,25.97,-0.64,17.86,-0.2,14.61,-1.78,0,False,False
 20260911,26.35,0.38,17.06,-0.8,13.77,-0.84,1,False,False
 20260918,26.96,0.61,18,0.94,14.72,0.95,2,True,True
+20260924,26.77,-0.19,19.98,1.98,16.73,2.01,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8027 | 鈦昇 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 8027 | 鈦昇 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 8027 | 鈦昇 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 8027 | 鈦昇 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8027 | 鈦昇 | 16 | 16 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 8027 | 鈦昇 | 20 | 20 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2208 台船
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:03 Asia/Taipei
+- generated_at: 2026-09-26 15:51:10 Asia/Taipei
 - stock_id: 2208
 - stock_name: 台船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 19.05
-- high: 19.15
-- low: 19
-- close: 19.15
-- volume: 1770149
-- ma5: 18.97
-- ema23_primary: 19.04
-- distance_to_ema23_pct: 0.59
-- ma20: 19.02
-- ma60: 19.34
-- ma120: 19.32
-- return_5d: 0.26
-- return_20d: -0.78
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 0.68
-- distance_to_high_60_pct: -16.19
+- date: 20260924
+- open: 19.6
+- high: 19.6
+- low: 19.25
+- close: 19.4
+- volume: 1566691
+- ma5: 19.32
+- ema23_primary: 19.14
+- distance_to_ema23_pct: 1.38
+- ma20: 19.05
+- ma60: 19.42
+- ma120: 19.27
+- return_5d: 2.11
+- return_20d: 0
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 1.85
+- distance_to_high_60_pct: -15.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,19.3,19.45,19.2,19.2,1722872,19.29,-0.47,19.08,18.98,0.48
-20260825,19.2,19.2,19.05,19.1,1511866,19.27,-0.9,19.09,19,0.44
-20260826,19.2,19.4,19.15,19.2,1803143,19.27,-0.35,19.13,19.02,0.56
-20260827,19.35,19.9,19.3,19.4,4670521,19.28,0.63,19.19,19.04,1.4
 20260828,19.75,19.95,19.1,19.2,5181542,19.27,-0.38,19.2,19.06,1.51
 20260831,19.35,19.4,19.15,19.3,1708388,19.27,0.13,19.22,19.08,0.5
 20260901,19.25,19.4,19.1,19.15,1877174,19.26,-0.59,19.23,19.09,0.55
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,18.8,19,18.8,18.85,608633,19.03,-0.94,19.04,19.29,0.29
 20260917,19,19,18.9,19,1057680,19.03,-0.14,19.03,19.32,0.52
 20260918,19.05,19.15,19,19.15,1770149,19.04,0.59,19.02,19.34,0.86
+20260921,19.2,19.3,19,19.2,1615611,19.05,0.78,19.02,19.38,0.79
+20260922,19.4,19.4,19.2,19.25,2310286,19.07,0.96,19.03,19.41,1.1
+20260923,19.3,19.7,19.3,19.6,4444705,19.11,2.56,19.05,19.41,1.99
+20260924,19.6,19.6,19.25,19.4,1566691,19.14,1.38,19.05,19.42,0.76
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 54.93
-- over_600_ratio: 52.81
-- over_800_ratio: 50.71
-- over_1000_ratio: 49.73
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 55.34
+- over_600_ratio: 53.2
+- over_800_ratio: 51.1
+- over_1000_ratio: 50.09
+- over_400_change_1w: 0.41
+- over_800_change_1w: 0.39
+- over_1000_change_1w: 0.36
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,55.51,0.07,51.59,0.14,50.54,0,1,False,True
 20260709,55.58,0.07,51.54,-0.05,50.62,0.08,2,False,True
 20260717,55.54,-0.04,51.58,0.04,50.73,0.11,3,False,True
 20260724,55.55,0.01,51.54,-0.04,50.68,-0.05,4,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,54.82,-0.33,50.61,-0.36,49.84,-0.29,0,False,False
 20260911,54.8,-0.02,50.65,0.04,49.73,-0.11,1,False,True
 20260918,54.93,0.13,50.71,0.06,49.73,0,2,False,True
+20260924,55.34,0.41,51.1,0.39,50.09,0.36,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2208 | 台船 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2208 | 台船 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2208 | 台船 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260924 | 2208 | 台船 | 2 | 1 | 4 | 4 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

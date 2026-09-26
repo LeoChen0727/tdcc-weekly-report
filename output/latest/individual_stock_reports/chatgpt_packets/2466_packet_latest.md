@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:16 Asia/Taipei
+- generated_at: 2026-09-26 15:51:23 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 104
-- high: 108.5
-- low: 102.5
-- close: 106
-- volume: 1513925
-- ma5: 103.5
-- ema23_primary: 101.1
-- distance_to_ema23_pct: 4.84
-- ma20: 102.05
-- ma60: 97.44
-- ma120: 74.84
-- return_5d: 0
-- return_20d: 1.92
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 3.87
-- distance_to_high_60_pct: -16.21
+- date: 20260924
+- open: 113.5
+- high: 120.5
+- low: 113
+- close: 119.5
+- volume: 2401504
+- ma5: 112.9
+- ema23_primary: 105.16
+- distance_to_ema23_pct: 13.63
+- ma20: 104.25
+- ma60: 100.86
+- ma120: 77.08
+- return_5d: 16.59
+- return_20d: 13.27
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 14.63
+- distance_to_high_60_pct: -5.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,104.5,106,101,101,3217950,95.48,5.78,94.83,80.53,1.7
-20260825,100,104,99.2,103,1984264,96.11,7.17,95.25,81.46,1.04
-20260826,104,109,102.5,105,2213511,96.85,8.42,96.01,82.42,1.16
-20260827,105,111,104.5,105.5,2138056,97.57,8.13,96.65,83.42,1.12
 20260828,107,109,104,104.5,1647656,98.15,6.47,97.32,84.38,0.89
 20260831,105.5,106,99,99,1422163,98.22,0.8,97.4,85.28,0.77
 20260901,99.8,102.5,99,99.5,815236,98.32,1.2,97.62,86.19,0.45
@@ -173,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,102.5,108,102.5,104,911148,100.49,3.49,101.63,95.92,0.54
 20260917,105,106.5,102,102.5,845205,100.66,1.83,101.95,96.64,0.54
 20260918,104,108.5,102.5,106,1513925,101.1,4.84,102.05,97.44,1.03
+20260921,104.5,110,104.5,110,1237185,101.84,8.01,102.5,98.31,0.9
+20260922,111.5,120,111.5,115.5,2847575,102.98,12.16,103.12,99.25,2.02
+20260923,117,120,112,113.5,2419089,103.86,9.28,103.55,100.06,1.7
+20260924,113.5,120.5,113,119.5,2401504,105.16,13.63,104.25,100.86,1.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 87.44
-- over_600_ratio: 85.18
-- over_800_ratio: 82.49
-- over_1000_ratio: 80.91
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.13
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 87.22
+- over_600_ratio: 85.58
+- over_800_ratio: 82.98
+- over_1000_ratio: 80.89
+- over_400_change_1w: -0.22
+- over_800_change_1w: 0.49
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,87.93,0.86,84.11,-0.03,83.07,-0.03,1,False,False
 20260709,89.93,2,86,1.89,83.87,0.8,2,True,True
 20260717,90.15,0.22,85.12,-0.88,84.03,0.16,3,False,True
 20260724,89.9,-0.25,85.83,0.71,83.16,-0.87,4,False,True
@@ -204,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,87.15,-0.78,82.82,-0.13,81.25,-0.61,0,False,False
 20260911,87.45,0.3,82.61,-0.21,81.04,-0.21,1,False,False
 20260918,87.44,-0.01,82.49,-0.12,80.91,-0.13,0,False,False
+20260924,87.22,-0.22,82.98,0.49,80.89,-0.02,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/20 2.公司名稱:冠西電子企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正115年第二季合併財務報告第21頁 6.更正資訊項目/報表名稱: 115年第二季合併財務報告第21頁商品金額、存貨合計數 7.更正前金額/內容/頁次: 115年第二季合併財務報告第21頁商品金額、存貨合計數如下：           成本     備抵跌價損失    帳面金額 原材料  207,582      (8,500)       199,082 在製品  179,965     (22,308)       157,657 製成品  169,842     (19,510)       150,332 商  品   29,238      (4,517)        24,721 合  計  587,627     (54,835)       531,792 8.更正後金額/內容/頁次: 115年第二季合併財務報告第21頁商品金額、存貨合計數如下：           成本     備抵跌價損失    帳面金額 原材料  207,582      (8,500)       199,082 在製品  179,965     (22,308)       157,657 製成品  169,842     (19,510)       150,332 商  品   29,890      (4,517)        25,373 合  計  587,279     (54,835)       532,444 9.因應措施:更正後資料重新上傳至公開資訊觀測站之財務報告更(補)正專區 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2466 | 冠西電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/20 2.公司名稱:冠西電子企業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正115年第二季合併財務報告第21頁 6.更正資訊項目/報表名稱: 115年第二季合併財務報告第21頁商品金額、存貨合計數 7.更正前金額/內容/頁次: 115年第二季合併財務報告第21頁商品金額、存貨合計數如下：           成本     備抵跌價損失    帳面金額 原材料  207,582      (8,500)       199,082 在製品  179,965     (22,308)       157,657 製成品  169,842     (19,510)       150,332 商  品   29,238      (4,517)        24,721 合  計  587,627     (54,835)       531,792 8.更正後金額/內容/頁次: 115年第二季合併財務報告第21頁商品金額、存貨合計數如下：           成本     備抵跌價損失    帳面金額 原材料  207,582      (8,500)       199,082 在製品  179,965     (22,308)       157,657 製成品  169,842     (19,510)       150,332 商  品   29,890      (4,517)        25,373 合  計  587,279     (54,835)       532,444 9.因應措施:更正後資料重新上傳至公開資訊觀測站之財務報告更(補)正專區 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2466 | 冠西電 | 1 | 1 | 2 | 2 | 10 | repeated_but_no_breakout | 近 10 日上榜 2 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2466 | 冠西電 | 5 | 1 | 5 | 6 | 11 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

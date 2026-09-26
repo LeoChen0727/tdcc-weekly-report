@@ -1,0 +1,4 @@
+date,open,high,low,close,volume,ma5,ema23,ma20,ma60,ma120,return_1d,return_5d,return_20d,volume_ratio,distance_to_ema23_pct,distance_to_ma20_pct,distance_to_high_60_pct
+20260922,4400.0,4995.0,4305.0,4730.0,2004000.0,,,,,,,,,,,,
+20260923,4800.0,4800.0,4520.0,4730.0,586000.0,,,,,,0.0,,,,,,
+20260924,4675.0,4695.0,4530.0,4605.0,250000.0,,,,,,-2.6427,,,,,,

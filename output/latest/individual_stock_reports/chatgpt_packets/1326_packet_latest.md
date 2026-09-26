@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:41 Asia/Taipei
+- generated_at: 2026-09-26 15:50:47 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 69.1
-- high: 69.2
-- low: 67.1
-- close: 68.1
-- volume: 24373131
-- ma5: 67.18
-- ema23_primary: 66.71
-- distance_to_ema23_pct: 2.09
-- ma20: 67.36
-- ma60: 63.53
-- ma120: 56.48
-- return_5d: -2.99
-- return_20d: 13.31
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -12.92
+- date: 20260924
+- open: 65
+- high: 67.2
+- low: 63.8
+- close: 67
+- volume: 18734584
+- ma5: 66.96
+- ema23_primary: 66.69
+- distance_to_ema23_pct: 0.47
+- ma20: 68.77
+- ma60: 64.31
+- ma120: 57.17
+- return_5d: -2.33
+- return_20d: 6.01
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -2.57
+- distance_to_high_60_pct: -14.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,59.9,60.5,56.3,57.1,33373804,59.53,-4.08,58.55,58.68,1.19
-20260825,56.5,58.3,56.1,58,10506144,59.4,-2.36,58.4,58.81,0.4
-20260826,57.9,60.9,57.7,60.3,28273104,59.48,1.39,58.49,58.92,1.12
-20260827,61,64.2,60.1,63.2,38108484,59.79,5.71,58.83,59.07,1.52
 20260828,63.5,64.2,62,62.1,23816854,59.98,3.54,59.06,59.16,1
 20260831,62,68.3,61.9,68.3,71396602,60.67,12.57,59.66,59.38,2.75
 20260901,69.3,74.9,67.3,74.3,119283939,61.81,20.21,60.47,59.74,3.91
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,66.1,67.7,65.4,65.8,15902772,66.4,-0.9,66.45,63.21,0.41
 20260917,66.3,68.7,66.1,68.6,24043657,66.58,3.04,66.97,63.39,0.61
 20260918,69.1,69.2,67.1,68.1,24373131,66.71,2.09,67.36,63.53,0.62
+20260921,68.3,69,67.6,67.8,9958720,66.8,1.5,67.9,63.76,0.26
+20260922,68.4,69.2,66.5,66.5,20038232,66.77,-0.41,68.33,63.95,0.52
+20260923,67,67.2,65.1,65.4,15805076,66.66,-1.89,68.58,64.13,0.42
+20260924,65,67.2,63.8,67,18734584,66.69,0.47,68.77,64.31,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 83.04
-- over_600_ratio: 82.06
-- over_800_ratio: 81.23
-- over_1000_ratio: 80.42
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.2
+- as_of_date: 20260924
+- over_400_ratio: 82.83
+- over_600_ratio: 81.77
+- over_800_ratio: 81
+- over_1000_ratio: 80.19
+- over_400_change_1w: -0.21
+- over_800_change_1w: -0.23
+- over_1000_change_1w: -0.23
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,82.95,-0.02,81.12,-0.01,80.46,0.02,3,False,True
 20260709,82.54,-0.41,80.82,-0.3,80.1,-0.36,0,False,False
 20260717,82.32,-0.22,80.59,-0.23,79.89,-0.21,0,False,False
 20260724,82.79,0.47,80.99,0.4,80.26,0.37,1,True,True
@@ -198,23 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,83.08,1.16,81.22,1.25,80.52,1.3,2,True,True
 20260911,83.18,0.1,81.31,0.09,80.62,0.1,3,True,True
 20260918,83.04,-0.14,81.23,-0.08,80.42,-0.2,0,False,False
+20260924,82.83,-0.21,81,-0.23,80.19,-0.23,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1326 | 台化 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：華南永昌綜合證券(台北市民生東路四段54號4樓) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之法人說明會，說明本公司115年上半年之營運概況及產業展望 5.其他應敘明事項：如遇颱風影響，依臺北市政府公告停止上班訊息，本次說明會將擇期舉辦。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 1326 | 台化 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：華南永昌綜合證券(台北市民生東路四段54號4樓) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之法人說明會，說明本公司115年上半年之營運概況及產業展望 5.其他應敘明事項：如遇颱風影響，依臺北市政府公告停止上班訊息，本次說明會將擇期舉辦。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 1326 | 台化 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：華南永昌綜合證券(台北市民生東路四段54號4樓) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之法人說明會，說明本公司115年上半年之營運概況及產業展望 5.其他應敘明事項：如遇颱風影響，依臺北市政府公告停止上班訊息，本次說明會將擇期舉辦。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 1326 | 台化 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_put_bullish | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：華南永昌綜合證券(台北市民生東路四段54號4樓) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之法人說明會，說明本公司115年上半年之營運概況及產業展望 5.其他應敘明事項：如遇颱風影響，依臺北市政府公告停止上班訊息，本次說明會將擇期舉辦。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1326 | 台化 | 3 | 3 | 3 | 5 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 1326 | 台化 | 7 | 7 | 5 | 7 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1326 | 台化 | 138 | 5 | 14358110.0 | 84830.0 | 169.26 | no_signal |
+| 20260924 | 1326 | 台化 | 141 | 5 | 12613980.0 | 48320.0 | 261.05 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3171 炎洲流通
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:42 Asia/Taipei
+- generated_at: 2026-09-26 15:51:49 Asia/Taipei
 - stock_id: 3171
 - stock_name: 炎洲流通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 59.4
-- high: 59.8
-- low: 59.4
-- close: 59.6
-- volume: 21000
-- ma5: 59.44
-- ema23_primary: 61.51
-- distance_to_ema23_pct: -3.11
-- ma20: 61.65
-- ma60: 64.22
-- ma120: 66.77
-- return_5d: 0
-- return_20d: -5.4
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -3.33
-- distance_to_high_60_pct: -15.94
+- date: 20260924
+- open: 58.9
+- high: 59
+- low: 58.8
+- close: 59
+- volume: 3000
+- ma5: 59.06
+- ema23_primary: 60.76
+- distance_to_ema23_pct: -2.89
+- ma20: 60.73
+- ma60: 63.55
+- ma120: 66.52
+- return_5d: -0.51
+- return_20d: -6.79
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: -2.84
+- distance_to_high_60_pct: -16.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,63,63.2,62.9,63.2,12000,64.47,-1.96,64.35,67.46,0.59
-20260825,63.2,64,62.8,64,24000,64.43,-0.66,64.34,67.36,1.14
-20260826,63.7,63.7,63.7,63.7,2000,64.37,-1.04,64.31,67.26,0.1
-20260827,63.1,63.6,63,63.3,8000,64.28,-1.52,64.27,67.1,0.4
 20260828,63.7,63.7,63.3,63.3,7000,64.2,-1.4,64.16,66.96,0.36
 20260831,63,63,62.8,63,10000,64.1,-1.71,64.06,66.81,0.5
 20260901,63,63,62.6,62.9,19000,64,-1.71,63.94,66.66,0.93
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,59.5,59.5,59.5,59.5,1000,61.9,-3.88,62.01,64.56,0.04
 20260917,59.3,59.3,59.3,59.3,1000,61.69,-3.87,61.82,64.38,0.04
 20260918,59.4,59.8,59.4,59.6,21000,61.51,-3.11,61.65,64.22,0.97
+20260921,58.9,58.9,58.4,58.4,15000,61.25,-4.66,61.41,64.04,0.68
+20260922,59.4,59.7,58.8,59.4,22000,61.1,-2.78,61.18,63.89,1.01
+20260923,59.4,59.4,58.6,58.9,8000,60.92,-3.31,60.94,63.71,0.36
+20260924,58.9,59,58.8,59,3000,60.76,-2.89,60.73,63.55,0.14
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 76.93
 - over_600_ratio: 76.93
 - over_800_ratio: 74.76
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,76.93,0,74.76,0,71.98,0,0,False,False
 20260709,76.93,0,74.76,0,71.98,0,0,False,False
 20260717,76.93,0,74.76,0,71.98,0,0,False,False
 20260724,76.93,0,74.76,0,71.98,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,76.93,0,74.76,0,71.98,0,0,False,False
 20260911,76.93,0,74.76,0,71.98,0,0,False,False
 20260918,76.93,0,74.76,0,71.98,0,0,False,False
+20260924,76.93,0,74.76,0,71.98,0,0,False,False
 ```
 
 ## Candidate Context

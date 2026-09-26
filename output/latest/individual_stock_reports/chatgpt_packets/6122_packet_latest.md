@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6122 擎邦
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:39 Asia/Taipei
+- generated_at: 2026-09-26 15:52:46 Asia/Taipei
 - stock_id: 6122
 - stock_name: 擎邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: starter_1_3
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,10 +104,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +122,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 51.5
-- high: 51.7
-- low: 50.6
-- close: 51.2
-- volume: 278000
-- ma5: 51.08
-- ema23_primary: 50.04
-- distance_to_ema23_pct: 2.32
-- ma20: 50.03
-- ma60: 49.43
-- ma120: 48.99
-- return_5d: 0.79
-- return_20d: 6.89
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 2.33
-- distance_to_high_60_pct: -3.76
+- date: 20260924
+- open: 54.2
+- high: 58.5
+- low: 53.6
+- close: 58.2
+- volume: 2682000
+- ma5: 53.84
+- ema23_primary: 51.42
+- distance_to_ema23_pct: 13.18
+- ma20: 51.19
+- ma60: 49.88
+- ma120: 49.16
+- return_5d: 13.45
+- return_20d: 19.51
+- volume_ratio: 4.44
+- distance_to_ma20_pct_auxiliary: 13.71
+- distance_to_high_60_pct: -0.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,47.9,48.7,47.9,48.65,264000,48.05,1.25,47.59,48.61,1.02
-20260825,48.6,49,48.3,48.9,199000,48.12,1.62,47.58,48.65,0.79
-20260826,49.3,49.4,48.65,48.7,97000,48.17,1.1,47.57,48.65,0.41
-20260827,48.6,48.7,48,48.7,207000,48.21,1.01,47.56,48.66,0.87
 20260828,48.7,48.9,48.4,48.65,153000,48.25,0.83,47.48,48.66,0.72
 20260831,48.5,48.5,47.8,48,108000,48.23,-0.47,47.55,48.65,0.54
 20260901,48,48.55,48,48.05,92000,48.21,-0.34,47.66,48.64,0.49
@@ -168,18 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,50.8,51.3,50.5,51.1,185000,49.81,2.59,49.69,49.32,0.59
 20260917,51.6,51.6,50.8,51.3,299000,49.94,2.73,49.87,49.38,0.92
 20260918,51.5,51.7,50.6,51.2,278000,50.04,2.32,50.03,49.43,0.83
+20260921,51.2,52.3,51,51.7,410000,50.18,3.03,50.19,49.51,1.2
+20260922,52.3,53,51.6,52.9,903000,50.41,4.95,50.38,49.6,2.4
+20260923,53.1,55.4,53,55.2,2160000,50.81,8.65,50.71,49.72,4.5
+20260924,54.2,58.5,53.6,58.2,2682000,51.42,13.18,51.19,49.88,4.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 32.93
-- over_600_ratio: 31.62
-- over_800_ratio: 25.4
-- over_1000_ratio: 23.04
-- over_400_change_1w: 0.7
-- over_800_change_1w: 0.61
-- over_1000_change_1w: 0.61
-- tdcc_consecutive_up_weeks: 12
+- as_of_date: 20260924
+- over_400_ratio: 35.33
+- over_600_ratio: 32.97
+- over_800_ratio: 26.64
+- over_1000_ratio: 23.14
+- over_400_change_1w: 2.4
+- over_800_change_1w: 1.24
+- over_1000_change_1w: 0.1
+- tdcc_consecutive_up_weeks: 13
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,29.57,0.02,22.86,0.02,20.5,0.02,1,True,True
 20260709,30.79,1.22,22.88,0.02,20.52,0.02,2,True,True
 20260717,31.65,0.86,24.24,1.36,21.88,1.36,3,True,True
 20260724,31.55,-0.1,24.27,0.03,21.91,0.03,4,False,True
@@ -199,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,31.99,1.24,24.64,0.04,22.28,0.04,10,True,True
 20260911,32.23,0.24,24.79,0.15,22.43,0.15,11,True,True
 20260918,32.93,0.7,25.4,0.61,23.04,0.61,12,True,True
+20260924,35.33,2.4,26.64,1.24,23.14,0.1,13,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 6122 | 擎邦 | true_breakout | 嚴格突破 | 126.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.事實發生日:115/09/02 2.契約或承諾相對人: 台塑新智能科技股份有限公司 3.與公司關係:業主 4.契約或承諾起迄日期（或解除日期）:施工期限為決標後455日， 契約待業主董事會決議通過後，由雙方完成正式契約簽署後確定。 5.主要內容（解除者不適用）:本公司收到台塑新智能科技股份有限公司 之彰濱廠二期營建統包及機電設計案之得標通知，得標通知所載未稅金額 約為新臺幣陸拾參億捌仟多萬元。本案尚待業主董事會決議通過後始生效， 實際權利義務以雙方後續簽署之正式契約為準。 6.限制條款（解除者不適用）:尚待正式契約簽訂後確定 7.承諾事項（解除者不適用）:尚待正式契約簽訂後確定 8.其他重要約定事項（解除者不適用）:無 9.對公司財務、業務之影響: 本案如後續正式生效並依約履行，預期將充實本公司在建工程規模及 未來營收動能，對本公司未來營收及獲利表現具正面貢獻。 10.具體目的:拓展工程承攬業務。 11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項): 本公司依業主得標通知書辦理公告。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 6122 | 擎邦 | 2 | 2 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

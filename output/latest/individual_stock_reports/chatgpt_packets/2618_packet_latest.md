@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:23 Asia/Taipei
+- generated_at: 2026-09-26 15:51:30 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 43
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 44
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 42.05
-- high: 42.1
-- low: 41.2
-- close: 41.75
-- volume: 33904689
-- ma5: 41.67
-- ema23_primary: 42.05
-- distance_to_ema23_pct: -0.72
-- ma20: 42.19
-- ma60: 42.25
-- ma120: 39.23
-- return_5d: -1.42
-- return_20d: -2
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: -1.05
-- distance_to_high_60_pct: -7.22
+- date: 20260924
+- open: 42.35
+- high: 42.35
+- low: 41.5
+- close: 42
+- volume: 20371832
+- ma5: 42.21
+- ema23_primary: 42.14
+- distance_to_ema23_pct: -0.32
+- ma20: 42.13
+- ma60: 42.13
+- ma120: 39.49
+- return_5d: -0.12
+- return_20d: -1.75
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -0.3
+- distance_to_high_60_pct: -5.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,42.65,43.6,42.55,42.65,20270027,42.11,1.28,42.42,41.39,0.52
-20260825,42.65,42.75,42,42.2,11423716,42.12,0.2,42.4,41.49,0.31
-20260826,42.85,43.4,42.8,43,28471617,42.19,1.92,42.47,41.58,0.81
-20260827,43.5,43.5,42.5,42.75,24917033,42.24,1.21,42.52,41.67,0.73
 20260828,42.6,42.6,41.6,41.8,20564641,42.2,-0.95,42.45,41.74,0.65
 20260831,41.75,42.05,41.45,42,20960560,42.18,-0.44,42.36,41.81,0.69
 20260901,41.55,42.4,41.5,42.4,21244156,42.2,0.47,42.29,41.88,0.73
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,41.4,41.55,41,41.3,10972884,42.09,-1.87,42.24,42.33,0.61
 20260917,41.35,42.25,41.2,42.05,16921237,42.08,-0.08,42.23,42.3,0.96
 20260918,42.05,42.1,41.2,41.75,33904689,42.05,-0.72,42.19,42.25,1.88
+20260921,41.95,42.2,41.5,41.95,7627935,42.05,-0.23,42.16,42.22,0.44
+20260922,42.2,42.5,41.75,42.5,18311354,42.08,0.99,42.17,42.2,1.03
+20260923,42.85,43.2,42.45,42.85,37960392,42.15,1.67,42.16,42.16,2.08
+20260924,42.35,42.35,41.5,42,20371832,42.14,-0.32,42.13,42.13,1.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 82.6
-- over_600_ratio: 81.39
-- over_800_ratio: 80.36
-- over_1000_ratio: 79.4
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 82.95
+- over_600_ratio: 81.68
+- over_800_ratio: 80.64
+- over_1000_ratio: 79.72
+- over_400_change_1w: 0.35
+- over_800_change_1w: 0.28
+- over_1000_change_1w: 0.32
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,79.41,0.58,77.04,0.53,76.2,0.43,9,True,True
 20260709,79.5,0.09,77.17,0.13,76.33,0.13,10,True,True
 20260717,79.76,0.26,77.37,0.2,76.58,0.25,11,True,True
 20260724,80.2,0.44,77.83,0.46,77.07,0.49,12,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,82.49,0.22,80.25,0.26,79.36,0.23,18,True,True
 20260911,82.43,-0.06,80.14,-0.11,79.22,-0.14,0,False,False
 20260918,82.6,0.17,80.36,0.22,79.4,0.18,1,True,True
+20260924,82.95,0.35,80.64,0.28,79.72,0.32,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2618 | 長榮航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/15 2.發生緣由: 本公司發現有不明人士透過惡意IP入侵本公司內部資訊環境，取 得員工姓名與公務聯繫資訊。 3.處理過程: 本公司發現此狀況後，已立即依公司程序應變，並採取必要的防 護措施將影響降到最低。本公司已主動通報相關主管機關，並公 告全體同仁知悉。 4.預計可能損失或影響:目前評估對公司所有業務均不受影響。 5.可能獲得保險理賠之金額:不適用。 6.改善情形及未來因應措施: 本公司已重新檢視可能造成資安疑慮的因子並加以防範，同時持 續加強監控。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2618 | 長榮航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/15 2.發生緣由: 本公司發現有不明人士透過惡意IP入侵本公司內部資訊環境，取 得員工姓名與公務聯繫資訊。 3.處理過程: 本公司發現此狀況後，已立即依公司程序應變，並採取必要的防 護措施將影響降到最低。本公司已主動通報相關主管機關，並公 告全體同仁知悉。 4.預計可能損失或影響:目前評估對公司所有業務均不受影響。 5.可能獲得保險理賠之金額:不適用。 6.改善情形及未來因應措施: 本公司已重新檢視可能造成資安疑慮的因子並加以防範，同時持 續加強監控。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2618 | 長榮航 | 10 | 10 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2618 | 長榮航 | 14 | 14 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2618 | 長榮航 | 41 | 0 | 1544960.0 | 0.0 |  | no_signal |
+| 20260924 | 2618 | 長榮航 | 40 | 0 | 1662750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

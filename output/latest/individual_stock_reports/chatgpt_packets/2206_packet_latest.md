@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2206 三陽工業
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:03 Asia/Taipei
+- generated_at: 2026-09-26 15:51:10 Asia/Taipei
 - stock_id: 2206
 - stock_name: 三陽工業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,7 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 64.3
-- high: 64.6
-- low: 63.3
-- close: 64.1
-- volume: 2453441
-- ma5: 63.64
-- ema23_primary: 63.39
-- distance_to_ema23_pct: 1.13
-- ma20: 63.54
-- ma60: 62.94
-- ma120: 61.19
-- return_5d: 1.58
-- return_20d: -0.31
-- volume_ratio: 3.62
-- distance_to_ma20_pct_auxiliary: 0.88
-- distance_to_high_60_pct: -3.9
+- date: 20260924
+- open: 63.4
+- high: 63.4
+- low: 62.9
+- close: 62.9
+- volume: 220086
+- ma5: 63.66
+- ema23_primary: 63.43
+- distance_to_ema23_pct: -0.83
+- ma20: 63.5
+- ma60: 63.09
+- ma120: 61.34
+- return_5d: -1.72
+- return_20d: -0.94
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -0.94
+- distance_to_high_60_pct: -5.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,64.5,64.6,63.6,64,430290,62.57,2.29,62.5,62.39,0.41
-20260825,63.6,64.1,63.4,63.9,717831,62.68,1.95,62.56,62.45,0.7
-20260826,63.7,63.8,63,63.6,484752,62.76,1.34,62.56,62.49,0.52
-20260827,63.6,63.6,63,63.5,447727,62.82,1.09,62.51,62.52,0.51
 20260828,63.5,63.7,62.4,63.1,1150793,62.84,0.41,62.42,62.54,1.41
 20260831,62.8,63.2,62.3,63.1,803313,62.86,0.38,62.38,62.54,1.03
 20260901,62.1,63.3,62.1,63.2,408638,62.89,0.49,62.53,62.54,0.59
@@ -173,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,63.7,63.8,63,63.6,521934,63.26,0.54,63.52,62.86,0.86
 20260917,63.8,64,63.1,64,612614,63.32,1.07,63.55,62.9,1.03
 20260918,64.3,64.6,63.3,64.1,2453441,63.39,1.13,63.54,62.94,3.62
+20260921,64.1,64.1,63.3,63.8,411369,63.42,0.6,63.53,62.98,0.61
+20260922,64.1,64.1,63.2,63.8,247423,63.45,0.55,63.52,63.01,0.38
+20260923,63.8,64.1,63.5,63.7,327056,63.47,0.36,63.53,63.05,0.51
+20260924,63.4,63.4,62.9,62.9,220086,63.43,-0.83,63.5,63.09,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 85.53
-- over_600_ratio: 84.56
-- over_800_ratio: 83.01
-- over_1000_ratio: 81.7
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.18
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 12
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 85.49
+- over_600_ratio: 84.54
+- over_800_ratio: 82.91
+- over_1000_ratio: 81.62
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,84.2,0.25,81.87,0,80.57,0.37,1,False,True
 20260709,84.36,0.16,82.13,0.26,80.7,0.13,2,True,True
 20260717,84.45,0.09,82.13,0,80.7,0,3,False,False
 20260724,84.64,0.19,82.16,0.03,80.61,-0.09,4,False,True
@@ -204,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,85.27,0.06,82.72,0.03,81.55,0.06,10,True,True
 20260911,85.44,0.17,82.83,0.11,81.65,0.1,11,True,True
 20260918,85.53,0.09,83.01,0.18,81.7,0.05,12,True,True
+20260924,85.49,-0.04,82.91,-0.1,81.62,-0.08,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2206 | 三陽工業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/07/03 2.本次買回股份數量(股):4,811,000 3.本次買回股份總金額(元):299,181,464 4.本次平均每股買回價格(元):62.19 5.於買回期間內累積已持有自己公司股份數量(股):9,833,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.25 7.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2206 | 三陽工業 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

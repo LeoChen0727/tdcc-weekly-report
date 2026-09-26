@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:45 Asia/Taipei
+- generated_at: 2026-09-26 15:51:51 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 257
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 261
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -130,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 399.5
-- high: 401.5
-- low: 395
-- close: 396.5
-- volume: 6708000
-- ma5: 395.5
-- ema23_primary: 403.52
-- distance_to_ema23_pct: -1.74
-- ma20: 408.07
-- ma60: 401.12
-- ma120: 406.45
-- return_5d: -1.49
-- return_20d: -6.15
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -2.84
-- distance_to_high_60_pct: -13.71
+- date: 20260924
+- open: 381
+- high: 381
+- low: 373.5
+- close: 378
+- volume: 4105000
+- ma5: 386.1
+- ema23_primary: 397.53
+- distance_to_ema23_pct: -4.91
+- ma20: 400.35
+- ma60: 399.87
+- ma120: 407.27
+- return_5d: -4.3
+- return_20d: -9.03
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -5.58
+- distance_to_high_60_pct: -17.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,425.5,459.5,421.5,438.5,31204000,404.22,8.48,402.2,405.9,2.14
-20260825,437.5,437.5,407,418.5,16790000,405.41,3.23,404.68,405.96,1.13
-20260826,421,422,411,416,7952000,406.29,2.39,405.77,405.77,0.58
-20260827,416,422,414,415.5,5637000,407.06,2.07,407.62,404.88,0.43
 20260828,418,418.5,407,412,6697000,407.47,1.11,408.3,404.04,0.55
 20260831,408.5,416.5,407,413.5,4594000,407.98,1.35,409.4,403.3,0.39
 20260901,416.5,417.5,410.5,412,3920000,408.31,0.9,410.07,403.14,0.35
@@ -172,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,389.5,399.5,389,399.5,3285000,404.99,-1.36,409.68,401.56,0.38
 20260917,405.5,405.5,395,395,3486000,404.16,-2.27,409.38,401.33,0.41
 20260918,399.5,401.5,395,396.5,6708000,403.52,-1.74,408.07,401.12,0.87
+20260921,385.5,392,383,389,4607000,402.31,-3.31,405.6,400.98,0.72
+20260922,392,393,384,384,4599000,400.78,-4.19,403.88,400.64,0.79
+20260923,388.5,389.5,382.5,383,3294000,399.3,-4.08,402.23,400.21,0.59
+20260924,381,381,373.5,378,4105000,397.53,-4.91,400.35,399.87,0.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 35.9
-- over_600_ratio: 33.57
-- over_800_ratio: 32.14
-- over_1000_ratio: 30.28
-- over_400_change_1w: -0.94
-- over_800_change_1w: -0.58
-- over_1000_change_1w: 0.54
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260924
+- over_400_ratio: 34.24
+- over_600_ratio: 31.77
+- over_800_ratio: 29.78
+- over_1000_ratio: 28.41
+- over_400_change_1w: -1.66
+- over_800_change_1w: -2.36
+- over_1000_change_1w: -1.87
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,29.03,-1.8,25.82,-0.78,23.97,-1.27,0,False,False
 20260709,29.84,0.81,26.63,0.81,25.01,1.04,1,True,True
 20260717,30.09,0.25,26.29,-0.34,25.19,0.18,2,False,True
 20260724,30.52,0.43,26.14,-0.15,25.08,-0.11,3,False,False
@@ -203,18 +203,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,35.18,-1.68,30.44,-2,28.56,-1.69,0,False,False
 20260911,36.84,1.66,32.72,2.28,29.74,1.18,1,True,True
 20260918,35.9,-0.94,32.14,-0.58,30.28,0.54,2,False,True
+20260924,34.24,-1.66,29.78,-2.36,28.41,-1.87,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 23 | 3 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 4 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3260 | 威剛 | 23 | 23 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3260 | 威剛 | 27 | 27 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

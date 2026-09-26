@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7376 系統電永豐56購01
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:24 Asia/Taipei
+- generated_at: 2026-09-26 15:53:30 Asia/Taipei
 - stock_id: 7376
 - stock_name: 系統電永豐56購01
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20250407
 - price_rows: 1
-- current_main_price_date: 20260918
+- current_main_price_date: 20260924
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing

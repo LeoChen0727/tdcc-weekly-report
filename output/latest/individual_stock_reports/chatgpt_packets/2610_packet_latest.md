@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2610 華航
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:23 Asia/Taipei
+- generated_at: 2026-09-26 15:51:30 Asia/Taipei
 - stock_id: 2610
 - stock_name: 華航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 43
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 44
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 20.35
+- date: 20260924
+- open: 20.3
 - high: 20.35
-- low: 20.05
-- close: 20.15
-- volume: 24511612
-- ma5: 20.11
-- ema23_primary: 20.4
-- distance_to_ema23_pct: -1.22
-- ma20: 20.38
-- ma60: 21.09
-- ma120: 20.08
-- return_5d: -1.23
-- return_20d: -1.23
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: -1.12
-- distance_to_high_60_pct: -16.91
+- low: 20
+- close: 20.3
+- volume: 25331179
+- ma5: 20.33
+- ema23_primary: 20.39
+- distance_to_ema23_pct: -0.45
+- ma20: 20.33
+- ma60: 20.9
+- ma120: 20.16
+- return_5d: -0.25
+- return_20d: -2.4
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: -0.14
+- distance_to_high_60_pct: -11.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,20.45,20.9,20.45,20.5,29481044,20.81,-1.49,21.09,21.2,0.67
-20260825,20.65,20.65,20.35,20.4,27320147,20.78,-1.81,21.02,21.22,0.69
-20260826,20.55,20.95,20.55,20.8,39471879,20.78,0.1,20.98,21.24,1.02
-20260827,20.95,21,20.7,20.8,30842889,20.78,0.1,20.93,21.26,0.81
 20260828,20.65,20.65,20.3,20.35,26793622,20.74,-1.9,20.83,21.27,0.75
 20260831,20.3,20.5,20.1,20.25,22214855,20.7,-2.19,20.72,21.28,0.63
 20260901,20.25,20.4,20.25,20.35,13074092,20.67,-1.57,20.61,21.28,0.38
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,19.95,20.1,19.9,19.95,12213671,20.43,-2.34,20.37,21.2,0.63
 20260917,20.1,20.35,20.05,20.35,14343844,20.42,-0.35,20.39,21.15,0.74
 20260918,20.35,20.35,20.05,20.15,24511612,20.4,-1.22,20.38,21.09,1.28
+20260921,20.25,20.35,20.1,20.25,6925883,20.39,-0.67,20.36,21.04,0.38
+20260922,20.35,20.5,20.25,20.5,20154934,20.4,0.51,20.37,20.99,1.14
+20260923,20.55,20.6,20.25,20.45,34416034,20.4,0.24,20.35,20.94,1.98
+20260924,20.3,20.35,20,20.3,25331179,20.39,-0.45,20.33,20.9,1.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 73.04
-- over_600_ratio: 71.66
-- over_800_ratio: 70.94
-- over_1000_ratio: 70.15
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 73.09
+- over_600_ratio: 71.73
+- over_800_ratio: 71.01
+- over_1000_ratio: 70.24
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,72.49,0.18,70.53,0.2,69.73,0.16,5,True,True
 20260709,72.61,0.12,70.69,0.16,69.89,0.16,6,True,True
 20260717,72.42,-0.19,70.38,-0.31,69.56,-0.33,0,False,False
 20260724,72.4,-0.02,70.37,-0.01,69.52,-0.04,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,73.07,0.07,71.03,0.08,70.19,0.06,2,True,True
 20260911,73.08,0.01,71.04,0.01,70.19,0,3,False,True
 20260918,73.04,-0.04,70.94,-0.1,70.15,-0.04,0,False,False
+20260924,73.09,0.05,71.01,0.07,70.24,0.09,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2610 | 華航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落於桃園市大園區航勤南路7號三樓F301及F344室 2.事實發生日:115/9/9~115/9/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依『公開發行公司取得或處分資產處理準則』第15條第2項規定， 事後提報最近期董事會追認。 民國115年9月9日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：房舍面積1,762平方公尺，約533坪 交易總金額：新臺幣54,947,970元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：臺灣飛機維修股份有限公司 與公司之關係：關係人(本公司之子公司) 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：地點符合營運需求 前次移轉情形：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件： 每月租金新台幣2,035,110元，租期自116年3月至118年5月，共27個月。 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 本次交易之決定方式：議價 價格決定之參考依據：市場價格 決策單位：經董事會決議授權由董事長先行決行，續提報最近期董事會追認 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 業務營運使用 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2610 | 華航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落於桃園市大園區航勤南路7號三樓F301及F344室 2.事實發生日:115/9/9~115/9/9 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依『公開發行公司取得或處分資產處理準則』第15條第2項規定， 事後提報最近期董事會追認。 民國115年9月9日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：房舍面積1,762平方公尺，約533坪 交易總金額：新臺幣54,947,970元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：臺灣飛機維修股份有限公司 與公司之關係：關係人(本公司之子公司) 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：地點符合營運需求 前次移轉情形：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件： 每月租金新台幣2,035,110元，租期自116年3月至118年5月，共27個月。 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 本次交易之決定方式：議價 價格決定之參考依據：市場價格 決策單位：經董事會決議授權由董事長先行決行，續提報最近期董事會追認 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 業務營運使用 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2610 | 華航 | 10 | 10 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2610 | 華航 | 14 | 14 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2610 | 華航 | 36 | 0 | 997870.0 | 0.0 |  | no_signal |
+| 20260924 | 2610 | 華航 | 35 | 0 | 1553770.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

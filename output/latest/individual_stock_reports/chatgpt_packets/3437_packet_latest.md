@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3437 榮創
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:50 Asia/Taipei
+- generated_at: 2026-09-26 15:51:57 Asia/Taipei
 - stock_id: 3437
 - stock_name: 榮創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: high_level_distribution_risk
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,11 +100,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +117,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 20.95
-- high: 22.35
-- low: 20.4
-- close: 22.35
-- volume: 9848954
-- ma5: 19.3
-- ema23_primary: 18.64
-- distance_to_ema23_pct: 19.89
-- ma20: 18.51
-- ma60: 18.57
-- ma120: 21.23
-- return_5d: 23.14
-- return_20d: 26.99
-- volume_ratio: 7.09
-- distance_to_ma20_pct_auxiliary: 20.75
-- distance_to_high_60_pct: -2.4
+- date: 20260924
+- open: 21.1
+- high: 22.7
+- low: 21.1
+- close: 22
+- volume: 2575324
+- ma5: 21.97
+- ema23_primary: 19.59
+- distance_to_ema23_pct: 12.31
+- ma20: 19.26
+- ma60: 18.6
+- ma120: 21.25
+- return_5d: 8.11
+- return_20d: 19.57
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 14.21
+- distance_to_high_60_pct: -9.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,17.6,18.4,17.6,17.8,732911,17.77,0.16,17.23,19.82,1.58
-20260825,17.55,17.9,17.05,17.9,474847,17.78,0.66,17.29,19.72,1.04
-20260826,17.75,19.15,17.75,18.35,1256438,17.83,2.92,17.41,19.62,2.65
-20260827,18.35,18.8,18.25,18.4,580646,17.88,2.92,17.57,19.53,1.23
 20260828,18.5,18.8,18.4,18.4,398763,17.92,2.67,17.65,19.43,0.86
 20260831,18.45,18.5,18.1,18.35,332534,17.96,2.19,17.72,19.34,0.73
 20260901,18.3,18.45,18.05,18.05,312895,17.96,0.48,17.75,19.25,0.71
@@ -168,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,17.5,18.7,17.5,18.5,1123662,18.12,2.11,18.11,18.62,1.43
 20260917,18.8,20.35,18.75,20.35,3072175,18.3,11.18,18.27,18.57,3.33
 20260918,20.95,22.35,20.4,22.35,9848954,18.64,19.89,18.51,18.57,7.09
+20260921,22.45,24.3,22.15,22.3,11410568,18.95,17.7,18.73,18.59,5.94
+20260922,22.3,22.4,21.5,21.6,2900082,19.17,12.69,18.92,18.6,1.42
+20260923,21.3,23,21.3,21.6,3135596,19.37,11.51,19.08,18.59,1.47
+20260924,21.1,22.7,21.1,22,2575324,19.59,12.31,19.26,18.6,1.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 26.03
-- over_600_ratio: 22.86
-- over_800_ratio: 21.42
-- over_1000_ratio: 20.73
-- over_400_change_1w: -0.19
-- over_800_change_1w: -0.09
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 13
+- as_of_date: 20260924
+- over_400_ratio: 25.4
+- over_600_ratio: 22.64
+- over_800_ratio: 21.18
+- over_1000_ratio: 19.88
+- over_400_change_1w: -0.63
+- over_800_change_1w: -0.24
+- over_1000_change_1w: -0.85
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,24.38,0.2,20.77,0.13,20.08,0.13,2,True,True
 20260709,24.77,0.39,20.88,0.11,20.19,0.11,3,True,True
 20260717,24.23,-0.54,20.77,-0.11,20.08,-0.11,4,False,False
 20260724,24,-0.23,20.81,0.04,20.12,0.04,5,False,True
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,25.55,0.02,21.4,0.01,20.14,0.01,11,False,True
 20260911,26.22,0.67,21.51,0.11,20.25,0.11,12,True,True
 20260918,26.03,-0.19,21.42,-0.09,20.73,0.48,13,False,True
+20260924,25.4,-0.63,21.18,-0.24,19.88,-0.85,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3437 | 榮創 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3437 | 榮創 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3437 | 榮創 | 6 | 2 | 5 | 6 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260924 | 3437 | 榮創 | 1 | 1 | 3 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

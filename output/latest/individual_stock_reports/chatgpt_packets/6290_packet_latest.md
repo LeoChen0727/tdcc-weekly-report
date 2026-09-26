@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6290 良維
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:52 Asia/Taipei
+- generated_at: 2026-09-26 15:52:59 Asia/Taipei
 - stock_id: 6290
 - stock_name: 良維
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,41 +69,43 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_support
+- thesis_state: unclear
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 274
-- high: 288
-- low: 270.5
-- close: 282.5
-- volume: 9008000
-- ma5: 265.2
-- ema23_primary: 255.84
-- distance_to_ema23_pct: 10.42
-- ma20: 258.02
-- ma60: 250.37
-- ma120: 265.99
-- return_5d: 9.5
-- return_20d: 33.57
-- volume_ratio: 1.85
-- distance_to_ma20_pct_auxiliary: 9.49
-- distance_to_high_60_pct: -13.87
+- date: 20260924
+- open: 270
+- high: 280.5
+- low: 270
+- close: 274
+- volume: 1970000
+- ma5: 277.5
+- ema23_primary: 261.77
+- distance_to_ema23_pct: 4.67
+- ma20: 265.3
+- ma60: 248.55
+- ma120: 268.62
+- return_5d: 3.01
+- return_20d: 9.38
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 3.28
+- distance_to_high_60_pct: -16.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,217,232.5,216.5,229,8522000,225.34,1.62,213.62,270.6,2.55
-20260825,227.5,239,216,239,9063000,226.48,5.53,214.82,268.8,2.47
-20260826,233,244,232.5,241,6158000,227.69,5.85,216.75,266.7,1.66
-20260827,241.5,256,239,250.5,6949000,229.59,9.11,219.8,264.83,1.77
 20260828,252,252.5,243,248,4794000,231.12,7.3,221.8,262.86,1.19
 20260831,247,259,245.5,253.5,5374000,232.99,8.8,223.6,261.02,1.27
 20260901,252,268,251,259.5,5294000,235.2,10.33,225.82,259.51,1.24
@@ -166,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,253,269,253,264,2852000,252.27,4.65,251.9,251.52,0.64
 20260917,267.5,282,266,266,4382000,253.41,4.97,254.47,250.85,0.98
 20260918,274,288,270.5,282.5,9008000,255.84,10.42,258.02,250.37,1.85
+20260921,280,284.5,277,281,3117000,257.93,8.94,260.62,250.04,0.68
+20260922,286,291.5,275.5,276,4359000,259.44,6.38,262.48,249.69,1
+20260923,277.5,281.5,272.5,274,2229000,260.65,5.12,264.12,249.12,0.53
+20260924,270,280.5,270,274,1970000,261.77,4.67,265.3,248.55,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 39.76
-- over_600_ratio: 34.8
-- over_800_ratio: 31.61
-- over_1000_ratio: 28.95
-- over_400_change_1w: 0.37
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0.41
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 41.17
+- over_600_ratio: 35.65
+- over_800_ratio: 33.64
+- over_1000_ratio: 29.92
+- over_400_change_1w: 1.41
+- over_800_change_1w: 2.03
+- over_1000_change_1w: 0.97
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,42.56,0.33,36.74,0.39,31.86,-0.27,1,False,True
 20260709,39.97,-2.59,34.16,-2.58,29.31,-2.55,0,False,False
 20260717,38.95,-1.02,33.72,-0.44,28.22,-1.09,0,False,False
 20260724,38.14,-0.81,32.21,-1.51,27.93,-0.29,0,False,False
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,37.68,0.41,29.94,0.16,25.58,-1.07,2,False,True
 20260911,39.39,1.71,31.65,1.71,28.54,2.96,3,True,True
 20260918,39.76,0.37,31.61,-0.04,28.95,0.41,4,False,True
+20260924,41.17,1.41,33.64,2.03,29.92,0.97,5,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6290 | 良維 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6290 | 良維 | 4 | 1 | 4 | 6 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

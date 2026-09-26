@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:02 Asia/Taipei
+- generated_at: 2026-09-26 15:52:09 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 122
-- high: 122.5
-- low: 118.5
-- close: 118.5
-- volume: 3411215
-- ma5: 120.1
-- ema23_primary: 120.85
-- distance_to_ema23_pct: -1.95
-- ma20: 120.9
-- ma60: 126.16
-- ma120: 152.46
-- return_5d: -3.66
-- return_20d: 10.75
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -1.99
-- distance_to_high_60_pct: -36.46
+- date: 20260924
+- open: 124
+- high: 125
+- low: 122
+- close: 123
+- volume: 3124677
+- ma5: 122.8
+- ema23_primary: 121.77
+- distance_to_ema23_pct: 1.01
+- ma20: 123.28
+- ma60: 123.05
+- ma120: 150.66
+- return_5d: 3.8
+- return_20d: 5.58
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -0.22
+- distance_to_high_60_pct: -31.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,107,112.5,107,108,2600297,116.46,-7.26,109.92,142.72,0.45
-20260825,107.5,110,104,109.5,2964744,115.88,-5.5,110.19,141.66,0.52
-20260826,110,115,108.5,114,3086079,115.72,-1.49,110.99,140.52,0.58
-20260827,115,119,114.5,116.5,4874712,115.78,0.62,112.27,139.57,0.94
 20260828,120,126.5,116.5,125,7894954,116.55,7.25,113.53,138.75,1.47
 20260831,122,126,119.5,120.5,11778173,116.88,3.1,114.33,137.95,2.06
 20260901,123.5,132.5,123.5,132.5,9357457,118.18,12.11,115.72,137.32,1.59
@@ -173,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,121.5,123.5,120,123.5,2451847,121.3,1.81,119.88,128.16,0.4
 20260917,125,125.5,118.5,118.5,4150799,121.07,-2.12,120.33,127.14,0.67
 20260918,122,122.5,118.5,118.5,3411215,120.85,-1.95,120.9,126.16,0.54
+20260921,119.5,122,118.5,118.5,2328106,120.66,-1.79,121.42,125.33,0.37
+20260922,121.5,130,121,128.5,16190129,121.31,5.93,122.38,124.7,2.33
+20260923,127,127.5,124.5,125.5,8889927,121.66,3.16,122.95,123.86,1.23
+20260924,124,125,122,123,3124677,121.77,1.01,123.28,123.05,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 28.74
-- over_600_ratio: 26.21
-- over_800_ratio: 22.79
-- over_1000_ratio: 20.25
-- over_400_change_1w: -0.47
-- over_800_change_1w: -0.5
-- over_1000_change_1w: -1.06
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 29.64
+- over_600_ratio: 27.08
+- over_800_ratio: 23.08
+- over_1000_ratio: 20.48
+- over_400_change_1w: 0.9
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,36.61,-1.76,30.92,-1.12,29.98,-1.11,0,False,False
 20260709,31.82,-4.79,25.82,-5.1,23.24,-6.74,0,False,False
 20260717,29.9,-1.92,24.04,-1.78,21.79,-1.45,0,False,False
 20260724,29.38,-0.52,24.26,0.22,21.11,-0.68,1,False,True
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,28.31,-1.29,23.86,0.07,20.56,-0.68,3,False,True
 20260911,29.21,0.9,23.29,-0.57,21.31,0.75,4,False,True
 20260918,28.74,-0.47,22.79,-0.5,20.25,-1.06,0,False,False
+20260924,29.64,0.9,23.08,0.29,20.48,0.23,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.股東臨時會日期:115/09/17 2.重要決議事項: (1)關於公司發行H股股票並在香港聯合交易所有限公司上市的議案 (2)關於公司發行H股股票並在香港聯合交易所有限公司上市方案的議案 (3)關於公司轉為境外募集股份有限公司的議案 (4)關於公司發行H股股票募集資金使用計畫的議案 (5)關於H股股票發行上市決議有效期的議案 (6)關於提請股東會授權董事會及其授權人士全權處理與本次H股股票發行上市有關 事項的議案 (7)關於公司發行H股之前滾存利潤分配方案的議案 (8)關於就公司發行H股股票並上市修訂公司章程及相關議事規則的議案 (8-1)《公司章程（草案）》 (8-2)《股東會議事規則（草案）》 (8-3)《董事會議事規則（草案）》 (9)關於就公司發行H股股票並上市制定和修訂公司內部治理制度的議案 (9-1)《對外投資管理制度（草案）》 (9-2)《對外擔保管理制度（草案）》 (9-3)《關聯（連）交易管理制度（草案）》 (9-4)《募集資金管理辦法（草案）》 (9-5)《獨立董事工作制度（草案）》 (9-6)《累積投票制實施細則（草案）》 (9-7)《董事、高級管理人員薪酬管理制度（草案）》 (9-8)《股息政策（草案）》 (10)關於聘請H股發行上市審計機構的議案 (11)關於投保董事、高級管理人員及其他相關責任人員招股說明書責任保險的議案 (12)關於調整董事會席位並修訂《公司章程》及其附件《董事會議事規則》的議案 (13)關於劃分董事角色及職能的議案 (14)關於增選第二屆董事會獨立董事的議案 (15)關於提名第二屆董事會非獨立董事候選人的議案 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 11 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.股東臨時會日期:115/09/17 2.重要決議事項: (1)關於公司發行H股股票並在香港聯合交易所有限公司上市的議案 (2)關於公司發行H股股票並在香港聯合交易所有限公司上市方案的議案 (3)關於公司轉為境外募集股份有限公司的議案 (4)關於公司發行H股股票募集資金使用計畫的議案 (5)關於H股股票發行上市決議有效期的議案 (6)關於提請股東會授權董事會及其授權人士全權處理與本次H股股票發行上市有關 事項的議案 (7)關於公司發行H股之前滾存利潤分配方案的議案 (8)關於就公司發行H股股票並上市修訂公司章程及相關議事規則的議案 (8-1)《公司章程（草案）》 (8-2)《股東會議事規則（草案）》 (8-3)《董事會議事規則（草案）》 (9)關於就公司發行H股股票並上市制定和修訂公司內部治理制度的議案 (9-1)《對外投資管理制度（草案）》 (9-2)《對外擔保管理制度（草案）》 (9-3)《關聯（連）交易管理制度（草案）》 (9-4)《募集資金管理辦法（草案）》 (9-5)《獨立董事工作制度（草案）》 (9-6)《累積投票制實施細則（草案）》 (9-7)《董事、高級管理人員薪酬管理制度（草案）》 (9-8)《股息政策（草案）》 (10)關於聘請H股發行上市審計機構的議案 (11)關於投保董事、高級管理人員及其他相關責任人員招股說明書責任保險的議案 (12)關於調整董事會席位並修訂《公司章程》及其附件《董事會議事規則》的議案 (13)關於劃分董事角色及職能的議案 (14)關於增選第二屆董事會獨立董事的議案 (15)關於提名第二屆董事會非獨立董事候選人的議案 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.申請海外證券市場掛牌交易之子公司名稱:超穎電子電路股份有限公司 2.與公司關係及持股(或出資額)比例:本公司透過子公司間接持股86.0989%之子公司 3.申請海外證券市場掛牌交易之送件日期:115/09/21 4.申請海外證券市場掛牌之交易所:香港聯合交易所有限公司主板 5.其他應敘明事項:本上市案業經本公司民國115年9月2日召開之民國115年第二次 股東臨時會決議通過。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 31 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.申請海外證券市場掛牌交易之子公司名稱:超穎電子電路股份有限公司 2.與公司關係及持股(或出資額)比例:本公司透過子公司間接持股86.0989%之子公司 3.申請海外證券市場掛牌交易之送件日期:115/09/21 4.申請海外證券市場掛牌之交易所:香港聯合交易所有限公司主板 5.其他應敘明事項:本上市案業經本公司民國115年9月2日召開之民國115年第二次 股東臨時會決議通過。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3715 | 定穎投控 | 21 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3715 | 定穎投控 | 25 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3715 | 定穎投控 | 215 | 5 | 2283830.0 | 142740.0 | 16.0 | no_signal |
+| 20260924 | 3715 | 定穎投控 | 200 | 5 | 3949220.0 | 43600.0 | 90.58 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

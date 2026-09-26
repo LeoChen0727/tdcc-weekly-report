@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:58 Asia/Taipei
+- generated_at: 2026-09-26 15:53:05 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 255
+- date: 20260924
+- open: 251
 - high: 276
 - low: 250
-- close: 270.5
-- volume: 4601141
-- ma5: 241.5
-- ema23_primary: 247.83
-- distance_to_ema23_pct: 9.15
-- ma20: 253.43
-- ma60: 232.51
-- ma120: 224.86
-- return_5d: 16.34
-- return_20d: 8.2
-- volume_ratio: 2.78
-- distance_to_ma20_pct_auxiliary: 6.74
-- distance_to_high_60_pct: -4.25
+- close: 276
+- volume: 6688397
+- ma5: 263.1
+- ema23_primary: 251.89
+- distance_to_ema23_pct: 9.57
+- ma20: 253.9
+- ma60: 237.01
+- ma120: 227.7
+- return_5d: 9.74
+- return_20d: 2.79
+- volume_ratio: 3.18
+- distance_to_ma20_pct_auxiliary: 8.7
+- distance_to_high_60_pct: -2.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,248.5,250.5,245,246.5,403141,237.35,3.86,236.53,218.88,0.26
-20260825,245,252,245,251.5,694938,238.53,5.44,238.88,219.43,0.45
-20260826,251.5,273,249,269,3206805,241.07,11.59,242.43,220.22,1.96
-20260827,268.5,274,266,268.5,1648267,243.35,10.33,245.75,220.68,0.99
 20260828,271,273,265,265.5,782253,245.2,8.28,247.93,221.17,0.47
 20260831,262.5,262.5,254,261,910452,246.52,5.88,249.4,221.77,0.56
 20260901,273,282.5,251,262.5,6838596,247.85,5.91,251.25,222.45,3.56
@@ -172,18 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,224.5,229,224.5,229,503592,245.25,-6.62,252.1,230.59,0.37
 20260917,232,251.5,232,251.5,2132108,245.77,2.33,252.4,231.38,1.47
 20260918,255,276,250,270.5,4601141,247.83,9.15,253.43,232.51,2.78
+20260921,269,270.5,260,263.5,1937477,249.13,5.77,254.28,233.7,1.12
+20260922,268.5,278.5,254.5,254.5,4446657,249.58,1.97,254.43,234.76,2.32
+20260923,259,264,249.5,251,1894521,249.7,0.52,253.53,235.66,1.02
+20260924,251,276,250,276,6688397,251.89,9.57,253.9,237.01,3.18
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 19.69
-- over_600_ratio: 17.75
-- over_800_ratio: 17.75
-- over_1000_ratio: 15.87
-- over_400_change_1w: -0.24
-- over_800_change_1w: -0.24
-- over_1000_change_1w: -0.24
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 21.27
+- over_600_ratio: 17.43
+- over_800_ratio: 17.43
+- over_1000_ratio: 15.55
+- over_400_change_1w: 1.58
+- over_800_change_1w: -0.32
+- over_1000_change_1w: -0.32
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,21.94,0,18.26,0,16.37,0,0,False,False
 20260709,21.94,0,18.26,0,16.37,0,0,False,False
 20260717,22.76,0.82,18.23,-0.03,16.34,-0.03,1,False,False
 20260724,21.9,-0.86,18.22,-0.01,16.33,-0.01,0,False,False
@@ -203,22 +202,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,20.75,-0.06,17.99,0.01,16.11,0.01,3,False,True
 20260911,19.93,-0.82,17.99,0,16.11,0,0,False,False
 20260918,19.69,-0.24,17.75,-0.24,15.87,-0.24,0,False,False
+20260924,21.27,1.58,17.43,-0.32,15.55,-0.32,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會決議或公司決定增資基準日期:115/08/10 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/08/10 4.董事會決議(追補)發行日期:115/05/11 5.發行總金額及股數: 發行總金額：發行總面額新台幣68,000,000元。 發行總股數：普通股6,800,000股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元 9.發行價格:每股新台幣195.00元。(補充公告) 10.員工認股股數: 依公司法第267條規定，保留發行新股總額10%計680,000股由本公司員工認購。 11.原股東認購比率: 80%，計5,440,000股，由原股東按照認股基準日股東名簿記載之持股比例認購， 每仟股可認購107.40181948股。 12.公開銷售方式及股數: 依證券交易法第28條之1規定，提撥發行新股總額10%計680,000股對外公開承銷。 13.畸零股及逾期未認購股份之處理方式: 原股東認購不足一股之畸零股得由股東自行在停止過戶日起五日內，逕向本公司 股務代理機構辦理拼湊成一整股認購，其拼湊不足一股之畸零股及原股東、員工 放棄認購或認購不足及逾期未辦理拼湊之部份，擬授權董事長洽特定人按發行價 格認購。 14.本次發行新股之權利義務:與原已發行之股份相同。 15.本次增資資金用途:充實營運資金。 16.現金增資認股基準日:115/09/13 17.最後過戶日:115/09/08 18.停止過戶起始日期:115/09/09 19.停止過戶截止日期:115/09/13 20.股款繳納期間: 原股東及員工股款繳納期間：115年9月17日至115年10月19日 特定人認股繳款日期：115年10月20日至115年10月27日 21.與代收及專戶存儲價款行庫訂約日期:115年8月31日(補充公告) 22.委託代收存款機構:永豐商業銀行股份有限公司新竹分行。(補充公告) 23.委託存儲款項機構:聯邦商業銀行股份有限公司竹北分行。(補充公告) 24.其他應敘明事項: (1)本公司辦理115年現金增資發行新股6,800,000股乙案，業經金管會115年    8月10日金管證發字第1150350140號函生效在案。 (2)最後過戶日:115年9月8日 (3)本次現金增資發行計劃所訂之內容及其他相關未盡事宜，如遇法令變更、    經主管機關修正、客觀環境改變或因應主客觀環境需要而須修正或調整時    ，包括向主管機關申請延期或撤銷，授權董事長得全權辦理修正或調整。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會決議或公司決定增資基準日期:115/08/10 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/08/10 4.董事會決議(追補)發行日期:115/05/11 5.發行總金額及股數: 發行總金額：發行總面額新台幣68,000,000元。 發行總股數：普通股6,800,000股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元 9.發行價格:每股新台幣195.00元。(補充公告) 10.員工認股股數: 依公司法第267條規定，保留發行新股總額10%計680,000股由本公司員工認購。 11.原股東認購比率: 80%，計5,440,000股，由原股東按照認股基準日股東名簿記載之持股比例認購， 每仟股可認購107.40181948股。 12.公開銷售方式及股數: 依證券交易法第28條之1規定，提撥發行新股總額10%計680,000股對外公開承銷。 13.畸零股及逾期未認購股份之處理方式: 原股東認購不足一股之畸零股得由股東自行在停止過戶日起五日內，逕向本公司 股務代理機構辦理拼湊成一整股認購，其拼湊不足一股之畸零股及原股東、員工 放棄認購或認購不足及逾期未辦理拼湊之部份，擬授權董事長洽特定人按發行價 格認購。 14.本次發行新股之權利義務:與原已發行之股份相同。 15.本次增資資金用途:充實營運資金。 16.現金增資認股基準日:115/09/13 17.最後過戶日:115/09/08 18.停止過戶起始日期:115/09/09 19.停止過戶截止日期:115/09/13 20.股款繳納期間: 原股東及員工股款繳納期間：115年9月17日至115年10月19日 特定人認股繳款日期：115年10月20日至115年10月27日 21.與代收及專戶存儲價款行庫訂約日期:115年8月31日(補充公告) 22.委託代收存款機構:永豐商業銀行股份有限公司新竹分行。(補充公告) 23.委託存儲款項機構:聯邦商業銀行股份有限公司竹北分行。(補充公告) 24.其他應敘明事項: (1)本公司辦理115年現金增資發行新股6,800,000股乙案，業經金管會115年    8月10日金管證發字第1150350140號函生效在案。 (2)最後過戶日:115年9月8日 (3)本次現金增資發行計劃所訂之內容及其他相關未盡事宜，如遇法令變更、    經主管機關修正、客觀環境改變或因應主客觀環境需要而須修正或調整時    ，包括向主管機關申請延期或撤銷，授權董事長得全權辦理修正或調整。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6533 | 晶心科 | 2 | 2 | 2 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6533 | 晶心科 | 3 | 1 | 4 | 5 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6533 | 晶心科 | 2 | 0 | 148370.0 | 0.0 |  | no_signal |
+| 20260924 | 6533 | 晶心科 | 2 | 0 | 372230.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:38 Asia/Taipei
+- generated_at: 2026-09-26 15:53:44 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 905
-- high: 907
-- low: 894
-- close: 902
-- volume: 1163708
-- ma5: 887.2
-- ema23_primary: 943.77
-- distance_to_ema23_pct: -4.43
-- ma20: 936.15
-- ma60: 1057.05
-- ma120: 1149.26
-- return_5d: 0.22
-- return_20d: -4.45
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -3.65
-- distance_to_high_60_pct: -31.92
+- date: 20260924
+- open: 893
+- high: 897
+- low: 882
+- close: 897
+- volume: 554178
+- ma5: 897.8
+- ema23_primary: 929.9
+- distance_to_ema23_pct: -3.54
+- ma20: 922.2
+- ma60: 1033.08
+- ma120: 1149.97
+- return_5d: 0.67
+- return_20d: -6.56
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -2.73
+- distance_to_high_60_pct: -32.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,948,996,942,967,995911,1049.34,-7.85,1037.1,1201.28,0.62
-20260825,964,970,926,965,1385519,1042.31,-7.42,1034.35,1194.62,0.85
-20260826,968,984,966,974,847542,1036.62,-6.04,1034,1187.52,0.53
-20260827,975,992,960,960,1671607,1030.23,-6.82,1034.45,1180.6,1.02
 20260828,967,1010,967,990,2248304,1026.88,-3.59,1031.7,1172.85,1.31
 20260831,990,995,961,969,1151105,1022.06,-5.19,1025.4,1165.33,0.68
 20260901,970,1010,970,990,1623015,1019.38,-2.88,1017.4,1159,0.95
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,884,889,876,883,570341,952.71,-7.32,941.9,1070.67,0.43
 20260917,892,903,887,891,882451,947.57,-5.97,938.25,1063.43,0.68
 20260918,905,907,894,902,1163708,943.77,-4.43,936.15,1057.05,0.9
+20260921,905,909,897,900,979590,940.12,-4.27,932.8,1051.55,0.76
+20260922,910,920,897,898,1083226,936.61,-4.12,929.45,1046.27,0.85
+20260923,906,912,891,892,1253555,932.89,-4.38,925.35,1039.72,0.96
+20260924,893,897,882,897,554178,929.9,-3.54,922.2,1033.08,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 65.99
-- over_600_ratio: 63.03
-- over_800_ratio: 60.19
-- over_1000_ratio: 58.11
-- over_400_change_1w: 0.17
-- over_800_change_1w: -0.72
-- over_1000_change_1w: 0.69
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 64.97
+- over_600_ratio: 62.34
+- over_800_ratio: 60.1
+- over_1000_ratio: 57.32
+- over_400_change_1w: -1.02
+- over_800_change_1w: -0.09
+- over_1000_change_1w: -0.79
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,71.17,-0.26,66.25,-0.06,62.61,-0.01,0,False,False
 20260709,70.35,-0.82,66.25,0,62.61,0,0,False,False
 20260717,70.61,0.26,66,-0.25,62.51,-0.1,1,False,False
 20260724,70.44,-0.17,66.02,0.02,62.51,0,2,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,66.66,-0.46,61.47,-0.97,58.76,-0.26,0,False,False
 20260911,65.82,-0.84,60.91,-0.56,57.42,-1.34,0,False,False
 20260918,65.99,0.17,60.19,-0.72,58.11,0.69,1,False,True
+20260924,64.97,-1.02,60.1,-0.09,57.32,-0.79,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8210 | 勤誠 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | first_seen | 1.事實發生日:115/07/08 2.公司名稱:勤誠興業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報 6.報導內容:「勤誠指出，... ，隨著下半年步入傳統旺季，相關的生產規模效益預計將 進一步釋放，為整體營運帶來豐沛的成長動能。法人樂觀預估，隨著新客戶與新專案在 2026年放量，勤誠全年營收看增，EPS有望挑戰50元大關，基本面成長趨勢強勁。」 7.發生緣由:澄清115/7/8經濟日報之報導 8.因應措施:澄清上述報導內容係法人自行預估，本公司並未對全年財務進行預測， 特此澄清說明；有關本公司財務及業務資訊，應以本公司於公開資訊觀測站公告之 之內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8210 | 勤誠 | 1 | 1 | 1 | 2 | 3 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8210 | 勤誠 | 164 | 4 | 5477250.0 | 33400.0 | 163.99 | no_signal |
+| 20260924 | 8210 | 勤誠 | 162 | 3 | 3092870.0 | 339900.0 | 9.1 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

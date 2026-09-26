@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4903 聯光通
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:18 Asia/Taipei
+- generated_at: 2026-09-26 15:52:25 Asia/Taipei
 - stock_id: 4903
 - stock_name: 聯光通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 34.6
-- high: 37.6
-- low: 34.3
-- close: 37.6
-- volume: 2301000
-- ma5: 34.98
-- ema23_primary: 35.94
-- distance_to_ema23_pct: 4.62
-- ma20: 36.05
-- ma60: 37.2
-- ma120: 41.02
-- return_5d: 12.57
-- return_20d: 8.36
-- volume_ratio: 2.23
-- distance_to_ma20_pct_auxiliary: 4.29
-- distance_to_high_60_pct: -14.74
+- date: 20260924
+- open: 41.95
+- high: 43.9
+- low: 41.85
+- close: 43
+- volume: 5340000
+- ma5: 41.23
+- ema23_primary: 37.78
+- distance_to_ema23_pct: 13.83
+- ma20: 37.21
+- ma60: 37.33
+- ma120: 40.94
+- return_5d: 25.73
+- return_20d: 17.49
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 15.55
+- distance_to_high_60_pct: -2.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,35.1,36.75,34.8,35.95,615000,36.81,-2.33,36.84,38.9,0.36
-20260825,35.55,36.3,35.35,36,702000,36.74,-2.02,36.71,38.75,0.46
-20260826,36,36.85,36,36.8,693000,36.75,0.15,36.78,38.63,0.5
-20260827,37,37.45,36.6,36.6,778000,36.73,-0.37,37.01,38.49,0.58
 20260828,37.3,37.3,36.45,36.75,790000,36.74,0.04,37.12,38.33,0.6
 20260831,36.75,36.9,36,36.4,406000,36.71,-0.84,37.03,38.17,0.32
 20260901,36.5,37.75,36.5,37.6,1204000,36.78,2.22,36.97,38.07,1.05
@@ -172,18 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,34.15,34.85,34.05,34.1,544000,35.93,-5.1,35.93,37.39,0.59
 20260917,34.5,34.9,34.2,34.2,470000,35.79,-4.43,35.91,37.28,0.5
 20260918,34.6,37.6,34.3,37.6,2301000,35.94,4.62,36.05,37.2,2.23
+20260921,41,41.35,41,41.35,3143000,36.39,13.63,36.32,37.21,2.72
+20260922,42.05,43.65,40.6,42.05,18405000,36.86,14.08,36.62,37.26,9.01
+20260923,43,43.7,41.3,42.15,11588000,37.3,13,36.89,37.28,4.48
+20260924,41.95,43.9,41.85,43,5340000,37.78,13.83,37.21,37.33,1.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 42.77
-- over_600_ratio: 39.88
-- over_800_ratio: 37.88
-- over_1000_ratio: 37.88
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260924
+- over_400_ratio: 42.9
+- over_600_ratio: 39.1
+- over_800_ratio: 37.77
+- over_1000_ratio: 37.77
+- over_400_change_1w: 0.13
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,41.81,-0.82,37.53,0,36.69,0,0,False,False
 20260709,42.55,0.74,37.5,-0.03,36.69,0,1,False,False
 20260717,42.65,0.1,37.55,0.05,36.69,0,2,False,True
 20260724,42.64,-0.01,37.51,-0.04,36.69,0,0,False,False
@@ -203,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,43.1,0.7,37.79,0.06,37.79,0.06,2,True,True
 20260911,42.81,-0.29,37.93,0.14,37.93,0.14,3,False,True
 20260918,42.77,-0.04,37.88,-0.05,37.88,-0.05,4,False,False
+20260924,42.9,0.13,37.77,-0.11,37.77,-0.11,5,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4903 | 聯光通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 4903 | 聯光通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/09/22 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放普通股股利種類及金額:  現金股利31,603,114元，每股配發0.30元 4.除權（息）交易日:115/10/14 5.最後過戶日:115/10/15 6.停止過戶起始日期:115/10/16 7.停止過戶截止日期:115/10/20 8.除權（息）基準日:115/10/20 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/11/18 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項: (1)本次現金股利分配金額至元為止(元以下不計)，分配未滿一元之畸零款 合計數，列入公司之其他收入。 (2)本次現金股利以匯款或以支票掛號郵寄方式發放，匯費及處理費由股東 自行負擔。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4903 | 聯光通 | 1 | 1 | 1 | 2 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260924 | 4903 | 聯光通 | 5 | 5 | 5 | 5 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:09 Asia/Taipei
+- generated_at: 2026-09-26 15:51:15 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 62.2
-- high: 62.5
-- low: 61.4
-- close: 61.7
-- volume: 22101084
-- ma5: 61.42
-- ema23_primary: 63.74
-- distance_to_ema23_pct: -3.2
-- ma20: 64.36
-- ma60: 64.33
-- ma120: 60.03
-- return_5d: -0.48
-- return_20d: -6.09
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -4.14
-- distance_to_high_60_pct: -16.05
+- date: 20260924
+- open: 60.5
+- high: 60.5
+- low: 59.5
+- close: 59.9
+- volume: 10394874
+- ma5: 61.12
+- ema23_primary: 62.91
+- distance_to_ema23_pct: -4.78
+- ma20: 63.37
+- ma60: 64.05
+- ma120: 60.7
+- return_5d: -2.6
+- return_20d: -8.69
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -5.47
+- distance_to_high_60_pct: -18.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,65.9,67.3,65.5,66.1,12846904,65.2,1.38,64.77,66.34,0.4
-20260825,65.7,65.9,64,65.4,11657100,65.21,0.28,65.1,66.26,0.37
-20260826,65.6,67,65.5,66.8,12955703,65.35,2.22,65.42,66.09,0.44
-20260827,67.7,67.7,65.5,65.6,13825809,65.37,0.36,65.83,65.84,0.49
 20260828,65.6,66.3,64.8,64.9,12171652,65.33,-0.66,65.98,65.5,0.44
 20260831,64.7,67.5,63.8,66.7,21537788,65.44,1.92,66.12,65.31,0.8
 20260901,66.7,68.4,66.2,66.6,13332052,65.54,1.62,66.16,65.14,0.52
@@ -174,17 +169,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,60.8,61.8,60.5,61.7,8635681,64.15,-3.81,64.72,64.5,0.54
 20260917,62.1,62.5,61.5,61.5,7811109,63.93,-3.79,64.56,64.42,0.5
 20260918,62.2,62.5,61.4,61.7,22101084,63.74,-3.2,64.36,64.33,1.37
+20260921,62.3,62.6,61.5,61.8,6876074,63.58,-2.8,64.15,64.31,0.43
+20260922,62.5,62.5,61.2,61.2,8627488,63.38,-3.44,63.94,64.26,0.55
+20260923,62.4,62.6,60.9,61,14243662,63.18,-3.45,63.65,64.17,0.91
+20260924,60.5,60.5,59.5,59.9,10394874,62.91,-4.78,63.37,64.05,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 73.89
-- over_600_ratio: 72.46
-- over_800_ratio: 71.56
-- over_1000_ratio: 70.74
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.05
+- as_of_date: 20260924
+- over_400_ratio: 73.71
+- over_600_ratio: 72.32
+- over_800_ratio: 71.37
+- over_1000_ratio: 70.51
+- over_400_change_1w: -0.18
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.23
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -193,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,72.95,0.15,70.73,0.1,69.81,0.03,1,True,True
 20260709,73.39,0.44,71.15,0.42,70.25,0.44,2,True,True
 20260717,72.43,-0.96,70.23,-0.92,69.43,-0.82,0,False,False
 20260724,72.92,0.49,70.67,0.44,69.79,0.36,1,True,True
@@ -205,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,74.51,0.15,72.13,0.11,71.33,0.19,2,True,True
 20260911,73.96,-0.55,71.63,-0.5,70.79,-0.54,0,False,False
 20260918,73.89,-0.07,71.56,-0.07,70.74,-0.05,0,False,False
+20260924,73.71,-0.18,71.37,-0.19,70.51,-0.23,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2356 | 英業達 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 ~ 115/10/13 2.召開法人說明會之時間：15 時 00 分 3.召開法人說明會之地點：線上說明會 4.法人說明會擇要訊息：2026/9/11受邀參加CLSA; 2026/9/16受邀參加KeyBanc; 2026/10/13受邀參加SIG線上投資人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2356 | 英業達 | revenue_pullback | 營收成長股價回檔 | 74.0 |  |  |  |  | call_inflow | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 生產設備及廠務工程 2.事實發生日:115/9/22~115/9/22 3.董事會通過日期: 民國115年9月22日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 總金額泰銖 24.38億元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 尚未確定，待確定後另行公告 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: (1)決定方式：議價 (2)價格決定之參考依據：廠商提供之報價單及市場行情 (3)決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 業務擴展需要 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2356 | 英業達 | 23 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2356 | 英業達 | 27 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2356 | 英業達 | 120 | 5 | 926120.0 | 17700.0 | 52.32 | no_signal |
+| 20260924 | 2356 | 英業達 | 121 | 5 | 2063460.0 | 3640.0 | 566.88 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

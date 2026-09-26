@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2492 華新科
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:18 Asia/Taipei
+- generated_at: 2026-09-26 15:51:25 Asia/Taipei
 - stock_id: 2492
 - stock_name: 華新科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
+- date: 20260924
 - open: 305
-- high: 311
-- low: 300
-- close: 309.5
-- volume: 15512592
-- ma5: 303.9
-- ema23_primary: 302.45
-- distance_to_ema23_pct: 2.33
-- ma20: 299.38
-- ma60: 331.73
-- ma120: 301.65
-- return_5d: -0.64
-- return_20d: 16.35
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 3.38
-- distance_to_high_60_pct: -49.35
+- high: 315.5
+- low: 302
+- close: 311.5
+- volume: 15596998
+- ma5: 309.3
+- ema23_primary: 304.46
+- distance_to_ema23_pct: 2.31
+- ma20: 306.85
+- ma60: 315.32
+- ma120: 308.01
+- return_5d: 4.88
+- return_20d: 9.3
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 1.52
+- distance_to_high_60_pct: -47.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,266,276,264.5,265,11549095,292.55,-9.42,265.2,386.37,0.44
-20260825,262.5,268,251,268,11953634,290.5,-7.75,266.35,384.27,0.44
-20260826,263,270,259.5,269.5,11351766,288.75,-6.67,268.8,381.82,0.41
-20260827,274.5,290,264.5,285,32253690,288.44,-1.19,273.12,378.98,1.12
 20260828,299.5,313.5,295.5,313.5,52649209,290.53,7.91,277.9,377.15,1.68
 20260831,308,316.5,282.5,295,58056761,290.9,1.41,280.68,375.53,1.7
 20260901,295.5,317,294,302.5,35972775,291.87,3.64,282.82,373.64,1.05
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,304,307.5,295.5,307.5,15103377,302.24,1.74,295.98,341.44,0.49
 20260917,309,314.5,295,297,21642767,301.81,-1.59,297.2,336.56,0.73
 20260918,305,311,300,309.5,15512592,302.45,2.33,299.38,331.73,0.53
+20260921,311.5,326,307.5,308.5,22904042,302.95,1.83,301.55,327.88,0.77
+20260922,318.5,324,310.5,311,21974598,303.62,2.43,303.7,324.49,0.73
+20260923,314.5,322.5,304,306,19018789,303.82,0.72,305.52,320.18,0.62
+20260924,305,315.5,302,311.5,15596998,304.46,2.31,306.85,315.32,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 63.21
-- over_600_ratio: 61.42
-- over_800_ratio: 60.47
-- over_1000_ratio: 59.31
-- over_400_change_1w: -2.9
-- over_800_change_1w: -3.56
-- over_1000_change_1w: -3.39
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 63.1
+- over_600_ratio: 61.78
+- over_800_ratio: 60.51
+- over_1000_ratio: 58.83
+- over_400_change_1w: -0.11
+- over_800_change_1w: 0.04
+- over_1000_change_1w: -0.48
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,73.36,0.32,70.9,0.33,69.42,-0.05,1,False,True
 20260709,73.57,0.21,70.74,-0.16,69.45,0.03,2,False,True
 20260717,72.96,-0.61,70.44,-0.3,69.18,-0.27,0,False,False
 20260724,72.58,-0.38,70.16,-0.28,68.32,-0.86,0,False,False
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,62.58,-0.84,60.44,-0.44,59.07,-1.07,0,False,False
 20260911,66.11,3.53,64.03,3.59,62.7,3.63,1,True,True
 20260918,63.21,-2.9,60.47,-3.56,59.31,-3.39,0,False,False
+20260924,63.1,-0.11,60.51,0.04,58.83,-0.48,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2492 | 華新科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額: 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司， 再由開曼華新科技有限公司依投資架構分配回母公司。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2492 | 華新科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額: 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司， 再由開曼華新科技有限公司依投資架構分配回母公司。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2492 | 華新科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額: 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司， 再由開曼華新科技有限公司依投資架構分配回母公司。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2492 | 華新科 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_inflow | stale_signal | 1.董事會決議日期:115/06/25 2.發放股利種類及金額: 華科香港控股有限公司董事會決議盈餘分配人民幣67,261,661.34 開曼華新科技有限公司董事會決議盈餘分配人民幣67,264,500.26 3.其他應敘明事項:華科香港控股有限公司盈餘分配予其投資方開曼華新科技有限公司， 再由開曼華新科技有限公司依投資架構分配回母公司。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2492 | 華新科 | 1 | 1 | 3 | 4 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2492 | 華新科 | 5 | 5 | 5 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2492 | 華新科 | 137 | 3 | 13121780.0 | 302360.0 | 43.4 | no_signal |
+| 20260924 | 2492 | 華新科 | 141 | 4 | 20600960.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

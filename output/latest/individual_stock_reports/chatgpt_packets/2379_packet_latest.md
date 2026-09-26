@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:10 Asia/Taipei
+- generated_at: 2026-09-26 15:51:17 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 724
-- high: 728
-- low: 716
-- close: 727
-- volume: 2568530
-- ma5: 715.6
-- ema23_primary: 718.77
-- distance_to_ema23_pct: 1.14
-- ma20: 718.25
-- ma60: 739.05
-- ma120: 665.1
-- return_5d: 3.27
-- return_20d: 1.82
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 1.22
-- distance_to_high_60_pct: -15.66
+- date: 20260924
+- open: 745
+- high: 753
+- low: 725
+- close: 749
+- volume: 2829985
+- ma5: 746.4
+- ema23_primary: 728.42
+- distance_to_ema23_pct: 2.83
+- ma20: 723
+- ma60: 736.5
+- ma120: 673.98
+- return_5d: 4.76
+- return_20d: 2.6
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 3.6
+- distance_to_high_60_pct: -11.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,713,725,706,716,927419,731.6,-2.13,729.55,731.17,0.24
-20260825,713,730,707,730,1807533,731.46,-0.2,729.5,733.67,0.49
-20260826,729,738,722,734,1205547,731.67,0.32,729.3,735.75,0.35
-20260827,739,744,720,730,1897989,731.53,-0.21,730.95,737.03,0.58
 20260828,730,733,721,722,1158002,730.74,-1.2,732.9,738.3,0.43
 20260831,724,724,709,721,3002274,729.93,-1.22,733.75,739.92,1.18
 20260901,723,753,723,744,2713152,731.1,1.76,734.8,741.6,1.1
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,711,726,711,720,2540007,718.3,0.24,717,741.97,1.03
 20260917,726,731,715,715,3100032,718.03,-0.42,717.6,740.5,1.31
 20260918,724,728,716,727,2568530,718.77,1.14,718.25,739.05,1.07
+20260921,733,743,724,740,2964925,720.54,2.7,719.45,739.05,1.18
+20260922,750,764,746,755,3730412,723.41,4.37,720.7,738.58,1.43
+20260923,768,794,752,761,4887225,726.55,4.74,722.05,737.83,1.75
+20260924,745,753,725,749,2829985,728.42,2.83,723,736.5,1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 74.01
-- over_600_ratio: 68.25
-- over_800_ratio: 63.75
-- over_1000_ratio: 59.29
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.24
-- over_1000_change_1w: -0.13
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260924
+- over_400_ratio: 74.1
+- over_600_ratio: 68.13
+- over_800_ratio: 63.85
+- over_1000_ratio: 59.03
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.1
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,74.06,-0.4,62.9,0.07,58.52,-0.25,1,False,True
 20260709,74.31,0.25,63.38,0.48,59.53,1.01,2,False,True
 20260717,73.89,-0.42,63.48,0.1,59.04,-0.49,3,False,True
 20260724,74.27,0.38,63.64,0.16,58.92,-0.12,4,False,True
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,73.65,-0.38,63.55,-0.03,59.87,0.7,3,False,True
 20260911,73.96,0.31,63.51,-0.04,59.42,-0.45,4,False,False
 20260918,74.01,0.05,63.75,0.24,59.29,-0.13,5,False,True
+20260924,74.1,0.09,63.85,0.1,59.03,-0.26,6,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2379 | 瑞昱 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/08/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘分配之現金股利共NT$ 12,887,816,025元，每股配 發NT$ 25元。 4.除權（息）交易日:115/09/08 5.最後過戶日:115/09/09 6.停止過戶起始日期:115/09/10 7.停止過戶截止日期:115/09/14 8.除權（息）基準日:115/09/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/10/07 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 2379 | 瑞昱 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/08/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘分配之現金股利共NT$ 12,887,816,025元，每股配 發NT$ 25元。 4.除權（息）交易日:115/09/08 5.最後過戶日:115/09/09 6.停止過戶起始日期:115/09/10 7.停止過戶截止日期:115/09/14 8.除權（息）基準日:115/09/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/10/07 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2379 | 瑞昱 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/08/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘分配之現金股利共NT$ 12,887,816,025元，每股配 發NT$ 25元。 4.除權（息）交易日:115/09/08 5.最後過戶日:115/09/09 6.停止過戶起始日期:115/09/10 7.停止過戶截止日期:115/09/14 8.除權（息）基準日:115/09/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/10/07 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2379 | 瑞昱 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/08/24 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:盈餘分配之現金股利共NT$ 12,887,816,025元，每股配 發NT$ 25元。 4.除權（息）交易日:115/09/08 5.最後過戶日:115/09/09 6.停止過戶起始日期:115/09/10 7.停止過戶截止日期:115/09/14 8.除權（息）基準日:115/09/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/10/07 13.現金股利之一部或全部是否以外幣發放(請填入「是」或「否」):否 14.外幣現金股利發放幣別:不適用 15.外幣現金股利發放對象:不適用 16.外幣現金股利匯率決定方式:不適用 17.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2379 | 瑞昱 | 30 | 10 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2379 | 瑞昱 | 34 | 14 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2379 | 瑞昱 | 114 | 3 | 3863000.0 | 25200.0 | 153.29 | no_signal |
+| 20260924 | 2379 | 瑞昱 | 113 | 3 | 9303920.0 | 137680.0 | 67.58 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

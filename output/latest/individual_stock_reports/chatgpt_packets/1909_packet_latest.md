@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:58 Asia/Taipei
+- generated_at: 2026-09-26 15:51:05 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 357
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 361
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 10.3
-- high: 10.35
-- low: 10.15
-- close: 10.15
-- volume: 1400753
-- ma5: 10.19
-- ema23_primary: 10.56
-- distance_to_ema23_pct: -3.88
-- ma20: 10.73
-- ma60: 10.4
-- ma120: 9.93
-- return_5d: -2.87
-- return_20d: -9.38
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -5.43
-- distance_to_high_60_pct: -11.74
+- date: 20260924
+- open: 10.1
+- high: 10.2
+- low: 10.1
+- close: 10.1
+- volume: 1046393
+- ma5: 10.13
+- ema23_primary: 10.43
+- distance_to_ema23_pct: -3.18
+- ma20: 10.56
+- ma60: 10.44
+- ma120: 9.92
+- return_5d: -1.94
+- return_20d: -7.34
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -4.4
+- distance_to_high_60_pct: -12.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,11.2,11.3,10.9,10.95,3499776,10.53,3.97,10.41,10.05,0.74
-20260825,10.85,11.1,10.85,11,2670471,10.57,4.06,10.45,10.09,0.56
-20260826,11,11.2,10.9,11,3532135,10.61,3.71,10.5,10.12,0.73
-20260827,10.95,11.05,10.85,10.9,2407089,10.63,2.53,10.55,10.15,0.5
 20260828,10.85,10.95,10.75,10.85,2659670,10.65,1.89,10.59,10.18,0.55
 20260831,10.75,11.3,10.75,11.1,4407261,10.69,3.87,10.65,10.21,0.92
 20260901,11.05,11.3,10.95,11,3157852,10.71,2.68,10.7,10.23,0.65
@@ -173,17 +169,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,10,10.15,10,10.15,5104456,10.62,-4.46,10.83,10.38,1.68
 20260917,10.1,10.4,10.1,10.3,1752256,10.6,-2.81,10.79,10.39,0.6
 20260918,10.3,10.35,10.15,10.15,1400753,10.56,-3.88,10.73,10.4,0.5
+20260921,10.15,10.25,10.1,10.15,1316874,10.53,-3.57,10.69,10.41,0.49
+20260922,10.1,10.2,10.05,10.15,1254124,10.49,-3.28,10.65,10.42,0.48
+20260923,10.1,10.2,10.1,10.1,1357573,10.46,-3.46,10.61,10.43,0.54
+20260924,10.1,10.2,10.1,10.1,1046393,10.43,-3.18,10.56,10.44,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 68.28
-- over_600_ratio: 65.97
-- over_800_ratio: 64.59
-- over_1000_ratio: 63.79
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.32
+- as_of_date: 20260924
+- over_400_ratio: 68.14
+- over_600_ratio: 65.87
+- over_800_ratio: 64.44
+- over_1000_ratio: 63.71
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.08
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,66.59,-0.02,63.07,-0.35,61.98,-0.29,0,False,False
 20260709,67.41,0.82,64.02,0.95,63.06,1.08,1,True,True
 20260717,67.36,-0.05,63.96,-0.06,62.79,-0.27,0,False,False
 20260724,67.44,0.08,64.13,0.17,63.16,0.37,1,True,True
@@ -204,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,68.37,0.09,64.82,0.14,64.34,0.06,7,True,True
 20260911,68.36,-0.01,64.7,-0.12,64.11,-0.23,0,False,False
 20260918,68.28,-0.08,64.59,-0.11,63.79,-0.32,0,False,False
+20260924,68.14,-0.14,64.44,-0.15,63.71,-0.08,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1909 | 榮成 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年8月份及1-8月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          8月         1月-8月 -------------------------------------------------------------------- 合併營業損益：                                18,486        373,891 合併稅前損益：                                71,364        562,433 合併稅前淨利歸屬於母公司業主：                66,388        519,594 合併稅前EPS：                                   0.05           0.40 8.因應措施:無。 9.其他應敘明事項: (1)本公司以加權平均流通在外股數12.98億股為稅前EPS計算基礎。 (2)1-8月累計自結合併營業損益及1-8月累計自結合併稅前損益，為會計師第二季 核閱數加上7-8月自結數。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 1909 | 榮成 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:榮成紙業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:不適用 6.報導內容:不適用 7.發生緣由:公告本公司115年8月份及1-8月累計合併自結損益 單位:新台幣/仟元; EPS:新台幣/元 (自結)          8月         1月-8月 -------------------------------------------------------------------- 合併營業損益：                                18,486        373,891 合併稅前損益：                                71,364        562,433 合併稅前淨利歸屬於母公司業主：                66,388        519,594 合併稅前EPS：                                   0.05           0.40 8.因應措施:無。 9.其他應敘明事項: (1)本公司以加權平均流通在外股數12.98億股為稅前EPS計算基礎。 (2)1-8月累計自結合併營業損益及1-8月累計自結合併稅前損益，為會計師第二季 核閱數加上7-8月自結數。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1909 | 榮成 | 30 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 1909 | 榮成 | 34 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

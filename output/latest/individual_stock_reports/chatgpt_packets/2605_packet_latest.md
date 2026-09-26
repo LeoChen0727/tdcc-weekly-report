@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2605 新興
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:22 Asia/Taipei
+- generated_at: 2026-09-26 15:51:29 Asia/Taipei
 - stock_id: 2605
 - stock_name: 新興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
+- date: 20260924
 - open: 37.15
-- high: 37.6
-- low: 36.1
-- close: 36.1
-- volume: 9451516
-- ma5: 36.1
-- ema23_primary: 35.53
-- distance_to_ema23_pct: 1.61
-- ma20: 35.86
-- ma60: 33.08
-- ma120: 33.4
-- return_5d: -1.1
-- return_20d: -4.5
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.68
-- distance_to_high_60_pct: -7.91
+- high: 37.2
+- low: 36.2
+- close: 36.5
+- volume: 6256782
+- ma5: 36.81
+- ema23_primary: 35.95
+- distance_to_ema23_pct: 1.53
+- ma20: 36.13
+- ma60: 33.58
+- ma120: 33.24
+- return_5d: -1.75
+- return_20d: 6.1
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 1.03
+- distance_to_high_60_pct: -6.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,38.05,39,36.25,36.6,29783116,33.53,9.16,33.01,31.76,2.21
-20260825,36.75,39.2,36.6,36.7,47492873,33.79,8.6,33.29,31.87,3.05
-20260826,36.2,37.25,34.3,34.85,23658234,33.88,2.86,33.48,31.89,1.44
-20260827,34.7,35.15,34.4,34.4,9736210,33.92,1.4,33.7,31.91,0.58
 20260828,34.65,35.6,34.45,35.05,8462440,34.02,3.03,33.94,31.95,0.5
 20260831,35.3,35.65,34.95,35.35,8875293,34.13,3.58,34.14,32,0.52
 20260901,35.05,35.3,34.65,34.75,6608988,34.18,1.66,34.32,32.04,0.38
@@ -167,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,35.1,36.8,35.1,36.05,12864086,35.32,2.06,35.91,32.9,0.77
 20260917,36,37.45,35.65,37.15,14491606,35.48,4.72,35.94,32.99,0.91
 20260918,37.15,37.6,36.1,36.1,9451516,35.53,1.61,35.86,33.08,0.65
+20260921,36.7,38.2,36.1,37.3,12860816,35.68,4.55,35.89,33.21,0.94
+20260922,37.6,37.75,37.1,37.1,5164616,35.79,3.65,35.91,33.33,0.44
+20260923,37.6,37.65,36.7,37.05,6734824,35.9,3.21,36.02,33.45,0.62
+20260924,37.15,37.2,36.2,36.5,6256782,35.95,1.53,36.13,33.58,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 55.44
-- over_600_ratio: 52.55
-- over_800_ratio: 50.98
-- over_1000_ratio: 49.18
-- over_400_change_1w: 1.23
-- over_800_change_1w: 1.53
-- over_1000_change_1w: 0.93
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260924
+- over_400_ratio: 55.57
+- over_600_ratio: 52.7
+- over_800_ratio: 51.09
+- over_1000_ratio: 49.41
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.11
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,52.4,-1.32,48.42,-1.68,47.79,-1.42,0,False,False
 20260709,52.79,0.39,49.29,0.87,48.67,0.88,1,True,True
 20260717,53.44,0.65,49.87,0.58,49.1,0.43,2,True,True
 20260724,54.32,0.88,50.9,1.03,49.85,0.75,3,True,True
@@ -198,24 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,54.16,0.29,49.76,0.89,48.41,0.49,1,True,True
 20260911,54.21,0.05,49.45,-0.31,48.25,-0.16,2,False,False
 20260918,55.44,1.23,50.98,1.53,49.18,0.93,3,True,True
+20260924,55.57,0.13,51.09,0.11,49.41,0.23,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2605 | 新興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2605 | 新興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 2605 | 新興 | revenue_breakout_low_response | 營收爆發低反應股 | 12 | 56 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/21 1.召開法人說明會之日期：115/08/21 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市大安區復興南路一段368號14樓 4.法人說明會擇要訊息：市場概況及業績展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2605 | 新興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 81,770 載重噸，2019年建造之卡姆薩型散裝貨輪。 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 卡姆薩型散裝貨輪壹艘，美金3,850萬元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: MTO MARITIME, S.A., Panama，非本公司關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用。 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 簽約後2個營業日內支付15%，預定交船日前3個營業日內支付85%。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 議價，本公司董事會。 12.專業估價者事務所或公司名稱及其估價金額: 不適用。 13.專業估價師姓名: 不適用。 14.專業估價師開業證書字號: 不適用。 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用。 19.會計師事務所名稱: 不適用。 20.會計師姓名: 不適用。 21.會計師開業證書字號: 不適用。 22.經紀人及經紀費用: 不適用。 23.取得或處分之具體目的或用途: 船隊擴編。 24.本次交易表示異議之董事之意見: 無。 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用。 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 預計交船日為115年11月下旬至116年2月間。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2605 | 新興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 81,770 載重噸，2019年建造之卡姆薩型散裝貨輪。 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 卡姆薩型散裝貨輪壹艘，美金3,850萬元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: MTO MARITIME, S.A., Panama，非本公司關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用。 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 簽約後2個營業日內支付15%，預定交船日前3個營業日內支付85%。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 議價，本公司董事會。 12.專業估價者事務所或公司名稱及其估價金額: 不適用。 13.專業估價師姓名: 不適用。 14.專業估價師開業證書字號: 不適用。 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用。 19.會計師事務所名稱: 不適用。 20.會計師姓名: 不適用。 21.會計師開業證書字號: 不適用。 22.經紀人及經紀費用: 不適用。 23.取得或處分之具體目的或用途: 船隊擴編。 24.本次交易表示異議之董事之意見: 無。 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用。 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 預計交船日為115年11月下旬至116年2月間。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2605 | 新興 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 17 | B_可觀察 |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 81,770 載重噸，2019年建造之卡姆薩型散裝貨輪。 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 卡姆薩型散裝貨輪壹艘，美金3,850萬元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: MTO MARITIME, S.A., Panama，非本公司關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用。 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 簽約後2個營業日內支付15%，預定交船日前3個營業日內支付85%。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 議價，本公司董事會。 12.專業估價者事務所或公司名稱及其估價金額: 不適用。 13.專業估價師姓名: 不適用。 14.專業估價師開業證書字號: 不適用。 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用。 19.會計師事務所名稱: 不適用。 20.會計師姓名: 不適用。 21.會計師開業證書字號: 不適用。 22.經紀人及經紀費用: 不適用。 23.取得或處分之具體目的或用途: 船隊擴編。 24.本次交易表示異議之董事之意見: 無。 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用。 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 預計交船日為115年11月下旬至116年2月間。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2605 | 新興 | 26 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2605 | 新興 | 30 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2605 | 新興 | 69 | 2 | 8167460.0 | 6700.0 | 1219.02 | no_signal |
+| 20260924 | 2605 | 新興 | 67 | 2 | 801590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

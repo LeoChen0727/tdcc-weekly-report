@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:59 Asia/Taipei
+- generated_at: 2026-09-26 15:52:06 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,11 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,6 +118,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 5520
-- high: 5650
-- low: 5415
-- close: 5525
-- volume: 1052328
-- ma5: 5450
-- ema23_primary: 5398.16
-- distance_to_ema23_pct: 2.35
-- ma20: 5621
-- ma60: 4437.92
-- ma120: 4242.42
-- return_5d: -4.16
-- return_20d: 2.41
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -1.71
-- distance_to_high_60_pct: -9.35
+- date: 20260924
+- open: 6560
+- high: 6920
+- low: 6215
+- close: 6920
+- volume: 2756489
+- ma5: 6095
+- ema23_primary: 5657.66
+- distance_to_ema23_pct: 22.31
+- ma20: 5782
+- ma60: 4627.83
+- ma120: 4322.46
+- return_5d: 29.23
+- return_20d: 22.59
+- volume_ratio: 2.26
+- distance_to_ma20_pct_auxiliary: 19.68
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,5280,5490,5110,5155,1962404,4531.68,13.75,4430.25,3846.5,1.08
-20260825,5070,5205,4910,5205,1225543,4587.79,13.45,4522,3874.17,0.68
-20260826,5155,5725,5140,5725,1732681,4682.56,22.26,4642.75,3905.58,0.98
-20260827,5955,5980,5595,5645,1914739,4762.76,18.52,4768.25,3933.17,1.08
 20260828,5750,5960,5690,5785,939998,4847.95,19.33,4885.25,3964.5,0.53
 20260831,5710,6045,5690,5990,1749901,4943.12,21.18,4996.25,4002.17,0.99
 20260901,6075,6095,5820,5885,981544,5021.61,17.19,5083.25,4039.92,0.58
@@ -167,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,5320,5540,5210,5240,1608326,5389.5,-2.77,5626.75,4373.75,1.22
 20260917,5400,5605,5320,5355,970920,5386.63,-0.59,5614.5,4402.33,0.77
 20260918,5520,5650,5415,5525,1052328,5398.16,2.35,5621,4437.92,0.84
+20260921,5765,5890,5700,5790,972711,5430.81,6.61,5652.75,4477.67,0.81
+20260922,5985,6050,5780,5830,916002,5464.08,6.7,5684,4519.5,0.77
+20260923,6005,6410,5930,6410,1525519,5542.91,15.64,5718.25,4569.17,1.29
+20260924,6560,6920,6215,6920,2756489,5657.66,22.31,5782,4627.83,2.26
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 70.58
-- over_600_ratio: 68.07
-- over_800_ratio: 65.37
-- over_1000_ratio: 64.05
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 70.61
+- over_600_ratio: 67.82
+- over_800_ratio: 65.59
+- over_1000_ratio: 64.26
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,68.91,1.01,63.46,0.11,59.78,-0.48,8,False,True
 20260709,69,0.09,62.77,-0.69,59.7,-0.08,9,False,False
 20260717,69.19,0.19,61.55,-1.22,59.59,-0.11,10,False,False
 20260724,70.52,1.33,65.31,3.76,62.06,2.47,11,True,True
@@ -198,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,71.33,-0.19,64.89,-0.27,62.91,0.4,17,False,True
 20260911,70.78,-0.55,65.49,0.6,64.17,1.26,18,False,True
 20260918,70.58,-0.2,65.37,-0.12,64.05,-0.12,0,False,False
+20260924,70.61,0.03,65.59,0.22,64.26,0.21,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3653 | 健策 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:健策精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/25財訊快報 6.報導內容:法人預估，明年健策營收可望突破600億大關，年增逾9成 7.發生緣由:應主管機關要求說明 8.因應措施:  本公司未對財務及業務資訊作任何預估，相關財務及業務資訊以本公司  於公開資訊觀測站公布為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 3653 | 健策 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | put_inflow | stale_signal | 1.事實發生日:115/08/26 2.公司名稱:健策精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/25財訊快報 6.報導內容:法人預估，明年健策營收可望突破600億大關，年增逾9成 7.發生緣由:應主管機關要求說明 8.因應措施:  本公司未對財務及業務資訊作任何預估，相關財務及業務資訊以本公司  於公開資訊觀測站公布為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3653 | 健策 | true_breakout | 嚴格突破 | 96.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | 1.事實發生日:115/08/26 2.公司名稱:健策精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/25財訊快報 6.報導內容:法人預估，明年健策營收可望突破600億大關，年增逾9成 7.發生緣由:應主管機關要求說明 8.因應措施:  本公司未對財務及業務資訊作任何預估，相關財務及業務資訊以本公司  於公開資訊觀測站公布為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3653 | 健策 | 1 | 1 | 2 | 3 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3653 | 健策 | 2 | 2 | 3 | 5 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3653 | 健策 | 23 | 5 | 7631530.0 | 1189990.0 | 6.41 | put_inflow |
+| 20260924 | 3653 | 健策 | 62 | 10 | 25285450.0 | 713840.0 | 35.42 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

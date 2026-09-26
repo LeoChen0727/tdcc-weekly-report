@@ -1,27 +1,27 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:57 Asia/Taipei
+- generated_at: 2026-09-26 15:52:04 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260909
-- price_rows: 351
-- current_main_price_date: 20260918
-- current_main_price_universe_status: historical_only_noncurrent
+- latest_price_date: 20260924
+- price_rows: 355
+- current_main_price_date: 20260924
+- current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260911
-- tdcc_rows: 20
-- tdcc_history_status: historical_only_noncurrent
-- tdcc_freshness_status: historical_only_noncurrent
-- tdcc_continuity_status: not_current_tdcc_universe
-- tdcc_missing_official_dates: 
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 21
+- tdcc_history_status: tdcc_history_degraded_exception
+- tdcc_freshness_status: tdcc_window_degraded
+- tdcc_continuity_status: accepted_history_exception
+- tdcc_missing_official_dates: 20260918
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: Historical-only TDCC window: stock is absent from the official current main-price universe; retain real historical dates and do not claim current TDCC history
+- notes: TDCC history contains canonical accepted stock-level missing dates: 20260918; disclose the gap and do not treat the window as continuous
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260909
-- open: 23.4
-- high: 24
-- low: 23
-- close: 23.65
-- volume: 1276932
-- ma5: 23.65
-- ema23_primary: 22.39
-- distance_to_ema23_pct: 5.61
-- ma20: 21.99
-- ma60: 22.83
-- ma120: 23.17
-- return_5d: 4.65
-- return_20d: 11.29
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 7.54
-- distance_to_high_60_pct: -18.45
+- date: 20260924
+- open: 24.2
+- high: 25.25
+- low: 24.2
+- close: 24.65
+- volume: 1125915
+- ma5: 24.62
+- ema23_primary: 23.11
+- distance_to_ema23_pct: 6.67
+- ma20: 22.84
+- ma60: 22.9
+- ma120: 23.3
+- return_5d: 5.34
+- return_20d: 20.24
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 7.95
+- distance_to_high_60_pct: -15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260813,21.3,21.55,20.95,20.95,577957,21.59,-2.97,20.67,23.68,0.57
-20260814,20.95,20.95,20.45,20.55,439361,21.5,-4.44,20.64,23.59,0.46
-20260817,20.6,20.8,20.5,20.6,243283,21.43,-3.87,20.63,23.5,0.27
-20260818,20.6,20.7,20.05,20.5,355803,21.35,-3.99,20.61,23.39,0.41
 20260819,19.9,20.5,19.9,20.5,1209905,21.28,-3.67,20.57,23.29,1.35
 20260820,20.5,20.6,20.2,20.4,370123,21.21,-3.81,20.56,23.2,0.44
 20260821,20.2,21.1,20.2,20.7,404646,21.16,-2.2,20.54,23.12,0.49
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260907,24,24.3,23.2,23.6,3601707,22.18,6.41,21.77,22.82,3.51
 20260908,23.65,23.8,23.1,23.4,980618,22.28,5.03,21.87,22.83,0.93
 20260909,23.4,24,23,23.65,1276932,22.39,5.61,21.99,22.83,1.18
+20260921,27.65,27.7,25.2,25.85,12519988,22.68,13.97,22.24,22.89,7.45
+20260922,25.3,25.35,23.3,24.35,5400296,22.82,6.7,22.43,22.91,2.8
+20260923,24,25.55,24,24.6,1602900,22.97,7.1,22.63,22.92,0.8
+20260924,24.2,25.25,24.2,24.65,1125915,23.11,6.67,22.84,22.9,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260911
-- over_400_ratio: 53.68
-- over_600_ratio: 50.06
-- over_800_ratio: 47.8
-- over_1000_ratio: 47.2
-- over_400_change_1w: -0.79
-- over_800_change_1w: -0.58
-- over_1000_change_1w: -0.58
+- as_of_date: 20260924
+- over_400_ratio: 52.43
+- over_600_ratio: 48.49
+- over_800_ratio: 46.32
+- over_1000_ratio: 45.6
+- over_400_change_1w: 
+- over_800_change_1w: 
+- over_1000_change_1w: 
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,53.82,-1.87,49.96,-1.83,48.01,-2.52,0,False,False
 20260703,54.88,1.06,50.62,0.66,48.74,0.73,1,True,True
 20260709,54.58,-0.3,51.07,0.45,49.81,1.07,2,False,True
 20260717,55.16,0.58,50.43,-0.64,49.17,-0.64,3,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260828,54,0.59,49.14,1.07,48.54,1.73,2,True,True
 20260904,54.47,0.47,48.38,-0.76,47.78,-0.76,3,False,False
 20260911,53.68,-0.79,47.8,-0.58,47.2,-0.58,0,False,False
+20260924,52.43,,46.32,,45.6,,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 3591 | 艾笛森 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/09/03 2.公司名稱:艾笛森光電股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司業經民國115年股東常會決議通過辦理現金減資並經臺灣證券交易所股 份有限公司民國115年7月21日臺證上一字第1151802937號函申報生效在案。 6.因應措施: 依本公司國內第四次無擔保轉換公司債發行及轉換辦法第九條規定，停止受理轉換登記 起訖日期為115年07月31日至115年09月18日止。債券持有人如擬申請轉換，最遲應於停 止受理轉換登記之始日（115年07月31日）之前一營業日前（115年07月29日），向往來 證券商辦理轉換手續。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 3591 | 艾笛森 | 1 | 1 | 3 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:00 Asia/Taipei
+- generated_at: 2026-09-26 15:52:07 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 64.5
-- high: 64.7
-- low: 63.4
-- close: 64.5
-- volume: 2447647
-- ma5: 63.44
-- ema23_primary: 64.18
-- distance_to_ema23_pct: 0.49
-- ma20: 65.05
-- ma60: 66.21
-- ma120: 68.11
-- return_5d: 4.54
-- return_20d: 1.9
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.84
-- distance_to_high_60_pct: -27.36
+- date: 20260924
+- open: 64.6
+- high: 65.9
+- low: 64.2
+- close: 65.6
+- volume: 2491440
+- ma5: 65.24
+- ema23_primary: 64.55
+- distance_to_ema23_pct: 1.63
+- ma20: 64.89
+- ma60: 65.41
+- ma120: 68.83
+- return_5d: 2.82
+- return_20d: -2.81
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.09
+- distance_to_high_60_pct: -26.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,64.8,67,63,63.1,9209008,63.16,-0.09,60.23,72.44,1.78
-20260825,63.3,66.1,61.6,66,6578469,63.4,4.11,60.68,72.1,1.26
-20260826,66.1,69,65.8,68.1,9758874,63.79,6.76,61.41,71.75,1.87
-20260827,68.2,69,66.9,67.5,5197088,64.1,5.31,62.26,71.34,1.01
 20260828,68,68.7,67.2,67.6,4678450,64.39,4.99,62.9,70.9,0.91
 20260831,67.6,69.5,67.1,68.2,5541636,64.71,5.4,63.42,70.57,1.07
 20260901,68.3,69.7,67.7,67.8,4935897,64.96,4.37,63.82,70.27,0.95
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,62.1,64.8,62.1,64,3259727,64.19,-0.29,65.05,66.83,0.65
 20260917,64.2,65.8,63.7,63.8,2864782,64.16,-0.55,64.98,66.5,0.63
 20260918,64.5,64.7,63.4,64.5,2447647,64.18,0.49,65.05,66.21,0.56
+20260921,64.9,66.8,64.3,65.7,4757379,64.31,2.16,65.17,66.03,1.15
+20260922,66.4,67.5,65.4,65.6,4941576,64.42,1.83,65.16,65.85,1.22
+20260923,66.3,67.5,64.8,64.8,4047583,64.45,0.54,64.99,65.59,1.08
+20260924,64.6,65.9,64.2,65.6,2491440,64.55,1.63,64.89,65.41,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 41.98
-- over_600_ratio: 39.48
-- over_800_ratio: 37.98
-- over_1000_ratio: 36.19
-- over_400_change_1w: 0.44
-- over_800_change_1w: 0.42
-- over_1000_change_1w: -0.28
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260924
+- over_400_ratio: 41.71
+- over_600_ratio: 38.93
+- over_800_ratio: 37.93
+- over_1000_ratio: 35.99
+- over_400_change_1w: -0.27
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,43.27,0.98,38.75,1.08,37.44,1.35,1,True,True
 20260709,42.66,-0.61,38.37,-0.38,36.84,-0.6,0,False,False
 20260717,41.47,-1.19,37.02,-1.35,35.94,-0.9,0,False,False
 20260724,41.26,-0.21,36.73,-0.29,35.24,-0.7,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,41.72,-0.03,38.14,0.19,36.36,0.84,1,False,True
 20260911,41.54,-0.18,37.56,-0.58,36.47,0.11,2,False,True
 20260918,41.98,0.44,37.98,0.42,36.19,-0.28,3,False,True
+20260924,41.71,-0.27,37.93,-0.05,35.99,-0.2,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3673 | TPK-KY | pattern | 型態觀察 | 38.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.接受資金貸與之: (1)公司名稱:祥達光學(廈門)有限公司 (2)與資金貸與他人公司之關係: 關係企業 (3)資金貸與之限額(仟元):67,416,328 (4)原資金貸與之餘額(仟元):969,300 (5)本次新增資金貸與之金額(仟元):969,300 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,938,600 (8)本次新增資金貸與之原因: 充實祥達光學(廈門)有限公司之營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):20,184,097 (2)累積盈虧金額(仟元):-12,815,371 5.計息方式: 廈門子公司加權平均成本 6.還款之: (1)條件: 本金到期清償。同意到期日前提前還款及分期清償借款 (2)日期: 中華民國116年08月18日(預估到期日) 7.迄事實發生日為止，資金貸與餘額(仟元): 87,140,070 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 215.02 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: (1)資金貸與餘額、新增資金貸與之金額之美元數以32.31折算新台幣 (2) 貸出方淨值、接受資金貸與公司最近期財務報表之資本 以115年第&#12752;季會計師核閱報告之數據為準 (3) 接受資金貸與公司最近期財務報表之累積盈虧金額 為115年第&#12752;季會計師核閱報告之美金數以匯率31.995折算新台幣；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3673 | TPK-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.接受資金貸與之: (1)公司名稱:祥達光學(廈門)有限公司 (2)與資金貸與他人公司之關係: 關係企業 (3)資金貸與之限額(仟元):67,416,328 (4)原資金貸與之餘額(仟元):969,300 (5)本次新增資金貸與之金額(仟元):969,300 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,938,600 (8)本次新增資金貸與之原因: 充實祥達光學(廈門)有限公司之營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):20,184,097 (2)累積盈虧金額(仟元):-12,815,371 5.計息方式: 廈門子公司加權平均成本 6.還款之: (1)條件: 本金到期清償。同意到期日前提前還款及分期清償借款 (2)日期: 中華民國116年08月18日(預估到期日) 7.迄事實發生日為止，資金貸與餘額(仟元): 87,140,070 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 215.02 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: (1)資金貸與餘額、新增資金貸與之金額之美元數以32.31折算新台幣 (2) 貸出方淨值、接受資金貸與公司最近期財務報表之資本 以115年第&#12752;季會計師核閱報告之數據為準 (3) 接受資金貸與公司最近期財務報表之累積盈虧金額 為115年第&#12752;季會計師核閱報告之美金數以匯率31.995折算新台幣；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3673 | TPK-KY | 1 | 1 | 2 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3673 | TPK-KY | 1 | 1 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3673 | TPK-KY | 76 | 1 | 1265170.0 | 0.0 |  | no_signal |
+| 20260924 | 3673 | TPK-KY | 77 | 1 | 1468700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3490 單井
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:52 Asia/Taipei
+- generated_at: 2026-09-26 15:51:59 Asia/Taipei
 - stock_id: 3490
 - stock_name: 單井
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 45.35
-- high: 45.75
-- low: 43.85
-- close: 44.35
-- volume: 3981000
-- ma5: 43.72
-- ema23_primary: 43.58
-- distance_to_ema23_pct: 1.77
-- ma20: 46.28
-- ma60: 37.09
-- ma120: 34.83
-- return_5d: 6.74
-- return_20d: -17.72
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -4.18
-- distance_to_high_60_pct: -23.27
+- date: 20260924
+- open: 44.1
+- high: 46
+- low: 43.75
+- close: 45.05
+- volume: 2499000
+- ma5: 44.85
+- ema23_primary: 43.98
+- distance_to_ema23_pct: 2.43
+- ma20: 44.68
+- ma60: 38
+- ma120: 35.47
+- return_5d: -0.66
+- return_20d: -16.57
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -22.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,57.4,57.8,49.55,49.7,5316000,38.14,30.32,35.59,33.41,1.15
-20260825,50.9,54.6,50,54.6,3662000,39.51,38.2,36.99,33.68,0.77
-20260826,52.8,57,52.8,53.6,3781000,40.68,31.75,38.38,33.94,0.77
-20260827,50.6,56,49.6,54,6345000,41.79,29.21,39.77,34.21,1.23
 20260828,54.3,54.8,49.8,50.3,6502000,42.5,18.35,40.9,34.41,1.2
 20260831,48.1,50.2,45.3,45.5,6189000,42.75,6.43,41.76,34.54,1.1
 20260901,45.7,46.3,44.3,46.15,4722000,43.03,7.24,42.65,34.7,0.82
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,42,45.5,41.45,44.8,6905000,43.34,3.37,46.95,36.67,1.65
 20260917,45.5,46.2,44.5,45.35,5251000,43.51,4.24,46.76,36.88,1.23
 20260918,45.35,45.75,43.85,44.35,3981000,43.58,1.77,46.28,37.09,0.92
+20260921,44.35,46,44.3,45.2,3205000,43.71,3.4,46.06,37.34,0.76
+20260922,46,46,44.55,45.5,3058000,43.86,3.74,45.6,37.59,0.73
+20260923,45.65,45.95,44.1,44.15,2384000,43.89,0.6,45.13,37.82,0.58
+20260924,44.1,46,43.75,45.05,2499000,43.98,2.43,44.68,38,0.64
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 24.22
-- over_600_ratio: 21.36
-- over_800_ratio: 17.99
-- over_1000_ratio: 16.27
-- over_400_change_1w: -3.67
-- over_800_change_1w: -0.95
-- over_1000_change_1w: -2.67
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 24.77
+- over_600_ratio: 21.32
+- over_800_ratio: 19.07
+- over_1000_ratio: 19.07
+- over_400_change_1w: 0.55
+- over_800_change_1w: 1.08
+- over_1000_change_1w: 2.8
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,17.44,-0.01,12.04,0,12.04,0,0,False,False
 20260709,16.27,-1.17,13.68,1.64,12.07,0.03,1,False,True
 20260717,16.03,-0.24,12.07,-1.61,12.07,0,0,False,False
 20260724,15.93,-0.1,12.07,0,12.07,0,1,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,27.51,-2.43,15.85,-4.83,14.04,-5.18,0,False,False
 20260911,27.89,0.38,18.94,3.09,18.94,4.9,1,True,True
 20260918,24.22,-3.67,17.99,-0.95,16.27,-2.67,0,False,False
+20260924,24.77,0.55,19.07,1.08,19.07,2.8,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3490 | 單井 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3490 | 單井 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.證券名稱: Micron Technology, Inc. (MU-US)普通股 2.交易日期:115/1/30~115/9/22 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年1月30日 5.交易數量、每單位價格及交易總金額: 最近一年累積處分交易數量：5,550股 最近一年累積處分每單位價格：美金663.9666144元 最近一年累積處分交易總金額：美金3,685,014.71元(折合新臺幣115,705,051元) 6.處分利益（或損失）（取得有價證券者不適用）: 處份利益：新台幣16,689,772元 7.與交易標的公司之關係: 無 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 迄目前為止持有數量:230股 迄目前為止持有金額:美金210,571.70元(折合新臺幣6,631,483元) 迄目前為止持股比例:0.0000204% 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:48.72% 占歸屬於母公司業主之權益比例:52.32% 營運資金數額:新臺幣 137,058仟元 10.取得或處分之具體目的: 財務投資 11.本次交易表示異議董事之意見: 無 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無 14.監察人承認或審計委員會同意日期: 不適用 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 本投資交易帳列透過損益按公允價值衡量之金融資產；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3490 | 單井 | 2 | 2 | 3 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3490 | 單井 | 6 | 6 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

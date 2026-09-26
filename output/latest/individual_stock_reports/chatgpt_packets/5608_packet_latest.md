@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5608 四維航
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:35 Asia/Taipei
+- generated_at: 2026-09-26 15:52:42 Asia/Taipei
 - stock_id: 5608
 - stock_name: 四維航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 16.9
-- high: 17.05
-- low: 16.7
-- close: 16.9
-- volume: 2061425
-- ma5: 16.67
-- ema23_primary: 16.56
-- distance_to_ema23_pct: 2.03
-- ma20: 17.02
-- ma60: 15.18
-- ma120: 15.2
-- return_5d: 0.9
-- return_20d: -9.87
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -0.71
-- distance_to_high_60_pct: -13.33
+- date: 20260924
+- open: 17.2
+- high: 17.2
+- low: 16.8
+- close: 17
+- volume: 2438650
+- ma5: 17.08
+- ema23_primary: 16.73
+- distance_to_ema23_pct: 1.63
+- ma20: 16.94
+- ma60: 15.38
+- ma120: 15.23
+- return_5d: 0.59
+- return_20d: 0.59
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 0.34
+- distance_to_high_60_pct: -12.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,19.05,19.5,18,18,47067041,15.15,18.79,14.54,14.51,4.47
-20260825,17.95,19.45,17.8,18.1,55366315,15.4,17.55,14.77,14.57,4.18
-20260826,18.1,18.45,16.75,17.05,23191275,15.54,9.75,14.97,14.61,1.63
-20260827,16.55,17.05,16.45,16.9,11768892,15.65,7.99,15.18,14.64,0.8
 20260828,16.95,16.95,16.45,16.7,5888793,15.74,6.12,15.36,14.67,0.39
 20260831,16.95,17.5,16.8,16.95,7782505,15.84,7.02,15.54,14.7,0.51
 20260901,16.95,17.05,16.65,16.7,4727320,15.91,4.96,15.72,14.73,0.3
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,16.25,16.9,16.25,16.65,3291337,16.5,0.92,17.12,15.1,0.22
 20260917,16.5,16.9,16.3,16.9,3602684,16.53,2.22,17.11,15.14,0.27
 20260918,16.9,17.05,16.7,16.9,2061425,16.56,2.03,17.02,15.18,0.19
+20260921,16.9,17.25,16.75,17.15,2875355,16.61,3.24,16.98,15.23,0.33
+20260922,17.15,17.4,17.05,17.15,2481924,16.66,2.96,16.93,15.28,0.41
+20260923,17.3,17.3,17.05,17.2,1640502,16.7,2.98,16.94,15.33,0.33
+20260924,17.2,17.2,16.8,17,2438650,16.73,1.63,16.94,15.38,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 29.86
-- over_600_ratio: 27.39
-- over_800_ratio: 26.12
-- over_1000_ratio: 24.73
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.34
-- over_1000_change_1w: 0.82
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 30.38
+- over_600_ratio: 27.87
+- over_800_ratio: 26.94
+- over_1000_ratio: 25.6
+- over_400_change_1w: 0.52
+- over_800_change_1w: 0.82
+- over_1000_change_1w: 0.87
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,28.91,0.12,25.41,0.13,23.6,-0.08,9,False,True
 20260709,28.6,-0.31,24.8,-0.61,22.95,-0.65,0,False,False
 20260717,28.46,-0.14,24.85,0.05,22.8,-0.15,1,False,True
 20260724,28.25,-0.21,23.92,-0.93,22.35,-0.45,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,30.19,0.97,26.18,1.26,24.8,1.91,1,True,True
 20260911,29.72,-0.47,25.78,-0.4,23.91,-0.89,0,False,False
 20260918,29.86,0.14,26.12,0.34,24.73,0.82,1,True,True
+20260924,30.38,0.52,26.94,0.82,25.6,0.87,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5608 | 四維航 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/24 2.發生緣由:依台灣證券交易所股份有限公司指示辦理。 3.財務業務資訊:  期間                 (月)                  (季)             (最近四季累計)                     (自結數)              (核閱數)              (核閱數)                     ( IFRS )              ( IFRS )              ( IFRS )  ＝＝＝＝  ＝＝＝＝＝＝＝＝＝＝＝　＝＝＝＝＝＝＝＝＝＝＝  ＝＝＝＝＝＝＝ 　　　　　  最近一月　　 與去年　　 最近一季　　 與去年　　 最近四季累計 　科目　　  (115年7月)  同期增減%　115年第2季 　同期增減%　  114年第3季至                                                                115年第2季  ＝＝＝＝　＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝  ＝＝＝＝＝  ＝＝＝＝＝＝＝  營業收入　    362         44%　　　    853          11%          3,255  (百萬)  稅前淨利(損)   13        126%　　      143　       -48%　　        -97  (百萬)  歸屬母公司  業主淨利(損)   30    　  161% 　　     165　　     -24%　　         37  (百萬)  每股盈餘　   0.07        158% 　　    0.42　　     -25%　         0.10  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:上述115年7月之財務資訊為自結數，尚未經會計師查核(閱),僅供 投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 5608 | 四維航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北 4.法人說明會擇要訊息：(1)本公司財務及營運狀況說明 (2)活動諮詢:富邦證券 游小姐 電話:02-27725938#61610 信箱:karen.kj.yu@fubon.com 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5608 | 四維航 | 10 | 7 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 5608 | 四維航 | 14 | 11 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

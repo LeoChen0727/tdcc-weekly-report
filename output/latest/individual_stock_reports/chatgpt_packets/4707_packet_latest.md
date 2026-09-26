@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4707 磐亞
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:15 Asia/Taipei
+- generated_at: 2026-09-26 15:52:22 Asia/Taipei
 - stock_id: 4707
 - stock_name: 磐亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 27
-- high: 28.25
-- low: 27
-- close: 28
-- volume: 1483000
-- ma5: 26.76
-- ema23_primary: 29.1
-- distance_to_ema23_pct: -3.76
-- ma20: 29.92
-- ma60: 31.75
-- ma120: 24.05
-- return_5d: 7.07
-- return_20d: -14.89
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -6.42
-- distance_to_high_60_pct: -37.78
+- date: 20260924
+- open: 29.2
+- high: 31
+- low: 29.1
+- close: 30
+- volume: 3453000
+- ma5: 29.2
+- ema23_primary: 29.22
+- distance_to_ema23_pct: 2.67
+- ma20: 28.93
+- ma60: 31.8
+- ma120: 24.66
+- return_5d: 11.94
+- return_20d: -6.83
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 3.69
+- distance_to_high_60_pct: -33.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,35,36.15,34.3,35.8,13175000,31.86,12.35,30.39,28.92,2.55
-20260825,35.1,35.55,33.9,35.15,5041000,32.14,9.37,30.71,29.24,0.94
-20260826,35.15,35.7,33.8,34.65,4688000,32.35,7.12,31.15,29.52,0.85
-20260827,34.45,35.1,32.2,32.2,4382000,32.33,-0.42,31.6,29.72,0.78
 20260828,32.35,33.45,32,32.55,2398000,32.35,0.61,32.07,29.94,0.46
 20260831,32.8,34.85,32.25,33.4,3593000,32.44,2.96,32.46,30.14,0.69
 20260901,33.5,34.35,32.25,32.25,3647000,32.42,-0.54,32.67,30.35,0.7
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,26.15,27.5,26.15,26.75,1596000,29.41,-9.05,30.45,31.65,0.46
 20260917,27,27.65,26.8,26.8,1568000,29.19,-8.2,30.17,31.71,0.46
 20260918,27,28.25,27,28,1483000,29.1,-3.76,29.92,31.75,0.44
+20260921,28.25,30.7,28.25,29.1,3899000,29.1,0.02,29.59,31.78,1.33
+20260922,29.5,29.75,28.65,29.7,2359000,29.15,1.9,29.32,31.77,0.84
+20260923,30,30.55,29,29.2,1934000,29.15,0.17,29.04,31.77,0.73
+20260924,29.2,31,29.1,30,3453000,29.22,2.67,28.93,31.8,1.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 70.74
-- over_600_ratio: 69.16
-- over_800_ratio: 67.48
-- over_1000_ratio: 65.27
-- over_400_change_1w: -0.15
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.3
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 70.76
+- over_600_ratio: 69.18
+- over_800_ratio: 67.52
+- over_1000_ratio: 65.82
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.55
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,71.84,0.7,68.65,1.95,65.94,0.58,9,True,True
 20260709,71.24,-0.6,68.29,-0.36,66.07,0.13,10,False,True
 20260717,71.54,0.3,68.48,0.19,66.21,0.14,11,True,True
 20260724,71.48,-0.06,68.2,-0.28,65.97,-0.24,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,71.44,-0.31,67.88,-0.58,66.8,-0.58,0,False,False
 20260911,70.89,-0.55,67.54,-0.34,65.57,-1.23,0,False,False
 20260918,70.74,-0.15,67.48,-0.06,65.27,-0.3,0,False,False
+20260924,70.76,0.02,67.52,0.04,65.82,0.55,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4707 | 磐亞 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/07/08 2.公司名稱:磐亞股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:115年6月財務狀況及其他對股東權益或證券價格有重大影響之情事 6.因應措施:每月評價調整 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): 一.現金及約當現金：509,031仟元。 二.有價證券持有成本：4,417,161仟元。 1.透過損益按公允價值衡量之金融資產-流動持有成本:21,768仟元， 評價調整:41,957仟元。 2.透過其他綜合損益按公允價值衡量之權益工具投資-非流動持有成本:2,445,513仟元， 評價調整:1,299,728仟元。 3.採權益法之長期股權投資持有成本:1,949,880仟元。 4.質押變動情形: 截至本月質押股票：持有成本437,780仟元、帳面價值450,279仟元： 三.長期借款餘額：386,000仟元 四.短期借款餘額：1,825,000仟元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 4707 | 磐亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 富騰國際實業股份有限公司普通股 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 交易總金額：董事會決議以特定人身份認購新台幣3億元為限 每單位價格：每股30元溢價認購 交易數量：1,000萬股為限 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 富騰國際實業股份有限公司；非本公司關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依據現金&#22679;資認股協議書約定 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依據富騰公司董事會決議辦理 13.取得或處分有價證券標的公司每股淨值: 11.69元 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有本交易證券(含本次交易)之數量：1,000萬股 累積持有本交易證券(含本次交易)之金額：新台幣3億元 持股比例：51.1% 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 有價證券投資占最近期財報總資產比例：75.42% 有價證券投資占最近期財報歸屬於母公司業主之權益比例：106.44% 最近期財報營運資金數額：-1,279,698仟元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 股權投資 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 民國115年9月23日 21.本次交易會計師出具非合理性意見:否 22.會計師事務所名稱: 安誠會計師事務所 23.會計師姓名: 陳靖玲 24.會計師開業證書字號: 北市會證字第943號 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 依公司核決權限、取處程序辦理。 富騰公司本次發行新股除依法保留百分之十由員工認購外， 其餘由原股東按原持股比例認購，逾期未認股或認購不足 之股份，該公司授權董事長洽由特定人認足之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4707 | 磐亞 | 1 | 1 | 1 | 1 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 4707 | 磐亞 | 5 | 1 | 5 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

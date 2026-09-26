@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:18 Asia/Taipei
+- generated_at: 2026-09-26 15:52:25 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 36.5
-- high: 37
-- low: 36.35
-- close: 37
-- volume: 5500298
-- ma5: 35.85
-- ema23_primary: 36.05
+- date: 20260924
+- open: 37.75
+- high: 38
+- low: 37.3
+- close: 37.65
+- volume: 2374151
+- ma5: 37.99
+- ema23_primary: 36.68
 - distance_to_ema23_pct: 2.65
-- ma20: 36.21
-- ma60: 36.44
-- ma120: 38.71
-- return_5d: 3.06
-- return_20d: 6.94
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 2.18
-- distance_to_high_60_pct: -16.85
+- ma20: 36.7
+- ma60: 36.21
+- ma120: 38.73
+- return_5d: 4.29
+- return_20d: 1.21
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 2.57
+- distance_to_high_60_pct: -15.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,34.5,34.95,33.8,34,2298265,35.26,-3.58,34.2,39.54,0.52
-20260825,34,34.6,33.15,34.55,2207517,35.2,-1.85,34.34,39.29,0.52
-20260826,34.95,37.35,34.75,37.3,10273769,35.38,5.44,34.7,39.02,2.4
-20260827,37.5,37.8,36.7,37.2,13206181,35.53,4.7,35.11,38.76,2.82
 20260828,37.95,37.95,36,36.4,11607235,35.6,2.24,35.38,38.5,2.27
 20260831,35.9,37.6,35.75,36.2,10004128,35.65,1.54,35.55,38.29,1.85
 20260901,36.35,38.9,36.1,38.2,17547363,35.86,6.51,35.74,38.12,2.87
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,35.2,35.7,35,35.55,2210534,35.95,-1.1,36,36.69,0.39
 20260917,35.75,36.65,35.75,36.1,2974549,35.96,0.39,36.09,36.54,0.52
 20260918,36.5,37,36.35,37,5500298,36.05,2.65,36.21,36.44,0.95
+20260921,37,38.8,36.55,38.5,10235573,36.25,6.21,36.44,36.39,1.65
+20260922,38.8,40.6,38.25,38.7,17451931,36.45,6.16,36.64,36.34,2.51
+20260923,39.3,39.35,37.6,38.1,5992660,36.59,4.12,36.68,36.27,0.89
+20260924,37.75,38,37.3,37.65,2374151,36.68,2.65,36.7,36.21,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 27.26
-- over_600_ratio: 24.36
-- over_800_ratio: 22.35
-- over_1000_ratio: 20.4
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.35
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260924
+- over_400_ratio: 27.5
+- over_600_ratio: 24.29
+- over_800_ratio: 22.28
+- over_1000_ratio: 20.7
+- over_400_change_1w: 0.24
+- over_800_change_1w: -0.07
+- over_1000_change_1w: 0.3
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,30.23,-0.68,24.9,-1.35,23.92,-1.19,0,False,False
 20260709,29.53,-0.7,24.98,0.08,24.02,0.1,1,False,True
 20260717,29.33,-0.2,24.35,-0.63,23.34,-0.68,0,False,False
 20260724,29.15,-0.18,23.74,-0.61,22.72,-0.62,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,26.53,-1.51,22.09,-0.59,20.12,-0.95,0,False,False
 20260911,27.21,0.68,22,-0.09,20.46,0.34,1,False,True
 20260918,27.26,0.05,22.35,0.35,20.4,-0.06,2,False,True
+20260924,27.5,0.24,22.28,-0.07,20.7,0.3,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4906 | 正文 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | repeated_but_no_breakout | 1.主管機關核准減資日期:115/09/04 2.辦理資本變更登記完成日期:115/09/04 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)收回已發行之限制員工權利新股註銷減資前：    實收資本額為新台幣4,518,458,320元    實際流通在外股數為451,845,832股    每股淨值為新台幣25.72元。 (2)本次註銷減資新台幣1,396,000元(139,600股)。 (3)收回已發行之限制員工權利新股註銷減資後：    實收資本額為新台幣4,517,062,320元    實際流通在外股數為 451,706,232股    每股淨值為新台幣25.73元。 (4)每股淨值係依最近一期(115年第二季)會計師查核財務報告計算。 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 4906 | 正文 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.主管機關核准減資日期:115/09/04 2.辦理資本變更登記完成日期:115/09/04 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)收回已發行之限制員工權利新股註銷減資前：    實收資本額為新台幣4,518,458,320元    實際流通在外股數為451,845,832股    每股淨值為新台幣25.72元。 (2)本次註銷減資新台幣1,396,000元(139,600股)。 (3)收回已發行之限制員工權利新股註銷減資後：    實收資本額為新台幣4,517,062,320元    實際流通在外股數為 451,706,232股    每股淨值為新台幣25.73元。 (4)每股淨值係依最近一期(115年第二季)會計師查核財務報告計算。 4.預計換股作業計畫:不適用。 5.預計減資新股上市後之上市普通股股數:不適用。 6.預計減資新股上市後之上市普通股股數占已發行普通股比率  （減資後上市普通股股數/減資後已發行普通股股數）:不適用。 7.前二項預計減資後上巿普通股股數未達6000萬股且未達25%者，請說明股權流通性偏低   之因應措施:不適用。 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4906 | 正文 | 9 | 9 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 4906 | 正文 | 13 | 2 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4906 | 正文 | 60 | 0 | 1713530.0 | 0.0 |  | call_inflow |
+| 20260924 | 4906 | 正文 | 58 | 1 | 642700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

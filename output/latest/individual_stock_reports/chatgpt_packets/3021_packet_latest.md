@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3021 鴻名
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:34 Asia/Taipei
+- generated_at: 2026-09-26 15:51:41 Asia/Taipei
 - stock_id: 3021
 - stock_name: 鴻名
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 26.5
-- high: 27.5
-- low: 26.4
-- close: 26.7
-- volume: 1145097
-- ma5: 25.44
-- ema23_primary: 23.46
-- distance_to_ema23_pct: 13.79
-- ma20: 22.9
-- ma60: 22.99
-- ma120: 22.31
-- return_5d: 13.62
-- return_20d: 32.51
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 16.58
-- distance_to_high_60_pct: -19.21
+- date: 20260924
+- open: 24.3
+- high: 26.95
+- low: 24.3
+- close: 26.95
+- volume: 1664520
+- ma5: 25.94
+- ema23_primary: 24.14
+- distance_to_ema23_pct: 11.64
+- ma20: 24
+- ma60: 22.8
+- ma120: 22.64
+- return_5d: 2.47
+- return_20d: 31.14
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 12.27
+- distance_to_high_60_pct: -10.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,20.1,20.2,19.95,20.1,42466,21.14,-4.94,20.43,25.56,0.24
-20260825,19.95,20.1,19.6,20,53051,21.05,-4.99,20.42,25.39,0.32
-20260826,20.05,20.7,19.85,20.3,202435,20.99,-3.27,20.43,25.18,1.29
-20260827,20.4,20.85,20.35,20.55,137657,20.95,-1.91,20.5,24.91,0.94
 20260828,20.65,20.7,20.3,20.3,144474,20.9,-2.85,20.51,24.58,1.04
 20260831,20.25,20.25,19.65,20.25,89358,20.84,-2.84,20.52,24.32,0.66
 20260901,19.95,20.45,19.95,20.4,132548,20.81,-1.95,20.47,24.12,1.07
@@ -166,10 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,25.85,27.1,25.5,27.1,1380579,22.88,18.42,22.27,23.06,2.73
 20260917,27.35,28.05,26.25,26.3,3737746,23.17,13.51,22.57,23.02,5.43
 20260918,26.5,27.5,26.4,26.7,1145097,23.46,13.79,22.9,22.99,1.54
+20260921,26.85,27.5,26.05,26.25,666998,23.7,10.78,23.21,22.98,0.86
+20260922,26.5,26.5,25.3,25.3,632184,23.83,6.17,23.48,22.95,0.79
+20260923,25.35,25.55,24.45,24.5,368099,23.89,2.57,23.68,22.86,0.45
+20260924,24.3,26.95,24.3,26.95,1664520,24.14,11.64,24,22.8,1.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 70.62
 - over_600_ratio: 70.02
 - over_800_ratio: 69.22
@@ -185,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,70.47,0,68.25,0,65.24,0,0,False,False
 20260709,70.47,0,68.25,0,65.24,0,0,False,False
 20260717,70.95,0.48,68.25,0,65.24,0,1,False,False
 20260724,70.95,0,68.25,0,65.24,0,0,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,70.62,-0.32,69.22,0.16,65.36,0.15,1,False,True
 20260911,70.62,0,69.22,0,65.36,0,0,False,False
 20260918,70.62,0,69.22,0,65.36,0,0,False,False
+20260924,70.62,0,69.22,0,65.36,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3021 | 鴻名 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3021 | 鴻名 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3021 | 鴻名 | 1 | 1 | 2 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 3021 | 鴻名 | 1 | 1 | 2 | 3 | 4 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

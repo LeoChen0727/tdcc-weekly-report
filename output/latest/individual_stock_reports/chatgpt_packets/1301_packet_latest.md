@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:39 Asia/Taipei
+- generated_at: 2026-09-26 15:50:46 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 65.4
-- high: 65.6
-- low: 64.2
-- close: 65
-- volume: 29305397
-- ma5: 63.38
-- ema23_primary: 63.11
-- distance_to_ema23_pct: 2.99
-- ma20: 63.94
-- ma60: 60.27
-- ma120: 54.56
-- return_5d: 0.62
-- return_20d: 9.43
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 1.67
-- distance_to_high_60_pct: -8.71
+- date: 20260924
+- open: 62.7
+- high: 64.7
+- low: 62
+- close: 64.1
+- volume: 16415790
+- ma5: 64.4
+- ema23_primary: 63.43
+- distance_to_ema23_pct: 1.05
+- ma20: 64.89
+- ma60: 60.99
+- ma120: 55.15
+- return_5d: -0.77
+- return_20d: 1.58
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -1.21
+- distance_to_high_60_pct: -9.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,59,59.3,55.9,57,41808955,57.61,-1.05,56.63,55.46,1.47
-20260825,56.7,58.5,56.2,57.8,18974759,57.62,0.31,56.65,55.63,0.7
-20260826,58.5,61.2,58,60.1,35648630,57.83,3.93,56.84,55.8,1.34
-20260827,60.5,64.4,60.2,63.1,50413391,58.27,8.29,57.3,56.01,1.85
 20260828,63.2,64.8,62.1,62.7,33720847,58.64,6.93,57.68,56.18,1.27
 20260831,61.9,66.2,61.9,66.2,63377699,59.27,11.7,58.3,56.44,2.23
 20260901,66.4,69,65.8,67.8,69471543,59.98,13.04,58.92,56.76,2.26
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,62.1,63.7,61.7,62.4,18778277,62.79,-0.62,63.31,59.99,0.57
 20260917,62.8,64.7,62.5,64.6,26190059,62.94,2.64,63.66,60.16,0.78
 20260918,65.4,65.6,64.2,65,29305397,63.11,2.99,63.94,60.27,0.86
+20260921,65.1,66,64.7,65.2,12591053,63.29,3.03,64.34,60.49,0.39
+20260922,65.8,66.5,64.5,64.6,18404604,63.39,1.9,64.69,60.68,0.56
+20260923,64.8,64.9,62.9,63.1,19143508,63.37,-0.43,64.83,60.82,0.6
+20260924,62.7,64.7,62,64.1,16415790,63.43,1.05,64.89,60.99,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 75.33
-- over_600_ratio: 74.26
-- over_800_ratio: 73.36
-- over_1000_ratio: 72.59
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
+- as_of_date: 20260924
+- over_400_ratio: 75.25
+- over_600_ratio: 74.14
+- over_800_ratio: 73.25
+- over_1000_ratio: 72.55
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.04
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,74.8,0.25,72.9,0.35,72.19,0.27,3,True,True
 20260709,74.22,-0.58,72.36,-0.54,71.62,-0.57,0,False,False
 20260717,74.9,0.68,73.02,0.66,72.32,0.7,1,True,True
 20260724,75.21,0.31,73.34,0.32,72.59,0.27,2,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,75.65,0.98,73.64,0.95,72.84,0.98,2,True,True
 20260911,75.47,-0.18,73.43,-0.21,72.66,-0.18,0,False,False
 20260918,75.33,-0.14,73.36,-0.07,72.59,-0.07,0,False,False
+20260924,75.25,-0.08,73.25,-0.11,72.55,-0.04,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1301 | 台塑 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北市信義區松壽路2號3樓(君悅酒店) 4.法人說明會擇要訊息：本公司受邀參加永豐金證券線上法說會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 1301 | 台塑 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/16 1.召開法人說明會之日期：115/09/16 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北市信義區松壽路2號3樓(君悅酒店) 4.法人說明會擇要訊息：本公司受邀參加永豐金證券線上法說會，說明本公司營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1301 | 台塑 | 4 | 4 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 1301 | 台塑 | 8 | 8 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1301 | 台塑 | 127 | 1 | 17849840.0 | 0.0 |  | no_signal |
+| 20260924 | 1301 | 台塑 | 129 | 1 | 10387000.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

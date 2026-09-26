@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:15 Asia/Taipei
+- generated_at: 2026-09-26 15:51:22 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: high
+- confidence_level: medium
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -132,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 280
-- high: 283
+- date: 20260924
+- open: 285.5
+- high: 285.5
 - low: 279
-- close: 283
-- volume: 1429145
-- ma5: 277.9
-- ema23_primary: 284.54
-- distance_to_ema23_pct: -0.54
-- ma20: 288.8
-- ma60: 275.73
-- ma120: 283.38
-- return_5d: 2.35
-- return_20d: -9.44
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -2.01
-- distance_to_high_60_pct: -14.11
+- close: 284.5
+- volume: 1295375
+- ma5: 284.6
+- ema23_primary: 284.66
+- distance_to_ema23_pct: -0.06
+- ma20: 285.1
+- ma60: 276.88
+- ma120: 285.37
+- return_5d: 2.71
+- return_20d: -4.53
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.21
+- distance_to_high_60_pct: -13.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,317,329.5,312,316,16775302,286.53,10.28,288.1,285.12,1.81
-20260825,310,311,293,299,7438249,287.57,3.97,290.18,284.47,0.81
-20260826,302,305.5,297,301,3762910,288.69,4.26,291.75,283.52,0.43
-20260827,303,304.5,298,298,3120478,289.47,2.95,293.18,282.43,0.39
 20260828,299,300.5,292.5,294,4263053,289.85,1.43,293.23,281.37,0.57
 20260831,291.5,296.5,289,294.5,3132797,290.23,1.47,293.9,280.32,0.45
 20260901,295.5,298,292,295,2797380,290.63,1.5,294.43,279.88,0.42
@@ -174,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,273,285,273,282.5,2846188,285.38,-1.01,290.65,276.09,0.62
 20260917,281.5,283.5,277,277,1966741,284.68,-2.7,290.27,275.81,0.43
 20260918,280,283,279,283,1429145,284.54,-0.54,288.8,275.73,0.39
+20260921,284.5,288,282,286,1852572,284.66,0.47,287.3,275.85,0.63
+20260922,288.5,289,282,285,1886282,284.69,0.11,286.6,276.02,0.71
+20260923,285,289,283,284.5,1763824,284.68,-0.06,285.77,276.32,0.69
+20260924,285.5,285.5,279,284.5,1295375,284.66,-0.06,285.1,276.88,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 70.76
-- over_600_ratio: 68.74
-- over_800_ratio: 67.28
-- over_1000_ratio: 64.76
-- over_400_change_1w: -0.26
-- over_800_change_1w: -0.16
-- over_1000_change_1w: -0.55
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 70.83
+- over_600_ratio: 69.4
+- over_800_ratio: 68
+- over_1000_ratio: 65.47
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.72
+- over_1000_change_1w: 0.71
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,72.43,-1.28,69.19,-1.33,67.72,-1.36,0,False,False
 20260709,72.44,0.01,69.07,-0.12,67.8,0.08,1,False,True
 20260717,72.52,0.08,69.27,0.2,67.18,-0.62,2,False,True
 20260724,72.35,-0.17,68.98,-0.29,66.9,-0.28,0,False,False
@@ -205,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,71.34,-0.62,67.48,-0.74,64.75,-1.16,0,False,False
 20260911,71.02,-0.32,67.44,-0.04,65.31,0.56,1,False,True
 20260918,70.76,-0.26,67.28,-0.16,64.76,-0.55,0,False,False
+20260924,70.83,0.07,68,0.72,65.47,0.71,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/15 2.公司名稱:創見資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司辦理國內第二次無擔保轉換公司債乙案，業經金融監督管理委員會115年7月 7日金管證發字第1150347872號函申報生效在案。 (2)因近期國內外資本市場行情變化不定，為避免逕然訂價發行致影響投資人權益及 本公司股東權益，爰依115年5月7日董事會之授權，經董事長核准，擬向金融監督 管理委員會申請延長募集期間三個月，展延至116年1月6日以前募集完成。 6.因應措施:配合申請展延，俟取得主管機關核准函後，將另行公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 2451 | 創見 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 38 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/09/15 2.公司名稱:創見資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司辦理國內第二次無擔保轉換公司債乙案，業經金融監督管理委員會115年7月 7日金管證發字第1150347872號函申報生效在案。 (2)因近期國內外資本市場行情變化不定，為避免逕然訂價發行致影響投資人權益及 本公司股東權益，爰依115年5月7日董事會之授權，經董事長核准，擬向金融監督 管理委員會申請延長募集期間三個月，展延至116年1月6日以前募集完成。 6.因應措施:配合申請展延，俟取得主管機關核准函後，將另行公告。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:創見資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司辦理國內第二次無擔保轉換公司債乙案，業經金融監督管理委員會115年7月 7日金管證發字第1150347872號函申報生效在案。 (2)因近期國內外資本市場行情變化不定，為避免逕然訂價發行致影響投資人權益及 本公司股東權益，爰依115年5月7日董事會之授權，經董事長核准，於115年9月15日 向金融監督管理委員會申請延長募集期間三個月，展延至116年1月6日以前募集完成。 (3)上述申請延長國內第二次無擔保轉換公司債乙案，業經金融監督管理委員會115年 09月21日金管證發字第1150356340號函准予備查。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2451 | 創見 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 28 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:創見資訊股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司辦理國內第二次無擔保轉換公司債乙案，業經金融監督管理委員會115年7月 7日金管證發字第1150347872號函申報生效在案。 (2)因近期國內外資本市場行情變化不定，為避免逕然訂價發行致影響投資人權益及 本公司股東權益，爰依115年5月7日董事會之授權，經董事長核准，於115年9月15日 向金融監督管理委員會申請延長募集期間三個月，展延至116年1月6日以前募集完成。 (3)上述申請延長國內第二次無擔保轉換公司債乙案，業經金融監督管理委員會115年 09月21日金管證發字第1150356340號函准予備查。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2451 | 創見 | 22 | 17 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2451 | 創見 | 26 | 21 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2451 | 創見 | 124 | 5 | 5755830.0 | 11580.0 | 497.05 | no_signal |
+| 20260924 | 2451 | 創見 | 111 | 5 | 496420.0 | 2850.0 | 174.18 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

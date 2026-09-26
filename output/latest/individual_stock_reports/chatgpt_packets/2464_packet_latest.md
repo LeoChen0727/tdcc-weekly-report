@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:16 Asia/Taipei
+- generated_at: 2026-09-26 15:51:23 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 回檔後短線轉強，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 183.5
-- high: 197
-- low: 179
-- close: 197
-- volume: 23685793
-- ma5: 182.2
-- ema23_primary: 187.68
-- distance_to_ema23_pct: 4.97
-- ma20: 193.05
-- ma60: 173.22
-- ma120: 149.07
-- return_5d: 4.51
-- return_20d: 10.06
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 2.05
-- distance_to_high_60_pct: -12.05
+- date: 20260924
+- open: 196
+- high: 200.5
+- low: 192.5
+- close: 195.5
+- volume: 13517821
+- ma5: 194.1
+- ema23_primary: 189.4
+- distance_to_ema23_pct: 3.22
+- ma20: 192.55
+- ma60: 174.81
+- ma120: 153.24
+- return_5d: 8.91
+- return_20d: -7.35
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 1.53
+- distance_to_high_60_pct: -12.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,177,191,175,187.5,11959456,173.2,8.26,169.32,165.07,0.81
-20260825,186,193,182,193,14180408,174.85,10.38,172.43,165.22,0.92
-20260826,193,194,187.5,192,10392650,176.28,8.92,175.88,165.1,0.67
-20260827,194.5,211,194.5,211,13229763,179.17,17.76,180.3,165.53,0.83
 20260828,216.5,216.5,190,190,25845387,180.07,5.51,183.07,165.78,1.52
 20260831,185,187,175,180,15626012,180.07,-0.04,184.7,165.94,0.89
 20260901,183.5,188,177,184.5,10411363,180.44,2.25,185.82,166.27,0.6
@@ -173,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,177,184.5,176,183,7797549,187.5,-2.4,192.2,172.68,0.5
 20260917,183,186,178,179.5,8382682,186.83,-3.92,192.15,172.77,0.55
 20260918,183.5,197,179,197,23685793,187.68,4.97,193.05,173.22,1.46
+20260921,197,197,190,192.5,9685560,188.08,2.35,193.3,173.84,0.6
+20260922,195,201,190,190.5,11046575,188.28,1.18,193.18,174.35,0.69
+20260923,192,200.5,186,195,18569239,188.84,3.26,193.32,174.72,1.14
+20260924,196,200.5,192.5,195.5,13517821,189.4,3.22,192.55,174.81,0.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 48.21
-- over_600_ratio: 44.95
-- over_800_ratio: 42.76
-- over_1000_ratio: 40.78
-- over_400_change_1w: -2.58
-- over_800_change_1w: -2.19
-- over_1000_change_1w: -2.9
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 47.91
+- over_600_ratio: 45.08
+- over_800_ratio: 41.93
+- over_1000_ratio: 39.9
+- over_400_change_1w: -0.3
+- over_800_change_1w: -0.83
+- over_1000_change_1w: -0.88
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -192,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,45.98,5.96,39.41,6.56,37.72,6.58,1,True,True
 20260709,41.03,-4.95,35.33,-4.08,34.13,-3.59,0,False,False
 20260717,39.37,-1.66,34.35,-0.98,33.05,-1.08,0,False,False
 20260724,39.21,-0.16,34.28,-0.07,34.28,1.23,1,False,True
@@ -204,24 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,55.67,-0.16,49.21,-1.37,48.46,-0.52,0,False,False
 20260911,50.79,-4.88,44.95,-4.26,43.68,-4.78,0,False,False
 20260918,48.21,-2.58,42.76,-2.19,40.78,-2.9,0,False,False
+20260924,47.91,-0.3,41.93,-0.83,39.9,-0.88,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2464 | 盟立 | pullback_rebound | 回檔後短線轉強 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:盟立自動化股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因應本公司辦理現金增資發行普通股，依本公司國內第三次           無擔保轉換公司債發行及轉換辦法第十一條規定調整轉換價格。 6.因應措施:自115年09月24日起，國內第三次無擔保轉換公司債轉換價格           由新台幣202.3元調整為新台幣199.9元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:盟立自動化股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因應本公司辦理現金增資發行普通股，依本公司國內第三次           無擔保轉換公司債發行及轉換辦法第十一條規定調整轉換價格。 6.因應措施:自115年09月24日起，國內第三次無擔保轉換公司債轉換價格           由新台幣202.3元調整為新台幣199.9元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 2464 | 盟立 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:盟立自動化股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因應本公司辦理現金增資發行普通股，依本公司國內第三次           無擔保轉換公司債發行及轉換辦法第十一條規定調整轉換價格。 6.因應措施:自115年09月24日起，國內第三次無擔保轉換公司債轉換價格           由新台幣202.3元調整為新台幣199.9元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2464 | 盟立 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/09/23 2.公司名稱:盟立自動化股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司現金增資發行普通股認股股款繳納期限已於115年9月16日截止， 惟仍有部份原股東及員工尚未繳納現金增資股款，特此催告。 6.因應措施: (1)依公司法第266條第3項準用第142條之規定辦理，自115年9月24日至    115年10月27日下午3時30分止為股款催繳期間。 (2)尚未繳款之股東及員工，敬請於上述期間內，持原繳款書至中國信託商業銀行　    新竹分行及全國各分行辦理繳款事宜，逾期未繳納股款者即喪失認購新股之權利。 (3)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集中保管結算所    (股)公司作業後，依所認購之股數，撥入所登記之集保帳號。 (4)若股東有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行股份有限    公司代理部(地址：台北市重慶南路一段83號5樓，電話：(02)6636-5566)。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2464 | 盟立 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/23 2.公司名稱:盟立自動化股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 本公司現金增資發行普通股認股股款繳納期限已於115年9月16日截止， 惟仍有部份原股東及員工尚未繳納現金增資股款，特此催告。 6.因應措施: (1)依公司法第266條第3項準用第142條之規定辦理，自115年9月24日至    115年10月27日下午3時30分止為股款催繳期間。 (2)尚未繳款之股東及員工，敬請於上述期間內，持原繳款書至中國信託商業銀行　    新竹分行及全國各分行辦理繳款事宜，逾期未繳納股款者即喪失認購新股之權利。 (3)於催繳期間繳款之股東及員工，本公司將於催繳期間屆滿並經集中保管結算所    (股)公司作業後，依所認購之股數，撥入所登記之集保帳號。 (4)若股東有任何疑問，請洽詢本公司股務代理機構：中國信託商業銀行股份有限    公司代理部(地址：台北市重慶南路一段83號5樓，電話：(02)6636-5566)。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):  無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2464 | 盟立 | 15 | 8 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2464 | 盟立 | 19 | 12 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2464 | 盟立 | 115 | 5 | 17891340.0 | 89400.0 | 200.13 | no_signal |
+| 20260924 | 2464 | 盟立 | 110 | 5 | 15934650.0 | 45430.0 | 350.75 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

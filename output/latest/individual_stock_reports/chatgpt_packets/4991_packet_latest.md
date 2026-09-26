@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4991 環宇-KY
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:23 Asia/Taipei
+- generated_at: 2026-09-26 15:52:30 Asia/Taipei
 - stock_id: 4991
 - stock_name: 環宇-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 450.5
-- high: 474
-- low: 450.5
-- close: 474
-- volume: 7333000
-- ma5: 439.2
-- ema23_primary: 470.52
-- distance_to_ema23_pct: 0.74
-- ma20: 482.02
-- ma60: 462.06
-- ma120: 547.57
-- return_5d: 5.69
-- return_20d: -1.46
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: -1.66
-- distance_to_high_60_pct: -19.11
+- date: 20260924
+- open: 447.5
+- high: 464
+- low: 436
+- close: 463.5
+- volume: 3067000
+- ma5: 471.2
+- ema23_primary: 470.11
+- distance_to_ema23_pct: -1.41
+- ma20: 480.75
+- ma60: 459.05
+- ma120: 549.29
+- return_5d: 7.54
+- return_20d: -13.85
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -3.59
+- distance_to_high_60_pct: -20.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,481,483,435,435,4340000,463.04,-6.06,446.35,501.12,1.21
-20260825,435,451.5,418.5,445,3974000,461.54,-3.58,448.8,496.37,1.17
-20260826,442,489.5,442,489.5,4931000,463.87,5.53,455.45,492.27,1.48
-20260827,508,538,500,538,7838000,470.04,14.46,466.3,489.54,2.13
 20260828,538,540,511,520,9170000,474.21,9.66,474.65,486.02,2.22
 20260831,515,543,505,539,5904000,479.61,12.38,482.2,483.64,1.34
 20260901,530,554,511,544,8989000,484.97,12.17,488.07,481.81,1.86
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,424,438.5,417,428,4127000,473.76,-9.66,486.82,465.73,0.9
 20260917,445,458,428.5,431,3647000,470.2,-8.34,482.38,463.52,0.77
 20260918,450.5,474,450.5,474,7333000,470.52,0.74,482.02,462.06,1.58
+20260921,480,508,478,498,8007000,472.81,5.33,485.18,461.91,1.66
+20260922,499,504,470,473,5427000,472.82,0.04,486.57,461.75,1.11
+20260923,476.5,477.5,439.5,447.5,5308000,470.71,-4.93,484.48,460.38,1.08
+20260924,447.5,464,436,463.5,3067000,470.11,-1.41,480.75,459.05,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 47.11
-- over_600_ratio: 43.17
-- over_800_ratio: 39.8
-- over_1000_ratio: 37.64
-- over_400_change_1w: -0.45
-- over_800_change_1w: -2.42
-- over_1000_change_1w: -1.81
+- as_of_date: 20260924
+- over_400_ratio: 47.02
+- over_600_ratio: 42.12
+- over_800_ratio: 39.29
+- over_1000_ratio: 35.73
+- over_400_change_1w: -0.09
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -1.91
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,57.78,-0.14,45.38,0.04,45.38,0.04,1,False,True
 20260709,53.58,-4.2,43.53,-1.85,41.31,-4.07,0,False,False
 20260717,54.92,1.34,45.1,1.57,43.62,2.31,1,True,True
 20260724,54.42,-0.5,42.54,-2.56,42.54,-1.08,0,False,False
@@ -199,19 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,48.44,-3.4,42.03,-3.2,41.33,-1.68,0,False,False
 20260911,47.56,-0.88,42.22,0.19,39.45,-1.88,1,False,True
 20260918,47.11,-0.45,39.8,-2.42,37.64,-1.81,0,False,False
+20260924,47.02,-0.09,39.29,-0.51,35.73,-1.91,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4991 | 環宇-KY | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/31 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年07月        114年07月       與去年同期增減% 營業收入(百萬元)             145               156                -7.05% 稅前淨利(百萬元)             -34                10              -440.00% 歸屬母公司業主淨利(百萬元)   -21                10              -310.00% 每股盈餘(元)                -0.18             0.09              -300.00% (二)單季                  115年第2季      114年第2季      與去年同期增減% 營業收入(百萬元)             770              490               57.14% 稅前淨利(百萬元)             134                6             2133.33% 歸屬母公司業主淨利(百萬元)   110               14              685.71% 每股盈餘(元)                0.92             0.13              607.69% (三)最近四季累計                    114年第3季至115年第2季 營業收入(百萬元)                            2,717 稅前淨利(百萬元)                              467 歸屬母公司業主淨利(百萬元)                    388 每股盈餘(元)                                 3.32 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年07月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 4991 | 環宇-KY | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/31 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年07月        114年07月       與去年同期增減% 營業收入(百萬元)             145               156                -7.05% 稅前淨利(百萬元)             -34                10              -440.00% 歸屬母公司業主淨利(百萬元)   -21                10              -310.00% 每股盈餘(元)                -0.18             0.09              -300.00% (二)單季                  115年第2季      114年第2季      與去年同期增減% 營業收入(百萬元)             770              490               57.14% 稅前淨利(百萬元)             134                6             2133.33% 歸屬母公司業主淨利(百萬元)   110               14              685.71% 每股盈餘(元)                0.92             0.13              607.69% (三)最近四季累計                    114年第3季至115年第2季 營業收入(百萬元)                            2,717 稅前淨利(百萬元)                              467 歸屬母公司業主淨利(百萬元)                    388 每股盈餘(元)                                 3.32 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年07月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/08/31 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年07月        114年07月       與去年同期增減% 營業收入(百萬元)             145               156                -7.05% 稅前淨利(百萬元)             -34                10              -440.00% 歸屬母公司業主淨利(百萬元)   -21                10              -310.00% 每股盈餘(元)                -0.18             0.09              -300.00% (二)單季                  115年第2季      114年第2季      與去年同期增減% 營業收入(百萬元)             770              490               57.14% 稅前淨利(百萬元)             134                6             2133.33% 歸屬母公司業主淨利(百萬元)   110               14              685.71% 每股盈餘(元)                0.92             0.13              607.69% (三)最近四季累計                    114年第3季至115年第2季 營業收入(百萬元)                            2,717 稅前淨利(百萬元)                              467 歸屬母公司業主淨利(百萬元)                    388 每股盈餘(元)                                 3.32 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年07月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 4991 | 環宇-KY | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/08/31 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年07月        114年07月       與去年同期增減% 營業收入(百萬元)             145               156                -7.05% 稅前淨利(百萬元)             -34                10              -440.00% 歸屬母公司業主淨利(百萬元)   -21                10              -310.00% 每股盈餘(元)                -0.18             0.09              -300.00% (二)單季                  115年第2季      114年第2季      與去年同期增減% 營業收入(百萬元)             770              490               57.14% 稅前淨利(百萬元)             134                6             2133.33% 歸屬母公司業主淨利(百萬元)   110               14              685.71% 每股盈餘(元)                0.92             0.13              607.69% (三)最近四季累計                    114年第3季至115年第2季 營業收入(百萬元)                            2,717 稅前淨利(百萬元)                              467 歸屬母公司業主淨利(百萬元)                    388 每股盈餘(元)                                 3.32 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年07月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 4991 | 環宇-KY | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/08/31 2.發生緣由:依櫃買中心通知辦理 3.財務業務資訊: (一)單月                   115年07月        114年07月       與去年同期增減% 營業收入(百萬元)             145               156                -7.05% 稅前淨利(百萬元)             -34                10              -440.00% 歸屬母公司業主淨利(百萬元)   -21                10              -310.00% 每股盈餘(元)                -0.18             0.09              -300.00% (二)單季                  115年第2季      114年第2季      與去年同期增減% 營業收入(百萬元)             770              490               57.14% 稅前淨利(百萬元)             134                6             2133.33% 歸屬母公司業主淨利(百萬元)   110               14              685.71% 每股盈餘(元)                0.92             0.13              607.69% (三)最近四季累計                    114年第3季至115年第2季 營業收入(百萬元)                            2,717 稅前淨利(百萬元)                              467 歸屬母公司業主淨利(百萬元)                    388 每股盈餘(元)                                 3.32 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：115年07月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字，且係本公 司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數，業經會計 師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4991 | 環宇-KY | 4 | 4 | 4 | 5 | 13 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 4991 | 環宇-KY | 8 | 8 | 5 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

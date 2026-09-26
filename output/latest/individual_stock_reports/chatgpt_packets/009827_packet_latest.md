@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009827 玉山未來全球算力
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:36 Asia/Taipei
+- generated_at: 2026-09-26 15:50:42 Asia/Taipei
 - stock_id: 009827
 - stock_name: 玉山未來全球算力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260918
-- price_rows: 13
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 17
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 10.12
-- high: 10.17
-- low: 10.1
-- close: 10.16
-- volume: 5436471
-- ma5: 10
-- ema23_primary: 10.01
-- distance_to_ema23_pct: 1.53
-- ma20: 10.06
-- ma60: 10.06
-- ma120: 10.06
-- return_5d: 1.3
+- date: 20260924
+- open: 10.29
+- high: 10.33
+- low: 10.28
+- close: 10.32
+- volume: 2364923
+- ma5: 10.29
+- ema23_primary: 10.1
+- distance_to_ema23_pct: 2.15
+- ma20: 10.12
+- ma60: 10.12
+- ma120: 10.12
+- return_5d: 3.1
 - return_20d:
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 0.97
-- distance_to_high_60_pct: -1.17
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 1.93
+- distance_to_high_60_pct: -1.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -161,6 +161,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,9.93,9.94,9.9,9.91,6323275,9.99,-0.81,10.06,10.06,0.57
 20260917,9.98,10.12,9.97,10.01,7233833,9.99,0.17,10.05,10.05,0.67
 20260918,10.12,10.17,10.1,10.16,5436471,10.01,1.53,10.06,10.06,0.52
+20260921,10.18,10.22,10.18,10.2,4824706,10.02,1.77,10.07,10.07,0.48
+20260922,10.38,10.4,10.36,10.36,4299450,10.05,3.07,10.09,10.09,0.45
+20260923,10.34,10.44,10.34,10.43,3303264,10.08,3.45,10.11,10.11,0.36
+20260924,10.29,10.33,10.28,10.32,2364923,10.1,2.15,10.12,10.12,0.27
 ```
 
 ## Latest TDCC Snapshot

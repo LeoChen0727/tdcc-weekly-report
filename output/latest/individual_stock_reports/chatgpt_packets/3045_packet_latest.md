@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:37 Asia/Taipei
+- generated_at: 2026-09-26 15:51:43 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 43
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 44
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,7 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 124.5
-- high: 125.5
-- low: 123
-- close: 124
-- volume: 18171327
-- ma5: 123.6
-- ema23_primary: 118.83
-- distance_to_ema23_pct: 4.35
-- ma20: 118.7
-- ma60: 114.68
-- ma120: 114
-- return_5d: 2.48
-- return_20d: 7.83
-- volume_ratio: 2.22
-- distance_to_ma20_pct_auxiliary: 4.46
-- distance_to_high_60_pct: -1.2
+- date: 20260924
+- open: 122
+- high: 123.5
+- low: 121.5
+- close: 122.5
+- volume: 4901190
+- ma5: 123.4
+- ema23_primary: 120.11
+- distance_to_ema23_pct: 1.99
+- ma20: 120.28
+- ma60: 115.05
+- ma120: 114.47
+- return_5d: -1.21
+- return_20d: 6.06
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 1.85
+- distance_to_high_60_pct: -2.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,115,115,114,115,9496643,112.3,2.4,111.8,114.24,0.76
-20260825,115,115.5,114.5,115.5,8753438,112.57,2.61,111.88,114.31,0.71
-20260826,115,115.5,114.5,115.5,9525190,112.81,2.38,111.97,114.33,0.79
-20260827,116,116,115,115.5,7773618,113.03,2.18,112.05,114.33,0.66
 20260828,115.5,115.5,114.5,115.5,8414134,113.24,2,112.2,114.33,0.75
 20260831,115,116,114.5,116,9272070,113.47,2.23,112.4,114.33,0.83
 20260901,115,116,113.5,115.5,12275130,113.64,1.64,112.62,114.32,1.09
@@ -173,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,124,124.5,122.5,124.5,8257070,117.85,5.65,117.8,114.54,0.96
 20260917,124.5,124.5,122.5,124,5985415,118.36,4.77,118.25,114.62,0.75
 20260918,124.5,125.5,123,124,18171327,118.83,4.35,118.7,114.68,2.22
+20260921,124,125,122.5,124.5,6275213,119.3,4.36,119.17,114.78,0.78
+20260922,125,125,122.5,123,14859045,119.61,2.83,119.55,114.87,1.78
+20260923,123,123,121.5,123,6840892,119.89,2.59,119.92,114.97,0.83
+20260924,122,123.5,121.5,122.5,4901190,120.11,1.99,120.28,115.05,0.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 92.96
-- over_600_ratio: 92.02
-- over_800_ratio: 91.34
-- over_1000_ratio: 90.36
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 92.98
+- over_600_ratio: 92.07
+- over_800_ratio: 91.29
+- over_1000_ratio: 90.43
+- over_400_change_1w: 0.02
+- over_800_change_1w: -0.05
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,92.81,0.15,91.25,0.15,90.49,0.11,5,True,True
 20260709,92.62,-0.19,91.09,-0.16,90.35,-0.14,0,False,False
 20260717,92.3,-0.32,90.75,-0.34,89.98,-0.37,0,False,False
 20260724,92.44,0.14,90.91,0.16,90.14,0.16,1,True,True
@@ -204,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,92.67,0.16,90.97,0.15,90.09,0.02,3,True,True
 20260911,92.79,0.12,91.14,0.17,90.24,0.15,4,True,True
 20260918,92.96,0.17,91.34,0.2,90.36,0.12,5,True,True
+20260924,92.98,0.02,91.29,-0.05,90.43,0.07,6,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3045 | 台灣大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 南投市中興路6*6號2樓部分房屋及屋頂層部分 2.事實發生日:115/9/15~115/9/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事會授權董事長先行決行，事後提報最近期董事會追認 民國115年9月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：16.91坪 每單位價格：每坪租金每個月347元(含稅) 租金總金額：每個月5,859元(含稅) 使用權資產金額：195,591元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 台灣固網股份有限公司，子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：考量關係人房舍資產位置及客戶使用電信服務之需求， 為該區域最適建設位置 前次移轉之所有人：富邦產物保險(股)公司 前次移轉之所有人與公司及交易相對人間相互之關係：關係人 前次移轉日期及移轉金額：115/12/1~118/11/30，每個月租金11,800元 本公司向富邦產物保險股份有限公司承租34.0坪再轉租16.91坪予台灣固網(股)公司 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 關係人之取得日期及價格： 富邦產物保險股份有限公司76/9/12以新台幣8,085,032元自地自建 交易當時與公司之關係：關係人 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 0 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：月收 租期：115/12/1~118/11/30 契約限制條款及其他重要約定：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 董事長授權經理部門依內部管理辦法規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 轉租予台灣固網，以擴展其固定網路涵蓋範圍，佈放光纜及建設傳輸設備， 提供消費者穩定、快速、優質的電信服務 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 俟民國115年11月11日審計委員會同意 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 嗣後租金有變動之可能；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 南投市中興路6*6號2樓部分房屋及屋頂層部分 2.事實發生日:115/9/15~115/9/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事會授權董事長先行決行，事後提報最近期董事會追認 民國115年9月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：16.91坪 每單位價格：每坪租金每個月347元(含稅) 租金總金額：每個月5,859元(含稅) 使用權資產金額：195,591元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 台灣固網股份有限公司，子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：考量關係人房舍資產位置及客戶使用電信服務之需求， 為該區域最適建設位置 前次移轉之所有人：富邦產物保險(股)公司 前次移轉之所有人與公司及交易相對人間相互之關係：關係人 前次移轉日期及移轉金額：115/12/1~118/11/30，每個月租金11,800元 本公司向富邦產物保險股份有限公司承租34.0坪再轉租16.91坪予台灣固網(股)公司 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 關係人之取得日期及價格： 富邦產物保險股份有限公司76/9/12以新台幣8,085,032元自地自建 交易當時與公司之關係：關係人 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 0 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：月收 租期：115/12/1~118/11/30 契約限制條款及其他重要約定：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 董事長授權經理部門依內部管理辦法規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 轉租予台灣固網，以擴展其固定網路涵蓋範圍，佈放光纜及建設傳輸設備， 提供消費者穩定、快速、優質的電信服務 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 俟民國115年11月11日審計委員會同意 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 嗣後租金有變動之可能；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3045 | 台灣大 | 19 | 1 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 3045 | 台灣大 | 23 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260924 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

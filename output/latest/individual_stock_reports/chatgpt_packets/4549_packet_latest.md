@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4549 桓達
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:12 Asia/Taipei
+- generated_at: 2026-09-26 15:52:19 Asia/Taipei
 - stock_id: 4549
 - stock_name: 桓達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 95.6
-- high: 97
-- low: 95.5
-- close: 97
-- volume: 23000
-- ma5: 95.34
-- ema23_primary: 97.8
-- distance_to_ema23_pct: -0.82
-- ma20: 99.31
-- ma60: 97.27
-- ma120: 100.7
-- return_5d: 2.97
-- return_20d: -4.9
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -2.32
-- distance_to_high_60_pct: -7.62
+- date: 20260924
+- open: 96.8
+- high: 98.4
+- low: 96
+- close: 97.1
+- volume: 45000
+- ma5: 97.16
+- ema23_primary: 97.62
+- distance_to_ema23_pct: -0.53
+- ma20: 98.55
+- ma60: 97.14
+- ma120: 100.95
+- return_5d: 2.1
+- return_20d: -3.86
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -1.47
+- distance_to_high_60_pct: -7.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,101,101,99.5,100.5,61000,97.06,3.54,94.33,101.57,0.59
-20260825,100,102,99.5,102,19000,97.48,4.64,94.81,101.19,0.19
-20260826,101,101,99.7,100.5,36000,97.73,2.84,95.55,100.59,0.41
-20260827,101,102,100.5,101,63000,98,3.06,96.28,100.11,0.74
 20260828,102,104.5,101.5,103,182000,98.42,4.66,96.86,99.74,2.1
 20260831,103,104.5,102,103,106000,98.8,4.25,97.45,99.45,1.18
 20260901,103,103,100,102,159000,99.07,2.96,98.03,99.14,1.7
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,94.5,97.2,94.5,95,61000,98.12,-3.18,99.92,97.48,0.93
 20260917,95.1,96,95.1,95.1,21000,97.87,-2.83,99.56,97.36,0.33
 20260918,95.6,97,95.5,97,23000,97.8,-0.82,99.31,97.27,0.36
+20260921,97.5,99.8,96.9,97.7,30000,97.79,-0.09,99.17,97.25,0.49
+20260922,97.8,98.6,96.5,97,23000,97.72,-0.74,98.92,97.21,0.37
+20260923,96.3,97.9,96.2,97,36000,97.66,-0.68,98.74,97.17,0.58
+20260924,96.8,98.4,96,97.1,45000,97.62,-0.53,98.55,97.14,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 62.53
 - over_600_ratio: 59.97
 - over_800_ratio: 58.74
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,61.64,0.02,58.74,0,58.74,0,1,False,False
 20260709,61.64,0,58.74,0,58.74,0,0,False,False
 20260717,61.64,0,58.74,0,58.74,0,0,False,False
 20260724,62.51,0.87,58.74,0,58.74,0,1,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,62.53,0,58.74,0,58.74,0,0,False,False
 20260911,62.53,0,58.74,0,58.74,0,0,False,False
 20260918,62.53,0,58.74,0,58.74,0,0,False,False
+20260924,62.53,0,58.74,0,58.74,0,0,False,False
 ```
 
 ## Candidate Context

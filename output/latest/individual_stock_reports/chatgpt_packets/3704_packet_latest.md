@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:01 Asia/Taipei
+- generated_at: 2026-09-26 15:52:08 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 40.6
-- high: 41.2
-- low: 40.35
-- close: 41.15
-- volume: 2036622
-- ma5: 40.52
-- ema23_primary: 41.15
-- distance_to_ema23_pct: -0.01
-- ma20: 40.79
-- ma60: 43.66
-- ma120: 41.96
-- return_5d: 1.6
-- return_20d: -1.2
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 0.88
-- distance_to_high_60_pct: -19.16
+- date: 20260924
+- open: 40.3
+- high: 40.75
+- low: 40
+- close: 40.5
+- volume: 1010185
+- ma5: 41.08
+- ema23_primary: 41.11
+- distance_to_ema23_pct: -1.48
+- ma20: 40.62
+- ma60: 43.42
+- ma120: 42.24
+- return_5d: 0.5
+- return_20d: -4.59
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -0.28
+- distance_to_high_60_pct: -20.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,41.75,42.65,41.5,41.9,994642,43.89,-4.53,43.75,45.83,0.27
-20260825,41.8,41.8,40.9,41.4,1445764,43.68,-5.22,43.64,45.75,0.39
-20260826,41.75,42.4,41.5,42,1191750,43.54,-3.54,43.7,45.67,0.34
-20260827,42.45,43,41.85,42.45,1396588,43.45,-2.3,43.83,45.58,0.39
 20260828,42.75,43.15,42,42,1259249,43.33,-3.07,43.85,45.46,0.36
 20260831,42,43.6,41.65,41.65,2132609,43.19,-3.57,43.67,45.36,0.61
 20260901,41.7,42.3,41.4,41.7,1325634,43.07,-3.17,43.46,45.26,0.4
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,39.95,40.95,39.9,40.15,2536945,41.23,-2.62,40.91,43.91,1.15
 20260917,40.5,40.9,39.75,40.3,3611889,41.15,-2.08,40.81,43.77,1.56
 20260918,40.6,41.2,40.35,41.15,2036622,41.15,-0.01,40.79,43.66,0.88
+20260921,41.3,42.35,40.55,42.15,3288841,41.24,2.21,40.8,43.65,1.36
+20260922,42.5,42.6,40.85,41.3,5363474,41.24,0.14,40.8,43.58,2.05
+20260923,41.15,41.3,40.25,40.3,1884275,41.16,-2.1,40.71,43.48,0.71
+20260924,40.3,40.75,40,40.5,1010185,41.11,-1.48,40.62,43.42,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 64.77
-- over_600_ratio: 61.44
-- over_800_ratio: 59.97
-- over_1000_ratio: 58.68
-- over_400_change_1w: -0.91
-- over_800_change_1w: -1.39
-- over_1000_change_1w: -0.73
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 64.85
+- over_600_ratio: 61.27
+- over_800_ratio: 59.49
+- over_1000_ratio: 57.96
+- over_400_change_1w: 0.08
+- over_800_change_1w: -0.48
+- over_1000_change_1w: -0.72
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,65.83,-0.31,61.23,-0.83,59.48,-0.62,0,False,False
 20260709,65.86,0.03,60.82,-0.41,59.51,0.03,1,False,True
 20260717,66.3,0.44,61.44,0.62,60.35,0.84,2,True,True
 20260724,66.89,0.59,61.59,0.15,60.3,-0.05,3,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,66.04,-0.23,61.25,-0.06,59.52,0.37,2,False,True
 20260911,65.68,-0.36,61.36,0.11,59.41,-0.11,3,False,True
 20260918,64.77,-0.91,59.97,-1.39,58.68,-0.73,0,False,False
+20260924,64.85,0.08,59.49,-0.48,57.96,-0.72,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3704 | 合勤控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議或公司決定日期:115/06/30 2.發行股數:27,500,000股。 3.每股面額:新台幣10元。 4.發行總金額:新台幣275,000,000元。 5.發行價格:新台幣10元。 6.員工認股股數:發行股數之10%,即2,750,000股。 7.原股東認購比率:發行股數之90%,即24,750,000股。 8.公開銷售方式及股數:不適用。 9.畸零股及逾期未認購股份之處理方式:不適用。 10.本次發行新股之權利義務:其權利義務與原已發行股份相同。 11.本次增資資金用途:充實營運資金。 12.現金增資認股基準日:115/07/05 13.最後過戶日:115/06/30 14.停止過戶起始日期:115/07/01 15.停止過戶截止日期:115/07/05 16.股款繳納期間:原股東及員工之股款繳納日為民國115年07月06日   ；特定人認股繳款日訂為民國115年07月07日。 17.與代收及專戶存儲價款行庫訂約日期:不適用。 18.委託代收存款機構:不適用。 19.委託存儲款項機構:不適用。 20.其他應敘明事項:因應現增作業實際發行情形，本現金增資   案內容及其他相關事宜，如經主管機關修正、或有未盡事宜   、或因客觀環境而變更時，擬授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3704 | 合勤控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議或公司決定日期:115/06/30 2.發行股數:27,500,000股。 3.每股面額:新台幣10元。 4.發行總金額:新台幣275,000,000元。 5.發行價格:新台幣10元。 6.員工認股股數:發行股數之10%,即2,750,000股。 7.原股東認購比率:發行股數之90%,即24,750,000股。 8.公開銷售方式及股數:不適用。 9.畸零股及逾期未認購股份之處理方式:不適用。 10.本次發行新股之權利義務:其權利義務與原已發行股份相同。 11.本次增資資金用途:充實營運資金。 12.現金增資認股基準日:115/07/05 13.最後過戶日:115/06/30 14.停止過戶起始日期:115/07/01 15.停止過戶截止日期:115/07/05 16.股款繳納期間:原股東及員工之股款繳納日為民國115年07月06日   ；特定人認股繳款日訂為民國115年07月07日。 17.與代收及專戶存儲價款行庫訂約日期:不適用。 18.委託代收存款機構:不適用。 19.委託存儲款項機構:不適用。 20.其他應敘明事項:因應現增作業實際發行情形，本現金增資   案內容及其他相關事宜，如經主管機關修正、或有未盡事宜   、或因客觀環境而變更時，擬授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3704 | 合勤控 | 4 | 4 | 4 | 4 | 5 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 3704 | 合勤控 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3704 | 合勤控 | 7 | 0 | 221090.0 | 0.0 |  | no_signal |
+| 20260924 | 3704 | 合勤控 | 7 | 0 | 45910.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

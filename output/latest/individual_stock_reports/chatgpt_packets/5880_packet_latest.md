@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:36 Asia/Taipei
+- generated_at: 2026-09-26 15:52:43 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 27.5
-- high: 27.5
-- low: 27.05
-- close: 27.3
-- volume: 30844955
-- ma5: 27.33
-- ema23_primary: 26.48
-- distance_to_ema23_pct: 3.1
-- ma20: 26.35
-- ma60: 25.7
-- ma120: 24.57
-- return_5d: 0.37
-- return_20d: 8.98
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 3.6
-- distance_to_high_60_pct: -1.27
+- date: 20260924
+- open: 26.5
+- high: 26.75
+- low: 26.35
+- close: 26.45
+- volume: 14691036
+- ma5: 26.95
+- ema23_primary: 26.58
+- distance_to_ema23_pct: -0.5
+- ma20: 26.72
+- ma60: 25.84
+- ma120: 24.68
+- return_5d: -3.99
+- return_20d: 5.59
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -1.01
+- distance_to_high_60_pct: -4.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,25.1,25.2,24.85,25,7888175,25.21,-0.82,25.56,24.91,0.28
-20260825,25,25.25,24.95,25.05,12487194,25.19,-0.57,25.51,24.95,0.44
-20260826,25,25.1,24.85,25,8363717,25.18,-0.7,25.46,24.99,0.32
-20260827,25,25.3,24.95,25.05,10831100,25.17,-0.46,25.36,25.02,0.46
 20260828,25.1,25.3,25.05,25.25,9386451,25.17,0.3,25.24,25.05,0.44
 20260831,25.25,25.65,25.05,25.55,45412466,25.2,1.37,25.18,25.08,2.04
 20260901,25.35,25.7,25.3,25.6,15139049,25.24,1.44,25.13,25.12,0.71
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,27.1,27.35,26.75,27.35,19851298,26.3,3.99,26.1,25.61,1.03
 20260917,27.25,27.6,27.1,27.55,20508852,26.4,4.34,26.24,25.67,1.05
 20260918,27.5,27.5,27.05,27.3,30844955,26.48,3.1,26.35,25.7,1.51
+20260921,27.3,27.3,27,27.2,9534595,26.54,2.49,26.46,25.75,0.46
+20260922,27.35,27.35,27,27.05,9623047,26.58,1.76,26.56,25.78,0.47
+20260923,27.15,27.15,26.65,26.75,17504063,26.6,0.58,26.65,25.81,0.84
+20260924,26.5,26.75,26.35,26.45,14691036,26.58,-0.5,26.72,25.84,0.7
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 75.36
-- over_600_ratio: 73.35
+- as_of_date: 20260924
+- over_400_ratio: 75.35
+- over_600_ratio: 73.36
 - over_800_ratio: 72.17
-- over_1000_ratio: 71.46
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_1000_ratio: 71.43
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,73.6,0.03,70.4,0.01,69.58,0.01,5,True,True
 20260709,73.75,0.15,70.55,0.15,69.74,0.16,6,True,True
 20260717,73.91,0.16,70.7,0.15,69.91,0.17,7,True,True
 20260724,74.12,0.21,70.96,0.26,70.15,0.24,8,True,True
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,74.91,0.26,71.82,0.29,71.06,0.3,3,True,True
 20260911,75.17,0.26,71.97,0.15,71.24,0.18,4,True,True
 20260918,75.36,0.19,72.17,0.2,71.46,0.22,5,True,True
+20260924,75.35,-0.01,72.17,0,71.43,-0.03,6,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:法遵主管 2.發生變動日期:115/09/17 3.舊任者姓名、級職及簡歷:無 4.新任者姓名、級職及簡歷:朱清松/稽核部總稽核 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/09/18 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 5880 | 合庫金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:法遵主管 2.發生變動日期:115/09/17 3.舊任者姓名、級職及簡歷:無 4.新任者姓名、級職及簡歷:朱清松/稽核部總稽核 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:新任 6.異動原因:新任 7.生效日期:115/09/18 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.發生變動日期:115/09/23 2.法人名稱:財政部 3.舊任者姓名:蔡國泰 4.舊任者簡歷:合作金庫商業銀行副理 5.新任者姓名:黃金註 6.新任者簡歷:合作金庫商業銀行北台中分行資深專員 7.異動原因:改派 8.原任期（例xx/xx/xx至xx/xx/xx）:115/06/18~118/06/17 9.新任生效日期:115/09/23 10.其他應敘明事項:依財政部台財庫字第11503731030號函。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5880 | 合庫金 | 19 | 3 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 5880 | 合庫金 | 23 | 7 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1904 正隆
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:58 Asia/Taipei
+- generated_at: 2026-09-26 15:51:04 Asia/Taipei
 - stock_id: 1904
 - stock_name: 正隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 24.9
-- high: 25
-- low: 24.7
-- close: 24.75
-- volume: 1038643
-- ma5: 24.67
-- ema23_primary: 24.61
-- distance_to_ema23_pct: 0.56
-- ma20: 24.93
-- ma60: 23.41
-- ma120: 21.53
-- return_5d: -0.2
-- return_20d: -3.7
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -0.74
-- distance_to_high_60_pct: -6.43
+- date: 20260924
+- open: 24.8
+- high: 25.35
+- low: 24.65
+- close: 24.9
+- volume: 1260898
+- ma5: 24.81
+- ema23_primary: 24.68
+- distance_to_ema23_pct: 0.9
+- ma20: 24.8
+- ma60: 23.65
+- ma120: 21.72
+- return_5d: -0.4
+- return_20d: -2.16
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -5.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,26,26.45,25.7,25.75,3242882,23.76,8.37,23.37,22.47,1.01
-20260825,25.75,25.95,25.3,25.35,1704063,23.89,6.09,23.57,22.57,0.53
-20260826,25.5,25.5,25.2,25.35,1493357,24.02,5.56,23.79,22.67,0.47
-20260827,25.3,25.95,25.3,25.45,2331466,24.13,5.45,24,22.76,0.73
 20260828,25.5,25.65,24.9,25.15,2246288,24.22,3.84,24.21,22.84,0.71
 20260831,25.1,25.4,24.85,25.2,2404976,24.3,3.7,24.41,22.89,0.74
 20260901,25,25.2,24.7,24.85,2290195,24.35,2.07,24.59,22.94,0.7
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,24.5,24.8,24.4,24.4,2904506,24.56,-0.66,25.01,23.31,1.25
 20260917,24.45,25.1,24.4,25,1307142,24.6,1.63,24.98,23.36,0.61
 20260918,24.9,25,24.7,24.75,1038643,24.61,0.56,24.93,23.41,0.52
+20260921,24.75,24.75,24.5,24.55,784060,24.61,-0.23,24.88,23.46,0.42
+20260922,24.8,25.45,24.55,25,2212423,24.64,1.46,24.86,23.53,1.17
+20260923,25.05,25.15,24.8,24.85,904761,24.66,0.78,24.83,23.58,0.48
+20260924,24.8,25.35,24.65,24.9,1260898,24.68,0.9,24.8,23.65,0.69
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 68.39
-- over_600_ratio: 67
-- over_800_ratio: 65.55
-- over_1000_ratio: 64.11
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260924
+- over_400_ratio: 68.47
+- over_600_ratio: 66.97
+- over_800_ratio: 65.63
+- over_1000_ratio: 64.03
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.08
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 10
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,66.16,0.01,63.38,-0.04,61.76,-0.12,8,False,False
 20260709,66.72,0.56,63.91,0.53,62.31,0.55,9,True,True
 20260717,66.63,-0.09,63.8,-0.11,62.19,-0.12,0,False,False
 20260724,66.75,0.12,63.88,0.08,62.2,0.01,1,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,68.28,0.06,65.35,0.04,63.98,0.19,7,True,True
 20260911,68.41,0.13,65.42,0.07,64.06,0.08,8,True,True
 20260918,68.39,-0.02,65.55,0.13,64.11,0.05,9,False,True
+20260924,68.47,0.08,65.63,0.08,64.03,-0.08,10,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 1904 | 正隆 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 1904 | 正隆 | 1 | 1 | 2 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

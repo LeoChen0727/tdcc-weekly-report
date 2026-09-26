@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:07 Asia/Taipei
+- generated_at: 2026-09-26 15:51:14 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 177
-- high: 179.5
-- low: 173.5
-- close: 179.5
-- volume: 138585216
-- ma5: 167.6
-- ema23_primary: 173.64
-- distance_to_ema23_pct: 3.37
-- ma20: 176.28
-- ma60: 171.65
-- ma120: 150.88
-- return_5d: 4.66
-- return_20d: -0.83
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 1.83
-- distance_to_high_60_pct: -20.22
+- date: 20260924
+- open: 169
+- high: 171.5
+- low: 166.5
+- close: 171.5
+- volume: 51225813
+- ma5: 173.7
+- ema23_primary: 173.21
+- distance_to_ema23_pct: -0.99
+- ma20: 174.55
+- ma60: 169.68
+- ma120: 153.55
+- return_5d: 0.88
+- return_20d: -7.8
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -1.75
+- distance_to_high_60_pct: -14.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,179.5,184.5,175.5,177,99392300,170.55,3.78,164.07,173.82,0.66
-20260825,172,179,168.5,179,92923853,171.26,4.52,165.82,174.18,0.62
-20260826,179.5,182.5,178,181.5,85770151,172.11,5.46,168.4,174.4,0.57
-20260827,184,190,183,186,139732644,173.27,7.35,171.78,174.43,0.95
 20260828,188.5,192,180.5,181.5,153443947,173.95,4.34,174.35,174.49,1
 20260831,179.5,186,176,182.5,398679210,174.67,4.49,176.32,174.54,2.34
 20260901,183.5,184,175.5,176,136605515,174.78,0.7,177.28,174.78,0.8
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,163.5,169.5,163.5,169,83218538,173.39,-2.53,176.68,172.9,0.64
 20260917,177,180,170,170,120007010,173.11,-1.8,176.35,172.32,0.93
 20260918,177,179.5,173.5,179.5,138585216,173.64,3.37,176.28,171.65,1.06
+20260921,180,180,174,174,76635914,173.67,0.19,176.12,171.11,0.59
+20260922,179,180.5,170.5,171,97424949,173.45,-1.41,175.72,170.57,0.75
+20260923,175,177,172,172.5,70593992,173.37,-0.5,175.28,169.99,0.55
+20260924,169,171.5,166.5,171.5,51225813,173.21,-0.99,174.55,169.68,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 67.54
-- over_600_ratio: 66.16
-- over_800_ratio: 65.02
-- over_1000_ratio: 64.01
-- over_400_change_1w: -2.16
-- over_800_change_1w: -2.08
-- over_1000_change_1w: -2.08
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 67.76
+- over_600_ratio: 66.37
+- over_800_ratio: 65.17
+- over_1000_ratio: 64.3
+- over_400_change_1w: 0.22
+- over_800_change_1w: 0.15
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,71.18,-2.23,68.86,-2.18,68.12,-2.21,0,False,False
 20260709,69.89,-1.29,67.69,-1.17,66.93,-1.19,0,False,False
 20260717,69.81,-0.08,67.58,-0.11,66.74,-0.19,0,False,False
 20260724,69.39,-0.42,67.14,-0.44,66.39,-0.35,0,False,False
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,67.97,-2.67,65.54,-2.98,64.57,-3.21,0,False,False
 20260911,69.7,1.73,67.1,1.56,66.09,1.52,1,True,True
 20260918,67.54,-2.16,65.02,-2.08,64.01,-2.08,0,False,False
+20260924,67.76,0.22,65.17,0.15,64.3,0.29,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2344 | 華邦電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.證券名稱: 新唐科技股份有限公司普通股 2.交易日期:115/8/19~115/9/17 3.董事會通過日期: 民國115年8月6日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 1.交易單位數量：2,898,000股 2.每單位價格：每股新台幣114.49元 3.交易總金額：新台幣331,778,468元 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 本公司為交易標的公司之母公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有數量：224,452,635股 金額：新台幣5,798,973仟元 持股比例：49.61% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:44.7% 占歸屬於母公司業主之權益之比例:70%(詳其他敘明事項) 最近期財務報表中營運資金數額：新台幣14,242,402仟元 10.取得或處分之具體目的: 為集團長期穩健發展 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年8月6日 15.前已就同一件事件發布重大訊息日期: 補充115年08月06日公告 16.其他敘明事項: 迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 包含本公司115年9月16日公告取得Infineon Technologies LLC旗下NOR Flash與 F-RAM事業經重組後之100%股權，交易總金額約為美金1,120,000,000元（美金兌新 臺幣匯率以31.6估算，約新台幣35,392,000,000元），惟本交易尚須依法取得相關 主管機關之核准、許可、同意、備查或申報程序（如適用），並達成或經合法豁免 Stock Purchase Agreement約定之各項交割先決條件。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.證券名稱: 新唐科技股份有限公司普通股 2.交易日期:115/8/19~115/9/17 3.董事會通過日期: 民國115年8月6日 4.其他核決日期: 不適用 5.交易數量、每單位價格及交易總金額: 1.交易單位數量：2,898,000股 2.每單位價格：每股新台幣114.49元 3.交易總金額：新台幣331,778,468元 6.處分利益（或損失）（取得有價證券者不適用）: 不適用 7.與交易標的公司之關係: 本公司為交易標的公司之母公司 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有數量：224,452,635股 金額：新台幣5,798,973仟元 持股比例：49.61% 權利受限情形：無 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:44.7% 占歸屬於母公司業主之權益之比例:70%(詳其他敘明事項) 最近期財務報表中營運資金數額：新台幣14,242,402仟元 10.取得或處分之具體目的: 為集團長期穩健發展 11.本次交易表示異議董事之意見: 不適用 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 不適用 14.監察人承認或審計委員會同意日期: 民國115年8月6日 15.前已就同一件事件發布重大訊息日期: 補充115年08月06日公告 16.其他敘明事項: 迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 包含本公司115年9月16日公告取得Infineon Technologies LLC旗下NOR Flash與 F-RAM事業經重組後之100%股權，交易總金額約為美金1,120,000,000元（美金兌新 臺幣匯率以31.6估算，約新台幣35,392,000,000元），惟本交易尚須依法取得相關 主管機關之核准、許可、同意、備查或申報程序（如適用），並達成或經合法豁免 Stock Purchase Agreement約定之各項交割先決條件。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2344 | 華邦電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業用之機器設備。 2.事實發生日:115/3/26~115/9/23 3.董事會通過日期: 民國115年8月6日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 機器設備一批；累積交易總金額為新台幣1,595,056,555元整。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: KLA Corporation；與公司關係：無。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 經議價並評估後，依照本公司「取得或處分資產處理程序」之規定核決。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產使用。 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 本案已於114年05月05日、114年08月05日、114年10月27日、115年02月10日、 115年08月06日董事會通過，並於會後當日發布資本支出重大訊息。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2344 | 華邦電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | put_inflow | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 供營業用之機器設備。 2.事實發生日:115/3/26~115/9/23 3.董事會通過日期: 民國115年8月6日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 機器設備一批；累積交易總金額為新台幣1,595,056,555元整。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: KLA Corporation；與公司關係：無。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依訂單條件付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 經議價並評估後，依照本公司「取得或處分資產處理程序」之規定核決。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供生產使用。 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 本案已於114年05月05日、114年08月05日、114年10月27日、115年02月10日、 115年08月06日董事會通過，並於會後當日發布資本支出重大訊息。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2344 | 華邦電 | 35 | 10 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2344 | 華邦電 | 39 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2344 | 華邦電 | 402 | 42 | 43855350.0 | 827740.0 | 52.98 | no_signal |
+| 20260924 | 2344 | 華邦電 | 411 | 47 | 45182810.0 | 1098480.0 | 41.13 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

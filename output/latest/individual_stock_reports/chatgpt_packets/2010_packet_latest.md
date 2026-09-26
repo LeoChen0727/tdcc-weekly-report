@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2010 春源
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:59 Asia/Taipei
+- generated_at: 2026-09-26 15:51:05 Asia/Taipei
 - stock_id: 2010
 - stock_name: 春源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,10 +104,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +122,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 22
-- high: 22
+- date: 20260924
+- open: 21.9
+- high: 22.4
 - low: 21.8
-- close: 22
-- volume: 678992
-- ma5: 21.77
-- ema23_primary: 22.2
-- distance_to_ema23_pct: -0.92
-- ma20: 22.36
-- ma60: 22.05
-- ma120: 23.11
-- return_5d: -0.23
-- return_20d: -4.14
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -1.59
-- distance_to_high_60_pct: -9.84
+- close: 22.35
+- volume: 1464117
+- ma5: 22.02
+- ema23_primary: 22.16
+- distance_to_ema23_pct: 0.87
+- ma20: 22.2
+- ma60: 21.94
+- ma120: 23.01
+- return_5d: 2.05
+- return_20d: -2.4
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 0.66
+- distance_to_high_60_pct: -4.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,23,23.1,22.75,22.8,606363,22.34,2.05,22.14,22.64,0.4
-20260825,22.9,22.9,22.65,22.65,591063,22.37,1.26,22.22,22.64,0.4
-20260826,22.65,22.8,22.65,22.8,638183,22.4,1.77,22.31,22.62,0.45
-20260827,22.9,23.1,22.75,22.9,898953,22.44,2.03,22.41,22.61,0.63
 20260828,22.9,22.9,22.65,22.7,851474,22.47,1.04,22.48,22.59,0.61
 20260831,22.7,22.8,22.55,22.7,521306,22.49,0.95,22.57,22.56,0.38
 20260901,22.6,22.75,22.4,22.45,1057476,22.48,-0.14,22.64,22.53,0.76
@@ -168,18 +168,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,21.55,21.65,21.5,21.6,560308,22.25,-2.93,22.45,22.13,0.73
 20260917,21.65,21.9,21.6,21.9,666352,22.22,-1.46,22.4,22.09,0.9
 20260918,22,22,21.8,22,678992,22.2,-0.92,22.36,22.05,0.94
+20260921,22.15,22.15,21.75,21.8,790708,22.17,-1.67,22.3,22.02,1.08
+20260922,21.9,22.15,21.8,22.05,951177,22.16,-0.5,22.27,21.99,1.26
+20260923,22.05,22.1,21.9,21.9,418107,22.14,-1.08,22.23,21.96,0.56
+20260924,21.9,22.4,21.8,22.35,1464117,22.16,0.87,22.2,21.94,1.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 69.19
-- over_600_ratio: 67.36
-- over_800_ratio: 65.96
-- over_1000_ratio: 65.01
-- over_400_change_1w: -0.14
-- over_800_change_1w: 0.06
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 10
+- as_of_date: 20260924
+- over_400_ratio: 69.18
+- over_600_ratio: 67.41
+- over_800_ratio: 65.89
+- over_1000_ratio: 65.06
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.07
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 11
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,68.56,-1.61,65.25,-1.36,64.42,-1.37,0,False,False
 20260709,68.42,-0.14,65.05,-0.2,64.21,-0.21,0,False,False
 20260717,68.42,0,65.19,0.14,64.23,0.02,1,False,True
 20260724,68.29,-0.13,64.99,-0.2,64.31,0.08,2,False,True
@@ -199,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,69.32,-0.2,66.01,0.01,65.19,0.16,8,False,True
 20260911,69.33,0.01,65.9,-0.11,65.08,-0.11,9,False,False
 20260918,69.19,-0.14,65.96,0.06,65.01,-0.07,10,False,True
+20260924,69.18,-0.01,65.89,-0.07,65.06,0.05,11,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 2010 | 春源 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | 1.發生變動日期:115/06/24 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事 3.舊任者職稱及姓名: 蔡錫儀，CHUN YUAN INVESTMENT (SINGAPORE) PTE LTD  董事 4.舊任者簡歷: 蔡錫儀，CHUN YUAN INVESTMENT (SINGAPORE) PTE LTD  董事 5.新任者職稱及姓名: 蔡錫儀，CHUN YUAN INVESTMENT (SINGAPORE) PTE LTD  董事 6.新任者簡歷: 蔡錫儀，CHUN YUAN INVESTMENT (SINGAPORE) PTE LTD  董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 解任 8.異動原因:依章程規定解任，並於股東會重新選任 9.新任者選任時持股數: 蔡錫儀：0股 10.原任期（例xx/xx/xx ~ xx/xx/xx）:不適用 11.新任生效日期:115/06/24 12.同任期董事變動比率:33.33% 13.同任期獨立董事變動比率:0.00% 14.同任期監察人變動比率:0.00% 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 2010 | 春源 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1210 大成
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:37 Asia/Taipei
+- generated_at: 2026-09-26 15:50:43 Asia/Taipei
 - stock_id: 1210
 - stock_name: 大成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,10 +100,10 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -122,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -130,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 52.2
-- high: 52.8
-- low: 52
-- close: 52.7
-- volume: 1940702
-- ma5: 51.92
-- ema23_primary: 52.45
-- distance_to_ema23_pct: 0.47
-- ma20: 52.12
-- ma60: 54.59
-- ma120: 54.19
-- return_5d: 1.15
-- return_20d: -0.75
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: 1.12
-- distance_to_high_60_pct: -11.43
+- date: 20260924
+- open: 51.9
+- high: 52.1
+- low: 51.8
+- close: 51.9
+- volume: 576370
+- ma5: 52.3
+- ema23_primary: 52.37
+- distance_to_ema23_pct: -0.9
+- ma20: 52.04
+- ma60: 54.38
+- ma120: 54.11
+- return_5d: -0.19
+- return_20d: -0.95
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -0.27
+- distance_to_high_60_pct: -12.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,53.3,53.3,52.6,52.6,1382818,54.07,-2.72,54.15,55.37,0.48
-20260825,52.8,53.2,52.5,52.6,747439,53.95,-2.5,53.91,55.37,0.26
-20260826,52.7,53,52.5,52.7,763409,53.84,-2.12,53.68,55.37,0.28
-20260827,52.8,52.8,52.3,52.4,927282,53.72,-2.46,53.43,55.36,0.35
 20260828,52.2,52.4,51.9,52,1731459,53.58,-2.95,53.23,55.34,0.69
 20260831,52.1,52.2,51.4,51.4,2190061,53.4,-3.74,53,55.29,0.87
 20260901,51.5,51.9,51.5,51.7,1346713,53.26,-2.92,52.81,55.24,0.56
@@ -172,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,51.6,52,51.4,51.5,1348078,52.47,-1.85,52.16,54.69,1.14
 20260917,51.6,52.2,51.6,52,685412,52.43,-0.82,52.13,54.64,0.6
 20260918,52.2,52.8,52,52.7,1940702,52.45,0.47,52.12,54.59,1.66
+20260921,52.3,52.8,52.3,52.5,968217,52.46,0.08,52.11,54.55,0.84
+20260922,52.5,52.5,51.9,52.1,707946,52.43,-0.62,52.09,54.5,0.62
+20260923,52.4,52.4,51.8,52.3,680953,52.42,-0.22,52.06,54.44,0.6
+20260924,51.9,52.1,51.8,51.9,576370,52.37,-0.9,52.04,54.38,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 65.14
-- over_600_ratio: 63.26
-- over_800_ratio: 61.83
-- over_1000_ratio: 60.94
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.3
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260924
+- over_400_ratio: 65.16
+- over_600_ratio: 63.36
+- over_800_ratio: 62.14
+- over_1000_ratio: 61.14
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.31
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -191,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,65.21,0.73,61.98,0.71,60.95,0.39,5,True,True
 20260709,65.48,0.27,62.28,0.3,61.18,0.23,6,True,True
 20260717,65.73,0.25,62.45,0.17,61.65,0.47,7,True,True
 20260724,65.9,0.17,62.57,0.12,61.68,0.03,8,True,True
@@ -203,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,64.94,-0.08,61.62,-0.28,60.51,-0.5,0,False,False
 20260911,65.09,0.15,61.74,0.12,60.64,0.13,1,True,True
 20260918,65.14,0.05,61.83,0.09,60.94,0.3,2,True,True
+20260924,65.16,0.02,62.14,0.31,61.14,0.2,3,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1210 | 大成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | 1.發生變動日期:115/06/26 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立非執行董事、非執行董事 3.舊任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 4.舊任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 5.新任者職稱及姓名: 獨立非執行董事:夏立言 非執行董事: 韓家宇 非執行董事: 韓家宸 非執行董事: 韓家寰 6.新任者簡歷: 獨立非執行董事:夏立言 大成食品亞洲有限公司獨立非執行董事 非執行董事: 韓家宇 大成食品亞洲有限公司非執行董事 非執行董事: 韓家宸 大成食品亞洲有限公司非執行董事 非執行董事: 韓家寰 大成食品亞洲有限公司非執行董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:董監事任期屆滿全面改選 9.新任者選任時持股數: 獨立非執行董事:夏立言 0股 非執行董事: 韓家宇 0股 非執行董事: 韓家宸 0股 非執行董事: 韓家寰 344,000股 10.原任期（例xx/xx/xx ~ xx/xx/xx）: 獨立非執行董事:夏立言 112/06/29~115年股東會結束 非執行董事: 韓家宇 113/06/28~116年股東會結束 非執行董事: 韓家宸 113/06/28~116年股東會結束 非執行董事: 韓家寰 113/06/28~116年股東會結束 11.新任生效日期:115/06/26 12.同任期董事變動比率:任期屆滿改選，故不適用。 13.同任期獨立董事變動比率:任期屆滿改選，故不適用。 14.同任期監察人變動比率:無監察人，故不適用。 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1210 | 大成 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1210 | 大成 | 2 | 0 | 113980.0 | 0.0 |  | no_signal |
+| 20260924 | 1210 | 大成 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6727 亞泰金屬
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:08 Asia/Taipei
+- generated_at: 2026-09-26 15:53:14 Asia/Taipei
 - stock_id: 6727
 - stock_name: 亞泰金屬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 483
-- high: 487
-- low: 474
-- close: 487
-- volume: 793000
-- ma5: 478.5
-- ema23_primary: 488.57
-- distance_to_ema23_pct: -0.32
-- ma20: 510.9
-- ma60: 440.03
-- ma120: 446.29
-- return_5d: -3.94
-- return_20d: 9.93
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -4.68
-- distance_to_high_60_pct: -19.5
+- date: 20260924
+- open: 468
+- high: 509
+- low: 464.5
+- close: 505
+- volume: 1527000
+- ma5: 482
+- ema23_primary: 486.51
+- distance_to_ema23_pct: 3.8
+- ma20: 511.12
+- ma60: 444.63
+- ma120: 451.42
+- return_5d: 7.33
+- return_20d: -2.88
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: -1.2
+- distance_to_high_60_pct: -16.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,447.5,463,444,445,739000,413.58,7.6,391.98,422.58,0.82
-20260825,452.5,475,440,470.5,1476000,418.32,12.47,398.35,420.66,1.52
-20260826,472.5,505,461.5,483,2287000,423.71,13.99,407.05,419.44,2.12
-20260827,488,528,471,520,2474000,431.74,20.44,419.12,419.18,2.1
 20260828,529,551,518,537,2475000,440.51,21.9,430.68,419.43,1.91
 20260831,531,563,520,524,2229000,447.47,17.1,440.05,420,1.6
 20260901,530,576,530,576,2009000,458.18,25.72,450.35,421.73,1.35
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,472,487,472,477,583000,490.37,-2.73,508.18,438.43,0.36
 20260917,481.5,508,463,470.5,1521000,488.71,-3.73,508.7,439.04,0.95
 20260918,483,487,474,487,793000,488.57,-0.32,510.9,440.03,0.5
+20260921,487,487,463,478,1090000,487.69,-1.99,512.55,441.38,0.67
+20260922,485,488,463.5,475,1115000,486.63,-2.39,512.77,442.62,0.7
+20260923,476,486.5,465,465,778000,484.83,-4.09,511.88,443.23,0.51
+20260924,468,509,464.5,505,1527000,486.51,3.8,511.12,444.63,1.03
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 25.87
-- over_600_ratio: 13.86
-- over_800_ratio: 11.26
-- over_1000_ratio: 4.8
-- over_400_change_1w: -2.23
-- over_800_change_1w: 2.05
-- over_1000_change_1w: -1.09
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260924
+- over_400_ratio: 23.31
+- over_600_ratio: 13.53
+- over_800_ratio: 10.93
+- over_1000_ratio: 4.47
+- over_400_change_1w: -2.56
+- over_800_change_1w: -0.33
+- over_1000_change_1w: -0.33
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,22.98,0.25,9.85,0.14,6.53,0.14,3,True,True
 20260709,26.32,3.34,12.72,2.87,9.4,2.87,4,True,True
 20260717,26.54,0.22,13,0.28,9.68,0.28,5,True,True
 20260724,25.19,-1.35,11.86,-1.14,8.54,-1.14,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,23.55,-1.14,9.88,-0.33,6.56,-0.33,0,False,False
 20260911,28.1,4.55,9.21,-0.67,5.89,-0.67,1,False,False
 20260918,25.87,-2.23,11.26,2.05,4.8,-1.09,2,False,True
+20260924,23.31,-2.56,10.93,-0.33,4.47,-0.33,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 6727 | 亞泰金屬 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:承認114年度盈餘分配案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:承認114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:  （1）通過修訂「股東會議事規則」案。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 6727 | 亞泰金屬 | 1 | 1 | 3 | 6 | 12 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

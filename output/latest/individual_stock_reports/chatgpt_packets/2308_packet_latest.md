@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:06 Asia/Taipei
+- generated_at: 2026-09-26 15:51:12 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 1730
-- high: 1750
-- low: 1715
-- close: 1735
-- volume: 13051318
-- ma5: 1684
-- ema23_primary: 1740.15
-- distance_to_ema23_pct: -0.3
-- ma20: 1749
-- ma60: 1783.67
-- ma120: 1923.42
-- return_5d: 7.1
-- return_20d: -0.86
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -0.8
-- distance_to_high_60_pct: -18.74
+- date: 20260924
+- open: 1875
+- high: 1935
+- low: 1875
+- close: 1910
+- volume: 8983854
+- ma5: 1864
+- ema23_primary: 1786.36
+- distance_to_ema23_pct: 6.92
+- ma20: 1780
+- ma60: 1782.5
+- ma120: 1938.54
+- return_5d: 13.35
+- return_20d: 7.91
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 7.3
+- distance_to_high_60_pct: -10.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,1720,1775,1710,1735,4498318,1777.92,-2.41,1715.25,1939.67,0.3
-20260825,1715,1715,1655,1710,10537455,1772.26,-3.51,1721.75,1927.42,0.73
-20260826,1680,1760,1670,1750,10798374,1770.41,-1.15,1734.5,1916.25,0.78
-20260827,1780,1820,1760,1770,8876431,1770.37,-0.02,1746.5,1906.42,0.67
 20260828,1800,1870,1780,1830,13398406,1775.34,3.08,1756,1896,1.09
 20260831,1785,1840,1775,1840,8899747,1780.73,3.33,1769,1886.25,0.75
 20260901,1845,1865,1810,1865,8434152,1787.75,4.32,1781.25,1879,0.75
@@ -167,18 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,1680,1730,1655,1710,10673726,1745.67,-2.04,1752.75,1793,1.01
 20260917,1730,1745,1685,1685,10796328,1740.61,-3.19,1749.75,1787.75,1.02
 20260918,1730,1750,1715,1735,13051318,1740.15,-0.3,1749,1783.67,1.2
+20260921,1750,1885,1740,1875,19102054,1751.38,7.06,1756,1784.75,1.64
+20260922,1965,1965,1900,1900,16957990,1763.77,7.72,1765.5,1784.67,1.42
+20260923,1910,1920,1890,1900,9734322,1775.12,7.04,1773,1783.83,0.82
+20260924,1875,1935,1875,1910,8983854,1786.36,6.92,1780,1782.5,0.75
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 80.26
-- over_600_ratio: 77.37
-- over_800_ratio: 75.1
-- over_1000_ratio: 73.59
-- over_400_change_1w: -0.13
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260924
+- over_400_ratio: 80.62
+- over_600_ratio: 77.61
+- over_800_ratio: 75.31
+- over_1000_ratio: 73.56
+- over_400_change_1w: 0.36
+- over_800_change_1w: 0.21
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,81.72,-0.4,76.42,-0.34,74.62,-0.45,0,False,False
 20260709,81.62,-0.1,76.31,-0.11,74.63,0.01,1,False,True
 20260717,81.37,-0.25,76.26,-0.05,74.38,-0.25,0,False,False
 20260724,81.32,-0.05,76.21,-0.05,74.39,0.01,1,False,True
@@ -198,24 +196,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,80.65,-0.08,75.3,-0.25,73.75,-0.09,0,False,False
 20260911,80.39,-0.26,75.09,-0.21,73.44,-0.31,0,False,False
 20260918,80.26,-0.13,75.1,0.01,73.59,0.15,1,False,True
+20260924,80.62,0.36,75.31,0.21,73.56,-0.03,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2308 | 台達電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/1/5~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依內部核決權限規定辦理 民國115年9月17日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 中達電子(江蘇)有限公司(簡稱中達江蘇)向台達電子企業管理(上海)有限公司(簡稱台達 企管)購買機器設備，交易金額約人民幣70.8佰萬元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：台達企管 與公司關係：中達江蘇及台達企管皆為本公司之子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 議價後交易 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 電匯 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：議價 決策單位：依中達江蘇內部核決權限規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供營業用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2308 | 台達電 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/1/5~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依內部核決權限規定辦理 民國115年9月17日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 中達電子(江蘇)有限公司(簡稱中達江蘇)向台達電子企業管理(上海)有限公司(簡稱台達 企管)購買機器設備，交易金額約人民幣70.8佰萬元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：台達企管 與公司關係：中達江蘇及台達企管皆為本公司之子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 議價後交易 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 電匯 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：議價 決策單位：依中達江蘇內部核決權限規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供營業用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/1/5~115/9/17 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依內部核決權限規定辦理 民國115年9月17日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 中達電子(江蘇)有限公司(簡稱中達江蘇)向台達電子企業管理(上海)有限公司(簡稱台達 企管)購買機器設備，交易金額約人民幣70.8佰萬元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：台達企管 與公司關係：中達江蘇及台達企管皆為本公司之子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 議價後交易 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 電匯 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：議價 決策單位：依中達江蘇內部核決權限規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 供營業用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2308 | 台達電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:台達電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:法人看好第四季營收可望維持季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:報載內容係法人自行預估，本公司未提供財務預測，有關本公司 相關之財務數據，敬請投資大眾參閱公開資訊觀測站。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:台達電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:法人看好第四季營收可望維持季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:報載內容係法人自行預估，本公司未提供財務預測，有關本公司 相關之財務數據，敬請投資大眾參閱公開資訊觀測站。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2308 | 台達電 | 3 | 3 | 4 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2308 | 台達電 | 7 | 7 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2308 | 台達電 | 311 | 25 | 47619040.0 | 834100.0 | 57.09 | no_signal |
+| 20260924 | 2308 | 台達電 | 325 | 24 | 65160180.0 | 208090.0 | 313.13 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:01 Asia/Taipei
+- generated_at: 2026-09-26 15:51:07 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 339.5
-- high: 341.5
-- low: 331
-- close: 334.5
-- volume: 2691002
-- ma5: 330.9
-- ema23_primary: 347.37
-- distance_to_ema23_pct: -3.71
-- ma20: 349.27
-- ma60: 342.04
-- ma120: 332.86
-- return_5d: -6.82
-- return_20d: -4.15
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -4.23
-- distance_to_high_60_pct: -17.31
+- date: 20260924
+- open: 321
+- high: 327.5
+- low: 320
+- close: 325.5
+- volume: 1357804
+- ma5: 329.7
+- ema23_primary: 341.72
+- distance_to_ema23_pct: -4.75
+- ma20: 344.9
+- ma60: 342.29
+- ma120: 336
+- return_5d: -3.12
+- return_20d: -9.46
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -5.62
+- distance_to_high_60_pct: -19.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,350,360.5,342.5,343.5,2903949,352.52,-2.56,350.5,339.96,0.43
-20260825,341,346,332.5,345.5,2758359,351.94,-1.83,352.77,339.23,0.41
-20260826,345,354,342,353,2091342,352.03,0.28,355.9,338.66,0.31
-20260827,354.5,371.5,354.5,359.5,3367874,352.65,1.94,359.73,338.58,0.5
 20260828,362.5,365.5,346,354,3576644,352.76,0.35,362.2,338.33,0.53
 20260831,350,351,340,350,2579042,352.53,-0.72,363.1,338.2,0.39
 20260901,349,366,346.5,359,3172854,353.07,1.68,364.45,338.43,0.48
@@ -173,17 +169,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,330,332.5,325,331.5,2282437,349.68,-5.2,351.52,341.98,0.48
 20260917,334,339,332,336,2515565,348.54,-3.6,350,342.04,0.58
 20260918,339.5,341.5,331,334.5,2691002,347.37,-3.71,349.27,342.04,0.64
+20260921,339,339,332.5,334,1300568,346.26,-3.54,348.8,342.49,0.32
+20260922,337,338,331,331,1648560,344.99,-4.05,348.07,342.7,0.41
+20260923,335,335,323,323.5,1690522,343.2,-5.74,346.6,342.68,0.42
+20260924,321,327.5,320,325.5,1357804,341.72,-4.75,344.9,342.29,0.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 70.41
-- over_600_ratio: 65.7
-- over_800_ratio: 63.31
-- over_1000_ratio: 60.33
-- over_400_change_1w: -0.93
-- over_800_change_1w: -0.83
-- over_1000_change_1w: -0.48
+- as_of_date: 20260924
+- over_400_ratio: 69.93
+- over_600_ratio: 64.9
+- over_800_ratio: 62.35
+- over_1000_ratio: 59.82
+- over_400_change_1w: -0.48
+- over_800_change_1w: -0.96
+- over_1000_change_1w: -0.51
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,68.28,0.2,62.36,0.69,60.3,0.68,1,True,True
 20260709,68.56,0.28,62.46,0.1,60.68,0.38,2,True,True
 20260717,68.67,0.11,62.28,-0.18,60.49,-0.19,3,False,False
 20260724,68.98,0.31,62.6,0.32,60.54,0.05,4,True,True
@@ -204,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,70.62,-0.35,63.44,-0.49,60.14,-0.75,0,False,False
 20260911,71.34,0.72,64.14,0.7,60.81,0.67,1,True,True
 20260918,70.41,-0.93,63.31,-0.83,60.33,-0.48,0,False,False
+20260924,69.93,-0.48,62.35,-0.96,59.82,-0.51,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/20 2.公司名稱:上銀科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/20經濟日報C6版 6.報導內容:  上銀科技董事長卓文恒昨(19)日宣布，...。  展望今年營運，...，全年營運目標年增雙位數百分比。 7.發生緣由: (1)該篇報導非本公司發布之新聞，請投資人審慎判斷，以保障自身權益。 (2)本公司未公告財務預測，有關本公司財務、業務資訊，    請投資人以公開資訊觀測站之公告為準。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2049 | 上銀 | 21 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2049 | 上銀 | 25 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2049 | 上銀 | 166 | 8 | 9195950.0 | 190390.0 | 48.3 | no_signal |
+| 20260924 | 2049 | 上銀 | 167 | 8 | 4676700.0 | 14510.0 | 322.31 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

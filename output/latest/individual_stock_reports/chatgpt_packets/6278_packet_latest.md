@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6278 台表科
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:51 Asia/Taipei
+- generated_at: 2026-09-26 15:52:58 Asia/Taipei
 - stock_id: 6278
 - stock_name: 台表科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 187
-- high: 196
-- low: 186
-- close: 196
-- volume: 3987784
-- ma5: 185.8
-- ema23_primary: 187.07
-- distance_to_ema23_pct: 4.78
-- ma20: 192.1
-- ma60: 179.89
-- ma120: 179.89
-- return_5d: 5.09
-- return_20d: 4.81
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 2.03
-- distance_to_high_60_pct: -11.31
+- date: 20260924
+- open: 207.5
+- high: 214.5
+- low: 204.5
+- close: 212
+- volume: 6718865
+- ma5: 205
+- ema23_primary: 193.15
+- distance_to_ema23_pct: 9.76
+- ma20: 195.25
+- ma60: 180.3
+- ma120: 183.66
+- return_5d: 15.22
+- return_20d: 2.91
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 8.58
+- distance_to_high_60_pct: -3.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,183.5,188,177,179,8596646,171.27,4.51,162.7,184.18,1.42
-20260825,177,182,172,181.5,5422166,172.12,5.45,164.6,183.52,0.88
-20260826,180,199.5,179,199.5,15168883,174.4,14.39,167.75,183.19,2.31
-20260827,202.5,210,197.5,206,18913318,177.04,16.36,171.53,183.05,2.59
 20260828,208.5,208.5,199.5,201.5,7522509,179.07,12.52,174.6,182.93,1.02
 20260831,198,203,195,199.5,4088055,180.78,10.36,177.3,182.72,0.55
 20260901,202,204,198,200,3520542,182.38,9.66,179.65,182.61,0.47
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,187.5,188,182.5,183,2342952,186.46,-1.85,191.45,180.33,0.41
 20260917,185.5,190,183.5,184,2460456,186.25,-1.21,191.65,180.04,0.44
 20260918,187,196,186,196,3987784,187.07,4.78,192.1,179.89,0.8
+20260921,197,198,193.5,194.5,2894823,187.69,3.63,192.88,179.96,0.62
+20260922,202,213.5,200,213.5,14195515,189.84,12.47,194.47,180.28,2.77
+20260923,212.5,218,204.5,209,19014339,191.43,9.18,194.95,180.22,3.58
+20260924,207.5,214.5,204.5,212,6718865,193.15,9.76,195.25,180.3,1.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 62.62
-- over_600_ratio: 60.18
-- over_800_ratio: 57.03
-- over_1000_ratio: 52.11
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.83
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 64.58
+- over_600_ratio: 61.93
+- over_800_ratio: 57.77
+- over_1000_ratio: 54.04
+- over_400_change_1w: 1.96
+- over_800_change_1w: 0.74
+- over_1000_change_1w: 1.93
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,65.38,0.36,58.23,1.36,55.73,2.02,3,True,True
 20260709,63.04,-2.34,56.05,-2.18,53.57,-2.16,0,False,False
 20260717,60.89,-2.15,53.52,-2.53,50.4,-3.17,0,False,False
 20260724,60.37,-0.52,52.51,-1.01,48.76,-1.64,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,62.55,-0.45,55.89,-0.29,51.2,-0.53,0,False,False
 20260911,62.41,-0.14,56.2,0.31,52.14,0.94,1,False,True
 20260918,62.62,0.21,57.03,0.83,52.11,-0.03,2,False,True
+20260924,64.58,1.96,57.77,0.74,54.04,1.93,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6278 | 台表科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:台灣表面黏著科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:月營收公佈 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合併營業收入(當月與去年同月比較)(單位：新臺幣仟元)    項    目    114年08月     115年08月      成長率%   合併營收    4,174,612     4,628,384       10.87%  (2)合併營業收入(當月與上月比較)(單位：新臺幣仟元)    項    目    115年07月     115年08月      成長率%   合併營收    4,667,997     4,628,384       -0.85%  (3)累計合併營業收入(單位：新臺幣仟元)    項    目    114年1~8月    115年1~8月     成長率%   合併營收   33,337,605    35,081,965        5.23%  (4)上列數字係本公司自結數，未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 6278 | 台表科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:台灣表面黏著科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:月營收公佈 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)合併營業收入(當月與去年同月比較)(單位：新臺幣仟元)    項    目    114年08月     115年08月      成長率%   合併營收    4,174,612     4,628,384       10.87%  (2)合併營業收入(當月與上月比較)(單位：新臺幣仟元)    項    目    115年07月     115年08月      成長率%   合併營收    4,667,997     4,628,384       -0.85%  (3)累計合併營業收入(單位：新臺幣仟元)    項    目    114年1~8月    115年1~8月     成長率%   合併營收   33,337,605    35,081,965        5.23%  (4)上列數字係本公司自結數，未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6278 | 台表科 | 7 | 7 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6278 | 台表科 | 11 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6278 | 台表科 | 58 | 1 | 7044540.0 | 0.0 |  | call_strong_inflow |
+| 20260924 | 6278 | 台表科 | 58 | 1 | 12051160.0 | 32600.0 | 369.67 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

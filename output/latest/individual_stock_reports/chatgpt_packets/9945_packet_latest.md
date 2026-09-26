@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:51 Asia/Taipei
+- generated_at: 2026-09-26 15:53:56 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 29.65
-- high: 29.65
-- low: 28.7
-- close: 28.95
-- volume: 11972321
-- ma5: 28.35
-- ema23_primary: 28.21
-- distance_to_ema23_pct: 2.61
-- ma20: 28.29
-- ma60: 27.41
-- ma120: 26.05
-- return_5d: 3.02
-- return_20d: -1.53
-- volume_ratio: 2.22
-- distance_to_ma20_pct_auxiliary: 2.32
-- distance_to_high_60_pct: -6.16
+- date: 20260924
+- open: 30.35
+- high: 30.4
+- low: 29.6
+- close: 29.9
+- volume: 13127733
+- ma5: 29.32
+- ema23_primary: 28.57
+- distance_to_ema23_pct: 4.64
+- ma20: 28.41
+- ma60: 27.59
+- ma120: 26.19
+- return_5d: 3.28
+- return_20d: 4.55
+- volume_ratio: 2.32
+- distance_to_ma20_pct_auxiliary: 5.24
+- distance_to_high_60_pct: -3.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,29.3,29.55,28.55,29,9606216,27.99,3.59,27.77,26.64,1.04
-20260825,28.85,29.1,28.55,28.75,7643701,28.06,2.47,27.9,26.73,0.82
-20260826,28.7,29,28.6,28.9,4263893,28.13,2.75,28.05,26.81,0.47
-20260827,28.8,28.95,28.55,28.6,5128610,28.17,1.54,28.14,26.89,0.58
 20260828,28.6,28.6,27.8,28,10359933,28.15,-0.54,28.19,26.95,1.19
 20260831,27.9,28,27.7,27.8,4469745,28.12,-1.15,28.23,26.99,0.52
 20260901,27.6,28.1,27.6,28.05,4192254,28.12,-0.24,28.3,27.04,0.49
@@ -167,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,28.1,28.4,27.95,28.05,4061805,28.07,-0.09,28.36,27.34,0.82
 20260917,28.15,28.95,28.05,28.95,10535444,28.15,2.85,28.32,27.38,2.01
 20260918,29.65,29.65,28.7,28.95,11972321,28.21,2.61,28.29,27.41,2.22
+20260921,29.15,29.25,28.9,29.25,4897359,28.3,3.36,28.3,27.46,0.95
+20260922,29.3,29.4,28.85,28.95,5007814,28.35,2.1,28.32,27.49,0.99
+20260923,29.2,29.75,28.95,29.55,8610289,28.45,3.85,28.35,27.54,1.64
+20260924,30.35,30.4,29.6,29.9,13127733,28.57,4.64,28.41,27.59,2.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 66.26
-- over_600_ratio: 63.95
-- over_800_ratio: 62.74
-- over_1000_ratio: 62.09
-- over_400_change_1w: 0.16
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.23
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260924
+- over_400_ratio: 66.36
+- over_600_ratio: 64.1
+- over_800_ratio: 62.89
+- over_1000_ratio: 62.1
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.15
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,64.96,0.04,61.6,0,60.8,-0.14,2,False,False
 20260709,64.53,-0.43,61.06,-0.54,60.44,-0.36,0,False,False
 20260717,64.84,0.31,61.38,0.32,60.79,0.35,1,True,True
 20260724,64.96,0.12,61.63,0.25,60.85,0.06,2,True,True
@@ -198,22 +197,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,66.03,-0.12,62.6,-0.24,61.89,-0.18,0,False,False
 20260911,66.1,0.07,62.61,0.01,61.86,-0.03,1,False,True
 20260918,66.26,0.16,62.74,0.13,62.09,0.23,2,True,True
+20260924,66.36,0.1,62.89,0.15,62.1,0.01,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/02 1.召開法人說明會之日期：115/07/02 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：臺灣證券交易所1樓資訊展示中心(台北市信義路五段7號) 4.法人說明會擇要訊息：說明本公司近期之營運成果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.契約種類:承攬契約、結算協議書 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 潤德室內裝修設計工程(股)公司、子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約    契約金額：新台幣(以下同)453,021,637元(未稅)    契約起訖日期：開工日起至完工日止之工程期限為450個工作天。 (2)契約內容：【華山松江公設景觀梯廳裝修工程】之結算協議    原契約金額：92,018,778元(未稅)(業經114年03月12日董事會決議並公告)    本次追加金額：3,132,692元(未稅)    結算後總金額：95,151,470元(未稅) 7.專業估價者事務所或公司名稱及其估價結果: 契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約 中鼎不動產估價師事務所   估價金額453,386,946元(未稅) 8.不動產估價師姓名: 中鼎不動產估價師事務所：簡武池 9.不動產估價師開業證書字號: 中鼎不動產估價師事務所：(100)北市估字第000172號 10.取得之具體目的: 公設梯廳景觀裝修承攬及結算 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年9月23日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 114/03/12 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 9945 | 潤泰新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | stale_signal | 1.契約種類:承攬契約、結算協議書 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 潤德室內裝修設計工程(股)公司、子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約    契約金額：新台幣(以下同)453,021,637元(未稅)    契約起訖日期：開工日起至完工日止之工程期限為450個工作天。 (2)契約內容：【華山松江公設景觀梯廳裝修工程】之結算協議    原契約金額：92,018,778元(未稅)(業經114年03月12日董事會決議並公告)    本次追加金額：3,132,692元(未稅)    結算後總金額：95,151,470元(未稅) 7.專業估價者事務所或公司名稱及其估價結果: 契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約 中鼎不動產估價師事務所   估價金額453,386,946元(未稅) 8.不動產估價師姓名: 中鼎不動產估價師事務所：簡武池 9.不動產估價師開業證書字號: 中鼎不動產估價師事務所：(100)北市估字第000172號 10.取得之具體目的: 公設梯廳景觀裝修承攬及結算 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年9月23日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 114/03/12 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 9945 | 潤泰新 | 4 | 4 | 4 | 4 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 9945 | 潤泰新 | 8 | 8 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 9945 | 潤泰新 | 15 | 0 | 4543590.0 | 0.0 |  | no_signal |
+| 20260924 | 9945 | 潤泰新 | 15 | 0 | 3662260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3481 群創
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:51 Asia/Taipei
+- generated_at: 2026-09-26 15:51:58 Asia/Taipei
 - stock_id: 3481
 - stock_name: 群創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 49.4
-- high: 49.4
-- low: 48.25
-- close: 48.25
-- volume: 128581460
-- ma5: 47.98
-- ema23_primary: 48.56
-- distance_to_ema23_pct: -0.63
-- ma20: 48.2
-- ma60: 52.05
-- ma120: 45.47
-- return_5d: 1.15
-- return_20d: 4.78
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.09
-- distance_to_high_60_pct: -33.45
+- date: 20260924
+- open: 49.15
+- high: 50.8
+- low: 48.9
+- close: 49.55
+- volume: 101964433
+- ma5: 49.66
+- ema23_primary: 48.97
+- distance_to_ema23_pct: 1.18
+- ma20: 48.96
+- ma60: 50.92
+- ma120: 46.31
+- return_5d: 2.16
+- return_20d: 7.14
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 1.2
+- distance_to_high_60_pct: -31.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,46.05,46.95,45.45,45.45,122839516,49.23,-7.68,47.49,54.56,0.42
-20260825,45.3,47,44.95,46.8,186724863,49.03,-4.55,47.59,54.49,0.66
-20260826,46.8,47.1,46.4,46.4,116092014,48.81,-4.94,47.81,54.33,0.44
-20260827,46.9,47.3,46.15,46.25,122928390,48.6,-4.83,48.06,54.17,0.51
 20260828,46.7,49.6,46.45,48.6,314569251,48.6,0.01,48.21,53.99,1.31
 20260831,48.15,50.5,47.6,49.85,264345359,48.7,2.36,48.41,53.89,1.13
 20260901,49.9,50.2,49.2,49.3,137987627,48.75,1.13,48.49,53.81,0.62
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,47.9,48.7,47.2,48.7,99548905,48.59,0.22,47.97,52.78,0.55
 20260917,49.05,50.2,48.5,48.5,140533721,48.59,-0.18,48.09,52.43,0.8
 20260918,49.4,49.4,48.25,48.25,128581460,48.56,-0.63,48.2,52.05,0.73
+20260921,48.95,50.5,48.7,50.4,287816265,48.71,3.47,48.45,51.81,1.56
+20260922,50.6,52.2,49.95,50.5,502870543,48.86,3.36,48.64,51.53,2.52
+20260923,51,51.8,49.5,49.6,219243303,48.92,1.39,48.8,51.22,1.07
+20260924,49.15,50.8,48.9,49.55,101964433,48.97,1.18,48.96,50.92,0.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 37.06
-- over_600_ratio: 34.76
-- over_800_ratio: 33.34
-- over_1000_ratio: 32.44
-- over_400_change_1w: -0.11
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 37.07
+- over_600_ratio: 34.84
+- over_800_ratio: 33.38
+- over_1000_ratio: 32.42
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.04
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,42.18,-2.37,38.54,-2.51,37.68,-2.48,0,False,False
 20260709,41.25,-0.93,37.59,-0.95,36.66,-1.02,0,False,False
 20260717,40.1,-1.15,36.32,-1.27,35.35,-1.31,0,False,False
 20260724,39.19,-0.91,35.45,-0.87,34.51,-0.84,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,36.67,0.6,32.88,0.44,32,0.46,1,True,True
 20260911,37.17,0.5,33.44,0.56,32.54,0.54,2,True,True
 20260918,37.06,-0.11,33.34,-0.1,32.44,-0.1,0,False,False
+20260924,37.07,0.01,33.38,0.04,32.42,-0.02,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3481 | 群創 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/14 1.召開法人說明會之日期：115/09/14 2.召開法人說明會之時間：11 時 00 分 3.召開法人說明會之地點：W Hotel 4.法人說明會擇要訊息：公告公司受邀參加UBS證券所舉辦之「UBS Taiwan Summit 2026」，說明營運現況及前景。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3481 | 群創 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/14 1.召開法人說明會之日期：115/09/14 2.召開法人說明會之時間：11 時 00 分 3.召開法人說明會之地點：W Hotel 4.法人說明會擇要訊息：公告公司受邀參加UBS證券所舉辦之「UBS Taiwan Summit 2026」，說明營運現況及前景。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3481 | 群創 | 3 | 3 | 4 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3481 | 群創 | 1 | 1 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3481 | 群創 | 209 | 24 | 14202580.0 | 125430.0 | 113.23 | no_signal |
+| 20260924 | 3481 | 群創 | 221 | 25 | 24479540.0 | 143740.0 | 170.3 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

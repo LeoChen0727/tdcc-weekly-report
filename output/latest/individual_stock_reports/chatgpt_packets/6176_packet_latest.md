@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:44 Asia/Taipei
+- generated_at: 2026-09-26 15:52:50 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 351
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 355
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 20
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 21
 - tdcc_history_status: tdcc_history_degraded_exception
 - tdcc_freshness_status: tdcc_window_degraded
 - tdcc_continuity_status: accepted_history_exception
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 93.6
-- high: 96.1
-- low: 93.4
-- close: 96.1
-- volume: 3847500
-- ma5: 93.46
-- ema23_primary: 91.38
-- distance_to_ema23_pct: 5.17
-- ma20: 93.2
-- ma60: 89.06
-- ma120: 93.26
-- return_5d: 8.1
-- return_20d: 18.2
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 3.11
-- distance_to_high_60_pct: -11.02
+- date: 20260924
+- open: 92.5
+- high: 92.7
+- low: 91.4
+- close: 91.8
+- volume: 1238200
+- ma5: 93.34
+- ema23_primary: 91.73
+- distance_to_ema23_pct: 0.07
+- ma20: 91.97
+- ma60: 89.34
+- ma120: 93.25
+- return_5d: -1.71
+- return_20d: -3.87
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -0.19
+- distance_to_high_60_pct: -15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,102.5,108,99.8,101.5,4649928,86.7,17.07,85.54,91.34,0.84
-20260825,100,104,99,99.9,3346513,87.8,13.78,86.31,91.27,0.62
-20260826,99.5,100,98.2,98.2,2524770,88.67,10.75,87.06,91.15,0.47
-20260827,97.5,97.6,95.5,95.5,2771481,89.24,7.02,87.61,90.95,0.52
 20260828,95.5,95.6,93,93.1,3999237,89.56,3.95,87.89,90.71,0.76
 20260831,92.2,93.1,91,91.2,2628919,89.7,1.68,88.05,90.48,0.51
 20260901,90.7,93,90.1,92.1,2344663,89.9,2.45,88.25,90.33,0.45
@@ -167,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,91.6,92.7,91,92.2,1338307,90.72,1.63,91.88,88.9,0.47
 20260917,92.3,94.1,92.3,93.4,1660971,90.95,2.7,92.46,88.93,0.6
 20260918,93.6,96.1,93.4,96.1,3847500,91.38,5.17,93.2,89.06,1.44
+20260921,96.1,96.2,93.5,93.8,2753029,91.58,2.43,92.81,89.17,1.07
+20260922,94.6,94.6,92.1,92.2,2290771,91.63,0.62,92.43,89.23,0.9
+20260923,92.7,93.4,92.1,92.8,1467944,91.73,1.17,92.16,89.31,0.59
+20260924,92.5,92.7,91.4,91.8,1238200,91.73,0.07,91.97,89.34,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 43.21
-- over_600_ratio: 39.02
-- over_800_ratio: 35.8
-- over_1000_ratio: 34.02
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.91
-- over_1000_change_1w: 1.92
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 42.69
+- over_600_ratio: 38.6
+- over_800_ratio: 35.54
+- over_1000_ratio: 33.52
+- over_400_change_1w: -0.52
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.5
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260626,50.2,-1.04,44.01,-0.89,41.44,-0.89,0,False,False
 20260703,48.39,-1.81,41.13,-2.88,38.75,-2.69,0,False,False
 20260709,48.49,0.1,41.28,0.15,38.89,0.14,1,True,True
 20260717,48.55,0.06,41,-0.28,38.06,-0.83,2,False,False
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,43.11,-0.8,35.05,-0.8,32.46,-1.13,0,False,False
 20260911,43.02,-0.09,34.89,-0.16,32.1,-0.36,0,False,False
 20260918,43.21,0.19,35.8,0.91,34.02,1.92,1,True,True
+20260924,42.69,-0.52,35.54,-0.26,33.52,-0.5,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6176 | 瑞儀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:NIL Technology ApS 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由: 115年4至6月，本公司之子公司NIL Technology ApS對其子公司 NILT SINGAPORE PTE. LTD.之資金貸與餘額超過個別對象限額及總限額，依金融監督管 理委員會115年8月28日金管證審字第1150384199號函，要求母公司督促子公司訂定改善 計畫，於公開資訊觀測站重大訊息中公告，並按季公告執行情形及逐季提報本公司董事 會控管，並於下一次股東會報告執行情形。 6.因應措施: (1)本公司經115年4月24日審計委員會及董事會決議通過改善計畫，擬將於115年12月31 日前辦理清算註銷NILT SINGAPORE PTE. LTD.，以改善超限情形。 (2)將於下一次股東會報告執行情形，改善計畫未執行完成前，將按季公告執行情形及逐 季提報董事會。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6176 | 瑞儀 | 3 | 3 | 3 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6176 | 瑞儀 | 34 | 1 | 2840960.0 | 0.0 |  | call_inflow |
+| 20260924 | 6176 | 瑞儀 | 35 | 1 | 381360.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

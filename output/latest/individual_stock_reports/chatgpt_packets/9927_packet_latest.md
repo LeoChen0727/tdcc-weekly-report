@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9927 泰銘
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:49 Asia/Taipei
+- generated_at: 2026-09-26 15:53:55 Asia/Taipei
 - stock_id: 9927
 - stock_name: 泰銘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 351
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 355
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 69.8
-- high: 70
-- low: 69.7
-- close: 70
-- volume: 55516
-- ma5: 69.72
-- ema23_primary: 69.59
-- distance_to_ema23_pct: 0.58
-- ma20: 69.59
-- ma60: 69.29
-- ma120: 69.01
-- return_5d: 0.14
-- return_20d: 1.01
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 0.58
-- distance_to_high_60_pct: -0.85
+- date: 20260924
+- open: 70.3
+- high: 70.3
+- low: 69.9
+- close: 70.2
+- volume: 207769
+- ma5: 70.2
+- ema23_primary: 69.79
+- distance_to_ema23_pct: 0.59
+- ma20: 69.8
+- ma60: 69.41
+- ma120: 69.08
+- return_5d: 0.57
+- return_20d: 1.3
+- volume_ratio: 2.27
+- distance_to_ma20_pct_auxiliary: 0.57
+- distance_to_high_60_pct: -0.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,69.2,69.3,69.1,69.3,30175,69.21,0.13,69.23,69.18,0.33
-20260825,69.3,69.3,69,69,37577,69.19,-0.28,69.19,69.2,0.42
-20260826,69.3,69.5,69.1,69.3,50457,69.2,0.14,69.19,69.22,0.61
-20260827,69,69.4,69,69.3,94761,69.21,0.13,69.22,69.23,1.13
 20260828,69.3,69.3,69.1,69.1,54706,69.2,-0.14,69.17,69.21,0.65
 20260831,69.2,70,68.7,69.8,142173,69.25,0.79,69.17,69.21,1.6
 20260901,69.5,70.1,69.5,69.7,88656,69.29,0.6,69.21,69.21,1
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,69.4,69.7,69.4,69.5,132614,69.54,-0.05,69.54,69.27,1.72
 20260917,69.9,70,69.7,69.8,53384,69.56,0.35,69.56,69.28,0.72
 20260918,69.8,70,69.7,70,55516,69.59,0.58,69.59,69.29,0.73
+20260921,70,70.4,70,70.3,132097,69.65,0.93,69.64,69.33,1.64
+20260922,70.3,70.5,70,70.2,100273,69.7,0.72,69.7,69.36,1.2
+20260923,70.4,70.5,70.3,70.3,94100,69.75,0.79,69.75,69.38,1.09
+20260924,70.3,70.3,69.9,70.2,207769,69.79,0.59,69.8,69.41,2.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 58.89
 - over_600_ratio: 57.06
 - over_800_ratio: 54.9
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,58.88,0,54.89,0,52.67,0,0,False,False
 20260709,58.88,0,54.89,0,52.67,0,0,False,False
 20260717,58.91,0.03,54.92,0.03,52.7,0.03,1,True,True
 20260724,58.92,0.01,54.93,0.01,52.7,0,2,False,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,58.89,0,54.9,0,52.67,0,0,False,False
 20260911,58.89,0,54.9,0,52.67,0,0,False,False
 20260918,58.89,0,54.9,0,52.67,0,0,False,False
+20260924,58.89,0,54.9,0,52.67,0,0,False,False
 ```
 
 ## Candidate Context

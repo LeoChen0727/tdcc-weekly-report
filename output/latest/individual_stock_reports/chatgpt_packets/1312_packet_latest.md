@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1312 國喬
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:40 Asia/Taipei
+- generated_at: 2026-09-26 15:50:46 Asia/Taipei
 - stock_id: 1312
 - stock_name: 國喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 15.1
-- high: 15.15
-- low: 14.5
-- close: 14.7
-- volume: 14207755
-- ma5: 14.65
-- ema23_primary: 14.08
-- distance_to_ema23_pct: 4.4
-- ma20: 14.31
-- ma60: 13.24
-- ma120: 12.91
-- return_5d: 2.44
-- return_20d: 22.5
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 2.71
-- distance_to_high_60_pct: -10.91
+- date: 20260924
+- open: 14.55
+- high: 14.7
+- low: 14.2
+- close: 14.6
+- volume: 7756553
+- ma5: 14.64
+- ema23_primary: 14.24
+- distance_to_ema23_pct: 2.53
+- ma20: 14.69
+- ma60: 13.28
+- ma120: 12.95
+- return_5d: -2.34
+- return_20d: 2.1
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -0.61
+- distance_to_high_60_pct: -11.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,12,12.15,11.75,11.8,3276973,12.05,-2.11,11.71,12.91,0.62
-20260825,11.85,11.85,11.65,11.85,1731240,12.04,-1.55,11.72,12.92,0.37
-20260826,13,13,13,13,7416765,12.12,7.29,11.82,12.94,1.63
-20260827,14.3,14.3,14.3,14.3,7796983,12.3,16.27,11.99,12.96,1.71
 20260828,15.7,15.7,13.8,14.15,212554333,12.45,13.62,12.13,12.95,14.2
 20260831,14.2,15.55,14.15,15.55,108410961,12.71,22.33,12.34,12.97,5.37
 20260901,15.8,16.5,15.1,15.65,139318330,12.96,20.79,12.54,12.99,5.17
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,14.3,14.85,14.3,14.8,14773724,13.94,6.17,14.02,13.22,0.38
 20260917,14.7,15.1,14.65,14.95,17167705,14.02,6.6,14.18,13.23,0.44
 20260918,15.1,15.15,14.5,14.7,14207755,14.08,4.4,14.31,13.24,0.36
+20260921,14.75,14.75,14.55,14.6,5849788,14.12,3.37,14.45,13.25,0.15
+20260922,14.65,14.85,14.5,14.7,11685981,14.17,3.73,14.6,13.26,0.29
+20260923,14.9,15.15,14.6,14.6,13508687,14.21,2.76,14.68,13.27,0.33
+20260924,14.55,14.7,14.2,14.6,7756553,14.24,2.53,14.69,13.28,0.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 60.09
-- over_600_ratio: 58.22
-- over_800_ratio: 56.8
-- over_1000_ratio: 56.14
-- over_400_change_1w: -0.18
-- over_800_change_1w: 0.1
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 60.43
+- over_600_ratio: 58.48
+- over_800_ratio: 57.15
+- over_1000_ratio: 56.67
+- over_400_change_1w: 0.34
+- over_800_change_1w: 0.35
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,52.58,0.94,49.02,1.17,47.46,1.27,2,True,True
 20260709,50.98,-1.6,47.67,-1.35,45.94,-1.52,0,False,False
 20260717,60.02,9.04,57.02,9.35,56.12,10.18,1,True,True
 20260724,59.91,-0.11,56.94,-0.08,55.96,-0.16,0,False,False
@@ -198,24 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,59.64,-0.17,56.44,-0.1,55.79,0.43,3,False,True
 20260911,60.27,0.63,56.7,0.26,56.22,0.43,4,True,True
 20260918,60.09,-0.18,56.8,0.1,56.14,-0.08,5,False,True
+20260924,60.43,0.34,57.15,0.35,56.67,0.53,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1312 | 國喬 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:國喬石油化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司115年現金增資發行普通股400,000仟股，每股認購價格新台幣14元， 實收股款總計新台幣5,600,000仟元，業已全數收足。 (2)本公司訂定115年7月9日為現金增資基準日。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 預定股款繳納憑證上市日期為115年7月14日。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 1312 | 國喬 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:國喬石油化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司115年現金增資發行普通股400,000仟股，每股認購價格新台幣14元， 實收股款總計新台幣5,600,000仟元，業已全數收足。 (2)本公司訂定115年7月9日為現金增資基準日。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 預定股款繳納憑證上市日期為115年7月14日。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 1312 | 國喬 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 21 | B_可觀察 |  |  | no_signal | stale_signal | 1.事實發生日:115/07/09 2.公司名稱:國喬石油化學股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)本公司115年現金增資發行普通股400,000仟股，每股認購價格新台幣14元， 實收股款總計新台幣5,600,000仟元，業已全數收足。 (2)本公司訂定115年7月9日為現金增資基準日。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 預定股款繳納憑證上市日期為115年7月14日。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 1312 | 國喬 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/23 1.召開法人說明會之日期：115/09/23 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：採視訊方式進行 4.法人說明會擇要訊息：115年第2季所屬產業概況及營運成果 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 1312 | 國喬 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/23 1.召開法人說明會之日期：115/09/23 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：採視訊方式進行 4.法人說明會擇要訊息：115年第2季所屬產業概況及營運成果 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 1312 | 國喬 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 18 | B_可觀察 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/23 1.召開法人說明會之日期：115/09/23 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：採視訊方式進行 4.法人說明會擇要訊息：115年第2季所屬產業概況及營運成果 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1312 | 國喬 | 5 | 4 | 5 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 1312 | 國喬 | 9 | 8 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1312 | 國喬 | 37 | 0 | 3160740.0 | 0.0 |  | no_signal |
+| 20260924 | 1312 | 國喬 | 36 | 0 | 1793510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

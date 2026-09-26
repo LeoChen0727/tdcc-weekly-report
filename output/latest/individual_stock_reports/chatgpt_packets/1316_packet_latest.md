@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1316 上曜
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:40 Asia/Taipei
+- generated_at: 2026-09-26 15:50:47 Asia/Taipei
 - stock_id: 1316
 - stock_name: 上曜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 357
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 361
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -86,7 +86,7 @@
 - internal_use_only: true
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
-- confidence_level: medium
+- confidence_level: high
 - thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
 - position_sizing: half_position
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +132,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 11.15
-- high: 11.25
-- low: 10.7
-- close: 10.75
-- volume: 3855687
-- ma5: 10.64
-- ema23_primary: 10.74
-- distance_to_ema23_pct: 0.06
-- ma20: 10.93
-- ma60: 10.49
-- ma120: 10.81
-- return_5d: 0.47
-- return_20d: -4.02
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -1.65
-- distance_to_high_60_pct: -14
+- date: 20260924
+- open: 10.65
+- high: 10.65
+- low: 10.4
+- close: 10.45
+- volume: 1273099
+- ma5: 10.61
+- ema23_primary: 10.69
+- distance_to_ema23_pct: -2.26
+- ma20: 10.76
+- ma60: 10.51
+- ma120: 10.76
+- return_5d: -1.88
+- return_20d: -11.06
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -2.88
+- distance_to_high_60_pct: -16.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,11.55,11.95,11.2,11.3,10301476,10.42,8.41,10.24,10.4,3.59
-20260825,11.1,11.2,10.8,11.05,4379692,10.48,5.48,10.29,10.42,1.49
-20260826,11.2,11.8,11.15,11.6,7382497,10.57,9.75,10.39,10.44,2.38
-20260827,11.75,12.5,11.5,11.75,15123908,10.67,10.14,10.5,10.46,3.97
 20260828,11.85,11.95,11.05,11.15,9614361,10.71,4.13,10.56,10.47,2.28
 20260831,10.95,11.05,10.75,10.95,2944664,10.73,2.07,10.6,10.48,0.68
 20260901,10.95,11.1,10.85,10.95,3030294,10.75,1.89,10.65,10.48,0.69
@@ -173,26 +170,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,10.4,10.7,10.4,10.7,1799998,10.75,-0.47,10.95,10.48,0.4
 20260917,10.7,10.75,10.6,10.65,821479,10.74,-0.86,10.95,10.48,0.19
 20260918,11.15,11.25,10.7,10.75,3855687,10.74,0.06,10.93,10.49,0.97
+20260921,10.8,10.8,10.55,10.7,1925863,10.74,-0.37,10.9,10.5,0.54
+20260922,10.75,10.8,10.55,10.55,1180679,10.72,-1.62,10.88,10.5,0.35
+20260923,10.55,10.65,10.55,10.6,761502,10.71,-1.06,10.82,10.51,0.25
+20260924,10.65,10.65,10.4,10.45,1273099,10.69,-2.26,10.76,10.51,0.53
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 41.9
-- over_600_ratio: 38.29
-- over_800_ratio: 34.57
-- over_1000_ratio: 33.34
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.35
-- over_1000_change_1w: 0.59
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 41.82
+- over_600_ratio: 38.35
+- over_800_ratio: 34.82
+- over_1000_ratio: 33.37
+- over_400_change_1w: -0.08
+- over_800_change_1w: 0.25
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,39.01,0.32,30.7,0.25,28.12,-0.24,3,False,True
 20260709,38.94,-0.07,30.73,0.03,28.12,0,4,False,True
 20260717,42.89,3.95,35.12,4.39,32.68,4.56,5,True,True
 20260724,43.08,0.19,34.97,-0.15,32.76,0.08,6,False,True
@@ -204,18 +204,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,41.88,-0.83,33.63,-1.29,32.61,-0.6,0,False,False
 20260911,41.88,0,34.22,0.59,32.75,0.14,1,False,True
 20260918,41.9,0.02,34.57,0.35,33.34,0.59,2,True,True
+20260924,41.82,-0.08,34.82,0.25,33.37,0.03,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1316 | 上曜 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  承認114年度虧損撥補案。                  經票決結果:贊成205,280,383權，反對1,458,697權                  廢票0權，贊成占表決總權數95.30%，本案照                  原議案通過。 3.重要決議事項二、章程修訂:                  修訂本公司章程案。                  經票決結果:贊成206,124,489權，反對680,662權                  廢票0權，贊成占表決總權數95.70%，本案照                  原議案通過。 4.重要決議事項三、營業報告書及財務報表:                  承認114年度營業報告書及財務報表案。                  經票決結果:贊成206,092,573權，反對655,634權，                  廢票0權，贊成占表決總權數95.68%，本案照                  原議案通過。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:                   (1) 本公司114年度營業狀況報告。                   (2) 審計委員會查核本公司114年度決算表冊報告書。                   (3) 募集與發行可轉換公司債有關事項報告。                   (4) 114年私募普通股案執行情形。                   (5) 擬辦理私募普通股案。                       經票決結果:贊成204,537,662權，反對2,257,514權                       廢票0權，贊成占表決總權數94.96%，本案照                       原議案通過。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260918 | 1316 | 上曜 | revenue_breakout_low_response | 營收爆發低反應股 | 11 | 59 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  承認114年度虧損撥補案。                  經票決結果:贊成205,280,383權，反對1,458,697權                  廢票0權，贊成占表決總權數95.30%，本案照                  原議案通過。 3.重要決議事項二、章程修訂:                  修訂本公司章程案。                  經票決結果:贊成206,124,489權，反對680,662權                  廢票0權，贊成占表決總權數95.70%，本案照                  原議案通過。 4.重要決議事項三、營業報告書及財務報表:                  承認114年度營業報告書及財務報表案。                  經票決結果:贊成206,092,573權，反對655,634權，                  廢票0權，贊成占表決總權數95.68%，本案照                  原議案通過。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:                   (1) 本公司114年度營業狀況報告。                   (2) 審計委員會查核本公司114年度決算表冊報告書。                   (3) 募集與發行可轉換公司債有關事項報告。                   (4) 114年私募普通股案執行情形。                   (5) 擬辦理私募普通股案。                       經票決結果:贊成204,537,662權，反對2,257,514權                       廢票0權，贊成占表決總權數94.96%，本案照                       原議案通過。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260924 | 1316 | 上曜 | revenue_pullback | 營收成長股價回檔 | 84.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  承認114年度虧損撥補案。                  經票決結果:贊成205,280,383權，反對1,458,697權                  廢票0權，贊成占表決總權數95.30%，本案照                  原議案通過。 3.重要決議事項二、章程修訂:                  修訂本公司章程案。                  經票決結果:贊成206,124,489權，反對680,662權                  廢票0權，贊成占表決總權數95.70%，本案照                  原議案通過。 4.重要決議事項三、營業報告書及財務報表:                  承認114年度營業報告書及財務報表案。                  經票決結果:贊成206,092,573權，反對655,634權，                  廢票0權，贊成占表決總權數95.68%，本案照                  原議案通過。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:                   (1) 本公司114年度營業狀況報告。                   (2) 審計委員會查核本公司114年度決算表冊報告書。                   (3) 募集與發行可轉換公司債有關事項報告。                   (4) 114年私募普通股案執行情形。                   (5) 擬辦理私募普通股案。                       經票決結果:贊成204,537,662權，反對2,257,514權                       廢票0權，贊成占表決總權數94.96%，本案照                       原議案通過。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260924 | 1316 | 上曜 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 19 | B_可觀察 |  |  |  | stale_signal | 1.股東常會日期:115/06/24 2.重要決議事項一、盈餘分配或盈虧撥補:                  承認114年度虧損撥補案。                  經票決結果:贊成205,280,383權，反對1,458,697權                  廢票0權，贊成占表決總權數95.30%，本案照                  原議案通過。 3.重要決議事項二、章程修訂:                  修訂本公司章程案。                  經票決結果:贊成206,124,489權，反對680,662權                  廢票0權，贊成占表決總權數95.70%，本案照                  原議案通過。 4.重要決議事項三、營業報告書及財務報表:                  承認114年度營業報告書及財務報表案。                  經票決結果:贊成206,092,573權，反對655,634權，                  廢票0權，贊成占表決總權數95.68%，本案照                  原議案通過。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:                   (1) 本公司114年度營業狀況報告。                   (2) 審計委員會查核本公司114年度決算表冊報告書。                   (3) 募集與發行可轉換公司債有關事項報告。                   (4) 114年私募普通股案執行情形。                   (5) 擬辦理私募普通股案。                       經票決結果:贊成204,537,662權，反對2,257,514權                       廢票0權，贊成占表決總權數94.96%，本案照                       原議案通過。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 1316 | 上曜 | 1 | 1 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 1316 | 上曜 | 1 | 1 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

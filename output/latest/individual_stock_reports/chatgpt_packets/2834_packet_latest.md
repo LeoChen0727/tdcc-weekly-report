@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2834 臺企銀
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:28 Asia/Taipei
+- generated_at: 2026-09-26 15:51:35 Asia/Taipei
 - stock_id: 2834
 - stock_name: 臺企銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 18.75
-- high: 18.75
-- low: 18.2
-- close: 18.35
-- volume: 80602711
-- ma5: 18.33
-- ema23_primary: 17.59
-- distance_to_ema23_pct: 4.31
-- ma20: 17.39
-- ma60: 17.43
-- ma120: 16.87
-- return_5d: 1.94
-- return_20d: 10.88
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 5.54
-- distance_to_high_60_pct: -2.39
+- date: 20260924
+- open: 17.85
+- high: 17.9
+- low: 17.75
+- close: 17.85
+- volume: 13930042
+- ma5: 18.14
+- ema23_primary: 17.73
+- distance_to_ema23_pct: 0.67
+- ma20: 17.73
+- ma60: 17.46
+- ma120: 16.97
+- return_5d: -4.8
+- return_20d: 9.17
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: 0.68
+- distance_to_high_60_pct: -5.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,16.55,16.65,16.35,16.35,27028638,16.87,-3.07,16.9,17.33,0.67
-20260825,16.4,16.5,16.35,16.35,26059169,16.83,-2.82,16.82,17.33,0.66
-20260826,16.35,16.5,16.25,16.45,38109258,16.79,-2.05,16.74,17.34,1.01
-20260827,16.45,16.6,16.35,16.35,23941434,16.76,-2.43,16.65,17.34,0.66
 20260828,16.45,16.55,16.4,16.45,33351515,16.73,-1.68,16.57,17.33,0.97
 20260831,16.5,16.95,16.45,16.95,750619689,16.75,1.2,16.5,17.33,11.06
 20260901,16.8,17.25,16.8,17.1,57899478,16.78,1.91,16.51,17.33,0.87
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,18,18.3,18,18.2,29664934,17.41,4.53,17.19,17.41,0.36
 20260917,18.25,18.8,18.15,18.75,62652493,17.52,7.01,17.3,17.43,0.75
 20260918,18.75,18.75,18.2,18.35,80602711,17.59,4.31,17.39,17.43,0.93
+20260921,18.3,18.45,18.15,18.35,17234830,17.65,3.94,17.49,17.44,0.2
+20260922,18.4,18.45,18.2,18.25,16455807,17.7,3.08,17.58,17.45,0.19
+20260923,18.15,18.25,17.85,17.9,37734715,17.72,1.01,17.66,17.45,0.44
+20260924,17.85,17.9,17.75,17.85,13930042,17.73,0.67,17.73,17.46,0.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 61
-- over_600_ratio: 58.29
-- over_800_ratio: 56.6
-- over_1000_ratio: 55.38
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.26
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 60.57
+- over_600_ratio: 57.83
+- over_800_ratio: 56.09
+- over_1000_ratio: 54.93
+- over_400_change_1w: -0.43
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -0.45
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,61.16,-0.07,56.74,-0.1,55.54,-0.06,0,False,False
 20260709,61.34,0.18,56.94,0.2,55.75,0.21,1,True,True
 20260717,61.17,-0.17,56.76,-0.18,55.6,-0.15,0,False,False
 20260724,61.2,0.03,56.79,0.03,55.64,0.04,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,60.46,-0.33,55.99,-0.35,54.8,-0.46,0,False,False
 20260911,60.81,0.35,56.34,0.35,55.18,0.38,1,True,True
 20260918,61,0.19,56.6,0.26,55.38,0.2,2,True,True
+20260924,60.57,-0.43,56.09,-0.51,54.93,-0.45,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:臺灣企銀 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年8月份自結合併盈餘 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年8月份合併稅前淨利17.55億元，合併稅後淨利14.28億元。累計合併稅前 淨利124.38億元，累計合併稅後淨利103.46億元，累計合併每股稅前盈餘1.20元， 累計合併每股稅後盈餘0.99元，合併每股淨值15.09元。 以上數字係本公司自行結算金額。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:臺灣企銀 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:公告本公司115年8月份自結合併盈餘 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本公司115年8月份合併稅前淨利17.55億元，合併稅後淨利14.28億元。累計合併稅前 淨利124.38億元，累計合併稅後淨利103.46億元，累計合併每股稅前盈餘1.20元， 累計合併每股稅後盈餘0.99元，合併每股淨值15.09元。 以上數字係本公司自行結算金額。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2834 | 臺企銀 | 9 | 9 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2834 | 臺企銀 | 13 | 13 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2834 | 臺企銀 | 4 | 0 | 208860.0 | 0.0 |  | no_signal |
+| 20260924 | 2834 | 臺企銀 | 5 | 0 | 30770.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2938 床的世界
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:32 Asia/Taipei
+- generated_at: 2026-09-26 15:51:39 Asia/Taipei
 - stock_id: 2938
 - stock_name: 床的世界
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260918
-- price_rows: 3
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 7
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 18.05
-- high: 18.15
-- low: 18.05
-- close: 18.1
-- volume: 127000
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20260924
+- open: 18.95
+- high: 19
+- low: 18.9
+- close: 18.9
+- volume: 93000
+- ma5: 18.54
+- ema23_primary: 18.54
+- distance_to_ema23_pct: 1.96
+- ma20: 18.49
+- ma60: 18.49
+- ma120: 18.49
+- return_5d: 4.13
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 2.24
+- distance_to_high_60_pct: -0.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,18.85,18.85,18.3,18.55,656000,,,,,
 20260917,18.45,18.55,18.15,18.15,361000,,,,,
 20260918,18.05,18.15,18.05,18.1,127000,,,,,
+20260921,18.15,18.55,18.1,18.5,300000,,,,,
+20260922,18.25,18.5,18.25,18.4,40000,18.48,-0.41,18.34,18.34,0.13
+20260923,18.4,19,18.4,18.8,223000,18.5,1.6,18.42,18.42,0.78
+20260924,18.95,19,18.9,18.9,93000,18.54,1.96,18.49,18.49,0.36
 ```
 
 ## Latest TDCC Snapshot

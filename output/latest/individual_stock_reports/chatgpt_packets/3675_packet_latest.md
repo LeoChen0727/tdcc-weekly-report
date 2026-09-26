@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3675 德微
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:00 Asia/Taipei
+- generated_at: 2026-09-26 15:52:07 Asia/Taipei
 - stock_id: 3675
 - stock_name: 德微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,11 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 291
-- high: 300
-- low: 287
-- close: 294
-- volume: 1445000
-- ma5: 285.4
-- ema23_primary: 278.07
-- distance_to_ema23_pct: 5.73
-- ma20: 276.93
-- ma60: 292.69
-- ma120: 284.57
-- return_5d: 13.51
-- return_20d: 13.08
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 6.17
-- distance_to_high_60_pct: -35.95
+- date: 20260924
+- open: 332
+- high: 335
+- low: 320.5
+- close: 335
+- volume: 3514000
+- ma5: 311.5
+- ema23_primary: 289.66
+- distance_to_ema23_pct: 15.65
+- ma20: 285.38
+- ma60: 289.18
+- ma120: 288.95
+- return_5d: 17.96
+- return_20d: 20.29
+- volume_ratio: 2.57
+- distance_to_ma20_pct_auxiliary: 17.39
+- distance_to_high_60_pct: -27.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,265,272.5,262,265,442000,274.02,-3.29,256.75,318.57,0.59
-20260825,265,268,255.5,268,329000,273.52,-2.02,259.35,316.16,0.44
-20260826,271,287,265,283,1358000,274.31,3.17,263.38,314.68,1.71
-20260827,283,286,276,278.5,698000,274.66,1.4,267.45,313.14,0.85
 20260828,280,297.5,277.5,277.5,1759000,274.89,0.95,270.5,311.58,1.94
 20260831,277,279,266.5,272.5,531000,274.69,-0.8,272.23,310.11,0.57
 20260901,274,286,274,278.5,620000,275.01,1.27,273.52,308.35,0.66
@@ -167,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,270,295.5,270,295.5,1584000,275.95,7.08,274.48,296.37,1.75
 20260917,304,309.5,283.5,284,2669000,276.62,2.67,275.23,294.22,2.7
 20260918,291,300,287,294,1445000,278.07,5.73,276.93,292.69,1.4
+20260921,296.5,303,287.5,294.5,1010000,279.44,5.39,278.4,291.61,0.95
+20260922,304,308,295.5,302,1770000,281.32,7.35,280.1,290.91,1.56
+20260923,309,332,307.5,332,3228000,285.54,16.27,282.55,290.14,2.63
+20260924,332,335,320.5,335,3514000,289.66,15.65,285.38,289.18,2.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 56.94
+- as_of_date: 20260924
+- over_400_ratio: 58.48
 - over_600_ratio: 55.16
 - over_800_ratio: 55.16
 - over_1000_ratio: 55.16
-- over_400_change_1w: -0.93
+- over_400_change_1w: 1.54
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,59.59,0.24,55.16,0,55.16,0,2,False,False
 20260709,60.62,1.03,56.98,1.82,55.16,0,3,False,True
 20260717,57.9,-2.72,56.94,-0.04,55.16,0,0,False,False
 20260724,59.99,2.09,57.36,0.42,57.36,2.2,1,True,True
@@ -198,19 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,58.05,0.21,55.16,0,55.16,0,2,False,False
 20260911,57.87,-0.18,55.16,0,55.16,0,0,False,False
 20260918,56.94,-0.93,55.16,0,55.16,0,0,False,False
+20260924,58.48,1.54,55.16,0,55.16,0,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3675 | 德微 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | 1.事實發生日:115/06/25 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:  (1)單月                      最近一月單月    去年同月單月    與去年同期增減%                          (115/5)        (114/5) --------------------------------------------------------------------- 營業收入(百萬元)            267           215             24.19 稅前淨利(百萬元)             42           -33            由虧轉盈 歸屬母公司業主淨利(百萬元)   35           -26            由虧轉盈 每股盈餘(元)               0.67          -0.47           由虧轉盈  (2)單季                    最近一季單季       去年同期      與去年同期增減%                     (115第1季)       (114第1季) ------------------------------------------------------------------- 營業收入(百萬元)            685           625              9.60 稅前淨利(百萬元)            103            85             21.18 歸屬母公司業主淨利(百萬元)   80            74              8.11 每股盈餘(元)               1.51          1.35             11.85  (3)最近四季累計                              114年第2季至115年第1季 ------------------------------------------------------------------- 營業收入(百萬元)                        2,696 稅前淨利(百萬元)                          200 歸屬母公司業主淨利(百萬元)                150 每股盈餘(元)                             2.83  公司每股面額：10 元  4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:不適用 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:不適用 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司    採IFRS會計準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，係經會計師查核/核閱。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，    業經會計師查核/核閱。 (4)本公司董事會於114/07/29決議買回庫藏股辦理減資，其減資比率3.01%，    減資基準日為114/08/15，請參考114/07/29本公司公告重訊。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 3675 | 德微 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | continued_2_3d | 1.事實發生日:115/06/25 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:  (1)單月                      最近一月單月    去年同月單月    與去年同期增減%                          (115/5)        (114/5) --------------------------------------------------------------------- 營業收入(百萬元)            267           215             24.19 稅前淨利(百萬元)             42           -33            由虧轉盈 歸屬母公司業主淨利(百萬元)   35           -26            由虧轉盈 每股盈餘(元)               0.67          -0.47           由虧轉盈  (2)單季                    最近一季單季       去年同期      與去年同期增減%                     (115第1季)       (114第1季) ------------------------------------------------------------------- 營業收入(百萬元)            685           625              9.60 稅前淨利(百萬元)            103            85             21.18 歸屬母公司業主淨利(百萬元)   80            74              8.11 每股盈餘(元)               1.51          1.35             11.85  (3)最近四季累計                              114年第2季至115年第1季 ------------------------------------------------------------------- 營業收入(百萬元)                        2,696 稅前淨利(百萬元)                          200 歸屬母公司業主淨利(百萬元)                150 每股盈餘(元)                             2.83  公司每股面額：10 元  4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:不適用 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:不適用 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司    採IFRS會計準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，係經會計師查核/核閱。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，    業經會計師查核/核閱。 (4)本公司董事會於114/07/29決議買回庫藏股辦理減資，其減資比率3.01%，    減資基準日為114/08/15，請參考114/07/29本公司公告重訊。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 3675 | 德微 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | 1.事實發生日:115/06/25 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊:  (1)單月                      最近一月單月    去年同月單月    與去年同期增減%                          (115/5)        (114/5) --------------------------------------------------------------------- 營業收入(百萬元)            267           215             24.19 稅前淨利(百萬元)             42           -33            由虧轉盈 歸屬母公司業主淨利(百萬元)   35           -26            由虧轉盈 每股盈餘(元)               0.67          -0.47           由虧轉盈  (2)單季                    最近一季單季       去年同期      與去年同期增減%                     (115第1季)       (114第1季) ------------------------------------------------------------------- 營業收入(百萬元)            685           625              9.60 稅前淨利(百萬元)            103            85             21.18 歸屬母公司業主淨利(百萬元)   80            74              8.11 每股盈餘(元)               1.51          1.35             11.85  (3)最近四季累計                              114年第2季至115年第1季 ------------------------------------------------------------------- 營業收入(百萬元)                        2,696 稅前淨利(百萬元)                          200 歸屬母公司業主淨利(百萬元)                150 每股盈餘(元)                             2.83  公司每股面額：10 元  4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:不適用 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:不適用 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司    採IFRS會計準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第1季係指單季數字，係經會計師查核/核閱。 (3)最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，    業經會計師查核/核閱。 (4)本公司董事會於114/07/29決議買回庫藏股辦理減資，其減資比率3.01%，    減資基準日為114/08/15，請參考114/07/29本公司公告重訊。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 3675 | 德微 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | repeated_but_no_breakout | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管 (如:執行長、營運長、行銷長及策略長等)、財務主管、會計 主管、公司治理主管、資訊安全長、研發主管、內部稽核主管或訴訟及非 訟代理人）:發言人 2.發生變動日期:115/09/21 3.舊任者姓名、級職及簡歷:邱桂堂/本公司永續辦公室資深經理兼發言人 4.新任者姓名、級職及簡歷:朱鴻鈞/本公司總經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、 「退休」、「死亡」、「新任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/09/22 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3675 | 德微 | 3 | 3 | 3 | 4 | 6 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260924 | 3675 | 德微 | 7 | 3 | 5 | 7 | 10 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

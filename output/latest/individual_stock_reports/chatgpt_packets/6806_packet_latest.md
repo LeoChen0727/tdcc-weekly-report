@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6806 森崴能源
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:11 Asia/Taipei
+- generated_at: 2026-09-26 15:53:18 Asia/Taipei
 - stock_id: 6806
 - stock_name: 森崴能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260622
 - price_rows: 292
-- current_main_price_date: 20260918
+- current_main_price_date: 20260924
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: historical_only_noncurrent
 - tdcc_freshness_status: historical_only_noncurrent
 - tdcc_continuity_status: complete
@@ -170,7 +170,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 60.24
 - over_600_ratio: 58.69
 - over_800_ratio: 58.45
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,59.93,0,58.14,0,58.14,0,0,False,False
 20260709,59.93,0,58.14,0,58.14,0,0,False,False
 20260717,59.93,0,58.14,0,58.14,0,0,False,False
 20260724,59.93,0,58.14,0,58.14,0,0,False,False
@@ -198,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,59.98,0.05,58.19,0.05,58.19,0.05,1,True,True
 20260911,60.24,0.26,58.45,0.26,58.45,0.26,2,True,True
 20260918,60.24,0,58.45,0,58.45,0,0,False,False
+20260924,60.24,0,58.45,0,58.45,0,0,False,False
 ```
 
 ## Candidate Context

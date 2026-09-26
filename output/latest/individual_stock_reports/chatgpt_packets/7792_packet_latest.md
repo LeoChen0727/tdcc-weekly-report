@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:29 Asia/Taipei
+- generated_at: 2026-09-26 15:53:35 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 156
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 160
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可小量試單
+- action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
-- confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: starter_1_3
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -109,7 +105,6 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -123,6 +118,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -130,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 320
-- high: 344
-- low: 320
-- close: 339
-- volume: 1514000
-- ma5: 317.5
-- ema23_primary: 301.28
-- distance_to_ema23_pct: 12.52
-- ma20: 310.52
-- ma60: 257.64
-- ma120: 282.03
-- return_5d: 10.97
-- return_20d: 14.92
-- volume_ratio: 3.65
-- distance_to_ma20_pct_auxiliary: 9.17
-- distance_to_high_60_pct: -1.45
+- date: 20260924
+- open: 415
+- high: 453
+- low: 415
+- close: 435.5
+- volume: 2768000
+- ma5: 382.4
+- ema23_primary: 329.3
+- distance_to_ema23_pct: 32.25
+- ma20: 329.02
+- ma60: 266.9
+- ma120: 284.84
+- return_5d: 39.14
+- return_20d: 44.93
+- volume_ratio: 3.74
+- distance_to_ma20_pct_auxiliary: 32.36
+- distance_to_high_60_pct: -3.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,295,303.5,293,298.5,367000,247.13,20.79,231.82,245.54,0.67
-20260825,298.5,300,291.5,299,318000,251.45,18.91,236.62,245.83,0.58
-20260826,299.5,313,279.5,305,891000,255.91,19.18,242.32,246,1.53
-20260827,306.5,307,295.5,300.5,421000,259.63,15.74,248.32,246.17,0.71
 20260828,301.5,306,297,303,293000,263.24,15.1,253.9,246.22,0.49
 20260831,305,312,296.5,301,307000,266.39,12.99,258.95,246.32,0.5
 20260901,305.5,319.5,302.5,314,516000,270.36,16.14,264.75,246.88,0.83
@@ -172,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,311,316,305.5,312,204000,296.47,5.24,307.55,255.72,0.46
 20260917,314,321,310.5,313,293000,297.85,5.09,308.32,256.41,0.81
 20260918,320,344,320,339,1514000,301.28,12.52,310.52,257.64,3.65
+20260921,339.5,352.5,325,344,1053000,304.84,12.85,312.8,259.17,2.35
+20260922,345,378,332,378,2130000,310.94,21.57,316.75,261.22,3.95
+20260923,378.5,415.5,378,415.5,2573000,319.65,29.99,322.27,263.83,4.13
+20260924,415,453,415,435.5,2768000,329.3,32.25,329.02,266.9,3.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 69.38
-- over_600_ratio: 64.08
-- over_800_ratio: 64.08
-- over_1000_ratio: 62.01
-- over_400_change_1w: -0.08
-- over_800_change_1w: -0.08
+- as_of_date: 20260924
+- over_400_ratio: 70.42
+- over_600_ratio: 65.35
+- over_800_ratio: 63.99
+- over_1000_ratio: 61.93
+- over_400_change_1w: 1.04
+- over_800_change_1w: -0.09
 - over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -191,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,70.92,0.07,64.12,0.05,62.05,0.05,3,True,True
 20260709,70.95,0.03,64.17,0.05,62.1,0.05,4,True,True
 20260717,70.97,0.02,64.24,0.07,62.17,0.07,5,True,True
 20260724,70.63,-0.34,64.3,0.06,62.23,0.06,6,False,True
@@ -203,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,69.52,0,64.22,-0.01,62.15,-0.01,0,False,False
 20260911,69.46,-0.06,64.16,-0.06,62.09,-0.06,0,False,False
 20260918,69.38,-0.08,64.08,-0.08,62.01,-0.08,0,False,False
+20260924,70.42,1.04,63.99,-0.09,61.93,-0.08,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 7792 | 安葆 | true_breakout | 嚴格突破 | 114.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 7792 | 安葆 | true_breakout | 嚴格突破 | 86.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 7792 | 安葆 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260924 | 7792 | 安葆 | 3 | 3 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:43 Asia/Taipei
+- generated_at: 2026-09-26 15:51:50 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 368
-- high: 369
-- low: 361.5
-- close: 368
-- volume: 1570000
-- ma5: 364.4
-- ema23_primary: 371.12
-- distance_to_ema23_pct: -0.84
-- ma20: 372.43
-- ma60: 377.82
-- ma120: 385.29
-- return_5d: 1.66
-- return_20d: 4.99
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -1.19
-- distance_to_high_60_pct: -25.66
+- date: 20260924
+- open: 383.5
+- high: 383.5
+- low: 374.5
+- close: 378.5
+- volume: 1163000
+- ma5: 379.8
+- ema23_primary: 374.44
+- distance_to_ema23_pct: 1.09
+- ma20: 378.05
+- ma60: 376.61
+- ma120: 386.51
+- return_5d: 4.99
+- return_20d: -4.78
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 0.12
+- distance_to_high_60_pct: -23.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,349.5,350,326,326,8264000,367.11,-11.2,351.52,394.25,1.04
-20260825,318,331,315.5,331,4379000,364.1,-9.09,351.23,392.5,0.55
-20260826,331,364,326,364,11121000,364.09,-0.02,354.02,391.3,1.34
-20260827,368.5,400,359,397.5,17210000,366.87,8.35,359.62,390.89,1.96
 20260828,407.5,414.5,397.5,400,11113000,369.64,8.21,365.02,389.82,1.25
 20260831,390,401.5,383,386.5,4505000,371.04,4.17,368.9,388.7,0.51
 20260901,395.5,410,385,406,9549000,373.95,8.57,372.95,388.42,1.07
@@ -168,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,362.5,377,362.5,370,2578000,372.4,-0.64,371.27,379.46,0.46
 20260917,375.5,379.5,360.5,360.5,2265000,371.4,-2.94,371.55,378.48,0.42
 20260918,368,369,361.5,368,1570000,371.12,-0.84,372.43,377.82,0.3
+20260921,375,397,370,387.5,8625000,372.49,4.03,375.5,377.77,1.64
+20260922,393,398,381,385,6065000,373.53,3.07,378.2,377.65,1.14
+20260923,390.5,390.5,380,380,1762000,374.07,1.59,379,377.1,0.36
+20260924,383.5,383.5,374.5,378.5,1163000,374.44,1.09,378.05,376.61,0.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 47.92
-- over_600_ratio: 43.86
-- over_800_ratio: 40.24
-- over_1000_ratio: 39.18
-- over_400_change_1w: -1.35
-- over_800_change_1w: -0.84
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 49.44
+- over_600_ratio: 43.85
+- over_800_ratio: 42.04
+- over_1000_ratio: 39.19
+- over_400_change_1w: 1.52
+- over_800_change_1w: 1.8
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,52.09,-1.57,45.4,0.35,42.57,-1.34,1,False,True
 20260709,53.45,1.36,45.37,-0.03,42.46,-0.11,2,False,False
 20260717,54.05,0.6,45.38,0.01,41.85,-0.61,3,False,True
 20260724,53.56,-0.49,44.68,-0.7,40.68,-1.17,0,False,False
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,50.21,-0.42,41.25,0.09,38.94,-1.69,2,False,True
 20260911,49.27,-0.94,41.08,-0.17,39.3,0.36,3,False,True
 20260918,47.92,-1.35,40.24,-0.84,39.18,-0.12,0,False,False
+20260924,49.44,1.52,42.04,1.8,39.19,0.01,1,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 3211 | 順達 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:115/07/29 2.增資資金來源:員工認股權憑證執行轉換 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  不適用 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:新台幣10元 8.發行價格:每股認購價格新台幣67.60元 9.員工認購股數或配發金額:82,000股 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數):不適用 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:與已發行普通股股票相同 14.本次增資資金用途:不適用 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:   (1)本次員工認股權憑證轉換新股之增資基準日訂為115年07月29日。   (2)本次增資後實收資本額為新台幣1,543,870,210元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 3211 | 順達 | 2 | 2 | 3 | 6 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

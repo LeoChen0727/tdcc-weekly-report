@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5351 鈺創
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:29 Asia/Taipei
+- generated_at: 2026-09-26 15:52:36 Asia/Taipei
 - stock_id: 5351
 - stock_name: 鈺創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 109
-- high: 114
-- low: 108
-- close: 113.5
-- volume: 10599000
-- ma5: 106.7
-- ema23_primary: 111.35
-- distance_to_ema23_pct: 1.93
-- ma20: 113.55
-- ma60: 102.55
-- ma120: 90.73
-- return_5d: 4.61
-- return_20d: -7.72
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -0.04
-- distance_to_high_60_pct: -19.5
+- date: 20260924
+- open: 107.5
+- high: 109
+- low: 105
+- close: 108
+- volume: 6899000
+- ma5: 109.3
+- ema23_primary: 110.43
+- distance_to_ema23_pct: -2.2
+- ma20: 111.85
+- ma60: 104.03
+- ma120: 92.08
+- return_5d: 1.89
+- return_20d: -7.3
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -3.44
+- distance_to_high_60_pct: -23.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,121,128,117,118,19772000,109.9,7.37,105.8,95.12,0.91
-20260825,114.5,116,111,115.5,13787000,110.37,4.65,107.81,95.61,0.64
-20260826,114.5,120,113.5,117,14416000,110.92,5.48,110.15,96.07,0.67
-20260827,117.5,119.5,115,116.5,10966000,111.38,4.59,112.67,96.46,0.51
 20260828,117.5,119.5,113.5,116,9923000,111.77,3.79,114.83,96.89,0.46
 20260831,114,119.5,113.5,118,12299000,112.29,5.09,116.74,97.39,0.56
 20260901,119.5,121.5,116,119.5,16078000,112.89,5.86,118.33,97.94,0.73
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,104.5,106.5,104.5,105.5,5815000,111.62,-5.48,114.62,101.98,0.41
 20260917,107.5,109,105.5,106,7430000,111.15,-4.63,114.03,102.22,0.57
 20260918,109,114,108,113.5,10599000,111.35,1.93,113.55,102.55,0.84
+20260921,114.5,115,109,109.5,9444000,111.19,-1.52,113.12,102.92,0.78
+20260922,111.5,112,106,106,6940000,110.76,-4.3,112.65,103.21,0.59
+20260923,108,110,106,109.5,6639000,110.66,-1.04,112.28,103.59,0.58
+20260924,107.5,109,105,108,6899000,110.43,-2.2,111.85,104.03,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 38.19
-- over_600_ratio: 35.09
-- over_800_ratio: 32.79
-- over_1000_ratio: 30.98
-- over_400_change_1w: -1.2
-- over_800_change_1w: -1.62
-- over_1000_change_1w: -1.85
+- as_of_date: 20260924
+- over_400_ratio: 37.06
+- over_600_ratio: 33.91
+- over_800_ratio: 31.33
+- over_1000_ratio: 29.4
+- over_400_change_1w: -1.13
+- over_800_change_1w: -1.46
+- over_1000_change_1w: -1.58
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,31.26,-4.15,27.4,-4.06,25.48,-3.01,0,False,False
 20260709,34.8,3.54,30.8,3.4,28.66,3.18,1,True,True
 20260717,40.08,5.28,36.01,5.21,34.1,5.44,2,True,True
 20260724,34.78,-5.3,30.17,-5.84,28.25,-5.85,0,False,False
@@ -199,18 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,41.18,-2.87,36.03,-2.78,34.99,-1.98,0,False,False
 20260911,39.39,-1.79,34.41,-1.62,32.83,-2.16,0,False,False
 20260918,38.19,-1.2,32.79,-1.62,30.98,-1.85,0,False,False
+20260924,37.06,-1.13,31.33,-1.46,29.4,-1.58,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5351 | 鈺創 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 5351 | 鈺創 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 5351 | 鈺創 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 5351 | 鈺創 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5351 | 鈺創 | 17 | 17 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 5351 | 鈺創 | 21 | 21 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

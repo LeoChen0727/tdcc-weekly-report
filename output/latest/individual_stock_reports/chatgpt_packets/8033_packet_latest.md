@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:32 Asia/Taipei
+- generated_at: 2026-09-26 15:53:37 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 170
-- high: 172.5
-- low: 169
-- close: 172.5
-- volume: 1609386
+- date: 20260924
+- open: 169
+- high: 170
+- low: 167
+- close: 168.5
+- volume: 1182926
 - ma5: 170
-- ema23_primary: 176.98
-- distance_to_ema23_pct: -2.53
-- ma20: 178.38
-- ma60: 188.85
-- ma120: 164.21
-- return_5d: 0
-- return_20d: -7.01
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -3.29
-- distance_to_high_60_pct: -36.58
+- ema23_primary: 174.72
+- distance_to_ema23_pct: -3.56
+- ma20: 174.47
+- ma60: 189.3
+- ma120: 165.25
+- return_5d: 0.3
+- return_20d: -15.33
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -3.42
+- distance_to_high_60_pct: -38.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,188,188,184.5,185,683870,185.81,-0.44,180.03,174.82,0.13
-20260825,182.5,186.5,174,179,5329673,185.24,-3.37,180.28,175.43,1
-20260826,182,196.5,182,192.5,10764926,185.85,3.58,182.05,176.28,1.86
-20260827,193,211.5,192,199,28081541,186.94,6.45,184.5,177.33,3.95
 20260828,202,205.5,183.5,189.5,25691837,187.16,1.25,185.72,178.25,3.08
 20260831,187.5,192.5,187,187,4731485,187.14,-0.08,186.45,179.15,0.56
 20260901,187,187,183,185.5,3433718,187.01,-0.81,186.8,180,0.4
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,165.5,170,165.5,169,1680089,178.24,-5.18,180,187.82,0.29
 20260917,170,173,168,168,2003257,177.39,-5.29,179.03,188.28,0.34
 20260918,170,172.5,169,172.5,1609386,176.98,-2.53,178.38,188.85,0.27
+20260921,175,176,170.5,171,1953817,176.48,-3.11,177.68,189.36,0.33
+20260922,172.5,172.5,169.5,169.5,1554195,175.9,-3.64,177.2,189.61,0.27
+20260923,172,172,168,168.5,1445787,175.28,-3.87,176,189.59,0.27
+20260924,169,170,167,168.5,1182926,174.72,-3.56,174.47,189.3,0.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 25.95
-- over_600_ratio: 23.3
-- over_800_ratio: 21.14
-- over_1000_ratio: 17.81
-- over_400_change_1w: -1.64
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.29
+- as_of_date: 20260924
+- over_400_ratio: 25.91
+- over_600_ratio: 23.27
+- over_800_ratio: 21.06
+- over_1000_ratio: 17.16
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -0.65
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,38.94,10.37,32.5,9.32,30.38,9.78,4,True,True
 20260709,41.55,2.61,36.14,3.64,33.45,3.07,5,True,True
 20260717,39.19,-2.36,33.48,-2.66,30.81,-2.64,0,False,False
 20260724,38.19,-1,32.81,-0.67,28.48,-2.33,0,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,28.04,-5.68,21.81,-6.13,18.49,-5.66,0,False,False
 20260911,27.59,-0.45,21.41,-0.4,18.1,-0.39,1,False,False
 20260918,25.95,-1.64,21.14,-0.27,17.81,-0.29,0,False,False
+20260924,25.91,-0.04,21.06,-0.08,17.16,-0.65,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8033 | 雷虎 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:雷虎科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司於115年7月14日召開董事會重要決議如下: 討論事項 (1)本公司擬投資設立雷虎精準系統股份有限公司暨布局無人機及    反無人機雷達關鍵技術案 (2)本公司擬投資航空引擎合資公司案 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 8033 | 雷虎 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/07/14 2.公司名稱:雷虎科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司於115年7月14日召開董事會重要決議如下: 討論事項 (1)本公司擬投資設立雷虎精準系統股份有限公司暨布局無人機及    反無人機雷達關鍵技術案 (2)本公司擬投資航空引擎合資公司案 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 8033 | 雷虎 | 1 | 1 | 3 | 3 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 8033 | 雷虎 | 2 | 2 | 4 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

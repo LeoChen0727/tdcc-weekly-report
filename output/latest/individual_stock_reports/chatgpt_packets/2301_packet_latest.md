@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2301 光寶科
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:05 Asia/Taipei
+- generated_at: 2026-09-26 15:51:12 Asia/Taipei
 - stock_id: 2301
 - stock_name: 光寶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 284
-- high: 288.5
-- low: 280.5
-- close: 282
-- volume: 24262502
-- ma5: 277.7
-- ema23_primary: 281.78
-- distance_to_ema23_pct: 0.08
-- ma20: 293.75
-- ma60: 250.75
-- ma120: 223.19
-- return_5d: 1.81
-- return_20d: 8.05
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -4
-- distance_to_high_60_pct: -14.02
+- date: 20260924
+- open: 280
+- high: 288
+- low: 278
+- close: 287
+- volume: 9401877
+- ma5: 285.1
+- ema23_primary: 282.97
+- distance_to_ema23_pct: 1.42
+- ma20: 291.38
+- ma60: 255.57
+- ma120: 227.87
+- return_5d: 3.24
+- return_20d: -4.65
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -1.5
+- distance_to_high_60_pct: -12.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,263.5,287,263.5,287,44389247,251.43,14.15,248.47,228.09,1.25
-20260825,286,296,277.5,296,74125077,255.14,16.01,253.57,229.12,1.95
-20260826,295,312.5,291,307,51305099,259.46,18.32,259.68,230.32,1.3
-20260827,308.5,309,300,301,25729076,262.92,14.48,265.23,231.55,0.66
 20260828,305,322,299,317.5,50424965,267.47,18.7,270.65,232.68,1.23
 20260831,311,314.5,304,305,26246499,270.6,12.71,274.43,233.62,0.64
 20260901,305.5,307,299,300.5,18521406,273.09,10.04,276.85,234.79,0.48
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,273,279,271,277,13634786,282.11,-1.81,292.15,248.61,0.46
 20260917,282,282.5,277,278,10539679,281.76,-1.34,292.7,249.63,0.36
 20260918,284,288.5,280.5,282,24262502,281.78,0.08,293.75,250.75,0.84
+20260921,289,294,281.5,288.5,16254104,282.34,2.18,293.82,252.2,0.59
+20260922,299.5,299.5,283,284.5,20206920,282.52,0.7,293.25,253.42,0.81
+20260923,286,287,282,283.5,10586920,282.6,0.32,292.07,254.44,0.46
+20260924,280,288,278,287,9401877,282.97,1.42,291.38,255.57,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 80.88
-- over_600_ratio: 79.04
-- over_800_ratio: 77.42
-- over_1000_ratio: 75.22
-- over_400_change_1w: -0.38
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.35
+- as_of_date: 20260924
+- over_400_ratio: 80.65
+- over_600_ratio: 78.62
+- over_800_ratio: 77.09
+- over_1000_ratio: 74.91
+- over_400_change_1w: -0.23
+- over_800_change_1w: -0.33
+- over_1000_change_1w: -0.31
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,78.24,0.07,75.15,0.09,73.5,0.01,1,True,True
 20260709,78.28,0.04,75.16,0.01,73.46,-0.04,2,False,True
 20260717,78.45,0.17,75.27,0.11,73.49,0.03,3,True,True
 20260724,78.64,0.19,75.48,0.21,73.7,0.21,4,True,True
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,81.7,-0.41,78.26,-0.48,76.12,-0.54,0,False,False
 20260911,81.26,-0.44,77.77,-0.49,75.57,-0.55,0,False,False
 20260918,80.88,-0.38,77.42,-0.35,75.22,-0.35,0,False,False
+20260924,80.65,-0.23,77.09,-0.33,74.91,-0.31,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2301 | 光寶科 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/13 1.召開法人說明會之日期：115/07/13 ~ 115/07/14 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：美國紐約 4.法人說明會擇要訊息：券商安排之美國投資人海外會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2301 | 光寶科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/07/13 1.召開法人說明會之日期：115/07/13 ~ 115/07/14 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：美國紐約 4.法人說明會擇要訊息：券商安排之美國投資人海外會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2301 | 光寶科 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/13 1.召開法人說明會之日期：115/07/13 ~ 115/07/14 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：美國紐約 4.法人說明會擇要訊息：券商安排之美國投資人海外會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2301 | 光寶科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/13 1.召開法人說明會之日期：115/07/13 ~ 115/07/14 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：美國紐約 4.法人說明會擇要訊息：券商安排之美國投資人海外會議 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2301 | 光寶科 | 8 | 8 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2301 | 光寶科 | 12 | 12 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2301 | 光寶科 | 306 | 15 | 15945860.0 | 91760.0 | 173.78 | no_signal |
+| 20260924 | 2301 | 光寶科 | 308 | 15 | 24030320.0 | 222670.0 | 107.92 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

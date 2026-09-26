@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6173 信昌電
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:43 Asia/Taipei
+- generated_at: 2026-09-26 15:52:50 Asia/Taipei
 - stock_id: 6173
 - stock_name: 信昌電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 309
+- date: 20260924
+- open: 303
 - high: 314
-- low: 300
-- close: 314
-- volume: 18216000
-- ma5: 304.1
-- ema23_primary: 265.21
-- distance_to_ema23_pct: 18.4
-- ma20: 263.23
-- ma60: 232.09
-- ma120: 196.37
-- return_5d: 8.28
-- return_20d: 48.11
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 19.29
-- distance_to_high_60_pct: -13.38
+- low: 300.5
+- close: 306.5
+- volume: 11387000
+- ma5: 306.8
+- ema23_primary: 276.89
+- distance_to_ema23_pct: 10.69
+- ma20: 283.12
+- ma60: 232.25
+- ma120: 204.56
+- return_5d: 0.99
+- return_20d: 40.92
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 8.26
+- distance_to_high_60_pct: -15.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,209.5,215,203,203,8336000,199.6,1.7,182.6,230.75,0.68
-20260825,201,205,190.5,203.5,6388000,199.93,1.79,184.62,230.19,0.51
-20260826,197.5,201.5,195,198,6116000,199.77,-0.89,187.18,229.54,0.48
-20260827,205,217.5,196,217.5,10757000,201.25,8.08,191.43,229.31,0.81
 20260828,229,239,229,239,17292000,204.39,16.93,196.1,229.45,1.23
 20260831,242.5,259.5,235.5,246,28268000,207.86,18.35,200.4,229.96,1.83
 20260901,255.5,270.5,254,261.5,21704000,212.33,23.16,205.25,230.59,1.32
@@ -166,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,304,323,295,315,27771000,256.89,22.62,254,231.99,1.38
 20260917,315,325,295,303.5,25894000,260.77,16.39,258.12,231.97,1.33
 20260918,309,314,300,314,18216000,265.21,18.4,263.23,232.09,0.94
+20260921,311,318.5,308,308,13283000,268.77,14.6,268.48,232.62,0.68
+20260922,330.5,331,300,303,15447000,271.62,11.55,273.45,232.97,0.77
+20260923,306,313,301,302.5,9998000,274.2,10.32,278.68,232.83,0.49
+20260924,303,314,300.5,306.5,11387000,276.89,10.69,283.12,232.25,0.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 65.19
-- over_600_ratio: 62.22
-- over_800_ratio: 60.02
-- over_1000_ratio: 58.98
-- over_400_change_1w: -1.05
-- over_800_change_1w: 0.36
-- over_1000_change_1w: 2.54
-- tdcc_consecutive_up_weeks: 10
+- as_of_date: 20260924
+- over_400_ratio: 64.64
+- over_600_ratio: 63.45
+- over_800_ratio: 58.9
+- over_1000_ratio: 58.4
+- over_400_change_1w: -0.55
+- over_800_change_1w: -1.12
+- over_1000_change_1w: -0.58
+- tdcc_consecutive_up_weeks: 11
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,68.13,-0.06,63.91,-0.17,62.38,0.34,2,False,True
 20260709,66.19,-1.94,61.68,-2.23,59.61,-2.77,0,False,False
 20260717,65.26,-0.93,61.77,0.09,59.3,-0.31,1,False,True
 20260724,65.22,-0.04,61.6,-0.17,59.09,-0.21,2,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,64.01,0.93,58.33,0.25,56.27,-0.85,8,False,True
 20260911,66.24,2.23,59.66,1.33,56.44,0.17,9,True,True
 20260918,65.19,-1.05,60.02,0.36,58.98,2.54,10,False,True
+20260924,64.64,-0.55,58.9,-1.12,58.4,-0.58,11,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6173 | 信昌電 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.主管機關核准減資日期:115/08/24 2.辦理資本變更登記完成日期:115/08/24 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）:             實收資本額(元)        流通在外股數(股)       每股淨值(元) 減資前      1,712,000,000          171,200,000             59.28 減資後      1,609,280,000          160,928,000             62.42 註：每股淨值係以115年前2季經會計師核閱之財務報表為計算依據。 4.預計換股作業計畫:不適用。 5.預計減資新股上櫃後之上櫃普通股股數:160,928,000股 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:100% 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6173 | 信昌電 | 1 | 1 | 3 | 4 | 12 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

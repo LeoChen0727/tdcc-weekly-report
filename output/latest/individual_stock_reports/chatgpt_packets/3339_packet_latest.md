@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3339 泰谷
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:48 Asia/Taipei
+- generated_at: 2026-09-26 15:51:55 Asia/Taipei
 - stock_id: 3339
 - stock_name: 泰谷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 44.9
-- high: 46.9
-- low: 44.5
-- close: 45.35
-- volume: 3671000
-- ma5: 43.59
-- ema23_primary: 42.66
-- distance_to_ema23_pct: 6.29
-- ma20: 43.41
-- ma60: 39.61
-- ma120: 45.1
-- return_5d: 2.6
-- return_20d: 18.87
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 4.46
-- distance_to_high_60_pct: -8.01
+- date: 20260924
+- open: 47.8
+- high: 49.8
+- low: 45.75
+- close: 47.2
+- volume: 5972000
+- ma5: 46.82
+- ema23_primary: 43.99
+- distance_to_ema23_pct: 7.31
+- ma20: 44.73
+- ma60: 39.89
+- ma120: 45.39
+- return_5d: 5.01
+- return_20d: 13.19
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 5.52
+- distance_to_high_60_pct: -5.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,38.15,40,38.1,38.4,738000,37.9,1.33,37.05,40.55,0.47
-20260825,38.1,39.4,37.3,39.2,754000,38.01,3.14,37.31,40.46,0.48
-20260826,39.2,43.1,39.2,43.1,6885000,38.43,12.15,37.88,40.45,3.69
-20260827,42.8,43.75,41.5,41.7,3379000,38.7,7.75,38.42,40.33,1.7
 20260828,42.15,44.6,42,43,3093000,39.06,10.09,38.91,40.2,1.46
 20260831,43,47.3,42.9,46.75,9184000,39.7,17.75,39.55,40.13,3.59
 20260901,48,49.3,45.05,47.4,6636000,40.34,17.49,40.05,40.11,2.34
@@ -172,26 +168,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,41,44.2,41,43.8,1462000,42.19,3.81,42.7,39.63,0.56
 20260917,44.2,46.35,43.65,44.95,3653000,42.42,5.96,43.05,39.6,1.33
 20260918,44.9,46.9,44.5,45.35,3671000,42.66,6.29,43.41,39.61,1.27
+20260921,46.45,49.2,45.25,48.5,6348000,43.15,12.4,43.92,39.7,2
+20260922,48.8,48.9,44.55,46.1,4936000,43.4,6.23,44.27,39.76,1.46
+20260923,45.55,46.95,44.55,46.95,2053000,43.69,7.45,44.46,39.83,0.65
+20260924,47.8,49.8,45.75,47.2,5972000,43.99,7.31,44.73,39.89,1.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 27.14
-- over_600_ratio: 23.29
-- over_800_ratio: 16.92
-- over_1000_ratio: 15.42
-- over_400_change_1w: -0.35
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260924
+- over_400_ratio: 26.57
+- over_600_ratio: 21.34
+- over_800_ratio: 15.07
+- over_1000_ratio: 13.83
+- over_400_change_1w: -0.57
+- over_800_change_1w: -1.85
+- over_1000_change_1w: -1.59
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,25.62,0.1,16.95,0.36,16.95,0.36,2,True,True
 20260709,24.16,-1.46,16.56,-0.39,16.56,-0.39,0,False,False
 20260717,25.55,1.39,17,0.44,17,0.44,1,True,True
 20260724,25.45,-0.1,16.61,-0.39,16.61,-0.39,2,False,False
@@ -203,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,26.9,-2.05,16.99,-1.27,15.78,-2.48,0,False,False
 20260911,27.49,0.59,16.89,-0.1,15.39,-0.39,1,False,False
 20260918,27.14,-0.35,16.92,0.03,15.42,0.03,2,False,True
+20260924,26.57,-0.57,15.07,-1.85,13.83,-1.59,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3339 | 泰谷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 3339 | 泰谷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3339 | 泰谷 | 3 | 2 | 4 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 3339 | 泰谷 | 7 | 1 | 5 | 8 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

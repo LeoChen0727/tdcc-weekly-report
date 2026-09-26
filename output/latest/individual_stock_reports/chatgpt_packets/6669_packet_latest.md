@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:05 Asia/Taipei
+- generated_at: 2026-09-26 15:53:11 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 2195
-- high: 2195
-- low: 2115
-- close: 2140
-- volume: 4839353
-- ma5: 2205
-- ema23_primary: 3632.57
-- distance_to_ema23_pct: -41.09
-- ma20: 3946
-- ma60: 4978.92
-- ma120: 4846.71
-- return_5d: -7.36
-- return_20d: -65.79
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -45.77
-- distance_to_high_60_pct: -72.56
+- date: 20260924
+- open: 2110
+- high: 2140
+- low: 2075
+- close: 2115
+- volume: 3554942
+- ma5: 2125
+- ema23_primary: 3187.99
+- distance_to_ema23_pct: -33.66
+- ma20: 3053.25
+- ma60: 4811.5
+- ma120: 4804.92
+- return_5d: -0.94
+- return_20d: -68.97
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -30.73
+- distance_to_high_60_pct: -72.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,6300,6410,6205,6300,922282,5980.33,5.35,6007.75,5390.67,0.52
-20260825,6225,6440,6125,6440,1168231,6018.64,7,6064,5407.25,0.68
-20260826,6325,6925,6300,6785,1898480,6082.5,11.55,6146.5,5428.42,1.13
-20260827,6770,6960,6735,6815,1479152,6143.54,10.93,6242.25,5450.75,0.9
 20260828,6965,7245,6835,7200,1993578,6231.58,15.54,6332.75,5477.42,1.2
 20260831,7100,7360,7035,7095,1921970,6303.53,12.56,6391.25,5502.83,1.2
 20260901,7115,7800,7050,7800,2855090,6428.24,21.34,6471,5538.5,1.8
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,2305,2320,2085,2165,9125545,3916.74,-44.72,4361.25,5060.17,2.66
 20260917,2175,2260,2135,2135,5761930,3768.26,-43.34,4151.75,5019,1.57
 20260918,2195,2195,2115,2140,4839353,3632.57,-41.09,3946,4978.92,1.25
+20260921,2180,2190,2110,2150,3304766,3509.03,-38.73,3738.5,4943.42,0.83
+20260922,2155,2180,2090,2115,6260344,3392.86,-37.66,3522.25,4902.33,1.47
+20260923,2135,2140,2095,2105,2904191,3285.54,-35.93,3288.25,4860.17,0.68
+20260924,2110,2140,2075,2115,3554942,3187.99,-33.66,3053.25,4811.5,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 63.05
-- over_600_ratio: 58.71
-- over_800_ratio: 55.62
-- over_1000_ratio: 53.3
-- over_400_change_1w: 2.76
-- over_800_change_1w: 1.41
-- over_1000_change_1w: 1.56
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 62.83
+- over_600_ratio: 59.74
+- over_800_ratio: 56
+- over_1000_ratio: 53.51
+- over_400_change_1w: -0.22
+- over_800_change_1w: 0.38
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,63.31,-0.48,56.22,0,53.77,0.6,1,False,True
 20260709,63.5,0.19,55.82,-0.4,53.44,-0.33,2,False,False
 20260717,62.59,-0.91,55.29,-0.53,53.41,-0.03,0,False,False
 20260724,64.12,1.53,55.72,0.43,53.75,0.34,1,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,62.38,-2.79,55.19,-0.98,53.25,-0.05,0,False,False
 20260911,60.29,-2.09,54.21,-0.98,51.74,-1.51,0,False,False
 20260918,63.05,2.76,55.62,1.41,53.3,1.56,1,True,True
+20260924,62.83,-0.22,56,0.38,53.51,0.21,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/9/16~115/9/16 3.董事會通過日期: 民國115年9月16日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：1批 交易總金額：USD16,090,400 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：Delta Electronics (Americas) Ltd. 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：依契約履行 交易總金額：USD16,090,400 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：比價後依雙方議價 價格決定之參考依據：參考市場行情議定 決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 營運所需 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 機器設備 2.事實發生日:115/9/16~115/9/16 3.董事會通過日期: 民國115年9月16日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：1批 交易總金額：USD16,090,400 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：Delta Electronics (Americas) Ltd. 與公司之關係：非關係人 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：依契約履行 交易總金額：USD16,090,400 契約限制條款及其他重要約定事項：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 交易之決定方式：比價後依雙方議價 價格決定之參考依據：參考市場行情議定 決策單位：董事會 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 營運所需 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6669 | 緯穎 | 4 | 4 | 4 | 4 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6669 | 緯穎 | 8 | 8 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6669 | 緯穎 | 472 | 35 | 42040740.0 | 8223620.0 | 5.11 | put_inflow |
+| 20260924 | 6669 | 緯穎 | 475 | 36 | 26463950.0 | 8783050.0 | 3.01 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

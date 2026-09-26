@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2636 台驊控股
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:24 Asia/Taipei
+- generated_at: 2026-09-26 15:51:31 Asia/Taipei
 - stock_id: 2636
 - stock_name: 台驊控股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 回檔後短線轉強
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 71.3
-- high: 71.3
-- low: 70.2
-- close: 71.2
-- volume: 350379
-- ma5: 70.24
-- ema23_primary: 69.82
-- distance_to_ema23_pct: 1.98
-- ma20: 70.23
-- ma60: 68.46
-- ma120: 68.38
-- return_5d: 0
-- return_20d: -2.86
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 1.38
-- distance_to_high_60_pct: -9.76
+- date: 20260924
+- open: 70.8
+- high: 72.3
+- low: 70.5
+- close: 71.9
+- volume: 1009165
+- ma5: 71.02
+- ema23_primary: 70.17
+- distance_to_ema23_pct: 2.46
+- ma20: 70.01
+- ma60: 68.58
+- ma120: 68.45
+- return_5d: 1.41
+- return_20d: 3.45
+- volume_ratio: 2.16
+- distance_to_ma20_pct_auxiliary: 2.7
+- distance_to_high_60_pct: -8.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,77.4,78.9,73.5,74.6,3809703,68.74,8.52,67.77,68.52,5.06
-20260825,74.1,77,73.9,74.3,2639603,69.21,7.36,68.19,68.63,3.04
-20260826,74.5,75.2,69.1,69.9,2045210,69.26,0.92,68.4,68.63,2.16
-20260827,69,70.6,68.6,69.5,806199,69.28,0.31,68.61,68.62,0.83
 20260828,69.5,69.5,68.1,68.9,652798,69.25,-0.51,68.75,68.6,0.65
 20260831,69.2,70,68.8,68.8,757343,69.21,-0.6,68.88,68.58,0.74
 20260901,68.6,70,68.6,69.6,442676,69.25,0.51,69.08,68.56,0.43
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,69.2,70.6,69.2,70.2,300673,69.58,0.89,70.35,68.42,0.3
 20260917,70.2,71.1,69.8,70.9,672072,69.69,1.74,70.33,68.44,0.69
 20260918,71.3,71.3,70.2,71.2,350379,69.82,1.98,70.23,68.46,0.41
+20260921,71.2,71.2,70.1,70.5,194909,69.87,0.9,70.03,68.5,0.29
+20260922,70.1,70.7,69.7,70.7,203735,69.94,1.08,69.84,68.53,0.37
+20260923,70.8,71.2,70.5,70.8,243346,70.01,1.12,69.89,68.54,0.53
+20260924,70.8,72.3,70.5,71.9,1009165,70.17,2.46,70.01,68.58,2.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 44.55
-- over_600_ratio: 42.31
-- over_800_ratio: 38.98
-- over_1000_ratio: 37.76
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.73
-- over_1000_change_1w: 1.28
-- tdcc_consecutive_up_weeks: 18
+- as_of_date: 20260924
+- over_400_ratio: 44.63
+- over_600_ratio: 42.73
+- over_800_ratio: 38.99
+- over_1000_ratio: 37.78
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 19
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,41.23,-0.24,36.01,0.67,34.77,0.04,7,False,True
 20260709,41.39,0.16,36.08,0.07,34.8,0.03,8,True,True
 20260717,41.21,-0.18,35.43,-0.65,34.82,0.02,9,False,True
 20260724,40.41,-0.8,35.45,0.02,34.84,0.02,10,False,True
@@ -199,17 +198,21 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,43.88,0.76,37,-0.5,36.39,0.07,16,False,True
 20260911,44.5,0.62,38.25,1.25,36.48,0.09,17,True,True
 20260918,44.55,0.05,38.98,0.73,37.76,1.28,18,True,True
+20260924,44.63,0.08,38.99,0.01,37.78,0.02,19,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 2636 | 台驊控股 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | first_seen | 1.證券名稱: 陽明海運股份有限公司 2.交易日期:115/1/27~115/8/19 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依本公司核決權限規定 民國115年8月19日 5.交易數量、每單位價格及交易總金額: 交易數量：5,300,000股; 每股平均價格：新台幣56.77元; 交易總金額：新台幣300,882仟元。 6.處分利益（或損失）（取得有價證券者不適用）: 新台幣(64,764)仟元 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：22,625,577股； 金額：1,334,909仟元； 持股比例：0.65%； 權利受限情形(質押)：18,300,000股。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:24.05%； 占母公司業主之權益比例:44.96%； 營運資金:新台幣(3,631,322)仟元。 10.取得或處分之具體目的: 提高資金使用效益。 11.本次交易表示異議董事之意見: 不適用。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無。 14.監察人承認或審計委員會同意日期: 不適用。 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 交易期間處分之股票，已參與配息金額為新台幣38,600仟元；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2636 | 台驊控股 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | first_seen | 1.證券名稱: 陽明海運股份有限公司 2.交易日期:115/1/27~115/8/19 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依本公司核決權限規定 民國115年8月19日 5.交易數量、每單位價格及交易總金額: 交易數量：5,300,000股; 每股平均價格：新台幣56.77元; 交易總金額：新台幣300,882仟元。 6.處分利益（或損失）（取得有價證券者不適用）: 新台幣(64,764)仟元 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：22,625,577股； 金額：1,334,909仟元； 持股比例：0.65%； 權利受限情形(質押)：18,300,000股。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:24.05%； 占母公司業主之權益比例:44.96%； 營運資金:新台幣(3,631,322)仟元。 10.取得或處分之具體目的: 提高資金使用效益。 11.本次交易表示異議董事之意見: 不適用。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無。 14.監察人承認或審計委員會同意日期: 不適用。 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 交易期間處分之股票，已參與配息金額為新台幣38,600仟元；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2636 | 台驊控股 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 16 | B_可觀察 |  |  |  | first_seen | 1.證券名稱: 陽明海運股份有限公司 2.交易日期:115/1/27~115/8/19 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依本公司核決權限規定 民國115年8月19日 5.交易數量、每單位價格及交易總金額: 交易數量：5,300,000股; 每股平均價格：新台幣56.77元; 交易總金額：新台幣300,882仟元。 6.處分利益（或損失）（取得有價證券者不適用）: 新台幣(64,764)仟元 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：22,625,577股； 金額：1,334,909仟元； 持股比例：0.65%； 權利受限情形(質押)：18,300,000股。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:24.05%； 占母公司業主之權益比例:44.96%； 營運資金:新台幣(3,631,322)仟元。 10.取得或處分之具體目的: 提高資金使用效益。 11.本次交易表示異議董事之意見: 不適用。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無。 14.監察人承認或審計委員會同意日期: 不適用。 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 交易期間處分之股票，已參與配息金額為新台幣38,600仟元；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2636 | 台驊控股 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | 1.證券名稱: 陽明海運股份有限公司 2.交易日期:115/1/27~115/8/19 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:依本公司核決權限規定 民國115年8月19日 5.交易數量、每單位價格及交易總金額: 交易數量：5,300,000股; 每股平均價格：新台幣56.77元; 交易總金額：新台幣300,882仟元。 6.處分利益（或損失）（取得有價證券者不適用）: 新台幣(64,764)仟元 7.與交易標的公司之關係: 無。 8.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 數量：22,625,577股； 金額：1,334,909仟元； 持股比例：0.65%； 權利受限情形(質押)：18,300,000股。 9.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列之有價證券投 資（含本次交易）占公司最近期財務報表中總資產及歸屬於母公司業主之權益之比例 暨最近期財務報表中營運資金數額: 占總資產比例:24.05%； 占母公司業主之權益比例:44.96%； 營運資金:新台幣(3,631,322)仟元。 10.取得或處分之具體目的: 提高資金使用效益。 11.本次交易表示異議董事之意見: 不適用。 12.本次交易為關係人交易: 否 13.交易相對人及其與公司之關係: 無。 14.監察人承認或審計委員會同意日期: 不適用。 15.前已就同一件事件發布重大訊息日期: 不適用 16.其他敘明事項: 交易期間處分之股票，已參與配息金額為新台幣38,600仟元；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260924 | 2636 | 台驊控股 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6204 艾華
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:46 Asia/Taipei
+- generated_at: 2026-09-26 15:52:53 Asia/Taipei
 - stock_id: 6204
 - stock_name: 艾華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,6 +104,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 107
-- high: 110
-- low: 101.5
-- close: 110
-- volume: 967000
-- ma5: 96.3
-- ema23_primary: 90.18
-- distance_to_ema23_pct: 21.98
-- ma20: 89.75
-- ma60: 87.89
-- ma120: 85.85
-- return_5d: 23.87
-- return_20d: 25.57
-- volume_ratio: 3.03
-- distance_to_ma20_pct_auxiliary: 22.56
-- distance_to_high_60_pct: -15.38
+- date: 20260924
+- open: 98
+- high: 107.5
+- low: 97.8
+- close: 107.5
+- volume: 535000
+- ma5: 105.3
+- ema23_primary: 94.26
+- distance_to_ema23_pct: 14.04
+- ma20: 93.69
+- ma60: 86.9
+- ma120: 87.35
+- return_5d: 7.5
+- return_20d: 20.79
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 14.74
+- distance_to_high_60_pct: -15.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,87.6,90,84.8,84.9,261000,81.96,3.59,77.1,93.96,1.05
-20260825,85,85,80.6,81.8,110000,81.95,-0.18,77.87,93.78,0.45
-20260826,83.2,84,81.8,82,100000,81.95,0.06,78.81,93.44,0.42
-20260827,83,89,82,89,393000,82.54,7.83,80.19,93.18,1.58
 20260828,90,95,88.4,88.4,871000,83.03,6.47,81.31,92.93,3.05
 20260831,88.4,88.4,84,84,224000,83.11,1.07,82.17,92.56,0.77
 20260901,84.5,90.3,84.3,90,383000,83.68,7.55,82.98,92.22,1.29
@@ -166,10 +163,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,90.7,91.7,90,91.2,186000,87.32,4.44,87.8,88.5,0.7
 20260917,94.6,100,92.9,100,638000,88.38,13.15,88.63,88.14,2.25
 20260918,107,110,101.5,110,967000,90.18,21.98,89.75,87.89,3.03
+20260921,113.5,120,107,108,1699000,91.66,17.82,90.91,87.77,4.35
+20260922,110,111,102,103,767000,92.61,11.22,91.97,87.55,1.81
+20260923,104,104.5,98,98,361000,93.06,5.31,92.77,87.11,0.83
+20260924,98,107.5,97.8,107.5,535000,94.26,14.04,93.69,86.9,1.21
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 29.71
 - over_600_ratio: 29.71
 - over_800_ratio: 29.71
@@ -185,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,29.71,0,29.71,0,25.64,0,0,False,False
 20260709,29.71,0,29.71,0,25.64,0,0,False,False
 20260717,29.71,0,29.71,0,25.64,0,0,False,False
 20260724,29.71,0,29.71,0,25.64,0,0,False,False
@@ -197,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,29.71,0,29.71,0,25.64,0,0,False,False
 20260911,29.71,0,29.71,0,25.64,0,0,False,False
 20260918,29.71,0,29.71,0,25.64,0,0,False,False
+20260924,29.71,0,29.71,0,25.64,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:41 Asia/Taipei
+- generated_at: 2026-09-26 15:52:48 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 50
-- high: 50.8
-- low: 49.05
-- close: 49.85
-- volume: 1517097
-- ma5: 49.28
-- ema23_primary: 48.94
-- distance_to_ema23_pct: 1.86
-- ma20: 51.8
-- ma60: 42.16
-- ma120: 37.31
-- return_5d: -2.25
-- return_20d: 9.8
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -3.76
-- distance_to_high_60_pct: -16.78
+- date: 20260924
+- open: 51.7
+- high: 52.7
+- low: 50.8
+- close: 51.8
+- volume: 1742591
+- ma5: 50.65
+- ema23_primary: 49.53
+- distance_to_ema23_pct: 4.58
+- ma20: 52.1
+- ma60: 42.97
+- ma120: 38.31
+- return_5d: 4.65
+- return_20d: -5.65
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -0.59
+- distance_to_high_60_pct: -13.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,45.8,47.25,43.05,46.05,4853320,38.74,18.88,36.39,37.47,1.91
-20260825,44.85,46.25,42.6,45.85,3841646,39.33,16.58,37.06,37.46,1.45
-20260826,46,50.4,45.2,50.4,7151867,40.25,25.21,38.04,37.56,2.47
-20260827,53.5,55.4,50,54.9,7830229,41.47,32.37,39.33,37.81,2.43
 20260828,54,59.5,53.7,58.2,7488061,42.87,35.77,40.73,38.11,2.14
 20260831,58.1,59.5,55.1,58.9,5240503,44.2,33.25,42.16,38.43,1.41
 20260901,58.9,59.9,57.2,58,3590856,45.35,27.89,43.38,38.76,0.94
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,48.25,50.8,48.2,49.9,1246123,48.8,2.26,51.3,41.86,0.3
 20260917,50.6,51.4,48.5,49.5,1487337,48.86,1.32,51.57,42.04,0.37
 20260918,50,50.8,49.05,49.85,1517097,48.94,1.86,51.8,42.16,0.4
+20260921,49.85,49.85,48.4,49,1343800,48.94,0.11,51.94,42.33,0.37
+20260922,49.95,53.8,49.3,50.8,3439141,49.1,3.46,52.19,42.54,0.95
+20260923,53.5,54.4,51,51.8,3180277,49.32,5.02,52.26,42.76,0.93
+20260924,51.7,52.7,50.8,51.8,1742591,49.53,4.58,52.1,42.97,0.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 50.38
-- over_600_ratio: 47.13
-- over_800_ratio: 43.48
-- over_1000_ratio: 38.46
-- over_400_change_1w: -1.74
-- over_800_change_1w: -3.37
-- over_1000_change_1w: -1.75
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 49.59
+- over_600_ratio: 45.98
+- over_800_ratio: 42.41
+- over_1000_ratio: 39.04
+- over_400_change_1w: -0.79
+- over_800_change_1w: -1.07
+- over_1000_change_1w: 0.58
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,51.18,-0.32,44.41,0.06,41.99,1.78,2,False,True
 20260709,51.7,0.52,44.43,0.02,42.01,0.02,3,True,True
 20260717,53.29,1.59,45.29,0.86,42.87,0.86,4,True,True
 20260724,54.68,1.39,47.41,2.12,42.57,-0.3,5,False,True
@@ -198,18 +197,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,52.38,0.76,48.05,1.88,42.35,0.35,1,True,True
 20260911,52.12,-0.26,46.85,-1.2,40.21,-2.14,0,False,False
 20260918,50.38,-1.74,43.48,-3.37,38.46,-1.75,0,False,False
+20260924,49.59,-0.79,42.41,-1.07,39.04,0.58,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6141 | 柏承 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財會主管 2.發生變動日期:115/09/16 3.舊任者姓名、級職及簡歷:呂芳誠/本公司財會經理 4.新任者姓名、級職及簡歷:王莉婷/同致電子企業股份有限公司/財務經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/09/30 8.其他應敘明事項:本公司財會主管之委任，業經115年09月16日董事會通過；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財會主管 2.發生變動日期:115/09/16 3.舊任者姓名、級職及簡歷:呂芳誠/本公司財會經理 4.新任者姓名、級職及簡歷:王莉婷/同致電子企業股份有限公司/財務經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/09/30 8.其他應敘明事項:本公司財會主管之委任，業經115年09月16日董事會通過；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6141 | 柏承 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財會主管 2.發生變動日期:115/09/16 3.舊任者姓名、級職及簡歷:呂芳誠/本公司財會經理 4.新任者姓名、級職及簡歷:王莉婷/同致電子企業股份有限公司/財務經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/09/30 8.其他應敘明事項:本公司財會主管之委任，業經115年09月16日董事會通過；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財會主管 2.發生變動日期:115/09/16 3.舊任者姓名、級職及簡歷:呂芳誠/本公司財會經理 4.新任者姓名、級職及簡歷:王莉婷/同致電子企業股份有限公司/財務經理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/09/30 8.其他應敘明事項:本公司財會主管之委任，業經115年09月16日董事會通過；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6141 | 柏承 | 4 | 4 | 4 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6141 | 柏承 | 8 | 8 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

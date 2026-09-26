@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4931 新盛力
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:20 Asia/Taipei
+- generated_at: 2026-09-26 15:52:27 Asia/Taipei
 - stock_id: 4931
 - stock_name: 新盛力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 236
-- high: 239.5
-- low: 234.5
-- close: 237.5
-- volume: 2231000
-- ma5: 232.6
-- ema23_primary: 242.07
-- distance_to_ema23_pct: -1.89
-- ma20: 246.65
-- ma60: 234.61
-- ma120: 213.8
-- return_5d: 1.5
-- return_20d: -15.18
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -3.71
-- distance_to_high_60_pct: -17.53
+- date: 20260924
+- open: 239.5
+- high: 241.5
+- low: 235.5
+- close: 241.5
+- volume: 1261000
+- ma5: 239.5
+- ema23_primary: 241.47
+- distance_to_ema23_pct: 0.01
+- ma20: 243.75
+- ma60: 234.96
+- ma120: 217.32
+- return_5d: 3.65
+- return_20d: -9.04
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -0.92
+- distance_to_high_60_pct: -16.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,266,272,252,252,8014000,242.3,4,230.25,236.31,1.47
-20260825,252,259,238.5,245,9133000,242.52,1.02,233.25,236.57,1.57
-20260826,249,256,240,255.5,10193000,243.6,4.88,237.32,236.85,1.7
-20260827,256,269,254,265.5,11252000,245.43,8.18,242.53,237.43,1.77
 20260828,276,281,262.5,272.5,13320000,247.68,10.02,247.28,237.73,1.92
 20260831,268,288,256,259,12361000,248.63,4.17,250.68,237.72,1.67
 20260901,260.5,266,254,260.5,5176000,249.62,4.36,253.9,238.02,0.7
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,226,237.5,226,236,2135000,243.34,-3.02,250.78,235.33,0.38
 20260917,241,243,232,233,2997000,242.48,-3.91,248.78,234.93,0.53
 20260918,236,239.5,234.5,237.5,2231000,242.07,-1.89,246.65,234.61,0.39
+20260921,239,246,238,239.5,4228000,241.85,-0.97,246.03,234.74,0.77
+20260922,242.5,249.5,237,240.5,5175000,241.74,-0.51,245.8,234.88,0.98
+20260923,242.5,242.5,237,238.5,1457000,241.47,-1.23,244.95,234.87,0.3
+20260924,239.5,241.5,235.5,241.5,1261000,241.47,0.01,243.75,234.96,0.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 25.78
-- over_600_ratio: 20.75
-- over_800_ratio: 15.72
-- over_1000_ratio: 11.7
-- over_400_change_1w: -5.2
-- over_800_change_1w: -4.88
-- over_1000_change_1w: -3.61
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 26.31
+- over_600_ratio: 20.31
+- over_800_ratio: 15.13
+- over_1000_ratio: 12.37
+- over_400_change_1w: 0.53
+- over_800_change_1w: -0.59
+- over_1000_change_1w: 0.67
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,30.25,0.53,20.99,0.05,18.22,1.57,9,False,True
 20260709,36.02,5.77,25.2,4.21,21.12,2.9,10,True,True
 20260717,29.7,-6.32,17.65,-7.55,13.65,-7.47,0,False,False
 20260724,30,0.3,16.29,-1.36,13.52,-0.13,1,False,False
@@ -199,18 +198,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,32.11,-2.62,22.73,-3.16,19.96,-1.86,0,False,False
 20260911,30.98,-1.13,20.6,-2.13,15.31,-4.65,0,False,False
 20260918,25.78,-5.2,15.72,-4.88,11.7,-3.61,0,False,False
+20260924,26.31,0.53,15.13,-0.59,12.37,0.67,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4931 | 新盛力 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 4931 | 新盛力 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 4931 | 新盛力 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 4931 | 新盛力 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4931 | 新盛力 | 17 | 17 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 4931 | 新盛力 | 21 | 21 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

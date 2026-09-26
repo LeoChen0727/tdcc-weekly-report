@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1796 金穎生技
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:56 Asia/Taipei
+- generated_at: 2026-09-26 15:51:03 Asia/Taipei
 - stock_id: 1796
 - stock_name: 金穎生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 254
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 258
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
+- date: 20260924
 - open: 29.8
 - high: 29.8
 - low: 29.5
-- close: 29.6
-- volume: 11000
-- ma5: 29.4
-- ema23_primary: 29.81
-- distance_to_ema23_pct: -0.71
-- ma20: 29.61
-- ma60: 30.92
-- ma120: 34.01
-- return_5d: 1.89
-- return_20d: -0.34
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -0.05
-- distance_to_high_60_pct: -22.61
+- close: 29.5
+- volume: 4000
+- ma5: 29.69
+- ema23_primary: 29.78
+- distance_to_ema23_pct: -0.94
+- ma20: 29.71
+- ma60: 30.73
+- ma120: 33.82
+- return_5d: 0
+- return_20d: 0.68
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -0.72
+- distance_to_high_60_pct: -22.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,29.75,29.95,29.5,29.5,26000,30.68,-3.85,30.36,32.62,1.17
-20260825,29.8,29.8,28.95,29,39000,30.54,-5.05,30.26,32.52,1.62
-20260826,29.25,29.3,29,29.05,71000,30.42,-4.49,30.2,32.4,2.69
-20260827,29.05,29.3,29,29.3,45000,30.32,-3.38,30.25,32.29,1.68
 20260828,29.6,29.6,29.1,29.35,10000,30.24,-2.95,30.16,32.19,0.4
 20260831,30.65,30.65,29.7,29.7,4000,30.2,-1.65,30.13,32.08,0.17
 20260901,30.2,30.2,29.65,29.9,3000,30.17,-0.9,30.12,31.97,0.13
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,29.2,29.25,29.2,29.2,5000,29.86,-2.21,29.61,31.05,0.33
 20260917,29.8,29.8,29.5,29.5,4000,29.83,-1.11,29.62,30.98,0.27
 20260918,29.8,29.8,29.5,29.6,11000,29.81,-0.71,29.61,30.92,0.81
+20260921,29.8,29.8,29.6,29.8,8000,29.81,-0.04,29.63,30.87,0.63
+20260922,30.3,30.3,29.55,29.55,10000,29.79,-0.8,29.66,30.81,0.89
+20260923,30.3,30.3,29.5,30,7000,29.81,0.65,29.7,30.77,0.87
+20260924,29.8,29.8,29.5,29.5,4000,29.78,-0.94,29.71,30.73,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 55.76
 - over_600_ratio: 52.51
 - over_800_ratio: 49.43
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,55.71,0,49.41,0,45.18,0,0,False,False
 20260709,55.75,0.04,49.41,0,45.18,0,1,False,False
 20260717,55.72,-0.03,49.42,0.01,45.18,0,2,False,True
 20260724,55.72,0,49.42,0,45.18,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,55.76,0,49.43,0,45.18,0,0,False,False
 20260911,55.76,0,49.43,0,45.18,0,0,False,False
 20260918,55.76,0,49.43,0,45.18,0,0,False,False
+20260924,55.76,0,49.43,0,45.18,0,0,False,False
 ```
 
 ## Candidate Context

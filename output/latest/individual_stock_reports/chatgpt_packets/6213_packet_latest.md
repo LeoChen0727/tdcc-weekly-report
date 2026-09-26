@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:47 Asia/Taipei
+- generated_at: 2026-09-26 15:52:54 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 503
-- high: 525
-- low: 501
-- close: 505
-- volume: 22460318
-- ma5: 516.8
-- ema23_primary: 503.77
-- distance_to_ema23_pct: 0.24
-- ma20: 528.08
-- ma60: 424.67
-- ma120: 340.7
-- return_5d: -0.79
-- return_20d: -1.56
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -4.37
-- distance_to_high_60_pct: -15.69
+- date: 20260924
+- open: 595
+- high: 595
+- low: 592
+- close: 595
+- volume: 16800143
+- ma5: 545.2
+- ema23_primary: 519.42
+- distance_to_ema23_pct: 14.55
+- ma20: 531.2
+- ma60: 438
+- ma120: 353.93
+- return_5d: 20.2
+- return_20d: 5.68
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: 12.01
+- distance_to_high_60_pct: -0.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,509,525,478,482.5,17393180,421.32,14.52,399.15,343.07,1.1
-20260825,482,530,480.5,530,26109789,430.38,23.15,411.82,347.43,1.62
-20260826,530,583,525,583,29746728,443.09,31.57,428.52,352.23,1.75
-20260827,585,599,556,563,36060522,453.09,24.26,444.7,357.06,2.03
 20260828,573,592,548,582,25938705,463.83,25.48,460.65,362.26,1.37
 20260831,563,591,534,548,17724290,470.84,16.39,473.6,367.05,0.91
 20260901,550,575,545,550,13046089,477.44,15.2,485.6,371.98,0.68
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,525,555,514,550,21280091,504.44,9.03,529.23,418.81,1.19
 20260917,548,548,495,495,37381131,503.66,-1.72,528.48,421.91,1.91
 20260918,503,525,501,505,22460318,503.77,0.24,528.08,424.67,1.2
+20260921,515,542,510,542,17958275,506.96,6.91,531.05,427.93,0.96
+20260922,545,574,539,543,21327081,509.96,6.48,531.7,431.24,1.15
+20260923,542,547,525,541,11528438,512.55,5.55,529.6,434.08,0.65
+20260924,595,595,592,595,16800143,519.42,14.55,531.2,438,1.01
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 63.83
-- over_600_ratio: 62.06
-- over_800_ratio: 58.78
-- over_1000_ratio: 55.69
-- over_400_change_1w: -3.11
-- over_800_change_1w: -2.9
-- over_1000_change_1w: -3.72
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 65.79
+- over_600_ratio: 64.04
+- over_800_ratio: 61.03
+- over_1000_ratio: 58.33
+- over_400_change_1w: 1.96
+- over_800_change_1w: 2.25
+- over_1000_change_1w: 2.64
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,65.3,-0.02,61.36,0.51,58.8,-0.29,7,False,True
 20260709,65.25,-0.05,60.55,-0.81,58.55,-0.25,0,False,False
 20260717,63.82,-1.43,58.92,-1.63,56.7,-1.85,0,False,False
 20260724,62.14,-1.68,57.19,-1.73,54.71,-1.99,0,False,False
@@ -198,24 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,67.71,-1.23,63.53,-1.42,61.31,-1.33,0,False,False
 20260911,66.94,-0.77,61.68,-1.85,59.41,-1.9,0,False,False
 20260918,63.83,-3.11,58.78,-2.9,55.69,-3.72,0,False,False
+20260924,65.79,1.96,61.03,2.25,58.33,2.64,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6213 | 聯茂 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 6213 | 聯茂 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:聯茂電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:Threads 6.報導內容:「快訊!聯茂分割案正式啟動!」持有到9月底1張變10張...。 7.發生緣由:關於上述網路流傳訊息，係不明來源於社群平台所散布之不實消息，  與事實不符，謹此澄清。有關本公司之財務及業務資訊，皆以公開資訊觀測站  公告為主，特此說明。 8.因應措施:無。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6213 | 聯茂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.事實發生日:115/09/23 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理公告 3.財務業務資訊:  一、本公司合併財務資訊：  科目　　 最近一月　　 與去年同期　　最近一季　　與去年同期　　 最近四季累計  期間　　 115年08月　　增　　 減%　 115年第2季 　增　　 減%　  114年第3季至                                                              115年第2季            (自結數)               　(查核數)                 (核閱或查核數)  ＝＝＝＝　 ＝＝＝＝　＝＝＝＝＝＝　＝＝＝＝＝  ＝＝＝＝＝＝  ＝＝＝＝＝＝＝  營業收入　　 5,044 　     97.96%　   11,530 　　   29.89%　     37,314  (百萬)  稅前淨利     1,302       762.25%　    1,834　     173.73%　　    3,479  (百萬)  本期淨利       924       852.58%　　  1,279　     204.61%　　    2,347  (百萬)  每股盈餘　    2.54       840.74% 　    3.52　     203.45%　       6.46  (元) 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6213 | 聯茂 | 10 | 10 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6213 | 聯茂 | 14 | 1 | 5 | 10 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6213 | 聯茂 | 106 | 7 | 16855150.0 | 551970.0 | 30.54 | no_signal |
+| 20260924 | 6213 | 聯茂 | 104 | 7 | 9525650.0 | 102920.0 | 92.55 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

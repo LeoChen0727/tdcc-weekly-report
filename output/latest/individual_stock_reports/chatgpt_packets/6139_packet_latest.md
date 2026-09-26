@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:41 Asia/Taipei
+- generated_at: 2026-09-26 15:52:47 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 706
-- high: 734
-- low: 706
-- close: 733
-- volume: 4528809
-- ma5: 710.4
-- ema23_primary: 741.4
-- distance_to_ema23_pct: -1.13
-- ma20: 741.2
-- ma60: 795.65
-- ma120: 756.56
-- return_5d: 3.38
-- return_20d: -3.81
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: -1.11
-- distance_to_high_60_pct: -25.73
+- date: 20260924
+- open: 733
+- high: 755
+- low: 725
+- close: 753
+- volume: 3399157
+- ma5: 731
+- ema23_primary: 738.61
+- distance_to_ema23_pct: 1.95
+- ma20: 731.8
+- ma60: 783.22
+- ma120: 763.28
+- return_5d: 8.19
+- return_20d: -3.95
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: 2.9
+- distance_to_high_60_pct: -23.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,763,779,757,758,1133191,788,-3.81,769.45,813.07,0.33
-20260825,759,769,738,768,1682689,786.33,-2.33,772.65,812.8,0.52
-20260826,770,801,768,800,2347380,787.47,1.59,779.1,813.18,0.79
-20260827,806,814,784,784,3049782,787.18,-0.4,786.15,813.55,1.07
 20260828,788,792,772,775,2585203,786.17,-1.42,789.55,813.4,0.9
 20260831,768,768,737,755,3030230,783.57,-3.65,789.05,812.23,1.11
 20260901,757,780,757,770,1963615,782.44,-1.59,788.25,811.6,0.75
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,713,722,707,707,1697549,746.37,-5.27,746.15,800.05,0.82
 20260917,711,722,696,696,2157163,742.17,-6.22,742.65,798.02,1.04
 20260918,706,734,706,733,4528809,741.4,-1.13,741.2,795.65,2
+20260921,740,745,717,718,1725029,739.45,-2.9,739.2,792.98,0.75
+20260922,729,731,715,715,1640135,737.42,-3.04,736.55,788.98,0.72
+20260923,725,750,720,736,3750210,737.3,-0.18,733.35,785.87,1.59
+20260924,733,755,725,753,3399157,738.61,1.95,731.8,783.22,1.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 62.26
-- over_600_ratio: 58.02
-- over_800_ratio: 55.99
-- over_1000_ratio: 51.72
-- over_400_change_1w: -1.09
-- over_800_change_1w: -0.54
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 62.45
+- over_600_ratio: 57.83
+- over_800_ratio: 56.17
+- over_1000_ratio: 51.36
+- over_400_change_1w: 0.19
+- over_800_change_1w: 0.18
+- over_1000_change_1w: -0.36
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,69.55,-0.4,63.14,0.35,58.85,-1.23,3,False,True
 20260709,69.04,-0.51,61.58,-1.56,57.63,-1.22,0,False,False
 20260717,68.14,-0.9,60.92,-0.66,56.24,-1.39,0,False,False
 20260724,67.61,-0.53,59.83,-1.09,55.03,-1.21,0,False,False
@@ -198,23 +197,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,63.64,-1.17,56.07,-1.74,52.58,-0.25,0,False,False
 20260911,63.35,-0.29,56.53,0.46,51.86,-0.72,1,False,True
 20260918,62.26,-1.09,55.99,-0.54,51.72,-0.14,0,False,False
+20260924,62.45,0.19,56.17,0.18,51.36,-0.36,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6139 | 亞翔 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣352,044,000元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/15 9.其他應敘明事項: 每股配發現金紅利1.65元(人民幣) 股權登記日：115/09/14 現金紅利發放日：115/09/15；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣352,044,000元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/15 9.其他應敘明事項: 每股配發現金紅利1.65元(人民幣) 股權登記日：115/09/14 現金紅利發放日：115/09/15；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6139 | 亞翔 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣352,044,000元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/15 9.其他應敘明事項: 每股配發現金紅利1.65元(人民幣) 股權登記日：115/09/14 現金紅利發放日：115/09/15；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣352,044,000元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/15 9.其他應敘明事項: 每股配發現金紅利1.65元(人民幣) 股權登記日：115/09/14 現金紅利發放日：115/09/15；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6139 | 亞翔 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  | call_put_bullish | stale_signal | 1.董事會、股東會決議或公司決定日期:115/09/08 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.發放股利種類及金額:現金股利人民幣352,044,000元 4.除權（息）交易日:NA 5.最後過戶日:NA 6.停止過戶起始日期:NA 7.停止過戶截止日期:NA 8.除權（息）基準日:115/09/15 9.其他應敘明事項: 每股配發現金紅利1.65元(人民幣) 股權登記日：115/09/14 現金紅利發放日：115/09/15；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6139 | 亞翔 | 1 | 1 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6139 | 亞翔 | 5 | 5 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6139 | 亞翔 | 245 | 1 | 23027160.0 | 17180.0 | 1340.35 | call_put_bullish |
+| 20260924 | 6139 | 亞翔 | 244 | 1 | 44854990.0 | 1270.0 | 35318.89 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

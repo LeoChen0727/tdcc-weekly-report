@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2501 國建
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:19 Asia/Taipei
+- generated_at: 2026-09-26 15:51:26 Asia/Taipei
 - stock_id: 2501
 - stock_name: 國建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -71,7 +71,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -105,6 +105,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -130,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 22.55
-- high: 22.85
-- low: 21.55
-- close: 21.8
-- volume: 6628522
-- ma5: 21.5
-- ema23_primary: 22.18
-- distance_to_ema23_pct: -1.73
-- ma20: 22.29
-- ma60: 22.73
-- ma120: 23.24
-- return_5d: -1.58
-- return_20d: -5.83
-- volume_ratio: 3.38
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -12.45
+- date: 20260924
+- open: 21.2
+- high: 21.2
+- low: 20.9
+- close: 21.1
+- volume: 1723858
+- ma5: 21.45
+- ema23_primary: 21.94
+- distance_to_ema23_pct: -3.81
+- ma20: 21.97
+- ma60: 22.54
+- ma120: 23.2
+- return_5d: -1.4
+- return_20d: -7.86
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -3.95
+- distance_to_high_60_pct: -15.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,23.15,23.5,22.95,23.1,1018243,22.82,1.23,22.58,23.53,0.5
-20260825,23.15,23.15,22.9,22.9,519204,22.83,0.32,22.61,23.54,0.27
-20260826,22.9,23,22.65,23,1708439,22.84,0.7,22.65,23.54,0.9
-20260827,23,23.25,22.9,22.9,676563,22.85,0.24,22.68,23.54,0.36
 20260828,22.9,22.9,22.45,22.5,2927061,22.82,-1.39,22.7,23.53,1.61
 20260831,22.5,22.6,22.3,22.35,1471352,22.78,-1.88,22.68,23.51,0.87
 20260901,22.3,22.6,22.3,22.5,744853,22.75,-1.12,22.7,23.48,0.46
@@ -172,17 +169,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,21.45,21.45,21.15,21.15,1932115,22.29,-5.13,22.44,22.83,1.22
 20260917,21.2,21.55,20.85,21.4,4945601,22.22,-3.69,22.36,22.78,2.87
 20260918,22.55,22.85,21.55,21.8,6628522,22.18,-1.73,22.29,22.73,3.38
+20260921,21.8,21.8,21.6,21.7,1579142,22.14,-2,22.22,22.69,0.79
+20260922,21.7,21.7,21.4,21.45,1315428,22.09,-2.88,22.15,22.65,0.65
+20260923,21.5,21.5,21.05,21.2,2991103,22.01,-3.69,22.06,22.59,1.43
+20260924,21.2,21.2,20.9,21.1,1723858,21.94,-3.81,21.97,22.54,0.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 77.16
-- over_600_ratio: 75.29
-- over_800_ratio: 74.16
-- over_1000_ratio: 72.46
-- over_400_change_1w: -0.32
-- over_800_change_1w: -0.39
-- over_1000_change_1w: -0.37
+- as_of_date: 20260924
+- over_400_ratio: 76.92
+- over_600_ratio: 75.05
+- over_800_ratio: 73.71
+- over_1000_ratio: 72.02
+- over_400_change_1w: -0.24
+- over_800_change_1w: -0.45
+- over_1000_change_1w: -0.44
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -191,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,77.86,-0.19,74.62,-0.44,73.11,-0.45,0,False,False
 20260709,77.64,-0.22,74.69,0.07,72.96,-0.15,1,False,True
 20260717,77.34,-0.3,74.35,-0.34,72.61,-0.35,0,False,False
 20260724,77.45,0.11,74.42,0.07,72.77,0.16,1,True,True
@@ -203,22 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,77.47,-0.21,74.56,0.03,73.02,0.11,4,False,True
 20260911,77.48,0.01,74.55,-0.01,72.83,-0.19,5,False,False
 20260918,77.16,-0.32,74.16,-0.39,72.46,-0.37,0,False,False
+20260924,76.92,-0.24,73.71,-0.45,72.02,-0.44,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2501 | 國建 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:國泰建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:投標由臺北市住宅及都市更新中心公開評選主旨 所揭開發案之出資人綜合評選 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本案由國泰建設股份有限公司（領銜）、 三重置業地產股份有限公司（本公司之子公司）共同投標。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260924 | 2501 | 國建 | revenue_pullback | 營收成長股價回檔 | 84.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:國泰建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:投標由臺北市住宅及都市更新中心公開評選主旨 所揭開發案之出資人綜合評選 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本案由國泰建設股份有限公司（領銜）、 三重置業地產股份有限公司（本公司之子公司）共同投標。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260924 | 2501 | 國建 | revenue_breakout_low_response | 營收爆發低反應股 | 11 | 41 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 1.事實發生日:115/06/25 2.公司名稱:國泰建設股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:投標由臺北市住宅及都市更新中心公開評選主旨 所揭開發案之出資人綜合評選 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 本案由國泰建設股份有限公司（領銜）、 三重置業地產股份有限公司（本公司之子公司）共同投標。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2501 | 國建 | 5 | 5 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2501 | 國建 | 9 | 9 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2501 | 國建 | 2 | 0 | 22340.0 | 0.0 |  | no_signal |
+| 20260924 | 2501 | 國建 | 2 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

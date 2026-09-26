@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4542 科嶠
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:11 Asia/Taipei
+- generated_at: 2026-09-26 15:52:19 Asia/Taipei
 - stock_id: 4542
 - stock_name: 科嶠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -125,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 291
-- high: 298
-- low: 275
-- close: 275
-- volume: 1025000
-- ma5: 261.8
-- ema23_primary: 274.38
-- distance_to_ema23_pct: 0.23
-- ma20: 274.88
-- ma60: 309.16
-- ma120: 275.42
-- return_5d: 4.96
-- return_20d: 8.91
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 0.05
-- distance_to_high_60_pct: -49.36
+- date: 20260924
+- open: 323.5
+- high: 357
+- low: 320.5
+- close: 328
+- volume: 2544000
+- ma5: 313.9
+- ema23_primary: 289.08
+- distance_to_ema23_pct: 13.46
+- ma20: 286.62
+- ma60: 301.99
+- ma120: 280.69
+- return_5d: 17.77
+- return_20d: 21.93
+- volume_ratio: 2.45
+- distance_to_ma20_pct_auxiliary: 14.44
+- distance_to_high_60_pct: -39.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,251.5,265,248.5,250,377000,280.45,-10.86,267.75,326.06,0.46
-20260825,248.5,265,241,265,427000,279.16,-5.07,266.98,325.98,0.51
-20260826,265,282,258.5,275.5,979000,278.86,-1.2,268.12,326.2,1.13
-20260827,276,277,267,269,481000,278.04,-3.25,270.2,326.74,0.58
 20260828,271,288.5,269,286,728000,278.7,2.62,272.95,327.57,0.94
 20260831,280.5,308,280,293,1663000,279.89,4.68,274.9,328.12,2.06
 20260901,306,319,302.5,306,2032000,282.07,8.48,276.25,328.45,2.4
@@ -167,16 +168,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,254.5,255,251.5,253.5,148000,273.94,-7.46,272.38,313.25,0.23
 20260917,258,278.5,257.5,278.5,745000,274.32,1.52,273.75,311.39,1.15
 20260918,291,298,275,275,1025000,274.38,0.23,274.88,309.16,1.51
+20260921,279,302.5,276.5,302.5,1046000,276.72,9.32,277.5,308,1.47
+20260922,318,332.5,310,332.5,3020000,281.37,18.17,280.88,306.73,3.59
+20260923,325.5,335,317,331.5,2838000,285.55,16.09,283.68,304.76,3.04
+20260924,323.5,357,320.5,328,2544000,289.08,13.46,286.62,301.99,2.45
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 48.8
-- over_600_ratio: 37.46
-- over_800_ratio: 31.44
+- as_of_date: 20260924
+- over_400_ratio: 47.6
+- over_600_ratio: 37.4
+- over_800_ratio: 31.38
 - over_1000_ratio: 20.72
-- over_400_change_1w: -0.21
-- over_800_change_1w: 0
+- over_400_change_1w: -1.2
+- over_800_change_1w: -0.06
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -186,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,53.64,-2.39,31.89,-0.55,20.96,-6.08,0,False,False
 20260709,54.23,0.59,31.88,-0.01,20.95,-0.01,1,False,False
 20260717,54.64,0.41,31.95,0.07,21.02,0.07,2,True,True
 20260724,52.98,-1.66,31.92,-0.03,21.02,0,0,False,False
@@ -198,18 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,48.99,-1.02,31.44,-0.02,20.72,0,0,False,False
 20260911,49.01,0.02,31.44,0,20.72,0,1,False,False
 20260918,48.8,-0.21,31.44,0,20.72,0,0,False,False
+20260924,47.6,-1.2,31.38,-0.06,20.72,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4542 | 科嶠 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/09/01 1.召開法人說明會之日期：115/09/01 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北寒舍艾美酒店(台北市信義區松仁路38號2樓) 4.法人說明會擇要訊息：本公司受邀參加櫃買中心暨永豐金證券合作舉辦之「2026年半導體展高峰論壇」，說明本公司簡介與營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 4542 | 科嶠 | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  |  | first_seen | 符合條款第四條第XX款：12 事實發生日：115/09/01 1.召開法人說明會之日期：115/09/01 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北寒舍艾美酒店(台北市信義區松仁路38號2樓) 4.法人說明會擇要訊息：本公司受邀參加櫃買中心暨永豐金證券合作舉辦之「2026年半導體展高峰論壇」，說明本公司簡介與營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 4542 | 科嶠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/01 1.召開法人說明會之日期：115/09/01 2.召開法人說明會之時間：13 時 30 分 3.召開法人說明會之地點：台北寒舍艾美酒店(台北市信義區松仁路38號2樓) 4.法人說明會擇要訊息：本公司受邀參加櫃買中心暨永豐金證券合作舉辦之「2026年半導體展高峰論壇」，說明本公司簡介與營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 4542 | 科嶠 | 1 | 1 | 1 | 1 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260924 | 4542 | 科嶠 | 5 | 3 | 5 | 5 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

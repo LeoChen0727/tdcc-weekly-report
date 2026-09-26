@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5289 宜鼎
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:27 Asia/Taipei
+- generated_at: 2026-09-26 15:52:34 Asia/Taipei
 - stock_id: 5289
 - stock_name: 宜鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 1290
-- high: 1315
-- low: 1280
-- close: 1315
-- volume: 1206000
-- ma5: 1287
-- ema23_primary: 1369.18
-- distance_to_ema23_pct: -3.96
-- ma20: 1385.75
-- ma60: 1433.5
-- ma120: 1476.53
-- return_5d: 1.54
-- return_20d: -15.71
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -5.11
-- distance_to_high_60_pct: -25.07
+- date: 20260924
+- open: 1300
+- high: 1310
+- low: 1270
+- close: 1305
+- volume: 878000
+- ma5: 1303
+- ema23_primary: 1348.98
+- distance_to_ema23_pct: -3.26
+- ma20: 1342.25
+- ma60: 1413.67
+- ma120: 1489.23
+- return_5d: 3.57
+- return_20d: -12.42
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -2.78
+- distance_to_high_60_pct: -24.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,1580,1660,1570,1570,3263000,1482.24,5.92,1440,1586.08,1.19
-20260825,1545,1550,1475,1510,1988000,1484.55,1.71,1455.5,1581.08,0.72
-20260826,1510,1525,1490,1500,1433000,1485.84,0.95,1472.5,1574.33,0.54
-20260827,1480,1500,1475,1490,1226000,1486.18,0.26,1488,1567.92,0.48
 20260828,1525,1535,1465,1470,1879000,1484.83,-1,1496.75,1560.92,0.72
 20260831,1460,1480,1430,1450,1505000,1481.93,-2.15,1500,1553.33,0.58
 20260901,1465,1475,1425,1450,1445000,1479.27,-1.98,1501.75,1548.25,0.58
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,1285,1310,1270,1295,822000,1384.48,-6.46,1409.5,1449.5,0.52
 20260917,1310,1310,1260,1260,894000,1374.11,-8.3,1398,1440.58,0.58
 20260918,1290,1315,1280,1315,1206000,1369.18,-3.96,1385.75,1433.5,0.83
+20260921,1330,1335,1295,1295,1107000,1363,-4.99,1372,1428.33,0.82
+20260922,1325,1330,1295,1295,874000,1357.34,-4.59,1361.25,1423.33,0.68
+20260923,1325,1375,1295,1305,1940000,1352.97,-3.55,1351.5,1418.17,1.48
+20260924,1300,1310,1270,1305,878000,1348.98,-3.26,1342.25,1413.67,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 30.01
-- over_600_ratio: 24.45
-- over_800_ratio: 21.46
-- over_1000_ratio: 18.69
-- over_400_change_1w: -0.39
-- over_800_change_1w: -1.4
-- over_1000_change_1w: -2.46
+- as_of_date: 20260924
+- over_400_ratio: 29.37
+- over_600_ratio: 24.22
+- over_800_ratio: 20.61
+- over_1000_ratio: 18.67
+- over_400_change_1w: -0.64
+- over_800_change_1w: -0.85
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,37.49,-2.27,29.01,-1.41,24.54,-3.27,0,False,False
 20260709,36.11,-1.38,26.9,-2.11,23.29,-1.25,0,False,False
 20260717,35.49,-0.62,25.57,-1.33,20.86,-2.43,0,False,False
 20260724,34.94,-0.55,24.72,-0.85,21.98,1.12,1,False,True
@@ -199,19 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,29.76,-2.85,23.09,-1.13,21.36,0.98,5,False,True
 20260911,30.4,0.64,22.86,-0.23,21.15,-0.21,6,False,False
 20260918,30.01,-0.39,21.46,-1.4,18.69,-2.46,0,False,False
+20260924,29.37,-0.64,20.61,-0.85,18.67,-0.02,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5289 | 宜鼎 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：16 時 30 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址：台北市中華路二段1號2樓) 4.法人說明會擇要訊息：受邀參加證券櫃檯買賣中心舉辦之櫃買市場業績發表會，說明公司產業概況及經營績效 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 5289 | 宜鼎 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：16 時 30 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址：台北市中華路二段1號2樓) 4.法人說明會擇要訊息：受邀參加證券櫃檯買賣中心舉辦之櫃買市場業績發表會，說明公司產業概況及經營績效 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 5289 | 宜鼎 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 36 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：16 時 30 分 3.召開法人說明會之地點：台北花園大酒店國際廳(地址：台北市中華路二段1號2樓) 4.法人說明會擇要訊息：受邀參加證券櫃檯買賣中心舉辦之櫃買市場業績發表會，說明公司產業概況及經營績效 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5289 | 宜鼎 | 1 | 1 | 3 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

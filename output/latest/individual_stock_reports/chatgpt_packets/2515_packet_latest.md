@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2515 中工
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:20 Asia/Taipei
+- generated_at: 2026-09-26 15:51:27 Asia/Taipei
 - stock_id: 2515
 - stock_name: 中工
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 12.35
-- high: 12.5
-- low: 11.95
+- date: 20260924
+- open: 11.95
+- high: 12
+- low: 11.9
 - close: 11.95
-- volume: 16630954
-- ma5: 11.91
-- ema23_primary: 11.99
-- distance_to_ema23_pct: -0.33
-- ma20: 11.98
-- ma60: 12.35
-- ma120: 12.75
-- return_5d: -0.42
-- return_20d: -0.42
-- volume_ratio: 3.08
-- distance_to_ma20_pct_auxiliary: -0.29
+- volume: 1780532
+- ma5: 11.95
+- ema23_primary: 11.98
+- distance_to_ema23_pct: -0.23
+- ma20: 11.97
+- ma60: 12.28
+- ma120: 12.7
+- return_5d: -0.83
+- return_20d: -0.83
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -0.19
 - distance_to_high_60_pct: -21.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,12,12.2,11.95,12,6582869,12.09,-0.74,11.9,12.7,1.09
-20260825,12,12.1,11.9,12,4147605,12.08,-0.68,11.91,12.68,0.72
-20260826,12,12.05,11.9,12,4453841,12.08,-0.62,11.93,12.67,0.79
-20260827,12,12.2,11.95,12.05,5291278,12.07,-0.19,11.95,12.65,0.93
 20260828,12.1,12.1,11.9,11.95,4659830,12.06,-0.94,11.96,12.63,0.83
 20260831,11.95,12.05,11.95,12.05,5904713,12.06,-0.1,11.96,12.61,1.11
 20260901,12.05,12.1,12.05,12.05,3702043,12.06,-0.09,11.96,12.59,0.71
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,11.75,11.95,11.75,11.8,1890579,11.99,-1.57,11.98,12.39,0.42
 20260917,11.85,12.25,11.85,12.05,12829832,11.99,0.47,11.99,12.37,2.66
 20260918,12.35,12.5,11.95,11.95,16630954,11.99,-0.33,11.98,12.35,3.08
+20260921,12,12,11.85,12,6256703,11.99,0.08,11.98,12.34,1.16
+20260922,12,12,11.85,11.9,3508982,11.98,-0.7,11.98,12.32,0.66
+20260923,11.95,12.15,11.9,11.95,6074235,11.98,-0.26,11.98,12.3,1.12
+20260924,11.95,12,11.9,11.95,1780532,11.98,-0.23,11.97,12.28,0.34
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 60.84
-- over_600_ratio: 57.33
-- over_800_ratio: 55.05
-- over_1000_ratio: 53.56
-- over_400_change_1w: 0.59
-- over_800_change_1w: 0.58
-- over_1000_change_1w: 0.97
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260924
+- over_400_ratio: 60.73
+- over_600_ratio: 57.18
+- over_800_ratio: 54.9
+- over_1000_ratio: 53.13
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.43
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,60.98,0.14,56.03,0.52,53.82,0.41,3,True,True
 20260709,61.52,0.54,56.69,0.66,54.36,0.54,4,True,True
 20260717,61.51,-0.01,56.53,-0.16,54.25,-0.11,5,False,False
 20260724,60.76,-0.75,55.71,-0.82,53.7,-0.55,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,60.33,-0.12,54.82,-0.18,52.95,-0.34,0,False,False
 20260911,60.25,-0.08,54.47,-0.35,52.59,-0.36,0,False,False
 20260918,60.84,0.59,55.05,0.58,53.56,0.97,1,True,True
+20260924,60.73,-0.11,54.9,-0.15,53.13,-0.43,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2515 | 中工 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.事實發生日：115/07/08 2.事實發生主體：本公司 3.發生緣由(事件說明)：本公司承攬之「台塑大樓都更案」於今日(7/8)上午約10點30分發現工區南側外側道路 (敦化北路)路面坍塌，現場無人傷亡。 4.處理過程：現場工務人員巡視發現後，立即停止相關施工作業， 並通知警察、消防及相關公用事業單位到場處理， 同時實施現場交通管制及安全警戒。 5.處分情形：依臺北市政府都市發展局北市都建字第11561428933號，本案道路塌陷事件違反建築法 第58、63條規定，並依同法第89條處新台幣9萬元罰鍰並勒令停工。 6.是否遭裁處罰鍰：是 7.裁罰金額(元)：新台幣 90,000 元 8.預計可能損失或影響：初步評估對整體營運及財務尚無重大影響，實際損失待判定。 9.可能獲得保險理賠之金額(元)：尚未確定 10.改善情形及未來因應措施：因坑洞下方有埋設瓦斯管線，現場已實施警戒管制， 並啟動連續壁計畫應變機制且暫停施工， 待瓦斯管線修復完成後，再進行混凝土澆置作業，填補路面塌陷之問題。 11.是否前已就同一事件發布重大訊息：否 12.其他應述明事項：無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260924 | 2515 | 中工 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | 1.事實發生日：115/07/08 2.事實發生主體：本公司 3.發生緣由(事件說明)：本公司承攬之「台塑大樓都更案」於今日(7/8)上午約10點30分發現工區南側外側道路 (敦化北路)路面坍塌，現場無人傷亡。 4.處理過程：現場工務人員巡視發現後，立即停止相關施工作業， 並通知警察、消防及相關公用事業單位到場處理， 同時實施現場交通管制及安全警戒。 5.處分情形：依臺北市政府都市發展局北市都建字第11561428933號，本案道路塌陷事件違反建築法 第58、63條規定，並依同法第89條處新台幣9萬元罰鍰並勒令停工。 6.是否遭裁處罰鍰：是 7.裁罰金額(元)：新台幣 90,000 元 8.預計可能損失或影響：初步評估對整體營運及財務尚無重大影響，實際損失待判定。 9.可能獲得保險理賠之金額(元)：尚未確定 10.改善情形及未來因應措施：因坑洞下方有埋設瓦斯管線，現場已實施警戒管制， 並啟動連續壁計畫應變機制且暫停施工， 待瓦斯管線修復完成後，再進行混凝土澆置作業，填補路面塌陷之問題。 11.是否前已就同一事件發布重大訊息：否 12.其他應述明事項：無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2515 | 中工 | 4 | 4 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2515 | 中工 | 8 | 8 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2515 | 中工 | 6 | 0 | 312860.0 | 0.0 |  | no_signal |
+| 20260924 | 2515 | 中工 | 5 | 0 | 6000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

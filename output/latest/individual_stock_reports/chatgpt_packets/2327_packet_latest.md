@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:06 Asia/Taipei
+- generated_at: 2026-09-26 15:51:13 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 351
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 355
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 543
-- high: 550
-- low: 533
-- close: 550
-- volume: 26963850
-- ma5: 539.4
-- ema23_primary: 561.87
-- distance_to_ema23_pct: -2.11
-- ma20: 552.2
-- ma60: 663.33
-- ma120: 606.31
-- return_5d: 1.1
-- return_20d: -0.72
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -0.4
-- distance_to_high_60_pct: -54.92
+- date: 20260924
+- open: 568
+- high: 589
+- low: 560
+- close: 580
+- volume: 35926454
+- ma5: 566.2
+- ema23_primary: 564.56
+- distance_to_ema23_pct: 2.74
+- ma20: 556.9
+- ma60: 629.09
+- ma120: 616.99
+- return_5d: 9.64
+- return_20d: 4.5
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 4.15
+- distance_to_high_60_pct: -48.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,557,580,551,551,23354983,612.12,-9.99,566.88,771.99,0.47
-20260825,547,548,515,544,34567419,606.45,-10.3,565.92,768.76,0.7
-20260826,535,540,526,537,27582304,600.66,-10.6,567.42,764.54,0.57
-20260827,545,560,529,555,50182079,596.86,-7.01,572.35,759.69,1.1
 20260828,581,610,576,597,81106200,596.87,0.02,577.1,755.98,1.64
 20260831,580,590,538,545,71750955,592.55,-8.02,576.75,752.67,1.38
 20260901,551,576,550,568,57762664,590.5,-3.81,576.85,749.33,1.16
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,539,543,526,536,27854767,566.03,-5.31,554.05,681.59,0.68
 20260917,543,553,529,529,22992927,562.95,-6.03,552.4,672.91,0.57
 20260918,543,550,533,550,26963850,561.87,-2.11,552.2,663.33,0.67
+20260921,556,579,556,557,27387944,561.46,-0.79,552.5,655.69,0.67
+20260922,578,588,566,571,42736611,562.26,1.55,553.85,647.88,1.04
+20260923,581,601,570,573,42588422,563.15,1.75,555.65,638.42,1.02
+20260924,568,589,560,580,35926454,564.56,2.74,556.9,629.09,0.87
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 67.05
-- over_600_ratio: 65.15
-- over_800_ratio: 63.61
-- over_1000_ratio: 62.66
-- over_400_change_1w: -0.66
-- over_800_change_1w: -0.64
-- over_1000_change_1w: -0.63
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 67.8
+- over_600_ratio: 65.82
+- over_800_ratio: 64.13
+- over_1000_ratio: 63.34
+- over_400_change_1w: 0.75
+- over_800_change_1w: 0.52
+- over_1000_change_1w: 0.68
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,73.9,-0.44,70.47,-0.35,68.96,-0.49,0,False,False
 20260709,73.38,-0.52,69.95,-0.52,68.63,-0.33,0,False,False
 20260717,72.87,-0.51,69.46,-0.49,68.1,-0.53,0,False,False
 20260724,72.27,-0.6,69.06,-0.4,67.7,-0.4,0,False,False
@@ -199,23 +198,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,66.53,-1.66,63.09,-1.46,62.09,-1.35,0,False,False
 20260911,67.71,1.18,64.25,1.16,63.29,1.2,1,True,True
 20260918,67.05,-0.66,63.61,-0.64,62.66,-0.63,0,False,False
+20260924,67.8,0.75,64.13,0.52,63.34,0.68,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2327 | 國巨* | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/22 1.召開法人說明會之日期：115/09/22 ~ 115/09/23 2.召開法人說明會之時間：08 時 30 分 3.召開法人說明會之地點：香港君悅酒店 4.法人說明會擇要訊息：本公司於115/09/22 ~ 115/09/23受邀參加由中信里昂證券舉辦之"33rd Investors' Forum 2026"， 就公司營運及產業概況向投資機構做說明。 5.其他應敘明事項：公司網站https://yageogroup.com/About/InvestorRelations/InvestorConference 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 2327 | 國巨* | revenue_pullback | 營收成長股價回檔 | 50.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/22 1.召開法人說明會之日期：115/09/22 ~ 115/09/23 2.召開法人說明會之時間：08 時 30 分 3.召開法人說明會之地點：香港君悅酒店 4.法人說明會擇要訊息：本公司於115/09/22 ~ 115/09/23受邀參加由中信里昂證券舉辦之"33rd Investors' Forum 2026"， 就公司營運及產業概況向投資機構做說明。 5.其他應敘明事項：公司網站https://yageogroup.com/About/InvestorRelations/InvestorConference 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2327 | 國巨* | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 中國建行結構型理財產品 2.事實發生日:115/8/13~115/9/23 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:不適用 民國115年9月23日 5.交易數量、每單位價格及交易總金額: 交易單位數量、每單位價格：無 交易總金額：人民幣105,000,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人: 中國建設&#38134;行 與公司之關係:無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 一次付清 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依本公司內部核決權限 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有交易金額 : 人民幣65,000,000元 權利受限情形 : 無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例 :  0.09% 占歸屬於母公司業主之權益之比例 : 0.17% 最近期財務報表中營運資金數額 : 新台幣 -76,476,038 仟元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 投資理財 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 2327 | 國巨* | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 中國建行結構型理財產品 2.事實發生日:115/8/13~115/9/23 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:不適用 民國115年9月23日 5.交易數量、每單位價格及交易總金額: 交易單位數量、每單位價格：無 交易總金額：人民幣105,000,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交易相對人: 中國建設&#38134;行 與公司之關係:無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 一次付清 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依本公司內部核決權限 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 累積持有交易金額 : 人民幣65,000,000元 權利受限情形 : 無 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例 :  0.09% 占歸屬於母公司業主之權益之比例 : 0.17% 最近期財務報表中營運資金數額 : 新台幣 -76,476,038 仟元 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 投資理財 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2327 | 國巨* | 10 | 10 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2327 | 國巨* | 14 | 14 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2327 | 國巨* | 271 | 39 | 44814230.0 | 1942240.0 | 23.07 | no_signal |
+| 20260924 | 2327 | 國巨* | 273 | 41 | 62263160.0 | 1680130.0 | 37.06 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

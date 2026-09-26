@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:52 Asia/Taipei
+- generated_at: 2026-09-26 15:51:59 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 257
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 261
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -102,6 +102,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -116,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 1515
+- date: 20260924
+- open: 1545
 - high: 1565
-- low: 1475
-- close: 1565
-- volume: 1520000
-- ma5: 1447
-- ema23_primary: 1409.4
-- distance_to_ema23_pct: 11.04
-- ma20: 1425.75
-- ma60: 1302.2
-- ma120: 1515.47
-- return_5d: 10.6
-- return_20d: 22.27
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 9.77
-- distance_to_high_60_pct: -0.32
+- low: 1520
+- close: 1555
+- volume: 835000
+- ma5: 1537
+- ema23_primary: 1445.46
+- distance_to_ema23_pct: 7.58
+- ma20: 1465.25
+- ma60: 1317.28
+- ma120: 1515.1
+- return_5d: 4.71
+- return_20d: 9.12
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 6.13
+- distance_to_high_60_pct: -1.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,1300,1355,1280,1290,1342000,1265.88,1.91,1216.1,1405.62,0.74
-20260825,1280,1285,1225,1270,1101000,1266.22,0.3,1225.1,1393.45,0.61
-20260826,1270,1345,1220,1345,1380000,1272.79,5.67,1241.1,1379.2,0.8
-20260827,1350,1470,1340,1425,2494000,1285.47,10.85,1266.2,1366.87,1.43
 20260828,1500,1515,1450,1510,2731000,1304.18,15.78,1293.25,1357.53,1.66
 20260831,1555,1555,1360,1380,2444000,1310.5,5.3,1309,1346.87,1.44
 20260901,1425,1505,1390,1480,1863000,1324.63,11.73,1324.5,1339.03,1.08
@@ -166,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,1410,1445,1380,1440,1292000,1387.09,3.81,1401.5,1297.78,0.83
 20260917,1465,1540,1435,1485,1968000,1395.25,6.43,1411.5,1299.95,1.22
 20260918,1515,1565,1475,1565,1520000,1409.4,11.04,1425.75,1302.2,0.94
+20260921,1555,1580,1510,1520,1264000,1418.61,7.15,1437.25,1305.2,0.79
+20260922,1550,1555,1480,1480,1278000,1423.73,3.95,1447.75,1309.37,0.79
+20260923,1490,1575,1490,1565,1805000,1435.5,9.02,1458.75,1313.62,1.1
+20260924,1545,1565,1520,1555,835000,1445.46,7.58,1465.25,1317.28,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 35.72
-- over_600_ratio: 28.5
-- over_800_ratio: 24.51
-- over_1000_ratio: 21.91
-- over_400_change_1w: -0.29
-- over_800_change_1w: 1.4
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260924
+- over_400_ratio: 36.52
+- over_600_ratio: 29.25
+- over_800_ratio: 25.26
+- over_1000_ratio: 22.66
+- over_400_change_1w: 0.8
+- over_800_change_1w: 0.75
+- over_1000_change_1w: 0.75
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,34.04,0.88,17.2,-0.21,14.49,-0.21,1,False,False
 20260709,33.63,-0.41,17.39,0.19,14.68,0.19,2,False,True
 20260717,33.49,-0.14,19.34,1.95,15.41,0.73,3,False,True
 20260724,34.28,0.79,19.66,0.32,15.54,0.13,4,False,True
@@ -197,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,36.81,1.56,22.82,2.44,21.51,3.89,3,True,True
 20260911,36.01,-0.8,23.11,0.29,21.8,0.29,4,False,True
 20260918,35.72,-0.29,24.51,1.4,21.91,0.11,5,False,True
+20260924,36.52,0.8,25.26,0.75,22.66,0.75,6,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3491 | 昇達科 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 交通銀行蘊通財富定期型結構性存款-人民幣理財產品 2.事實發生日:115/1/5~115/7/16 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年7月16日 5.交易數量、每單位價格及交易總金額: 本次取得人民幣2,500,000元 累積取得人民幣29,600,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交通銀行昆山分行;無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 一次性現金付清 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依公司核決權限辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 人民幣15,100,000元 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：1.36% 占業主權益比例：2.03% 營運資金數額：新台幣-120,552仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 投資理財/保本固定收益型理財產品 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 一般金融機構往來交易，視資金狀況安排。 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 3491 | 昇達科 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 交通銀行蘊通財富定期型結構性存款-人民幣理財產品 2.事實發生日:115/1/5~115/7/16 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長核決 民國115年7月16日 5.交易數量、每單位價格及交易總金額: 本次取得人民幣2,500,000元 累積取得人民幣29,600,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 交通銀行昆山分行;無 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明 認列情形）: 不適用 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 一次性現金付清 12.本次交易之決定方式、價格決定之參考依據及決策單位: 依公司核決權限辦理 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 人民幣15,100,000元 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）: 占總資產比例：1.36% 占業主權益比例：2.03% 營運資金數額：新台幣-120,552仟元 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 投資理財/保本固定收益型理財產品 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 一般金融機構往來交易，視資金狀況安排。 28.資金來源: 自有資金 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 3491 | 昇達科 | 18 | 13 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

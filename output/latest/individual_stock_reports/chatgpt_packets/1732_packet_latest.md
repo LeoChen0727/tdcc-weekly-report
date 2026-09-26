@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1732 毛寶
 
 ## Metadata
-- generated_at: 2026-09-20 22:15:54 Asia/Taipei
+- generated_at: 2026-09-26 15:51:01 Asia/Taipei
 - stock_id: 1732
 - stock_name: 毛寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 25.9
-- high: 26.05
-- low: 25.9
-- close: 26.05
-- volume: 30196
-- ma5: 25.93
+- date: 20260924
+- open: 26.2
+- high: 26.25
+- low: 26.05
+- close: 26.1
+- volume: 14268
+- ma5: 26.12
 - ema23_primary: 26.13
-- distance_to_ema23_pct: -0.32
-- ma20: 26.16
-- ma60: 26.41
+- distance_to_ema23_pct: -0.13
+- ma20: 26.09
+- ma60: 26.4
 - ma120: 26.33
-- return_5d: 0.19
-- return_20d: -0.95
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -0.41
-- distance_to_high_60_pct: -11.99
+- return_5d: 0.58
+- return_20d: -1.51
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 0.05
+- distance_to_high_60_pct: -11.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,26.5,26.55,26.35,26.35,134328,26.44,-0.35,26.43,26.47,0.66
-20260825,26.35,26.65,26.35,26.5,82398,26.45,0.2,26.42,26.48,0.43
-20260826,26.55,27,26.45,26.6,209300,26.46,0.53,26.45,26.48,1.18
-20260827,26.6,26.6,26.45,26.5,67732,26.46,0.14,26.47,26.48,0.41
 20260828,26.5,26.85,26.4,26.7,86360,26.48,0.82,26.49,26.49,0.53
 20260831,26.5,26.5,26.4,26.45,98517,26.48,-0.12,26.49,26.48,0.62
 20260901,26.05,26.15,25.9,26.1,170965,26.45,-1.32,26.47,26.47,1.06
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,25.9,25.9,25.8,25.85,48035,26.16,-1.18,26.19,26.41,0.52
 20260917,25.85,26,25.85,25.95,47577,26.14,-0.73,26.17,26.41,0.54
 20260918,25.9,26.05,25.9,26.05,30196,26.13,-0.32,26.16,26.41,0.35
+20260921,26.1,26.1,25.95,26.05,46145,26.13,-0.29,26.14,26.41,0.57
+20260922,26,26.2,26,26.2,77928,26.13,0.26,26.13,26.41,0.96
+20260923,26.2,26.2,26,26.2,53654,26.14,0.24,26.11,26.41,0.73
+20260924,26.2,26.25,26.05,26.1,14268,26.13,-0.13,26.09,26.4,0.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 46.4
 - over_600_ratio: 46.4
 - over_800_ratio: 46.4
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,46.4,0,46.4,0,44.13,0,0,False,False
 20260709,46.4,0,46.4,0,44.13,0,0,False,False
 20260717,46.4,0,46.4,0,44.13,0,0,False,False
 20260724,46.4,0,46.4,0,44.13,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,46.4,0,46.4,0,44.13,0,0,False,False
 20260911,46.4,0,46.4,0,44.13,0,0,False,False
 20260918,46.4,0,46.4,0,44.13,0,0,False,False
+20260924,46.4,0,46.4,0,44.13,0,0,False,False
 ```
 
 ## Candidate Context

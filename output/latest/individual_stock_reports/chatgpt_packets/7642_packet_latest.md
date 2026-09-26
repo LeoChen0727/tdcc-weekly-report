@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7642 昶瑞機電
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:25 Asia/Taipei
+- generated_at: 2026-09-26 15:53:31 Asia/Taipei
 - stock_id: 7642
 - stock_name: 昶瑞機電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 256
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 260
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 70
-- high: 73
-- low: 70
-- close: 71.3
-- volume: 20000
-- ma5: 70.84
-- ema23_primary: 74.76
-- distance_to_ema23_pct: -4.63
-- ma20: 75.39
-- ma60: 77.27
-- ma120: 73.91
-- return_5d: -3.39
-- return_20d: -10.09
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -5.42
-- distance_to_high_60_pct: -17.19
+- date: 20260924
+- open: 68.9
+- high: 71.1
+- low: 68.8
+- close: 70.8
+- volume: 16000
+- ma5: 69.56
+- ema23_primary: 73.13
+- distance_to_ema23_pct: -3.18
+- ma20: 73.5
+- ma60: 77.15
+- ma120: 73.72
+- return_5d: 1.14
+- return_20d: -9.35
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -3.68
+- distance_to_high_60_pct: -17.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,79,79,78.3,78.3,3000,78.39,-0.11,78.31,75.98,0.13
-20260825,77.7,79,77.3,78.5,7000,78.4,0.13,78.17,76.19,0.34
-20260826,77.7,79.3,76.9,79.2,22000,78.46,0.94,78.24,76.39,1.15
-20260827,79,79,78.1,78.1,4000,78.43,-0.42,78.31,76.59,0.22
 20260828,77.6,79,77.4,79,23000,78.48,0.66,78.42,76.8,1.32
 20260831,77.9,77.9,77.3,77.3,5000,78.38,-1.38,78.46,76.87,0.29
 20260901,78.1,79.3,76.7,77.1,20000,78.27,-1.5,78.47,76.88,1.12
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,71,71,68,69,39000,75.54,-8.66,76.23,77.2,2.98
 20260917,70.7,71,69.5,70,7000,75.08,-6.76,75.78,77.21,0.54
 20260918,70,73,70,71.3,20000,74.76,-4.63,75.39,77.27,1.46
+20260921,71.3,71.3,68,68.8,48000,74.27,-7.36,74.91,77.3,3.01
+20260922,69.2,71.3,68,68.3,38000,73.77,-7.41,74.4,77.27,2.17
+20260923,68.5,69,68.3,68.6,9000,73.34,-6.46,73.87,77.2,0.53
+20260924,68.9,71.1,68.8,70.8,16000,73.13,-3.18,73.5,77.15,0.92
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 80.03
 - over_600_ratio: 78.35
 - over_800_ratio: 78.35
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,80.04,0,78.36,0,78.36,0,0,False,False
 20260709,80.03,-0.01,78.35,-0.01,78.35,-0.01,0,False,False
 20260717,80.03,0,78.35,0,78.35,0,0,False,False
 20260724,80.03,0,78.35,0,78.35,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,80.03,0,78.35,0,78.35,0,0,False,False
 20260911,80.03,0,78.35,0,78.35,0,0,False,False
 20260918,80.03,0,78.35,0,78.35,0,0,False,False
+20260924,80.03,0,78.35,0,78.35,0,0,False,False
 ```
 
 ## Candidate Context

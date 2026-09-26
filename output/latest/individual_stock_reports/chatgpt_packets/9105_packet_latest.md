@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:47 Asia/Taipei
+- generated_at: 2026-09-26 15:53:53 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 8.48
-- high: 8.51
+- date: 20260924
+- open: 8.36
+- high: 8.45
 - low: 8.35
-- close: 8.37
-- volume: 12668205
-- ma5: 8.41
-- ema23_primary: 8.5
-- distance_to_ema23_pct: -1.56
-- ma20: 8.52
-- ma60: 8.55
-- ma120: 7.89
-- return_5d: -2.56
-- return_20d: -0.59
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -1.8
-- distance_to_high_60_pct: -17.54
+- close: 8.43
+- volume: 9537724
+- ma5: 8.37
+- ema23_primary: 8.46
+- distance_to_ema23_pct: -0.41
+- ma20: 8.53
+- ma60: 8.49
+- ma120: 7.98
+- return_5d: 0
+- return_20d: 0.6
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -1.14
+- distance_to_high_60_pct: -11.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,8.46,8.74,8.42,8.42,20277191,8.41,0.07,8.22,9.01,1
-20260825,8.42,8.44,8.22,8.3,12353874,8.4,-1.24,8.25,9.01,0.64
-20260826,8.35,8.45,8.32,8.32,8703051,8.4,-0.92,8.29,8.98,0.48
-20260827,8.39,8.46,8.31,8.38,10748177,8.4,-0.19,8.34,8.95,0.62
 20260828,8.45,8.46,8.33,8.35,10340273,8.39,-0.5,8.35,8.89,0.63
 20260831,8.26,8.78,8.21,8.71,24519862,8.42,3.46,8.38,8.83,1.48
 20260901,8.8,9.05,8.61,8.64,27454336,8.44,2.4,8.39,8.78,1.59
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,8.48,8.52,8.39,8.44,10939555,8.52,-0.97,8.52,8.6,0.64
 20260917,8.49,8.56,8.42,8.43,10456156,8.51,-1,8.53,8.57,0.61
 20260918,8.48,8.51,8.35,8.37,12668205,8.5,-1.56,8.52,8.55,0.74
+20260921,8.38,8.46,8.34,8.38,11038027,8.49,-1.33,8.52,8.54,0.66
+20260922,8.44,8.47,8.35,8.35,11697091,8.48,-1.54,8.52,8.52,0.7
+20260923,8.37,8.41,8.3,8.33,14360876,8.47,-1.63,8.52,8.5,0.85
+20260924,8.36,8.45,8.35,8.43,9537724,8.46,-0.41,8.53,8.49,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 26.54
-- over_600_ratio: 21.67
-- over_800_ratio: 18.85
-- over_1000_ratio: 16.46
-- over_400_change_1w: -0.49
-- over_800_change_1w: -0.52
-- over_1000_change_1w: -0.55
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260924
+- over_400_ratio: 26.56
+- over_600_ratio: 21.62
+- over_800_ratio: 18.94
+- over_1000_ratio: 16.49
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,23.36,-0.01,16.21,0.48,13.49,0.27,1,False,True
 20260709,23.41,0.05,16.4,0.19,13.9,0.41,2,True,True
 20260717,23.7,0.29,16.7,0.3,14.02,0.12,3,True,True
 20260724,24.86,1.16,17.75,1.05,15.08,1.06,4,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,27.13,0.55,19.43,0.56,16.93,0.56,10,True,True
 20260911,27.03,-0.1,19.37,-0.06,17.01,0.08,11,False,True
 20260918,26.54,-0.49,18.85,-0.52,16.46,-0.55,0,False,False
+20260924,26.56,0.02,18.94,0.09,16.49,0.03,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 9105 | 泰金寶-DR | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 9105 | 泰金寶-DR | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 9105 | 泰金寶-DR | 4 | 4 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 9105 | 泰金寶-DR | 8 | 8 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 9105 | 泰金寶-DR | 28 | 0 | 488450.0 | 0.0 |  | no_signal |
+| 20260924 | 9105 | 泰金寶-DR | 27 | 0 | 2137660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

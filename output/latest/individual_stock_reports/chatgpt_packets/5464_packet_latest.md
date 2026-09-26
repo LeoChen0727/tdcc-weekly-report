@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5464 霖宏
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:31 Asia/Taipei
+- generated_at: 2026-09-26 15:52:38 Asia/Taipei
 - stock_id: 5464
 - stock_name: 霖宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 258
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 262
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -104,6 +104,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 91
-- high: 95.9
-- low: 90.1
-- close: 92.7
-- volume: 1024000
-- ma5: 90.16
-- ema23_primary: 80.59
-- distance_to_ema23_pct: 15.03
-- ma20: 78.38
-- ma60: 79.14
-- ma120: 66.68
-- return_5d: 4.04
-- return_20d: 34.93
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 18.28
-- distance_to_high_60_pct: -14.95
+- date: 20260924
+- open: 91.8
+- high: 92.3
+- low: 88.5
+- close: 88.9
+- volume: 369000
+- ma5: 90.98
+- ema23_primary: 83.5
+- distance_to_ema23_pct: 6.47
+- ma20: 82.34
+- ma60: 78.6
+- ma120: 68.76
+- return_5d: -1.33
+- return_20d: 25.21
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 7.96
+- distance_to_high_60_pct: -17.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,68,69.9,66.3,68.6,546000,71.48,-4.02,67.47,78.33,0.79
-20260825,69.9,69.9,67,69.2,236000,71.29,-2.93,67.33,78.1,0.36
-20260826,69.9,75.3,68.8,74,524000,71.51,3.48,67.79,78,0.79
-20260827,69.7,72,68.3,71,1006000,71.47,-0.66,68.36,77.91,1.59
 20260828,71.2,76,71.1,73.1,338000,71.61,2.09,68.75,77.96,0.55
 20260831,72.9,72.9,70,70.8,237000,71.54,-1.03,69.08,78.04,0.4
 20260901,74.3,74.3,69,69,319000,71.33,-3.26,69.34,78.07,0.54
@@ -166,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,85.2,93.7,84.1,93.7,1171000,78.52,19.33,76.2,79.52,1.32
 20260917,99,99.8,89.6,90.1,2268000,79.49,13.35,77.17,79.39,2.31
 20260918,91,95.9,90.1,92.7,1024000,80.59,15.03,78.38,79.14,1.01
+20260921,92.7,93.5,90.5,90.6,515000,81.42,11.27,79.47,78.98,0.51
+20260922,91,92.4,90.1,91.3,387000,82.25,11.01,80.58,78.94,0.38
+20260923,90.2,92.5,89.5,91.4,531000,83.01,10.11,81.45,78.82,0.52
+20260924,91.8,92.3,88.5,88.9,369000,83.5,6.47,82.34,78.6,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 72.49
-- over_600_ratio: 67.45
-- over_800_ratio: 63.85
-- over_1000_ratio: 58.83
-- over_400_change_1w: -0.29
-- over_800_change_1w: -0.38
-- over_1000_change_1w: 0.72
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260924
+- over_400_ratio: 72.24
+- over_600_ratio: 67.92
+- over_800_ratio: 63.59
+- over_1000_ratio: 58.58
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.25
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,72.97,0.52,65.89,-1.32,59.13,-2.67,9,False,False
 20260709,72.46,-0.51,64.52,-1.37,59.18,0.05,10,False,True
 20260717,72.49,0.03,64.56,0.04,60.42,1.24,11,False,True
 20260724,72.61,0.12,65.28,0.72,61.14,0.72,12,True,True
@@ -197,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,72.21,0.6,66.14,3.3,58.52,0.67,1,True,True
 20260911,72.78,0.57,64.23,-1.91,58.11,-0.41,2,False,False
 20260918,72.49,-0.29,63.85,-0.38,58.83,0.72,3,False,True
+20260924,72.24,-0.25,63.59,-0.26,58.58,-0.25,4,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5464 | 霖宏 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.發生變動日期:115/07/01 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: 申元洪先生 林惠芬女士 林怡君女士 4.舊任者簡歷: 申元洪先生 世新大學專任助理教授 林惠芬女士 維揚聯合會計師事務所執業會計師 林怡君女士 立隆電子工業股份有限公司財務部經理 5.新任者姓名: 林惠芬女士 林怡君女士 陳麗玲女士 6.新任者簡歷: 林惠芬女士 維揚聯合會計師事務所執業會計師 林怡君女士 立隆電子工業股份有限公司財務部經理 陳麗玲女士 全達會計師事務所執業會計師 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:配合本公司115年股東常會董事改選而重新聘任 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/21~115/06/20 10.新任生效日期:115/06/25 11.其他應敘明事項:第六屆薪酬委員會委員任期自115/06/25起至本屆董事會任期 屆滿之日止。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 5464 | 霖宏 | 1 | 1 | 3 | 5 | 6 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

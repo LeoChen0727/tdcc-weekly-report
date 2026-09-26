@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:10 Asia/Taipei
+- generated_at: 2026-09-26 15:51:17 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 360
-- high: 367.5
-- low: 356
-- close: 356
-- volume: 6645773
-- ma5: 349.6
-- ema23_primary: 351.7
-- distance_to_ema23_pct: 1.22
-- ma20: 352.18
-- ma60: 345.5
-- ma120: 327.3
-- return_5d: 2.01
-- return_20d: 4.86
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -11.44
+- date: 20260924
+- open: 362
+- high: 365
+- low: 360
+- close: 361.5
+- volume: 3778913
+- ma5: 363.4
+- ema23_primary: 355.62
+- distance_to_ema23_pct: 1.65
+- ma20: 355.98
+- ma60: 347.75
+- ma120: 331.89
+- return_5d: 1.83
+- return_20d: 4.78
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 1.55
+- distance_to_high_60_pct: -10.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,338.5,343.5,337,341,2793179,348.67,-2.2,346.77,346.32,0.29
-20260825,338.5,349.5,335.5,347.5,3197185,348.57,-0.31,347.8,345.95,0.35
-20260826,348.5,354,346.5,351.5,5282809,348.82,0.77,349.3,345.36,0.58
-20260827,351,354,345,345,3971732,348.5,-1,350.62,344.6,0.44
 20260828,348.5,353,347,349,3524293,348.54,0.13,351.25,343.77,0.4
 20260831,348,358,345.5,358,6432000,349.33,2.48,352.93,343.5,0.75
 20260901,358.5,360.5,354.5,359,5668751,350.13,2.53,354.27,343.33,0.68
@@ -173,18 +169,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,344.5,350,341,350,4050554,350.97,-0.28,350.8,344.87,0.85
 20260917,353.5,357.5,351.5,355,4850854,351.31,1.05,351.35,345.13,1.03
 20260918,360,367.5,356,356,6645773,351.7,1.22,352.18,345.5,1.37
+20260921,360,376,355,368,11634817,353.06,4.23,353.52,346.31,2.19
+20260922,373,375,360.5,366.5,6797095,354.18,3.48,354.48,347,1.24
+20260923,370,370,363.5,365,3929451,355.08,2.79,355.15,347.35,0.73
+20260924,362,365,360,361.5,3778913,355.62,1.65,355.98,347.75,0.7
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 72.61
-- over_600_ratio: 70.02
-- over_800_ratio: 67.32
-- over_1000_ratio: 65.14
-- over_400_change_1w: 0.27
-- over_800_change_1w: 0.45
-- over_1000_change_1w: 0.57
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260924
+- over_400_ratio: 73.68
+- over_600_ratio: 71.11
+- over_800_ratio: 68.84
+- over_1000_ratio: 66.03
+- over_400_change_1w: 1.07
+- over_800_change_1w: 1.52
+- over_1000_change_1w: 0.89
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -192,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,69.14,0.46,63.68,0.43,61.55,-0.23,1,False,True
 20260709,69.31,0.17,63.7,0.02,62.11,0.56,2,False,True
 20260717,69.6,0.29,64.01,0.31,62.29,0.18,3,True,True
 20260724,70.7,1.1,65.13,1.12,63.14,0.85,4,True,True
@@ -204,23 +203,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,71.91,0.19,66.36,0.84,64.59,0.83,1,True,True
 20260911,72.34,0.43,66.87,0.51,64.57,-0.02,2,False,True
 20260918,72.61,0.27,67.32,0.45,65.14,0.57,3,True,True
+20260924,73.68,1.07,68.84,1.52,66.03,0.89,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 21 | 9 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2376 | 技嘉 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 2376 | 技嘉 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 5 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.董事會決議日期:115/08/26 2.發放股利種類及金額:現金股利共計RMB30,831,113.74元 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2376 | 技嘉 | 27 | 23 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260924 | 2376 | 技嘉 | 31 | 27 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2376 | 技嘉 | 179 | 0 | 11906990.0 | 0.0 |  | no_signal |
+| 20260924 | 2376 | 技嘉 | 177 | 0 | 7111630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

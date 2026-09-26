@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-09-20 22:16:30 Asia/Taipei
+- generated_at: 2026-09-26 15:51:37 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 17.4
-- high: 17.5
-- low: 16.9
-- close: 17.15
-- volume: 19915199
-- ma5: 17.13
-- ema23_primary: 16.47
-- distance_to_ema23_pct: 4.14
-- ma20: 16.42
-- ma60: 15.79
-- ma120: 15.34
-- return_5d: 2.39
-- return_20d: 8.89
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 4.43
-- distance_to_high_60_pct: -2
+- date: 20260924
+- open: 16.85
+- high: 16.85
+- low: 16.5
+- close: 16.55
+- volume: 9529220
+- ma5: 16.85
+- ema23_primary: 16.56
+- distance_to_ema23_pct: -0.03
+- ma20: 16.62
+- ma60: 15.92
+- ma120: 15.4
+- return_5d: -4.34
+- return_20d: 2.16
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -5.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,15.75,15.8,15.6,15.65,3985078,15.53,0.77,15.5,15.32,0.6
-20260825,15.7,15.7,15.55,15.6,4332046,15.54,0.41,15.5,15.34,0.66
-20260826,15.7,15.95,15.6,15.75,22821932,15.55,1.26,15.52,15.35,3.12
-20260827,15.8,16.35,15.7,16.2,36308749,15.61,3.79,15.55,15.38,4.18
 20260828,16.2,16.2,15.8,15.9,24759513,15.63,1.71,15.56,15.39,2.67
 20260831,15.9,16.05,15.8,15.95,29104268,15.66,1.86,15.58,15.4,2.81
 20260901,15.45,15.7,15.35,15.65,19361212,15.66,-0.05,15.6,15.41,1.78
@@ -172,17 +168,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,16.9,17.35,16.8,17.3,19056573,16.33,5.97,16.27,15.71,1.05
 20260917,17.3,17.4,17,17.3,15773759,16.41,5.44,16.35,15.75,0.85
 20260918,17.4,17.5,16.9,17.15,19915199,16.47,4.14,16.42,15.79,1.03
+20260921,17.1,17.1,16.75,16.9,10664633,16.5,2.39,16.48,15.82,0.54
+20260922,16.9,16.95,16.8,16.85,5934928,16.53,1.91,16.55,15.86,0.3
+20260923,16.85,16.85,16.65,16.8,8081422,16.56,1.48,16.6,15.89,0.42
+20260924,16.85,16.85,16.5,16.55,9529220,16.56,-0.03,16.62,15.92,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 72.28
-- over_600_ratio: 71.16
-- over_800_ratio: 70.26
-- over_1000_ratio: 69.61
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
+- as_of_date: 20260924
+- over_400_ratio: 72.03
+- over_600_ratio: 70.94
+- over_800_ratio: 69.93
+- over_1000_ratio: 69.28
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.33
+- over_1000_change_1w: -0.33
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -191,7 +191,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,73.77,-0.16,71.85,-0.17,71.18,-0.19,0,False,False
 20260709,73.84,0.07,71.89,0.04,71.2,0.02,1,True,True
 20260717,73.83,-0.01,71.82,-0.07,71.15,-0.05,0,False,False
 20260724,73.64,-0.19,71.62,-0.2,71,-0.15,0,False,False
@@ -203,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,72.57,-0.62,70.56,-0.73,69.92,-0.73,0,False,False
 20260911,72.41,-0.16,70.36,-0.2,69.71,-0.21,0,False,False
 20260918,72.28,-0.13,70.26,-0.1,69.61,-0.1,0,False,False
+20260924,72.03,-0.25,69.93,-0.33,69.28,-0.33,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/09/16 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:蔡佳君 4.舊任者簡歷:國票創業投資股份有限公司　總經理 5.新任者姓名:張仕霖 6.新任者簡歷:國票創業投資股份有限公司　董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:解任 8.異動原因:為業務需求 9.新任生效日期:115/09/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 總經理解任生效日為115/09/16，由董事長張仕霖先生兼任職務。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
+| 20260924 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/09/16 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:蔡佳君 4.舊任者簡歷:國票創業投資股份有限公司　總經理 5.新任者姓名:張仕霖 6.新任者簡歷:國票創業投資股份有限公司　董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:解任 8.異動原因:為業務需求 9.新任生效日期:115/09/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 總經理解任生效日為115/09/16，由董事長張仕霖先生兼任職務。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 2889 | 國票金 | 7 | 4 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 2889 | 國票金 | 11 | 8 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

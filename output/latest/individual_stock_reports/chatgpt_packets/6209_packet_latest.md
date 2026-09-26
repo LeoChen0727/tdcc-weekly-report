@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-09-20 22:17:46 Asia/Taipei
+- generated_at: 2026-09-26 15:52:53 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 78.3
-- high: 80.4
+- date: 20260924
+- open: 78.7
+- high: 80.3
 - low: 78.3
-- close: 80.4
-- volume: 6170241
-- ma5: 78.1
-- ema23_primary: 77.3
-- distance_to_ema23_pct: 4.01
-- ma20: 78.01
-- ma60: 74.53
-- ma120: 73.39
-- return_5d: 0.5
-- return_20d: 15.68
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 3.06
-- distance_to_high_60_pct: -9.46
+- close: 79.9
+- volume: 5832314
+- ma5: 78.9
+- ema23_primary: 77.67
+- distance_to_ema23_pct: 2.87
+- ma20: 79.31
+- ma60: 74.43
+- ma120: 74.35
+- return_5d: 2.44
+- return_20d: 4.44
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 0.74
+- distance_to_high_60_pct: -9.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,69.1,71.5,67.8,67.8,3508090,70.73,-4.14,69.31,77.16,0.66
-20260825,67.8,69.8,65.6,69,3594963,70.59,-2.25,69.58,76.95,0.68
-20260826,68.9,75.8,68.9,74.7,13383738,70.93,5.32,70.17,76.79,2.57
-20260827,75.5,79.6,74.3,76.5,25952423,71.39,7.15,71.09,76.74,4.22
 20260828,77,78.1,75.8,76.7,11986491,71.84,6.77,71.75,76.68,1.82
 20260831,75.8,82.2,75.8,79.5,20751886,72.47,9.69,72.24,76.59,2.83
 20260901,81,84.8,80.4,81.9,21793225,73.26,11.79,72.88,76.49,2.66
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,76.2,81,76.2,80,11325045,76.93,3.99,77.02,74.87,0.92
 20260917,80,80.5,78,78,7575261,77.02,1.27,77.47,74.69,0.6
 20260918,78.3,80.4,78.3,80.4,6170241,77.3,4.01,78.01,74.53,0.49
+20260921,81,81.2,79.1,79.1,4049535,77.45,2.13,78.58,74.5,0.32
+20260922,79.6,79.9,76.9,77.1,4731553,77.42,-0.42,78.98,74.46,0.37
+20260923,78,81.5,77.5,78,6511348,77.47,0.68,79.14,74.42,0.52
+20260924,78.7,80.3,78.3,79.9,5832314,77.67,2.87,79.31,74.43,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
-- over_400_ratio: 37.85
-- over_600_ratio: 36.46
-- over_800_ratio: 33.35
-- over_1000_ratio: 30.01
-- over_400_change_1w: -0.53
-- over_800_change_1w: -0.56
-- over_1000_change_1w: -1.96
+- as_of_date: 20260924
+- over_400_ratio: 37.69
+- over_600_ratio: 36.06
+- over_800_ratio: 32.9
+- over_1000_ratio: 29.98
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.45
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,39.92,-1.27,35.66,0.15,33.77,0.69,1,False,True
 20260709,40.37,0.45,35.25,-0.41,33.33,-0.44,2,False,False
 20260717,40.7,0.33,36.7,1.45,33.64,0.31,3,True,True
 20260724,41.48,0.78,37.44,0.74,33.5,-0.14,4,False,True
@@ -199,24 +198,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,38.54,-0.3,32.53,-1.34,30.56,-0.28,0,False,False
 20260911,38.38,-0.16,33.91,1.38,31.97,1.41,1,False,True
 20260918,37.85,-0.53,33.35,-0.56,30.01,-1.96,0,False,False
+20260924,37.69,-0.16,32.9,-0.45,29.98,-0.03,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6209 | 今國光 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:現金股利新台幣90,219,695元，每股配發0.49601908元。 3.變更後發放股利種類及金額:現金股利新台幣90,219,695元，每股配發0.49568725元。 4.變更原因:因可轉換公司債之債權人提出申請轉換成普通股，致流通在外股數增加 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d |
-| 20260918 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:現金股利新台幣90,219,695元，每股配發0.49601908元。 3.變更後發放股利種類及金額:現金股利新台幣90,219,695元，每股配發0.49568725元。 4.變更原因:因可轉換公司債之債權人提出申請轉換成普通股，致流通在外股數增加 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260918 | 6209 | 今國光 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 7 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額:現金股利新台幣90,219,695元，每股配發0.49601908元。 3.變更後發放股利種類及金額:現金股利新台幣90,219,695元，每股配發0.49568725元。 4.變更原因:因可轉換公司債之債權人提出申請轉換成普通股，致流通在外股數增加 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6209 | 今國光 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 內容：依今國光三發行及轉換辦法第十七條規定辦理。 發行公司於115年10月13日至115年11月11日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)、本公司國內第三次有擔保轉換公司債發行及轉換辦法第十七條(一)規定，本轉換公司債發行滿三個月翌日(115年1月24日)起至到期日前四十日(117年9月13 日)止，若本公司普通股之收盤價格連續三十個營業日超過當時轉換價格達百分之三十者，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之投資人，則以公告方式為之)，且函知櫃買中心公告本公司贖回權之行使，並於債券收回基準日後五個營業日內按債券面額以現金收回其全部債券。 (二)、債券收回期間：自115年10月13日起至115年11月11日止 證券商受理期間：自115年10月12日起至115年11月10日止 (三)、債券收回基準日：115年11月11日 (四)、債券終止櫃檯買賣日：115年11月12日 (五)、每張債券收回價格：新台幣100,000元 (六)、收回價款發放日：115年11月18日採匯款或郵寄支票方式交付予債券持有人，匯費(郵資)自收回價款中直接扣除。 (七)、收回手續： 債券持有人請攜帶1.證券存摺 2.集保帳戶印鑑，至往來券商填具『轉換公司債帳簿劃撥轉換/贖回/賣回申請書』（註明贖回）辦理債券收回手續；證券商於收件後會向台灣集中保管結算所提出申請，台灣集中保管結算所於接受申請後送交本公司股務代理機構，於送達時即生效力。 警語：請投資人注意，具有請求轉換資格者，如未於115年11月13日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20260924 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | stale_signal | 內容：依今國光三發行及轉換辦法第十七條規定辦理。 發行公司於115年10月13日至115年11月11日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)、本公司國內第三次有擔保轉換公司債發行及轉換辦法第十七條(一)規定，本轉換公司債發行滿三個月翌日(115年1月24日)起至到期日前四十日(117年9月13 日)止，若本公司普通股之收盤價格連續三十個營業日超過當時轉換價格達百分之三十者，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之投資人，則以公告方式為之)，且函知櫃買中心公告本公司贖回權之行使，並於債券收回基準日後五個營業日內按債券面額以現金收回其全部債券。 (二)、債券收回期間：自115年10月13日起至115年11月11日止 證券商受理期間：自115年10月12日起至115年11月10日止 (三)、債券收回基準日：115年11月11日 (四)、債券終止櫃檯買賣日：115年11月12日 (五)、每張債券收回價格：新台幣100,000元 (六)、收回價款發放日：115年11月18日採匯款或郵寄支票方式交付予債券持有人，匯費(郵資)自收回價款中直接扣除。 (七)、收回手續： 債券持有人請攜帶1.證券存摺 2.集保帳戶印鑑，至往來券商填具『轉換公司債帳簿劃撥轉換/贖回/賣回申請書』（註明贖回）辦理債券收回手續；證券商於收件後會向台灣集中保管結算所提出申請，台灣集中保管結算所於接受申請後送交本公司股務代理機構，於送達時即生效力。 警語：請投資人注意，具有請求轉換資格者，如未於115年11月13日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260924 | 6209 | 今國光 | revenue_breakout_low_response | 營收爆發低反應股 | 18 | 23 | D_降級_TDCC轉弱 |  |  | call_strong_inflow | stale_signal | 內容：依今國光三發行及轉換辦法第十七條規定辦理。 發行公司於115年10月13日至115年11月11日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)、本公司國內第三次有擔保轉換公司債發行及轉換辦法第十七條(一)規定，本轉換公司債發行滿三個月翌日(115年1月24日)起至到期日前四十日(117年9月13 日)止，若本公司普通股之收盤價格連續三十個營業日超過當時轉換價格達百分之三十者，本公司得於其後三十個營業日內，以掛號寄發一份三十日期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券持有人名冊所載者為準，對於其後因買賣或其他原因始取得本轉換公司債之投資人，則以公告方式為之)，且函知櫃買中心公告本公司贖回權之行使，並於債券收回基準日後五個營業日內按債券面額以現金收回其全部債券。 (二)、債券收回期間：自115年10月13日起至115年11月11日止 證券商受理期間：自115年10月12日起至115年11月10日止 (三)、債券收回基準日：115年11月11日 (四)、債券終止櫃檯買賣日：115年11月12日 (五)、每張債券收回價格：新台幣100,000元 (六)、收回價款發放日：115年11月18日採匯款或郵寄支票方式交付予債券持有人，匯費(郵資)自收回價款中直接扣除。 (七)、收回手續： 債券持有人請攜帶1.證券存摺 2.集保帳戶印鑑，至往來券商填具『轉換公司債帳簿劃撥轉換/贖回/賣回申請書』（註明贖回）辦理債券收回手續；證券商於收件後會向台灣集中保管結算所提出申請，台灣集中保管結算所於接受申請後送交本公司股務代理機構，於送達時即生效力。 警語：請投資人注意，具有請求轉換資格者，如未於115年11月13日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6209 | 今國光 | 23 | 10 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260924 | 6209 | 今國光 | 27 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260918 | 6209 | 今國光 | 80 | 0 | 9795900.0 | 0.0 |  | no_signal |
+| 20260924 | 6209 | 今國光 | 85 | 0 | 4540000.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

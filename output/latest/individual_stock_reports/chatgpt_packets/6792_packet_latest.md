@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6792 詠業
 
 ## Metadata
-- generated_at: 2026-09-20 22:18:11 Asia/Taipei
+- generated_at: 2026-09-26 15:53:17 Asia/Taipei
 - stock_id: 6792
 - stock_name: 詠業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260918
-- price_rows: 358
-- current_main_price_date: 20260918
+- latest_price_date: 20260924
+- price_rows: 362
+- current_main_price_date: 20260924
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260918-b805c742e5cccca5
-- official_tdcc_signal_date: 20260918
-- latest_tdcc_date: 20260918
-- tdcc_rows: 21
+- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
+- official_tdcc_signal_date: 20260924
+- latest_tdcc_date: 20260924
+- tdcc_rows: 22
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260918
-- open: 59.1
-- high: 60
-- low: 58.9
-- close: 59.4
-- volume: 37096
-- ma5: 59.06
-- ema23_primary: 58.91
-- distance_to_ema23_pct: 0.83
-- ma20: 59.29
-- ma60: 58.32
-- ma120: 60.51
-- return_5d: 3.12
-- return_20d: 1.02
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 0.19
-- distance_to_high_60_pct: -15.26
+- date: 20260924
+- open: 59.6
+- high: 59.6
+- low: 58.8
+- close: 58.8
+- volume: 13000
+- ma5: 59.16
+- ema23_primary: 58.96
+- distance_to_ema23_pct: -0.27
+- ma20: 59.26
+- ma60: 58.03
+- ma120: 60.64
+- return_5d: -0.51
+- return_20d: -0.34
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -0.77
+- distance_to_high_60_pct: -16.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260824,58.8,59.9,58.2,58.2,12414,57.65,0.96,56.47,61.24,0.25
-20260825,57.7,60.5,57.7,60.1,38482,57.85,3.89,56.93,61.05,0.81
-20260826,60.2,60.6,59.1,59.8,23616,58.01,3.08,57.43,60.85,0.57
-20260827,59,59.6,58.8,59,31203,58.1,1.56,57.78,60.67,0.81
 20260828,59.5,60,59.2,59.5,14199,58.21,2.21,58,60.49,0.44
 20260831,59.3,60,59,60,14124,58.36,2.81,58.25,60.33,0.46
 20260901,59.9,60,59.6,59.6,12500,58.47,1.94,58.46,60.11,0.42
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260916,58.8,59.2,58.7,58.7,25000,58.85,-0.25,59.26,58.53,0.69
 20260917,58.7,59.8,58.5,59.1,21200,58.87,0.4,59.26,58.41,0.61
 20260918,59.1,60,58.9,59.4,37096,58.91,0.83,59.29,58.32,1.04
+20260921,59.4,59.8,59.1,59.7,26010,58.98,1.23,59.37,58.26,0.72
+20260922,60.7,60.7,58.6,58.8,44000,58.96,-0.28,59.3,58.2,1.2
+20260923,58.8,59.2,58.8,59.1,11005,58.97,0.21,59.27,58.14,0.31
+20260924,59.6,59.6,58.8,58.8,13000,58.96,-0.27,59.26,58.03,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260918
+- as_of_date: 20260924
 - over_400_ratio: 53.89
 - over_600_ratio: 51.63
 - over_800_ratio: 51.63
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260703,53.89,0,51.63,0,48.08,0,0,False,False
 20260709,53.89,0,51.63,0,48.08,0,0,False,False
 20260717,53.89,0,51.63,0,48.08,0,0,False,False
 20260724,53.89,0,51.63,0,48.08,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260904,53.89,0,51.63,0,48.08,0,0,False,False
 20260911,53.89,0,51.63,0,48.08,0,0,False,False
 20260918,53.89,0,51.63,0,48.08,0,0,False,False
+20260924,53.89,0,51.63,0,48.08,0,0,False,False
 ```
 
 ## Candidate Context
