@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0092 國泰台灣領袖 50
 
 ## Metadata
-- generated_at: 2026-09-26 15:50:40 Asia/Taipei
+- generated_at: 2026-09-26 22:15:54 Asia/Taipei
 - stock_id: 0092
 - stock_name: 國泰台灣領袖 50
 - packet_status: insufficient_price_data

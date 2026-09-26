@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0075 中信中國50正2
 
 ## Metadata
-- generated_at: 2026-09-26 15:50:37 Asia/Taipei
+- generated_at: 2026-09-26 22:15:53 Asia/Taipei
 - stock_id: 0075
 - stock_name: 中信中國50正2
 - packet_status: insufficient_price_data

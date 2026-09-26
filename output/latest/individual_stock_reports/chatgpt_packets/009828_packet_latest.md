@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009828 中信台日韓PCB
 
 ## Metadata
-- generated_at: 2026-09-26 15:50:42 Asia/Taipei
+- generated_at: 2026-09-26 22:15:56 Asia/Taipei
 - stock_id: 009828
 - stock_name: 中信台日韓PCB
 - packet_status: partial_rawdata_packet
