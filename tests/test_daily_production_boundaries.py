@@ -3908,6 +3908,30 @@ def test_complete_mirror_registry_stager_rejects_a_missing_pair(
     assert errors == [f"missing registered mirror pair: output/latest/{missing_name}"]
 
 
+def test_closed_market_dependencies_precede_evidence_publication() -> None:
+    import yaml
+
+    workflow = yaml.safe_load(boundaries.DAILY_WORKFLOW.read_text(encoding="utf-8"))
+    job = workflow["jobs"]["record-market-closure"]
+    steps = job["steps"]
+    names = [step["name"] for step in steps]
+    setup_index = names.index("Set up Python")
+    install_index = names.index("Install closed-market evidence dependencies")
+    publish_index = names.index("Commit closed market evidence only")
+    assert setup_index < install_index < publish_index
+    setup = steps[setup_index]
+    assert setup["uses"] == "actions/setup-python@v6"
+    assert setup["with"]["python-version"] == "3.11"
+    assert steps[install_index]["run"].strip() == (
+        "python -m pip install --disable-pip-version-check pandas"
+    )
+    assert "python build_data_freshness_latest.py" in steps[publish_index]["run"]
+    assert not job.get("continue-on-error", False)
+    for index in (setup_index, install_index, publish_index):
+        assert "if" not in steps[index]
+        assert not steps[index].get("continue-on-error", False)
+
+
 def test_daily_workflow_market_session_gate_is_main_only_and_fail_closed() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"

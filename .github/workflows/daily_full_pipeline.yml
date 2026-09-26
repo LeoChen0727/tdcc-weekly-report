@@ -381,6 +381,14 @@ jobs:
           ref: ${{ needs.market-session-preflight.outputs.source_sha }}
           fetch-depth: 0
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install closed-market evidence dependencies
+        run: python -m pip install --disable-pip-version-check pandas
+
       - name: Verify exact preflight source before closure evidence
         shell: bash
         run: |
