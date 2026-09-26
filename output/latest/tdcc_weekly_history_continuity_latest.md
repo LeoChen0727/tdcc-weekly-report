@@ -1,15 +1,15 @@
 # TDCC Weekly History Continuity
 
 - status: `pass`
-- generated_at: `2026-09-19 15:28:53 Asia/Taipei`
-- signal_date: `20260918`
-- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717, 20260724, 20260731, 20260807, 20260814, 20260821, 20260828, 20260904, 20260911, 20260918`
-- current_stock_count: 1963
-- missing_rows_before: 11
+- generated_at: `2026-09-26 15:28:11 Asia/Taipei`
+- signal_date: `20260924`
+- required_dates: `20260430, 20260508, 20260515, 20260522, 20260529, 20260605, 20260612, 20260618, 20260626, 20260703, 20260709, 20260717, 20260724, 20260731, 20260807, 20260814, 20260821, 20260828, 20260904, 20260911, 20260918, 20260924`
+- current_stock_count: 1967
+- missing_rows_before: 17
 - repaired_count: 0
-- accepted_exception_count: 11
+- accepted_exception_count: 17
 - official_no_data_count: 3
-- invalid_holder_distribution_count: 8
+- invalid_holder_distribution_count: 14
 - unresolved_missing_rows: 0
 
 ## Contract
@@ -27,6 +27,7 @@
 - `20260828`: missing_stock_count=1 existing_rows=1968
 - `20260904`: missing_stock_count=3 existing_rows=1966
 - `20260911`: missing_stock_count=1 existing_rows=1968
+- `20260918`: missing_stock_count=6 existing_rows=1963
 
 ## Actions
 
@@ -41,3 +42,9 @@
 - `20260904` `6461` official_no_data attempts=3: official query returned no distribution row
 - `20260904` `6949` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
 - `20260911` `6129` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260918` `2321` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260918` `3356` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260918` `3591` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260918` `3710` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260918` `8059` invalid_holder_distribution attempts=1: single-holder or placeholder distribution
+- `20260918` `8277` invalid_holder_distribution attempts=1: single-holder or placeholder distribution

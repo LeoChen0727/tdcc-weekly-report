@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "generated_at": "2026-09-19 15:28:53 Asia/Taipei",
-  "signal_date": "20260918",
+  "generated_at": "2026-09-26 15:28:11 Asia/Taipei",
+  "signal_date": "20260924",
   "readiness_path": "output/latest/tdcc_weekly_data_readiness_latest.json",
   "required_periods": 0,
   "required_dates": [
@@ -25,10 +25,11 @@
     "20260828",
     "20260904",
     "20260911",
-    "20260918"
+    "20260918",
+    "20260924"
   ],
-  "current_stock_count": 1963,
-  "missing_rows_before": 11,
+  "current_stock_count": 1967,
+  "missing_rows_before": 17,
   "missing_before": [
     {
       "date": "20260626",
@@ -88,6 +89,19 @@
       "existing_rows": 1968,
       "missing_stock_ids": [
         "6129"
+      ]
+    },
+    {
+      "date": "20260918",
+      "missing_stock_count": 6,
+      "existing_rows": 1963,
+      "missing_stock_ids": [
+        "2321",
+        "3356",
+        "3591",
+        "3710",
+        "8059",
+        "8277"
       ]
     }
   ],
@@ -179,13 +193,61 @@
       "status": "invalid_holder_distribution",
       "attempts": 1,
       "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "2321",
+      "stock_name": "東訊",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "3356",
+      "stock_name": "奇偶",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "3591",
+      "stock_name": "艾笛森",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "3710",
+      "stock_name": "連展投控",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "8059",
+      "stock_name": "凱碩",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "8277",
+      "stock_name": "商丞",
+      "status": "invalid_holder_distribution",
+      "attempts": 1,
+      "message": "single-holder or placeholder distribution"
     }
   ],
   "repaired_count": 0,
   "failed_count": 0,
-  "accepted_exception_count": 11,
+  "accepted_exception_count": 17,
   "official_no_data_count": 3,
-  "invalid_holder_distribution_count": 8,
+  "invalid_holder_distribution_count": 14,
   "confirmed_history_exceptions": [
     {
       "date": "20260626",
@@ -230,11 +292,35 @@
     {
       "date": "20260911",
       "stock_id": "6129"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "2321"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "3356"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "3591"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "3710"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "8059"
+    },
+    {
+      "date": "20260918",
+      "stock_id": "8277"
     }
   ],
   "history_exception_limit": 20,
   "systemic_history_exception": false,
-  "missing_rows_after": 11,
+  "missing_rows_after": 17,
   "unresolved_missing_rows": 0,
   "unresolved": []
 }
