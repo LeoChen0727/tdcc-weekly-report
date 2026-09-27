@@ -1347,6 +1347,26 @@ def test_production_snapshot_updates_are_followed_by_dynamic_lineage_parity() ->
     )
 
 
+def test_pdf_replay_contract_tests_install_yaml_dependency() -> None:
+    import yaml
+
+    workflow = yaml.safe_load(PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8"))
+    steps = workflow["jobs"]["daily-pdf-replay-contract-validation"]["steps"]
+    names = [step["name"] for step in steps]
+    install_index = names.index("Install contract-test dependencies")
+    validate_index = names.index("Validate PDF replay workflow contracts")
+    test_index = names.index("Run PDF replay workflow tests")
+    assert install_index < validate_index < test_index
+    install = steps[install_index]
+    packages = next(
+        line.split() for line in install["run"].splitlines()
+        if line.strip().startswith("pip install ")
+    )
+    assert "PyYAML" in packages
+    assert "if" not in install
+    assert not install.get("continue-on-error", False)
+
+
 def test_pdf_replay_pr_workflow_is_renderer_contract_only_and_manually_dispatchable() -> None:
     text = PDF_REPLAY_WORKFLOW.read_text(encoding="utf-8")
     observed_paths = boundaries.workflow_pull_request_paths(text)

@@ -574,6 +574,16 @@ def contract_drift_blockers(
             model_id == REVENUE_MODEL_ID
             and revenue_state == REVENUE_PREPARED_CONTRACT_STATE
         )
+        # Withdrawing this model's PDF permission does not retire its research
+        # baseline or waive any of the remaining contract-drift checks.
+        and not (
+            model_id == "hot_theme_pullback"
+            and registry_row.get("approved_for_daily_pdf", "").strip() == "false"
+            and all(
+                (row or {}).get("model_id", "").strip() == model_id
+                for row in (registry_row, condition_row, production_row)
+            )
+        )
     ):
         blockers.append("production core model must keep approved_for_daily_pdf=true")
     if registry_row.get("research_baseline_required", "").strip() != "true":
