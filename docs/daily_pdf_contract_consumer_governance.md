@@ -37,6 +37,25 @@ The daily PDF renderer may display program-side fields such as `model_score`,
 allowlist, scoring function, ranking formula, buy/sell judgment, or selection
 reason that bypasses the registry.
 
+`approved_for_daily_pdf=false` is an explicit presentation veto, even when
+report-ready parameters still say `pdf_core_model` or readiness says
+`presentation_allowed=true`. The four daily stock PDFs apply this veto to model
+blocks (including empty blocks), candidate/new/repeated rows, and model-backed
+summary rows and labels. Stocks also matched by another displayed model remain
+under that model with their original scores and ordering. Independent summary
+rows without explicit model ownership are unchanged; a stock's other model
+signals must not be used to infer ownership of an independent summary row.
+The warrant PDF applies the same veto to its model-candidate intersection;
+its other warrant analysis and the market-risk PDF remain unchanged.
+
+The veto does not deactivate production calculations or remove source signals,
+registry metadata, research, history, or previously generated PDFs. The consumer
+validator excludes vetoed source metadata from its required display roster;
+actual rendering of a vetoed model remains invalid. On 2026-09-27 the user
+withdrew daily PDF presentation approval for `hot_theme_pullback`
+(`熱門族群回檔模型`) because it lacks supporting evidence. Its calculation,
+parameters, and research remain unchanged.
+
 Model promotions that make an operation-oriented model visible in the daily PDF
 must satisfy the model-change rule in `AGENTS.md` and
 `docs/stock_model_contract_governance.md`: the model lane must provide a formal

@@ -2248,6 +2248,7 @@ def plot_put_call_chart() -> Path | None:
 
 def load_inputs() -> dict[str, pd.DataFrame]:
     inputs = {
+        "model_contract": pd.read_csv(REPO / "config" / "stock_model_contract_registry.csv", dtype=str).fillna(""),
         "two_line": read_latest_csv("daily_candidate_two_line_view_latest.csv"),
         "all": read_latest_csv("all_candidates_latest.csv"),
         "model_registry": read_latest_csv("daily_report_model_registry_latest.csv"),
@@ -2320,6 +2321,20 @@ def model_pdf_presentation_order(
     return PDF_PRESENTATION_MODEL_ORDER_OVERRIDES.get(model_id, fallback_order)
 
 
+def daily_pdf_suppressed_model_ids(inputs: dict[str, pd.DataFrame]) -> set[str]:
+    contract = inputs.get("model_contract", pd.DataFrame())
+    if contract.empty:
+        return set()
+    suppressed = contract["approved_for_daily_pdf"].astype(str).str.strip().str.lower().eq("false")
+    return set(contract.loc[suppressed, "model_id"].astype(str))
+
+
+def daily_pdf_presented_model_rows(inputs: dict[str, pd.DataFrame], rows: pd.DataFrame) -> pd.DataFrame:
+    if rows.empty or "model_id" not in rows.columns:
+        return rows.copy()
+    return rows.loc[~rows["model_id"].astype(str).isin(daily_pdf_suppressed_model_ids(inputs))].copy()
+
+
 def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -> list[pd.Series]:
     registry = inputs.get("model_registry", pd.DataFrame()).copy()
     params = inputs.get("model_parameters", pd.DataFrame()).copy()
@@ -2361,6 +2376,7 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
             inputs
         ):
             registry = registry.loc[~revenue_mask].copy()
+    registry = daily_pdf_presented_model_rows(inputs, registry)
     if registry.empty:
         return []
     registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
@@ -2377,7 +2393,7 @@ def core_model_specs(inputs: dict[str, pd.DataFrame], line: str | None = None) -
 
 
 def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str | None = None) -> list[pd.Series]:
-    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2412,7 +2428,7 @@ def non_mainstream_full_core_model_specs(inputs: dict[str, pd.DataFrame]) -> lis
 
 
 def mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2430,7 +2446,7 @@ def mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_
 
 
 def mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2448,7 +2464,7 @@ def mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id:
 
 
 def non_mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -2466,7 +2482,7 @@ def non_mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], mo
 
 
 def non_mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
-    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     if signals.empty or "model_id" not in signals.columns:
         return []
     sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
@@ -4130,7 +4146,7 @@ def render_model_operation_section_if_applicable(
 
 
 def model_signal_rows_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str, line: str | None = None) -> list[pd.Series]:
-    signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     if signals.empty or "stock_id" not in signals.columns:
         return []
     sub = signals[signals["stock_id"].astype(str).str.replace(r"\.0$", "", regex=True).eq(stock_id_text(stock_id))].copy()
@@ -5357,7 +5373,7 @@ def build_mainstream_full_candidate_pdf(
     line = "mainstream"
     title = MAINSTREAM_FULL_TITLE
     line_label = MAINSTREAM_LINE_LABEL
-    model_signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    model_signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
@@ -5422,7 +5438,7 @@ def build_mainstream_full_candidate_pdf(
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
-    two_line = inputs["two_line"]
+    two_line = daily_pdf_presented_model_rows(inputs, inputs["two_line"])
     if not two_line.empty:
         found_any = False
         for group in [
@@ -5477,7 +5493,7 @@ def build_non_mainstream_full_candidate_pdf(
     line = "non_mainstream"
     title = NON_MAINSTREAM_FULL_TITLE
     line_label = NON_MAINSTREAM_LINE_LABEL
-    model_signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    model_signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
@@ -5542,7 +5558,7 @@ def build_non_mainstream_full_candidate_pdf(
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
-    two_line = inputs["two_line"]
+    two_line = daily_pdf_presented_model_rows(inputs, inputs["two_line"])
     if not two_line.empty:
         found_any = False
         for group in [
@@ -5597,7 +5613,7 @@ def build_warrant_market_auxiliary_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
         warrant = pd.DataFrame()
     elif not warrant.empty and "stock_id" in warrant.columns:
         warrant = warrant[warrant["stock_id"].astype(str).str.strip().str.match(r"^[0-9]{4}$", na=False)].copy()
-    model_signals = revenue_unreacted_range_generic_signal_rows_removed(inputs)
+    model_signals = daily_pdf_presented_model_rows(inputs, revenue_unreacted_range_generic_signal_rows_removed(inputs))
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} 權證市場輔助分析", TITLE),
         date_note(),
@@ -6054,6 +6070,19 @@ def validate_outputs(paths: list[Path], inputs: dict[str, pd.DataFrame] | None =
             line = stock_pdf_line_for_path(path)
             if line:
                 model_required_missing = required_stock_model_text_missing(inputs, line, text)
+            if line or "權證市場輔助分析" in path.name:
+                suppressed = daily_pdf_suppressed_model_ids(inputs)
+                registry = inputs.get("model_registry", pd.DataFrame())
+                forbidden_models = set(suppressed)
+                for _, row in registry.iterrows():
+                    if clean(row.get("model_id")) in suppressed:
+                        name = clean(row.get("model_name_zh"))
+                        if name:
+                            forbidden_models.add(name)
+                hits.extend(sorted(
+                    name for name in forbidden_models
+                    if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", text)
+                ))
         if missing or hits or required_missing:
             validation_errors.append(
                 f"{path.name}: text_missing={missing}, forbidden_hits={hits}, required_missing={required_missing}"

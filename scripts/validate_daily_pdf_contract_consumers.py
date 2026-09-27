@@ -568,6 +568,15 @@ def approved_pdf_contract_model_ids(model_rows: Iterable[dict[str, str]]) -> set
     }
 
 
+def suppressed_pdf_contract_model_ids(model_rows: Iterable[dict[str, str]]) -> set[str]:
+    return {
+        row["model_id"]
+        for row in model_rows
+        if row.get("model_id")
+        and row.get("approved_for_daily_pdf", "").strip().lower() == "false"
+    }
+
+
 def readiness_pdf_display_model_ids(
     parameter_rows: Iterable[dict[str, str]],
     readiness_rows: Iterable[dict[str, str]],
@@ -592,13 +601,15 @@ def display_roster_model_ids(
     registry_rows: Iterable[dict[str, str]],
     parameter_rows: Iterable[dict[str, str]],
     readiness_rows: Iterable[dict[str, str]],
+    model_rows: Iterable[dict[str, str]] = (),
 ) -> set[str]:
     parameters = rows_by_model_id(parameter_rows)
     readiness = rows_by_model_id(readiness_rows)
+    suppressed = suppressed_pdf_contract_model_ids(model_rows)
     model_ids: set[str] = set()
     for row in registry_rows:
         model_id = row.get("model_id", "")
-        if not model_id:
+        if not model_id or model_id in suppressed:
             continue
         active_text = row.get("model_registry_active", "true").strip().lower()
         if active_text not in {"true", "1", "yes", "y"}:
@@ -626,9 +637,11 @@ def validate_required_display_model_coverage(
 ) -> list[str]:
     errors: list[str] = []
     available = set(available_model_ids)
+    model_rows = list(model_rows)
+    suppressed = suppressed_pdf_contract_model_ids(model_rows)
     contract_required = approved_pdf_contract_model_ids(model_rows)
-    readiness_required = readiness_pdf_display_model_ids(parameter_rows, readiness_rows)
-    roster_required = display_roster_model_ids(registry_rows, parameter_rows, readiness_rows)
+    readiness_required = readiness_pdf_display_model_ids(parameter_rows, readiness_rows) - suppressed
+    roster_required = display_roster_model_ids(registry_rows, parameter_rows, readiness_rows, model_rows)
     registry_required = contract_required | readiness_required
     for model_id in sorted(registry_required - roster_required):
         errors.append(f"Daily PDF display registry missing required model_id: {model_id}")
@@ -1222,7 +1235,11 @@ def validate(phase: str = VALIDATION_PHASE_FULL) -> tuple[
         model_rows,
         readiness_rows,
     )
-    used_model_ids = reported_model_ids - dormant_registry_ids
+    # Report-ready sources retain disabled models for history/research; only
+    # presented models are PDF consumers. validate_model_ids still rejects any
+    # unapproved model supplied as an actual rendered consumer.
+    suppressed_model_ids = suppressed_pdf_contract_model_ids(model_rows)
+    used_model_ids = reported_model_ids - dormant_registry_ids - suppressed_model_ids
     effective_registry_rows = [
         row
         for row in registry_rows
@@ -1234,6 +1251,7 @@ def validate(phase: str = VALIDATION_PHASE_FULL) -> tuple[
             effective_registry_rows,
             parameter_rows,
             readiness_rows,
+            model_rows,
         )
     )
     event_usages = discover_event_field_usages(event_rows) if phase == VALIDATION_PHASE_FULL else []
