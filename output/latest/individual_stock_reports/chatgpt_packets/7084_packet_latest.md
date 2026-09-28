@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7084 環球晶元大64購01
 
 ## Metadata
-- generated_at: 2026-09-27 22:18:53 Asia/Taipei
+- generated_at: 2026-09-28 22:17:18 Asia/Taipei
 - stock_id: 7084
 - stock_name: 環球晶元大64購01
 - packet_status: partial_rawdata_packet
