@@ -1,11 +1,8 @@
 {
   "status": "pass",
-  "main_price_date": "20260924",
+  "main_price_date": "20260929",
   "lookback_days": 20,
   "expected_trading_dates": [
-    "20260904",
-    "20260907",
-    "20260908",
     "20260909",
     "20260910",
     "20260911",
@@ -17,46 +14,14 @@
     "20260921",
     "20260922",
     "20260923",
-    "20260924"
+    "20260924",
+    "20260929"
   ],
-  "non_trading_days_in_window": [],
+  "non_trading_days_in_window": [
+    "20260925",
+    "20260928"
+  ],
   "daily_price_files": {
-    "20260904": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260904.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2121,
-      "date_rows": 2121,
-      "stock_rows": 2104,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20260907": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260907.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2141,
-      "date_rows": 2141,
-      "stock_rows": 2121,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20260908": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260908.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2128,
-      "date_rows": 2128,
-      "stock_rows": 2110,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
     "20260909": {
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260909.csv",
       "exists": true,
@@ -200,9 +165,21 @@
         "TPEx",
         "TWSE"
       ]
+    },
+    "20260929": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20260929.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2130,
+      "date_rows": 2130,
+      "stock_rows": 2112,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
     }
   },
-  "target_stock_count": 178,
+  "target_stock_count": 197,
   "stock_history_missing_rows": [],
   "stock_history_missing_row_count": 0,
   "errors": []
