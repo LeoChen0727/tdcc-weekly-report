@@ -1,17 +1,17 @@
 # Data Freshness Status
 
-- generated_at: `2026-09-28 19:32:22` Asia/Taipei
-- market_session_status: `closed_scheduled`
-- market_session_date: `20260928`
-- expected_main_price_date: `20260924`
-- market_session_reason_code: `twse_annual_holiday`
-- main_price_date: `20260924`
+- generated_at: `2026-09-29 19:47:43` Asia/Taipei
+- market_session_status: `open_confirmed`
+- market_session_date: `20260929`
+- expected_main_price_date: `20260929`
+- market_session_reason_code: `twse_tpex_target_date_confirmed`
+- main_price_date: `20260929`
 - main_price_date_source: `validated_stock_history`
 - historical_replay_main_price_date: ``
 - expected_price_history_high_water_date: ``
-- actual_stock_price_history_date: `20260924`
-- report_ready: `False`
-- report_ready_note: market session is not open_confirmed: market_session_status=closed_scheduled
+- actual_stock_price_history_date: `20260929`
+- report_ready: `True`
+- report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
 - warrant_ready_note: warrant_flow_date matches main_price_date
 - warrant_source_status: `ok`
@@ -21,17 +21,17 @@
 - warrant_pdf_visibility: `visible`
 - warrant_model_effect_allowed: `True`
 - warrant_pdf_effect_allowed: `True`
-- daily_pdf_ready: `False`
-- daily_pdf_ready_note: core daily data not ready: market session is not open_confirmed: market_session_status=closed_scheduled
+- daily_pdf_ready: `True`
+- daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
 
 ## Component Dates
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260924 | 20260924 | ready |
-| official_price_fetch_latest | 20260924 | 20260924 | ready |
-| stock_monitor_latest.md | 20260924 | 20260924 | ready |
-| warrant_flow_latest.csv | 20260924 | 20260924 | ready |
+| all_candidates_latest.csv | 20260929 | 20260929 | ready |
+| official_price_fetch_latest | 20260929 | 20260929 | ready |
+| stock_monitor_latest.md | 20260929 | 20260929 | ready |
+| warrant_flow_latest.csv | 20260929 | 20260929 | ready |
 
 ## Rule
 
@@ -39,10 +39,10 @@ When an upstream daily snapshot has a raw date newer than the latest validated a
 
 ## Daily Authority Release
 
-- release_id: `daily-authority-20260928-36415472390-1`
-- generation_id: `daily-authority-20260928-36415472390-1`
+- release_id: `daily-authority-20260929-36561553118-1`
+- generation_id: `daily-authority-20260929-36561553118-1`
 - producer: `daily_full_pipeline`
-- base_commit_sha: `7ce50e1bc36a962dde9d5bff239063be03b5dcd8`
-- market_session_date: `20260928`
-- expected_main_price_date: `20260924`
-- market_status: `closed_scheduled`
+- base_commit_sha: `2db2d6d7e93cf514a8684a6794f319dce3d2494d`
+- market_session_date: `20260929`
+- expected_main_price_date: `20260929`
+- market_status: `open_confirmed`

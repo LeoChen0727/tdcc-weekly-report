@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-09-24 11:49:22 UTC`
-- main_price_date: `20260924`
+- generated_at: `2026-09-29 11:47:20 UTC`
+- main_price_date: `20260929`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
@@ -40,25 +40,26 @@
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 6620 | 漢達 | other | overheated_after_tdcc |
-| 3605 | 宏致 | other | overheated_after_tdcc |
-| 4924 | 欣厚-KY | other | overheated_after_tdcc |
-| 1560 | 中砂 | other | overheated_after_tdcc |
-| 6147 | 頎邦 | other | overheated_after_tdcc |
-| 3066 | 李洲 | other | overheated_after_tdcc |
-| 6620 | 漢達 | other | overheated_after_tdcc |
-| 3605 | 宏致 | other | overheated_after_tdcc |
-| 4924 | 欣厚-KY | other | overheated_after_tdcc |
-| 1560 | 中砂 | other | overheated_after_tdcc |
-| 6147 | 頎邦 | other | overheated_after_tdcc |
-| 2303 | 聯電 | other | price_leading_tdcc |
-| 3264 | 欣銓 | other | price_leading_tdcc |
-| 6668 | 中揚光 | other | overheated_after_tdcc |
-| 3105 | 穩懋 | other | insufficient_price_context |
-| 8103 | 瀚荃 | other | insufficient_price_context |
 | 6168 | 宏齊 | other | overheated_after_tdcc |
-| 6147 | 頎邦 | other | overheated_after_tdcc |
-| 3066 | 李洲 | other | overheated_after_tdcc |
+| 6715 | 嘉基 | other | overheated_after_tdcc |
+| 2033 | 佳大 | other | overheated_after_tdcc |
+| 1569 | 濱川 | other | overheated_after_tdcc |
+| 4956 | 光鋐 | other | overheated_after_tdcc |
+| 2030 | 彰源 | other | overheated_after_tdcc |
+| 3691 | 碩禾 | other | overheated_after_tdcc |
+| 4174 | 浩鼎 | other | overheated_after_tdcc |
+| 3624 | 光頡 | passive components | overheated_after_tdcc |
+| 8150 | 南茂 | other | overheated_after_tdcc |
+| 6168 | 宏齊 | other | overheated_after_tdcc |
+| 6945 | 圓祥生技 | other | overheated_after_tdcc |
+| 6715 | 嘉基 | other | overheated_after_tdcc |
+| 2033 | 佳大 | other | overheated_after_tdcc |
+| 1569 | 濱川 | other | overheated_after_tdcc |
+| 3094 | 聯傑 | other | price_leading_tdcc |
+| 2030 | 彰源 | other | overheated_after_tdcc |
+| 4924 | 欣厚-KY | other | overheated_after_tdcc |
+| 4174 | 浩鼎 | other | overheated_after_tdcc |
+| 3624 | 光頡 | passive components | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 
