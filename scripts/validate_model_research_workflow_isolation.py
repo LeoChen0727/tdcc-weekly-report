@@ -23,6 +23,8 @@ PR_VALIDATION_WORKFLOW = ROOT / ".github/workflows/daily_model_maintenance_pr_va
 
 # Exact approved local owners; these are not a generic writer exemption.
 TDCC_OUTCOME_UNIT_LOCAL_OWNER = "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation"
+CONSERVATIVE_LOCAL_OWNER = "tdcc_stealth_accumulation_conservative_execution_research"
+CONSERVATIVE_LOCAL_PRODUCER = "scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py"
 TDCC_OUTCOME_UNIT_LOCAL_PRODUCER = "scripts/build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py"
 REVENUE_OUTCOME_UNIT_LOCAL_OWNER = "revenue_unreacted_range_outcome_unit_reconciliation"
 REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER = "scripts/build_revenue_unreacted_range_outcome_unit_reconciliation.py"
@@ -597,6 +599,7 @@ def validate_registry_contract(
     errors: list[str] = []
     registry_models = {row.model_id: row.producer for row in rows}
     annual_local = {
+        CONSERVATIVE_LOCAL_OWNER: CONSERVATIVE_LOCAL_PRODUCER,
         TDCC_OUTCOME_UNIT_LOCAL_OWNER: TDCC_OUTCOME_UNIT_LOCAL_PRODUCER,
         REVENUE_OUTCOME_UNIT_LOCAL_OWNER: REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER,
         ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER,
@@ -661,6 +664,10 @@ def validate_registry_contract(
 def validate_annual_local_workflow_exclusion(workflow_texts: dict[str, str]) -> list[str]:
     """Private raw inputs cannot be made available to any remote workflow."""
     return [
+        f"conservative frozen-ledger producer is forbidden in every workflow: {path}"
+        for path, text in workflow_texts.items()
+        if Path(CONSERVATIVE_LOCAL_PRODUCER).stem in text
+    ] + [
         f"frozen-outcome tdcc_stealth_accumulation producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()
         if Path(TDCC_OUTCOME_UNIT_LOCAL_PRODUCER).stem in text

@@ -443,6 +443,8 @@ REVENUE_MARKERS = (
 FINANCIAL_STATEMENT_MARKERS = ("financial_statement",)
 
 MODEL_LIKE_MARKERS = (
+    "tdcc_stealth_accumulation_conservative_execution_research",
+    "tdcc_conservative_execution_research",
     "tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation",
     "tdcc_stealth_accumulation_condition_stratification",
     "tdcc_stealth_accumulation_medium_term_trend_research",
@@ -499,6 +501,16 @@ MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS = frozenset(
 
 MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
     {
+        "scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py",
+        "scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py",
+        "config/tdcc_stealth_accumulation_conservative_execution_research_v1.json",
+        "docs/specs/tdcc_conservative_execution_research_v1.md",
+        "tests/test_tdcc_stealth_accumulation_conservative_execution_research.py",
+        "tests/test_validate_tdcc_stealth_accumulation_conservative_execution_research.py",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_positions_v1.csv.gz",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_summary_v1.csv",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_report_v1.md",
+        "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_source_manifest_v1.json",
         "scripts/build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
         "scripts/validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
         "config/tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation_v1.json",

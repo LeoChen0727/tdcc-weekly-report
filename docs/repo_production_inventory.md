@@ -241,3 +241,9 @@ The repo-wide validator is run by:
 
 Daily Full Pipeline remains the main production gate. The other workflow gates
 prevent lane-specific PRs or manual runs from reviving old shared paths.
+
+## TDCC 保守成交假設研究（research-only）
+
+- 手動入口：`scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py`，只回放固定 ledger 並寫入本模型四份新產物；不接入遠端 producer workflow。
+- 獨立驗證：`scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py`，不匯入 producer 業務函式，不代表實際成交、PIT、OOS 或正式升級。
+- 固定政策、操作命令與保存邊界：[TDCC 保守成交研究 v1](specs/tdcc_conservative_execution_research_v1.md)。

@@ -17,6 +17,21 @@ ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "scripts/validate_tdcc_stealth_accumulation_current_version_annual_replay.py"
 
 
+def test_conservative_execution_mandatory_published_ci_bridge(tmp_path):
+    """Use the existing research CI entry; never run the source selector."""
+    import subprocess
+    import sys
+
+    result = subprocess.run(
+        [sys.executable, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+         "--basetemp", str(tmp_path / "conservative-execution"),
+         "tests/test_tdcc_stealth_accumulation_conservative_execution_research.py",
+         "tests/test_validate_tdcc_stealth_accumulation_conservative_execution_research.py"],
+        cwd=ROOT, capture_output=True, text=True, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
 def test_tdcc_stealth_accumulation_outcome_unit_mandatory_published_ci_bridge(tmp_path):
     """Run synthetic and mandatory published evidence checks through existing CI."""
     import subprocess
