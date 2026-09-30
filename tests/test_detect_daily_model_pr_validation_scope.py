@@ -12,15 +12,23 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 
 ROOT = Path(__file__).resolve().parents[1]
 
+TDCC_CONSERVATIVE_EXECUTION_EXACT_PATHS = frozenset({
+    "scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py",
+    "scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py",
+    "config/tdcc_stealth_accumulation_conservative_execution_research_v1.json",
+    "docs/specs/tdcc_conservative_execution_research_v1.md",
+    "tests/test_tdcc_stealth_accumulation_conservative_execution_research.py",
+    "tests/test_validate_tdcc_stealth_accumulation_conservative_execution_research.py",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_positions_v1.csv.gz",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_summary_v1.csv",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_report_v1.md",
+    "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_source_manifest_v1.json",
+})
+
 
 def test_conservative_execution_exact_new_surface_routes_without_workflow_expansion():
     owner = 'tdcc_stealth_accumulation_conservative_execution_research'
-    paths = [f'scripts/build_{owner}.py', f'scripts/validate_{owner}.py',
-             f'config/{owner}_v1.json', 'docs/specs/tdcc_conservative_execution_research_v1.md',
-             f'tests/test_{owner}.py', f'tests/test_validate_{owner}.py']
-    paths += [f'output/research/tdcc_stealth_accumulation/{owner}_{kind}' for kind in
-              ('positions_v1.csv.gz', 'summary_v1.csv', 'report_v1.md', 'source_manifest_v1.json')]
-    for path in paths:
+    for path in TDCC_CONSERVATIVE_EXECUTION_EXACT_PATHS:
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset({scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH})
     with pytest.raises(scope.ScopeDetectionError, match="no declared validation domain"):
@@ -584,6 +592,7 @@ def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
         | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
         | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
         | TDCC_MEDIUM_TERM_TREND_EXACT_PATHS
+        | TDCC_CONSERVATIVE_EXECUTION_EXACT_PATHS
     )
     for path in sorted(
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
@@ -592,6 +601,7 @@ def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
         | TDCC_CURRENT_VERSION_HORIZON_EXTENSION_EXACT_PATHS
         | TDCC_CONDITION_STRATIFICATION_EXACT_PATHS
         | TDCC_MEDIUM_TERM_TREND_EXACT_PATHS
+        | TDCC_CONSERVATIVE_EXECUTION_EXACT_PATHS
     ):
         assert scope.is_watched_path(path)
         assert scope.domains_for_path(path) == frozenset(
