@@ -1,5 +1,13 @@
 from __future__ import annotations
 
+
+def test_conservative_execution_is_local_only_not_remote_producer():
+    from scripts import validate_model_research_workflow_isolation as isolation
+    producer = 'scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py'
+    assert isolation.CONSERVATIVE_LOCAL_PRODUCER == producer
+    assert isolation.validate_annual_local_workflow_exclusion({'synthetic.yml': 'python ' + producer})
+    assert isolation.validate_annual_local_workflow_exclusion({'synthetic.yml': 'python scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py'}) == []
+
 from dataclasses import replace
 import json
 import os

@@ -12,6 +12,20 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+def test_conservative_execution_exact_new_surface_routes_without_workflow_expansion():
+    owner = 'tdcc_stealth_accumulation_conservative_execution_research'
+    paths = [f'scripts/build_{owner}.py', f'scripts/validate_{owner}.py',
+             f'config/{owner}_v1.json', 'docs/rules/tdcc_conservative_execution_research_v1.md',
+             f'tests/test_{owner}.py', f'tests/test_validate_{owner}.py']
+    paths += [f'output/research/tdcc_stealth_accumulation/{owner}_{kind}' for kind in
+              ('positions_v1.csv.gz', 'summary_v1.csv', 'report_v1.md', 'source_manifest_v1.json')]
+    for path in paths:
+        assert scope.is_watched_path(path)
+        assert scope.domains_for_path(path) == frozenset({scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH})
+    with pytest.raises(scope.ScopeDetectionError, match="no declared validation domain"):
+        scope.domains_for_path(f'config/{owner}_v2.json')
+
 TDCC_OUTCOME_UNIT_EXACT_PATHS = frozenset({
     "scripts/build_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
     "scripts/validate_tdcc_stealth_accumulation_medium_term_corporate_action_reconciliation.py",
