@@ -504,7 +504,7 @@ MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
         "scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py",
         "scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py",
         "config/tdcc_stealth_accumulation_conservative_execution_research_v1.json",
-        "docs/rules/tdcc_conservative_execution_research_v1.md",
+        "docs/specs/tdcc_conservative_execution_research_v1.md",
         "tests/test_tdcc_stealth_accumulation_conservative_execution_research.py",
         "tests/test_validate_tdcc_stealth_accumulation_conservative_execution_research.py",
         "output/research/tdcc_stealth_accumulation/tdcc_stealth_accumulation_conservative_execution_research_positions_v1.csv.gz",

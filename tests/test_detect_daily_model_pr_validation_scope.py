@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_conservative_execution_exact_new_surface_routes_without_workflow_expansion():
     owner = 'tdcc_stealth_accumulation_conservative_execution_research'
     paths = [f'scripts/build_{owner}.py', f'scripts/validate_{owner}.py',
-             f'config/{owner}_v1.json', 'docs/rules/tdcc_conservative_execution_research_v1.md',
+             f'config/{owner}_v1.json', 'docs/specs/tdcc_conservative_execution_research_v1.md',
              f'tests/test_{owner}.py', f'tests/test_validate_{owner}.py']
     paths += [f'output/research/tdcc_stealth_accumulation/{owner}_{kind}' for kind in
               ('positions_v1.csv.gz', 'summary_v1.csv', 'report_v1.md', 'source_manifest_v1.json')]

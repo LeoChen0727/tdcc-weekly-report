@@ -38,6 +38,13 @@ partial 必須是整數 `0 < quantity < 1000`，不算完整成交、零成交�
 
 ## 交付及保存
 
+本研究的手動入口（本次已產出，不因文件更新重跑）：
+
+```text
+python -B scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py --source-ledger <唯讀既有F來源>
+python -B scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py --source-ledger <同一來源>
+```
+
 新增 model-owned producer、獨立 validator、兩個 targeted test 檔；不共享模型業務函式。
 精確輸出只有本家族的 positions_v1.csv.gz、summary_v1.csv、report_v1.md、source_manifest_v1.json。
 付費 FinMind 原始CSV不推repo；政策只留必要衍生查核、hash及來源引用。
