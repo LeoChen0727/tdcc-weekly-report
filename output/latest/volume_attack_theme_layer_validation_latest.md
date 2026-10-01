@@ -2,6 +2,6 @@
 
 - status: `pass`
 - theme_rows: `13`
-- stock_rows: `32`
+- stock_rows: `29`
 - errors: `none`
 - warnings: `none`

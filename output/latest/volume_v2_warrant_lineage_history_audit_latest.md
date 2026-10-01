@@ -1,22 +1,22 @@
 # Volume v2 warrant lineage history audit
 
 - Audit version: `volume_v2_warrant_lineage_history_audit_v5`
-- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901, 20260902, 20260903, 20260904, 20260907, 20260908, 20260909, 20260910, 20260911, 20260916, 20260917, 20260918, 20260921, 20260922, 20260923, 20260924, 20260929, 20260930`
-- Runtime combined coverage: `137` revisions; current replay plus trusted HEAD baseline
-- Formal volume v2 rows: `338`
-- Formal verified clean: `310`
+- Audited trading dates: `20260615, 20260616, 20260617, 20260618, 20260622, 20260623, 20260624, 20260626, 20260629, 20260630, 20260701, 20260702, 20260703, 20260706, 20260707, 20260708, 20260709, 20260713, 20260714, 20260715, 20260716, 20260717, 20260810, 20260811, 20260820, 20260821, 20260825, 20260826, 20260827, 20260828, 20260831, 20260901, 20260902, 20260903, 20260904, 20260907, 20260908, 20260909, 20260910, 20260911, 20260916, 20260917, 20260918, 20260921, 20260922, 20260923, 20260924, 20260929, 20260930, 20261001`
+- Runtime combined coverage: `138` revisions; current replay plus trusted HEAD baseline
+- Formal volume v2 rows: `352`
+- Formal verified clean: `324`
 - Formal superseded: `6`
 - Formal quarantined: `22`
 - Formal unreplayable: `0`
 - Legacy precontract history incomplete dates: `16`
-- Historical promotion evidence eligible rows: `31/338`
-- Superseded advisory watch rows: `169`
-- Independent component replay resolved: `338/338`
-- Candidate-absent canonical score contexts: `123` stored as `{}`
-- Warrant collision rows: `72`
+- Historical promotion evidence eligible rows: `31/352`
+- Superseded advisory watch rows: `181`
+- Independent component replay resolved: `352/352`
+- Candidate-absent canonical score contexts: `125` stored as `{}`
+- Warrant collision rows: `77`
 - TDCC-status collision rows: `0`
 - False-breakout collision rows: `0`
-- Watch/candidate source score collisions: `165`
+- Watch/candidate source score collisions: `177`
 - Watch/candidate source rank collisions: `0`
 - Non-current rows were preserved from trusted HEAD and were not revalidated or replayed.
 
@@ -161,6 +161,7 @@
 | 20260924 | r1 | 12 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260929 | r1 | 10 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 | 20260930 | r1 | 10 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
+| 20261001 | r1 | 14 | versioned_revision_exact | complete | 0 | canonical_candidate_explicit_allowlist |
 
 ## Watch collision disposition
 
@@ -335,6 +336,18 @@
 | 20260930 | 1595 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 89.5→89.5 | 0.0→0.0 | 0.0→0.0 | 94.1→94.1 | 2→2 | verified_clean |
 | 20260930 | 5483 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 82.6→82.6 | 0.0→0.0 | 0.0→0.0 | 87.1→87.1 | 3→3 | verified_clean |
 | 20260930 | 2030 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 69.0→69.0 | 0.0→0.0 | 0.0→0.0 | 78.0→78.0 | 1→1 | verified_clean |
+| 20261001 | 3094 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 1→1 | verified_clean |
+| 20261001 | 6533 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=/call_inflow→call_inflow; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 2→2 | verified_clean |
+| 20261001 | 6672 | volume_range_breakout_v2_high_position_volume_attack | warrant_flow_signal | warrant=/call_put_bullish→call_put_bullish; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 73.0→73.0 | 3→3 | verified_clean |
+| 20261001 | 3701 | volume_range_breakout_v2_low_position_volume_attack | warrant_flow_signal | warrant=/no_signal→no_signal; tdcc=/→; false_breakout=False/False→False | 100.0→100.0 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 1→1 | verified_clean |
+| 20261001 | 6127 | volume_range_breakout_v2_low_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 100.0→100.0 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 2→2 | verified_clean |
+| 20261001 | 3533 | volume_range_breakout_v2_low_position_volume_attack | warrant_flow_signal | warrant=/call_put_bullish→call_put_bullish; tdcc=/→; false_breakout=False/False→False | 89.0→89.0 | 0.0→0.0 | 0.0→0.0 | 94.5→94.5 | 4→4 | verified_clean |
+| 20261001 | 3236 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 96.9→96.9 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 1→1 | verified_clean |
+| 20261001 | 6155 | volume_range_breakout_v2_mid_position_momentum_attack | warrant_flow_signal | warrant=/no_signal→no_signal; tdcc=/→; false_breakout=False/False→False | 100.0→100.0 | 0.0→0.0 | 0.0→0.0 | 100.0→100.0 | 2→2 | verified_clean |
+| 20261001 | 3490 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 85.8→85.8 | 0.0→0.0 | 0.0→0.0 | 90.4→90.4 | 3→3 | verified_clean |
+| 20261001 | 6488 | volume_range_breakout_v2_mid_position_momentum_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 75.0→75.0 | 0.0→0.0 | 2.4→2.4 | 74.8→74.8 | 4→4 | verified_clean |
+| 20261001 | 2030 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=True/True→True | 79.0→79.0 | 0.0→0.0 | 0.0→0.0 | 79.5→79.5 | 1→1 | verified_clean |
+| 20261001 | 4556 | volume_range_breakout_v2_high_position_volume_attack |  | warrant=/→; tdcc=/→; false_breakout=False/False→False | 64.0→64.0 | 0.0→0.0 | 0.0→0.0 | 72.2→72.2 | 2→2 | verified_clean |
 
 ## Conclusion
 

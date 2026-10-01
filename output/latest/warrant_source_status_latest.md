@@ -1,9 +1,9 @@
 # Warrant Source Status
 
-- generated_at: `2026-09-30 19:35:00 Asia/Taipei`
+- generated_at: `2026-10-01 19:38:33 Asia/Taipei`
 - status: `ok`
-- requested_date: `20260930`
-- data_date: `20260930`
+- requested_date: `20261001`
+- data_date: `20261001`
 - consecutive_unavailable_trading_days: `0`
 - max_warning_days: `2`
 - hard_fail_after_days: `3`
@@ -11,7 +11,7 @@
 - warrant_pdf_visibility: `visible`
 - model_effect_allowed: `True`
 - pdf_effect_allowed: `True`
-- final_rows: `34350`
-- mapping_rows: `34412`
-- quote_rows: `34350`
+- final_rows: `34524`
+- mapping_rows: `34603`
+- quote_rows: `34524`
 - note: current-date stock-level warrant data is usable
