@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:44 Asia/Taipei
+- generated_at: 2026-10-03 22:16:18 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet

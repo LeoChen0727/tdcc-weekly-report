@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:54 Asia/Taipei
+- generated_at: 2026-10-03 22:16:36 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet

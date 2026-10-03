@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:47 Asia/Taipei
+- generated_at: 2026-10-03 22:16:23 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4951 精拓科
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:26 Asia/Taipei
+- generated_at: 2026-10-03 22:17:38 Asia/Taipei
 - stock_id: 4951
 - stock_name: 精拓科
 - packet_status: standard_180d_window_packet

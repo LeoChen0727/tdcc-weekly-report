@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8928 鉅明
 
 ## Metadata
-- generated_at: 2026-10-03 15:48:07 Asia/Taipei
+- generated_at: 2026-10-03 22:18:52 Asia/Taipei
 - stock_id: 8928
 - stock_name: 鉅明
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1519 華城
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:42 Asia/Taipei
+- generated_at: 2026-10-03 22:16:15 Asia/Taipei
 - stock_id: 1519
 - stock_name: 華城
 - packet_status: standard_180d_window_packet

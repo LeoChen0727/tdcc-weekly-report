@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2414 精技
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:55 Asia/Taipei
+- generated_at: 2026-10-03 22:16:37 Asia/Taipei
 - stock_id: 2414
 - stock_name: 精技
 - packet_status: standard_180d_window_packet

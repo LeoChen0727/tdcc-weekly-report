@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5907 大洋-KY
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:34 Asia/Taipei
+- generated_at: 2026-10-03 22:17:52 Asia/Taipei
 - stock_id: 5907
 - stock_name: 大洋-KY
 - packet_status: standard_180d_window_packet

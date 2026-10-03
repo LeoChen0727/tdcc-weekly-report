@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00911 兆豐洲際半導體
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:35 Asia/Taipei
+- generated_at: 2026-10-03 22:16:02 Asia/Taipei
 - stock_id: 00911
 - stock_name: 兆豐洲際半導體
 - packet_status: standard_rawdata_packet

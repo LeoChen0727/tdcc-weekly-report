@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3632 研勤
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:16 Asia/Taipei
+- generated_at: 2026-10-03 22:17:18 Asia/Taipei
 - stock_id: 3632
 - stock_name: 研勤
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7355 環球晶統一57購01
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:57 Asia/Taipei
+- generated_at: 2026-10-03 22:18:32 Asia/Taipei
 - stock_id: 7355
 - stock_name: 環球晶統一57購01
 - packet_status: partial_rawdata_packet

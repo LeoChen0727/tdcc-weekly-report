@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8234 新漢
 
 ## Metadata
-- generated_at: 2026-10-03 15:48:04 Asia/Taipei
+- generated_at: 2026-10-03 22:18:45 Asia/Taipei
 - stock_id: 8234
 - stock_name: 新漢
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:48 Asia/Taipei
+- generated_at: 2026-10-03 22:18:16 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet

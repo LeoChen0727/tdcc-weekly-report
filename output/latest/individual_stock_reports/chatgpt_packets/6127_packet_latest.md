@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6127 九豪
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:36 Asia/Taipei
+- generated_at: 2026-10-03 22:17:54 Asia/Taipei
 - stock_id: 6127
 - stock_name: 九豪
 - packet_status: standard_180d_window_packet

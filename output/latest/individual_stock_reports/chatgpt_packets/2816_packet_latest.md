@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2816 旺旺保
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:02 Asia/Taipei
+- generated_at: 2026-10-03 22:16:51 Asia/Taipei
 - stock_id: 2816
 - stock_name: 旺旺保
 - packet_status: standard_180d_window_packet

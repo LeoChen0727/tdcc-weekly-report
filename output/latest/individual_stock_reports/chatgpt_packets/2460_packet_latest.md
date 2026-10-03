@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2460 建通
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:56 Asia/Taipei
+- generated_at: 2026-10-03 22:16:40 Asia/Taipei
 - stock_id: 2460
 - stock_name: 建通
 - packet_status: standard_180d_window_packet

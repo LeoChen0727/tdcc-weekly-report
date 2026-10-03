@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0089 中信關鍵半導體
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:35 Asia/Taipei
+- generated_at: 2026-10-03 22:16:01 Asia/Taipei
 - stock_id: 0089
 - stock_name: 中信關鍵半導體
 - packet_status: insufficient_price_data

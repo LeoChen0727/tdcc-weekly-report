@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2466 冠西電
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:56 Asia/Taipei
+- generated_at: 2026-10-03 22:16:41 Asia/Taipei
 - stock_id: 2466
 - stock_name: 冠西電
 - packet_status: standard_180d_window_packet

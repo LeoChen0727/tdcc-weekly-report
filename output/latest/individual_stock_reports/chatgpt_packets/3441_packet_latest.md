@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3441 聯一光電
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:12 Asia/Taipei
+- generated_at: 2026-10-03 22:17:11 Asia/Taipei
 - stock_id: 3441
 - stock_name: 聯一光電
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-10-03 15:48:08 Asia/Taipei
+- generated_at: 2026-10-03 22:18:53 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet

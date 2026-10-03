@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00897 富邦基因免疫生技
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:35 Asia/Taipei
+- generated_at: 2026-10-03 22:16:01 Asia/Taipei
 - stock_id: 00897
 - stock_name: 富邦基因免疫生技
 - packet_status: standard_rawdata_packet

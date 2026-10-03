@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1817 凱撒衛
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:47 Asia/Taipei
+- generated_at: 2026-10-03 22:16:24 Asia/Taipei
 - stock_id: 1817
 - stock_name: 凱撒衛
 - packet_status: standard_180d_window_packet

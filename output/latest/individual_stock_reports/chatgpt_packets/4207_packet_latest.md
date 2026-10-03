@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4207 環泰
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:20 Asia/Taipei
+- generated_at: 2026-10-03 22:17:26 Asia/Taipei
 - stock_id: 4207
 - stock_name: 環泰
 - packet_status: standard_180d_window_packet

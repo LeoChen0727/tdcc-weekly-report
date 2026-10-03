@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00960 野村全球航運龍頭
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:36 Asia/Taipei
+- generated_at: 2026-10-03 22:16:03 Asia/Taipei
 - stock_id: 00960
 - stock_name: 野村全球航運龍頭
 - packet_status: standard_rawdata_packet

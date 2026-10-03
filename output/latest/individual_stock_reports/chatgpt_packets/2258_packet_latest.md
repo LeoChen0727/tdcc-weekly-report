@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2258 鴻華先進-創
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:51 Asia/Taipei
+- generated_at: 2026-10-03 22:16:30 Asia/Taipei
 - stock_id: 2258
 - stock_name: 鴻華先進-創
 - packet_status: standard_180d_window_packet

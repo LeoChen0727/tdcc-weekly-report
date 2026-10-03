@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5432 新門
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:31 Asia/Taipei
+- generated_at: 2026-10-03 22:17:46 Asia/Taipei
 - stock_id: 5432
 - stock_name: 新門
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006201 元大富櫃50
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:34 Asia/Taipei
+- generated_at: 2026-10-03 22:15:59 Asia/Taipei
 - stock_id: 006201
 - stock_name: 元大富櫃50
 - packet_status: standard_rawdata_packet

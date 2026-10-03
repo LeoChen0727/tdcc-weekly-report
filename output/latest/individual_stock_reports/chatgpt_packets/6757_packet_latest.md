@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6757 台灣虎航
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:50 Asia/Taipei
+- generated_at: 2026-10-03 22:18:19 Asia/Taipei
 - stock_id: 6757
 - stock_name: 台灣虎航
 - packet_status: standard_180d_window_packet

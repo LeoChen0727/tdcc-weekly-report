@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:34 Asia/Taipei
+- generated_at: 2026-10-03 22:16:00 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: standard_rawdata_packet

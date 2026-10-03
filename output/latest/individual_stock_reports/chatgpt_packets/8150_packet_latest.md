@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-10-03 15:48:03 Asia/Taipei
+- generated_at: 2026-10-03 22:18:44 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00905 FT臺灣Smart
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:35 Asia/Taipei
+- generated_at: 2026-10-03 22:16:02 Asia/Taipei
 - stock_id: 00905
 - stock_name: FT臺灣Smart
 - packet_status: standard_rawdata_packet

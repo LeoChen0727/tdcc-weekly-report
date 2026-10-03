@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7810 捷創科技
 
 ## Metadata
-- generated_at: 2026-10-03 15:48:00 Asia/Taipei
+- generated_at: 2026-10-03 22:18:38 Asia/Taipei
 - stock_id: 7810
 - stock_name: 捷創科技
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4952 凌通
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:27 Asia/Taipei
+- generated_at: 2026-10-03 22:17:38 Asia/Taipei
 - stock_id: 4952
 - stock_name: 凌通
 - packet_status: standard_180d_window_packet

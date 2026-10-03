@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:06 Asia/Taipei
+- generated_at: 2026-10-03 22:17:00 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet

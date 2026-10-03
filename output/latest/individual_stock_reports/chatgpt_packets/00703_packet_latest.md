@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00703 台新MSCI中國
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:34 Asia/Taipei
+- generated_at: 2026-10-03 22:16:00 Asia/Taipei
 - stock_id: 00703
 - stock_name: 台新MSCI中國
 - packet_status: standard_rawdata_packet

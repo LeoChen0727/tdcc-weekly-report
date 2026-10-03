@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0063 元大台灣50反1
 
 ## Metadata
-- generated_at: 2026-10-03 15:46:34 Asia/Taipei
+- generated_at: 2026-10-03 22:15:59 Asia/Taipei
 - stock_id: 0063
 - stock_name: 元大台灣50反1
 - packet_status: insufficient_price_data

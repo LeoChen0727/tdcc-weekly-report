@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4714 永捷
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:24 Asia/Taipei
+- generated_at: 2026-10-03 22:17:32 Asia/Taipei
 - stock_id: 4714
 - stock_name: 永捷
 - packet_status: standard_180d_window_packet

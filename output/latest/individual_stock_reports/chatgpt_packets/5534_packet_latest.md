@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:33 Asia/Taipei
+- generated_at: 2026-10-03 22:17:49 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet

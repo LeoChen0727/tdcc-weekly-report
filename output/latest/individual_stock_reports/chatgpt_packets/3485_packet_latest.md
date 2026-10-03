@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3485 敘豐
 
 ## Metadata
-- generated_at: 2026-10-03 15:47:13 Asia/Taipei
+- generated_at: 2026-10-03 22:17:12 Asia/Taipei
 - stock_id: 3485
 - stock_name: 敘豐
 - packet_status: standard_rawdata_packet

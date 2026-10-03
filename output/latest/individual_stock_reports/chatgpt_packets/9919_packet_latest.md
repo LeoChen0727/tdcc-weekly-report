@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9919 康那香
 
 ## Metadata
-- generated_at: 2026-10-03 15:48:08 Asia/Taipei
+- generated_at: 2026-10-03 22:18:54 Asia/Taipei
 - stock_id: 9919
 - stock_name: 康那香
 - packet_status: standard_180d_window_packet
