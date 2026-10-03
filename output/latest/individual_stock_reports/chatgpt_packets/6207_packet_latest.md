@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:03 Asia/Taipei
+- generated_at: 2026-10-03 15:47:39 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,35 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
+- action_rating_display_zh: 等待回檔
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -110,7 +104,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -123,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -131,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 115.5
-- high: 125
-- low: 115.5
-- close: 125
-- volume: 11895000
-- ma5: 117.4
-- ema23_primary: 112.45
-- distance_to_ema23_pct: 11.16
-- ma20: 111.95
-- ma60: 114.48
-- ma120: 105.7
-- return_5d: 10.13
-- return_20d: 15.74
-- volume_ratio: 1.89
-- distance_to_ma20_pct_auxiliary: 11.66
-- distance_to_high_60_pct: -27.33
+- date: 20261002
+- open: 145
+- high: 152.5
+- low: 141.5
+- close: 148
+- volume: 25640000
+- ma5: 141.3
+- ema23_primary: 122.21
+- distance_to_ema23_pct: 21.11
+- ma20: 119.3
+- ma60: 114.39
+- ma120: 108.82
+- return_5d: 29.82
+- return_20d: 33.94
+- volume_ratio: 2.37
+- distance_to_ma20_pct_auxiliary: 24.06
+- distance_to_high_60_pct: -6.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,110.5,114.5,110,111,5913000,108.02,2.76,105,125.18,1.56
-20260831,108.5,111.5,104,105.5,2519000,107.81,-2.14,105.44,124.39,0.7
-20260901,105,110.5,105,107.5,2857000,107.79,-0.27,105.67,123.77,0.82
-20260902,105.5,114.5,104.5,110.5,4660000,108.01,2.3,105.97,123.44,1.34
 20260903,112,115,103,104,8742000,107.68,-3.42,105.97,123.13,2.3
 20260904,106.5,114,106.5,111,9486000,107.95,2.82,106.53,122.73,2.28
 20260907,113.5,115,110,112.5,5705000,108.33,3.85,106.8,122.53,1.37
@@ -173,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,119,120,114,115.5,5247000,111.07,3.99,110.92,115.62,0.86
 20260923,116,117,113.5,114,2616000,111.31,2.42,111.1,115.08,0.43
 20260924,115.5,125,115.5,125,11895000,112.45,11.16,111.95,114.48,1.89
+20260929,130.5,137.5,127.5,137.5,23009000,114.54,20.05,113.28,114.23,3.23
+20260930,141,151,140,151,20628000,117.58,28.43,115.55,114.19,2.57
+20261001,153,158,139.5,145,37791000,119.86,20.97,117.42,114.18,3.86
+20261002,145,152.5,141.5,148,25640000,122.21,21.11,119.3,114.39,2.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 16.87
-- over_600_ratio: 11.23
-- over_800_ratio: 9.78
-- over_1000_ratio: 7.86
-- over_400_change_1w: 1.22
-- over_800_change_1w: 0.87
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 21.45
+- over_600_ratio: 15.73
+- over_800_ratio: 14.36
+- over_1000_ratio: 11.35
+- over_400_change_1w: 4.58
+- over_800_change_1w: 4.58
+- over_1000_change_1w: 3.49
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,19.8,-1.22,14.02,0.83,12.17,-0.06,2,False,True
 20260717,20.57,0.77,12.23,-1.79,12.23,0.06,3,False,True
 20260724,16.95,-3.62,11.7,-0.53,11.7,-0.53,0,False,False
 20260731,19.59,2.64,12.38,0.68,12.38,0.68,1,True,True
@@ -204,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,16.74,0.46,9.8,-1.37,8.94,-1.38,1,False,False
 20260918,15.65,-1.09,8.91,-0.89,7.86,-1.08,0,False,False
 20260924,16.87,1.22,9.78,0.87,7.86,0,1,False,True
+20261002,21.45,4.58,14.36,4.58,11.35,3.49,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6207 | 雷科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6207 | 雷科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/10/01 2.發生緣由:本公司於今日10:16接獲櫃買中心通知，本公司可轉換 公司債雷科五(代號:62075)已達應公布注意交易資訊標準，爰奉 櫃買中心指示公布下列訊息，以供投資人參酌 3.財務業務資訊: 雷科五(62075)轉換公司債相關資訊： 到期日期：117/08/26 實際發行總額：新台幣600,000,000元整 本月發行餘額：新台幣53,200,000元整 (截至115/09/30) 最新轉換價格：50.5元 轉換標的收盤價格(代號：6207)：151元 (115/09/30) 轉換公司債收盤價格(代號:62075)：299元 (115/09/30) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6207 | 雷科 | 3 | 1 | 4 | 9 | 17 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20261002 | 6207 | 雷科 | 1 | 1 | 4 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

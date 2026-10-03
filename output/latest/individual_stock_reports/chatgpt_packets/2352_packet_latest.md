@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:21 Asia/Taipei
+- generated_at: 2026-10-03 15:46:52 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 356
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 360
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 29
-- high: 29.15
-- low: 28.85
-- close: 29
-- volume: 2247808
-- ma5: 29.24
-- ema23_primary: 28.94
-- distance_to_ema23_pct: 0.21
-- ma20: 28.85
-- ma60: 29.43
-- ma120: 28.53
-- return_5d: 0
-- return_20d: 3.57
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 0.53
-- distance_to_high_60_pct: -20.11
+- date: 20261002
+- open: 29.05
+- high: 29.45
+- low: 28.9
+- close: 29.2
+- volume: 3067011
+- ma5: 29.19
+- ema23_primary: 29.03
+- distance_to_ema23_pct: 0.59
+- ma20: 29.01
+- ma60: 29.15
+- ma120: 28.71
+- return_5d: 0.69
+- return_20d: 1.74
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 0.65
+- distance_to_high_60_pct: -18.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,28.3,28.4,28.1,28.2,2871377,28.78,-2.02,28.69,30.14,0.49
-20260831,28.1,28.4,27.85,28.35,4458726,28.75,-1.38,28.68,30.04,0.77
-20260901,28.15,28.75,28.15,28.4,3499616,28.72,-1.11,28.66,29.99,0.6
-20260902,28.3,28.85,28.3,28.7,3477673,28.72,-0.06,28.67,29.97,0.62
 20260903,28.85,29.6,28.5,28.5,7278956,28.7,-0.69,28.66,29.93,1.27
 20260904,28.95,29.3,28.75,29.25,7864250,28.74,1.76,28.7,29.92,1.35
 20260907,29.7,29.7,28.6,29,5778552,28.77,0.82,28.67,29.9,1.03
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,29.85,29.85,29.4,29.4,4168335,28.93,1.63,28.75,29.58,0.9
 20260923,29.7,29.7,29,29,3002643,28.93,0.23,28.8,29.49,0.66
 20260924,29,29.15,28.85,29,2247808,28.94,0.21,28.85,29.43,0.5
+20260929,29.05,29.55,29,29,3583810,28.94,0.19,28.89,29.39,0.79
+20260930,29.3,29.95,29.25,29.65,5731705,29,2.23,28.95,29.34,1.25
+20261001,29.7,29.75,29.1,29.1,3305366,29.01,0.3,28.99,29.24,0.72
+20261002,29.05,29.45,28.9,29.2,3067011,29.03,0.59,29.01,29.15,0.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 48.42
-- over_600_ratio: 46.09
-- over_800_ratio: 44.97
-- over_1000_ratio: 43.53
-- over_400_change_1w: 0.26
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 48.41
+- over_600_ratio: 46.07
+- over_800_ratio: 44.99
+- over_1000_ratio: 43.52
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.02
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,49.3,-0.17,45.72,-0.31,44.24,-0.26,0,False,False
 20260717,48.76,-0.54,45.57,-0.15,43.98,-0.26,0,False,False
 20260724,48.71,-0.05,45.58,0.01,43.8,-0.18,1,False,True
 20260731,48.4,-0.31,45.11,-0.47,43.33,-0.47,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,48.14,0.19,44.66,0.17,43.39,0.24,2,True,True
 20260918,48.16,0.02,44.74,0.08,43.47,0.08,3,True,True
 20260924,48.42,0.26,44.97,0.23,43.53,0.06,4,True,True
+20261002,48.41,-0.01,44.99,0.02,43.52,-0.01,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2352 | 佳世達 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/03 2.公司名稱:佳世達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年8月份自結合併營收 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   佳世達115年8月自結合併營收為新台幣188.13億元，   較去年同期成長11.82%，較上月成長3.41%。   累計115年1至8月合併營收為新台幣1,412.79億元，較去年同期成長2.74%。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/03 2.公司名稱:佳世達科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司115年8月份自結合併營收 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   佳世達115年8月自結合併營收為新台幣188.13億元，   較去年同期成長11.82%，較上月成長3.41%。   累計115年1至8月合併營收為新台幣1,412.79億元，較去年同期成長2.74%。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2352 | 佳世達 | 5 | 3 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2352 | 佳世達 | 9 | 2 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2352 | 佳世達 | 24 | 1 | 231660.0 | 0.0 |  | no_signal |
+| 20261002 | 2352 | 佳世達 | 24 | 1 | 493180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

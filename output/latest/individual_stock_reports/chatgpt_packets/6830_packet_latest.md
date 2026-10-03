@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6830 汎銓
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:14 Asia/Taipei
+- generated_at: 2026-10-03 15:47:51 Asia/Taipei
 - stock_id: 6830
 - stock_name: 汎銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 545
-- high: 547
-- low: 530
-- close: 540
-- volume: 942448
-- ma5: 549.6
-- ema23_primary: 533.25
-- distance_to_ema23_pct: 1.27
-- ma20: 557.75
-- ma60: 457.84
-- ma120: 574.4
-- return_5d: 5.47
-- return_20d: 1.89
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -3.18
-- distance_to_high_60_pct: -15.76
+- date: 20261002
+- open: 540
+- high: 559
+- low: 540
+- close: 547
+- volume: 1744163
+- ma5: 536.8
+- ema23_primary: 534.19
+- distance_to_ema23_pct: 2.4
+- ma20: 554.2
+- ma60: 464.13
+- ma120: 570.5
+- return_5d: 0.37
+- return_20d: -8.53
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -1.3
+- distance_to_high_60_pct: -14.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,521,535,520,525,1537472,448.13,17.15,439.1,450.93,0.62
-20260831,522,523,501,520,1636512,454.12,14.51,446.07,448.32,0.66
-20260901,527,572,510,572,2997028,463.94,23.29,454.52,447.46,1.21
-20260902,570,618,568,598,5478263,475.11,25.87,464.2,448.06,2.11
 20260903,615,641,582,590,5312183,484.69,21.73,472.45,448.74,1.95
 20260904,610,625,574,597,3050638,494.04,20.84,482.4,450.37,1.1
 20260907,609,613,580,582,1563039,501.37,16.08,490.27,451.48,0.57
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,565,575,543,547,1560833,531.51,2.91,556.3,455.63,0.64
 20260923,548,553,538,545,799077,532.64,2.32,557.25,456.44,0.35
 20260924,545,547,530,540,942448,533.25,1.27,557.75,457.84,0.44
+20260929,539,548,532,533,911857,533.23,-0.04,558.15,459.26,0.43
+20260930,545,548,531,533,749406,533.21,-0.04,558.8,460.56,0.36
+20261001,535,542,530,531,794025,533.03,-0.38,556.75,462.08,0.41
+20261002,540,559,540,547,1744163,534.19,2.4,554.2,464.13,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 29.23
+- as_of_date: 20261002
+- over_400_ratio: 29.19
 - over_600_ratio: 24.03
 - over_800_ratio: 17.87
 - over_1000_ratio: 16.3
-- over_400_change_1w: -1.8
-- over_800_change_1w: -1.35
-- over_1000_change_1w: -1.34
+- over_400_change_1w: -0.04
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,33.42,-1.23,20.17,-0.1,15.59,-0.01,0,False,False
 20260717,34.4,0.98,20.62,0.45,17.51,1.92,1,False,True
 20260724,35.13,0.73,20.42,-0.2,15.58,-1.93,2,False,False
 20260731,33.57,-1.56,18.92,-1.5,15.57,-0.01,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,30.3,-0.46,19.22,-0.03,17.64,-0.03,1,False,False
 20260918,31.03,0.73,19.22,0,17.64,0,2,False,False
 20260924,29.23,-1.8,17.87,-1.35,16.3,-1.34,0,False,False
+20261002,29.19,-0.04,17.87,0,16.3,0,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6830 | 汎銓 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | 1.事實發生日:115/09/02 2.發生緣由:依據證券櫃檯買賣中心通知辦理重大訊息。 3.公司債相關資訊: 到期日期:116/08/15 實際發行總額: 500,000,000元 本月發行餘額: 65,200,000元(截至115/08/31未轉換金額) 最新轉(交)換價格:147.4元 轉換標的收市價格(6830):598元(115/09/02收盤價) 轉債收市價格(68301):385元(115/09/02收盤價) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6830 | 汎銓 | 1 | 1 | 1 | 5 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6830 | 汎銓 | 26 | 4 | 3952230.0 | 0.0 |  | call_inflow |
+| 20261002 | 6830 | 汎銓 | 25 | 4 | 5200650.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

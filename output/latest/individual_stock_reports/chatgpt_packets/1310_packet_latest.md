@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1310 台苯
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:08 Asia/Taipei
+- generated_at: 2026-10-03 15:46:39 Asia/Taipei
 - stock_id: 1310
 - stock_name: 台苯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -125,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 8.87
-- high: 8.91
-- low: 8.74
-- close: 8.9
-- volume: 2181415
-- ma5: 8.8
-- ema23_primary: 8.68
-- distance_to_ema23_pct: 2.56
-- ma20: 8.73
-- ma60: 8.92
-- ma120: 9.04
-- return_5d: -1.44
-- return_20d: 2.42
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 1.96
-- distance_to_high_60_pct: -28.51
+- date: 20261002
+- open: 9.03
+- high: 9.72
+- low: 9.03
+- close: 9.61
+- volume: 7764239
+- ma5: 9.14
+- ema23_primary: 8.84
+- distance_to_ema23_pct: 8.76
+- ma20: 8.82
+- ma60: 8.78
+- ma120: 8.99
+- return_5d: 8.71
+- return_20d: 7.13
+- volume_ratio: 2.36
+- distance_to_ma20_pct_auxiliary: 8.99
+- distance_to_high_60_pct: -18.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,8.69,8.78,8.37,8.43,5238853,8.36,0.78,8.08,9.09,1.23
-20260831,8.43,8.75,8.37,8.75,3873860,8.4,4.21,8.15,9.08,0.92
-20260901,8.69,9.19,8.69,8.85,4593574,8.43,4.93,8.22,9.08,1.08
-20260902,8.82,9.07,8.8,8.97,2724992,8.48,5.79,8.26,9.08,0.68
 20260903,8.99,9.29,8.75,8.82,4431788,8.51,3.67,8.3,9.09,1.16
 20260904,8.78,8.79,8.55,8.72,3093178,8.53,2.29,8.34,9.09,0.82
 20260907,8.73,8.76,8.56,8.6,1979507,8.53,0.8,8.37,9.09,0.54
@@ -167,26 +168,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,8.92,8.92,8.7,8.73,2237724,8.64,1.03,8.69,8.97,0.63
 20260923,8.75,8.92,8.75,8.84,2119640,8.66,2.1,8.72,8.94,0.62
 20260924,8.87,8.91,8.74,8.9,2181415,8.68,2.56,8.73,8.92,0.69
+20260929,8.89,9.15,8.88,8.9,2438328,8.7,2.34,8.75,8.89,0.81
+20260930,8.98,9.33,8.9,9.25,6433878,8.74,5.8,8.78,8.86,2.05
+20261001,9.25,9.32,9.02,9.02,2511718,8.77,2.9,8.79,8.81,0.83
+20261002,9.03,9.72,9.03,9.61,7764239,8.84,8.76,8.82,8.78,2.36
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 31.06
-- over_600_ratio: 27.63
-- over_800_ratio: 25.73
-- over_1000_ratio: 24.87
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 9
-- all_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 31.15
+- over_600_ratio: 27.74
+- over_800_ratio: 25.97
+- over_1000_ratio: 24.61
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.24
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 10
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,29.92,-0.66,25.4,-0.56,24.03,-0.03,0,False,False
 20260717,29.71,-0.21,25.09,-0.31,23.91,-0.12,0,False,False
 20260724,29.57,-0.14,24.99,-0.1,23.62,-0.29,0,False,False
 20260731,29.93,0.36,24.62,-0.37,23.57,-0.05,1,False,False
@@ -198,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,30.57,0.35,25.2,0.59,24.69,1.09,7,True,True
 20260918,30.87,0.3,25.51,0.31,24.82,0.13,8,True,True
 20260924,31.06,0.19,25.73,0.22,24.87,0.05,9,True,True
+20261002,31.15,0.09,25.97,0.24,24.61,-0.26,10,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1310 | 台苯 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市民生東路四段54號4樓(華南永昌證券) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之法人說明會，說明本公司之營運概況。 5.其他應敘明事項：報名請洽華南永昌 張小姐 02-2545-6888#8383 10001@entrust.com.tw 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 1310 | 台苯 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北市民生東路四段54號4樓(華南永昌證券) 4.法人說明會擇要訊息：本公司受邀參加華南永昌證券舉辦之法人說明會，說明本公司之營運概況。 5.其他應敘明事項：報名請洽華南永昌 張小姐 02-2545-6888#8383 10001@entrust.com.tw 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1310 | 台苯 | 4 | 4 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 1310 | 台苯 | 8 | 1 | 5 | 9 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

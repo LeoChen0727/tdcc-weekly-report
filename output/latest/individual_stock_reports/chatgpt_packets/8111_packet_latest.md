@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8111 立碁
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:25 Asia/Taipei
+- generated_at: 2026-10-03 15:48:03 Asia/Taipei
 - stock_id: 8111
 - stock_name: 立碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,10 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,6 +118,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 74.1
-- high: 76.7
-- low: 73.8
-- close: 76.4
-- volume: 6437000
-- ma5: 77.32
-- ema23_primary: 71.42
-- distance_to_ema23_pct: 6.98
-- ma20: 72.72
-- ma60: 62.05
-- ma120: 62.95
-- return_5d: 3.95
-- return_20d: 18.63
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 5.06
-- distance_to_high_60_pct: -8.94
+- date: 20261002
+- open: 80.1
+- high: 85.8
+- low: 80.1
+- close: 85.8
+- volume: 23441000
+- ma5: 79.84
+- ema23_primary: 74.2
+- distance_to_ema23_pct: 15.63
+- ma20: 74.72
+- ma60: 63.94
+- ma120: 63.57
+- return_5d: 15.79
+- return_20d: 12.3
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 14.83
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,64.9,65.6,61.3,62.4,4471000,60.18,3.7,60.71,56.53,0.61
-20260831,62.4,68.6,62.2,68.6,13392000,60.88,12.69,61.05,56.62,1.76
-20260901,72.8,75.4,69,75.4,34235000,62.09,21.44,61.54,56.85,4.12
-20260902,75,78.5,73.4,76.4,45046000,63.28,20.73,62.19,57.14,4.69
 20260903,76.5,82.8,71.9,72,37791000,64.01,12.49,62.66,57.35,3.41
 20260904,72.2,73,68,70,15925000,64.51,8.52,63.19,57.58,1.37
 20260907,72.4,75.5,70.8,73.5,17120000,65.26,12.63,63.95,57.88,1.4
@@ -166,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,81.5,82.9,76.1,77.5,22762000,70.68,9.65,71.62,61.28,1.36
 20260923,76.5,77.4,74.1,74.1,7806000,70.97,4.42,72.12,61.64,0.47
 20260924,74.1,76.7,73.8,76.4,6437000,71.42,6.98,72.72,62.05,0.39
+20260929,76.4,81.5,76.2,79.7,12470000,72.11,10.53,73.58,62.51,0.74
+20260930,80.4,81.2,78.9,79.3,8529000,72.71,9.07,74.12,62.94,0.51
+20261001,79.3,80.5,78,78,5823000,73.15,6.63,74.25,63.36,0.38
+20261002,80.1,85.8,80.1,85.8,23441000,74.2,15.63,74.72,63.94,1.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 36.25
-- over_600_ratio: 30.64
-- over_800_ratio: 28.83
-- over_1000_ratio: 25.55
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.3
-- over_1000_change_1w: -1.14
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 36.78
+- over_600_ratio: 31.73
+- over_800_ratio: 29.37
+- over_1000_ratio: 26.16
+- over_400_change_1w: 0.53
+- over_800_change_1w: 0.54
+- over_1000_change_1w: 0.61
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,36.04,-0.46,27.02,-0.05,25.38,-0.06,0,False,False
 20260717,35.98,-0.06,26.94,-0.08,25.31,-0.07,0,False,False
 20260724,35.33,-0.65,25.91,-1.03,25,-0.31,1,False,False
 20260731,34.89,-0.44,27.6,1.69,26.02,1.02,2,False,True
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,36.19,-2.24,28.75,-1.27,27.13,0.47,8,False,True
 20260918,36.67,0.48,29.13,0.38,26.69,-0.44,9,False,True
 20260924,36.25,-0.42,28.83,-0.3,25.55,-1.14,0,False,False
+20261002,36.78,0.53,29.37,0.54,26.16,0.61,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8111 | 立碁 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 8111 | 立碁 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8111 | 立碁 | 2 | 2 | 4 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 8111 | 立碁 | 1 | 1 | 3 | 7 | 12 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

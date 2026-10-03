@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:20 Asia/Taipei
+- generated_at: 2026-10-03 15:46:51 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 1875
-- high: 1935
-- low: 1875
-- close: 1910
-- volume: 8983854
-- ma5: 1864
-- ema23_primary: 1786.36
-- distance_to_ema23_pct: 6.92
-- ma20: 1780
-- ma60: 1782.5
-- ma120: 1938.54
-- return_5d: 13.35
-- return_20d: 7.91
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 7.3
-- distance_to_high_60_pct: -10.54
+- date: 20261002
+- open: 1895
+- high: 1915
+- low: 1880
+- close: 1885
+- volume: 6064409
+- ma5: 1885
+- ema23_primary: 1814.02
+- distance_to_ema23_pct: 3.91
+- ma20: 1792.5
+- ma60: 1775.58
+- ma120: 1946.5
+- return_5d: -0.79
+- return_20d: 8.96
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 5.16
+- distance_to_high_60_pct: -5.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,1800,1870,1780,1830,13398406,1775.34,3.08,1756,1896,1.09
-20260831,1785,1840,1775,1840,8899747,1780.73,3.33,1769,1886.25,0.75
-20260901,1845,1865,1810,1865,8434152,1787.75,4.32,1781.25,1879,0.75
-20260902,1815,1815,1730,1730,15977253,1782.94,-2.97,1785.25,1870.25,1.43
 20260903,1735,1810,1725,1760,10346094,1781.03,-1.18,1789.25,1859.33,0.93
 20260904,1810,1850,1790,1825,9195063,1784.69,2.26,1798,1853.08,0.83
 20260907,1845,1885,1825,1850,7560958,1790.13,3.34,1799.75,1847.92,0.69
@@ -166,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,1965,1965,1900,1900,16957990,1763.77,7.72,1765.5,1784.67,1.42
 20260923,1910,1920,1890,1900,9734322,1775.12,7.04,1773,1783.83,0.82
 20260924,1875,1935,1875,1910,8983854,1786.36,6.92,1780,1782.5,0.75
+20260929,1880,1950,1810,1835,14404821,1790.41,2.49,1780.25,1780.25,1.2
+20260930,1885,1930,1870,1890,11094898,1798.71,5.08,1782.75,1777.17,0.92
+20261001,1925,1935,1860,1905,6119811,1807.57,5.39,1784.75,1775.67,0.51
+20261002,1895,1915,1880,1885,6064409,1814.02,3.91,1792.5,1775.58,0.53
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 80.62
-- over_600_ratio: 77.61
-- over_800_ratio: 75.31
-- over_1000_ratio: 73.56
-- over_400_change_1w: 0.36
-- over_800_change_1w: 0.21
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 80.68
+- over_600_ratio: 77.64
+- over_800_ratio: 75.38
+- over_1000_ratio: 73.62
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,81.62,-0.1,76.31,-0.11,74.63,0.01,1,False,True
 20260717,81.37,-0.25,76.26,-0.05,74.38,-0.25,0,False,False
 20260724,81.32,-0.05,76.21,-0.05,74.39,0.01,1,False,True
 20260731,81.03,-0.29,76.15,-0.06,74.11,-0.28,0,False,False
@@ -197,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,80.39,-0.26,75.09,-0.21,73.44,-0.31,0,False,False
 20260918,80.26,-0.13,75.1,0.01,73.59,0.15,1,False,True
 20260924,80.62,0.36,75.31,0.21,73.56,-0.03,2,False,True
+20261002,80.68,0.06,75.38,0.07,73.62,0.06,3,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2308 | 台達電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:台達電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:法人看好第四季營收可望維持季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:報載內容係法人自行預估，本公司未提供財務預測，有關本公司 相關之財務數據，敬請投資大眾參閱公開資訊觀測站。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:台達電子工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報 6.報導內容:法人看好第四季營收可望維持季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:公佈澄清訊息於公開資訊觀測站 9.其他應敘明事項:報載內容係法人自行預估，本公司未提供財務預測，有關本公司 相關之財務數據，敬請投資大眾參閱公開資訊觀測站。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2308 | 台達電 | 7 | 7 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2308 | 台達電 | 325 | 24 | 65160180.0 | 208090.0 | 313.13 | no_signal |
+| 20261002 | 2308 | 台達電 | 320 | 20 | 66033910.0 | 99240.0 | 665.4 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:25 Asia/Taipei
+- generated_at: 2026-10-03 15:46:57 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 356
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 360
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 41.25
-- high: 41.95
-- low: 40.25
-- close: 40.8
-- volume: 17569723
-- ma5: 42.19
-- ema23_primary: 39.88
-- distance_to_ema23_pct: 2.3
-- ma20: 40.83
-- ma60: 36.05
-- ma120: 40.21
-- return_5d: -5.56
-- return_20d: 1.87
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.07
-- distance_to_high_60_pct: -10.33
+- date: 20261002
+- open: 41.7
+- high: 42.75
+- low: 40.95
+- close: 41.15
+- volume: 15967742
+- ma5: 41.1
+- ema23_primary: 40.26
+- distance_to_ema23_pct: 2.21
+- ma20: 40.69
+- ma60: 36.07
+- ma120: 40.23
+- return_5d: 0.24
+- return_20d: -2.6
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 1.13
+- distance_to_high_60_pct: -9.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,40,42.5,39.1,40.2,49524525,35.16,14.34,33.91,37.38,1.78
-20260831,40,44.2,40,42.2,89725408,35.75,18.05,34.62,37.26,2.81
-20260901,42.2,45,41.75,42.8,102064014,36.33,17.8,35.26,37.17,2.79
-20260902,42.5,44.95,42.15,42.25,64396060,36.83,14.73,35.72,37.15,1.67
 20260903,42.6,43.3,39.9,40.9,40968646,37.17,10.05,36.18,37.09,1.04
 20260904,41.05,41.45,39.2,41,30904519,37.49,9.37,36.69,37.1,0.77
 20260907,41,41.65,40.55,40.9,18407786,37.77,8.29,37.06,37.09,0.46
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,43.1,43.7,41.9,41.95,29552768,39.69,5.7,40.81,36.08,0.61
 20260923,42.25,42.65,40.85,41.05,14619018,39.8,3.14,40.79,36.05,0.34
 20260924,41.25,41.95,40.25,40.8,17569723,39.88,2.3,40.83,36.05,0.42
+20260929,40.25,41.15,40.1,41.1,8627458,39.98,2.79,40.87,36.04,0.22
+20260930,41.65,42.35,41.2,41.8,23864644,40.14,4.15,40.85,36.04,0.66
+20261001,42,42.05,40.6,40.65,12754502,40.18,1.17,40.74,36.03,0.4
+20261002,41.7,42.75,40.95,41.15,15967742,40.26,2.21,40.69,36.07,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 29.97
-- over_600_ratio: 28.34
-- over_800_ratio: 26.51
-- over_1000_ratio: 25.8
-- over_400_change_1w: -1.79
-- over_800_change_1w: -1.78
-- over_1000_change_1w: -2.05
+- as_of_date: 20261002
+- over_400_ratio: 28.75
+- over_600_ratio: 27.16
+- over_800_ratio: 25.77
+- over_1000_ratio: 24.9
+- over_400_change_1w: -1.22
+- over_800_change_1w: -0.74
+- over_1000_change_1w: -0.9
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,30.62,-0.74,27.45,-1.03,26.88,-1.17,0,False,False
 20260717,30.15,-0.47,26.69,-0.76,25.71,-1.17,0,False,False
 20260724,29.71,-0.44,26.25,-0.44,25.41,-0.3,0,False,False
 20260731,29.86,0.15,26.28,0.03,25.69,0.28,1,True,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,29.68,-0.57,25.86,-1.17,25.27,-0.9,0,False,False
 20260918,31.76,2.08,28.29,2.43,27.85,2.58,1,True,True
 20260924,29.97,-1.79,26.51,-1.78,25.8,-2.05,0,False,False
+20261002,28.75,-1.22,25.77,-0.74,24.9,-0.9,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2489 | 瑞軒 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/27 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間       (月)                      (季)                 (最近四季累計)       最近一月  與去年同期   最近一季  與去年同期   114年第3季至115年第2季 科目 (115年7月)     增減%   (115年第2季)  增減%       IFRS合併自結數         IFRS合併核閱數           IFRS合併(查)核閱數 =============================================================== 營業收入  2,691         32%      7,356          14%             26,082 (百萬) 稅前淨利      93       -43%         225             (註)              1,112 (百萬) 歸屬母公司 業主淨利      74        -43%         178            (註)                846 (百萬) 每股盈餘   0.12        -36%        0.29           (註)                1.35 (元) 註：去年為負值 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 2489 | 瑞軒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/27 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間       (月)                      (季)                 (最近四季累計)       最近一月  與去年同期   最近一季  與去年同期   114年第3季至115年第2季 科目 (115年7月)     增減%   (115年第2季)  增減%       IFRS合併自結數         IFRS合併核閱數           IFRS合併(查)核閱數 =============================================================== 營業收入  2,691         32%      7,356          14%             26,082 (百萬) 稅前淨利      93       -43%         225             (註)              1,112 (百萬) 歸屬母公司 業主淨利      74        -43%         178            (註)                846 (百萬) 每股盈餘   0.12        -36%        0.29           (註)                1.35 (元) 註：去年為負值 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 2489 | 瑞軒 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/27 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊: 期間       (月)                      (季)                 (最近四季累計)       最近一月  與去年同期   最近一季  與去年同期   114年第3季至115年第2季 科目 (115年7月)     增減%   (115年第2季)  增減%       IFRS合併自結數         IFRS合併核閱數           IFRS合併(查)核閱數 =============================================================== 營業收入  2,691         32%      7,356          14%             26,082 (百萬) 稅前淨利      93       -43%         225             (註)              1,112 (百萬) 歸屬母公司 業主淨利      74        -43%         178            (註)                846 (百萬) 每股盈餘   0.12        -36%        0.29           (註)                1.35 (元) 註：去年為負值 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2489 | 瑞軒 | 11 | 4 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2489 | 瑞軒 | 15 | 8 | 5 | 10 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2489 | 瑞軒 | 47 | 2 | 5135860.0 | 136600.0 | 37.6 | no_signal |
+| 20261002 | 2489 | 瑞軒 | 52 | 2 | 1593550.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

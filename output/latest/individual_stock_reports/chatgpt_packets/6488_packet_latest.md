@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:07 Asia/Taipei
+- generated_at: 2026-10-03 15:47:43 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,11 +101,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +116,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 944
-- high: 960
-- low: 930
-- close: 948
-- volume: 9201000
-- ma5: 948.8
-- ema23_primary: 948.47
-- distance_to_ema23_pct: -0.05
-- ma20: 943
-- ma60: 1031.83
-- ma120: 897.41
-- return_5d: 3.95
-- return_20d: -1.04
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 0.53
-- distance_to_high_60_pct: -40.75
+- date: 20261002
+- open: 1090
+- high: 1190
+- low: 1075
+- close: 1190
+- volume: 15514000
+- ma5: 1040.6
+- ema23_primary: 984.86
+- distance_to_ema23_pct: 20.83
+- ma20: 963.5
+- ma60: 1019.42
+- ma120: 917.99
+- return_5d: 25.26
+- return_20d: 23.06
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 23.51
+- distance_to_high_60_pct: -25.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,967,1015,949,972,11084000,983.82,-1.2,948.55,1033.25,1.02
-20260831,951,953,875,912,10890000,977.84,-6.73,950.85,1033.95,1.02
-20260901,908,998,908,994,12008000,979.18,1.51,952.95,1037,1.11
-20260902,976,982,951,967,6929000,978.17,-1.14,957.7,1040.32,0.7
 20260903,970,974,920,927,7319000,973.9,-4.82,960.45,1042.38,0.75
 20260904,953,983,940,981,8077000,974.5,0.67,965.9,1045.82,0.83
 20260907,990,1015,966,971,8393000,974.2,-0.33,971.75,1048.9,0.86
@@ -168,18 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,950,1010,950,971,17667000,948.37,2.39,943.45,1035.37,2.04
 20260923,929,1005,922,950,28081000,948.51,0.16,943.5,1034.45,2.92
 20260924,944,960,930,948,9201000,948.47,-0.05,943,1031.83,0.95
+20260929,940,964,930,945,8849000,948.18,-0.34,941.65,1027.5,0.92
+20260930,966,1035,953,1035,17757000,955.41,8.33,947.8,1023.83,1.79
+20261001,1055,1135,1045,1085,23578000,966.21,12.29,952.35,1019.67,2.24
+20261002,1090,1190,1075,1190,15514000,984.86,20.83,963.5,1019.42,1.42
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 76.91
-- over_600_ratio: 74.4
-- over_800_ratio: 72.4
-- over_1000_ratio: 71.08
-- over_400_change_1w: 0.4
-- over_800_change_1w: 1.16
-- over_1000_change_1w: 1.94
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20261002
+- over_400_ratio: 79.74
+- over_600_ratio: 77.52
+- over_800_ratio: 75.65
+- over_1000_ratio: 74.14
+- over_400_change_1w: 2.83
+- over_800_change_1w: 3.25
+- over_1000_change_1w: 3.06
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,80.92,-0.06,76.46,0.68,72.7,-0.25,4,False,True
 20260717,80.94,0.02,76.5,0.04,72.81,0.11,5,True,True
 20260724,80.05,-0.89,75.48,-1.02,71.73,-1.08,0,False,False
 20260731,79.92,-0.13,75.02,-0.46,72.61,0.88,1,False,True
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,77.12,-0.56,71.95,-0.56,70.45,-0.15,0,False,False
 20260918,76.51,-0.61,71.24,-0.71,69.14,-1.31,0,False,False
 20260924,76.91,0.4,72.4,1.16,71.08,1.94,1,True,True
+20261002,79.74,2.83,75.65,3.25,74.14,3.06,2,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6488 | 環球晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/09/29 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: 一、基本資料 (一)單月                     115年8月         114年8月        與去年同期增減 營業收入(百萬元)              4,764            4,427               7.63% 稅前淨利(百萬元)                785              424              85.06% 歸屬母公司業主淨利(百萬元)      704              288             144.98% 每股盈餘(元)                   1.47             0.60             145.00%  (二)單季                    115年第2季      114年第2季        與去年同期增減 營業收入(百萬元)             15,214           16,007              -4.95% 稅前淨利(百萬元)              4,585            2,288             100.39% 歸屬母公司業主淨利(百萬元)    3,779            1,681             124.81% 每股盈餘(元)                   7.90             3.52             124.43%  (三)最近四季累計       114年第3季至115年第2季 營業收入(百萬元)             58,195 稅前淨利(百萬元)             12,026 歸屬母公司業主淨利(百萬元)    9,849 每股盈餘(元)                  20.60 每股面額：10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:有 115/09/23公告本公司現金增資發行普通股參與發行海外存託憑證之發行條件 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項: 註1：以上115年8月及去年同期比較數之財務資料係本公司採IFRS會計準則 編製之合併數，未經會計師查核(閱)，僅供投資人參考。 註2：最近一季115年第2季係指單季數字，非為最近財務報告中之累計數字， 且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。 註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合併數， 業經會計師查核(閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6488 | 環球晶 | 3 | 1 | 3 | 5 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

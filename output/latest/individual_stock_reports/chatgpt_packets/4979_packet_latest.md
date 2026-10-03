@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4979 華星光
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:53 Asia/Taipei
+- generated_at: 2026-10-03 15:47:27 Asia/Taipei
 - stock_id: 4979
 - stock_name: 華星光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 581
-- high: 590
-- low: 559
-- close: 563
-- volume: 8532000
-- ma5: 597.4
-- ema23_primary: 571.69
-- distance_to_ema23_pct: -1.52
-- ma20: 584.85
-- ma60: 505.94
-- ma120: 538.05
-- return_5d: 1.26
-- return_20d: -8.75
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -3.74
-- distance_to_high_60_pct: -14.44
+- date: 20261002
+- open: 564
+- high: 585
+- low: 564
+- close: 585
+- volume: 1240000
+- ma5: 568.2
+- ema23_primary: 571.19
+- distance_to_ema23_pct: 2.42
+- ma20: 576.6
+- ma60: 513.93
+- ma120: 542.83
+- return_5d: -0.85
+- return_20d: -6.25
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: 1.46
+- distance_to_high_60_pct: -11.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,603,621,596,610,2414000,534.25,14.18,536.88,485.9,0.23
-20260831,606,613,589,609,2001000,540.48,12.68,546.98,486.22,0.2
-20260901,609,613,595,600,2039000,545.44,10,554.6,486.28,0.2
-20260902,600,624,600,624,2615000,551.99,13.05,561.2,487.73,0.26
 20260903,633,635,572,572,2518000,553.66,3.31,565.4,487.93,0.25
 20260904,615,629,590,629,18513000,559.94,12.33,572.45,490.02,1.72
 20260907,630,635,590,590,15293000,562.44,4.9,575.15,491.97,1.38
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,630,637,605,605,11366000,570.89,5.97,587.95,502.13,1.27
 20260923,612,613,583,590,7144000,572.48,3.06,587.55,504.07,0.89
 20260924,581,590,559,563,8532000,571.69,-1.52,584.85,505.94,1.22
+20260929,560,570,556,567,921000,571.3,-0.75,582.7,507.98,0.13
+20260930,576,576,561,569,615000,571.11,-0.37,580.7,509.65,0.09
+20261001,570,572,545,557,980000,569.93,-2.27,578.55,511.32,0.14
+20261002,564,585,564,585,1240000,571.19,2.42,576.6,513.93,0.18
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 45.73
-- over_600_ratio: 37.76
-- over_800_ratio: 33.02
-- over_1000_ratio: 27.93
-- over_400_change_1w: 1.86
-- over_800_change_1w: 1.23
-- over_1000_change_1w: 1.16
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 43.8
+- over_600_ratio: 36.44
+- over_800_ratio: 31.26
+- over_1000_ratio: 26.88
+- over_400_change_1w: -1.93
+- over_800_change_1w: -1.76
+- over_1000_change_1w: -1.05
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,38.01,-0.67,31.68,-0.17,27.81,-0.25,2,False,False
 20260717,37.81,-0.2,30.74,-0.94,26.24,-1.57,0,False,False
 20260724,39.79,1.98,30.38,-0.36,25.98,-0.26,1,False,False
 20260731,38.74,-1.05,28.07,-2.31,24.42,-1.56,0,False,False
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,44.68,0.74,30.93,-0.67,25.91,-0.05,1,False,False
 20260918,43.87,-0.81,31.79,0.86,26.77,0.86,2,False,True
 20260924,45.73,1.86,33.02,1.23,27.93,1.16,3,True,True
+20261002,43.8,-1.93,31.26,-1.76,26.88,-1.05,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4979 | 華星光 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/09/23 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                最近一月單月      去年同月       與去年同期增減%                    (115/08)      (114/08) ----------------------------------------------------------------- 營業收入(百萬元)     546            398              37.19% 稅前淨利(百萬元)     113             90              25.56% 歸屬母公司業主淨利    92             90               2.22% (百萬元) 每股盈餘(元)        0.64           0.64                  - ================================================================= (2)單季                最近一季單季       去年同期     與去年同期增減%                (115年第2季)     (114年第2季) ----------------------------------------------------------------- 營業收入(百萬元)  1,289           1,087             18.58% 稅前淨利(百萬元)    248              95            161.05% 歸屬母公司業主淨利  184              95             93.68% (百萬元) 每股盈餘(元)       1.29            0.67             92.54% ================================================================= (3)最近四季累計                      114年第3季至115年第2季 ---------------------------------------------------------------- 營業收入(百萬元)              4,713 稅前淨利(百萬元)              1,004 歸屬母公司業主淨利              870 (百萬元) 每股盈餘(元)                   6.15 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)115年8月和去年同期比較數之財務資料係本公司採IFRS會計  　準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第2季係指單季數字，係經會計師查核(閱)。 (3)最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合    併數，業經會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 4979 | 華星光 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/23 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                最近一月單月      去年同月       與去年同期增減%                    (115/08)      (114/08) ----------------------------------------------------------------- 營業收入(百萬元)     546            398              37.19% 稅前淨利(百萬元)     113             90              25.56% 歸屬母公司業主淨利    92             90               2.22% (百萬元) 每股盈餘(元)        0.64           0.64                  - ================================================================= (2)單季                最近一季單季       去年同期     與去年同期增減%                (115年第2季)     (114年第2季) ----------------------------------------------------------------- 營業收入(百萬元)  1,289           1,087             18.58% 稅前淨利(百萬元)    248              95            161.05% 歸屬母公司業主淨利  184              95             93.68% (百萬元) 每股盈餘(元)       1.29            0.67             92.54% ================================================================= (3)最近四季累計                      114年第3季至115年第2季 ---------------------------------------------------------------- 營業收入(百萬元)              4,713 稅前淨利(百萬元)              1,004 歸屬母公司業主淨利              870 (百萬元) 每股盈餘(元)                   6.15 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)115年8月和去年同期比較數之財務資料係本公司採IFRS會計  　準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第2季係指單季數字，係經會計師查核(閱)。 (3)最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合    併數，業經會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 4979 | 華星光 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/09/23 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。 3.財務業務資訊: (1)單月                最近一月單月      去年同月       與去年同期增減%                    (115/08)      (114/08) ----------------------------------------------------------------- 營業收入(百萬元)     546            398              37.19% 稅前淨利(百萬元)     113             90              25.56% 歸屬母公司業主淨利    92             90               2.22% (百萬元) 每股盈餘(元)        0.64           0.64                  - ================================================================= (2)單季                最近一季單季       去年同期     與去年同期增減%                (115年第2季)     (114年第2季) ----------------------------------------------------------------- 營業收入(百萬元)  1,289           1,087             18.58% 稅前淨利(百萬元)    248              95            161.05% 歸屬母公司業主淨利  184              95             93.68% (百萬元) 每股盈餘(元)       1.29            0.67             92.54% ================================================================= (3)最近四季累計                      114年第3季至115年第2季 ---------------------------------------------------------------- 營業收入(百萬元)              4,713 稅前淨利(百萬元)              1,004 歸屬母公司業主淨利              870 (百萬元) 每股盈餘(元)                   6.15 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)115年8月和去年同期比較數之財務資料係本公司採IFRS會計  　準則編製之合併自結數，未經會計師查核(閱)，僅供投資人參考。 (2)最近一季115年第2季係指單季數字，係經會計師查核(閱)。 (3)最近四季累計係本公司114年第3季至115年第2季採IFRS編製之合    併數，業經會計師查核(閱)。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4979 | 華星光 | 5 | 3 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 4979 | 華星光 | 1 | 1 | 2 | 6 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

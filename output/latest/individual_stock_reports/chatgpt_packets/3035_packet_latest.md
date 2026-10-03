@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:33 Asia/Taipei
+- generated_at: 2026-10-03 15:47:05 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 202
-- high: 207.5
-- low: 199.5
-- close: 206.5
-- volume: 4855474
-- ma5: 199
-- ema23_primary: 184.62
-- distance_to_ema23_pct: 11.85
-- ma20: 182.6
-- ma60: 184.32
-- ma120: 186.61
-- return_5d: 15.36
-- return_20d: 17
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 13.09
-- distance_to_high_60_pct: -8.22
+- date: 20261002
+- open: 213
+- high: 217
+- low: 210
+- close: 215.5
+- volume: 4927298
+- ma5: 211.1
+- ema23_primary: 192.8
+- distance_to_ema23_pct: 11.77
+- ma20: 188.88
+- ma60: 184.19
+- ma120: 188.75
+- return_5d: 5.64
+- return_20d: 16.8
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 14.1
+- distance_to_high_60_pct: -2.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,179,184,178,180.5,2656751,177.1,1.92,173.25,190.76,0.77
-20260831,177,178,172.5,175,2225256,176.92,-1.09,174,190.48,0.72
-20260901,177.5,187.5,177.5,183.5,6122226,177.47,3.4,174.88,190.34,1.99
-20260902,183.5,186,182,184.5,2909867,178.06,3.62,175.53,190.48,0.99
 20260903,186.5,187.5,179,180,2519016,178.22,1,175.97,190.38,0.87
 20260904,183.5,184.5,177.5,179.5,1470816,178.33,0.66,176.35,190.47,0.52
 20260907,182.5,182.5,177,179,1564813,178.38,0.35,176.4,190.48,0.61
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,196,210,195.5,203,15188469,180.69,12.35,179.93,184.53,4.15
 20260923,203,209,201,204,7475543,182.63,11.7,181.1,184.41,1.94
 20260924,202,207.5,199.5,206.5,4855474,184.62,11.85,182.6,184.32,1.21
+20260929,208,217,204.5,210,7221057,186.74,12.46,184.07,184.08,1.71
+20260930,210.5,215.5,208,210.5,5825258,188.72,11.54,185.85,183.88,1.32
+20261001,210,214,208.5,213,4389347,190.74,11.67,187.32,183.92,1.01
+20261002,213,217,210,215.5,4927298,192.8,11.77,188.88,184.19,1.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 31.67
-- over_600_ratio: 29.9
-- over_800_ratio: 28.55
-- over_1000_ratio: 26.84
-- over_400_change_1w: 2.88
-- over_800_change_1w: 2.76
-- over_1000_change_1w: 3.81
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20261002
+- over_400_ratio: 32.71
+- over_600_ratio: 31.13
+- over_800_ratio: 29.75
+- over_1000_ratio: 28.79
+- over_400_change_1w: 1.04
+- over_800_change_1w: 1.2
+- over_1000_change_1w: 1.95
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,31.06,0.34,27.91,0.24,24.8,-1.19,1,False,True
 20260717,30.81,-0.25,26.76,-1.15,24.35,-0.45,2,False,False
 20260724,31.14,0.33,26.75,-0.01,24.96,0.61,3,False,True
 20260731,30.11,-1.03,25.38,-1.37,23.59,-1.37,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,29.02,-0.4,25.59,-0.11,22.54,-0.41,0,False,False
 20260918,28.79,-0.23,25.79,0.2,23.03,0.49,1,False,True
 20260924,31.67,2.88,28.55,2.76,26.84,3.81,2,True,True
+20261002,32.71,1.04,29.75,1.2,28.79,1.95,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3035 | 智原 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：115年第二季線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3035 | 智原 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/07/28 1.召開法人說明會之日期：115/07/28 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：115年第二季線上法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3035 | 智原 | 3 | 3 | 4 | 8 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 3035 | 智原 | 7 | 7 | 5 | 9 | 17 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3035 | 智原 | 165 | 3 | 25074340.0 | 0.0 |  | no_signal |
+| 20261002 | 3035 | 智原 | 179 | 3 | 22924480.0 | 22680.0 | 1010.78 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:59 Asia/Taipei
+- generated_at: 2026-10-03 15:47:34 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 32.3
-- high: 32.45
-- low: 31.9
+- date: 20261002
+- open: 31.75
+- high: 32.1
+- low: 31.65
 - close: 32
-- volume: 6338990
-- ma5: 32.14
+- volume: 3652489
+- ma5: 31.92
 - ema23_primary: 31.92
-- distance_to_ema23_pct: 0.25
-- ma20: 31.91
-- ma60: 32.94
-- ma120: 33.33
-- return_5d: 2.24
-- return_20d: 2.89
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 0.27
-- distance_to_high_60_pct: -19.29
+- distance_to_ema23_pct: 0.26
+- ma20: 31.97
+- ma60: 32.54
+- ma120: 33.45
+- return_5d: -1.69
+- return_20d: 0
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 0.09
+- distance_to_high_60_pct: -16.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,31.2,31.7,31.2,31.45,4726832,31.86,-1.29,31.73,35.35,0.68
-20260831,31.4,31.45,31,31,8117315,31.79,-2.49,31.55,35.16,1.16
-20260901,31.15,32.1,31.15,32.05,9193026,31.81,0.75,31.41,34.94,1.3
-20260902,31.6,32.15,31.6,32,4900949,31.83,0.54,31.27,34.8,0.71
 20260903,32,32.95,32,32.35,8491306,31.87,1.5,31.16,34.66,1.22
 20260904,32.6,32.8,32.35,32.75,4226625,31.94,2.52,31.11,34.57,0.65
 20260907,33.1,33.2,32.4,32.7,5263332,32.01,2.16,31.05,34.48,0.88
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,32.6,33.1,32.25,32.4,10839671,31.86,1.71,31.78,33.13,1.62
 20260923,32.6,33,32.4,32.55,6495135,31.91,2,31.87,33.04,0.95
 20260924,32.3,32.45,31.9,32,6338990,31.92,0.25,31.91,32.94,0.92
+20260929,32,32.15,31.65,31.65,4412919,31.9,-0.78,31.93,32.85,0.64
+20260930,31.95,32.3,31.85,32.05,5523115,31.91,0.44,31.98,32.75,0.82
+20261001,32.15,32.15,31.4,31.9,8047795,31.91,-0.03,31.97,32.64,1.21
+20261002,31.75,32.1,31.65,32,3652489,31.92,0.26,31.97,32.54,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 70.63
-- over_600_ratio: 68.99
-- over_800_ratio: 67.82
-- over_1000_ratio: 67.02
-- over_400_change_1w: 0.23
-- over_800_change_1w: 0.17
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 70.27
+- over_600_ratio: 68.61
+- over_800_ratio: 67.41
+- over_1000_ratio: 66.6
+- over_400_change_1w: -0.36
+- over_800_change_1w: -0.41
+- over_1000_change_1w: -0.42
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,72.74,-0.63,70.34,-0.68,69.35,-0.72,0,False,False
 20260717,72.17,-0.57,69.78,-0.56,68.75,-0.6,0,False,False
 20260724,71.85,-0.32,69.46,-0.32,68.39,-0.36,0,False,False
 20260731,71.58,-0.27,69.09,-0.37,67.88,-0.51,0,False,False
@@ -199,18 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,70.07,-0.12,67.55,-0.06,66.31,-0.05,0,False,False
 20260918,70.4,0.33,67.65,0.1,66.88,0.57,1,True,True
 20260924,70.63,0.23,67.82,0.17,67.02,0.14,2,True,True
+20261002,70.27,-0.36,67.41,-0.41,66.6,-0.42,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6005 | 群益證 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司115年第二季財務業務相關資訊說明 5.其他應敘明事項：報名連結：https://forms.cloud.microsoft/r/S06sYSiPjm 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 6005 | 群益證 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司115年第二季財務業務相關資訊說明 5.其他應敘明事項：報名連結：https://forms.cloud.microsoft/r/S06sYSiPjm 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6005 | 群益證 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/11 1.召開法人說明會之日期：115/09/11 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法人說明會 4.法人說明會擇要訊息：本公司115年第二季財務業務相關資訊說明 5.其他應敘明事項：報名連結：https://forms.cloud.microsoft/r/S06sYSiPjm 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6005 | 群益證 | 14 | 14 | 5 | 10 | 17 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
+| 20261002 | 6005 | 群益證 | 18 | 1 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

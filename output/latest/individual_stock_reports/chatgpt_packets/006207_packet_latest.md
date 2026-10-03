@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006207 復華滬深
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:03 Asia/Taipei
+- generated_at: 2026-10-03 15:46:34 Asia/Taipei
 - stock_id: 006207
 - stock_name: 復華滬深
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260924
-- price_rows: 95
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 99
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -73,13 +73,13 @@
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,8 +87,8 @@
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
 - position_sizing: half_position
 
 ### management_plan
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 31.76
-- high: 31.78
-- low: 31.7
-- close: 31.7
-- volume: 148187
-- ma5: 32.05
-- ema23_primary: 32.12
-- distance_to_ema23_pct: -1.3
-- ma20: 32.02
-- ma60: 32.68
-- ma120: 32.56
-- return_5d: -0.25
-- return_20d: -2.31
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -0.99
-- distance_to_high_60_pct: -7.36
+- date: 20261002
+- open: 30.8
+- high: 30.8
+- low: 30.52
+- close: 30.6
+- volume: 153475
+- ma5: 31.08
+- ema23_primary: 31.76
+- distance_to_ema23_pct: -3.66
+- ma20: 31.75
+- ma60: 32.5
+- ma120: 32.49
+- return_5d: -4.49
+- return_20d: -4.55
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -3.62
+- distance_to_high_60_pct: -9.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,32.45,32.45,32.35,32.35,105705,32.75,-1.21,32.83,33.22,0.68
-20260831,32.29,32.29,32,32.26,206239,32.7,-1.36,32.82,33.19,1.32
-20260901,32.26,32.42,32.26,32.42,122493,32.68,-0.8,32.8,33.17,0.81
-20260902,31.97,32.06,31.94,32.06,171202,32.63,-1.75,32.74,33.17,1.11
 20260903,32.1,32.26,32.02,32.02,122228,32.58,-1.71,32.69,33.16,0.81
 20260904,32.27,32.34,32.23,32.34,117730,32.56,-0.67,32.64,33.15,0.78
 20260907,32.34,32.34,32,32.07,129375,32.52,-1.38,32.58,33.14,0.86
@@ -173,6 +169,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,32.48,32.5,32.36,32.37,117222,32.16,0.64,32.08,32.77,0.77
 20260923,32.2,32.21,32.04,32.04,306022,32.15,-0.36,32.06,32.73,1.91
 20260924,31.76,31.78,31.7,31.7,148187,32.12,-1.3,32.02,32.68,0.91
+20260929,31.1,31.1,30.8,31.04,618589,32.03,-3.08,31.95,32.64,3.29
+20260930,31.06,31.19,31.06,31.11,119439,31.95,-2.63,31.89,32.6,0.65
+20261001,30.91,30.97,30.9,30.97,106075,31.87,-2.82,31.82,32.55,0.58
+20261002,30.8,30.8,30.52,30.6,153475,31.76,-3.66,31.75,32.5,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -198,12 +198,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6207 | 雷科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | 1.董事會或股東會決議日期:NA 2.原發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.7元)。 3.變更後發放股利種類及金額: 盈餘分配之現金股利新台幣55,775,937元 (每股配發0.60275886元)。 4.變更原因:本公司因國內第五次及第六次無擔保可轉換公司債轉換， 致影響流通在外股數，爰依民國115年3月10日董事會決議，授權董事長調整配息率。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6207 | 雷科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/10/01 2.發生緣由:本公司於今日10:16接獲櫃買中心通知，本公司可轉換 公司債雷科五(代號:62075)已達應公布注意交易資訊標準，爰奉 櫃買中心指示公布下列訊息，以供投資人參酌 3.財務業務資訊: 雷科五(62075)轉換公司債相關資訊： 到期日期：117/08/26 實際發行總額：新台幣600,000,000元整 本月發行餘額：新台幣53,200,000元整 (截至115/09/30) 最新轉換價格：50.5元 轉換標的收盤價格(代號：6207)：151元 (115/09/30) 轉換公司債收盤價格(代號:62075)：299元 (115/09/30) 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無 6.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6207 | 雷科 | 3 | 1 | 4 | 9 | 17 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20261002 | 6207 | 雷科 | 1 | 1 | 4 | 8 | 16 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

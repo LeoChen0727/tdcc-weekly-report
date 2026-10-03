@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4743 合一
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:51 Asia/Taipei
+- generated_at: 2026-10-03 15:47:24 Asia/Taipei
 - stock_id: 4743
 - stock_name: 合一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 45
-- high: 45.05
-- low: 44.3
-- close: 44.75
-- volume: 612000
-- ma5: 44.61
-- ema23_primary: 45.27
-- distance_to_ema23_pct: -1.16
-- ma20: 45.13
-- ma60: 47.23
-- ma120: 49.27
-- return_5d: 0.34
-- return_20d: -5.09
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -0.84
-- distance_to_high_60_pct: -28.97
+- date: 20261002
+- open: 45.85
+- high: 47.15
+- low: 45.7
+- close: 47.15
+- volume: 1024000
+- ma5: 46.12
+- ema23_primary: 45.63
+- distance_to_ema23_pct: 3.33
+- ma20: 45.09
+- ma60: 46.56
+- ma120: 49.02
+- return_5d: 4.43
+- return_20d: 1.07
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 4.56
+- distance_to_high_60_pct: -20.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,47.15,47.4,46.7,46.95,713000,47.32,-0.77,47.01,48.58,0.43
-20260831,47,47.1,46.05,46.5,1227000,47.25,-1.58,47.06,48.52,0.79
-20260901,46.55,46.9,46.35,46.45,484000,47.18,-1.55,47.02,48.45,0.33
-20260902,46.7,46.85,46.25,46.65,543000,47.14,-1.03,47.06,48.4,0.4
 20260903,45.5,45.6,44.75,44.75,1800000,46.94,-4.66,47.02,48.32,1.3
 20260904,45.15,45.15,43.85,44.65,1064000,46.75,-4.49,46.97,48.24,0.77
 20260907,45.1,45.85,44.55,45.6,934000,46.65,-2.25,46.98,48.21,0.67
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,44.75,45.15,44.4,44.4,692000,45.34,-2.07,45.38,47.46,0.7
 20260923,44.55,45.4,44.55,45.15,1039000,45.32,-0.38,45.25,47.35,1.05
 20260924,45,45.05,44.3,44.75,612000,45.27,-1.16,45.13,47.23,0.64
+20260929,45,46.3,44.8,45.7,1042000,45.31,0.86,45.06,47.12,1.07
+20260930,45.85,47.35,45.4,47.15,1975000,45.46,3.71,45.1,46.95,1.95
+20261001,47.15,47.25,45.65,45.85,1277000,45.49,0.78,45.07,46.72,1.22
+20261002,45.85,47.15,45.7,47.15,1024000,45.63,3.33,45.09,46.56,0.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 45.63
-- over_600_ratio: 42.75
-- over_800_ratio: 41.62
-- over_1000_ratio: 41.07
+- as_of_date: 20261002
+- over_400_ratio: 45.79
+- over_600_ratio: 42.86
+- over_800_ratio: 41.58
+- over_1000_ratio: 41.04
 - over_400_change_1w: 0.16
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,46.91,0.75,42.96,0.84,42.58,0.84,4,True,True
 20260717,46.26,-0.65,42.42,-0.54,42.04,-0.54,0,False,False
 20260724,46.39,0.13,42.26,-0.16,42.08,0.04,1,False,True
 20260731,45.68,-0.71,41.27,-0.99,40.89,-1.19,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,45.69,0.2,41.55,0.04,41,0.22,1,True,True
 20260918,45.47,-0.22,41.41,-0.14,40.86,-0.14,0,False,False
 20260924,45.63,0.16,41.62,0.21,41.07,0.21,1,True,True
+20261002,45.79,0.16,41.58,-0.04,41.04,-0.03,2,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 4743 | 合一 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.事實發生日:115/10/01 2.研發新藥名稱或代號:Bonvadis傷口外用乳膏 3.用途:傷口敷料 4.預計進行之所有研發階段:不適用 5.目前進行中之研發階段(請說明目前之研發階段係屬提出申請/通過核准/不通過核准 ，若未通過者，請說明公司所面臨之風險及因應措施；另請說明未來經營方向及已投 入累積研發費用):  (1)提出申請／通過核准／不通過核准／各期人體臨床試驗(含期中分析)結果／發生其     他影響新藥研發之重大事件：本公司今日接獲註冊代理人通知，阿爾及利亞國家藥     品管理局(ANPP)受理Bonvadis外用乳膏完全傷口適應症之醫材產品註冊申請。  (2)未通過目的事業主管機關許可者、各期人體臨床試驗(含期中分析)結果未達統計上     顯著意義或發生其他影響新藥研發之重大事件者，公司所面臨之風險及因應措施：     不適用。  (3)已通過目的事業主管機關許可者、各期人體臨床試驗(含期中分析)結果達統計上顯     著意義或發生其他影響新藥研發之重大事件者，未來經營方向：不適用。  (4)已投入之累積研發費用：考量未來市場行銷策略，不公開揭露。 6.將再進行之下一階段研發(請說明預計完成時間及預計應負擔之義務):  (1)預計完成時間：審查時程將依主管機關審查流程為準。  (2)預計應負擔之義務：上市銷售後，本公司應依據授權合約支付授權方銷售權利金。 7.市場現況:阿爾及利亞的進階傷口照護市場正穩定成長，主要受到慢性傷口負擔日益加  劇的推動，特別是糖尿病足潰瘍的案例不斷上升。根據最新研究報告及《國際糖尿病聯  盟（IDF）第十一版糖尿病地圖》數據，阿爾及利亞每年於傷口照護方面的支出已超過  4億美元。 8.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第8款所定 對股東權益或證券價格有重大影響之事項):  (1)本公司傷口照護產品全球商化，採取藥品與醫材雙管道准入策略，逐一申請國際主     要糖尿病國家與地區市場准入與後續合作商化。  (2)本案Bonvadis外用乳膏產品註冊申請之完全傷口適應症涵蓋急性、慢性傷口及疤痕     。急性傷口適應症包含：輕微撕裂傷、擦傷、切傷、和燙傷；慢性傷口適應症包含     ：部分皮層和全皮層傷口、1級和2級燒燙傷、壓瘡、糖尿病足潰瘍、靜脈潰瘍、和     手術後傷口；以及維持傷口保濕環境減少疤痕生成。  (3)依據財團法人中華民國證券櫃檯買賣中心之「上(興)櫃公司重大訊息發布應注意事     項參考問答集」規範：「新藥研發公司向國內外目的事業主管機關申請進行臨床試     驗及確知前開機關同意與否、取得新藥各期人體臨床試驗(含期中分析)評估指標之     統計結果與藥證核發與否之證明時，即時發布重大訊息。」 9.新藥開發時程長、投入經費高且未保證一定能成功，此等可能使投資面臨風險，投    資人應審慎判斷謹慎投資。:；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 4743 | 合一 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

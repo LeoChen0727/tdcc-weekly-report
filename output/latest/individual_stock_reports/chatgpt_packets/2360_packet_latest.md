@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:21 Asia/Taipei
+- generated_at: 2026-10-03 15:46:53 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 2285
-- high: 2345
-- low: 2270
-- close: 2295
-- volume: 1992029
-- ma5: 2345
-- ema23_primary: 2191.63
-- distance_to_ema23_pct: 4.72
-- ma20: 2165.5
-- ma60: 2080.42
-- ma120: 2145.42
-- return_5d: 10.07
-- return_20d: 15.33
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 5.98
-- distance_to_high_60_pct: -9.65
+- date: 20261002
+- open: 2145
+- high: 2225
+- low: 2135
+- close: 2190
+- volume: 3514487
+- ma5: 2177
+- ema23_primary: 2178.58
+- distance_to_ema23_pct: 0.52
+- ma20: 2196.25
+- ma60: 2079.92
+- ma120: 2159.33
+- return_5d: -5.81
+- return_20d: 10.89
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -0.28
+- distance_to_high_60_pct: -13.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,2000,2065,1995,2010,1899216,2074.76,-3.12,2086,2114,0.73
-20260831,1970,1990,1905,1960,2334427,2065.2,-5.09,2086,2103,0.94
-20260901,1975,2055,1965,2030,1537485,2062.27,-1.56,2091.25,2094.08,0.68
-20260902,2000,2010,1955,1975,1235243,2054.99,-3.89,2095.75,2086.17,0.58
 20260903,2020,2095,2005,2015,1935146,2051.66,-1.79,2097.75,2079.92,0.92
 20260904,2095,2150,1975,2030,1618618,2049.86,-0.97,2097.75,2076.92,0.8
 20260907,2140,2230,2100,2230,1744981,2064.87,8,2107.75,2077.58,0.86
@@ -167,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,2395,2540,2350,2440,2946819,2169.25,12.48,2133,2077.25,1.3
 20260923,2445,2470,2305,2325,2628143,2182.23,6.54,2150.25,2080,1.16
 20260924,2285,2345,2270,2295,1992029,2191.63,4.72,2165.5,2080.42,0.88
+20260929,2255,2325,2160,2185,2434644,2191.08,-0.28,2174.25,2080,1.06
+20260930,2245,2280,2135,2135,2716984,2186.4,-2.35,2183,2077.83,1.17
+20261001,2125,2150,2025,2080,2619905,2177.54,-4.48,2185.5,2076.17,1.1
+20261002,2145,2225,2135,2190,3514487,2178.58,0.52,2196.25,2079.92,1.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 70.1
-- over_600_ratio: 63.08
-- over_800_ratio: 57.93
-- over_1000_ratio: 52.66
-- over_400_change_1w: 0.14
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.35
-- tdcc_consecutive_up_weeks: 2
+- over_600_ratio: 62.93
+- over_800_ratio: 57.43
+- over_1000_ratio: 52.15
+- over_400_change_1w: 0
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -0.51
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,70.93,-0.02,59.7,0.72,53.9,-0.34,1,False,True
 20260717,71.13,0.2,59.83,0.13,54.51,0.61,2,True,True
 20260724,71.21,0.08,59.13,-0.7,54.23,-0.28,3,False,False
 20260731,71.22,0.01,59.67,0.54,53.78,-0.45,4,False,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,70.38,-0.45,58.44,-0.19,52.78,-0.36,0,False,False
 20260918,69.96,-0.42,58.28,-0.16,53.01,0.23,1,False,True
 20260924,70.1,0.14,57.93,-0.35,52.66,-0.35,2,False,False
+20261002,70.1,0,57.43,-0.5,52.15,-0.51,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2360 | 致茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/21 1.召開法人說明會之日期：115/09/21 ~ 115/09/24 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加(1).CLSA於9/21 ~ 9/23舉辦之CLSA Investor Forum;(2). BofA Securities 於9/23 ~ 9/24舉辦之BofA Securities 2026 Asia Pacific Conference，向投資人說明本公司2026年第2季之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/21 1.召開法人說明會之日期：115/09/21 ~ 115/09/24 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加(1).CLSA於9/21 ~ 9/23舉辦之CLSA Investor Forum;(2). BofA Securities 於9/23 ~ 9/24舉辦之BofA Securities 2026 Asia Pacific Conference，向投資人說明本公司2026年第2季之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 2360 | 致茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/21 1.召開法人說明會之日期：115/09/21 ~ 115/09/24 2.召開法人說明會之時間：09 時 00 分 3.召開法人說明會之地點：Hong Kong 4.法人說明會擇要訊息：本公司受邀參加(1).CLSA於9/21 ~ 9/23舉辦之CLSA Investor Forum;(2). BofA Securities 於9/23 ~ 9/24舉辦之BofA Securities 2026 Asia Pacific Conference，向投資人說明本公司2026年第2季之營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2360 | 致茂 | 60 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2360 | 致茂 | 64 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2360 | 致茂 | 91 | 5 | 20377760.0 | 73150.0 | 278.57 | no_signal |
+| 20261002 | 2360 | 致茂 | 108 | 6 | 35961940.0 | 39070.0 | 920.45 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

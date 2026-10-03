@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0067 期元大S&P黃金反1(原名：元大S&P黃金反1)
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:04 Asia/Taipei
+- generated_at: 2026-10-03 15:46:34 Asia/Taipei
 - stock_id: 0067
 - stock_name: 期元大S&P黃金反1(原名：元大S&P黃金反1)
 - packet_status: insufficient_price_data
 - latest_price_date: 
 - price_rows: 0
-- current_main_price_date: 20260924
+- current_main_price_date: 20261002
 - current_main_price_universe_status: historical_only_noncurrent
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -183,7 +183,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 0067 | 期元大S&P黃金反1(原名：元大S&P黃金反1) | 56 | 13 | 4751080.0 | 72160.0 | 65.84 | call_inflow |
+| 20261002 | 0067 | 期元大S&P黃金反1(原名：元大S&P黃金反1) | 59 | 13 | 5246810.0 | 717480.0 | 7.31 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

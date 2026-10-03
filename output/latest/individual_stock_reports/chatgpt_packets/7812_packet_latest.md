@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7812 稜研科技*-創
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:22 Asia/Taipei
+- generated_at: 2026-10-03 15:48:00 Asia/Taipei
 - stock_id: 7812
 - stock_name: 稜研科技*-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260924
-- price_rows: 3
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 7
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,23 +126,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 73.4
-- high: 73.4
-- low: 69.1
-- close: 69.8
-- volume: 126071
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20261002
+- open: 66.3
+- high: 67.5
+- low: 65.5
+- close: 65.9
+- volume: 171803
+- ma5: 67.26
+- ema23_primary: 69.01
+- distance_to_ema23_pct: -4.5
+- ma20: 68.17
+- ma60: 68.17
+- ma120: 68.17
+- return_5d: -7.05
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -3.33
+- distance_to_high_60_pct: -12.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +151,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,71,75,68.5,70,478021,,,,,
 20260923,73,74.4,70.6,70.9,225228,,,,,
 20260924,73.4,73.4,69.1,69.8,126071,,,,,
+20260929,70.4,70.8,69.1,69.4,64523,,,,,
+20260930,69.2,69.7,66.5,66.7,248351,69.72,-4.34,69.36,69.36,1.09
+20261001,66.7,66.7,64,64.5,292086,69.29,-6.91,68.55,68.55,1.22
+20261002,66.3,67.5,65.5,65.9,171803,69.01,-4.5,68.17,68.17,0.75
 ```
 
 ## Latest TDCC Snapshot

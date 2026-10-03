@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:11 Asia/Taipei
+- generated_at: 2026-10-03 15:47:48 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,8 +101,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 1555
-- high: 1585
-- low: 1495
-- close: 1520
-- volume: 731000
-- ma5: 1602
-- ema23_primary: 1437.59
-- distance_to_ema23_pct: 5.73
-- ma20: 1433.75
-- ma60: 1330.43
-- ma120: 1569.59
-- return_5d: -3.49
-- return_20d: 22.09
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 6.02
-- distance_to_high_60_pct: -20
+- date: 20261002
+- open: 1595
+- high: 1650
+- low: 1480
+- close: 1490
+- volume: 1589000
+- ma5: 1530
+- ema23_primary: 1465.53
+- distance_to_ema23_pct: 1.67
+- ma20: 1480.25
+- ma60: 1315.6
+- ma120: 1568.8
+- return_5d: -4.18
+- return_20d: 2.05
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 0.66
+- distance_to_high_60_pct: -17.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,1250,1250,1165,1200,1133000,1209.63,-0.8,1195,1393.35,1.89
-20260831,1180,1225,1140,1210,537000,1209.66,0.03,1204.75,1385.52,0.88
-20260901,1330,1330,1330,1330,169000,1219.69,9.04,1216.75,1380.85,0.28
-20260902,1405,1460,1400,1460,716000,1239.72,17.77,1230,1380.27,1.14
 20260903,1470,1475,1360,1385,1905000,1251.82,10.64,1240,1378.18,2.85
 20260904,1420,1460,1335,1360,1253000,1260.84,7.86,1252,1377.35,1.78
 20260907,1455,1495,1395,1410,1376000,1273.27,10.74,1261,1377.68,1.82
@@ -167,15 +163,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,1645,1655,1585,1590,1782000,1418.75,12.07,1399,1338.27,1.38
 20260923,1595,1605,1540,1555,730000,1430.1,8.73,1420,1335.43,0.56
 20260924,1555,1585,1495,1520,731000,1437.59,5.73,1433.75,1330.43,0.56
+20260929,1515,1540,1450,1475,724000,1440.71,2.38,1447.5,1325.43,0.56
+20260930,1495,1605,1490,1590,1158000,1453.15,9.42,1466.5,1321.85,0.88
+20261001,1600,1640,1550,1575,987000,1463.31,7.63,1478.75,1318.43,0.72
+20261002,1595,1650,1480,1490,1589000,1465.53,1.67,1480.25,1315.6,1.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 20.64
+- as_of_date: 20261002
+- over_400_ratio: 20.5
 - over_600_ratio: 14.63
 - over_800_ratio: 14.63
 - over_1000_ratio: 11.24
-- over_400_change_1w: -1.42
+- over_400_change_1w: -0.14
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,23.78,0.04,14.63,0,11.24,0,1,False,False
 20260717,22.58,-1.2,14.63,0,11.24,0,0,False,False
 20260724,26.14,3.56,14.63,0,11.24,0,1,False,False
 20260731,26.2,0.06,14.63,0,11.24,0,2,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,20.42,-1.43,14.63,0,11.24,0,0,False,False
 20260918,22.06,1.64,14.63,0,11.24,0,1,False,False
 20260924,20.64,-1.42,14.63,0,11.24,0,0,False,False
+20261002,20.5,-0.14,14.63,0,11.24,0,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6683 | 雍智科技 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.主管機關核准減資日期:115/08/27 2.辦理資本變更登記完成日期:115/08/27 3.對財務報告之影響（含實收資本額與流通在外股數之差異與對每股淨值之影響）: (1)本公司減資前實收資本額為新台幣275,571,610元，流通在外股數 為27,557,161股，每股淨值為新台幣102.61元。 (2)本公司減資後實收資本額為新台幣275,526,610元，流通在外股數 為27,552,661股，每股淨值為新台幣102.62元。 4.預計換股作業計畫:不適用 5.預計減資新股上櫃後之上櫃普通股股數:不適用 6.預計減資新股上櫃後之上櫃普通股股數占已發行普通股比率 （減資後上櫃普通股股數/減資後已發行普通股股數）:不適用 7.前二項預計減資後上櫃普通股股數未達500萬股且未達25%者， 請說明股權流通性偏低之因應措施:不適用 8.其他應敘明事項: (1)以上每股淨值係依最近一期(115年第2季)會計師核閱財務報告計算之。 (2)本公司本次辦理註銷限制員工權利新股計4,500股。 (3)本公司於115/09/02接獲主管機關變更登記核准信函。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6683 | 雍智科技 | 1 | 1 | 1 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:15 Asia/Taipei
+- generated_at: 2026-10-03 15:47:52 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 69
-- high: 69
-- low: 67.8
-- close: 67.9
-- volume: 226797
-- ma5: 69.2
-- ema23_primary: 69.52
-- distance_to_ema23_pct: -2.32
-- ma20: 68.69
-- ma60: 75.54
-- ma120: 81.22
-- return_5d: -2.16
-- return_20d: -2.86
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -1.16
-- distance_to_high_60_pct: -27.07
+- date: 20261002
+- open: 67.8
+- high: 67.8
+- low: 67.2
+- close: 67.5
+- volume: 203315
+- ma5: 67.92
+- ema23_primary: 69.04
+- distance_to_ema23_pct: -2.23
+- ma20: 68.42
+- ma60: 74.31
+- ma120: 80.6
+- return_5d: -2.88
+- return_20d: -2.03
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: -1.34
+- distance_to_high_60_pct: -27.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,70,71.8,68.4,70.3,698449,73.1,-3.83,72.45,80.2,1.44
-20260831,70.3,70.3,68.2,69,593387,72.76,-5.17,72,79.71,1.17
-20260901,68.7,69.5,68.5,69,212031,72.45,-4.76,71.55,79.31,0.42
-20260902,68.2,69,67.9,68.9,259509,72.15,-4.5,71.09,79.01,0.51
 20260903,68.9,69,67.2,68.1,186719,71.81,-5.17,70.57,78.7,0.37
 20260904,68.2,68.3,67.2,68.1,204206,71.5,-4.76,70.09,78.4,0.41
 20260907,68.5,68.7,68.1,68.6,110959,71.26,-3.73,69.57,78.19,0.23
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,69.4,70.2,69.1,69.1,274996,69.68,-0.83,68.77,75.99,1.02
 20260923,70.3,71.8,69.1,69.5,419948,69.66,-0.23,68.8,75.78,1.53
 20260924,69,69,67.8,67.9,226797,69.52,-2.32,68.69,75.54,0.83
+20260929,68.4,68.4,67.1,67.9,133311,69.38,-2.13,68.58,75.32,0.54
+20260930,67.9,68.9,67.7,68.4,145527,69.3,-1.3,68.55,75.03,0.65
+20261001,68.4,68.8,67.6,67.9,192440,69.18,-1.85,68.49,74.67,0.87
+20261002,67.8,67.8,67.2,67.5,203315,69.04,-2.23,68.42,74.31,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 61.29
-- over_600_ratio: 57.84
-- over_800_ratio: 54.57
-- over_1000_ratio: 53.94
-- over_400_change_1w: -0.85
+- as_of_date: 20261002
+- over_400_ratio: 61.66
+- over_600_ratio: 57.92
+- over_800_ratio: 54.65
+- over_1000_ratio: 54.02
+- over_400_change_1w: 0.37
 - over_800_change_1w: 0.08
 - over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,61.86,0.15,54.37,0.61,52.45,-0.68,4,False,True
 20260717,61.58,-0.28,54.35,-0.02,52.46,0.01,5,False,True
 20260724,61.62,0.04,54.38,0.03,52.49,0.03,6,False,True
 20260731,61.44,-0.18,53.65,-0.73,52.45,-0.04,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,62.17,0.64,54.52,0.04,53.89,0.04,6,True,True
 20260918,62.14,-0.03,54.49,-0.03,53.86,-0.03,0,False,False
 20260924,61.29,-0.85,54.57,0.08,53.94,0.08,1,False,True
+20261002,61.66,0.37,54.65,0.08,54.02,0.08,2,True,True
 ```
 
 ## Candidate Context
@@ -214,7 +214,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6873 | 泓德能源 | 20 | 0 | 23390.0 | 0.0 |  | no_signal |
+| 20261002 | 6873 | 泓德能源 | 18 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

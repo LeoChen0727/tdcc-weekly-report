@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:44 Asia/Taipei
+- generated_at: 2026-10-03 15:47:17 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 113.5
-- high: 117.5
-- low: 113.5
-- close: 117.5
-- volume: 8052382
-- ma5: 114.6
-- ema23_primary: 109.99
-- distance_to_ema23_pct: 6.83
-- ma20: 107.06
-- ma60: 111.47
-- ma120: 109.43
-- return_5d: 5.86
-- return_20d: 15.76
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 9.76
-- distance_to_high_60_pct: -9.96
+- date: 20261002
+- open: 119
+- high: 120
+- low: 117.5
+- close: 119
+- volume: 4724498
+- ma5: 116.9
+- ema23_primary: 112.03
+- distance_to_ema23_pct: 6.22
+- ma20: 110.3
+- ma60: 111.97
+- ma120: 110.29
+- return_5d: 4.39
+- return_20d: 16.67
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 7.89
+- distance_to_high_60_pct: -8.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,102,102.5,99.9,100,15312136,111.31,-10.16,114.85,111.94,1.19
-20260831,100,100.5,97.2,99.6,11140110,110.33,-9.73,114.03,111.66,0.85
-20260901,100,101.5,100,100.5,12367273,109.51,-8.23,113.18,111.43,0.94
-20260902,100.5,102,100,102,7763641,108.88,-6.32,111.83,111.33,0.61
 20260903,102.5,104.5,101.5,102,10122351,108.31,-5.83,110.66,111.19,0.81
 20260904,103.5,104,101.5,104,5376062,107.95,-3.66,109.73,111.1,0.44
 20260907,105,106.5,104.5,105,8385171,107.71,-2.51,108.48,111.04,0.69
@@ -167,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,114.5,115.5,112,113,9840538,108.88,3.78,105.95,111.23,0.99
 20260923,114.5,116,113,114,9399996,109.31,4.29,106.25,111.34,0.96
 20260924,113.5,117.5,113.5,117.5,8052382,109.99,6.83,107.06,111.47,0.88
+20260929,117.5,120,115,115,10942986,110.41,4.16,107.81,111.58,1.23
+20260930,115,115.5,113.5,114,5939004,110.71,2.97,108.53,111.65,0.69
+20261001,115,119.5,114,119,9434235,111.4,6.82,109.45,111.8,1.11
+20261002,119,120,117.5,119,4724498,112.03,6.22,110.3,111.97,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 83.11
-- over_600_ratio: 81.03
-- over_800_ratio: 79.37
-- over_1000_ratio: 78.02
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.26
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20261002
+- over_400_ratio: 83.37
+- over_600_ratio: 81.24
+- over_800_ratio: 79.49
+- over_1000_ratio: 78.19
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,83.99,-0.23,80.09,0.09,78.96,-0.06,2,False,True
 20260717,84.1,0.11,80.35,0.26,79.03,0.07,3,True,True
 20260724,84.53,0.43,80.59,0.24,79.34,0.31,4,True,True
 20260731,84.57,0.04,80.69,0.1,79.45,0.11,5,False,True
@@ -198,24 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,82.61,0.47,78.84,0.5,77.4,0.41,1,True,True
 20260918,82.99,0.38,79.11,0.27,77.86,0.46,2,True,True
 20260924,83.11,0.12,79.37,0.26,78.02,0.16,3,True,True
+20261002,83.37,0.26,79.49,0.12,78.19,0.17,4,True,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3702 | 大聯大 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/09/17 2.發放股利種類及金額:不配發115年第二季股利 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/09/17 2.發放股利種類及金額:不配發115年第二季股利 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 3702 | 大聯大 | revenue_breakout_low_response | 營收爆發低反應股 | 20 | 7 | A_優先追蹤 |  |  | call_strong_inflow | repeated_but_no_breakout | 1.董事會決議日期:115/09/17 2.發放股利種類及金額:不配發115年第二季股利 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3702 | 大聯大 | 27 | 15 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3702 | 大聯大 | 53 | 1 | 9565390.0 | 0.0 |  | call_strong_inflow |
+| 20261002 | 3702 | 大聯大 | 53 | 1 | 10170880.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

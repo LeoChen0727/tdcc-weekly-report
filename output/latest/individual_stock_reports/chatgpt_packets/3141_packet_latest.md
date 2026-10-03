@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3141 晶宏
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:35 Asia/Taipei
+- generated_at: 2026-10-03 15:47:08 Asia/Taipei
 - stock_id: 3141
 - stock_name: 晶宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 86
-- high: 86
-- low: 82.5
-- close: 83.9
-- volume: 2472000
-- ma5: 89.2
-- ema23_primary: 88.02
-- distance_to_ema23_pct: -4.68
-- ma20: 91.92
-- ma60: 78.27
-- ma120: 70.52
-- return_5d: -11.12
-- return_20d: 9.1
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -8.73
-- distance_to_high_60_pct: -23.73
+- date: 20261002
+- open: 84.2
+- high: 88.2
+- low: 83.5
+- close: 87.1
+- volume: 2432000
+- ma5: 85.2
+- ema23_primary: 87.3
+- distance_to_ema23_pct: -0.23
+- ma20: 91.63
+- ma60: 78.65
+- ma120: 71.94
+- return_5d: 0.81
+- return_20d: -12.46
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -4.94
+- distance_to_high_60_pct: -20.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,77.2,78.5,75.6,75.7,586000,72.97,3.74,74.25,72.26,0.64
-20260831,75,83,74.6,82.3,3453000,73.75,11.6,74.83,72.36,3.33
-20260901,83,90.5,81.9,90.5,10308000,75.14,20.44,75.77,72.63,6.8
-20260902,93.5,99.5,91.6,99.5,18047000,77.17,28.93,77.03,73.13,7.6
 20260903,99.5,105,97.5,100,21248000,79.08,26.46,78.11,73.56,6.42
 20260904,106,110,101,102.5,14635000,81.03,26.5,79.28,74.05,3.76
 20260907,103.5,105,98.2,102,8308000,82.78,23.23,80.38,74.56,1.96
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,93.4,93.7,88.7,89.2,3936000,88.58,0.7,91.14,78.01,0.63
 20260923,89.8,90.4,86,86.4,2479000,88.4,-2.26,91.58,78.15,0.4
 20260924,86,86,82.5,83.9,2472000,88.02,-4.68,91.92,78.27,0.39
+20260929,83.9,86.6,83.7,85.2,1533000,87.79,-2.95,92.4,78.39,0.24
+20260930,85.7,86.2,84.1,85.3,1053000,87.58,-2.6,92.55,78.43,0.17
+20261001,85.5,86.8,84.1,84.5,1452000,87.32,-3.23,92.25,78.45,0.25
+20261002,84.2,88.2,83.5,87.1,2432000,87.3,-0.23,91.63,78.65,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 27.66
-- over_600_ratio: 20.86
-- over_800_ratio: 16.24
-- over_1000_ratio: 10.28
-- over_400_change_1w: -1.08
-- over_800_change_1w: -3
-- over_1000_change_1w: -6.51
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20261002
+- over_400_ratio: 27.56
+- over_600_ratio: 20.81
+- over_800_ratio: 13.5
+- over_1000_ratio: 11.14
+- over_400_change_1w: -0.1
+- over_800_change_1w: -2.74
+- over_1000_change_1w: 0.86
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,15.55,-0.31,7.78,0.03,5.21,0,4,False,True
 20260717,15.74,0.19,7.76,-0.02,5.21,0,5,False,False
 20260724,15.95,0.21,7.74,-0.02,5.21,0,6,False,False
 20260731,17.07,1.12,7.7,-0.04,5.21,0,7,False,False
@@ -199,18 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,30.83,-0.92,20.12,0.1,18.87,1.29,13,False,True
 20260918,28.74,-2.09,19.24,-0.88,16.79,-2.08,0,False,False
 20260924,27.66,-1.08,16.24,-3,10.28,-6.51,0,False,False
+20261002,27.56,-0.1,13.5,-2.74,11.14,0.86,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3141 | 晶宏 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:晶宏半導體股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據本公司「國內第五次無擔保轉換公司債發行及轉換辦法」辦理。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司發行國內第五次無擔保轉換公司債案業經金融監督管理委員會於民國 115年7月23日金管證發字第11503494951號函申報生效在案。 (2)以115年9月2日為轉換價格訂價基準日之前五個營業日普通股平均收盤價 80.62元為基準價格，轉換溢價率為102.00%。 (3)以上述方式訂定轉換價格為每股新台幣82.23元。 (4)本轉換公司債訂價後，因適逢本公司除息交易日115年9月11日普通股每股 除息0.35778786元，故本轉換公司債之轉換價格由每股新台幣 82.23元調整 為每股新台幣81.83元，並於除息基準日115年9月19日進行轉換價格調整。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3141 | 晶宏 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:晶宏半導體股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據本公司「國內第五次無擔保轉換公司債發行及轉換辦法」辦理。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司發行國內第五次無擔保轉換公司債案業經金融監督管理委員會於民國 115年7月23日金管證發字第11503494951號函申報生效在案。 (2)以115年9月2日為轉換價格訂價基準日之前五個營業日普通股平均收盤價 80.62元為基準價格，轉換溢價率為102.00%。 (3)以上述方式訂定轉換價格為每股新台幣82.23元。 (4)本轉換公司債訂價後，因適逢本公司除息交易日115年9月11日普通股每股 除息0.35778786元，故本轉換公司債之轉換價格由每股新台幣 82.23元調整 為每股新台幣81.83元，並於除息基準日115年9月19日進行轉換價格調整。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3141 | 晶宏 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/09/02 2.公司名稱:晶宏半導體股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據本公司「國內第五次無擔保轉換公司債發行及轉換辦法」辦理。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項): (1)本公司發行國內第五次無擔保轉換公司債案業經金融監督管理委員會於民國 115年7月23日金管證發字第11503494951號函申報生效在案。 (2)以115年9月2日為轉換價格訂價基準日之前五個營業日普通股平均收盤價 80.62元為基準價格，轉換溢價率為102.00%。 (3)以上述方式訂定轉換價格為每股新台幣82.23元。 (4)本轉換公司債訂價後，因適逢本公司除息交易日115年9月11日普通股每股 除息0.35778786元，故本轉換公司債之轉換價格由每股新台幣 82.23元調整 為每股新台幣81.83元，並於除息基準日115年9月19日進行轉換價格調整。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3141 | 晶宏 | 7 | 7 | 5 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3141 | 晶宏 | 11 | 1 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

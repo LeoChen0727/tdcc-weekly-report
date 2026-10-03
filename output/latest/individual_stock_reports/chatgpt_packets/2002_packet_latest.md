@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2002 中鋼
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:16 Asia/Taipei
+- generated_at: 2026-10-03 15:46:48 Asia/Taipei
 - stock_id: 2002
 - stock_name: 中鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 18.6
-- high: 18.7
-- low: 18.6
-- close: 18.65
-- volume: 20491440
-- ma5: 18.67
-- ema23_primary: 18.86
-- distance_to_ema23_pct: -1.13
-- ma20: 18.89
-- ma60: 18.95
-- ma120: 19
-- return_5d: -0.27
-- return_20d: -2.61
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -1.24
-- distance_to_high_60_pct: -6.28
+- date: 20261002
+- open: 18.9
+- high: 19.1
+- low: 18.9
+- close: 19
+- volume: 21124095
+- ma5: 18.92
+- ema23_primary: 18.9
+- distance_to_ema23_pct: 0.53
+- ma20: 18.88
+- ma60: 18.96
+- ma120: 18.97
+- return_5d: 1.88
+- return_20d: -0.26
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 0.65
+- distance_to_high_60_pct: -4.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,19.15,19.15,19,19.05,22552912,19.13,-0.4,19.17,18.98,0.6
-20260831,19,19.05,18.9,18.95,33828536,19.11,-0.84,19.17,18.97,0.88
-20260901,18.95,19.1,18.9,19.05,25957801,19.11,-0.29,19.18,18.97,0.69
-20260902,18.95,19.05,18.9,19.05,23684321,19.1,-0.27,19.19,18.97,0.62
 20260903,19,19.25,19,19,28510563,19.09,-0.49,19.19,18.98,0.75
 20260904,19.15,19.15,19,19.1,14449723,19.09,0.03,19.19,18.98,0.39
 20260907,19.15,19.15,19,19,15934299,19.09,-0.45,19.16,18.99,0.5
@@ -168,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,18.75,18.8,18.6,18.65,29039115,18.9,-1.34,18.95,18.95,1.18
 20260923,18.65,18.75,18.6,18.65,25706691,18.88,-1.23,18.91,18.95,1.04
 20260924,18.6,18.7,18.6,18.65,20491440,18.86,-1.13,18.89,18.95,0.83
+20260929,18.8,19.1,18.75,18.8,36951740,18.86,-0.31,18.87,18.95,1.45
+20260930,18.95,19.25,18.9,19.2,90608564,18.89,1.66,18.89,18.96,3.2
+20261001,19.2,19.25,18.85,18.95,38390897,18.89,0.31,18.88,18.96,1.32
+20261002,18.9,19.1,18.9,19,21124095,18.9,0.53,18.88,18.96,0.73
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 52.92
-- over_600_ratio: 50.85
-- over_800_ratio: 49.81
-- over_1000_ratio: 49.13
-- over_400_change_1w: -0.12
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.13
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 53.12
+- over_600_ratio: 51.08
+- over_800_ratio: 50.05
+- over_1000_ratio: 49.36
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.23
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,51.72,-0.1,48.58,-0.1,47.94,-0.13,0,False,False
 20260717,51.66,-0.06,48.51,-0.07,47.85,-0.09,0,False,False
 20260724,52.2,0.54,49.08,0.57,48.43,0.58,1,True,True
 20260731,52.53,0.33,49.43,0.35,48.76,0.33,2,True,True
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,53.22,0.12,50.17,0.12,49.51,0.11,1,True,True
 20260918,53.04,-0.18,49.94,-0.23,49.26,-0.25,0,False,False
 20260924,52.92,-0.12,49.81,-0.13,49.13,-0.13,0,False,False
+20261002,53.12,0.2,50.05,0.24,49.36,0.23,1,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 2002 | 中鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | first_seen | 1.董事會決議日期或發生變動日期:115/09/29 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:陳守道 4.舊任者簡歷:本公司總經理 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:退休 9.新任生效日期:不適用 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):  (1)陳守道總經理於115年9月30日退休。  (2)新任者待確定後將另行公告。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 2002 | 中鋼 | 1 | 1 | 2 | 2 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2002 | 中鋼 | 45 | 0 | 1756350.0 | 0.0 |  | no_signal |
+| 20261002 | 2002 | 中鋼 | 43 | 0 | 2382200.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

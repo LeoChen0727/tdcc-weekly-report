@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5443 均豪
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:57 Asia/Taipei
+- generated_at: 2026-10-03 15:47:31 Asia/Taipei
 - stock_id: 5443
 - stock_name: 均豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 105.5
-- high: 107.5
-- low: 104.5
-- close: 107
-- volume: 884000
-- ma5: 107.5
-- ema23_primary: 107.22
-- distance_to_ema23_pct: -0.2
-- ma20: 109.28
-- ma60: 104.46
-- ma120: 110.68
-- return_5d: -0.93
-- return_20d: 0.47
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -2.08
-- distance_to_high_60_pct: -13.36
+- date: 20261002
+- open: 111.5
+- high: 114.5
+- low: 111
+- close: 113.5
+- volume: 1629000
+- ma5: 111
+- ema23_primary: 108.66
+- distance_to_ema23_pct: 4.45
+- ma20: 109.25
+- ma60: 104.08
+- ma120: 110.73
+- return_5d: 7.08
+- return_20d: 1.34
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 3.89
+- distance_to_high_60_pct: -7.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,109,115,106.5,112,3315000,103.63,8.07,103.03,103.98,2.07
-20260831,112,115.5,108,113,3656000,104.41,8.22,104.16,103.89,2.09
-20260901,117.5,123,111.5,111.5,6092000,105,6.19,105.12,103.83,3.03
-20260902,111,116.5,111,112,3185000,105.59,6.07,105.99,103.91,1.5
 20260903,113,115,110,110,2474000,105.96,3.82,106.73,103.98,1.12
 20260904,112,114.5,109,112.5,2199000,106.5,5.63,107.6,104.19,0.97
 20260907,114,121.5,112.5,120,7288000,107.63,11.5,108.38,104.51,2.85
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,111,111,106.5,106.5,1298000,107.35,-0.79,109.22,104.9,0.52
 20260923,110,110.5,105.5,106,1321000,107.24,-1.16,109.25,104.74,0.52
 20260924,105.5,107.5,104.5,107,884000,107.22,-0.2,109.28,104.46,0.35
+20260929,106.5,112,106.5,109.5,2039000,107.41,1.95,109.15,104.26,0.83
+20260930,118.5,119.5,112.5,113,5723000,107.88,4.75,109.15,104.12,2.23
+20261001,112,116.5,112,112,2944000,108.22,3.49,109.17,104.02,1.22
+20261002,111.5,114.5,111,113.5,1629000,108.66,4.45,109.25,104.08,0.7
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 39.44
-- over_600_ratio: 36.64
-- over_800_ratio: 35
-- over_1000_ratio: 33.43
-- over_400_change_1w: 0.11
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.18
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20261002
+- over_400_ratio: 38.33
+- over_600_ratio: 36.07
+- over_800_ratio: 34.35
+- over_1000_ratio: 32.69
+- over_400_change_1w: -1.11
+- over_800_change_1w: -0.65
+- over_1000_change_1w: -0.74
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,40.24,-0.6,36.3,0.08,34.68,0.07,2,False,True
 20260717,39.5,-0.74,35.18,-1.12,33.54,-1.14,0,False,False
 20260724,38.82,-0.68,34.75,-0.43,34.27,0.73,1,False,True
 20260731,38.41,-0.41,34.74,-0.01,33.66,-0.61,2,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,39.75,-0.64,35.25,-0.12,33.63,-0.72,0,False,False
 20260918,39.33,-0.42,35.14,-0.11,33.61,-0.02,0,False,False
 20260924,39.44,0.11,35,-0.14,33.43,-0.18,1,False,False
+20261002,38.33,-1.11,34.35,-0.65,32.69,-0.74,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 5443 | 均豪 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/12 1.召開法人說明會之日期：115/08/12 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：櫃買中心11樓多功能資訊媒體區(地址:台北市中正區羅斯福路二段100號11樓) 4.法人說明會擇要訊息：本公司受邀參加證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司營運狀況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 5443 | 均豪 | 2 | 2 | 3 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

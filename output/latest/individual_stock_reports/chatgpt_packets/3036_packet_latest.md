@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3036 文曄
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:33 Asia/Taipei
+- generated_at: 2026-10-03 15:47:05 Asia/Taipei
 - stock_id: 3036
 - stock_name: 文曄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 361
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 365
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 205.5
-- high: 207.5
-- low: 203
-- close: 207
-- volume: 6695518
-- ma5: 206
-- ema23_primary: 199.92
-- distance_to_ema23_pct: 3.54
-- ma20: 196.22
-- ma60: 202.59
-- ma120: 222.14
-- return_5d: 1.47
-- return_20d: 7.25
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 5.49
-- distance_to_high_60_pct: -12.1
+- date: 20261002
+- open: 214
+- high: 216
+- low: 212
+- close: 213.5
+- volume: 6758956
+- ma5: 209.2
+- ema23_primary: 202.89
+- distance_to_ema23_pct: 5.23
+- ma20: 199.43
+- ma60: 202.04
+- ma120: 221.54
+- return_5d: 3.64
+- return_20d: 14.17
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 7.06
+- distance_to_high_60_pct: -9.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,194.5,197.5,194,196,5301261,204.67,-4.23,209.1,213.56,0.46
-20260831,196,196,192.5,196,4392455,203.94,-3.9,208.68,212.12,0.39
-20260901,195,198.5,195,196,5086055,203.28,-3.58,207.85,210.71,0.46
-20260902,185.5,191,181.5,187,28951535,201.93,-7.39,205.95,209.66,2.54
 20260903,190,196,189,190.5,15173402,200.97,-5.21,203.8,208.67,1.39
 20260904,194,195,188.5,192.5,7410058,200.27,-3.88,202.85,207.88,0.81
 20260907,195,195,191.5,192.5,6951071,199.62,-3.57,201.03,207.22,0.82
@@ -168,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,208,209,205,205,7809360,198.67,3.19,195.05,202.79,0.9
 20260923,206.5,207.5,204.5,206,4378442,199.28,3.37,195.53,202.66,0.52
 20260924,205.5,207.5,203,207,6695518,199.92,3.54,196.22,202.59,0.79
+20260929,206.5,207.5,205,207.5,4569244,200.56,3.46,196.8,202.43,0.54
+20260930,209.5,210,205.5,205.5,7228161,200.97,2.26,197.28,202.16,0.85
+20261001,206,213,205,212.5,9949553,201.93,5.24,198.1,202.05,1.13
+20261002,214,216,212,213.5,6758956,202.89,5.23,199.43,202.04,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 82.97
-- over_600_ratio: 81.14
-- over_800_ratio: 79.14
-- over_1000_ratio: 77.76
-- over_400_change_1w: -0.21
-- over_800_change_1w: -0.83
-- over_1000_change_1w: -0.71
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 83.29
+- over_600_ratio: 81.35
+- over_800_ratio: 79.48
+- over_1000_ratio: 78.03
+- over_400_change_1w: 0.32
+- over_800_change_1w: 0.34
+- over_1000_change_1w: 0.27
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,85.87,-0.49,82.28,-0.65,81,-0.58,0,False,False
 20260717,85.27,-0.6,82.04,-0.24,80.61,-0.39,0,False,False
 20260724,85.36,0.09,81.9,-0.14,80.61,0,1,False,False
 20260731,85.21,-0.15,81.97,0.07,80.56,-0.05,2,False,True
@@ -199,24 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,83.23,0.46,79.87,0.75,78.54,0.68,1,True,True
 20260918,83.18,-0.05,79.97,0.1,78.47,-0.07,2,False,True
 20260924,82.97,-0.21,79.14,-0.83,77.76,-0.71,0,False,False
+20261002,83.29,0.32,79.48,0.34,78.03,0.27,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3036 | 文曄 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年8月份自結合併營收約新台幣1,984億元，較前月合併營收增加 　約8%，較去年同期合併營收增加約98%。今年累計合併營收約新台幣1.466兆元， 　與去年同期相較增加約109%。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3036 | 文曄 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年8月份自結合併營收約新台幣1,984億元，較前月合併營收增加 　約8%，較去年同期合併營收增加約98%。今年累計合併營收約新台幣1.466兆元， 　與去年同期相較增加約109%。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 3036 | 文曄 | revenue_breakout_low_response | 營收爆發低反應股 | 19 | 8 | A_優先追蹤 |  |  | no_signal | stale_signal | 1.事實發生日:115/09/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年8月份自結合併營收約新台幣1,984億元，較前月合併營收增加 　約8%，較去年同期合併營收增加約98%。今年累計合併營收約新台幣1.466兆元， 　與去年同期相較增加約109%。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3036 | 文曄 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/09 2.公司名稱:文曄科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 　本公司公佈2026年8月份自結合併營收約新台幣1,984億元，較前月合併營收增加 　約8%，較去年同期合併營收增加約98%。今年累計合併營收約新台幣1.466兆元， 　與去年同期相較增加約109%。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3036 | 文曄 | 26 | 24 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3036 | 文曄 | 30 | 1 | 5 | 10 | 20 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3036 | 文曄 | 120 | 1 | 8668240.0 | 0.0 |  | no_signal |
+| 20261002 | 3036 | 文曄 | 122 | 1 | 18261140.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

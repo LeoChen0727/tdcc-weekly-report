@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4915 致伸
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:52 Asia/Taipei
+- generated_at: 2026-10-03 15:47:26 Asia/Taipei
 - stock_id: 4915
 - stock_name: 致伸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 64.2
-- high: 64.4
-- low: 63.7
-- close: 64.1
-- volume: 1492781
-- ma5: 64.78
-- ema23_primary: 63.13
+- date: 20261002
+- open: 65.1
+- high: 65.8
+- low: 64.3
+- close: 64.4
+- volume: 2611056
+- ma5: 64.1
+- ema23_primary: 63.43
 - distance_to_ema23_pct: 1.53
-- ma20: 62.51
-- ma60: 63.27
-- ma120: 68.39
-- return_5d: 0.31
-- return_20d: 7.19
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 2.55
-- distance_to_high_60_pct: -9.21
+- ma20: 63.37
+- ma60: 63.06
+- ma120: 68.09
+- return_5d: 0
+- return_20d: 6.8
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.63
+- distance_to_high_60_pct: -8.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,60,60.1,59.5,59.6,1345755,61.5,-3.08,60.81,66.91,0.47
-20260831,59.5,59.7,59,59.4,1419315,61.32,-3.13,60.55,66.62,0.5
-20260901,59.4,60.2,59.4,59.8,1401492,61.2,-2.28,60.37,66.32,0.51
-20260902,59.6,61,59.6,60.3,2002757,61.12,-1.34,60.2,66.08,0.73
 20260903,60.7,60.9,59.6,59.6,2285577,60.99,-2.29,60.08,65.79,0.92
 20260904,60.1,61,59.9,60.8,2126259,60.98,-0.29,60.15,65.55,0.99
 20260907,61,61,60.1,60.2,1787063,60.91,-1.17,60.12,65.3,0.84
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,65.2,65.3,64.5,64.9,2175407,62.92,3.15,62.08,63.34,0.56
 20260923,64.9,65,64.2,64.4,1847872,63.04,2.15,62.29,63.31,0.47
 20260924,64.2,64.4,63.7,64.1,1492781,63.13,1.53,62.51,63.27,0.38
+20260929,64.1,64.4,63.4,63.5,1749925,63.16,0.53,62.7,63.22,0.45
+20260930,64,64,63.5,63.5,1919020,63.19,0.49,62.91,63.17,0.49
+20261001,63.8,65,63.1,65,2662280,63.34,2.62,63.16,63.12,0.67
+20261002,65.1,65.8,64.3,64.4,2611056,63.43,1.53,63.37,63.06,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 60.5
-- over_600_ratio: 57.68
-- over_800_ratio: 56.17
-- over_1000_ratio: 51.49
-- over_400_change_1w: 0.52
-- over_800_change_1w: 0.57
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 60.57
+- over_600_ratio: 57.81
+- over_800_ratio: 56.13
+- over_1000_ratio: 51.69
+- over_400_change_1w: 0.07
+- over_800_change_1w: -0.04
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,63.48,-0.76,58.84,-1.05,55.2,-1.27,0,False,False
 20260717,63.75,0.27,59.33,0.49,55.14,-0.06,1,False,True
 20260724,63.5,-0.25,58.56,-0.77,54.92,-0.22,0,False,False
 20260731,62.54,-0.96,57.82,-0.74,54.19,-0.73,0,False,False
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,59.65,0.2,54.5,0.07,50.72,-0.33,1,False,True
 20260918,59.98,0.33,55.6,1.1,51.32,0.6,2,True,True
 20260924,60.5,0.52,56.17,0.57,51.49,0.17,3,True,True
+20261002,60.57,0.07,56.13,-0.04,51.69,0.2,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4915 | 致伸 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東臨時會日期:115/07/15 2.重要決議事項:通過減資決議 3.其他應敘明事項:N/A；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 4915 | 致伸 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.股東臨時會日期:115/07/15 2.重要決議事項:通過減資決議 3.其他應敘明事項:N/A；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 4915 | 致伸 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.股東臨時會日期:115/07/15 2.重要決議事項:通過減資決議 3.其他應敘明事項:N/A；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4915 | 致伸 | 11 | 8 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 4915 | 致伸 | 15 | 8 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4915 | 致伸 | 5 | 1 | 57520.0 | 0.0 |  | no_signal |
+| 20261002 | 4915 | 致伸 | 6 | 1 | 234530.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

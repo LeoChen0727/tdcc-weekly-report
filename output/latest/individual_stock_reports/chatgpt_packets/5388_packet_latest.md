@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5388 中磊
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:56 Asia/Taipei
+- generated_at: 2026-10-03 15:47:31 Asia/Taipei
 - stock_id: 5388
 - stock_name: 中磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 72.6
-- high: 74.5
-- low: 72.1
-- close: 73.4
-- volume: 1360869
-- ma5: 72.96
-- ema23_primary: 74.71
-- distance_to_ema23_pct: -1.76
-- ma20: 73.88
-- ma60: 80.59
-- ma120: 81.68
-- return_5d: -0.68
-- return_20d: -5.29
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.64
-- distance_to_high_60_pct: -22.74
+- date: 20261002
+- open: 71
+- high: 71.9
+- low: 71
+- close: 71.8
+- volume: 1151325
+- ma5: 71.94
+- ema23_primary: 73.79
+- distance_to_ema23_pct: -2.7
+- ma20: 72.76
+- ma60: 79.92
+- ma120: 81.31
+- return_5d: -1.1
+- return_20d: -6.51
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -1.32
+- distance_to_high_60_pct: -24.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,78.2,78.4,77.5,77.5,1778427,81.17,-4.53,82.88,83.63,0.36
-20260831,77.5,78.1,76.9,77.2,2535881,80.84,-4.51,82.36,83.43,0.54
-20260901,77.9,77.9,77.1,77.1,2276326,80.53,-4.26,81.76,83.22,0.48
-20260902,77.5,77.5,76.8,76.8,1906533,80.22,-4.26,81.02,83.1,0.42
 20260903,77.5,77.7,75,75.1,5028064,79.79,-5.88,80.19,82.94,1.08
 20260904,75.1,75.8,74.4,75.6,2650839,79.44,-4.84,79.39,82.8,0.58
 20260907,76,76,74.6,75.3,1632581,79.1,-4.8,78.48,82.61,0.37
@@ -167,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,73.5,73.6,72.3,72.3,1460640,75.04,-3.65,74.32,80.83,0.64
 20260923,73,73.2,72.4,72.6,1078057,74.83,-2.99,74.08,80.7,0.49
 20260924,72.6,74.5,72.1,73.4,1360869,74.71,-1.76,73.88,80.59,0.63
+20260929,73.1,73.1,71.7,71.7,2347623,74.46,-3.71,73.58,80.45,1.07
+20260930,72.3,72.3,71.5,71.5,1747043,74.22,-3.66,73.3,80.28,0.81
+20261001,71.6,71.7,70.7,71.3,2516492,73.97,-3.61,73.01,80.11,1.16
+20261002,71,71.9,71,71.8,1151325,73.79,-2.7,72.76,79.92,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 44.05
-- over_600_ratio: 39.65
-- over_800_ratio: 36.67
-- over_1000_ratio: 35.02
-- over_400_change_1w: -0.42
-- over_800_change_1w: 0.35
-- over_1000_change_1w: 0.15
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20261002
+- over_400_ratio: 43.92
+- over_600_ratio: 38.97
+- over_800_ratio: 36.05
+- over_1000_ratio: 34.69
+- over_400_change_1w: -0.13
+- over_800_change_1w: -0.62
+- over_1000_change_1w: -0.33
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,50.83,0.59,42.06,-0.11,40.04,-0.16,1,False,False
 20260717,52.42,1.59,43.68,1.62,41.04,1,2,True,True
 20260724,53.21,0.79,45.3,1.62,42.41,1.37,3,True,True
 20260731,54.28,1.07,45.3,0,42.94,0.53,4,False,True
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,44.17,-1.72,35.9,-1.56,34.76,-1.27,0,False,False
 20260918,44.47,0.3,36.32,0.42,34.87,0.11,1,True,True
 20260924,44.05,-0.42,36.67,0.35,35.02,0.15,2,False,True
+20261002,43.92,-0.13,36.05,-0.62,34.69,-0.33,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:NA 2.名稱﹝XX公司第X次（有、無）擔保公司債﹞: 中磊電子股份有限公司115年度第1次國內無擔保普通公司債 3.是否採總括申報發行公司債(是/否):否 4.發行總額:新臺幣25億元整 5.每張面額:新臺幣壹佰萬元整 6.發行價格:依票面金額十足發行 7.發行期間:3年期 8.發行利率:固定年利率2.70% 9.擔保品之種類、名稱、金額及約定事項:無 10.募得價款之用途及運用計畫:償還債務 11.承銷方式:委託證券承銷商以洽商銷售方式對外公開承銷 12.公司債受託人:中國信託商業銀行股份有限公司 13.承銷或代銷機構:委任富邦綜合證券股份有限公司為主辦承銷商 14.發行保證人:無 15.代理還本付息機構:合作金庫商業銀行南汐止分行 16.簽證機構:不適用 17.能轉換股份者，其轉換辦法:不適用 18.賣回條件:無 19.買回條件:無 20.附有轉換、交換或認股者，其換股基準日:不適用 21.附有轉換、交換或認股者，對股權可能稀釋情形:不適用 22.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 23.其他應敘明事項: 本公司於115/5/12董事會通過募集國內普通公司債，此為完成115年度第1次國內 無擔保普通公司債定價後之說明。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 5388 | 中磊 | 1 | 1 | 3 | 7 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 5388 | 中磊 | 35 | 1 | 721670.0 | 0.0 |  | no_signal |
+| 20261002 | 5388 | 中磊 | 35 | 1 | 251820.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:32 Asia/Taipei
+- generated_at: 2026-10-03 15:47:05 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 138.5
-- high: 138.5
-- low: 134
-- close: 135
-- volume: 6264184
-- ma5: 135.6
-- ema23_primary: 137.36
-- distance_to_ema23_pct: -1.72
-- ma20: 139.38
-- ma60: 137.61
-- ma120: 140.82
-- return_5d: -1.1
-- return_20d: -2.17
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -3.14
-- distance_to_high_60_pct: -17.18
+- date: 20261002
+- open: 137
+- high: 139
+- low: 136
+- close: 139
+- volume: 2069927
+- ma5: 136.6
+- ema23_primary: 137.29
+- distance_to_ema23_pct: 1.25
+- ma20: 137.65
+- ma60: 136.79
+- ma120: 141.25
+- return_5d: 2.96
+- return_20d: -11.75
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 0.98
+- distance_to_high_60_pct: -14.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,140.5,140.5,136.5,138.5,2471706,136.05,1.8,135.5,141.16,0.86
-20260831,136.5,145,136.5,143,5879970,136.63,4.66,136,141.01,1.94
-20260901,143.5,152,142.5,143.5,8488033,137.2,4.59,136.62,140.86,2.59
-20260902,143,157.5,141.5,157.5,24643003,138.89,13.4,137.8,141.12,5.63
 20260903,162,163,143,143,33676349,139.24,2.7,138.38,140.97,5.71
 20260904,146,147,140.5,144.5,7894390,139.67,3.46,139.12,140.94,1.28
 20260907,145.5,145.5,141,142,5128775,139.87,1.52,139.5,140.88,0.81
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,138,138,135,135,1889313,137.81,-2.04,139.57,137.82,0.29
 20260923,135.5,137,133,135,2495771,137.57,-1.87,139.53,137.69,0.39
 20260924,138.5,138.5,134,135,6264184,137.36,-1.72,139.38,137.61,0.97
+20260929,135,137.5,134.5,135.5,1562554,137.2,-1.24,139.22,137.38,0.24
+20260930,136,137,136,136.5,1304111,137.14,-0.47,138.9,137.12,0.21
+20261001,136.5,137.5,135.5,137,1848644,137.13,-0.1,138.57,136.88,0.32
+20261002,137,139,136,139,2069927,137.29,1.25,137.65,136.79,0.44
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 38.98
-- over_600_ratio: 36.96
-- over_800_ratio: 33.6
-- over_1000_ratio: 32.69
-- over_400_change_1w: -0.59
-- over_800_change_1w: -0.69
-- over_1000_change_1w: -0.36
+- as_of_date: 20261002
+- over_400_ratio: 38.34
+- over_600_ratio: 35.79
+- over_800_ratio: 33.18
+- over_1000_ratio: 32.57
+- over_400_change_1w: -0.64
+- over_800_change_1w: -0.42
+- over_1000_change_1w: -0.12
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,38.93,-1.06,33.52,-1.98,32.3,-1.07,0,False,False
 20260717,38.84,-0.09,33.5,-0.02,31.96,-0.34,0,False,False
 20260724,38.28,-0.56,33.42,-0.08,31.57,-0.39,0,False,False
 20260731,37.73,-0.55,31.89,-1.53,31.01,-0.56,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,40.45,-0.42,34.77,-0.59,33.22,-0.92,0,False,False
 20260918,39.57,-0.88,34.29,-0.48,33.05,-0.17,0,False,False
 20260924,38.98,-0.59,33.6,-0.69,32.69,-0.36,0,False,False
+20261002,38.34,-0.64,33.18,-0.42,32.57,-0.12,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 3019 | 亞光 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 3019 | 亞光 | 1 | 1 | 1 | 1 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3019 | 亞光 | 84 | 0 | 2571610.0 | 0.0 |  | no_signal |
+| 20261002 | 3019 | 亞光 | 82 | 0 | 2837980.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

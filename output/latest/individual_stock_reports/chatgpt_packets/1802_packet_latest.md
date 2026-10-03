@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:16 Asia/Taipei
+- generated_at: 2026-10-03 15:46:47 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 57.5
-- high: 58.4
-- low: 56.6
-- close: 58.4
-- volume: 8054096
-- ma5: 58.74
-- ema23_primary: 58.52
-- distance_to_ema23_pct: -0.2
-- ma20: 59.23
-- ma60: 57.71
-- ma120: 62.82
-- return_5d: -0.17
-- return_20d: -1.35
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -1.39
-- distance_to_high_60_pct: -17.86
+- date: 20261002
+- open: 58.8
+- high: 59.8
+- low: 58.5
+- close: 59.5
+- volume: 12062573
+- ma5: 58.84
+- ema23_primary: 58.66
+- distance_to_ema23_pct: 1.44
+- ma20: 58.83
+- ma60: 57.11
+- ma120: 62.87
+- return_5d: 3.3
+- return_20d: -2.14
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 1.14
+- distance_to_high_60_pct: -14.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,59.7,62.7,58.7,60.8,59326831,57.22,6.25,56.34,60.42,1.72
-20260831,60.1,61.2,59.5,60.8,28751184,57.52,5.7,57,60.29,0.84
-20260901,61,63,60.6,61.3,35599791,57.83,5.99,57.45,60.18,1.05
-20260902,61.3,62.8,60.5,60.8,33383550,58.08,4.68,57.8,60.16,0.99
 20260903,61.5,64,58.5,58.6,52312929,58.13,0.82,57.99,60.09,1.51
 20260904,60.1,60.7,57.5,59.1,20537951,58.21,1.54,58.3,60.07,0.59
 20260907,60.4,61.5,60,60.7,21751725,58.41,3.91,58.59,60.09,0.63
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,60.8,61.7,58.8,58.8,26413098,58.61,0.32,59.37,58.21,0.98
 20260923,59.3,59.5,57.5,57.6,16045294,58.53,-1.58,59.27,57.92,0.66
 20260924,57.5,58.4,56.6,58.4,8054096,58.52,-0.2,59.23,57.71,0.35
+20260929,58,58.4,57.3,57.6,7975945,58.44,-1.44,59.06,57.49,0.39
+20260930,58.4,60.2,57.9,59.9,23784387,58.56,2.28,59.02,57.35,1.17
+20261001,60,60,58.3,58.8,15496264,58.58,0.37,58.9,57.19,0.8
+20261002,58.8,59.8,58.5,59.5,12062573,58.66,1.44,58.83,57.11,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 76.29
-- over_600_ratio: 75.51
-- over_800_ratio: 75.06
-- over_1000_ratio: 74.37
-- over_400_change_1w: -0.15
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.16
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 76.32
+- over_600_ratio: 75.58
+- over_800_ratio: 75.07
+- over_1000_ratio: 74.5
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,77.44,-1.46,76.36,-1.46,75.61,-1.51,0,False,False
 20260717,76.67,-0.77,75.5,-0.86,74.77,-0.84,0,False,False
 20260724,76.2,-0.47,75.13,-0.37,74.35,-0.42,0,False,False
 20260731,75.84,-0.36,74.69,-0.44,73.96,-0.39,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,76.35,-0.02,75.11,0.08,74.45,-0.01,5,False,True
 20260918,76.44,0.09,75.19,0.08,74.53,0.08,6,True,True
 20260924,76.29,-0.15,75.06,-0.13,74.37,-0.16,0,False,False
+20261002,76.32,0.03,75.07,0.01,74.5,0.13,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1802 | 台玻 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 1.法律事件之當事人:林伯實先生 2.法律事件之法院名稱或處分機關:臺灣士林地方法院刑事庭 3.法律事件之相關文書案號:115年度易字第146號 4.事實發生日:115/09/22 5.發生原委(含爭訟標的): 本公司總經理林伯實先生經臺灣士林地方法院刑事庭一審判決，宣判節錄如下：林伯實 犯行使業務登載不實罪應執行有期徒刑1年4個月，可上訴。 6.處理過程: 本案係總經理林伯實先生個人投資公司所涉案件，本公司於115年9月22日臺灣士林地方 法院宣判知悉，總經理林伯實先生待收到判決書後，將再與律師研議上訴後續事宜。 7.對公司財務業務影響及預估影響金額:對本公司財務、業務未造成影響 8.因應措施及改善情形:無。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 1802 | 台玻 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.法律事件之當事人:林伯實先生 2.法律事件之法院名稱或處分機關:臺灣士林地方法院刑事庭 3.法律事件之相關文書案號:115年度易字第146號 4.事實發生日:115/09/22 5.發生原委(含爭訟標的): 本公司總經理林伯實先生經臺灣士林地方法院刑事庭一審判決，宣判節錄如下：林伯實 犯行使業務登載不實罪應執行有期徒刑1年4個月，可上訴。 6.處理過程: 本案係總經理林伯實先生個人投資公司所涉案件，本公司於115年9月22日臺灣士林地方 法院宣判知悉，總經理林伯實先生待收到判決書後，將再與律師研議上訴後續事宜。 7.對公司財務業務影響及預估影響金額:對本公司財務、業務未造成影響 8.因應措施及改善情形:無。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1802 | 台玻 | 25 | 14 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 1802 | 台玻 | 29 | 1 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1802 | 台玻 | 135 | 8 | 2528130.0 | 366830.0 | 6.89 | call_inflow |
+| 20261002 | 1802 | 台玻 | 134 | 8 | 5563850.0 | 61200.0 | 90.91 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

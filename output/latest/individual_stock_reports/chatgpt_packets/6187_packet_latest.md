@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:03 Asia/Taipei
+- generated_at: 2026-10-03 15:47:38 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -105,7 +105,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 1210
-- high: 1210
-- low: 1180
-- close: 1195
-- volume: 1008000
-- ma5: 1220
-- ema23_primary: 1244.06
-- distance_to_ema23_pct: -3.94
-- ma20: 1280.75
-- ma60: 1155.92
-- ma120: 1141.61
-- return_5d: -1.24
-- return_20d: -16.43
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -6.7
-- distance_to_high_60_pct: -17.87
+- date: 20261002
+- open: 1290
+- high: 1385
+- low: 1290
+- close: 1355
+- volume: 2272000
+- ma5: 1289
+- ema23_primary: 1264.52
+- distance_to_ema23_pct: 7.16
+- ma20: 1272
+- ma60: 1176.02
+- ma120: 1154.03
+- return_5d: 12.45
+- return_20d: 1.12
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 6.53
+- distance_to_high_60_pct: -6.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,1420,1455,1325,1365,5986000,1211.3,12.69,1214.5,1101.72,1.54
-20260831,1335,1380,1280,1345,2698000,1222.44,10.03,1231.5,1105.55,0.69
-20260901,1350,1395,1320,1375,3103000,1235.16,11.32,1245.75,1109.8,0.79
-20260902,1360,1410,1335,1340,1902000,1243.89,7.73,1259.25,1114.13,0.5
 20260903,1365,1410,1300,1300,2927000,1248.57,4.12,1265.5,1116.97,0.77
 20260904,1345,1360,1280,1305,1920000,1253.27,4.13,1274.25,1120.97,0.51
 20260907,1320,1400,1310,1370,2297000,1263,8.47,1288.25,1126.63,0.63
@@ -173,26 +168,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,1260,1270,1215,1215,1303000,1252.48,-2.99,1297.25,1150.3,0.56
 20260923,1225,1230,1180,1205,1386000,1248.52,-3.49,1292.5,1153.75,0.61
 20260924,1210,1210,1180,1195,1008000,1244.06,-3.94,1280.75,1155.92,0.48
+20260929,1230,1310,1230,1310,3324000,1249.56,4.84,1278,1161,1.7
+20260930,1375,1420,1275,1310,4915000,1254.59,4.42,1276.25,1165.67,2.37
+20261001,1300,1325,1260,1275,1612000,1256.29,1.49,1271.25,1169.67,0.81
+20261002,1290,1385,1290,1355,2272000,1264.52,7.16,1272,1176.02,1.13
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 51.84
-- over_600_ratio: 42.87
-- over_800_ratio: 37.79
-- over_1000_ratio: 31.56
-- over_400_change_1w: -0.76
-- over_800_change_1w: 0.7
-- over_1000_change_1w: 0.92
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20261002
+- over_400_ratio: 52.85
+- over_600_ratio: 42.37
+- over_800_ratio: 36.7
+- over_1000_ratio: 30.27
+- over_400_change_1w: 1.01
+- over_800_change_1w: -1.09
+- over_1000_change_1w: -1.29
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,50.93,-0.4,39.67,0.73,33.08,0.81,3,False,True
 20260717,51.49,0.56,37.14,-2.53,33.41,0.33,4,False,True
 20260724,51.93,0.44,37.78,0.64,33.1,-0.31,5,False,True
 20260731,51.54,-0.39,39.73,1.95,34.49,1.39,6,False,True
@@ -204,18 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,53.61,-0.5,38.68,-2.45,32.4,-0.33,0,False,False
 20260918,52.6,-1.01,37.09,-1.59,30.64,-1.76,0,False,False
 20260924,51.84,-0.76,37.79,0.7,31.56,0.92,1,False,True
+20261002,52.85,1.01,36.7,-1.09,30.27,-1.29,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6187 | 萬潤 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 6187 | 萬潤 | revenue_breakout_low_response | 營收爆發低反應股 | 16 | 27 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 6187 | 萬潤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：台北花園大酒店國際廳(台北市中華路二段1號2樓) 4.法人說明會擇要訊息：本公司受邀參加由證券櫃檯買賣中心舉辦之業績發表會，說明本公司財務及業務相關資訊。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6187 | 萬潤 | 4 | 4 | 4 | 8 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 6187 | 萬潤 | 8 | 1 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

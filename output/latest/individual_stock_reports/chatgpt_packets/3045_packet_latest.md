@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:33 Asia/Taipei
+- generated_at: 2026-10-03 15:47:06 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 44
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 45
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 122
-- high: 123.5
-- low: 121.5
-- close: 122.5
-- volume: 4901190
-- ma5: 123.4
-- ema23_primary: 120.11
-- distance_to_ema23_pct: 1.99
-- ma20: 120.28
-- ma60: 115.05
-- ma120: 114.47
-- return_5d: -1.21
-- return_20d: 6.06
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 1.85
-- distance_to_high_60_pct: -2.39
+- date: 20261002
+- open: 121.5
+- high: 122
+- low: 121
+- close: 122
+- volume: 3702973
+- ma5: 121.4
+- ema23_primary: 120.43
+- distance_to_ema23_pct: 1.31
+- ma20: 121.35
+- ma60: 115.31
+- ma120: 114.85
+- return_5d: -0.81
+- return_20d: 5.17
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 0.54
+- distance_to_high_60_pct: -2.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,115.5,115.5,114.5,115.5,8414134,113.24,2,112.2,114.33,0.75
-20260831,115,116,114.5,116,9272070,113.47,2.23,112.4,114.33,0.83
-20260901,115,116,113.5,115.5,12275130,113.64,1.64,112.62,114.32,1.09
-20260902,115.5,116,114.5,116,5665186,113.84,1.9,112.9,114.33,0.5
 20260903,116,118,115.5,118,13130153,114.18,3.34,113.28,114.35,1.13
 20260904,117.5,118,116.5,118,5076578,114.5,3.06,113.6,114.35,0.44
 20260907,118,118,116.5,117,4447140,114.71,2,113.92,114.32,0.39
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,125,125,122.5,123,14859045,119.61,2.83,119.55,114.87,1.78
 20260923,123,123,121.5,123,6840892,119.89,2.59,119.92,114.97,0.83
 20260924,122,123.5,121.5,122.5,4901190,120.11,1.99,120.28,115.05,0.61
+20260929,122.5,122.5,120.5,121,5806538,120.18,0.68,120.55,115.09,0.73
+20260930,121,121,118,119.5,9996628,120.13,-0.52,120.72,115.14,1.25
+20261001,120,122,119.5,122,5834785,120.28,1.43,121.05,115.22,0.76
+20261002,121.5,122,121,122,3702973,120.43,1.31,121.35,115.31,0.49
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 92.98
-- over_600_ratio: 92.07
-- over_800_ratio: 91.29
+- as_of_date: 20261002
+- over_400_ratio: 93.05
+- over_600_ratio: 92.09
+- over_800_ratio: 91.3
 - over_1000_ratio: 90.43
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.05
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 6
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,92.62,-0.19,91.09,-0.16,90.35,-0.14,0,False,False
 20260717,92.3,-0.32,90.75,-0.34,89.98,-0.37,0,False,False
 20260724,92.44,0.14,90.91,0.16,90.14,0.16,1,True,True
 20260731,92.61,0.17,91.01,0.1,90.24,0.1,2,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,92.79,0.12,91.14,0.17,90.24,0.15,4,True,True
 20260918,92.96,0.17,91.34,0.2,90.36,0.12,5,True,True
 20260924,92.98,0.02,91.29,-0.05,90.43,0.07,6,False,True
+20261002,93.05,0.07,91.3,0.01,90.43,0,7,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 南投市中興路6*6號2樓部分房屋及屋頂層部分 2.事實發生日:115/9/15~115/9/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事會授權董事長先行決行，事後提報最近期董事會追認 民國115年9月15日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：16.91坪 每單位價格：每坪租金每個月347元(含稅) 租金總金額：每個月5,859元(含稅) 使用權資產金額：195,591元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 台灣固網股份有限公司，子公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：考量關係人房舍資產位置及客戶使用電信服務之需求， 為該區域最適建設位置 前次移轉之所有人：富邦產物保險(股)公司 前次移轉之所有人與公司及交易相對人間相互之關係：關係人 前次移轉日期及移轉金額：115/12/1~118/11/30，每個月租金11,800元 本公司向富邦產物保險股份有限公司承租34.0坪再轉租16.91坪予台灣固網(股)公司 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 關係人之取得日期及價格： 富邦產物保險股份有限公司76/9/12以新台幣8,085,032元自地自建 交易當時與公司之關係：關係人 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 0 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：月收 租期：115/12/1~118/11/30 契約限制條款及其他重要約定：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 董事長授權經理部門依內部管理辦法規定辦理 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 轉租予台灣固網，以擴展其固定網路涵蓋範圍，佈放光纜及建設傳輸設備， 提供消費者穩定、快速、優質的電信服務 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 俟民國115年11月11日審計委員會同意 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 嗣後租金有變動之可能；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 台北市內湖區民權東路六段11巷5*號地下2樓4個平面停車位 2.事實發生日:115/9/30~115/9/30 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事授權董事長先行決行，事後提報最近期董事會議追認 民國115年9月30日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：4車位 每單位價格：車位租金新台幣3,500元/個/月(含稅) 租金總金額：新台幣14,000元/月(含稅) 使用權資產金額：新台幣467,350元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：台灣固網股份有限公司 與公司之關係：兄弟公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人為交易對象之原因：地點符合需求 前次移轉之所有人：漢亞開發建設股份有限公司 前次移轉之所有人與公司及交易相對人間相互之關係：非關係人 前次移轉日期及移轉金額：移轉日期：2013/03/31、移轉金額：2,836,072,627元 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 交付或付款條件：租金月付 租期：115年10月1日至118年09月30日 契約限制條款及其他重要約定：無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 依據市場行情進行議價、董事長授權經理部門依內部管理辦法規定辦理。 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 無 23.取得或處分之具體目的或用途: 做為本公司公務車輛之停車位使用 24.本次交易表示異議之董事之意見: 無 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 俟115年10月19日監察人承認 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 嗣後租金有變動之可能；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3045 | 台灣大 | 23 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3045 | 台灣大 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20261002 | 3045 | 台灣大 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

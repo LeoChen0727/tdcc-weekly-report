@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:05 Asia/Taipei
+- generated_at: 2026-10-03 15:46:35 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260924
-- price_rows: 95
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 99
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 11.52
-- high: 11.55
-- low: 11.49
-- close: 11.49
-- volume: 1059038
-- ma5: 11.53
-- ema23_primary: 10.99
-- distance_to_ema23_pct: 4.51
-- ma20: 11.02
-- ma60: 10.23
-- ma120: 9.44
-- return_5d: 3.42
-- return_20d: 3.14
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 4.3
-- distance_to_high_60_pct: -2.54
+- date: 20261002
+- open: 11.93
+- high: 11.93
+- low: 11.82
+- close: 11.87
+- volume: 387501
+- ma5: 11.86
+- ema23_primary: 11.28
+- distance_to_ema23_pct: 5.26
+- ma20: 11.23
+- ma60: 10.39
+- ma120: 9.54
+- return_5d: 0.94
+- return_20d: 9.3
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 5.66
+- distance_to_high_60_pct: -1.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,11.12,11.13,11.06,11.06,702380,10.37,6.63,10.34,9.46,0.39
-20260831,10.86,10.86,10.75,10.78,1167151,10.41,3.59,10.41,9.5,0.64
-20260901,10.75,10.79,10.74,10.76,442139,10.44,3.11,10.48,9.54,0.24
-20260902,10.8,10.91,10.78,10.86,823977,10.47,3.71,10.54,9.59,0.45
 20260903,11.02,11.03,10.97,10.97,662746,10.51,4.35,10.61,9.63,0.36
 20260904,11,11.05,10.99,11.02,1019454,10.56,4.4,10.68,9.68,0.57
 20260907,11,11,10.86,10.88,341497,10.58,2.81,10.71,9.72,0.23
@@ -168,6 +163,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,11.47,11.53,11.47,11.5,875841,10.88,5.74,10.98,10.16,0.92
 20260923,11.67,11.79,11.67,11.76,2072962,10.95,7.4,11,10.2,2.23
 20260924,11.52,11.55,11.49,11.49,1059038,10.99,4.51,11.02,10.23,1.12
+20260929,11.71,11.8,11.7,11.75,579688,11.06,6.26,11.05,10.27,0.62
+20260930,11.95,12.09,11.95,12.08,1274712,11.14,8.41,11.12,10.31,1.35
+20261001,12.08,12.11,12.05,12.11,762881,11.22,7.9,11.18,10.35,0.79
+20261002,11.93,11.93,11.82,11.87,387501,11.28,5.26,11.23,10.39,0.41
 ```
 
 ## Latest TDCC Snapshot

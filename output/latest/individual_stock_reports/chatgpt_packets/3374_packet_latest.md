@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3374 精材
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:39 Asia/Taipei
+- generated_at: 2026-10-03 15:47:11 Asia/Taipei
 - stock_id: 3374
 - stock_name: 精材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 462.5
-- high: 464.5
-- low: 442
-- close: 449
-- volume: 14226000
-- ma5: 459.1
-- ema23_primary: 424.92
-- distance_to_ema23_pct: 5.67
-- ma20: 442.02
-- ma60: 367.14
-- ma120: 299.52
-- return_5d: 4.66
-- return_20d: 27.92
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 1.58
-- distance_to_high_60_pct: -9.48
+- date: 20261002
+- open: 457
+- high: 467.5
+- low: 454
+- close: 467.5
+- volume: 1232000
+- ma5: 456.4
+- ema23_primary: 434.85
+- distance_to_ema23_pct: 7.51
+- ma20: 451.2
+- ma60: 376.93
+- ma120: 309.34
+- return_5d: -0.95
+- return_20d: 11.44
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: 3.61
+- distance_to_high_60_pct: -5.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,352,386,350,386,28788000,324.23,19.05,319.62,309.05,1.87
-20260831,390.5,424.5,388.5,422.5,41562000,332.42,27.1,325.52,311.86,2.41
-20260901,422.5,431,412,421.5,21935000,339.84,24.03,331.12,314.77,1.26
-20260902,418,430,413,419.5,3650000,346.48,21.07,336.45,317.88,0.22
 20260903,420,424,393,400,4513000,350.94,13.98,340.65,320.53,0.27
 20260904,420,430,403,430,4668000,357.53,20.27,346.82,323.96,0.29
 20260907,448,472.5,436,469.5,4538000,366.86,27.98,353.45,328.07,0.28
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,465,487,459,487,16778000,418.26,16.44,430.2,361.63,1.27
 20260923,486,486,463,472,17529000,422.74,11.65,437.12,364.73,1.33
 20260924,462.5,464.5,442,449,14226000,424.92,5.67,442.02,367.14,1.11
+20260929,439.5,457,436.5,455,2002000,427.43,6.45,445.48,369.46,0.17
+20260930,462,462,452,454.5,1120000,429.69,5.77,447.07,371.82,0.12
+20261001,457,457,450,456,644000,431.88,5.59,448.8,374.05,0.08
+20261002,457,467.5,454,467.5,1232000,434.85,7.51,451.2,376.93,0.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 67.77
-- over_600_ratio: 66.29
-- over_800_ratio: 64.79
-- over_1000_ratio: 64.17
-- over_400_change_1w: -0.07
-- over_800_change_1w: 0.12
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20261002
+- over_400_ratio: 67.07
+- over_600_ratio: 65.3
+- over_800_ratio: 63.55
+- over_1000_ratio: 62.87
+- over_400_change_1w: -0.7
+- over_800_change_1w: -1.24
+- over_1000_change_1w: -1.3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,63.57,2.83,60.96,2.49,60.31,2.52,4,True,True
 20260717,64.97,1.4,62.95,1.99,61.66,1.35,5,True,True
 20260724,65.66,0.69,63.65,0.7,62.35,0.69,6,True,True
 20260731,63.42,-2.24,60.72,-2.93,60.05,-2.3,0,False,False
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,69.03,2.27,65.83,2.27,64.83,2.63,3,True,True
 20260918,67.84,-1.19,64.67,-1.16,64.67,-0.16,0,False,False
 20260924,67.77,-0.07,64.79,0.12,64.17,-0.5,1,False,True
+20261002,67.07,-0.7,63.55,-1.24,62.87,-1.3,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3374 | 精材 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/09/21 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告。 3.財務業務資訊:   單月(註1)                115年8月    114年8月    與去年同期增減%(註4)   營業收入(百萬元)            909         665           +37%   稅前純益(百萬元)            239         167           +43%   歸屬母公司業主淨利(百萬元)  193         135           +43%   稅後每股盈餘(元)           0.71        0.50           +42%    單季(註2)               115年第2季  114年第2季   與去年同期增減%(註4)   營業收入(百萬元)           2185        1537           +42%   稅前純益(百萬元)            487          72          +576%   歸屬母公司業主淨利(百萬元)  396          65          +509%   稅後每股盈餘(元)           1.46        0.24          +508%    最近四季累計(註3)    114年第3季至115年第2季   營業收入(百萬元)             8255   稅前純益(百萬元)             2078   歸屬母公司業主淨利(百萬元)   1727   稅後每股盈餘(元)             6.37   公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:   註1：以上115年8月及去年同期比較數之財務資料係本公司採IFRS會計準則編製        之自結數，未經會計師查核(閱)，僅供投資人參考。   註2：最近一季115年第2季係指單季數字，係本公司採IFRS會計準則下編製之個        別財報數，業經會計師核閱，僅供投資人參考。   註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之個別財報數，        業經會計師查核(閱)，僅供投資人參考。   註4：與去年同期增減% = (本期 - 去年同期) / 去年同期絕對值；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3374 | 精材 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/21 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告。 3.財務業務資訊:   單月(註1)                115年8月    114年8月    與去年同期增減%(註4)   營業收入(百萬元)            909         665           +37%   稅前純益(百萬元)            239         167           +43%   歸屬母公司業主淨利(百萬元)  193         135           +43%   稅後每股盈餘(元)           0.71        0.50           +42%    單季(註2)               115年第2季  114年第2季   與去年同期增減%(註4)   營業收入(百萬元)           2185        1537           +42%   稅前純益(百萬元)            487          72          +576%   歸屬母公司業主淨利(百萬元)  396          65          +509%   稅後每股盈餘(元)           1.46        0.24          +508%    最近四季累計(註3)    114年第3季至115年第2季   營業收入(百萬元)             8255   稅前純益(百萬元)             2078   歸屬母公司業主淨利(百萬元)   1727   稅後每股盈餘(元)             6.37   公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:   註1：以上115年8月及去年同期比較數之財務資料係本公司採IFRS會計準則編製        之自結數，未經會計師查核(閱)，僅供投資人參考。   註2：最近一季115年第2季係指單季數字，係本公司採IFRS會計準則下編製之個        別財報數，業經會計師核閱，僅供投資人參考。   註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之個別財報數，        業經會計師查核(閱)，僅供投資人參考。   註4：與去年同期增減% = (本期 - 去年同期) / 去年同期絕對值；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3374 | 精材 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/09/21 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知處理及辦理公告。 3.財務業務資訊:   單月(註1)                115年8月    114年8月    與去年同期增減%(註4)   營業收入(百萬元)            909         665           +37%   稅前純益(百萬元)            239         167           +43%   歸屬母公司業主淨利(百萬元)  193         135           +43%   稅後每股盈餘(元)           0.71        0.50           +42%    單季(註2)               115年第2季  114年第2季   與去年同期增減%(註4)   營業收入(百萬元)           2185        1537           +42%   稅前純益(百萬元)            487          72          +576%   歸屬母公司業主淨利(百萬元)  396          65          +509%   稅後每股盈餘(元)           1.46        0.24          +508%    最近四季累計(註3)    114年第3季至115年第2季   營業收入(百萬元)             8255   稅前純益(百萬元)             2078   歸屬母公司業主淨利(百萬元)   1727   稅後每股盈餘(元)             6.37   公司每股面額:10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項:   註1：以上115年8月及去年同期比較數之財務資料係本公司採IFRS會計準則編製        之自結數，未經會計師查核(閱)，僅供投資人參考。   註2：最近一季115年第2季係指單季數字，係本公司採IFRS會計準則下編製之個        別財報數，業經會計師核閱，僅供投資人參考。   註3：最近四季累計係本公司114年第3季至115年第2季採IFRS編製之個別財報數，        業經會計師查核(閱)，僅供投資人參考。   註4：與去年同期增減% = (本期 - 去年同期) / 去年同期絕對值；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3374 | 精材 | 7 | 2 | 5 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3374 | 精材 | 1 | 1 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

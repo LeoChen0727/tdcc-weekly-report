@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3701 大眾控
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:44 Asia/Taipei
+- generated_at: 2026-10-03 15:47:17 Asia/Taipei
 - stock_id: 3701
 - stock_name: 大眾控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +117,8 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 41.25
-- high: 41.65
-- low: 40.9
-- close: 41.25
-- volume: 350805
-- ma5: 41.58
-- ema23_primary: 41
-- distance_to_ema23_pct: 0.6
-- ma20: 41.05
-- ma60: 40.66
-- ma120: 48.77
-- return_5d: 0
-- return_20d: -1.55
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 0.49
-- distance_to_high_60_pct: -11.19
+- date: 20261002
+- open: 53
+- high: 55.4
+- low: 51.2
+- close: 55.4
+- volume: 10135816
+- ma5: 46.94
+- ema23_primary: 43.31
+- distance_to_ema23_pct: 27.91
+- ma20: 42.41
+- ma60: 40.96
+- ma120: 48.55
+- return_5d: 34.3
+- return_20d: 28.09
+- volume_ratio: 5.24
+- distance_to_ma20_pct_auxiliary: 30.63
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,42.25,42.25,41.05,41.05,408825,40.75,0.73,40.74,43.01,0.37
-20260831,40.15,41.55,40.05,40.9,466943,40.76,0.33,40.98,42.72,0.43
-20260901,40.8,42.5,40.8,41.05,589365,40.79,0.64,41.08,42.47,0.54
-20260902,41.15,45.15,40.9,43.25,4944351,40.99,5.51,41.09,42.33,4.09
 20260903,43.25,44,40.3,40.45,2180721,40.95,-1.22,40.94,42.13,1.99
 20260904,40.55,43.25,39.9,41.95,1781015,41.03,2.24,40.91,42.03,1.92
 20260907,41.95,41.95,40.8,41,763101,41.03,-0.07,40.9,41.92,0.84
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,42.8,43.6,41.45,41.6,959369,40.96,1.57,41.09,40.76,0.89
 20260923,42,42,41.05,41.25,404785,40.98,0.66,41.08,40.7,0.38
 20260924,41.25,41.65,40.9,41.25,350805,41,0.6,41.05,40.66,0.33
+20260929,41.15,42.9,41.15,41.75,552964,41.06,1.67,41.09,40.64,0.52
+20260930,42.25,45.9,42.25,45.9,4549945,41.47,10.69,41.34,40.65,3.6
+20261001,46.25,50.4,43.9,50.4,8814066,42.21,19.4,41.8,40.74,5.26
+20261002,53,55.4,51.2,55.4,10135816,43.31,27.91,42.41,40.96,5.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 72.82
-- over_600_ratio: 71.79
-- over_800_ratio: 71.79
-- over_1000_ratio: 70.63
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.35
-- over_1000_change_1w: -0.43
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 74.61
+- over_600_ratio: 73.55
+- over_800_ratio: 72.98
+- over_1000_ratio: 71.78
+- over_400_change_1w: 1.79
+- over_800_change_1w: 1.19
+- over_1000_change_1w: 1.15
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,73.2,-0.07,71.49,0.02,70.71,-0.01,1,False,True
 20260717,73.53,0.33,71.57,0.08,71.19,0.48,2,True,True
 20260724,73.43,-0.1,71.54,-0.03,70.77,-0.42,0,False,False
 20260731,73.15,-0.28,71.6,0.06,71.22,0.45,1,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,72.78,-0.02,71.41,-0.07,70.63,-0.07,4,False,False
 20260918,72.8,0.02,71.44,0.03,71.06,0.43,5,True,True
 20260924,72.82,0.02,71.79,0.35,70.63,-0.43,6,False,True
+20261002,74.61,1.79,72.98,1.19,71.78,1.15,7,True,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 3701 | 大眾控 | true_breakout | 嚴格突破 | 109.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | 1.董事會決議日期或發生變動日期:115/09/30 2.人員別（請輸入董事長或總經理）: 董事長 3.舊任者姓名:不適用 4.舊任者簡歷:不適用 5.新任者姓名:邱煌升 6.新任者簡歷: 廣上科技(廣州)股份有限公司行政管理中心協理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）: 新任 8.異動原因: 新任 9.新任生效日期:115/09/30 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 3701 | 大眾控 | 3 | 2 | 3 | 5 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3701 | 大眾控 | 4 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20261002 | 3701 | 大眾控 | 5 | 0 | 408520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

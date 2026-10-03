@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:39 Asia/Taipei
+- generated_at: 2026-10-03 15:47:12 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 901
-- high: 911
-- low: 885
-- close: 901
-- volume: 2920160
-- ma5: 930.6
-- ema23_primary: 912.52
-- distance_to_ema23_pct: -1.26
-- ma20: 987.6
-- ma60: 718.73
-- ma120: 652.7
-- return_5d: -6.63
-- return_20d: 8.03
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -8.77
-- distance_to_high_60_pct: -20.96
+- date: 20261002
+- open: 941
+- high: 974
+- low: 929
+- close: 961
+- volume: 4816591
+- ma5: 916.8
+- ema23_primary: 915.89
+- distance_to_ema23_pct: 4.93
+- ma20: 972.9
+- ma60: 737.74
+- ma120: 668.44
+- return_5d: 6.19
+- return_20d: -8.48
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.22
+- distance_to_high_60_pct: -15.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,840,917,831,917,14487914,660.41,38.85,634.95,627.42,3.22
-20260831,916,1005,915,1005,11110178,689.12,45.84,660.8,633.19,2.23
-20260901,1005,1090,993,1005,13040049,715.45,40.47,685.95,638.58,2.35
-20260902,970,1070,970,1050,2423763,743.33,41.26,711.8,645.17,0.44
 20260903,1060,1070,990,991,2416584,763.96,29.72,734,649.71,0.44
 20260904,1020,1070,962,1055,2626231,788.22,33.85,759.45,656.01,0.48
 20260907,1040,1040,961,987,2303955,804.78,22.64,781.5,660.91,0.42
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,962,973,920,923,6148749,914.35,0.95,976.95,710.29,0.85
 20260923,930,942,904,905,2912790,913.57,-0.94,984.25,714.39,0.42
 20260924,901,911,885,901,2920160,912.52,-1.26,987.6,718.73,0.44
+20260929,890,893,869,882,2568917,909.98,-3.07,985.85,722.69,0.43
+20260930,890,921,878,890,3631717,908.31,-2.02,980.1,726.92,0.64
+20261001,885,973,871,950,6290699,911.79,4.19,977.35,731.88,1.18
+20261002,941,974,929,961,4816591,915.89,4.93,972.9,737.74,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 60.93
-- over_600_ratio: 53.1
-- over_800_ratio: 44.63
-- over_1000_ratio: 39.78
-- over_400_change_1w: -0.91
-- over_800_change_1w: -2.18
-- over_1000_change_1w: -0.65
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20261002
+- over_400_ratio: 61.66
+- over_600_ratio: 51.65
+- over_800_ratio: 45.6
+- over_1000_ratio: 39.4
+- over_400_change_1w: 0.73
+- over_800_change_1w: 0.97
+- over_1000_change_1w: -0.38
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,55.91,-0.73,44.31,-0.02,36.91,-0.06,0,False,False
 20260717,54.59,-1.32,44.42,0.11,36.33,-0.58,1,False,True
 20260724,54.44,-0.15,44.45,0.03,37.15,0.82,2,False,True
 20260731,53.23,-1.21,43.38,-1.07,36.85,-0.3,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,61.63,1.56,48.87,0.71,41.13,-2.97,6,False,True
 20260918,61.84,0.21,46.81,-2.06,40.43,-0.7,7,False,False
 20260924,60.93,-0.91,44.63,-2.18,39.78,-0.65,0,False,False
+20261002,61.66,0.73,45.6,0.97,39.4,-0.38,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3406 | 玉晶光 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:玉晶光電(股)公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報B03版 6.報導內容: 法人預期...第三季營收有望季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:報載有關本公司營收等相關預測資訊係媒體採用法人臆測，與公司無關， 特此澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3406 | 玉晶光 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_put_bullish | stale_signal | 1.事實發生日:115/09/08 2.公司名稱:玉晶光電(股)公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:工商時報B03版 6.報導內容: 法人預期...第三季營收有望季增雙位數 7.發生緣由:大眾傳播媒體報導 8.因應措施:報載有關本公司營收等相關預測資訊係媒體採用法人臆測，與公司無關， 特此澄清。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3406 | 玉晶光 | 3 | 3 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3406 | 玉晶光 | 2 | 2 | 4 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3406 | 玉晶光 | 163 | 15 | 5572490.0 | 1333800.0 | 4.18 | no_signal |
+| 20261002 | 3406 | 玉晶光 | 160 | 15 | 52306490.0 | 375210.0 | 139.41 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

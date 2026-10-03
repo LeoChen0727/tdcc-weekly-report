@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2034 允強
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:17 Asia/Taipei
+- generated_at: 2026-10-03 15:46:49 Asia/Taipei
 - stock_id: 2034
 - stock_name: 允強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可小量試單
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 試單 1/3 部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/3 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: starter_1_3
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,9 +100,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -130,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 22.1
-- high: 23.3
-- low: 21.95
-- close: 22.8
-- volume: 8643926
-- ma5: 21.93
-- ema23_primary: 21
-- distance_to_ema23_pct: 8.55
-- ma20: 20.96
-- ma60: 20.2
-- ma120: 20.34
-- return_5d: 8.31
-- return_20d: 12.04
-- volume_ratio: 4.34
-- distance_to_ma20_pct_auxiliary: 8.75
-- distance_to_high_60_pct: -2.15
+- date: 20261002
+- open: 23.9
+- high: 24.5
+- low: 23.7
+- close: 24
+- volume: 5400624
+- ma5: 23.72
+- ema23_primary: 21.87
+- distance_to_ema23_pct: 9.73
+- ma20: 21.65
+- ma60: 20.44
+- ma120: 20.45
+- return_5d: 9.09
+- return_20d: 17.07
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 10.85
+- distance_to_high_60_pct: -4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,20.3,20.5,20.15,20.45,942078,20.02,2.14,19.92,20,0.68
-20260831,20.55,20.7,20.4,20.55,901332,20.07,2.41,20.02,20,0.65
-20260901,20.5,20.9,20.5,20.6,1336181,20.11,2.43,20.12,20,0.94
-20260902,20.6,20.7,20.45,20.5,983956,20.14,1.77,20.2,20.01,0.71
 20260903,20.5,20.85,20.5,20.65,969221,20.19,2.3,20.29,20.02,0.7
 20260904,20.7,21.1,20.5,21.1,3109891,20.26,4.14,20.34,20.04,2.39
 20260907,21.4,21.4,20.55,20.9,1589618,20.31,2.88,20.36,20.05,1.28
@@ -172,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,21.5,22.4,21.3,21.95,7254339,20.74,5.86,20.76,20.12,4.87
 20260923,21.9,22.35,21.5,22,3451168,20.84,5.56,20.84,20.16,2.16
 20260924,22.1,23.3,21.95,22.8,8643926,21,8.55,20.96,20.2,4.34
+20260929,23.1,25,22.85,23.4,17704386,21.2,10.36,21.11,20.26,6.26
+20260930,24.1,25,23.8,24.8,18962893,21.5,15.33,21.32,20.33,5.08
+20261001,24.7,24.9,23.4,23.6,9284967,21.68,8.87,21.48,20.38,2.25
+20261002,23.9,24.5,23.7,24,5400624,21.87,9.73,21.65,20.44,1.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 51.11
-- over_600_ratio: 47.52
-- over_800_ratio: 46.26
-- over_1000_ratio: 44.57
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20261002
+- over_400_ratio: 51.53
+- over_600_ratio: 48.15
+- over_800_ratio: 46.84
+- over_1000_ratio: 45.28
+- over_400_change_1w: 0.42
+- over_800_change_1w: 0.58
+- over_1000_change_1w: 0.71
+- tdcc_consecutive_up_weeks: 8
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -191,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,48.92,0.07,43.9,0.23,42.73,0.27,1,True,True
 20260717,49.42,0.5,44.62,0.72,43.11,0.38,2,True,True
 20260724,49.3,-0.12,44.57,-0.05,43.26,0.15,3,False,True
 20260731,49.07,-0.23,44.29,-0.28,42.63,-0.63,0,False,False
@@ -203,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,50.64,0.16,45.66,0.7,43.98,0.38,5,True,True
 20260918,50.93,0.29,45.98,0.32,44.3,0.32,6,True,True
 20260924,51.11,0.18,46.26,0.28,44.57,0.27,7,True,True
+20261002,51.53,0.42,46.84,0.58,45.28,0.71,8,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2034 | 允強 | true_breakout | 嚴格突破 | 119.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | 1.董事會決議日期或發生變動日期:115/07/14 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:張博凱 4.舊任者簡歷:YC INOX TR Celik Sanayi ve Ticaret A.S.執行董事及代理總經理 5.新任者姓名:Taylan Pehlivanzade 6.新任者簡歷:OPTA TR A.S.總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:新任 8.異動原因:新任 9.新任生效日期:115/07/14 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2034 | 允強 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/07/14 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:張博凱 4.舊任者簡歷:YC INOX TR Celik Sanayi ve Ticaret A.S.執行董事及代理總經理 5.新任者姓名:Taylan Pehlivanzade 6.新任者簡歷:OPTA TR A.S.總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:新任 8.異動原因:新任 9.新任生效日期:115/07/14 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2034 | 允強 | 3 | 1 | 4 | 6 | 10 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20261002 | 2034 | 允強 | 7 | 1 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2034 | 允強 | 5 | 0 | 487110.0 | 0.0 |  | no_signal |
+| 20261002 | 2034 | 允強 | 5 | 0 | 314450.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

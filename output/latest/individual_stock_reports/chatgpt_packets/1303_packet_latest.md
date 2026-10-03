@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1303 南亞
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:08 Asia/Taipei
+- generated_at: 2026-10-03 15:46:39 Asia/Taipei
 - stock_id: 1303
 - stock_name: 南亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 225.5
-- high: 238.5
-- low: 223
-- close: 238
-- volume: 67158368
-- ma5: 234.9
-- ema23_primary: 225.45
-- distance_to_ema23_pct: 5.57
-- ma20: 232.6
-- ma60: 202.8
-- ma120: 152.65
-- return_5d: 0.85
-- return_20d: 4.62
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 2.32
-- distance_to_high_60_pct: -5.37
+- date: 20261002
+- open: 253
+- high: 261
+- low: 251.5
+- close: 260
+- volume: 42323575
+- ma5: 250.9
+- ema23_primary: 234
+- distance_to_ema23_pct: 11.11
+- ma20: 236.68
+- ma60: 207.32
+- ma120: 158.35
+- return_5d: 14.29
+- return_20d: 9.47
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 9.86
+- distance_to_high_60_pct: -1.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,230.5,238.5,219,220.5,192491363,192.42,14.59,191.45,170.19,1.89
-20260831,224,242.5,223.5,242.5,173676393,196.6,23.35,195.32,172.38,1.68
-20260901,250,250,231.5,234.5,129835537,199.76,17.39,198.53,174.55,1.23
-20260902,240,248,232,237.5,127824204,202.9,17.05,201.55,176.88,1.19
 20260903,243,244.5,219.5,221,103990697,204.41,8.12,203.68,178.91,0.95
 20260904,226.5,229,218,225.5,67299234,206.17,9.38,205.55,181.09,0.63
 20260907,232,240,229.5,230.5,75938138,208.19,10.71,207.82,183.32,0.72
@@ -167,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,245,251.5,230.5,231.5,71431271,224.02,3.34,231.05,200.87,0.78
 20260923,232,235,223,227.5,54877007,224.31,1.42,232.07,201.88,0.62
 20260924,225.5,238.5,223,238,67158368,225.45,5.57,232.6,202.8,0.8
+20260929,236,248,235.5,247,79311489,227.24,8.69,233.93,203.63,1.01
+20260930,250.5,265,245.5,255.5,123417554,229.6,11.28,234.57,204.61,1.62
+20261001,256,261.5,250.5,254,57138460,231.63,9.66,235.55,205.76,0.79
+20261002,253,261,251.5,260,42323575,234,11.11,236.68,207.32,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 85.91
-- over_600_ratio: 84.87
-- over_800_ratio: 84.12
-- over_1000_ratio: 83.28
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.52
-- over_1000_change_1w: -0.56
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 86.34
+- over_600_ratio: 85.33
+- over_800_ratio: 84.57
+- over_1000_ratio: 83.76
+- over_400_change_1w: 0.43
+- over_800_change_1w: 0.45
+- over_1000_change_1w: 0.48
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,86.87,-0.04,85.18,-0.08,84.5,-0.03,0,False,False
 20260717,86.83,-0.04,85.11,-0.07,84.35,-0.15,0,False,False
 20260724,86.46,-0.37,84.72,-0.39,83.97,-0.38,0,False,False
 20260731,86.31,-0.15,84.6,-0.12,83.83,-0.14,0,False,False
@@ -198,23 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,86.55,0.09,84.76,0.11,83.99,0.06,1,True,True
 20260918,86.37,-0.18,84.64,-0.12,83.84,-0.15,0,False,False
 20260924,85.91,-0.46,84.12,-0.52,83.28,-0.56,0,False,False
+20261002,86.34,0.43,84.57,0.45,83.76,0.48,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1303 | 南亞 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加中國信託證券舉辦之法人說明會，說明本公司之營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 1303 | 南亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加中國信託證券舉辦之法人說明會，說明本公司之營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 1303 | 南亞 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：本公司受邀參加中國信託證券舉辦之法人說明會，說明本公司之營運概況 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1303 | 南亞 | 7 | 5 | 5 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 1303 | 南亞 | 1 | 1 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1303 | 南亞 | 275 | 17 | 36307190.0 | 524550.0 | 69.22 | call_inflow |
+| 20261002 | 1303 | 南亞 | 284 | 17 | 49321460.0 | 55870.0 | 882.79 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

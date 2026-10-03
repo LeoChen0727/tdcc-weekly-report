@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:30 Asia/Taipei
+- generated_at: 2026-10-03 15:47:02 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 45.3
-- high: 46.2
-- low: 45.3
-- close: 45.75
-- volume: 5910247
-- ma5: 46.48
-- ema23_primary: 44.78
-- distance_to_ema23_pct: 2.17
-- ma20: 44.97
-- ma60: 42.04
-- ma120: 38.22
-- return_5d: -4.49
-- return_20d: 16.26
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 1.74
-- distance_to_high_60_pct: -5.28
+- date: 20261002
+- open: 44.95
+- high: 45.3
+- low: 44.45
+- close: 44.85
+- volume: 12326772
+- ma5: 45.22
+- ema23_primary: 44.87
+- distance_to_ema23_pct: -0.04
+- ma20: 45.66
+- ma60: 42.52
+- ma120: 38.58
+- return_5d: -2.07
+- return_20d: 4.3
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.77
+- distance_to_high_60_pct: -7.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,39.35,41.2,39.35,40.25,30246901,40.32,-0.18,41.1,39.36,1.1
-20260831,40.25,41.4,40.2,41.35,48578786,40.41,2.33,41.02,39.42,1.72
-20260901,40.8,42.2,40.8,41.95,23432105,40.54,3.48,40.95,39.54,0.83
-20260902,41.95,43,41.5,43,22882451,40.74,5.54,40.91,39.7,0.81
 20260903,42.9,43.75,42.65,43.45,16242371,40.97,6.06,40.88,39.83,0.59
 20260904,43.75,44,43.15,44,12694801,41.22,6.74,40.86,39.98,0.47
 20260907,44.7,44.7,43.95,44.35,13082688,41.48,6.91,40.88,40.12,0.49
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,47.35,47.35,46.35,46.55,8500509,44.59,4.39,44.34,41.76,0.47
 20260923,46.6,46.6,45.6,45.8,12821890,44.69,2.48,44.65,41.89,0.72
 20260924,45.3,46.2,45.3,45.75,5910247,44.78,2.17,44.97,42.04,0.33
+20260929,46,46.2,44.7,44.9,12588665,44.79,0.24,45.2,42.18,0.75
+20260930,45.7,46,45.1,45.35,13559866,44.84,1.14,45.4,42.31,0.9
+20261001,45.15,45.4,44,45.25,13395509,44.87,0.84,45.56,42.43,0.92
+20261002,44.95,45.3,44.45,44.85,12326772,44.87,-0.04,45.66,42.52,0.88
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 82.08
-- over_600_ratio: 80.97
-- over_800_ratio: 80.25
-- over_1000_ratio: 79.63
-- over_400_change_1w: -0.07
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.11
+- as_of_date: 20261002
+- over_400_ratio: 82.03
+- over_600_ratio: 80.9
+- over_800_ratio: 80.18
+- over_1000_ratio: 79.56
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.07
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,81.43,0.12,79.65,0.14,79,0.12,6,True,True
 20260717,81.5,0.07,79.69,0.04,79.05,0.05,7,True,True
 20260724,81.71,0.21,79.93,0.24,79.28,0.23,8,True,True
 20260731,81.99,0.28,80.23,0.3,79.58,0.3,9,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,82.05,0.08,80.25,0.08,79.63,0.05,4,True,True
 20260918,82.15,0.1,80.34,0.09,79.74,0.11,5,True,True
 20260924,82.08,-0.07,80.25,-0.09,79.63,-0.11,0,False,False
+20261002,82.03,-0.05,80.18,-0.07,79.56,-0.07,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2880 | 華南金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期或發生變動日期:115/09/17 2.人員別（請輸入董事長或總經理）:總經理 3.舊任者姓名:吳嘉欽 4.舊任者簡歷:華南永昌投信總經理 5.新任者姓名:陳人壽 6.新任者簡歷:華南永昌投信資產管理群副總經理 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:辭職 8.異動原因:辭職(生效日為115/10/01) 9.新任生效日期:俟母公司華南金控董事會通過暨主管機關核准後生效 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2880 | 華南金 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.發生變動日期:115/09/29 2.法人名稱:華南金融控股股份有限公司 3.舊任者姓名:缺額 4.舊任者簡歷:缺額 5.新任者姓名:魯瑞鋒 6.新任者簡歷:華南金控副總經理 7.異動原因:派任 8.原任期（例xx/xx/xx至xx/xx/xx）:114/03/14至117/03/13 9.新任生效日期:115/09/29 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2880 | 華南金 | 2 | 2 | 3 | 7 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2880 | 華南金 | 6 | 6 | 5 | 8 | 17 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2880 | 華南金 | 4 | 0 | 3750.0 | 0.0 |  | no_signal |
+| 20261002 | 2880 | 華南金 | 4 | 0 | 57010.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

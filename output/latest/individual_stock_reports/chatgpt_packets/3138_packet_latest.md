@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:35 Asia/Taipei
+- generated_at: 2026-10-03 15:47:08 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 97.1
-- high: 105
-- low: 97.1
-- close: 99.4
-- volume: 1133071
-- ma5: 101.4
-- ema23_primary: 96.9
-- distance_to_ema23_pct: 2.58
-- ma20: 95.68
-- ma60: 98.69
-- ma120: 128.04
-- return_5d: -4.88
-- return_20d: 0.71
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: 3.89
-- distance_to_high_60_pct: -18.52
+- date: 20261002
+- open: 99.9
+- high: 101
+- low: 99.1
+- close: 99.5
+- volume: 324283
+- ma5: 99.4
+- ema23_primary: 97.64
+- distance_to_ema23_pct: 1.91
+- ma20: 96.16
+- ma60: 97.5
+- ma120: 125.38
+- return_5d: 2.47
+- return_20d: 2.9
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 3.48
+- distance_to_high_60_pct: -16.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,99.5,100,97.2,97.6,166145,97.66,-0.06,96.06,111.56,0.8
-20260831,97.6,98.6,96,96,176771,97.52,-1.56,96.36,110.45,0.9
-20260901,97.4,99.5,97.4,97.8,171610,97.54,0.27,96.53,109.42,0.93
-20260902,97.9,97.9,96.5,96.7,112002,97.47,-0.79,96.49,108.53,0.64
 20260903,98.8,98.8,93,93,149939,97.1,-4.22,96.29,107.56,0.87
 20260904,94.2,96.5,92.6,95.5,152268,96.97,-1.51,96.28,106.78,0.89
 20260907,95.5,96.1,93.6,93.6,118181,96.68,-3.19,95.97,105.97,0.73
@@ -168,15 +164,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,102.5,105,99.6,100,782046,96.63,3.49,95.63,99.38,1.58
 20260923,100,102,97.1,97.1,564064,96.67,0.44,95.64,98.98,1.09
 20260924,97.1,105,97.1,99.4,1133071,96.9,2.58,95.68,98.69,2.01
+20260929,98,99.9,98,98.1,439498,97,1.14,95.7,98.36,0.76
+20260930,99,102.5,99,101,589688,97.33,3.77,95.95,98.06,0.98
+20261001,100,100.5,98.5,99,365535,97.47,1.57,96.02,97.73,0.6
+20261002,99.9,101,99.1,99.5,324283,97.64,1.91,96.16,97.5,0.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 26.17
-- over_600_ratio: 22.89
+- as_of_date: 20261002
+- over_400_ratio: 25.35
+- over_600_ratio: 22.88
 - over_800_ratio: 20.47
 - over_1000_ratio: 18.98
-- over_400_change_1w: -1.33
+- over_400_change_1w: -0.82
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,27.82,-0.02,22.14,0.05,18.99,0,4,False,True
 20260717,27.37,-0.45,22.22,0.08,18.99,0,5,False,True
 20260724,27.99,0.62,22.08,-0.14,18.98,-0.01,6,False,False
 20260731,28.01,0.02,20.47,-1.61,18.98,0,7,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,29.51,0.42,20.47,0,18.98,0,4,False,False
 20260918,27.5,-2.01,20.47,0,18.98,0,0,False,False
 20260924,26.17,-1.33,20.47,0,18.98,0,0,False,False
+20261002,25.35,-0.82,20.47,0,18.98,0,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3138 | 耀登 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3138 | 耀登 | 1 | 1 | 3 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3138 | 耀登 | 6 | 0 | 293060.0 | 0.0 |  | no_signal |
+| 20261002 | 3138 | 耀登 | 6 | 0 | 540720.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

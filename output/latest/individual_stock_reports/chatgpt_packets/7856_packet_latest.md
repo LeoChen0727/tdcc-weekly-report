@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7856 漢測
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:22 Asia/Taipei
+- generated_at: 2026-10-03 15:48:00 Asia/Taipei
 - stock_id: 7856
 - stock_name: 漢測
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260924
-- price_rows: 3
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 7
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -125,23 +125,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 4675
-- high: 4695
-- low: 4530
-- close: 4605
-- volume: 250000
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- date: 20261002
+- open: 4330
+- high: 4470
+- low: 4160
+- close: 4195
+- volume: 424000
+- ma5: 4333
+- ema23_primary: 4584.97
+- distance_to_ema23_pct: -8.51
+- ma20: 4446.43
+- ma60: 4446.43
+- ma120: 4446.43
+- return_5d: -11.31
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -5.65
+- distance_to_high_60_pct: -16.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,4400,4995,4305,4730,2004000,,,,,
 20260923,4800,4800,4520,4730,586000,,,,,
 20260924,4675,4695,4530,4605,250000,,,,,
+20260929,4580,4580,4255,4315,491000,,,,,
+20260930,4340,4400,4235,4250,221000,4649.55,-8.59,4526,4526,0.31
+20261001,4240,4470,4115,4300,494000,4620.42,-6.93,4488.33,4488.33,0.73
+20261002,4330,4470,4160,4195,424000,4584.97,-8.51,4446.43,4446.43,0.66
 ```
 
 ## Latest TDCC Snapshot

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6223 旺矽
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:04 Asia/Taipei
+- generated_at: 2026-10-03 15:47:39 Asia/Taipei
 - stock_id: 6223
 - stock_name: 旺矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 營收爆發低反應股
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 5555
-- high: 5625
-- low: 5370
-- close: 5415
-- volume: 487000
-- ma5: 5535
-- ema23_primary: 5533.81
-- distance_to_ema23_pct: -2.15
-- ma20: 5450.5
-- ma60: 5794.67
-- ma120: 5693.21
-- return_5d: -1.55
-- return_20d: 6.39
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -0.65
-- distance_to_high_60_pct: -29.68
+- date: 20261002
+- open: 5055
+- high: 5310
+- low: 5055
+- close: 5310
+- volume: 1000000
+- ma5: 5213
+- ema23_primary: 5425.66
+- distance_to_ema23_pct: -2.13
+- ma20: 5440
+- ma60: 5675.5
+- ma120: 5720.96
+- return_5d: -5.52
+- return_20d: 0.38
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -2.39
+- distance_to_high_60_pct: -30.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,5085,5085,4880,5030,1610000,5654.27,-11.04,5809.5,6058.75,1.77
-20260831,4930,5130,4870,5130,1134000,5610.58,-8.57,5775.75,6043.08,1.2
-20260901,5200,5585,5090,5410,1474000,5593.86,-3.29,5751.25,6037.17,1.52
-20260902,5410,5535,5260,5290,911000,5568.54,-5,5703.5,6033.42,0.92
 20260903,5370,5370,5000,5045,1380000,5524.91,-8.69,5640.75,6019.42,1.34
 20260904,5175,5280,5090,5155,508000,5494.09,-6.17,5593.5,6009.17,0.5
 20260907,5225,5575,5165,5490,1048000,5493.75,-0.07,5556.75,5999.17,1.02
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,5615,5735,5090,5345,2040000,5537.75,-3.48,5405.25,5823.83,1.83
 20260923,5445,5625,5335,5620,949000,5544.61,1.36,5434.25,5816,0.87
 20260924,5555,5625,5370,5415,487000,5533.81,-2.15,5450.5,5794.67,0.49
+20260929,5400,5400,5140,5185,974000,5504.74,-5.81,5458.25,5760.17,1.01
+20260930,5275,5320,5100,5125,897000,5473.09,-6.36,5458,5722.58,0.94
+20261001,5130,5185,4995,5030,924000,5436.17,-7.47,5439,5692.17,1
+20261002,5055,5310,5055,5310,1000000,5425.66,-2.13,5440,5675.5,1.08
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 50.66
-- over_600_ratio: 43.98
-- over_800_ratio: 40.25
-- over_1000_ratio: 38.55
-- over_400_change_1w: 0.13
-- over_800_change_1w: -0.37
-- over_1000_change_1w: -0.27
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20261002
+- over_400_ratio: 49.83
+- over_600_ratio: 42.99
+- over_800_ratio: 40.79
+- over_1000_ratio: 37.1
+- over_400_change_1w: -0.83
+- over_800_change_1w: 0.54
+- over_1000_change_1w: -1.45
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,49.64,-0.1,41.8,-0.12,38.94,-0.11,0,False,False
 20260717,49.54,-0.1,41.65,-0.15,37.96,-0.98,0,False,False
 20260724,49.2,-0.34,41.76,0.11,38.06,0.1,1,False,True
 20260731,49.72,0.52,41.8,0.04,38.1,0.04,2,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,50.42,0.51,40.56,-0.04,38.76,-0.04,2,False,False
 20260918,50.53,0.11,40.62,0.06,38.82,0.06,3,True,True
 20260924,50.66,0.13,40.25,-0.37,38.55,-0.27,4,False,False
+20261002,49.83,-0.83,40.79,0.54,37.1,-1.45,5,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6223 | 旺矽 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 6 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/09/01 1.召開法人說明會之日期：115/09/01 2.召開法人說明會之時間：10 時 40 分 3.召開法人說明會之地點：台北寒舍艾美酒店 4.法人說明會擇要訊息：本公司受邀參加櫃買中心暨永豐金證券合作舉辦之「2026年半導體展高峰論壇」，說明本公司簡介與營運概況。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6223 | 旺矽 | 1 | 1 | 1 | 3 | 8 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:29 Asia/Taipei
+- generated_at: 2026-10-03 15:48:07 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 58.3
-- high: 58.9
-- low: 58.1
-- close: 58.8
-- volume: 1170114
-- ma5: 59.04
-- ema23_primary: 58.45
-- distance_to_ema23_pct: 0.59
-- ma20: 57.91
-- ma60: 61.48
-- ma120: 60.73
-- return_5d: 0
-- return_20d: 2.44
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 1.54
-- distance_to_high_60_pct: -28.64
+- date: 20261002
+- open: 58.9
+- high: 59.3
+- low: 58.4
+- close: 59
+- volume: 1416775
+- ma5: 58.84
+- ema23_primary: 58.57
+- distance_to_ema23_pct: 0.73
+- ma20: 58.4
+- ma60: 60.28
+- ma120: 61.24
+- return_5d: 1.03
+- return_20d: 4.8
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 1.04
+- distance_to_high_60_pct: -26.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,57.7,57.7,56.7,56.8,2194920,58.99,-3.71,58.13,67.12,0.58
-20260831,56.7,56.7,55.8,55.9,3842449,58.73,-4.82,57.84,66.84,1.01
-20260901,55.8,57,55.8,56.7,1394325,58.56,-3.18,57.54,66.63,0.38
-20260902,56.5,56.9,56,56.3,1266847,58.37,-3.55,57.19,66.45,0.35
 20260903,56.7,57.5,56.4,56.6,2059074,58.22,-2.79,56.84,66.17,0.59
 20260904,56.7,57.7,56.6,57.5,1959811,58.16,-1.14,56.62,65.88,0.59
 20260907,58.1,58.2,57.4,57.9,3270402,58.14,-0.41,56.66,65.58,1.19
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,59.6,59.6,58.7,58.7,2112213,58.42,0.47,57.77,62.04,0.75
 20260923,59.2,59.2,58.3,58.4,1476603,58.42,-0.04,57.84,61.74,0.53
 20260924,58.3,58.9,58.1,58.8,1170114,58.45,0.59,57.91,61.48,0.42
+20260929,59.2,59.2,58.3,58.3,1273804,58.44,-0.24,57.98,61.24,0.47
+20260930,58.6,59.4,58.3,59.2,1978422,58.5,1.19,58.15,60.97,0.75
+20261001,59.3,59.5,58.6,58.9,1154934,58.54,0.62,58.26,60.6,0.44
+20261002,58.9,59.3,58.4,59,1416775,58.57,0.73,58.4,60.28,0.54
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 56.96
-- over_600_ratio: 54.45
-- over_800_ratio: 52.83
-- over_1000_ratio: 51.76
-- over_400_change_1w: -0.16
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20261002
+- over_400_ratio: 57.09
+- over_600_ratio: 54.52
+- over_800_ratio: 52.9
+- over_1000_ratio: 51.73
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.07
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,60.39,0.4,56.15,0.44,54.9,0.34,1,True,True
 20260717,59.08,-1.31,54.87,-1.28,53.6,-1.3,0,False,False
 20260724,58.77,-0.31,54.72,-0.15,53.37,-0.23,0,False,False
 20260731,58.66,-0.11,54.67,-0.05,53.17,-0.2,0,False,False
@@ -199,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,57.17,-0.06,52.85,-0.17,51.67,-0.18,0,False,False
 20260918,57.12,-0.05,52.81,-0.04,51.74,0.07,1,False,True
 20260924,56.96,-0.16,52.83,0.02,51.76,0.02,2,False,True
+20261002,57.09,0.13,52.9,0.07,51.73,-0.03,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8926 | 台汽電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/09/22 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:劉文雄獨立董事 4.舊任者簡歷:本公司獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:個人因素 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:115/06/30~118/06/29 11.新任生效日期:不適用 12.同任期董事變動比率:1/13 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 依規定於最近一次股東會辦理補選。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.發生變動日期:115/09/22 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:劉文雄獨立董事 4.舊任者簡歷:本公司獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:個人因素 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:115/06/30~118/06/29 11.新任生效日期:不適用 12.同任期董事變動比率:1/13 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 依規定於最近一次股東會辦理補選。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 8926 | 台汽電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.發生變動日期:115/09/22 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:獨立董事 3.舊任者職稱及姓名:劉文雄獨立董事 4.舊任者簡歷:本公司獨立董事 5.新任者職稱及姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 辭職 8.異動原因:個人因素 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:115/06/30~118/06/29 11.新任生效日期:不適用 12.同任期董事變動比率:1/13 13.同任期獨立董事變動比率:1/3 14.同任期監察人變動比率:不適用 15.屬三分之一以上董事發生變動（請輸入是或否）:否 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 依規定於最近一次股東會辦理補選。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8926 | 台汽電 | 14 | 14 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 8926 | 台汽電 | 18 | 3 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8926 | 台汽電 | 9 | 0 | 49000.0 | 0.0 |  | no_signal |
+| 20261002 | 8926 | 台汽電 | 9 | 0 | 208870.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

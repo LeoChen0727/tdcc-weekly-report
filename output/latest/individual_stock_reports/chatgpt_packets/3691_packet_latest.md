@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:44 Asia/Taipei
+- generated_at: 2026-10-03 15:47:17 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,40 +69,41 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 等待回檔
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
-- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
+- thesis_state: unclear
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +117,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 126.5
-- high: 130.5
-- low: 118.5
-- close: 121
-- volume: 5400000
-- ma5: 110.2
-- ema23_primary: 104.05
-- distance_to_ema23_pct: 16.29
-- ma20: 100.86
-- ma60: 112.05
-- ma120: 126.47
-- return_5d: 27.5
-- return_20d: 22.59
-- volume_ratio: 6.93
-- distance_to_ma20_pct_auxiliary: 19.97
-- distance_to_high_60_pct: -24.14
+- date: 20261002
+- open: 112.5
+- high: 114
+- low: 109.5
+- close: 113
+- volume: 1040000
+- ma5: 116.9
+- ema23_primary: 107.45
+- distance_to_ema23_pct: 5.17
+- ma20: 103.78
+- ma60: 109.59
+- ma120: 126.66
+- return_5d: -7
+- return_20d: 11.33
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 8.89
+- distance_to_high_60_pct: -24.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,99.5,101.5,99.5,100,356000,107.83,-7.26,107.72,129.82,0.76
-20260831,98.2,98.6,96.8,97.2,333000,106.95,-9.11,107.05,128.7,0.75
-20260901,98,106.5,98,106.5,1020000,106.91,-0.38,106.67,127.81,2.18
-20260902,105.5,107,101.5,101.5,575000,106.46,-4.66,106.03,126.93,1.2
 20260903,102,102.5,97.6,97.6,579000,105.72,-7.68,105.28,125.77,1.17
 20260904,99,99.5,97.7,99,171000,105.16,-5.86,104.48,124.7,0.35
 20260907,100.5,100.5,98,98.6,187000,104.61,-5.75,103.66,123.56,0.39
@@ -166,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,103,110.5,102,110.5,2162000,100.78,9.64,98.61,112.97,4.83
 20260923,118.5,121.5,117,121.5,1724000,102.51,18.53,99.75,112.46,3.29
 20260924,126.5,130.5,118.5,121,5400000,104.05,16.29,100.86,112.05,6.93
+20260929,120.5,126,118.5,118.5,1317000,105.25,12.59,101.78,111.45,1.59
+20260930,118,122.5,117.5,119.5,964000,106.44,12.27,102.9,110.87,1.12
+20261001,120,120.5,112,112.5,1148000,106.95,5.19,103.2,110.19,1.33
+20261002,112.5,114,109.5,113,1040000,107.45,5.17,103.78,109.59,1.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 59.71
-- over_600_ratio: 58.73
-- over_800_ratio: 57.2
-- over_1000_ratio: 54.18
-- over_400_change_1w: 0.44
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 60.34
+- over_600_ratio: 58.29
+- over_800_ratio: 56.94
+- over_1000_ratio: 53.98
+- over_400_change_1w: 0.63
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,57.85,0.54,55.59,0.03,53.5,1.06,1,True,True
 20260717,56.87,-0.98,55.59,0,53.5,0,0,False,False
 20260724,57.24,0.37,55.51,-0.08,53.42,-0.08,1,False,False
 20260731,58.15,0.91,55.69,0.18,53.6,0.18,2,True,True
@@ -197,17 +196,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,58.74,0.11,57,0.09,53.98,0.09,1,True,True
 20260918,59.27,0.53,57.01,0.01,53.99,0.01,2,True,True
 20260924,59.71,0.44,57.2,0.19,54.18,0.19,3,True,True
+20261002,60.34,0.63,56.94,-0.26,53.98,-0.2,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3691 | 碩禾 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3691 | 碩禾 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
+| 20261002 | 3691 | 碩禾 | revenue_breakout_low_response | 營收爆發低反應股 | 19 | 3 | A_優先追蹤 |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3691 | 碩禾 | 4 | 4 | 4 | 4 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 3691 | 碩禾 | 2 | 2 | 4 | 7 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

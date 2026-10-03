@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:50 Asia/Taipei
+- generated_at: 2026-10-03 15:47:24 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,12 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 190
-- high: 191.5
-- low: 182.5
-- close: 184
-- volume: 767926
-- ma5: 188.6
-- ema23_primary: 194.16
-- distance_to_ema23_pct: -5.23
-- ma20: 193.55
-- ma60: 211.28
-- ma120: 223.07
-- return_5d: 0.55
-- return_20d: -13.62
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -4.93
-- distance_to_high_60_pct: -35.66
+- date: 20261002
+- open: 212
+- high: 230
+- low: 209.5
+- close: 230
+- volume: 4598483
+- ma5: 200.8
+- ema23_primary: 197.8
+- distance_to_ema23_pct: 16.28
+- ma20: 193
+- ma60: 207.05
+- ma120: 224.22
+- return_5d: 21.69
+- return_20d: 14.14
+- volume_ratio: 4.29
+- distance_to_ma20_pct_auxiliary: 19.17
+- distance_to_high_60_pct: -16.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,216,218.5,212.5,213.5,549450,211.58,0.91,210.25,234.14,0.51
-20260831,210.5,217,206.5,208,469631,211.28,-1.55,211.28,232.97,0.44
-20260901,208.5,217.5,207.5,208,764950,211.01,-1.43,211.53,231.82,0.77
-20260902,208,209.5,201,201.5,514617,210.21,-4.15,210.7,231.03,0.57
 20260903,203.5,207.5,195.5,195.5,511628,208.99,-6.45,208.97,230.2,0.59
 20260904,201.5,202,194.5,200.5,391934,208.28,-3.74,207.4,229.87,0.48
 20260907,205.5,206,199.5,200,597461,207.59,-3.66,206.62,229.77,0.79
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,192,196,188.5,189.5,496633,195.64,-3.14,196.1,214.45,0.63
 20260923,192,193.5,189,189,360697,195.09,-3.12,195,212.81,0.47
 20260924,190,191.5,182.5,184,767926,194.16,-5.23,193.55,211.28,0.99
+20260929,184,194.5,184,190,633493,193.82,-1.97,192.38,209.83,0.81
+20260930,193,197,190,190.5,647858,193.54,-1.57,191.5,208.39,0.82
+20261001,196.5,209.5,194.5,209.5,2273814,194.87,7.51,191.57,207.42,2.62
+20261002,212,230,209.5,230,4598483,197.8,16.28,193,207.05,4.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 58.83
-- over_600_ratio: 51.76
-- over_800_ratio: 47.38
-- over_1000_ratio: 43.17
-- over_400_change_1w: 0.41
-- over_800_change_1w: -1.25
-- over_1000_change_1w: -0.23
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20261002
+- over_400_ratio: 59.49
+- over_600_ratio: 52.31
+- over_800_ratio: 45.86
+- over_1000_ratio: 42.27
+- over_400_change_1w: 0.66
+- over_800_change_1w: -1.52
+- over_1000_change_1w: -0.9
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,61.5,-0.56,49.01,-0.42,47.19,1.43,4,False,True
 20260717,61.63,0.13,49.7,0.69,47,-0.19,5,False,True
 20260724,59.68,-1.95,47.47,-2.23,45.65,-1.35,0,False,False
 20260731,58.39,-1.29,47.69,0.22,45.1,-0.55,1,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,57.9,-0.75,48.61,-0.74,44.27,-0.63,0,False,False
 20260918,58.42,0.52,48.63,0.02,43.4,-0.87,1,False,True
 20260924,58.83,0.41,47.38,-1.25,43.17,-0.23,2,False,False
+20261002,59.49,0.66,45.86,-1.52,42.27,-0.9,3,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 4722 | 國精化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_inflow | continued_overheated | 1.事實發生日:115/06/24 2.發生緣由:依證券櫃檯買賣中心通知辦理 3.公司債相關資訊: 國精化三(47223)轉債相關資訊 到期日期:117/10/01 實際發行總額:新台幣500,000,000元整 本月發行餘額:新台幣355,600,000元整(截至115/06/24未轉換金額) 最新轉(交)換價格:141.3 轉換標的收市價格(4722):301.00(115/06/24收盤價) 轉債收市價格(47223):210.00(115/06/24收盤價) 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 4722 | 國精化 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4722 | 國精化 | 60 | 5 | 445740.0 | 144000.0 | 3.1 | no_signal |
+| 20261002 | 4722 | 國精化 | 57 | 4 | 3345230.0 | 30500.0 | 109.68 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

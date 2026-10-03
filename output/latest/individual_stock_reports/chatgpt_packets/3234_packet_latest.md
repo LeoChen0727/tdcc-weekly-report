@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3234 光環
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:37 Asia/Taipei
+- generated_at: 2026-10-03 15:47:09 Asia/Taipei
 - stock_id: 3234
 - stock_name: 光環
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 163
-- high: 180
-- low: 162
-- close: 178
-- volume: 4252000
-- ma5: 175.9
-- ema23_primary: 175.21
-- distance_to_ema23_pct: 1.59
-- ma20: 186.43
-- ma60: 144.96
-- ma120: 129.43
-- return_5d: 0.56
-- return_20d: -1.11
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: -4.52
-- distance_to_high_60_pct: -19.09
+- date: 20261002
+- open: 174.5
+- high: 184
+- low: 174.5
+- close: 181.5
+- volume: 4245000
+- ma5: 175.8
+- ema23_primary: 175.29
+- distance_to_ema23_pct: 3.54
+- ma20: 182.6
+- ma60: 148.17
+- ma120: 131.92
+- return_5d: 6.76
+- return_20d: -13.98
+- volume_ratio: 1.35
+- distance_to_ma20_pct_auxiliary: -0.6
+- distance_to_high_60_pct: -17.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,183,186,181,181.5,2192000,145.85,24.45,141.8,126.18,0.56
-20260831,180,185,170,185,3259000,149.11,24.07,145.85,126.98,0.81
-20260901,185,203,183.5,200,3479000,153.35,30.42,150.2,128.24,0.86
-20260902,199,220,199,211,7818000,158.15,33.41,155,129.69,1.8
 20260903,211,214,193.5,194.5,6156000,161.18,20.67,159.2,130.85,1.34
 20260904,203,209,190,206,5383000,164.92,24.91,164.12,132.4,1.12
 20260907,202,205.5,196,199.5,4173000,167.8,18.89,168.2,133.91,0.85
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,180.5,181,172.5,173,2342000,175.41,-1.37,187.05,143.3,0.65
 20260923,174.5,174.5,169,170,1404000,174.96,-2.83,186.53,144.01,0.41
 20260924,163,180,162,178,4252000,175.21,1.59,186.43,144.96,1.21
+20260929,180,180,171.5,174.5,1686000,175.15,-0.37,186.07,145.74,0.48
+20260930,177.5,179,172.5,173,1769000,174.97,-1.13,185.47,146.49,0.52
+20261001,173,173,169,172,1406000,174.73,-1.56,184.07,147.19,0.42
+20261002,174.5,184,174.5,181.5,4245000,175.29,3.54,182.6,148.17,1.35
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 35.21
-- over_600_ratio: 30.82
-- over_800_ratio: 27.46
-- over_1000_ratio: 26.11
-- over_400_change_1w: 0.29
-- over_800_change_1w: 0.01
-- over_1000_change_1w: -1.34
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20261002
+- over_400_ratio: 34.29
+- over_600_ratio: 30.2
+- over_800_ratio: 26.84
+- over_1000_ratio: 25.47
+- over_400_change_1w: -0.92
+- over_800_change_1w: -0.62
+- over_1000_change_1w: -0.64
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,33.03,0.04,25.12,0.03,23.61,0.16,3,True,True
 20260717,31.36,-1.67,23.45,-1.67,22.69,-0.92,0,False,False
 20260724,31.71,0.35,21.72,-1.73,20.96,-1.73,1,False,False
 20260731,30.87,-0.84,21.82,0.1,21.06,0.1,2,False,True
@@ -198,19 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,34.62,-1.59,27,-1.45,27,-0.69,0,False,False
 20260918,34.92,0.3,27.45,0.45,27.45,0.45,1,False,True
 20260924,35.21,0.29,27.46,0.01,26.11,-1.34,2,False,True
+20261002,34.29,-0.92,26.84,-0.62,25.47,-0.64,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3234 | 光環 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:光環科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  (1)本公司已於民國115年5月29日股東常會決議通過發行限制員工權利新股普通股     共計1,000,000股，每股面額新台幣10元，發行總額為新台幣10,000,000元。     業經金融監督管理委員會於115年8月4日金管證發字第1150351320號函申報生效。  (2)本公司民國115年8月7日董事會授權董事長訂定:     本公司董事長訂定增資基準日為民國115年9月21日，本次發行股數為785,000股。 6.因應措施:不適用。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3234 | 光環 | pullback_rebound | 回檔後短線轉強 | 83.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:光環科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  (1)本公司已於民國115年5月29日股東常會決議通過發行限制員工權利新股普通股     共計1,000,000股，每股面額新台幣10元，發行總額為新台幣10,000,000元。     業經金融監督管理委員會於115年8月4日金管證發字第1150351320號函申報生效。  (2)本公司民國115年8月7日董事會授權董事長訂定:     本公司董事長訂定增資基準日為民國115年9月21日，本次發行股數為785,000股。 6.因應措施:不適用。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3234 | 光環 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:光環科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  (1)本公司已於民國115年5月29日股東常會決議通過發行限制員工權利新股普通股     共計1,000,000股，每股面額新台幣10元，發行總額為新台幣10,000,000元。     業經金融監督管理委員會於115年8月4日金管證發字第1150351320號函申報生效。  (2)本公司民國115年8月7日董事會授權董事長訂定:     本公司董事長訂定增資基準日為民國115年9月21日，本次發行股數為785,000股。 6.因應措施:不適用。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3234 | 光環 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/09/21 2.公司名稱:光環科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  (1)本公司已於民國115年5月29日股東常會決議通過發行限制員工權利新股普通股     共計1,000,000股，每股面額新台幣10元，發行總額為新台幣10,000,000元。     業經金融監督管理委員會於115年8月4日金管證發字第1150351320號函申報生效。  (2)本公司民國115年8月7日董事會授權董事長訂定:     本公司董事長訂定增資基準日為民國115年9月21日，本次發行股數為785,000股。 6.因應措施:不適用。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3234 | 光環 | 8 | 8 | 5 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3234 | 光環 | 12 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

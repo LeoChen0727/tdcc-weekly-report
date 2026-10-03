@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:23 Asia/Taipei
+- generated_at: 2026-10-03 15:46:55 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 44
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 45
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 145.5
-- high: 146
-- low: 145
-- close: 145
-- volume: 6311915
-- ma5: 145.1
-- ema23_primary: 141.48
+- date: 20261002
+- open: 145
+- high: 146.5
+- low: 144
+- close: 146
+- volume: 10009961
+- ma5: 144.8
+- ema23_primary: 142.47
 - distance_to_ema23_pct: 2.48
-- ma20: 140.85
-- ma60: 138.61
-- ma120: 138.73
-- return_5d: 0
-- return_20d: 7.01
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 2.95
-- distance_to_high_60_pct: -0.68
+- ma20: 142.55
+- ma60: 138.85
+- ma120: 139.07
+- return_5d: 0.34
+- return_20d: 6.18
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 2.42
+- distance_to_high_60_pct: -0.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,136,136.5,135,135.5,11702399,136.77,-0.93,136.43,139.29,1.31
-20260831,136,136,135,136,15450910,136.71,-0.52,136.28,139.2,1.68
-20260901,136,136.5,135.5,136,6889714,136.65,-0.47,136.25,139.12,0.79
-20260902,136.5,137.5,136,137.5,10960892,136.72,0.57,136.28,139.1,1.26
 20260903,137.5,138.5,136.5,138,13060255,136.82,0.86,136.32,139.03,1.46
 20260904,138,138,137,137.5,7383449,136.88,0.45,136.32,138.93,0.82
 20260907,138.5,138.5,136.5,138,8953714,136.97,0.75,136.4,138.81,1
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,145,145,143,145,5469034,140.77,3,139.9,138.48,0.46
 20260923,145,145.5,144.5,145.5,8326189,141.16,3.07,140.38,138.55,0.7
 20260924,145.5,146,145,145,6311915,141.48,2.48,140.85,138.61,0.53
+20260929,146,146,143,144,11652180,141.69,1.63,141.28,138.66,0.97
+20260930,145,145,143,143.5,10607859,141.84,1.17,141.65,138.7,0.9
+20261001,144,146,143,145.5,8628434,142.15,2.36,142.12,138.77,0.73
+20261002,145,146.5,144,146,10009961,142.47,2.48,142.55,138.85,0.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 79.72
-- over_600_ratio: 78.9
-- over_800_ratio: 78.45
-- over_1000_ratio: 77.99
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20261002
+- over_400_ratio: 79.75
+- over_600_ratio: 78.96
+- over_800_ratio: 78.48
+- over_1000_ratio: 78
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,79.66,-0.19,78.45,-0.19,77.89,-0.14,0,False,False
 20260717,79.09,-0.57,77.89,-0.56,77.33,-0.56,0,False,False
 20260724,79.14,0.05,77.94,0.05,77.4,0.07,1,True,True
 20260731,79.41,0.27,78.2,0.26,77.65,0.25,2,True,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,79.24,0.15,78.01,0.18,77.53,0.2,2,True,True
 20260918,79.65,0.41,78.4,0.39,77.93,0.4,3,True,True
 20260924,79.72,0.07,78.45,0.05,77.99,0.06,4,True,True
+20261002,79.75,0.03,78.48,0.03,78,0.01,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2412 | 中華電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:中華電信股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  中華電信公司公佈115年8月自結合併營運績效：  營收約為233.1億元、營業淨利約為56.2億元、歸屬於母公司業主淨利約為  44.4億元、稅前息前折舊攤銷前淨利(EBITDA)約為90.5億元、每股盈餘為0.57元。  累計營收約為1,645.5億元、營業淨利約為364.3億元、歸屬於母公司業主淨利約為  285.3億元、稅前息前折舊攤銷前淨利(EBITDA)約為637.4億元、每股盈餘為3.68元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2412 | 中華電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | 1.事實發生日:115/09/10 2.公司名稱:中華電信股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:  中華電信公司公佈115年8月自結合併營運績效：  營收約為233.1億元、營業淨利約為56.2億元、歸屬於母公司業主淨利約為  44.4億元、稅前息前折舊攤銷前淨利(EBITDA)約為90.5億元、每股盈餘為0.57元。  累計營收約為1,645.5億元、營業淨利約為364.3億元、歸屬於母公司業主淨利約為  285.3億元、稅前息前折舊攤銷前淨利(EBITDA)約為637.4億元、每股盈餘為3.68元。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2412 | 中華電 | 4 | 4 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2412 | 中華電 | 8 | 8 | 5 | 9 | 17 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2412 | 中華電 | 2 | 0 | 27140.0 | 0.0 |  | no_signal |
+| 20261002 | 2412 | 中華電 | 2 | 0 | 1689520.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

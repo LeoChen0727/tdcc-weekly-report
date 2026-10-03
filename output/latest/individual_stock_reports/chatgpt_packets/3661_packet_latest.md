@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:43 Asia/Taipei
+- generated_at: 2026-10-03 15:47:16 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 3730
-- high: 3785
-- low: 3715
-- close: 3770
-- volume: 1136496
-- ma5: 3690
-- ema23_primary: 3744.68
-- distance_to_ema23_pct: 0.68
-- ma20: 3830
-- ma60: 3770.33
-- ma120: 3986.46
-- return_5d: 14.42
-- return_20d: -2.58
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -1.57
-- distance_to_high_60_pct: -22.98
+- date: 20261002
+- open: 3765
+- high: 3855
+- low: 3765
+- close: 3810
+- volume: 1303480
+- ma5: 3754
+- ema23_primary: 3747.52
+- distance_to_ema23_pct: 1.67
+- ma20: 3749.25
+- ma60: 3723.75
+- ma120: 4015.75
+- return_5d: 1.33
+- return_20d: -9.29
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -15.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,3910,4105,3855,4065,2030269,3804.89,6.84,3809.25,3899.08,0.84
-20260831,4015,4085,3900,4075,2040909,3827.4,6.47,3850.5,3894.67,0.85
-20260901,4235,4350,4170,4275,2521101,3864.7,10.62,3894.75,3894.5,1.02
-20260902,4260,4310,4180,4200,1632464,3892.64,7.9,3924.25,3895,0.67
 20260903,4210,4260,4010,4050,1876714,3905.75,3.69,3943.75,3891.67,0.77
 20260904,4155,4275,4110,4220,1757291,3931.94,7.33,3969,3894.67,0.73
 20260907,4175,4180,4000,4040,3204560,3940.95,2.51,3981,3894.33,1.33
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,3760,3950,3670,3715,3598114,3740.77,-0.69,3845,3788.67,1.38
 20260923,3790,3845,3715,3760,1782601,3742.38,0.47,3835,3781.67,0.69
 20260924,3730,3785,3715,3770,1136496,3744.68,0.68,3830,3770.33,0.44
+20260929,3750,3795,3675,3685,1176972,3739.7,-1.46,3811,3750.17,0.47
+20260930,3745,3810,3730,3740,1125493,3739.73,0.01,3794.25,3735,0.46
+20261001,3770,3820,3735,3765,953454,3741.83,0.62,3768.75,3727.5,0.4
+20261002,3765,3855,3765,3810,1303480,3747.52,1.67,3749.25,3723.75,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 35.31
-- over_600_ratio: 24
-- over_800_ratio: 19.97
-- over_1000_ratio: 9.73
-- over_400_change_1w: 1.85
-- over_800_change_1w: 2.02
-- over_1000_change_1w: -0.97
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20261002
+- over_400_ratio: 34.86
+- over_600_ratio: 24.59
+- over_800_ratio: 16.97
+- over_1000_ratio: 9.76
+- over_400_change_1w: -0.45
+- over_800_change_1w: -3
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,39.02,1.64,21.82,1.88,13.22,-0.16,2,False,True
 20260717,37.41,-1.61,20.6,-1.22,16.49,3.27,3,False,True
 20260724,36.2,-1.21,20.33,-0.27,17.19,0.7,4,False,True
 20260731,35.42,-0.78,20.97,0.64,15.77,-1.42,5,False,True
@@ -199,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,35.77,-1.74,20.14,-1.5,12.73,-0.47,0,False,False
 20260918,33.46,-2.31,17.95,-2.19,10.7,-2.03,0,False,False
 20260924,35.31,1.85,19.97,2.02,9.73,-0.97,1,False,True
+20261002,34.86,-0.45,16.97,-3,9.76,0.03,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3661 | 世芯-KY | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/17 2.公司名稱:英屬開曼群島商世芯電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (一)英屬開曼群島商世芯電子股份有限公司於中華民國115年5月26日股東會決議發放 普通股現金股利88,275,709美元，依本公司中華民國115年9月11日配息基準日股東名 簿持有股數為86,305,114股，依中央銀行規定辦理匯兌，每股現金股利折合新台幣  32.57284607元。 (二)現金股利發放至元為止(元以下不計)，其畸零款合計數列入本公司之其他收入， 現金股利發放之匯款或支票處理費用由股東自行負擔。 (三)茲訂定中華民國115年10月8日為本公司現金股利之付款日，委由股務代理機構 中國信託商業銀行代理部(電話:02-66365566)以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3661 | 世芯-KY | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/17 2.公司名稱:英屬開曼群島商世芯電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (一)英屬開曼群島商世芯電子股份有限公司於中華民國115年5月26日股東會決議發放 普通股現金股利88,275,709美元，依本公司中華民國115年9月11日配息基準日股東名 簿持有股數為86,305,114股，依中央銀行規定辦理匯兌，每股現金股利折合新台幣  32.57284607元。 (二)現金股利發放至元為止(元以下不計)，其畸零款合計數列入本公司之其他收入， 現金股利發放之匯款或支票處理費用由股東自行負擔。 (三)茲訂定中華民國115年10月8日為本公司現金股利之付款日，委由股務代理機構 中國信託商業銀行代理部(電話:02-66365566)以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3661 | 世芯-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/17 2.公司名稱:英屬開曼群島商世芯電子股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (一)英屬開曼群島商世芯電子股份有限公司於中華民國115年5月26日股東會決議發放 普通股現金股利88,275,709美元，依本公司中華民國115年9月11日配息基準日股東名 簿持有股數為86,305,114股，依中央銀行規定辦理匯兌，每股現金股利折合新台幣  32.57284607元。 (二)現金股利發放至元為止(元以下不計)，其畸零款合計數列入本公司之其他收入， 現金股利發放之匯款或支票處理費用由股東自行負擔。 (三)茲訂定中華民國115年10月8日為本公司現金股利之付款日，委由股務代理機構 中國信託商業銀行代理部(電話:02-66365566)以匯款或掛號郵寄支票方式發放。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3661 | 世芯-KY | 5 | 5 | 5 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3661 | 世芯-KY | 1 | 1 | 4 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3661 | 世芯-KY | 303 | 18 | 40377900.0 | 159420.0 | 253.28 | no_signal |
+| 20261002 | 3661 | 世芯-KY | 335 | 16 | 43421010.0 | 941010.0 | 46.14 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8215 明基材
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:26 Asia/Taipei
+- generated_at: 2026-10-03 15:48:04 Asia/Taipei
 - stock_id: 8215
 - stock_name: 明基材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 27.85
-- high: 28.25
-- low: 27.65
-- close: 27.9
-- volume: 1084525
-- ma5: 28.3
-- ema23_primary: 26.32
-- distance_to_ema23_pct: 5.99
-- ma20: 26.2
-- ma60: 25.53
-- ma120: 26.84
-- return_5d: 3.33
-- return_20d: 12.27
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 6.47
-- distance_to_high_60_pct: -10.86
+- date: 20261002
+- open: 29.3
+- high: 29.8
+- low: 29.1
+- close: 29.7
+- volume: 1925721
+- ma5: 28.87
+- ema23_primary: 27.16
+- distance_to_ema23_pct: 9.36
+- ma20: 26.86
+- ma60: 25.5
+- ma120: 27
+- return_5d: 6.64
+- return_20d: 12.93
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 10.57
+- distance_to_high_60_pct: -4.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,25.5,26.75,25.1,26.2,1661988,24.72,5.98,24.44,26.62,3.21
-20260831,26.25,26.25,25.1,25.6,946273,24.79,3.25,24.58,26.54,1.77
-20260901,25.3,25.95,25.2,25.25,501355,24.83,1.68,24.68,26.47,0.94
-20260902,25.15,26.3,25.1,26.3,1005327,24.95,5.39,24.8,26.44,1.82
 20260903,26.2,26.55,25.3,25.3,1158678,24.98,1.27,24.85,26.39,1.99
 20260904,25.5,25.9,24.95,25.55,638897,25.03,2.08,24.91,26.33,1.08
 20260907,25.9,25.9,25.1,25.35,410067,25.06,1.17,24.89,26.28,0.72
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,29.5,31,28.35,28.35,12705569,26.03,8.92,25.88,25.6,5.8
 20260923,28.35,28.8,27.6,27.85,2096658,26.18,6.38,26.05,25.55,0.92
 20260924,27.85,28.25,27.65,27.9,1084525,26.32,5.99,26.2,25.53,0.47
+20260929,27.85,28.4,27.6,28,1185197,26.46,5.81,26.3,25.5,0.52
+20260930,28.35,30,28.2,29.65,4627241,26.73,10.93,26.5,25.5,1.88
+20261001,30.1,30.1,28.85,29.1,2446726,26.93,8.07,26.69,25.48,0.95
+20261002,29.3,29.8,29.1,29.7,1925721,27.16,9.36,26.86,25.5,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 53.59
-- over_600_ratio: 52.08
-- over_800_ratio: 50.97
-- over_1000_ratio: 50.67
-- over_400_change_1w: 0.59
-- over_800_change_1w: 0.44
-- over_1000_change_1w: 0.41
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 53.42
+- over_600_ratio: 51.59
+- over_800_ratio: 50.72
+- over_1000_ratio: 50.72
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.25
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,53.25,-0.29,50.76,-0.57,50.76,-0.04,0,False,False
 20260717,53.22,-0.03,50.6,-0.16,50.04,-0.72,1,False,False
 20260724,52.85,-0.37,50.27,-0.33,50,-0.04,0,False,False
 20260731,52.65,-0.2,49.98,-0.29,49.69,-0.31,1,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,53.13,0.08,50.63,-0.14,50.63,0.13,7,False,True
 20260918,53,-0.13,50.53,-0.1,50.26,-0.37,0,False,False
 20260924,53.59,0.59,50.97,0.44,50.67,0.41,1,True,True
+20261002,53.42,-0.17,50.72,-0.25,50.72,0.05,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8215 | 明基材 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/06 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利 NT$96,202,354元 (每股配發NT$0.3元) 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/17 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 8215 | 明基材 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/07/06 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利 NT$96,202,354元 (每股配發NT$0.3元) 4.除權（息）交易日:115/07/21 5.最後過戶日:115/07/22 6.停止過戶起始日期:115/07/23 7.停止過戶截止日期:115/07/27 8.除權（息）基準日:115/07/27 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/17 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8215 | 明基材 | 7 | 2 | 5 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 8215 | 明基材 | 1 | 1 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8215 | 明基材 | 7 | 0 | 509650.0 | 0.0 |  | no_signal |
+| 20261002 | 8215 | 明基材 | 7 | 0 | 593750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

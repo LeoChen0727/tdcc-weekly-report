@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:25 Asia/Taipei
+- generated_at: 2026-10-03 15:48:03 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 356
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 360
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 14.95
-- high: 14.95
-- low: 14.75
-- close: 14.85
-- volume: 1003115
-- ma5: 14.99
-- ema23_primary: 15.23
-- distance_to_ema23_pct: -2.51
-- ma20: 15.1
-- ma60: 17.19
-- ma120: 16.7
-- return_5d: 1.71
-- return_20d: -1.98
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -1.66
-- distance_to_high_60_pct: -42.33
+- date: 20261002
+- open: 15.45
+- high: 15.75
+- low: 15.4
+- close: 15.6
+- volume: 2228765
+- ma5: 15.43
+- ema23_primary: 15.34
+- distance_to_ema23_pct: 1.72
+- ma20: 14.99
+- ma60: 16.66
+- ma120: 16.79
+- return_5d: 4.7
+- return_20d: -2.19
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 4.09
+- distance_to_high_60_pct: -34.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,16.65,16.65,16.65,16.65,6433266,16.58,0.44,16.09,18.9,1.3
-20260831,16.65,16.8,15.6,16.1,14084879,16.54,-2.64,16.05,18.89,2.53
-20260901,16,16.35,15.6,15.85,5818683,16.48,-3.82,16,18.88,1.02
-20260902,15.8,16.2,15.7,15.95,3694381,16.44,-2.96,16.01,18.85,0.64
 20260903,15.8,16.2,15,15,6185107,16.32,-8.07,16,18.78,1.07
 20260904,14.8,15.1,14.7,15,3908652,16.21,-7.44,16.02,18.68,0.67
 20260907,15.1,15.35,14.85,15.2,2555909,16.12,-5.72,15.99,18.59,0.44
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,15.3,15.7,15.2,15.3,3509010,15.3,-0.01,15.06,17.43,0.62
 20260923,15.3,15.3,14.9,14.9,1428833,15.27,-2.41,15.12,17.3,0.44
 20260924,14.95,14.95,14.75,14.85,1003115,15.23,-2.51,15.1,17.19,0.31
+20260929,14.9,15,14.7,14.9,988490,15.2,-2.01,15.01,17.04,0.34
+20260930,15,16.35,15,16.35,8120178,15.3,6.86,15.03,16.9,3.07
+20261001,16.05,16.05,15.45,15.45,6433836,15.31,0.9,15.01,16.78,2.41
+20261002,15.45,15.75,15.4,15.6,2228765,15.34,1.72,14.99,16.66,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 63.57
-- over_600_ratio: 62.81
-- over_800_ratio: 61.89
-- over_1000_ratio: 60.46
-- over_400_change_1w: -0.18
-- over_800_change_1w: -0.2
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20261002
+- over_400_ratio: 63.26
+- over_600_ratio: 62.15
+- over_800_ratio: 61.24
+- over_1000_ratio: 60.23
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.65
+- over_1000_change_1w: -0.23
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,61.48,-0.1,59.64,0,58.62,-0.21,0,False,False
 20260717,61.37,-0.11,59.23,-0.41,58.61,-0.01,1,False,False
 20260724,61.07,-0.3,58.67,-0.56,57.62,-0.99,0,False,False
 20260731,60.8,-0.27,58.02,-0.65,56.97,-0.65,0,False,False
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,63.84,0.11,61.92,0.41,60.51,0.03,1,True,True
 20260918,63.75,-0.09,62.09,0.17,60.24,-0.27,2,False,True
 20260924,63.57,-0.18,61.89,-0.2,60.46,0.22,3,False,True
+20261002,63.26,-0.31,61.24,-0.65,60.23,-0.23,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 8105 | 凌巨 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | 1.發生變動日期:115/07/08 2.功能性委員會名稱:審計委員會、薪資報酬委員會、風險管理委員會及永續發展  委員會 3.舊任者姓名:陳忠仁 4.舊任者簡歷:本公司獨立董事 5.新任者姓名:不適用 6.新任者簡歷:不適用 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:辭職 8.異動原因:個人職涯規劃 9.原任期（例xx/xx/xx ~ xx/xx/xx）:  審計委員會：114/06/27~117/06/26  薪資報酬委員會：114/07/14~117/06/26  風險管理委員會：114/07/14~117/06/26  永續發展委員會：114/07/14~117/06/26 10.新任生效日期:不適用 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 8105 | 凌巨 | 3 | 2 | 3 | 3 | 4 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8105 | 凌巨 | 5 | 0 | 22450.0 | 0.0 |  | no_signal |
+| 20261002 | 8105 | 凌巨 | 5 | 0 | 288130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

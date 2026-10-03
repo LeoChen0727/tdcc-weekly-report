@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:08 Asia/Taipei
+- generated_at: 2026-10-03 15:46:39 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 44
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 45
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 14.15
-- high: 14.3
-- low: 14
-- close: 14.3
-- volume: 1063872
-- ma5: 14.2
-- ema23_primary: 14.13
-- distance_to_ema23_pct: 1.19
-- ma20: 14.25
-- ma60: 14.01
-- ma120: 14.15
-- return_5d: -0.69
-- return_20d: 1.42
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.35
-- distance_to_high_60_pct: -15.88
+- date: 20261002
+- open: 14.2
+- high: 14.55
+- low: 14.2
+- close: 14.45
+- volume: 1686204
+- ma5: 14.3
+- ema23_primary: 14.18
+- distance_to_ema23_pct: 1.87
+- ma20: 14.24
+- ma60: 13.95
+- ma120: 14.05
+- return_5d: 1.76
+- return_20d: -1.03
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 1.46
+- distance_to_high_60_pct: -8.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,14.15,14.35,13.85,13.85,1497972,13.68,1.24,13.5,13.85,0.97
-20260831,14,14.5,13.95,14.4,3610790,13.74,4.8,13.59,13.86,2.18
-20260901,14.25,15.25,14.25,14.5,3865962,13.8,5.04,13.68,13.87,2.16
-20260902,14.7,15.05,14.45,14.6,1945889,13.87,5.26,13.76,13.89,1.07
 20260903,14.6,15,14.3,14.4,2030294,13.91,3.49,13.82,13.9,1.09
 20260904,14.45,14.45,14,14.15,1099385,13.93,1.55,13.86,13.92,0.61
 20260907,14.2,14.25,13.95,13.95,805663,13.94,0.1,13.88,13.92,0.47
@@ -168,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,14.25,14.25,14.05,14.15,577158,14.11,0.29,14.23,14,0.33
 20260923,14.25,14.4,14.1,14.2,1054666,14.12,0.59,14.24,14.01,0.63
 20260924,14.15,14.3,14,14.3,1063872,14.13,1.19,14.25,14.01,0.65
+20260929,14.3,14.75,14.05,14.1,1556217,14.13,-0.21,14.26,14,0.95
+20260930,14.2,14.5,14.1,14.45,1215427,14.16,2.07,14.27,13.98,0.8
+20261001,14.35,14.4,14.1,14.2,758207,14.16,0.28,14.25,13.96,0.56
+20261002,14.2,14.55,14.2,14.45,1686204,14.18,1.87,14.24,13.95,1.26
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 53.1
-- over_600_ratio: 51.21
-- over_800_ratio: 50.87
-- over_1000_ratio: 49.93
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0.14
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 53.25
+- over_600_ratio: 51.34
+- over_800_ratio: 50.88
+- over_1000_ratio: 50.09
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,52.69,0.2,49.93,0.28,49.33,0.44,13,True,True
 20260717,52.48,-0.21,49.72,-0.21,48.82,-0.51,0,False,False
 20260724,52.19,-0.29,49.72,0,48.66,-0.16,0,False,False
 20260731,51.76,-0.43,49.51,-0.21,48.41,-0.25,0,False,False
@@ -199,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,52.92,0.1,50.39,-0.02,49.59,-0.03,6,False,False
 20260918,53.11,0.19,50.73,0.34,49.95,0.36,7,True,True
 20260924,53.1,-0.01,50.87,0.14,49.93,-0.02,8,False,True
+20261002,53.25,0.15,50.88,0.01,50.09,0.16,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1308 | 亞聚 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：實體暨線上法說會:台北市民生東路三段156號15樓會議室 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會。法說會內容:(1)公司簡介及產品介紹(2)115年第2季營運概況及展望(3)115年第2季財務資訊 5.其他應敘明事項：報名網址: https://www.surveycake.com/s/w34Pl活動信箱: capitaldiid@capital.com.tw 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 1308 | 亞聚 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/08/27 1.召開法人說明會之日期：115/08/27 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：實體暨線上法說會:台北市民生東路三段156號15樓會議室 4.法人說明會擇要訊息：本公司受邀參加群益金鼎證券舉辦之法人說明會。法說會內容:(1)公司簡介及產品介紹(2)115年第2季營運概況及展望(3)115年第2季財務資訊 5.其他應敘明事項：報名網址: https://www.surveycake.com/s/w34Pl活動信箱: capitaldiid@capital.com.tw 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1308 | 亞聚 | 1 | 1 | 1 | 3 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 1308 | 亞聚 | 1 | 1 | 3 | 4 | 8 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1308 | 亞聚 | 17 | 1 | 65480.0 | 0.0 |  | no_signal |
+| 20261002 | 1308 | 亞聚 | 16 | 1 | 123050.0 | 27600.0 | 4.46 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

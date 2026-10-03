@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:44 Asia/Taipei
+- generated_at: 2026-10-03 15:47:17 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,11 +100,11 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -118,6 +118,7 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 64.6
-- high: 65.9
-- low: 64.2
-- close: 65.6
-- volume: 2491440
-- ma5: 65.24
-- ema23_primary: 64.55
-- distance_to_ema23_pct: 1.63
-- ma20: 64.89
-- ma60: 65.41
-- ma120: 68.83
-- return_5d: 2.82
-- return_20d: -2.81
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -26.13
+- date: 20261002
+- open: 73.5
+- high: 80.6
+- low: 73
+- close: 80.6
+- volume: 28711684
+- ma5: 72.74
+- ema23_primary: 67.59
+- distance_to_ema23_pct: 19.26
+- ma20: 66.27
+- ma60: 64.99
+- ma120: 69.63
+- return_5d: 24.38
+- return_20d: 20.3
+- volume_ratio: 3.68
+- distance_to_ma20_pct_auxiliary: 21.62
+- distance_to_high_60_pct: -2.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,68,68.7,67.2,67.6,4678450,64.39,4.99,62.9,70.9,0.91
-20260831,67.6,69.5,67.1,68.2,5541636,64.71,5.4,63.42,70.57,1.07
-20260901,68.3,69.7,67.7,67.8,4935897,64.96,4.37,63.82,70.27,0.95
-20260902,67.4,68.4,66.5,67,4362027,65.13,2.87,64.09,70.01,0.86
 20260903,67.4,68.8,64.7,64.7,5624756,65.1,-0.61,64.23,69.64,1.08
 20260904,66,67.2,64.7,65.5,2734304,65.13,0.57,64.49,69.38,0.53
 20260907,66.1,66.8,65.4,65.8,2723796,65.19,0.94,64.61,69.17,0.55
@@ -167,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,66.4,67.5,65.4,65.6,4941576,64.42,1.83,65.16,65.85,1.22
 20260923,66.3,67.5,64.8,64.8,4047583,64.45,0.54,64.99,65.59,1.08
 20260924,64.6,65.9,64.2,65.6,2491440,64.55,1.63,64.89,65.41,0.69
+20260929,65.5,69.5,65.5,68.7,11366605,64.89,5.87,64.95,65.16,2.87
+20260930,69.1,75.5,68.9,75.5,37006920,65.78,14.78,65.31,65.04,6.69
+20261001,73.7,75.8,71.7,73.3,26102941,66.4,10.39,65.59,64.91,3.96
+20261002,73.5,80.6,73,80.6,28711684,67.59,19.26,66.27,64.99,3.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 41.71
-- over_600_ratio: 38.93
-- over_800_ratio: 37.93
-- over_1000_ratio: 35.99
-- over_400_change_1w: -0.27
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.2
+- as_of_date: 20261002
+- over_400_ratio: 41.19
+- over_600_ratio: 38.45
+- over_800_ratio: 37.06
+- over_1000_ratio: 34.57
+- over_400_change_1w: -0.52
+- over_800_change_1w: -0.87
+- over_1000_change_1w: -1.42
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,42.66,-0.61,38.37,-0.38,36.84,-0.6,0,False,False
 20260717,41.47,-1.19,37.02,-1.35,35.94,-0.9,0,False,False
 20260724,41.26,-0.21,36.73,-0.29,35.24,-0.7,0,False,False
 20260731,41.82,0.56,37.46,0.73,35.32,0.08,1,True,True
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,41.54,-0.18,37.56,-0.58,36.47,0.11,2,False,True
 20260918,41.98,0.44,37.98,0.42,36.19,-0.28,3,False,True
 20260924,41.71,-0.27,37.93,-0.05,35.99,-0.2,0,False,False
+20261002,41.19,-0.52,37.06,-0.87,34.57,-1.42,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3673 | TPK-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/19 2.接受資金貸與之: (1)公司名稱:祥達光學(廈門)有限公司 (2)與資金貸與他人公司之關係: 關係企業 (3)資金貸與之限額(仟元):67,416,328 (4)原資金貸與之餘額(仟元):969,300 (5)本次新增資金貸與之金額(仟元):969,300 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,938,600 (8)本次新增資金貸與之原因: 充實祥達光學(廈門)有限公司之營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):20,184,097 (2)累積盈虧金額(仟元):-12,815,371 5.計息方式: 廈門子公司加權平均成本 6.還款之: (1)條件: 本金到期清償。同意到期日前提前還款及分期清償借款 (2)日期: 中華民國116年08月18日(預估到期日) 7.迄事實發生日為止，資金貸與餘額(仟元): 87,140,070 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 215.02 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: (1)資金貸與餘額、新增資金貸與之金額之美元數以32.31折算新台幣 (2) 貸出方淨值、接受資金貸與公司最近期財務報表之資本 以115年第&#12752;季會計師核閱報告之數據為準 (3) 接受資金貸與公司最近期財務報表之累積盈虧金額 為115年第&#12752;季會計師核閱報告之美金數以匯率31.995折算新台幣；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3673 | TPK-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_put_bullish | continued_overheated | 1.事實發生日:115/08/19 2.接受資金貸與之: (1)公司名稱:祥達光學(廈門)有限公司 (2)與資金貸與他人公司之關係: 關係企業 (3)資金貸與之限額(仟元):67,416,328 (4)原資金貸與之餘額(仟元):969,300 (5)本次新增資金貸與之金額(仟元):969,300 (6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:是 (7)迄事實發生日止資金貸與餘額(仟元):1,938,600 (8)本次新增資金貸與之原因: 充實祥達光學(廈門)有限公司之營運資金需求 3.接受資金貸與公司所提供擔保品之: (1)內容: 無 (2)價值(仟元):0 4.接受資金貸與公司最近期財務報表之: (1)資本(仟元):20,184,097 (2)累積盈虧金額(仟元):-12,815,371 5.計息方式: 廈門子公司加權平均成本 6.還款之: (1)條件: 本金到期清償。同意到期日前提前還款及分期清償借款 (2)日期: 中華民國116年08月18日(預估到期日) 7.迄事實發生日為止，資金貸與餘額(仟元): 87,140,070 8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率: 215.02 9.公司貸與他人資金之來源: 子公司本身 10.其他應敘明事項: (1)資金貸與餘額、新增資金貸與之金額之美元數以32.31折算新台幣 (2) 貸出方淨值、接受資金貸與公司最近期財務報表之資本 以115年第&#12752;季會計師核閱報告之數據為準 (3) 接受資金貸與公司最近期財務報表之累積盈虧金額 為115年第&#12752;季會計師核閱報告之美金數以匯率31.995折算新台幣；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3673 | TPK-KY | 1 | 1 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3673 | TPK-KY | 5 | 4 | 5 | 7 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3673 | TPK-KY | 77 | 1 | 1468700.0 | 0.0 |  | no_signal |
+| 20261002 | 3673 | TPK-KY | 81 | 1 | 20941420.0 | 16800.0 | 1246.51 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

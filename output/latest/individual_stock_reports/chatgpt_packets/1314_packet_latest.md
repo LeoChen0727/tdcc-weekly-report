@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:08 Asia/Taipei
+- generated_at: 2026-10-03 15:46:39 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 361
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 365
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 9.03
-- high: 9.04
-- low: 8.78
-- close: 8.86
-- volume: 42262966
-- ma5: 8.95
-- ema23_primary: 8.44
-- distance_to_ema23_pct: 4.99
-- ma20: 8.39
-- ma60: 8.31
-- ma120: 7.94
-- return_5d: -1.12
-- return_20d: 8.58
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 5.6
-- distance_to_high_60_pct: -17.2
+- date: 20261002
+- open: 8.83
+- high: 9.03
+- low: 8.82
+- close: 8.95
+- volume: 32391130
+- ma5: 8.89
+- ema23_primary: 8.57
+- distance_to_ema23_pct: 4.38
+- ma20: 8.53
+- ma60: 8.25
+- ma120: 7.97
+- return_5d: -0.67
+- return_20d: 8.88
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 4.87
+- distance_to_high_60_pct: -16.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,8.21,8.25,8.03,8.05,18157758,7.96,1.08,7.85,8.16,0.77
-20260831,8.02,8.29,8,8.18,23245945,7.98,2.48,7.87,8.16,0.98
-20260901,8.19,8.44,8.19,8.26,27691213,8.01,3.18,7.9,8.17,1.14
-20260902,8.3,8.33,8.14,8.22,16925294,8.02,2.46,7.92,8.17,0.74
 20260903,8.23,8.55,8.12,8.12,34031523,8.03,1.11,7.94,8.18,1.45
 20260904,8.15,8.21,8.02,8.12,16389736,8.04,1.01,7.95,8.18,0.7
 20260907,8.15,8.19,8.05,8.1,13045132,8.04,0.7,7.97,8.19,0.59
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,9.2,9.2,8.68,8.74,73718022,8.35,4.72,8.3,8.29,1.98
 20260923,8.85,9.5,8.85,9.01,99541727,8.4,7.25,8.36,8.3,2.41
 20260924,9.03,9.04,8.78,8.86,42262966,8.44,4.99,8.39,8.31,1.01
+20260929,8.89,9.1,8.72,8.74,47669196,8.46,3.26,8.43,8.31,1.1
+20260930,8.77,9.07,8.71,9,85223275,8.51,5.77,8.47,8.29,1.84
+20261001,9.09,9.14,8.86,8.89,34798207,8.54,4.09,8.5,8.27,0.75
+20261002,8.83,9.03,8.82,8.95,32391130,8.57,4.38,8.53,8.25,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 42.56
-- over_600_ratio: 38.62
-- over_800_ratio: 35.82
-- over_1000_ratio: 34.12
-- over_400_change_1w: -0.27
-- over_800_change_1w: -0.32
-- over_1000_change_1w: -0.31
+- as_of_date: 20261002
+- over_400_ratio: 42.05
+- over_600_ratio: 38.06
+- over_800_ratio: 35.25
+- over_1000_ratio: 33.52
+- over_400_change_1w: -0.51
+- over_800_change_1w: -0.57
+- over_1000_change_1w: -0.6
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,42.19,0.22,35.92,0.62,34,0.53,3,True,True
 20260717,41.53,-0.66,35.04,-0.88,33.39,-0.61,0,False,False
 20260724,41.14,-0.39,34.7,-0.34,33.01,-0.38,0,False,False
 20260731,40.81,-0.33,34.42,-0.28,32.63,-0.38,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,41.12,0.25,34.34,0.23,32.43,0.15,4,True,True
 20260918,42.83,1.71,36.14,1.8,34.43,2,5,True,True
 20260924,42.56,-0.27,35.82,-0.32,34.12,-0.31,0,False,False
+20261002,42.05,-0.51,35.25,-0.57,33.52,-0.6,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1314 | 中石化 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.法律事件之當事人:第三人 鼎越開發股份有限公司 2.法律事件之法院名稱或處分機關:臺灣高等地方法院。 3.法律事件之相關文書案號:115年度抗字第1470號刑事裁定。 4.事實發生日:115/09/16 5.發生原委(含爭訟標的):本公司之子公司鼎越開發股份有限公司向京華城股份有限公司 購得台北市松山區西松段三小段156地號土地，前遭臺北地檢署向臺北地院聲請扣押獲 四度裁定，經鼎越開發向高等法院提起第四次抗告，獲高等法院撤銷原裁定 並發回臺北地院。 6.處理過程:委請律師提供專業法律意見並研擬方案。 7.對公司財務業務影響及預估影響金額:無。 8.因應措施及改善情形:本公司將依法處理。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第2款所定對股東權益或證券價格有重大影響之事項): 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 1314 | 中石化 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/09/29 2.公司名稱:中國石油化學工業開發股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司董事會通過與重要子公司鼎越開發及聯貸金融機構簽訂增補合約案。 6.因應措施:本公司及鼎越開發向聯貸金融機構申請展延授信期限及部份承諾事項， 待聯貸金融機構全數同意後，授權董事長簽訂增補合約。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1314 | 中石化 | 7 | 1 | 5 | 8 | 11 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20261002 | 1314 | 中石化 | 1 | 1 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
