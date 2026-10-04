@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00951 台新日本半導體
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:03 Asia/Taipei
+- generated_at: 2026-10-04 22:15:56 Asia/Taipei
 - stock_id: 00951
 - stock_name: 台新日本半導體
 - packet_status: standard_rawdata_packet

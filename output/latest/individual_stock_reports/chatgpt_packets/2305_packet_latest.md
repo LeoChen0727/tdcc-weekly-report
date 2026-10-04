@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2305 全友
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:31 Asia/Taipei
+- generated_at: 2026-10-04 22:16:28 Asia/Taipei
 - stock_id: 2305
 - stock_name: 全友
 - packet_status: standard_180d_window_packet

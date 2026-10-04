@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3717 聯嘉投控
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:22 Asia/Taipei
+- generated_at: 2026-10-04 22:17:26 Asia/Taipei
 - stock_id: 3717
 - stock_name: 聯嘉投控
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5493 三聯
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:48 Asia/Taipei
+- generated_at: 2026-10-04 22:17:57 Asia/Taipei
 - stock_id: 5493
 - stock_name: 三聯
 - packet_status: standard_180d_window_packet

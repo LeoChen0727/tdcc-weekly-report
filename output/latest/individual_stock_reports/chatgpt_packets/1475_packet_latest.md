@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1475 業旺
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:14 Asia/Taipei
+- generated_at: 2026-10-04 22:16:08 Asia/Taipei
 - stock_id: 1475
 - stock_name: 業旺
 - packet_status: standard_180d_window_packet

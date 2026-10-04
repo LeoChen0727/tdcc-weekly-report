@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5347 世界
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:44 Asia/Taipei
+- generated_at: 2026-10-04 22:17:53 Asia/Taipei
 - stock_id: 5347
 - stock_name: 世界
 - packet_status: standard_180d_window_packet

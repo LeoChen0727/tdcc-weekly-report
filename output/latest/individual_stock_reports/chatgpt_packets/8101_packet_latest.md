@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8101 華冠
 
 ## Metadata
-- generated_at: 2026-10-03 22:18:43 Asia/Taipei
+- generated_at: 2026-10-04 22:19:00 Asia/Taipei
 - stock_id: 8101
 - stock_name: 華冠
 - packet_status: standard_180d_window_packet

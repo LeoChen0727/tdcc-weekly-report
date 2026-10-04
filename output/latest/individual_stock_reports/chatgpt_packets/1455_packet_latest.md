@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1455 集盛
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:12 Asia/Taipei
+- generated_at: 2026-10-04 22:16:07 Asia/Taipei
 - stock_id: 1455
 - stock_name: 集盛
 - packet_status: standard_180d_window_packet

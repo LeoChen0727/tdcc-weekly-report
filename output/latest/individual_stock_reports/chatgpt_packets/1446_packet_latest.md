@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1446 宏和
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:12 Asia/Taipei
+- generated_at: 2026-10-04 22:16:06 Asia/Taipei
 - stock_id: 1446
 - stock_name: 宏和
 - packet_status: standard_180d_window_packet

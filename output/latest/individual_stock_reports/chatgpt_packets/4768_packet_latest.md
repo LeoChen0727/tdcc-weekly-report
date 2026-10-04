@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:35 Asia/Taipei
+- generated_at: 2026-10-04 22:17:41 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2820 華票
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:51 Asia/Taipei
+- generated_at: 2026-10-04 22:16:51 Asia/Taipei
 - stock_id: 2820
 - stock_name: 華票
 - packet_status: standard_180d_window_packet

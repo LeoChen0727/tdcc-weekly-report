@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6655 科定
 
 ## Metadata
-- generated_at: 2026-10-03 22:18:15 Asia/Taipei
+- generated_at: 2026-10-04 22:18:29 Asia/Taipei
 - stock_id: 6655
 - stock_name: 科定
 - packet_status: standard_180d_window_packet

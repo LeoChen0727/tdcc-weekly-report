@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00929 復華台灣科技優息
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:03 Asia/Taipei
+- generated_at: 2026-10-04 22:15:56 Asia/Taipei
 - stock_id: 00929
 - stock_name: 復華台灣科技優息
 - packet_status: standard_rawdata_packet

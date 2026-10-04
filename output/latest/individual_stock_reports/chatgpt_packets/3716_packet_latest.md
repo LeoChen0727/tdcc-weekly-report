@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3716 中化控股
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:21 Asia/Taipei
+- generated_at: 2026-10-04 22:17:26 Asia/Taipei
 - stock_id: 3716
 - stock_name: 中化控股
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6472 保瑞
 
 ## Metadata
-- generated_at: 2026-10-03 22:18:08 Asia/Taipei
+- generated_at: 2026-10-04 22:18:20 Asia/Taipei
 - stock_id: 6472
 - stock_name: 保瑞
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6474 華豫寧
 
 ## Metadata
-- generated_at: 2026-10-03 22:18:08 Asia/Taipei
+- generated_at: 2026-10-04 22:18:20 Asia/Taipei
 - stock_id: 6474
 - stock_name: 華豫寧
 - packet_status: standard_180d_window_packet

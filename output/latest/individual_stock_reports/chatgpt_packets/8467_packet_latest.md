@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8467 波力-KY
 
 ## Metadata
-- generated_at: 2026-10-03 22:18:50 Asia/Taipei
+- generated_at: 2026-10-04 22:19:08 Asia/Taipei
 - stock_id: 8467
 - stock_name: 波力-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3675 德微
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:19 Asia/Taipei
+- generated_at: 2026-10-04 22:17:23 Asia/Taipei
 - stock_id: 3675
 - stock_name: 德微
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:37 Asia/Taipei
+- generated_at: 2026-10-04 22:16:35 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet

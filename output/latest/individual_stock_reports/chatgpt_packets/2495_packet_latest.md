@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:43 Asia/Taipei
+- generated_at: 2026-10-04 22:16:42 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet

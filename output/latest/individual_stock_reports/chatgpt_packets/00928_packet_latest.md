@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00928 中信上櫃ESG 30
 
 ## Metadata
-- generated_at: 2026-10-03 22:16:03 Asia/Taipei
+- generated_at: 2026-10-04 22:15:55 Asia/Taipei
 - stock_id: 00928
 - stock_name: 中信上櫃ESG 30
 - packet_status: standard_rawdata_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5227 立凱-KY
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:41 Asia/Taipei
+- generated_at: 2026-10-04 22:17:49 Asia/Taipei
 - stock_id: 5227
 - stock_name: 立凱-KY
 - packet_status: standard_180d_window_packet

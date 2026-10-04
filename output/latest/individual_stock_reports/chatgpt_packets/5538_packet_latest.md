@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5538 東明-KY
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:50 Asia/Taipei
+- generated_at: 2026-10-04 22:17:59 Asia/Taipei
 - stock_id: 5538
 - stock_name: 東明-KY
 - packet_status: standard_180d_window_packet

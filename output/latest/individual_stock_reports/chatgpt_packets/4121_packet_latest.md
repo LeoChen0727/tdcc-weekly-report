@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4121 優盛
 
 ## Metadata
-- generated_at: 2026-10-03 22:17:23 Asia/Taipei
+- generated_at: 2026-10-04 22:17:27 Asia/Taipei
 - stock_id: 4121
 - stock_name: 優盛
 - packet_status: standard_180d_window_packet

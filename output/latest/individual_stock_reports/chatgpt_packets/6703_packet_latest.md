@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6703 軒郁
 
 ## Metadata
-- generated_at: 2026-10-03 22:18:17 Asia/Taipei
+- generated_at: 2026-10-04 22:18:31 Asia/Taipei
 - stock_id: 6703
 - stock_name: 軒郁
 - packet_status: standard_180d_window_packet
