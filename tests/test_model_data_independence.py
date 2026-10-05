@@ -1498,6 +1498,16 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 52
+    conservative = rows[-1]
+    assert conservative["migration_id"] == "tdcc_stealth_accumulation_conservative_execution_research_20260930"
+    assert conservative["changed_data_families"] == "tdcc_stealth_accumulation_conservative_execution_research"
+    assert conservative["previous_contract_sha256s"] == "NEW"
+    assert conservative["new_contract_sha256s"] == "5881d5559c4036db77a8cfc76ef83aa9e6af1485e917c5db93e0f161a83ea9a3"
+    assert conservative["affected_models"] == "tdcc_stealth_accumulation"
+    assert conservative["user_approval_reference"] == "user_allowed_20260930_conservative_execution_research_PR_via_01a05bf4-f664-7cc3-bac0-28c3e9bd4cde"
+    assert conservative["migration_status"] == "validated_user_approved_migration"
+    rows = rows[:-1]
     assert len(rows) == 51
     price_basis_migration = rows[-1]
     assert price_basis_migration["migration_id"] == (
