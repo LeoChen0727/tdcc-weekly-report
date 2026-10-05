@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7298 廣積統一59購01
 
 ## Metadata
-- generated_at: 2026-10-04 22:18:47 Asia/Taipei
+- generated_at: 2026-10-05 22:18:41 Asia/Taipei
 - stock_id: 7298
 - stock_name: 廣積統一59購01
 - packet_status: partial_rawdata_packet

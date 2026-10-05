@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00692 富邦公司治理
 
 ## Metadata
-- generated_at: 2026-10-04 22:15:52 Asia/Taipei
+- generated_at: 2026-10-05 22:16:14 Asia/Taipei
 - stock_id: 00692
 - stock_name: 富邦公司治理
 - packet_status: standard_rawdata_packet
