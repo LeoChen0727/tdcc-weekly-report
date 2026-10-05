@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2069 運錩
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:18 Asia/Taipei
+- generated_at: 2026-10-04 22:16:24 Asia/Taipei
 - stock_id: 2069
 - stock_name: 運錩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 24.65
-- high: 26.1
-- low: 24.5
-- close: 25.7
-- volume: 1991600
-- ma5: 24.98
-- ema23_primary: 23.06
-- distance_to_ema23_pct: 11.43
-- ma20: 22.98
-- ma60: 20.4
-- ma120: 19.77
-- return_5d: 6.2
-- return_20d: 17.62
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 11.81
-- distance_to_high_60_pct: -6.72
+- date: 20261002
+- open: 25.7
+- high: 26.7
+- low: 25.5
+- close: 25.95
+- volume: 1068140
+- ma5: 26.12
+- ema23_primary: 23.98
+- distance_to_ema23_pct: 8.19
+- ma20: 24
+- ma60: 20.93
+- ma120: 20.03
+- return_5d: 4.22
+- return_20d: 24.76
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 8.11
+- distance_to_high_60_pct: -5.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,21.7,21.8,21.4,21.4,530262,20.09,6.5,20.05,19.18,0.87
-20260831,21.3,21.85,21.15,21.2,502175,20.19,5.02,20.18,19.2,0.81
-20260901,21.2,21.4,21,21.15,431714,20.27,4.36,20.31,19.22,0.69
-20260902,21.3,21.3,20.7,20.8,459296,20.31,2.41,20.42,19.23,0.71
 20260903,21.05,21.15,20.75,20.95,345942,20.36,2.88,20.5,19.25,0.57
 20260904,21.15,21.3,20.8,21,276772,20.42,2.86,20.57,19.27,0.5
 20260907,21.2,21.2,20.4,20.4,528856,20.42,-0.08,20.59,19.28,0.95
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,24.25,26.3,24.15,25.6,4747216,22.64,13.1,22.64,20.17,3.23
 20260923,27.55,27.55,24.45,24.9,3367765,22.82,9.1,22.79,20.28,2.14
 20260924,24.65,26.1,24.5,25.7,1991600,23.06,11.43,22.98,20.4,1.23
+20260929,25.95,27.2,25.9,26.5,2256458,23.35,13.49,23.24,20.54,1.32
+20260930,26.7,27.35,26.35,26.7,2227220,23.63,13,23.52,20.68,1.24
+20261001,26.65,27.2,25.35,25.75,1821078,23.81,8.17,23.75,20.8,0.98
+20261002,25.7,26.7,25.5,25.95,1068140,23.98,8.19,24,20.93,0.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 63.55
-- over_600_ratio: 60.6
-- over_800_ratio: 56.82
-- over_1000_ratio: 54.19
-- over_400_change_1w: -0.65
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.75
-- tdcc_consecutive_up_weeks: 12
+- as_of_date: 20261002
+- over_400_ratio: 63.68
+- over_600_ratio: 60.49
+- over_800_ratio: 56.7
+- over_1000_ratio: 54.15
+- over_400_change_1w: 0.13
+- over_800_change_1w: -0.12
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 13
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,61.95,0.26,53.77,0.01,52.2,0.04,1,True,True
 20260717,61.96,0.01,53.8,0.03,52.23,0.03,2,True,True
 20260724,61.91,-0.05,54.23,0.43,52.15,-0.08,3,False,True
 20260731,62.42,0.51,54.15,-0.08,52.09,-0.06,4,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,64.19,0.81,56.22,0.98,53.69,-0.04,10,False,True
 20260918,64.2,0.01,56.52,0.3,53.44,-0.25,11,False,True
 20260924,63.55,-0.65,56.82,0.3,54.19,0.75,12,False,True
+20261002,63.68,0.13,56.7,-0.12,54.15,-0.04,13,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2069 | 運錩 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2069 | 運錩 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2069 | 運錩 | 3 | 2 | 3 | 7 | 10 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20261002 | 2069 | 運錩 | 1 | 1 | 4 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

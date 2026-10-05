@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2033 佳大
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:17 Asia/Taipei
+- generated_at: 2026-10-04 22:16:23 Asia/Taipei
 - stock_id: 2033
 - stock_name: 佳大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 嚴格突破 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 37.65
-- high: 38.3
-- low: 35.5
-- close: 36.8
-- volume: 3052504
-- ma5: 35.85
-- ema23_primary: 28.98
-- distance_to_ema23_pct: 26.96
-- ma20: 28.83
-- ma60: 21.46
-- ma120: 18.64
-- return_5d: 19.29
-- return_20d: 57.6
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 27.66
-- distance_to_high_60_pct: -8.57
+- date: 20261002
+- open: 51.2
+- high: 51.2
+- low: 51.2
+- close: 51.2
+- volume: 1044136
+- ma5: 43.08
+- ema23_primary: 33.72
+- distance_to_ema23_pct: 51.82
+- ma20: 32.75
+- ma60: 23.35
+- ma120: 19.58
+- return_5d: 37.27
+- return_20d: 107.71
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 56.35
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,23.7,25.65,23.45,25.65,3683348,20.78,23.46,20.7,17.35,2.2
-20260831,28,28.2,25.95,26,4341648,21.21,22.58,21.23,17.52,2.3
-20260901,24.45,25.45,23.4,23.9,3447898,21.44,11.5,21.63,17.66,1.68
-20260902,23.9,24.9,23.85,24.65,736850,21.7,13.58,22.07,17.8,0.35
 20260903,24.45,25.55,24.45,25.55,1081739,22.02,16.01,22.52,17.97,0.54
 20260904,25.15,26.65,24.45,26.05,1673188,22.36,16.51,22.98,18.14,0.97
 20260907,26.1,27.35,25.7,25.7,1215744,22.64,13.53,23.33,18.31,0.72
@@ -166,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,35,37.3,34.6,37.3,1365679,27.45,35.87,27.44,20.76,0.68
 20260923,39.7,40.25,36.2,37.3,5864273,28.27,31.92,28.16,21.12,2.59
 20260924,37.65,38.3,35.5,36.8,3052504,28.98,26.96,28.83,21.46,1.28
+20260929,36.8,39.95,36.5,38.5,5178933,29.78,29.29,29.47,21.84,2.11
+20260930,38.85,42.35,38.65,42.35,3593142,30.83,37.39,30.29,22.27,1.49
+20261001,45.1,46.55,44,46.55,1489009,32.14,44.85,31.42,22.77,0.64
+20261002,51.2,51.2,51.2,51.2,1044136,33.72,51.82,32.75,23.35,0.45
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 84.07
-- over_600_ratio: 82.04
-- over_800_ratio: 82.04
-- over_1000_ratio: 77.4
-- over_400_change_1w: 5.74
-- over_800_change_1w: 8.38
-- over_1000_change_1w: 10.64
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 84.92
+- over_600_ratio: 82.9
+- over_800_ratio: 81.68
+- over_1000_ratio: 77.04
+- over_400_change_1w: 0.85
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.36
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,74.13,-0.08,69.29,-0.08,61.4,-0.08,0,False,False
 20260717,74,-0.13,69.16,-0.13,61.27,-0.13,0,False,False
 20260724,73.92,-0.08,69.08,-0.08,61.19,-0.08,0,False,False
 20260731,73.6,-0.32,69.06,-0.02,62.16,0.97,1,False,True
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,78.19,0.58,74,0.54,66.08,0.71,5,True,True
 20260918,78.33,0.14,73.66,-0.34,66.76,0.68,6,False,True
 20260924,84.07,5.74,82.04,8.38,77.4,10.64,7,True,True
+20261002,84.92,0.85,81.68,-0.36,77.04,-0.36,8,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 2033 | 佳大 | true_breakout | 嚴格突破 | 56.0 |  |  |  |  |  | continued_overheated | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 土地：台南市安南區科工段(地號0221-0000) 建物：台南市安南區科技一路10號(建號00633-000) 2.事實發生日:115/9/9~115/9/9 3.董事會通過日期: 民國115年9月9日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 1.土地5704.93平方公尺，折合1725.7413坪 2.廠房7672.59平方公尺，折合2320.96坪 3.交易總金額為 405,000,000元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 億曜企業股份有限公司 (非本公司之關係人)。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用。 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依雙方簽署之合約規定付款。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 雙方議價。 12.專業估價者事務所或公司名稱及其估價金額: 大華不動產鑑價公司。 1.勘估標的土地總價為270,941,384元(土地單價:157,000元/坪)。 2.勘估標的建物總價為126,694,400元。 3.勘估標的總合計為397,635,784元。 13.專業估價師姓名: 林振興。 14.專業估價師開業證書字號: (100）北市估字第000178號。 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用。 19.會計師事務所名稱: 不適用。 20.會計師姓名: 不適用。 21.會計師開業證書字號: 不適用。 22.經紀人及經紀費用: 不適用。 23.取得或處分之具體目的或用途: 新設半導體清洗事業部營運所需之廠房及土地。 24.本次交易表示異議之董事之意見: 不適用。 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 民國115年9月9日 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 不適用。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 2033 | 佳大 | 4 | 3 | 4 | 8 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

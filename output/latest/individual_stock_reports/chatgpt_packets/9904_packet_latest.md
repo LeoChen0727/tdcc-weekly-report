@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:30 Asia/Taipei
+- generated_at: 2026-10-04 22:19:12 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 24.9
-- high: 25.05
-- low: 24.75
-- close: 24.95
-- volume: 8323733
-- ma5: 24.8
-- ema23_primary: 24.62
-- distance_to_ema23_pct: 1.34
-- ma20: 24.59
-- ma60: 24.43
-- ma120: 25.39
-- return_5d: 0.6
-- return_20d: 0.6
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 1.47
-- distance_to_high_60_pct: -2.54
+- date: 20261002
+- open: 24.8
+- high: 24.85
+- low: 24.6
+- close: 24.7
+- volume: 8170592
+- ma5: 24.85
+- ema23_primary: 24.68
+- distance_to_ema23_pct: 0.08
+- ma20: 24.61
+- ma60: 24.46
+- ma120: 25.27
+- return_5d: -0.8
+- return_20d: -0.2
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 0.37
+- distance_to_high_60_pct: -3.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,24.65,24.65,24.35,24.35,22854095,24.6,-1,24.44,24.89,1.21
-20260831,24.4,24.85,24.25,24.85,19189197,24.62,0.94,24.47,24.87,1
-20260901,24.7,25,24.7,24.9,6985448,24.64,1.05,24.52,24.84,0.39
-20260902,24.9,24.9,24.6,24.75,8118564,24.65,0.4,24.59,24.82,0.49
 20260903,24.7,24.85,24.55,24.55,8277870,24.64,-0.37,24.63,24.79,0.51
 20260904,24.7,24.75,24.5,24.6,5728739,24.64,-0.16,24.66,24.76,0.36
 20260907,24.75,24.75,24.5,24.6,7781808,24.64,-0.14,24.69,24.73,0.5
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,24.9,24.9,24.6,24.6,6702241,24.56,0.15,24.59,24.44,0.59
 20260923,24.8,25.05,24.55,24.9,10884657,24.59,1.26,24.58,24.43,0.98
 20260924,24.9,25.05,24.75,24.95,8323733,24.62,1.34,24.59,24.43,0.76
+20260929,25,25,24.8,24.8,8331264,24.64,0.67,24.61,24.44,0.82
+20260930,24.8,24.95,24.75,24.95,8192793,24.66,1.17,24.61,24.45,0.85
+20261001,24.85,24.9,24.7,24.85,8975716,24.68,0.7,24.61,24.46,0.92
+20261002,24.8,24.85,24.6,24.7,8170592,24.68,0.08,24.61,24.46,0.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 68.01
-- over_600_ratio: 65.57
-- over_800_ratio: 64.04
-- over_1000_ratio: 62.93
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 67.98
+- over_600_ratio: 65.41
+- over_800_ratio: 63.94
+- over_1000_ratio: 62.72
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.21
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,69.5,-0.55,66.14,-0.62,65.2,-0.5,0,False,False
 20260717,69.49,-0.01,65.87,-0.27,65,-0.2,0,False,False
 20260724,69.25,-0.24,65.82,-0.05,64.81,-0.19,0,False,False
 20260731,69.33,0.08,65.69,-0.13,64.73,-0.08,1,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,67.75,-0.35,63.65,-0.58,62.53,-0.57,0,False,False
 20260918,67.91,0.16,63.84,0.19,62.69,0.16,1,True,True
 20260924,68.01,0.1,64.04,0.2,62.93,0.24,2,True,True
+20261002,67.98,-0.03,63.94,-0.1,62.72,-0.21,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 9904 | 寶成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | stale_signal | 1.契約種類:自地委建 2.事實發生日:115/6/17~115/6/17 3.董事會通過日期: 民國115年4月21日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：PT YULONG GONG CHENG、PT ACTER INTEGRATION TECHNOLOGY INDONESIA 與公司之關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額：約印尼盾9,488億元 (相當於美金5,639萬元) 契約起迄日期、限制條款及其他重要約定事項：依契約書約定內容 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 營運需求 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 115年04月21日 22.其他敘明事項: 補充公告契約相對人及契約總金額；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 9904 | 寶成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.契約種類:自地委建 2.事實發生日:115/6/17~115/6/17 3.董事會通過日期: 民國115年4月21日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 契約相對人：PT YULONG GONG CHENG、PT ACTER INTEGRATION TECHNOLOGY INDONESIA 與公司之關係：無 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: 契約總金額：約印尼盾9,488億元 (相當於美金5,639萬元) 契約起迄日期、限制條款及其他重要約定事項：依契約書約定內容 7.專業估價者事務所或公司名稱及其估價結果: 不適用 8.不動產估價師姓名: 不適用 9.不動產估價師開業證書字號: 不適用 10.取得之具體目的: 營運需求 11.本次交易表示異議之董事意見: 無 12.本次交易為關係人交易:否 13.監察人承認或審計委員會同意日期: 不適用 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 115年04月21日 22.其他敘明事項: 補充公告契約相對人及契約總金額；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 9904 | 寶成 | 4 | 4 | 4 | 5 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 9904 | 寶成 | 8 | 8 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 9904 | 寶成 | 16 | 1 | 5648420.0 | 0.0 |  | call_inflow |
+| 20261002 | 9904 | 寶成 | 17 | 1 | 243700.0 | 20880.0 | 11.67 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

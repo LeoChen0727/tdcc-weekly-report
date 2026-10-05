@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3265 台星科
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:37 Asia/Taipei
+- generated_at: 2026-10-04 22:17:08 Asia/Taipei
 - stock_id: 3265
 - stock_name: 台星科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 180
-- high: 184
-- low: 178.5
-- close: 183
-- volume: 1072000
-- ma5: 182.7
-- ema23_primary: 173.8
-- distance_to_ema23_pct: 5.3
-- ma20: 174.4
+- date: 20261002
+- open: 185
+- high: 193
+- low: 183
+- close: 188
+- volume: 1598000
+- ma5: 184.5
+- ema23_primary: 177.12
+- distance_to_ema23_pct: 6.14
+- ma20: 175.1
 - ma60: 168.36
-- ma120: 172.96
-- return_5d: 8.93
-- return_20d: 3.68
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 4.93
-- distance_to_high_60_pct: -8.5
+- ma120: 173.9
+- return_5d: 4.44
+- return_20d: 5.32
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 7.37
+- distance_to_high_60_pct: -5.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,178,188,176,186.5,3149000,169.53,10.01,168.1,170.32,1.57
-20260831,183.5,183.5,170.5,178,2260000,170.23,4.56,169.38,170.07,1.08
-20260901,180.5,187,178,182.5,3159000,171.25,6.57,170.72,170.11,1.42
-20260902,180.5,183.5,176.5,178.5,1219000,171.86,3.87,171.88,170.22,0.55
 20260903,179.5,179.5,172.5,173,1564000,171.95,0.61,172.65,170.18,0.7
 20260904,174.5,177,172,176.5,730000,172.33,2.42,173.8,170.26,0.32
 20260907,179,179.5,176,176,814000,172.64,1.95,174.38,170.37,0.37
@@ -168,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,182.5,198,181.5,189.5,5273000,172.32,9.97,173.75,168.33,3.18
 20260923,189,189.5,179,180,2455000,172.96,4.07,174.07,168.34,1.44
 20260924,180,184,178.5,183,1072000,173.8,5.3,174.4,168.36,0.65
+20260929,183,184,179,180.5,682000,174.35,3.53,174.1,168.22,0.45
+20260930,183.5,193,182,186,2316000,175.32,6.09,174.5,168.24,1.51
+20261001,185,186.5,181.5,185,1090000,176.13,5.04,174.62,168.12,0.76
+20261002,185,193,183,188,1598000,177.12,6.14,175.1,168.36,1.1
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 68.77
-- over_600_ratio: 65.24
-- over_800_ratio: 61.56
-- over_1000_ratio: 59.63
-- over_400_change_1w: 2.04
-- over_800_change_1w: 0.67
-- over_1000_change_1w: 0.06
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 68.6
+- over_600_ratio: 65.11
+- over_800_ratio: 60.3
+- over_1000_ratio: 58.33
+- over_400_change_1w: -0.17
+- over_800_change_1w: -1.26
+- over_1000_change_1w: -1.3
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,64.73,-0.91,58.78,-2.05,57.53,-1.4,0,False,False
 20260717,64.91,0.18,59.46,0.68,57.55,0.02,1,True,True
 20260724,64.96,0.05,60.08,0.62,57.5,-0.05,2,False,True
 20260731,64.47,-0.49,58.95,-1.13,56.98,-0.52,0,False,False
@@ -199,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,66.25,-0.55,60.75,-0.69,59.43,-0.06,0,False,False
 20260918,66.73,0.48,60.89,0.14,59.57,0.14,1,False,True
 20260924,68.77,2.04,61.56,0.67,59.63,0.06,2,True,True
+20261002,68.6,-0.17,60.3,-1.26,58.33,-1.3,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3265 | 台星科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/10/06 1.召開法人說明會之日期：115/10/06 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市中山區明水路700號 4.法人說明會擇要訊息：本公司受邀參加凱基證券(股)公司舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：會後將於公開資訊觀測站公告相關資訊 。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3265 | 台星科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/10/06 1.召開法人說明會之日期：115/10/06 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市中山區明水路700號 4.法人說明會擇要訊息：本公司受邀參加凱基證券(股)公司舉辦之法人說明會，說明本公司營運概況。 5.其他應敘明事項：會後將於公開資訊觀測站公告相關資訊 。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3265 | 台星科 | 6 | 2 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3265 | 台星科 | 1 | 1 | 3 | 8 | 11 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

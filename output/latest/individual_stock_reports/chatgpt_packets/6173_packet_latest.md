@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6173 信昌電
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:02 Asia/Taipei
+- generated_at: 2026-10-04 22:18:08 Asia/Taipei
 - stock_id: 6173
 - stock_name: 信昌電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,9 +101,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 303
-- high: 314
-- low: 300.5
-- close: 306.5
-- volume: 11387000
-- ma5: 306.8
-- ema23_primary: 276.89
-- distance_to_ema23_pct: 10.69
-- ma20: 283.12
-- ma60: 232.25
-- ma120: 204.56
-- return_5d: 0.99
-- return_20d: 40.92
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 8.26
-- distance_to_high_60_pct: -15.45
+- date: 20261002
+- open: 300
+- high: 322.5
+- low: 299
+- close: 303
+- volume: 23916000
+- ma5: 299.6
+- ema23_primary: 283.16
+- distance_to_ema23_pct: 7.01
+- ma20: 292.35
+- ma60: 230.96
+- ma120: 212.42
+- return_5d: 0.17
+- return_20d: 16.31
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 3.64
+- distance_to_high_60_pct: -8.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,229,239,229,239,17292000,204.39,16.93,196.1,229.45,1.23
-20260831,242.5,259.5,235.5,246,28268000,207.86,18.35,200.4,229.96,1.83
-20260901,255.5,270.5,254,261.5,21704000,212.33,23.16,205.25,230.59,1.32
-20260902,255,263.5,253.5,260.5,9462000,216.34,20.41,210.03,231.44,0.58
 20260903,258.5,258.5,237.5,241,12412000,218.4,10.35,213.53,231.62,0.75
 20260904,260,265,254.5,260.5,18224000,221.91,17.39,218.65,232.15,1.06
 20260907,273.5,286.5,273,286.5,12170000,227.29,26.05,224.55,232.73,0.69
@@ -166,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,330.5,331,300,303,15447000,271.62,11.55,273.45,232.97,0.77
 20260923,306,313,301,302.5,9998000,274.2,10.32,278.68,232.83,0.49
 20260924,303,314,300.5,306.5,11387000,276.89,10.69,283.12,232.25,0.56
+20260929,303,314,296.5,297.5,6830000,278.61,6.78,286.05,231.89,0.35
+20260930,301,303.5,288,288.5,10697000,279.43,3.25,288.18,230.86,0.57
+20261001,287,316,280.5,302.5,31024000,281.35,7.52,290.23,230.64,1.6
+20261002,300,322.5,299,303,23916000,283.16,7.01,292.35,230.96,1.19
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 64.64
-- over_600_ratio: 63.45
-- over_800_ratio: 58.9
-- over_1000_ratio: 58.4
-- over_400_change_1w: -0.55
-- over_800_change_1w: -1.12
-- over_1000_change_1w: -0.58
-- tdcc_consecutive_up_weeks: 11
+- as_of_date: 20261002
+- over_400_ratio: 63.17
+- over_600_ratio: 62.29
+- over_800_ratio: 58.64
+- over_1000_ratio: 56.66
+- over_400_change_1w: -1.47
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -1.74
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,66.19,-1.94,61.68,-2.23,59.61,-2.77,0,False,False
 20260717,65.26,-0.93,61.77,0.09,59.3,-0.31,1,False,True
 20260724,65.22,-0.04,61.6,-0.17,59.09,-0.21,2,False,False
 20260731,65.26,0.04,61.3,-0.3,58.21,-0.88,3,False,False
@@ -197,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,66.24,2.23,59.66,1.33,56.44,0.17,9,True,True
 20260918,65.19,-1.05,60.02,0.36,58.98,2.54,10,False,True
 20260924,64.64,-0.55,58.9,-1.12,58.4,-0.58,11,False,False
+20261002,63.17,-1.47,58.64,-0.26,56.66,-1.74,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6173 | 信昌電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 桃園市楊梅區高獅路566-8號5樓。 2.事實發生日:115/9/22~115/9/22 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:董事長 民國115年9月22日 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 合約總金額：新台幣596,000仟元。(含稅) 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 永龍企業股份有限公司/非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用。 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用。 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: (1)付款條件：依合約約定。 (2)契約限制條款：無。 (3)其他重要約定事項：無。 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: (1)招標、比價及議價。 (2)依本公司核決權限規定辦理。 12.專業估價者事務所或公司名稱及其估價金額: 不適用。 13.專業估價師姓名: 不適用。 14.專業估價師開業證書字號: 不適用。 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用。 19.會計師事務所名稱: 不適用。 20.會計師姓名: 不適用。 21.會計師開業證書字號: 不適用。 22.經紀人及經紀費用: 不適用。 23.取得或處分之具體目的或用途: 供營運所需。 24.本次交易表示異議之董事之意見: 不適用。 25.本次交易為關係人交易:否 26.監察人承認或審計委員會同意日期: 不適用。 27.本次交易係向關係人取得不動產或其使用權資產:否 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 6173 | 信昌電 | 4 | 3 | 4 | 5 | 9 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

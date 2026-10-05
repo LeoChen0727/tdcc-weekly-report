@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:25 Asia/Taipei
+- generated_at: 2026-10-04 22:16:42 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,7 +103,6 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -118,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 39.1
-- high: 39.35
-- low: 38.5
-- close: 39.05
-- volume: 821681
-- ma5: 38.7
-- ema23_primary: 38.01
-- distance_to_ema23_pct: 2.73
-- ma20: 37.69
-- ma60: 39.47
-- ma120: 41.93
-- return_5d: 4.13
-- return_20d: 1.69
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -29.77
+- date: 20261002
+- open: 38.7
+- high: 38.85
+- low: 38.15
+- close: 38.4
+- volume: 1051157
+- ma5: 38.81
+- ema23_primary: 38.22
+- distance_to_ema23_pct: 0.47
+- ma20: 37.8
+- ma60: 38.63
+- ma120: 42.06
+- return_5d: -1.16
+- return_20d: 0.92
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 1.59
+- distance_to_high_60_pct: -30.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,39.1,39.3,37.95,38.4,1608967,38.65,-0.65,38.16,43.6,1.13
-20260831,38,38.8,37.85,38.35,809382,38.63,-0.71,38.31,43.38,0.58
-20260901,38.45,39.05,37.5,37.95,986594,38.57,-1.61,38.33,43.19,0.75
-20260902,37.5,38.1,37.5,38.05,784771,38.53,-1.24,38.32,43.05,0.64
 20260903,37.8,38,36.8,36.9,2308078,38.39,-3.88,38.21,42.83,1.85
 20260904,37,38.45,36.05,37.45,1297422,38.31,-2.25,38.24,42.65,1.11
 20260907,38,38,36.6,37.4,1006490,38.24,-2.19,38.16,42.45,0.89
@@ -168,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,39.1,39.6,38.25,38.45,1619210,37.83,1.63,37.64,39.84,1.22
 20260923,38.45,39.2,38.4,38.85,1000900,37.92,2.46,37.65,39.65,0.75
 20260924,39.1,39.35,38.5,39.05,821681,38.01,2.73,37.69,39.47,0.62
+20260929,39.05,39.55,38.75,38.95,882955,38.09,2.26,37.71,39.28,0.69
+20260930,39.35,39.5,38.9,39.05,974342,38.17,2.31,37.75,39.07,0.76
+20261001,39.4,39.4,38.5,38.6,864591,38.21,1.03,37.78,38.84,0.67
+20261002,38.7,38.85,38.15,38.4,1051157,38.22,0.47,37.8,38.63,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 50.97
-- over_600_ratio: 48.35
-- over_800_ratio: 47.07
-- over_1000_ratio: 46.37
-- over_400_change_1w: 0
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.43
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20261002
+- over_400_ratio: 51.04
+- over_600_ratio: 48.47
+- over_800_ratio: 47
+- over_1000_ratio: 46.28
+- over_400_change_1w: 0.07
+- over_800_change_1w: -0.07
+- over_1000_change_1w: -0.09
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,50.25,0.24,46.93,0.15,44.94,-0.53,1,False,True
 20260717,49.74,-0.51,45.71,-1.22,43.33,-1.61,0,False,False
 20260724,49.83,0.09,46.63,0.92,44.24,0.91,1,True,True
 20260731,49.77,-0.06,45.68,-0.95,43.32,-0.92,0,False,False
@@ -199,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,50.67,0.21,47.01,0.29,46.01,1.28,6,True,True
 20260918,50.97,0.3,46.97,-0.04,45.94,-0.07,7,False,False
 20260924,50.97,0,47.07,0.1,46.37,0.43,8,False,True
+20261002,51.04,0.07,47,-0.07,46.28,-0.09,9,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 2495 | 普安 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | 1.事實發生日:115/08/27 2.公司名稱:普安科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: (1)通過預計發放114年度基層員工酬勞24,892千元，佔獲利6.96%，    全數以現金發放。 6.因應措施:無。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 2495 | 普安 | 1 | 1 | 1 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2495 | 普安 | 25 | 0 | 422630.0 | 0.0 |  | no_signal |
+| 20261002 | 2495 | 普安 | 25 | 0 | 235740.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3455 由田
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:40 Asia/Taipei
+- generated_at: 2026-10-04 22:17:14 Asia/Taipei
 - stock_id: 3455
 - stock_name: 由田
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -130,32 +130,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 242
-- high: 265
-- low: 242
-- close: 258
-- volume: 3493000
-- ma5: 252.3
-- ema23_primary: 240.95
-- distance_to_ema23_pct: 7.08
-- ma20: 243.72
-- ma60: 224.03
-- ma120: 230.75
-- return_5d: 4.88
-- return_20d: 1.38
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: 5.86
-- distance_to_high_60_pct: -5.67
+- date: 20261002
+- open: 287
+- high: 295
+- low: 277
+- close: 280
+- volume: 6416000
+- ma5: 271.8
+- ema23_primary: 251.22
+- distance_to_ema23_pct: 11.46
+- ma20: 246.97
+- ma60: 225.62
+- ma120: 234.11
+- return_5d: 14.75
+- return_20d: 9.16
+- volume_ratio: 2.45
+- distance_to_ma20_pct_auxiliary: 13.37
+- distance_to_high_60_pct: -5.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,256.5,257,247,254,1954000,227.54,11.63,222.85,220.18,0.98
-20260831,255,272.5,245.5,260.5,4096000,230.29,13.12,227.5,220.78,1.9
-20260901,270,271.5,253.5,265,3232000,233.18,13.65,231.62,221.53,1.44
-20260902,263.5,270,255,256.5,2396000,235.12,9.09,235.15,222.32,1.03
 20260903,260,273.5,239,239,3876000,235.45,1.51,237.62,222.71,1.56
 20260904,248,249,231.5,236.5,1855000,235.53,0.41,239.95,223.22,0.73
 20260907,242.5,242.5,233,235,1402000,235.49,-0.21,241.43,223.68,0.55
@@ -172,26 +168,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,257.5,260.5,246,247.5,1611000,238.98,3.57,243.32,223.53,0.74
 20260923,248,252,244,244,637000,239.4,1.92,243.55,223.68,0.3
 20260924,242,265,242,258,3493000,240.95,7.08,243.72,224.03,1.64
+20260929,258.5,276,256,267,5465000,243.12,9.82,244.38,224.15,2.37
+20260930,268.5,279,260.5,267,5673000,245.11,8.93,244.7,224.25,2.38
+20261001,266,292,258,287,3845000,248.6,15.45,245.8,224.93,1.59
+20261002,287,295,277,280,6416000,251.22,11.46,246.97,225.62,2.45
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 31.73
-- over_600_ratio: 22.29
-- over_800_ratio: 14.14
-- over_1000_ratio: 11.28
-- over_400_change_1w: 0.63
-- over_800_change_1w: 1.38
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 34.52
+- over_600_ratio: 24.52
+- over_800_ratio: 17.64
+- over_1000_ratio: 13.27
+- over_400_change_1w: 2.79
+- over_800_change_1w: 3.5
+- over_1000_change_1w: 1.99
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,29.3,-1.07,15.74,-0.17,12.9,0,0,False,False
 20260717,29.11,-0.19,14.45,-1.29,12.97,0.07,1,False,True
 20260724,30.11,1,15.93,1.48,12.97,0,2,False,True
 20260731,29.34,-0.77,14.5,-1.43,13.02,0.05,3,False,True
@@ -203,17 +202,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,30.31,0.2,14.4,-1.99,12.92,-1.99,1,False,False
 20260918,31.1,0.79,12.76,-1.64,11.28,-1.64,2,False,False
 20260924,31.73,0.63,14.14,1.38,11.28,0,3,False,True
+20261002,34.52,2.79,17.64,3.5,13.27,1.99,4,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3455 | 由田 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/24 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)呂英誠先生 (2)丘邦翰先生 (3)蔡熊光先生 4.舊任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)丘邦翰先生:本公司獨立董事 (3)蔡熊光先生:本公司獨立董事 5.新任者姓名: (1)呂英誠先生 (2)蔡熊光先生 (3)端木玉女士 (4)陳宣文先生 6.新任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)蔡熊光先生:本公司獨立董事 (3)端木玉女士:本公司獨立董事 (4)陳宣文先生:威達高科股份有限公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:全面改選董事 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 10.新任生效日期:115/06/24 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3455 | 由田 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.發生變動日期:115/06/24 2.功能性委員會名稱:薪資報酬委員會 3.舊任者姓名: (1)呂英誠先生 (2)丘邦翰先生 (3)蔡熊光先生 4.舊任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)丘邦翰先生:本公司獨立董事 (3)蔡熊光先生:本公司獨立董事 5.新任者姓名: (1)呂英誠先生 (2)蔡熊光先生 (3)端木玉女士 (4)陳宣文先生 6.新任者簡歷: (1)呂英誠先生:本公司獨立董事 (2)蔡熊光先生:本公司獨立董事 (3)端木玉女士:本公司獨立董事 (4)陳宣文先生:威達高科股份有限公司董事 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿。 8.異動原因:全面改選董事 9.原任期（例xx/xx/xx ~ xx/xx/xx）:112/06/16~115/06/15 10.新任生效日期:115/06/24 11.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3455 | 由田 | 1 | 1 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3455 | 由田 | 5 | 1 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

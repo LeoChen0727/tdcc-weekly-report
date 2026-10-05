@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3479 安勤
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:40 Asia/Taipei
+- generated_at: 2026-10-04 22:17:14 Asia/Taipei
 - stock_id: 3479
 - stock_name: 安勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 130
-- high: 136.5
-- low: 130
+- date: 20261002
+- open: 137
+- high: 138.5
+- low: 136
 - close: 136
-- volume: 1272000
-- ma5: 131.8
-- ema23_primary: 130.54
-- distance_to_ema23_pct: 4.18
-- ma20: 128.7
-- ma60: 135.17
-- ma120: 124.03
-- return_5d: 4.62
-- return_20d: 5.43
-- volume_ratio: 2.27
-- distance_to_ma20_pct_auxiliary: 5.67
+- volume: 395000
+- ma5: 136.6
+- ema23_primary: 132.34
+- distance_to_ema23_pct: 2.76
+- ma20: 130.8
+- ma60: 134.82
+- ma120: 125.68
+- return_5d: 4.21
+- return_20d: 9.68
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 3.98
 - distance_to_high_60_pct: -16.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,130,130.5,129,129,325000,133.34,-3.26,133.68,136.72,0.37
-20260831,129,129,125.5,126.5,478000,132.77,-4.72,133.32,136.68,0.57
-20260901,126,127,125,125.5,751000,132.17,-5.04,132.93,136.62,0.92
-20260902,126,126.5,123.5,124,439000,131.49,-5.69,132.12,136.66,0.59
 20260903,124,125,122,122,411000,130.7,-6.65,131.18,136.6,0.6
 20260904,125,127.5,123.5,127,397000,130.39,-2.6,130.6,136.54,0.61
 20260907,128,128,125,125.5,285000,129.98,-3.45,129.72,136.43,0.47
@@ -168,17 +164,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,133.5,135,129.5,129.5,605000,130,-0.39,128.38,135.42,1.17
 20260923,130.5,131.5,128,130.5,379000,130.04,0.35,128.35,135.22,0.74
 20260924,130,136.5,130,136,1272000,130.54,4.18,128.7,135.17,2.27
+20260929,137,140,135,138.5,1070000,131.2,5.56,129.18,135.03,1.79
+20260930,140,140,136,136,693000,131.6,3.34,129.65,134.92,1.14
+20261001,137,137,136,136.5,276000,132.01,3.4,130.2,134.81,0.47
+20261002,137,138.5,136,136,395000,132.34,2.76,130.8,134.82,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 39.82
-- over_600_ratio: 34.53
-- over_800_ratio: 32.62
-- over_1000_ratio: 30.26
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20261002
+- over_400_ratio: 39.79
+- over_600_ratio: 34.51
+- over_800_ratio: 32.61
+- over_1000_ratio: 30.25
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,42.64,-1.16,36.24,-0.38,32.76,-0.41,0,False,False
 20260717,41.05,-1.59,34.67,-1.57,31.2,-1.56,0,False,False
 20260724,41.67,0.62,33.98,-0.69,30.51,-0.69,1,False,False
 20260731,40.68,-0.99,32.74,-1.24,30.43,-0.08,0,False,False
@@ -199,19 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,39.82,-0.55,32.63,0.02,30.27,0,4,False,True
 20260918,39.83,0.01,32.62,-0.01,30.26,-0.01,5,False,False
 20260924,39.82,-0.01,32.62,0,30.26,0,0,False,False
+20261002,39.79,-0.03,32.61,-0.01,30.25,-0.01,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3479 | 安勤 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:安勤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司股東會紀念品兌換條碼使用日期限制及因應辦法 6.因應措施: 本公司115年股東會開會通知書原載明，由電子投票平台領取之【全家便利商店中杯美式 咖啡兌換條碼 (下稱兌換條碼)】使用期限為118年6月30日。 惟因電子票券系統之設定限制，致該兌換條碼僅可使用至115年11月30日。若股東未及於 115年11月30日前兌換使用，請股東提供以下五項資訊寄至StockAffairs@avalue.com： 1.股東姓名 2.身分證字號或統一編號 3.聯絡電話 4.電子郵件 5.兌換條碼PIN序號(即QR碼下方顯示之PIN序號) 本公司將秉持維護股東權益的一貫立場協助後續處理，並確保股東的兌換使用權益至 118年6月30日 (即股東會開會通知書原載明兌換使用期限)。造成不便敬請見諒，並感謝 股東的理解與支持。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3479 | 安勤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:安勤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司股東會紀念品兌換條碼使用日期限制及因應辦法 6.因應措施: 本公司115年股東會開會通知書原載明，由電子投票平台領取之【全家便利商店中杯美式 咖啡兌換條碼 (下稱兌換條碼)】使用期限為118年6月30日。 惟因電子票券系統之設定限制，致該兌換條碼僅可使用至115年11月30日。若股東未及於 115年11月30日前兌換使用，請股東提供以下五項資訊寄至StockAffairs@avalue.com： 1.股東姓名 2.身分證字號或統一編號 3.聯絡電話 4.電子郵件 5.兌換條碼PIN序號(即QR碼下方顯示之PIN序號) 本公司將秉持維護股東權益的一貫立場協助後續處理，並確保股東的兌換使用權益至 118年6月30日 (即股東會開會通知書原載明兌換使用期限)。造成不便敬請見諒，並感謝 股東的理解與支持。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 3479 | 安勤 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | repeated_but_no_breakout | 1.事實發生日:115/07/03 2.公司名稱:安勤科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:本公司股東會紀念品兌換條碼使用日期限制及因應辦法 6.因應措施: 本公司115年股東會開會通知書原載明，由電子投票平台領取之【全家便利商店中杯美式 咖啡兌換條碼 (下稱兌換條碼)】使用期限為118年6月30日。 惟因電子票券系統之設定限制，致該兌換條碼僅可使用至115年11月30日。若股東未及於 115年11月30日前兌換使用，請股東提供以下五項資訊寄至StockAffairs@avalue.com： 1.股東姓名 2.身分證字號或統一編號 3.聯絡電話 4.電子郵件 5.兌換條碼PIN序號(即QR碼下方顯示之PIN序號) 本公司將秉持維護股東權益的一貫立場協助後續處理，並確保股東的兌換使用權益至 118年6月30日 (即股東會開會通知書原載明兌換使用期限)。造成不便敬請見諒，並感謝 股東的理解與支持。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3479 | 安勤 | 1 | 1 | 1 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3664 安瑞-KY
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:43 Asia/Taipei
+- generated_at: 2026-10-04 22:17:23 Asia/Taipei
 - stock_id: 3664
 - stock_name: 安瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 258
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 262
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -72,14 +72,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -87,7 +87,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -101,9 +101,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -116,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -124,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 8.88
-- high: 8.88
-- low: 8.85
-- close: 8.86
-- volume: 97000
-- ma5: 8.58
-- ema23_primary: 7.71
-- distance_to_ema23_pct: 14.96
-- ma20: 7.84
-- ma60: 6.95
-- ma120: 7.35
-- return_5d: 8.71
-- return_20d: 55.17
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: 12.95
-- distance_to_high_60_pct: -3.38
+- date: 20261002
+- open: 8.85
+- high: 8.85
+- low: 8.31
+- close: 8.31
+- volume: 13000
+- ma5: 8.75
+- ema23_primary: 8
+- distance_to_ema23_pct: 3.88
+- ma20: 8.13
+- ma60: 7.05
+- ma120: 7.32
+- return_5d: -6.63
+- return_20d: -0.36
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 2.18
+- distance_to_high_60_pct: -9.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,6,6.28,6,6.28,26000,6.09,3.04,6.06,6.74,2.12
-20260831,6.9,6.9,6.88,6.9,96000,6.16,11.98,6.14,6.72,5.94
-20260901,7.5,7.59,7.5,7.59,72000,6.28,20.85,6.24,6.72,3.65
-20260902,8.34,8.34,8.34,8.34,132000,6.45,29.26,6.35,6.73,5.27
 20260903,9.05,9.17,8.5,9.1,232000,6.67,36.37,6.47,6.75,6.54
 20260904,8.34,8.34,8.19,8.19,63000,6.8,20.45,6.53,6.76,1.66
 20260907,8.1,8.1,7.38,7.38,80000,6.85,7.77,6.56,6.75,1.92
@@ -166,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,8,8.5,8,8.25,77000,7.48,10.23,7.53,6.9,1.37
 20260923,8.25,9,8.25,8.9,103000,7.6,17.07,7.69,6.92,1.74
 20260924,8.88,8.88,8.85,8.86,97000,7.71,14.96,7.84,6.95,1.52
+20260929,8.91,8.91,8.86,8.86,91000,7.8,13.54,7.97,6.97,1.36
+20260930,8.86,8.86,8.86,8.86,17000,7.89,12.28,8.07,7.01,0.27
+20261001,8.86,8.87,8.85,8.85,41000,7.97,11.03,8.13,7.04,0.67
+20261002,8.85,8.85,8.31,8.31,13000,8,3.88,8.13,7.05,0.23
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 68.46
 - over_600_ratio: 66.69
 - over_800_ratio: 66.69
@@ -185,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,67.02,0,65.15,0,65.15,0,0,False,False
 20260717,68.74,1.72,66.97,1.82,66.97,1.82,1,True,True
 20260724,68.67,-0.07,66.9,-0.07,66.9,-0.07,0,False,False
 20260731,68.54,-0.13,66.77,-0.13,66.77,-0.13,0,False,False
@@ -197,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,68.46,0,66.69,0,66.69,0,0,False,False
 20260918,68.46,0,66.69,0,66.69,0,0,False,False
 20260924,68.46,0,66.69,0,66.69,0,0,False,False
+20261002,68.46,0,66.69,0,66.69,0,0,False,False
 ```
 
 ## Candidate Context

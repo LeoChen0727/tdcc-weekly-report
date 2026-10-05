@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:03 Asia/Taipei
+- generated_at: 2026-10-04 22:15:50 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 226
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 230
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 112
-- high: 112.45
-- low: 111.75
-- close: 112.4
-- volume: 70487939
-- ma5: 111.58
-- ema23_primary: 108.52
-- distance_to_ema23_pct: 3.57
-- ma20: 108.73
-- ma60: 105.4
-- ma120: 100.99
-- return_5d: 4.03
-- return_20d: 5.99
+- date: 20261002
+- open: 112.85
+- high: 112.95
+- low: 112.3
+- close: 112.8
+- volume: 68967747
+- ma5: 112.29
+- ema23_primary: 109.64
+- distance_to_ema23_pct: 2.88
+- ma20: 109.76
+- ma60: 105.69
+- ma120: 102.11
+- return_5d: 0.31
+- return_20d: 5.62
 - volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 3.38
-- distance_to_high_60_pct: -1.19
+- distance_to_ma20_pct_auxiliary: 2.77
+- distance_to_high_60_pct: -0.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,107.1,107.35,106.7,106.95,78158934,104.39,2.45,104.49,104.3,0.94
-20260831,105.6,106.25,105,106.25,69132826,104.55,1.63,104.7,104.3,0.89
-20260901,106.5,108.7,106.5,108.45,111066980,104.87,3.41,105.09,104.37,1.44
-20260902,107.5,107.85,106.65,106.8,67681102,105.03,1.68,105.24,104.47,0.94
 20260903,106.9,107.4,106.15,106.2,48818422,105.13,1.02,105.39,104.51,0.69
 20260904,107.7,108,106.85,107.9,46705557,105.36,2.41,105.64,104.64,0.67
 20260907,109.05,110,108.85,109.9,108677081,105.74,3.93,105.92,104.81,1.53
@@ -168,6 +164,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,113.35,113.75,111.85,111.85,84309564,107.78,3.77,108.08,105.27,1.1
 20260923,112.8,113.15,112.3,112.45,58059253,108.17,3.96,108.41,105.35,0.77
 20260924,112,112.45,111.75,112.4,70487939,108.52,3.57,108.73,105.4,0.94
+20260929,111.8,112.25,111.05,111.3,110505674,108.76,2.34,108.95,105.44,1.45
+20260930,112.5,113.05,112.05,112.05,60951975,109.03,2.77,109.24,105.5,0.8
+20261001,112.2,112.9,111.7,112.9,55443347,109.35,3.24,109.46,105.58,0.76
+20261002,112.85,112.95,112.3,112.8,68967747,109.64,2.88,109.76,105.69,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -193,17 +193,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 0050 | 元大台灣50 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 0050 | 元大台灣50 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 0050 | 元大台灣50 | 2 | 2 | 4 | 9 | 18 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20261002 | 0050 | 元大台灣50 | 3 | 3 | 4 | 8 | 17 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 0050 | 元大台灣50 | 294 | 193 | 38643950.0 | 4257060.0 | 9.08 | no_signal |
+| 20261002 | 0050 | 元大台灣50 | 298 | 192 | 39290640.0 | 2295270.0 | 17.12 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

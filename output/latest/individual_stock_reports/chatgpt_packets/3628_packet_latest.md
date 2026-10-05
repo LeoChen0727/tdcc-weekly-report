@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3628 盈正
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:43 Asia/Taipei
+- generated_at: 2026-10-04 22:17:22 Asia/Taipei
 - stock_id: 3628
 - stock_name: 盈正
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 75
-- high: 75
-- low: 73.4
-- close: 74.3
-- volume: 48000
-- ma5: 73.52
-- ema23_primary: 71.79
-- distance_to_ema23_pct: 3.5
-- ma20: 71.7
-- ma60: 69.7
-- ma120: 69.28
-- return_5d: 0.41
-- return_20d: 8.15
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -10.48
+- date: 20261002
+- open: 72
+- high: 73.1
+- low: 71.8
+- close: 71.8
+- volume: 81000
+- ma5: 72.9
+- ema23_primary: 72
+- distance_to_ema23_pct: -0.28
+- ma20: 72.52
+- ma60: 69.39
+- ma120: 69.48
+- return_5d: -3.36
+- return_20d: 3.76
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -0.99
+- distance_to_high_60_pct: -8.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,69.5,69.5,68,68.4,25000,67.83,0.85,67.23,69.69,0.43
-20260831,68,69.2,67.2,67.8,26000,67.82,-0.04,67.31,69.53,0.46
-20260901,68.8,68.9,67.8,68.5,43000,67.88,0.91,67.52,69.42,0.8
-20260902,67.8,69.3,67.7,69.2,28000,67.99,1.78,67.76,69.4,0.53
 20260903,69.2,69.2,67.9,68.5,49000,68.03,0.69,67.97,69.35,0.92
 20260904,69,69.3,68.5,69.3,47000,68.14,1.71,68.21,69.31,0.86
 20260907,68.9,69.7,68.1,68.4,57000,68.16,0.35,68.36,69.28,1.02
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,72.3,72.8,71.8,72.8,95000,71.31,2.09,71.11,69.61,0.56
 20260923,72.6,74.5,72.2,74.3,76000,71.56,3.83,71.42,69.68,0.44
 20260924,75,75,73.4,74.3,48000,71.79,3.5,71.7,69.7,0.28
+20260929,74.2,74.2,72.9,72.9,54000,71.88,1.42,71.93,69.58,0.31
+20260930,73,73.3,72.7,72.7,78000,71.95,1.05,72.17,69.5,0.44
+20261001,72.7,73.5,72,72.8,45000,72.02,1.09,72.39,69.42,0.26
+20261002,72,73.1,71.8,71.8,81000,72,-0.28,72.52,69.39,0.45
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 59.15
 - over_600_ratio: 59.15
 - over_800_ratio: 56.02
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,59.15,-0.94,56.02,0,56.02,0,0,False,False
 20260717,59.15,0,56.02,0,56.02,0,0,False,False
 20260724,59.15,0,56.02,0,56.02,0,0,False,False
 20260731,59.15,0,56.02,0,56.02,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,59.15,0,56.02,0,56.02,0,0,False,False
 20260918,59.15,0,56.02,0,56.02,0,0,False,False
 20260924,59.15,0,56.02,0,56.02,0,0,False,False
+20261002,59.15,0,56.02,0,56.02,0,0,False,False
 ```
 
 ## Candidate Context

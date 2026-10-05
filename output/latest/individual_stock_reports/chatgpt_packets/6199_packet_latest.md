@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6199 天品
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:03 Asia/Taipei
+- generated_at: 2026-10-04 22:18:10 Asia/Taipei
 - stock_id: 6199
 - stock_name: 天品
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,24 +69,24 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 型態觀察 目前屬於「高位派發風險」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
 - entry_style: no_entry_now
 - position_sizing: observe_only
@@ -100,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -126,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 122
-- high: 125
-- low: 118.5
-- close: 124
-- volume: 5871000
-- ma5: 118
-- ema23_primary: 105.28
-- distance_to_ema23_pct: 17.78
-- ma20: 102.58
-- ma60: 100.31
-- ma120: 99.62
-- return_5d: 18.1
-- return_20d: 34.2
-- volume_ratio: 1.94
-- distance_to_ma20_pct_auxiliary: 20.88
-- distance_to_high_60_pct: -0.8
+- date: 20261002
+- open: 128
+- high: 134
+- low: 128
+- close: 132
+- volume: 5822000
+- ma5: 127.5
+- ema23_primary: 112.13
+- distance_to_ema23_pct: 17.72
+- ma20: 109.54
+- ma60: 101.87
+- ma120: 100.16
+- return_5d: 8.2
+- return_20d: 38.66
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 20.5
+- distance_to_high_60_pct: -1.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,92.4,93.6,91.9,93.3,591000,96,-2.81,96.2,98.29,1.03
-20260831,93.3,93.3,91.8,92.8,412000,95.73,-3.06,95.97,98.33,0.7
-20260901,92.1,93.9,92.1,93.1,717000,95.51,-2.53,95.66,98.38,1.18
-20260902,92.7,95.6,92.2,95.2,673000,95.49,-0.3,95.5,98.4,1.09
 20260903,95.2,97.7,94,95.2,2043000,95.46,-0.28,95.44,98.38,2.92
 20260904,95.2,96.4,94.7,96.1,2686000,95.52,0.61,95.44,98.37,3.31
 20260907,96.1,97.2,95,96.2,1582000,95.57,0.66,95.37,98.37,1.82
@@ -168,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,115,118.5,114.5,116.5,7291000,101.9,14.32,99.52,99.58,2.83
 20260923,116.5,122,116,122,5040000,103.58,17.79,101,99.92,1.83
 20260924,122,125,118.5,124,5871000,105.28,17.78,102.58,100.31,1.94
+20260929,125,127,124.5,126,7887000,107.01,17.75,104.22,100.67,2.33
+20260930,126,128,125,127.5,6632000,108.71,17.28,105.95,101.04,1.79
+20261001,127.5,128.5,127,128,6604000,110.32,16.02,107.7,101.4,1.65
+20261002,128,134,128,132,5822000,112.13,17.72,109.54,101.87,1.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 84.89
-- over_600_ratio: 81.55
-- over_800_ratio: 79.22
-- over_1000_ratio: 77.81
-- over_400_change_1w: 1.13
-- over_800_change_1w: 0.14
-- over_1000_change_1w: -1.27
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 85.02
+- over_600_ratio: 82.09
+- over_800_ratio: 79.54
+- over_1000_ratio: 79.54
+- over_400_change_1w: 0.13
+- over_800_change_1w: 0.32
+- over_1000_change_1w: 1.73
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,83.29,1.92,78.34,1.71,77.01,1.73,8,True,True
 20260717,83.44,0.15,77.54,-0.8,77.54,0.53,9,False,True
 20260724,83.31,-0.13,77.52,-0.02,77.52,-0.02,0,False,False
 20260731,82.02,-1.29,78.29,0.77,78.29,0.77,1,False,True
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,82.05,0.45,77.62,-0.52,76.08,-2.06,2,False,False
 20260918,83.76,1.71,79.08,1.46,79.08,3,3,True,True
 20260924,84.89,1.13,79.22,0.14,77.81,-1.27,4,False,True
+20261002,85.02,0.13,79.54,0.32,79.54,1.73,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6199 | 天品 | true_breakout | 嚴格突破 | 84.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6199 | 天品 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | first_seen | 1.董事會決議日期：115/07/01 2.股東臨時會召開日期：115/07/29 3.股東臨時會召開地點：新北市中和區板南路659號19樓(元隆捷運雙星B棟) 4.股東臨時會召開方式(實體股東會/視訊輔助股東會/視訊股東會)：實體股東會 5.召集事由一：討論事項 (1)：子公司天品國際股份有限公司以自地委建方式與關係人「宏固營造工程股份有限公司」 簽訂「基隆孝光閣」工程承攬契約案 (2)：本公司「公司章程」修訂案 6.臨時動議： 7.停止過戶起始日期：115/06/30 8.停止過戶截止日期：115/07/29 9.其他應敘明事項：(1)本次股東會股東得以電子方式行使表決權，行使期間自民國115年7月14日 至115年7月26日止，電子投票平台為台灣集中保管結算所股東會電子投票平台， 網址：https://stockservices.tdcc.com.tw。 (2)115/7/1董事會新增討論事項第二案。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6199 | 天品 | 14 | 2 | 5 | 10 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 6199 | 天品 | 1 | 1 | 4 | 9 | 17 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

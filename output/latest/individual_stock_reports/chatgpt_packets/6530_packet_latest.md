@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6530 創威
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:08 Asia/Taipei
+- generated_at: 2026-10-04 22:18:23 Asia/Taipei
 - stock_id: 6530
 - stock_name: 創威
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 99.4
-- high: 100.5
-- low: 98.8
-- close: 100
-- volume: 1710000
-- ma5: 99.94
-- ema23_primary: 94.32
-- distance_to_ema23_pct: 6.02
-- ma20: 95.97
-- ma60: 84.16
-- ma120: 95.17
-- return_5d: 0.3
-- return_20d: 12.36
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 4.2
-- distance_to_high_60_pct: -4.76
+- date: 20261002
+- open: 102
+- high: 104
+- low: 100.5
+- close: 100.5
+- volume: 1584000
+- ma5: 101.3
+- ema23_primary: 96.47
+- distance_to_ema23_pct: 4.18
+- ma20: 97.67
+- ma60: 85.21
+- ma120: 95.28
+- return_5d: 1.82
+- return_20d: -0.49
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 2.89
+- distance_to_high_60_pct: -4.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,89.5,90.9,86.6,86.9,1455000,81.98,6,81.86,83.95,1.12
-20260831,86.6,89.3,85.1,88.1,1182000,82.49,6.8,82.77,83.6,0.88
-20260901,89.9,96.9,89.1,96.4,5684000,83.65,15.24,83.86,83.38,3.59
-20260902,93.7,105,93.3,101,8610000,85.1,18.69,84.8,83.34,4.39
 20260903,100.5,102.5,94.1,95,3938000,85.92,10.56,85.69,83.19,1.89
 20260904,96.2,99.5,94.5,98.2,2612000,86.95,12.94,86.84,83.17,1.2
 20260907,97.8,97.8,94,94,1541000,87.53,7.39,87.42,83.15,0.71
@@ -168,15 +164,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,101.5,102.5,99.8,100.5,1977000,93.36,7.65,94.77,83.71,0.68
 20260923,100.5,101.5,97.5,98.7,1620000,93.81,5.22,95.42,83.89,0.56
 20260924,99.4,100.5,98.8,100,1710000,94.32,6.02,95.97,84.16,0.6
+20260929,99,100.5,98.8,99.5,1006000,94.75,5.01,96.6,84.41,0.36
+20260930,100,105,100,104.5,3494000,95.57,9.35,97.42,84.69,1.19
+20261001,104.5,104.5,100.5,102,1692000,96.1,6.14,97.7,84.94,0.62
+20261002,102,104,100.5,100.5,1584000,96.47,4.18,97.67,85.21,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 14.59
+- as_of_date: 20261002
+- over_400_ratio: 13.1
 - over_600_ratio: 13.1
 - over_800_ratio: 8.93
 - over_1000_ratio: 8.93
-- over_400_change_1w: -0.76
+- over_400_change_1w: -1.49
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,16.93,-3.17,11.35,-0.44,8.93,0,0,False,False
 20260717,17.41,0.48,11.33,-0.02,8.93,0,1,False,False
 20260724,17.25,-0.16,8.93,-2.4,8.93,0,0,False,False
 20260731,18.63,1.38,8.93,0,8.93,0,1,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,15.37,-0.16,8.93,-2.43,8.93,0,0,False,False
 20260918,15.35,-0.02,8.93,0,8.93,0,0,False,False
 20260924,14.59,-0.76,8.93,0,8.93,0,0,False,False
+20261002,13.1,-1.49,8.93,0,8.93,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6530 | 創威 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6530 | 創威 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6530 | 創威 | 1 | 1 | 2 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 6530 | 創威 | 1 | 1 | 3 | 5 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

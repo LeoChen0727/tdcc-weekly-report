@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8272 全景軟體
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:26 Asia/Taipei
+- generated_at: 2026-10-04 22:19:03 Asia/Taipei
 - stock_id: 8272
 - stock_name: 全景軟體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 257
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 261
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 64.6
-- high: 64.6
-- low: 62.8
-- close: 63.5
-- volume: 10000
-- ma5: 64.56
-- ema23_primary: 64.26
-- distance_to_ema23_pct: -1.18
-- ma20: 64.15
-- ma60: 65.04
-- ma120: 68.21
-- return_5d: -2.16
-- return_20d: 2.42
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -1.01
-- distance_to_high_60_pct: -10.81
+- date: 20261002
+- open: 62.1
+- high: 63.2
+- low: 61.9
+- close: 62
+- volume: 8000
+- ma5: 63.88
+- ema23_primary: 64.14
+- distance_to_ema23_pct: -3.34
+- ma20: 64.18
+- ma60: 64.76
+- ma120: 67.94
+- return_5d: -4.32
+- return_20d: -5.78
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -3.4
+- distance_to_high_60_pct: -12.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,63.5,63.5,62,62,10000,63.85,-2.89,63.54,67.19,1.16
-20260831,62.7,62.7,62.4,62.5,8000,63.73,-1.94,63.44,66.98,0.93
-20260901,62.8,65,62.8,65,7000,63.84,1.82,63.49,66.84,0.81
-20260902,65,65.8,65,65.8,8000,64,2.81,63.55,66.72,0.91
 20260903,64,64,63.4,63.5,5000,63.96,-0.72,63.51,66.58,0.58
 20260904,65.7,65.7,62.5,64.9,5000,64.04,1.34,63.53,66.48,0.61
 20260907,64.7,64.7,62.6,64.4,5000,64.07,0.52,63.52,66.38,0.62
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,64.4,65.4,64.1,65.3,13000,64.29,1.58,63.98,65.19,1.1
 20260923,64.5,64.8,63.6,64.8,9000,64.33,0.73,64.08,65.11,0.77
 20260924,64.6,64.6,62.8,63.5,10000,64.26,-1.18,64.15,65.04,0.91
+20260929,65.5,65.5,65.5,65.5,1000,64.36,1.77,64.33,65,0.1
+20260930,63.6,64.5,63.5,64.5,4000,64.37,0.2,64.42,64.93,0.39
+20261001,62.9,64.2,62.9,63.9,4000,64.33,-0.68,64.37,64.86,0.39
+20261002,62.1,63.2,61.9,62,8000,64.14,-3.34,64.18,64.76,0.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 38.04
 - over_600_ratio: 33.25
 - over_800_ratio: 29.56
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,38.05,0,29.56,0,25.15,0,0,False,False
 20260717,38.05,0,29.56,0,25.15,0,0,False,False
 20260724,38.05,0,29.56,0,25.15,0,0,False,False
 20260731,38.04,-0.01,29.56,0,25.15,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,38.04,0,29.56,0,25.15,0,0,False,False
 20260918,38.04,0,29.56,0,25.15,0,0,False,False
 20260924,38.04,0,29.56,0,25.15,0,0,False,False
+20261002,38.04,0,29.56,0,25.15,0,0,False,False
 ```
 
 ## Candidate Context

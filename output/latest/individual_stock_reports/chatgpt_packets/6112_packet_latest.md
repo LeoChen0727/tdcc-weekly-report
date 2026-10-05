@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6112 邁達特
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:00 Asia/Taipei
+- generated_at: 2026-10-04 22:18:03 Asia/Taipei
 - stock_id: 6112
 - stock_name: 邁達特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -103,6 +103,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 48.2
-- high: 49.15
-- low: 47.7
-- close: 47.7
-- volume: 2136528
-- ma5: 49.16
-- ema23_primary: 47.15
-- distance_to_ema23_pct: 1.16
-- ma20: 47.02
-- ma60: 44.59
-- ma120: 44.99
-- return_5d: -2.15
-- return_20d: 4.84
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 1.45
-- distance_to_high_60_pct: -10.17
+- date: 20261002
+- open: 47.6
+- high: 48
+- low: 47.6
+- close: 47.65
+- volume: 558817
+- ma5: 47.69
+- ema23_primary: 47.31
+- distance_to_ema23_pct: 0.72
+- ma20: 47.48
+- ma60: 44.79
+- ma120: 45.04
+- return_5d: -1.14
+- return_20d: 3.59
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: 0.36
+- distance_to_high_60_pct: -10.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,46.2,46.2,45.05,45.05,213938,44.35,1.58,44.73,44.22,0.37
-20260831,45,45.7,44.85,45.4,236150,44.44,2.16,45.03,44.19,0.41
-20260901,45.25,45.5,45.05,45.15,211114,44.5,1.47,45.21,44.1,0.38
-20260902,45.15,46,45,46,531517,44.62,3.09,45.38,44.02,0.95
 20260903,46.5,46.75,44.9,44.95,365636,44.65,0.67,45.37,43.95,0.85
 20260904,45.05,46.2,45,45.9,357232,44.75,2.56,45.37,43.92,0.91
 20260907,46,46,45.2,45.25,405372,44.8,1.01,45.3,43.9,1.11
@@ -167,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,49.25,50.2,48.8,48.8,2567318,47,3.83,46.77,44.47,0.8
 20260923,48.9,49.15,48,48.2,1103894,47.1,2.33,46.91,44.52,0.34
 20260924,48.2,49.15,47.7,47.7,2136528,47.15,1.16,47.02,44.59,0.64
+20260929,47.75,47.9,47,47.35,861750,47.17,0.39,47.13,44.63,0.25
+20260930,47.45,48.2,47.1,48.05,1097280,47.24,1.71,47.27,44.69,0.32
+20261001,48.1,48.1,47.4,47.7,513036,47.28,0.89,47.4,44.73,0.15
+20261002,47.6,48,47.6,47.65,558817,47.31,0.72,47.48,44.79,0.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 59.16
-- over_600_ratio: 58.63
-- over_800_ratio: 57.53
-- over_1000_ratio: 55.64
-- over_400_change_1w: 0.41
-- over_800_change_1w: -0.11
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20261002
+- over_400_ratio: 59.04
+- over_600_ratio: 57.57
+- over_800_ratio: 57.21
+- over_1000_ratio: 56.23
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.32
+- over_1000_change_1w: 0.59
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,58.88,0.72,57.28,0.25,56.3,0.72,1,True,True
 20260717,58.62,-0.26,57.22,-0.06,56.24,-0.06,0,False,False
 20260724,58.64,0.02,57.25,0.03,56.27,0.03,1,True,True
 20260731,58.51,-0.13,57.16,-0.09,55.65,-0.62,0,False,False
@@ -198,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,58.97,-0.03,57.4,-0.35,56.42,0.14,2,False,True
 20260918,58.75,-0.22,57.64,0.24,55.63,-0.79,3,False,True
 20260924,59.16,0.41,57.53,-0.11,55.64,0.01,4,False,True
+20261002,59.04,-0.12,57.21,-0.32,56.23,0.59,5,False,True
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6112 | 邁達特 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6112 | 邁達特 | 2 | 2 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6112 | 邁達特 | 6 | 1 | 2039860.0 | 0.0 |  | call_inflow |
+| 20261002 | 6112 | 邁達特 | 6 | 1 | 105050.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

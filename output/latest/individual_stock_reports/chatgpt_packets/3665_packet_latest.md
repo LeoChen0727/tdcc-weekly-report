@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:43 Asia/Taipei
+- generated_at: 2026-10-04 22:17:23 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 361
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 365
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 轉弱警訊
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,8 +101,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -117,7 +117,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- tdcc_distribution_warning
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 2410
-- high: 2470
-- low: 2285
-- close: 2340
-- volume: 4524090
-- ma5: 2287
-- ema23_primary: 2138.78
-- distance_to_ema23_pct: 9.41
-- ma20: 2116
-- ma60: 2096
-- ma120: 2193.29
-- return_5d: 16.42
-- return_20d: 13.87
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 10.59
-- distance_to_high_60_pct: -8.41
+- date: 20261002
+- open: 2620
+- high: 2670
+- low: 2525
+- close: 2540
+- volume: 2759339
+- ma5: 2495
+- ema23_primary: 2255.61
+- distance_to_ema23_pct: 12.61
+- ma20: 2177
+- ma60: 2132.25
+- ma120: 2210.67
+- return_5d: 8.55
+- return_20d: 17.05
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: 16.67
+- distance_to_high_60_pct: -5.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,2075,2260,2070,2260,4068757,2145.9,5.32,2190.75,2087.17,1.17
-20260831,2230,2240,2105,2170,3131169,2147.91,1.03,2194.5,2084.92,0.92
-20260901,2190,2375,2165,2315,4568188,2161.83,7.09,2195.25,2087.58,1.33
-20260902,2200,2235,2165,2170,3399837,2162.51,0.35,2186,2087.08,1
 20260903,2170,2180,2100,2100,2445221,2157.3,-2.66,2172.5,2087.17,0.75
 20260904,2135,2175,2115,2145,1458584,2156.28,-0.52,2169.75,2087,0.47
 20260907,2175,2185,2060,2070,2560427,2149.09,-3.68,2163.75,2085.5,0.86
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,2335,2345,2215,2245,6053409,2100.54,6.88,2085,2083.42,1.84
 20260923,2290,2340,2240,2340,3676482,2120.49,10.35,2101.75,2090.5,1.14
 20260924,2410,2470,2285,2340,4524090,2138.78,9.41,2116,2096,1.37
+20260929,2385,2465,2375,2445,4555402,2164.3,12.97,2125.25,2102.75,1.37
+20260930,2500,2685,2485,2595,6154465,2200.19,17.94,2146.5,2112.75,1.77
+20261001,2595,2625,2510,2555,3055668,2229.76,14.59,2158.5,2122.92,0.9
+20261002,2620,2670,2525,2540,2759339,2255.61,12.61,2177,2132.25,0.82
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 62.53
-- over_600_ratio: 57.26
-- over_800_ratio: 50.34
-- over_1000_ratio: 45.03
-- over_400_change_1w: 0.76
-- over_800_change_1w: 1.07
-- over_1000_change_1w: 0.66
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 62.13
+- over_600_ratio: 57.09
+- over_800_ratio: 49.73
+- over_1000_ratio: 43.85
+- over_400_change_1w: -0.4
+- over_800_change_1w: -0.61
+- over_1000_change_1w: -1.18
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,58.76,0.2,47.65,0.66,42.61,0.72,2,True,True
 20260717,60.91,2.15,47.63,-0.02,43.53,0.92,3,False,True
 20260724,60.74,-0.17,47.95,0.32,43.84,0.31,4,False,True
 20260731,61,0.26,49.54,1.59,43.63,-0.21,5,False,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,61.4,-0.22,50.18,0.49,43.86,-0.9,1,False,True
 20260918,61.77,0.37,49.27,-0.91,44.37,0.51,2,False,True
 20260924,62.53,0.76,50.34,1.07,45.03,0.66,3,True,True
+20261002,62.13,-0.4,49.73,-0.61,43.85,-1.18,0,False,False
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/09/23 2.公司名稱:BizLink Holding Inc.及 BizLink Speedy Pte. Ltd. 3.與公司關係(請輸入本公司或子公司):本公司及子公司 4.相互持股比例: BizLink Speedy Pte. Ltd. 為BizLink Holding Inc. 100%持有之子公司 5.發生緣由: 本公司宣布已與子公司 BizLink Speedy Pte. Ltd.共同完成Interplex 集團資料 通訊業務(Datacom Business)收購案，Datacom Business將自2026年9月23日起納 入本公司合併報表。  本收購案將強化本公司於資料中心連接技術及基礎設施領域的布局，取得創新 客製化互連解決方案、高精密機械產品方案，並提升相關製造能力。透過整合 Interplex Datacom業務，本公司將進一步鞏固於整合型資料中心基礎設施領域 的市場地位，提供更完整的解決方案組合，並持續推動產品朝向更高複雜度及 更高附加價值的方向發展。除此之外，此併購案更可提升本公司在精密金屬加工 相關技術方面的能力與市場地位，而這些技術對於支援貿聯的設備解決方案事業部 (用於半導體機櫃、醫療設備及系統整合組裝）及其他應用領域至關重要。  綜上，本次收購案符合本公司長期發展策略，對於提升整體營運規模、強化市場 競爭力及擴大全球布局具正面助益。收購完成後，本公司將持續致力於 Datacom Business之業務發展，並確保營運整合過程順利無縫。  6.因應措施:發佈重大訊息。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3665 | 貿聯-KY | 8 | 8 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3665 | 貿聯-KY | 289 | 8 | 80029550.0 | 192280.0 | 416.21 | no_signal |
+| 20261002 | 3665 | 貿聯-KY | 297 | 9 | 42316550.0 | 582050.0 | 72.7 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

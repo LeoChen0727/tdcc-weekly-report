@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:24 Asia/Taipei
+- generated_at: 2026-10-04 22:16:38 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 124.5
-- high: 125.5
-- low: 123
-- close: 124
-- volume: 2830184
-- ma5: 125.4
-- ema23_primary: 119.46
-- distance_to_ema23_pct: 3.8
-- ma20: 118.17
-- ma60: 121.02
-- ma120: 116.37
-- return_5d: 4.64
-- return_20d: 8.77
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 4.93
-- distance_to_high_60_pct: -20.51
+- date: 20261002
+- open: 124
+- high: 127.5
+- low: 124
+- close: 126.5
+- volume: 3477871
+- ma5: 124.5
+- ema23_primary: 121.02
+- distance_to_ema23_pct: 4.53
+- ma20: 119.62
+- ma60: 119.95
+- ma120: 117.46
+- return_5d: 1.2
+- return_20d: 9.05
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 5.75
+- distance_to_high_60_pct: -16.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,115,119.5,115,118.5,4798444,117.93,0.48,118.28,125.17,0.76
-20260831,117,117,113,115.5,4471896,117.73,-1.89,118.53,124.82,0.72
-20260901,115.5,122.5,115.5,119.5,5703873,117.88,1.38,118.53,124.62,0.98
-20260902,118.5,119.5,116,116,2453928,117.72,-1.46,118.4,124.5,0.46
 20260903,117,117.5,113.5,113.5,3142109,117.37,-3.3,117.92,124.3,0.61
 20260904,115,116.5,113.5,116,2382848,117.25,-1.07,117.85,124.23,0.48
 20260907,118,119,117,118,3080253,117.32,0.58,117.3,124.17,0.68
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,129,131,127,127,8632039,118.51,7.17,117.33,121.44,2
 20260923,130,131.5,124,125,6727556,119.05,5,117.67,121.25,1.52
 20260924,124.5,125.5,123,124,2830184,119.46,3.8,118.17,121.02,0.66
+20260929,122.5,123.5,121.5,122,2178482,119.67,1.94,118.35,120.69,0.52
+20260930,123.5,126.5,123,125.5,4050745,120.16,4.45,118.85,120.41,0.97
+20261001,125.5,125.5,123,124.5,2286709,120.52,3.3,119.1,120.07,0.57
+20261002,124,127.5,124,126.5,3477871,121.02,4.53,119.62,119.95,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 69.85
-- over_600_ratio: 67.89
-- over_800_ratio: 66.03
-- over_1000_ratio: 64.42
-- over_400_change_1w: 0.88
-- over_800_change_1w: 0.64
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 69.46
+- over_600_ratio: 67.49
+- over_800_ratio: 65.53
+- over_1000_ratio: 64.23
+- over_400_change_1w: -0.39
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -0.19
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,69.59,0.36,66.26,0.61,64.5,0.61,1,True,True
 20260717,69.86,0.27,66.56,0.3,64.64,0.14,2,True,True
 20260724,68.85,-1.01,65.18,-1.38,63.56,-1.08,0,False,False
 20260731,68.11,-0.74,64.82,-0.36,62.76,-0.8,0,False,False
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,68.41,-0.16,64.66,-0.27,63.05,-0.28,0,False,False
 20260918,68.97,0.56,65.39,0.73,63.61,0.56,1,True,True
 20260924,69.85,0.88,66.03,0.64,64.42,0.81,2,True,True
+20261002,69.46,-0.39,65.53,-0.5,64.23,-0.19,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2441 | 超豐 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/09/08 2.本次買回股份數量(股):2,608,000 3.本次買回股份總金額(元):302,825,187 4.本次平均每股買回價格(元):116.11 5.於買回期間內累積已持有自己公司股份數量(股):6,000,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.05 7.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 2441 | 超豐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | 1.本次買回股份數量累積達公司已發行股份總額百分之二或金額達新台幣三億元以上之日期:115/09/08 2.本次買回股份數量(股):2,608,000 3.本次買回股份總金額(元):302,825,187 4.本次平均每股買回價格(元):116.11 5.於買回期間內累積已持有自己公司股份數量(股):6,000,000 6.於買回期間內累積已持有自己公司股份數量占公司已發行股份總數之比率(%):1.05 7.其他應敘明事項: 無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2441 | 超豐 | 14 | 14 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2441 | 超豐 | 18 | 4 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2441 | 超豐 | 81 | 0 | 1480750.0 | 0.0 |  | no_signal |
+| 20261002 | 2441 | 超豐 | 80 | 0 | 6384920.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

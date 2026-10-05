@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3624 光頡
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:43 Asia/Taipei
+- generated_at: 2026-10-04 22:17:21 Asia/Taipei
 - stock_id: 3624
 - stock_name: 光頡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,31 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 停利
+- action_rating_display_zh: 等待回檔
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
-- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
-- entry_style: no_entry_now
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
 - position_sizing: observe_only
 
 ### management_plan
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -126,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 132.5
-- high: 144.5
-- low: 132
-- close: 140
-- volume: 49361000
-- ma5: 130.9
-- ema23_primary: 113.27
-- distance_to_ema23_pct: 23.59
-- ma20: 110.77
-- ma60: 100.42
-- ma120: 95.4
-- return_5d: 18.64
-- return_20d: 54.02
-- volume_ratio: 2.19
-- distance_to_ma20_pct_auxiliary: 26.39
-- distance_to_high_60_pct: -11.95
+- date: 20261002
+- open: 151
+- high: 157.5
+- low: 147
+- close: 148.5
+- volume: 40211000
+- ma5: 143.4
+- ema23_primary: 122.5
+- distance_to_ema23_pct: 21.22
+- ma20: 121.65
+- ma60: 100.2
+- ma120: 98.62
+- return_5d: 10.82
+- return_20d: 66.85
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 22.07
+- distance_to_high_60_pct: -5.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,93.9,98.9,90.5,91.8,14234000,88.57,3.65,83.98,107.82,2.49
-20260831,90.7,94,87.3,88.3,5187000,88.55,-0.28,85.18,107.57,0.88
-20260901,88.5,93.4,88.5,90.2,4833000,88.69,1.71,86.29,107.27,0.8
-20260902,89.8,92.9,89,89,4938000,88.71,0.32,87,107.05,0.79
 20260903,89.5,89.9,84.8,84.8,3522000,88.39,-4.06,87.46,106.59,0.55
 20260904,87.6,93.2,87.6,93.2,9062000,88.79,4.97,88.38,106.25,1.34
 20260907,95.1,102,93.8,96.9,19857000,89.46,8.31,89.11,106.03,2.64
@@ -168,18 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,133.5,136,122,122,17636000,108.74,12.2,106.17,100.97,0.9
 20260923,122,134,122,134,23086000,110.84,20.89,108.31,100.66,1.13
 20260924,132.5,144.5,132,140,49361000,113.27,23.59,110.77,100.42,2.19
+20260929,139,143.5,138,140,18945000,115.5,21.21,113.17,100.19,0.83
+20260930,140.5,144,134,137.5,16711000,117.33,17.19,115.64,99.9,0.72
+20261001,138,151,138,151,30774000,120.14,25.69,118.67,99.95,1.25
+20261002,151,157.5,147,148.5,40211000,122.5,21.22,121.65,100.2,1.52
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 57.26
-- over_600_ratio: 55.55
-- over_800_ratio: 52.37
-- over_1000_ratio: 50.14
-- over_400_change_1w: 4
-- over_800_change_1w: 3.5
-- over_1000_change_1w: 4.22
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20261002
+- over_400_ratio: 58.85
+- over_600_ratio: 55.7
+- over_800_ratio: 53.94
+- over_1000_ratio: 50.69
+- over_400_change_1w: 1.59
+- over_800_change_1w: 1.57
+- over_1000_change_1w: 0.55
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -187,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,61.35,-1.79,58.5,-0.45,56.97,-0.4,0,False,False
 20260717,59.2,-2.15,54.71,-3.79,52.54,-4.43,0,False,False
 20260724,59.26,0.06,55.49,0.78,54.75,2.21,1,True,True
 20260731,57.41,-1.85,53.4,-2.09,51.88,-2.87,0,False,False
@@ -199,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,57.09,3.72,50.25,1.86,47.03,0.23,1,True,True
 20260918,53.26,-3.83,48.87,-1.38,45.92,-1.11,0,False,False
 20260924,57.26,4,52.37,3.5,50.14,4.22,1,True,True
+20261002,58.85,1.59,53.94,1.57,50.69,0.55,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3624 | 光頡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理公告。 3.財務業務資訊: (1)單月                             最近一月單月    去年同月      與去年同期增減% 期間                          (115/5)      (114/5) -------------------------------------------------------------------------- 營業收入(百萬元)                  290          222               30.63% 稅前淨利(百萬元)                   53          -11              581.82% 歸屬母公司業主淨利(百萬元)         37          -13              384.62% 每股盈餘(元)                     0.32        -0.11              390.91%  (2)單季                             最近一季單季     去年同期      與去年同期增減% 期間                          (115第1季)    (114第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                  728           619              17.61% 稅前淨利(百萬元)                  118            81              45.68% 歸屬母公司業主淨利(百萬元)         88            63              39.68% 每股盈餘(元)                     0.75          0.54              38.89%  (3)最近四季累計 期間                    (114年第2季至115年第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                2,784 稅前淨利(百萬元)                  317 歸屬母公司業主淨利(百萬元)        243 每股盈餘(元)                     2.07 -------------------------------------------------------------------------- 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司 依IFRS會計準則編製之合併自結數，未經會計師查核(核閱)， 僅供投資人參考。 (2)最近一季115年第1季及去年同期比較數係指單季數字， 係本公司依IFRS下編製之合併數，業係經會計師核閱，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季由本公司依IFRS編製之 合併數業經會計師查核(核閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3624 | 光頡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 68.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.事實發生日:115/06/18 2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理公告。 3.財務業務資訊: (1)單月                             最近一月單月    去年同月      與去年同期增減% 期間                          (115/5)      (114/5) -------------------------------------------------------------------------- 營業收入(百萬元)                  290          222               30.63% 稅前淨利(百萬元)                   53          -11              581.82% 歸屬母公司業主淨利(百萬元)         37          -13              384.62% 每股盈餘(元)                     0.32        -0.11              390.91%  (2)單季                             最近一季單季     去年同期      與去年同期增減% 期間                          (115第1季)    (114第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                  728           619              17.61% 稅前淨利(百萬元)                  118            81              45.68% 歸屬母公司業主淨利(百萬元)         88            63              39.68% 每股盈餘(元)                     0.75          0.54              38.89%  (3)最近四季累計 期間                    (114年第2季至115年第1季) -------------------------------------------------------------------------- 營業收入(百萬元)                2,784 稅前淨利(百萬元)                  317 歸屬母公司業主淨利(百萬元)        243 每股盈餘(元)                     2.07 -------------------------------------------------------------------------- 公司每股面額10元 4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如 「有」，請說明）:無。 5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司 重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會 之情事:無。 6.其他應敘明事項: (1)以上115年5月及去年同期比較數之財務資料係本公司 依IFRS會計準則編製之合併自結數，未經會計師查核(核閱)， 僅供投資人參考。 (2)最近一季115年第1季及去年同期比較數係指單季數字， 係本公司依IFRS下編製之合併數，業係經會計師核閱，僅供投資人參考。 (3)最近四季累計係本公司114年第2季至115年第1季由本公司依IFRS編製之 合併數業經會計師查核(核閱)，僅供投資人參考。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3624 | 光頡 | 2 | 2 | 4 | 7 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 3624 | 光頡 | 2 | 1 | 3 | 6 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

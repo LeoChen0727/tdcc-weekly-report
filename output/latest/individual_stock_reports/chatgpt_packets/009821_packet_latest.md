@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009821 野村稀土關鍵資源
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:06 Asia/Taipei
+- generated_at: 2026-10-04 22:15:58 Asia/Taipei
 - stock_id: 009821
 - stock_name: 野村稀土關鍵資源
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260924
-- price_rows: 70
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 74
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 13.98
-- high: 14.05
-- low: 13.95
-- close: 14.03
-- volume: 4355732
-- ma5: 14.14
-- ema23_primary: 14.48
-- distance_to_ema23_pct: -3.09
-- ma20: 14.63
-- ma60: 14.19
-- ma120: 14.31
-- return_5d: 0.57
-- return_20d: -11.87
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -4.1
-- distance_to_high_60_pct: -12.86
+- date: 20261002
+- open: 13.08
+- high: 13.08
+- low: 13.05
+- close: 13.08
+- volume: 7192954
+- ma5: 13.39
+- ema23_primary: 14.11
+- distance_to_ema23_pct: -7.29
+- ma20: 14.22
+- ma60: 14.12
+- ma120: 14.25
+- return_5d: -8.72
+- return_20d: -11.56
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: -8.01
+- distance_to_high_60_pct: -18.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,15.95,16,15.87,15.92,7953362,14.88,7,14.86,14.22,0.57
-20260831,15.22,15.35,15.21,15.27,9529451,14.91,2.41,14.98,14.24,0.67
-20260901,15.26,15.28,15.14,15.16,4270199,14.93,1.53,15.08,14.25,0.3
-20260902,14.9,14.9,14.77,14.79,6698882,14.92,-0.87,15.13,14.26,0.48
 20260903,14.9,15,14.89,14.91,3284305,14.92,-0.06,15.17,14.28,0.24
 20260904,15.14,15.2,15.12,15.15,4356701,14.94,1.42,15.21,14.29,0.33
 20260907,15.05,15.05,14.98,15.02,3486556,14.95,0.5,15.22,14.3,0.29
@@ -168,6 +163,10 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,14.15,14.22,14.15,14.18,4103727,14.54,-2.44,14.81,14.19,0.72
 20260923,14.4,14.43,14.32,14.33,2858144,14.52,-1.3,14.72,14.19,0.6
 20260924,13.98,14.05,13.95,14.03,4355732,14.48,-3.09,14.63,14.19,0.96
+20260929,13.36,13.47,13.24,13.33,15191638,14.38,-7.31,14.5,14.18,3.11
+20260930,13.35,13.4,13.29,13.3,9846698,14.29,-6.94,14.4,14.16,2.01
+20261001,13.24,13.27,13.19,13.21,7930670,14.2,-6.98,14.3,14.14,1.56
+20261002,13.08,13.08,13.05,13.08,7192954,14.11,-7.29,14.22,14.12,1.41
 ```
 
 ## Latest TDCC Snapshot

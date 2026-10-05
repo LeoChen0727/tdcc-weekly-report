@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:23 Asia/Taipei
+- generated_at: 2026-10-04 22:18:56 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 回檔後短線轉強
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -125,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 175.5
-- high: 188
-- low: 175.5
-- close: 184
-- volume: 3342000
-- ma5: 180.2
-- ema23_primary: 177.79
-- distance_to_ema23_pct: 3.49
-- ma20: 177.5
-- ma60: 188.88
-- ma120: 202.32
-- return_5d: 6.36
-- return_20d: 2.79
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 3.66
-- distance_to_high_60_pct: -29.5
+- date: 20261002
+- open: 210
+- high: 217
+- low: 207
+- close: 213.5
+- volume: 5264000
+- ma5: 206.2
+- ema23_primary: 187.84
+- distance_to_ema23_pct: 13.66
+- ma20: 183.28
+- ma60: 187.26
+- ma120: 204.45
+- return_5d: 20.96
+- return_20d: 17.31
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 16.49
+- distance_to_high_60_pct: -18.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,183.5,192,181,185,4581000,181.34,2.02,177.5,208.98,2.03
-20260831,182.5,183,173,179.5,2242000,181.19,-0.93,178.18,207.1,1.03
-20260901,179.5,192,179,185,2992000,181.51,1.92,178.65,205.3,1.38
-20260902,186,189,181,182,2213000,181.55,0.25,178.6,203.93,1.03
 20260903,184,192.5,176.5,177,5860000,181.17,-2.3,178.3,202.74,2.53
 20260904,178,186.5,173,181.5,3883000,181.2,0.17,178.78,201.96,1.61
 20260907,185,186,180,185.5,2261000,181.55,2.17,178.95,201.19,0.93
@@ -167,18 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,183,189,180,181,3220000,177.29,2.09,177.32,190.43,1.14
 20260923,183,185,176,176.5,1426000,177.22,-0.41,177.25,189.76,0.52
 20260924,175.5,188,175.5,184,3342000,177.79,3.49,177.5,188.88,1.22
+20260929,187,202,185.5,202,6192000,179.8,12.34,178.35,188.24,2.19
+20260930,222,222,219,222,1773000,183.32,21.1,180.47,187.79,0.63
+20261001,225,225,207,209.5,8948000,185.5,12.94,181.7,187.3,2.88
+20261002,210,217,207,213.5,5264000,187.84,13.66,183.28,187.26,1.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 26.77
+- as_of_date: 20261002
+- over_400_ratio: 28.03
 - over_600_ratio: 23.1
-- over_800_ratio: 19.98
-- over_1000_ratio: 16.73
-- over_400_change_1w: -0.19
-- over_800_change_1w: 1.98
-- over_1000_change_1w: 2.01
-- tdcc_consecutive_up_weeks: 3
+- over_800_ratio: 19.53
+- over_1000_ratio: 17.01
+- over_400_change_1w: 1.26
+- over_800_change_1w: -0.45
+- over_1000_change_1w: 0.28
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,27.39,-0.97,18.17,-2.12,15.71,-2.88,0,False,False
 20260717,27.29,-0.1,18.14,-0.03,16.54,0.83,1,False,True
 20260724,27.14,-0.15,18.52,0.38,15.48,-1.06,2,False,True
 20260731,27.46,0.32,17.82,-0.7,14.56,-0.92,3,False,False
@@ -198,19 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,26.35,0.38,17.06,-0.8,13.77,-0.84,1,False,False
 20260918,26.96,0.61,18,0.94,14.72,0.95,2,True,True
 20260924,26.77,-0.19,19.98,1.98,16.73,2.01,3,False,True
+20261002,28.03,1.26,19.53,-0.45,17.01,0.28,4,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8027 | 鈦昇 | pullback_rebound | 回檔後短線轉強 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 8027 | 鈦昇 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 8027 | 鈦昇 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/07/07 1.召開法人說明會之日期：115/07/07 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：玉山金控第二總部東昇廳(台北市松山區敦化北路315號3樓) 4.法人說明會擇要訊息：本公司受邀參加玉山證券舉辦之法人說明會 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 8027 | 鈦昇 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | 內容：依鈦昇三發行及轉換辦法第十八條規定辦理。 發行公司於115年10月19日至115年11月17日行使債券贖回權，贖回權價格為債券面額之100.0000% (一)、依本公司國內第三次無擔保轉換公司債發行及轉換辦法第十八條第一項規定，本債券自111年10月14日起(發行滿三個月翌日起)至116年6月3日止(到期前四十日止)，若本債券流通在外餘額低於原發行總面額之10%時，本公司得於其後任何時間，以掛號寄發一份一個月 期滿之「債券收回通知書」(前述期間自本公司發信之日起算，並以該期間屆滿日為債券收回基準日，且前述期間不得為第九條之停止轉換期間)予債券持有人(以「債券收回通知書」寄發日前第五個營業日債券人名冊所載者為準，對於其後因買賣或其他原因始取得本債券之 投資人，則以公告方式為之)，贖回價格訂為本債券面額，以現金收回其全部債券，且函請櫃檯買賣中心公告。本公司執行收回請求，應於債券收回基準日後五個營業日內，按債券面額以現金收回其流通在外之本債券。 (二)、轉換公司債停止過戶期間：不適用 (三)、通知及受理轉換公司債贖回期間：115年10月19日至115年11月17日 (四)、轉換公司債收回基準日：115年11月17日 (五)、轉換公司債終止櫃檯買賣日期:115年11月18日 (六)、掛號寄發債券收回通知書日期:115年10月19日 (七)、轉換債價款發放日：115年11月24日 (八)、債券收回手續 (1)、債權人應持全部之債券及原留印鑑於自債券收回通知之始日之前一營業日起至屆滿日之前一營業日止（即自民國115年10月16日起至民國115年11月16日）止親臨或郵寄該公司股務代理機構。 (2)、債權人請檢附 1.轉換公司債帳簿劃撥轉換/贖回/賣回申請書(申請書可至各證券商取得)，填妥持有人之匯款銀行帳號並加蓋集保帳戶印鑑 2.證券存摺 3.身分證正反面影本，至往來證券商辦理債券收回手續。 (3)若 台端已將所持有之「鈦昇三」申請轉換或出售，則本通知書自動無效。 (九)、如債券持有人不欲公司行使贖回權，擬請求將本轉換公司債轉換為普通股，最遲應於115年11月19日前至往來證券商辦理轉換手續。 (十)、公司股務代理機構:永豐金證券股份有限公司股務代理部，地址：100台北市博愛路17號3樓，電話:02-2381-6288 警語：請投資人注意，具有請求轉換資格者，如未於115年11月19日前以書面請求轉換，本公司將按面額計算以現金收回其全部債券。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8027 | 鈦昇 | 20 | 20 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 8027 | 鈦昇 | 2 | 2 | 4 | 9 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

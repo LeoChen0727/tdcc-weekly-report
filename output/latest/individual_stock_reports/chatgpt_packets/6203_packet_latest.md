@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6203 海韻電
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:03 Asia/Taipei
+- generated_at: 2026-10-04 22:18:10 Asia/Taipei
 - stock_id: 6203
 - stock_name: 海韻電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 59.9
-- high: 59.9
-- low: 59.6
-- close: 59.6
-- volume: 22000
-- ma5: 59.72
-- ema23_primary: 60.11
-- distance_to_ema23_pct: -0.84
-- ma20: 59.95
-- ma60: 62.28
-- ma120: 65.3
-- return_5d: 0
-- return_20d: -0.17
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.58
-- distance_to_high_60_pct: -15.58
+- date: 20261002
+- open: 60.3
+- high: 61
+- low: 59.9
+- close: 60.3
+- volume: 30000
+- ma5: 60.02
+- ema23_primary: 60.12
+- distance_to_ema23_pct: 0.3
+- ma20: 59.94
+- ma60: 61.77
+- ma120: 65.08
+- return_5d: 0.67
+- return_20d: -0.99
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.6
+- distance_to_high_60_pct: -10.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,60,60,59.5,59.6,42000,61.23,-2.66,60.54,64.76,0.49
-20260831,59.6,59.8,59.5,59.8,60000,61.11,-2.15,60.31,64.55,0.77
-20260901,60,60.3,59.8,60.3,53000,61.04,-1.22,60.28,64.37,0.71
-20260902,60.3,61,60.3,60.9,116000,61.03,-0.22,60.27,64.23,1.52
 20260903,61,61,60,60.3,43000,60.97,-1.1,60.26,64.07,0.57
 20260904,60.3,60.8,60.2,60.7,22000,60.95,-0.41,60.24,63.96,0.31
 20260907,60.5,60.6,60.1,60.2,32000,60.89,-1.13,60.2,63.84,0.47
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,60,60,59.5,59.5,54000,60.18,-1.12,59.94,62.51,1.03
 20260923,59.9,60,59.5,59.9,31000,60.15,-0.42,59.95,62.4,0.6
 20260924,59.9,59.9,59.6,59.6,22000,60.11,-0.84,59.95,62.28,0.45
+20260929,59.4,59.9,59.2,59.9,58000,60.09,-0.32,59.96,62.16,1.18
+20260930,59.6,60.2,59.6,60,87000,60.08,-0.14,59.97,62.03,1.72
+20261001,60,60.3,59.9,60.3,54000,60.1,0.33,59.97,61.89,1.07
+20261002,60.3,61,59.9,60.3,30000,60.12,0.3,59.94,61.77,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 59.22
 - over_600_ratio: 55.63
 - over_800_ratio: 52.21
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,59.2,0,52.21,0,52.21,0,0,False,False
 20260717,59.2,0,52.21,0,52.21,0,0,False,False
 20260724,59.2,0,52.21,0,52.21,0,0,False,False
 20260731,59.2,0,52.21,0,52.21,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,59.22,0,52.21,0,52.21,0,0,False,False
 20260918,59.22,0,52.21,0,52.21,0,0,False,False
 20260924,59.22,0,52.21,0,52.21,0,0,False,False
+20261002,59.22,0,52.21,0,52.21,0,0,False,False
 ```
 
 ## Candidate Context

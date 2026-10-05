@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6196 帆宣
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:03 Asia/Taipei
+- generated_at: 2026-10-04 22:18:10 Asia/Taipei
 - stock_id: 6196
 - stock_name: 帆宣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 547
-- high: 566
-- low: 541
-- close: 565
-- volume: 1521343
-- ma5: 544.8
-- ema23_primary: 523.25
-- distance_to_ema23_pct: 7.98
-- ma20: 519.42
-- ma60: 518.51
-- ma120: 482.34
-- return_5d: 9.5
-- return_20d: 13.57
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 8.77
-- distance_to_high_60_pct: -6.92
+- date: 20261002
+- open: 609
+- high: 619
+- low: 602
+- close: 618
+- volume: 1802450
+- ma5: 582.8
+- ema23_primary: 542.82
+- distance_to_ema23_pct: 13.85
+- ma20: 538.05
+- ma60: 519.19
+- ma120: 491.6
+- return_5d: 12.57
+- return_20d: 25.61
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 14.86
+- distance_to_high_60_pct: -0.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,501,502,491,492.5,901280,501.03,-1.7,499.7,523.23,0.72
-20260831,492.5,492.5,476.5,485,757578,499.69,-2.94,499.25,522.92,0.63
-20260901,485,511,485,507,1607397,500.3,1.34,500,522.97,1.34
-20260902,502,503,492,492,935167,499.61,-1.52,499.15,523.04,0.84
 20260903,500,523,498.5,500,2947816,499.64,0.07,498.75,522.71,2.51
 20260904,516,528,501,516,2366376,501,2.99,499.88,522.98,1.96
 20260907,516,518,506,514,1299375,502.09,2.37,500.23,523.14,1.06
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,542,549,534,535,1220757,516.77,3.53,513.6,518.69,0.79
 20260923,538,558,534,549,1773924,519.45,5.69,516.05,518.61,1.14
 20260924,547,566,541,565,1521343,523.25,7.98,519.42,518.51,0.96
+20260929,554,554,537,544,1880519,524.98,3.62,522,517.77,1.15
+20260930,552,588,551,585,3126316,529.98,10.38,527,517.73,1.78
+20261001,588,602,579,602,1948826,535.98,12.32,531.75,518.26,1.1
+20261002,609,619,602,618,1802450,542.82,13.85,538.05,519.19,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 70.95
-- over_600_ratio: 68.47
-- over_800_ratio: 66.63
-- over_1000_ratio: 65.86
-- over_400_change_1w: 0.67
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 71.69
+- over_600_ratio: 69.7
+- over_800_ratio: 67.3
+- over_1000_ratio: 66.07
+- over_400_change_1w: 0.74
+- over_800_change_1w: 0.67
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,71.94,-0.08,67.99,-0.39,66.31,0,0,False,False
 20260717,72.48,0.54,67.47,-0.52,67.07,0.76,1,False,True
 20260724,71.66,-0.82,67.49,0.02,66.67,-0.4,2,False,True
 20260731,72.1,0.44,68.2,0.71,67.45,0.78,3,True,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,71.04,-0.43,67.28,-0.72,66.92,0.55,5,False,True
 20260918,70.28,-0.76,66.61,-0.67,65.84,-1.08,0,False,False
 20260924,70.95,0.67,66.63,0.02,65.86,0.02,1,False,True
+20261002,71.69,0.74,67.3,0.67,66.07,0.21,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6196 | 帆宣 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 6196 | 帆宣 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 6196 | 帆宣 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.董事會召集通知日:115/07/27 2.董事會預計召開日期:115/08/04 3.預計提報董事會或經董事會決議之財務報告或 年度自結財務資訊年季:115年第二季 4.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6196 | 帆宣 | 5 | 5 | 5 | 8 | 14 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20261002 | 6196 | 帆宣 | 9 | 1 | 5 | 9 | 17 | continued_many_days | 連續 9 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6196 | 帆宣 | 121 | 5 | 28196180.0 | 0.0 |  | call_inflow |
+| 20261002 | 6196 | 帆宣 | 120 | 5 | 16050580.0 | 230060.0 | 69.77 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

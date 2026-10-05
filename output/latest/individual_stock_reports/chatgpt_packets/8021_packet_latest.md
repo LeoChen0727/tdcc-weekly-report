@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:23 Asia/Taipei
+- generated_at: 2026-10-04 22:18:56 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,25 +69,25 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- action_rating_display_zh: 停利
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: 股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
-- confidence_level: medium
-- thesis_state: unclear
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -100,11 +100,12 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -117,7 +118,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 480.5
-- high: 480.5
-- low: 474.5
-- close: 480
-- volume: 949881
-- ma5: 472.2
-- ema23_primary: 446.92
-- distance_to_ema23_pct: 7.4
-- ma20: 448.38
-- ma60: 434.51
-- ma120: 440.36
-- return_5d: 6.67
-- return_20d: 13.61
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: 7.05
-- distance_to_high_60_pct: -17.81
+- date: 20261002
+- open: 503
+- high: 553
+- low: 501
+- close: 553
+- volume: 9216082
+- ma5: 500.4
+- ema23_primary: 464.9
+- distance_to_ema23_pct: 18.95
+- ma20: 459.57
+- ma60: 432.71
+- ma120: 447.5
+- return_5d: 15.69
+- return_20d: 20.48
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 20.33
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,433.5,463.5,426,454,16137795,416.52,9,412.02,460.77,2.94
-20260831,442.5,461,423.5,435,9134188,418.06,4.05,416.02,460.67,1.58
-20260901,435,465,430,450,8753655,420.72,6.96,419,460.53,1.47
-20260902,445,461,438.5,459,7186775,423.91,8.28,422.15,460.52,1.25
 20260903,461,462,413.5,413.5,14442146,423.04,-2.26,421.95,458.98,2.41
 20260904,425,426,413,420,6332673,422.79,-0.66,423.2,456.71,1.06
 20260907,445,462,444,462,13046649,426.06,8.44,424.57,454.91,2.07
@@ -167,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,471.5,480,460,477,13222841,440.81,8.21,442.52,437.46,1.68
 20260923,471.5,480,464,478,2016917,443.91,7.68,445.5,435.86,0.27
 20260924,480.5,480.5,474.5,480,949881,446.92,7.4,448.38,434.51,0.13
+20260929,475.5,481.5,470,480,755727,449.67,6.74,449.68,433.44,0.12
+20260930,486,487.5,480,486,855758,452.7,7.36,452.23,432.24,0.14
+20261001,487,503,487,503,1461511,456.89,10.09,454.88,431.79,0.25
+20261002,503,553,501,553,9216082,464.9,18.95,459.57,432.71,1.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 49.19
-- over_600_ratio: 45.38
-- over_800_ratio: 42.66
-- over_1000_ratio: 38.38
-- over_400_change_1w: 0.98
-- over_800_change_1w: -0.13
-- over_1000_change_1w: 1.13
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20261002
+- over_400_ratio: 49.03
+- over_600_ratio: 45.56
+- over_800_ratio: 43.2
+- over_1000_ratio: 38.26
+- over_400_change_1w: -0.16
+- over_800_change_1w: 0.54
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,48.03,0.12,40.86,0.25,37.85,0.68,3,False,True
 20260717,47.46,-0.57,40.91,0.05,37.93,0.08,4,False,True
 20260724,46.23,-1.23,39.9,-1.01,36.93,-1,0,False,False
 20260731,46.38,0.15,38.67,-1.23,33.85,-3.08,1,False,False
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,47.53,4.09,39.81,4.06,34.82,3.92,1,True,True
 20260918,48.21,0.68,42.79,2.98,37.25,2.43,2,True,True
 20260924,49.19,0.98,42.66,-0.13,38.38,1.13,3,False,True
+20261002,49.03,-0.16,43.2,0.54,38.26,-0.12,4,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 8021 | 尖點 | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | continued_overheated | 1.董事會決議或公司決定增資基準日期:115/09/16 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/09/04 4.董事會決議(追補)發行日期:115/08/14 5.發行總金額及股數: 發行總面額新台幣40,000,000元 發行股數:4,000,000股。 6.採總括申報發行新股案件，本次發行金額及股數:不適用。 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用。 8.每股面額:新台幣 10 元。 9.發行價格:俟定價後另行公告。 10.員工認股股數: 依公司法第267條規定，保留發行新股總數10%，計400千股 供員工認購。 11.原股東認購比率:本次發行新股總額之80%計3,200千股，由原股東按 增資認股基準日股東名簿記載之股東及其持股比例分別認購，依本公司 目前流通在外股數147,329,590股計算，原股東每仟股得認購 21.72000885股。(本公司可轉換公司債轉換，影響流通在外股數， 致每仟股可認購股數變動) 12.公開銷售方式及股數:依證券交易法28條之1規定，提撥發行新股總數10%， 計400千股採公開申購方式對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，自停止 過戶日起五日內由股東自行向本公司股務代理機構辦理拼湊整股認購，其拼湊不 足一股之畸零股及原股東、員工放棄認購或認購不足及逾期未拼湊之部分，擬授 權董事長洽特定人按發行價格認購之。 14.本次發行新股之權利義務: 本次現金增資發行新股之權利義務與原發行 之普通股份相同。 15.本次增資資金用途:購置機器設備/廠務工程/員工宿舍。 16.現金增資認股基準日:115/10/12 17.最後過戶日:115/10/07 18.停止過戶起始日期:115/10/08 19.停止過戶截止日期:115/10/12 20.股款繳納期間: (1)原股東及員工繳款期間:115/10/20 ~ 115/10/27 (2)特定人認股繳款期間:115/10/28-115/10/30 21.與代收及專戶存儲價款行庫訂約日期:俟正式簽約後另行公告。 22.委託代收存款機構:俟正式簽約後另行公告。 23.委託存儲款項機構:俟正式簽約後另行公告。 24.其他應敘明事項: 本公司辦理115年現金增資發行普通股4,000,000股乙案， 業經金融監督管理委員會115年9月4日金管證發字第1150353873號函 申報生效在案。；calendar event: ex_right on 20261006; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 8021 | 尖點 | 2 | 1 | 2 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

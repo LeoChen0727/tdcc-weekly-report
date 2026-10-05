@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:07 Asia/Taipei
+- generated_at: 2026-10-04 22:18:19 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 等待回檔
-- model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
-- action_summary_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。
 - entry_strategy_zh: 目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。 進場策略：目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -99,8 +99,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 78
-- high: 82.5
-- low: 75.6
-- close: 81.3
-- volume: 14497011
-- ma5: 74.16
-- ema23_primary: 69.24
-- distance_to_ema23_pct: 17.41
-- ma20: 68.94
-- ma60: 66.48
-- ma120: 69.56
-- return_5d: 24.88
-- return_20d: 13.23
-- volume_ratio: 2.25
-- distance_to_ma20_pct_auxiliary: 17.93
-- distance_to_high_60_pct: -1.45
+- date: 20261002
+- open: 89.1
+- high: 94
+- low: 87
+- close: 92.9
+- volume: 20444355
+- ma5: 88.7
+- ema23_primary: 75.53
+- distance_to_ema23_pct: 23
+- ma20: 72.73
+- ma60: 68.01
+- ma120: 70.76
+- return_5d: 18.19
+- return_20d: 32.52
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: 27.73
+- distance_to_high_60_pct: -2.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,72,77.5,71.6,74.3,10669483,67.06,10.8,66.11,68.05,2.56
-20260831,74.1,76,71,71.6,5467789,67.44,6.17,66.86,67.81,1.25
-20260901,72,72.4,70,70.4,5124609,67.68,4.01,67.48,67.61,1.13
-20260902,70,72.1,69.6,70.1,2619353,67.89,3.26,67.97,67.46,0.58
 20260903,71.5,72.1,67.1,67.4,4089243,67.84,-0.66,68.27,67.32,0.88
 20260904,68.4,69.5,67.6,68.8,1705385,67.92,1.29,68.64,67.28,0.37
 20260907,70,71.4,68.7,68.8,2412004,68,1.18,68.69,67.27,0.55
@@ -166,18 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,73.5,79,73.2,73.6,23340535,67.2,9.53,67.98,66.04,4.83
 20260923,76.5,80.9,76.5,78.6,26940277,68.15,15.34,68.47,66.19,4.46
 20260924,78,82.5,75.6,81.3,14497011,69.24,17.41,68.94,66.48,2.25
+20260929,85,89.4,84.1,89.4,18926798,70.92,26.05,69.69,66.88,2.76
+20260930,91.5,95.7,89.5,92,63213414,72.68,26.58,70.72,67.3,6.48
+20261001,91.9,92,86.1,87.9,20200523,73.95,18.87,71.59,67.57,1.92
+20261002,89.1,94,87,92.9,20444355,75.53,23,72.73,68.01,1.79
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 54.46
-- over_600_ratio: 53.25
-- over_800_ratio: 51.8
-- over_1000_ratio: 50.32
-- over_400_change_1w: 4.39
-- over_800_change_1w: 4.52
-- over_1000_change_1w: 4.53
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20261002
+- over_400_ratio: 57.74
+- over_600_ratio: 56.41
+- over_800_ratio: 55.65
+- over_1000_ratio: 54.41
+- over_400_change_1w: 3.28
+- over_800_change_1w: 3.85
+- over_1000_change_1w: 4.09
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,7 +185,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,47.53,-0.01,44.88,0.52,44.36,0.52,1,False,True
 20260717,48.11,0.58,45.12,0.24,44.6,0.24,2,True,True
 20260724,48.69,0.58,45.21,0.09,43.87,-0.73,3,False,True
 20260731,47.33,-1.36,43.98,-1.23,43.21,-0.66,0,False,False
@@ -197,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,49.99,-0.58,47.35,-1.02,45.57,-1.24,0,False,False
 20260918,50.07,0.08,47.28,-0.07,45.79,0.22,1,False,True
 20260924,54.46,4.39,51.8,4.52,50.32,4.53,2,True,True
+20261002,57.74,3.28,55.65,3.85,54.41,4.09,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6456 | GIS-KY | true_breakout | 嚴格突破 | 86.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：本公司將受邀參加福邦證券舉辦之線上法人說明會，會中將就2026年第二季財務數字等相關資訊做說明。 5.其他應敘明事項：本次法說會影音資訊於當日會後上傳。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6456 | GIS-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：本公司將受邀參加福邦證券舉辦之線上法人說明會，會中將就2026年第二季財務數字等相關資訊做說明。 5.其他應敘明事項：本次法說會影音資訊於當日會後上傳。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6456 | GIS-KY | 5 | 1 | 5 | 7 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 6456 | GIS-KY | 9 | 2 | 5 | 9 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6456 | GIS-KY | 55 | 0 | 12652210.0 | 0.0 |  | call_strong_inflow |
+| 20261002 | 6456 | GIS-KY | 75 | 1 | 17047750.0 | 79080.0 | 215.58 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

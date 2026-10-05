@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:55 Asia/Taipei
+- generated_at: 2026-10-04 22:17:51 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：突破後順勢追蹤；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 92.1
-- high: 93.4
-- low: 89.5
-- close: 89.9
-- volume: 1236954
-- ma5: 92.12
-- ema23_primary: 86.63
-- distance_to_ema23_pct: 3.77
-- ma20: 86.86
-- ma60: 83.87
-- ma120: 79.47
-- return_5d: 1.35
-- return_20d: 7.02
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 3.5
-- distance_to_high_60_pct: -17.14
+- date: 20261002
+- open: 94.5
+- high: 102
+- low: 92.5
+- close: 99
+- volume: 4941418
+- ma5: 92.74
+- ema23_primary: 88.73
+- distance_to_ema23_pct: 11.57
+- ma20: 88.78
+- ma60: 83.34
+- ma120: 80.87
+- return_5d: 7.38
+- return_20d: 10.49
+- volume_ratio: 2.84
+- distance_to_ma20_pct_auxiliary: 11.52
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,84.9,85.8,83,83.4,1192121,79.79,4.52,78.43,86.11,1.35
-20260831,83.4,83.8,79.4,81,734106,79.89,1.39,78.81,85.81,0.84
-20260901,80.5,83.3,80.5,81.5,688303,80.03,1.84,79.11,85.64,0.78
-20260902,81.5,89.6,81.5,89.6,2605362,80.82,10.86,79.72,85.67,2.68
 20260903,89.7,90.3,84.2,86.3,4511949,81.28,6.18,80.14,85.66,3.83
 20260904,86.9,89.8,85.5,87.3,1524276,81.78,6.75,80.66,85.7,1.24
 20260907,88.8,88.8,86.3,87.7,628217,82.27,6.59,81.14,85.72,0.52
@@ -168,18 +169,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,93,96.1,91,93.5,2089028,85.8,8.97,86.08,83.99,1.28
 20260923,94.3,95,91.5,92.2,1526076,86.33,6.79,86.56,83.92,0.94
 20260924,92.1,93.4,89.5,89.9,1236954,86.63,3.77,86.86,83.87,0.78
+20260929,89.9,92.9,89.1,90.5,781129,86.95,4.08,87.22,83.72,0.5
+20260930,91.8,92.1,89.7,90.1,789941,87.22,3.31,87.67,83.61,0.5
+20261001,91,94.2,90.2,94.2,1550671,87.8,7.29,88.31,83.4,0.96
+20261002,94.5,102,92.5,99,4941418,88.73,11.57,88.78,83.34,2.84
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 63.69
-- over_600_ratio: 61.87
-- over_800_ratio: 57.15
-- over_1000_ratio: 51.96
-- over_400_change_1w: -0.48
-- over_800_change_1w: 0.06
-- over_1000_change_1w: -1.63
-- tdcc_consecutive_up_weeks: 13
+- as_of_date: 20261002
+- over_400_ratio: 64.27
+- over_600_ratio: 61.8
+- over_800_ratio: 57.7
+- over_1000_ratio: 53.4
+- over_400_change_1w: 0.58
+- over_800_change_1w: 0.55
+- over_1000_change_1w: 1.44
+- tdcc_consecutive_up_weeks: 14
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +192,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,62.61,2.53,53.24,1.89,49.58,0.02,2,True,True
 20260717,62.19,-0.42,53.3,0.06,49.51,-0.07,3,False,True
 20260724,62.51,0.32,53.37,0.07,50.57,1.06,4,True,True
 20260731,62.73,0.22,54.98,1.61,50.52,-0.05,5,False,True
@@ -199,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,63.44,0.38,56.7,-0.43,51.38,-0.24,11,False,False
 20260918,64.17,0.73,57.09,0.39,53.59,2.21,12,True,True
 20260924,63.69,-0.48,57.15,0.06,51.96,-1.63,13,False,True
+20261002,64.27,0.58,57.7,0.55,53.4,1.44,14,False,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 5285 | 界霖 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_2_3d | 1.事實發生日:115/06/25 2.公司名稱:界霖科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03報導 6.報導內容:「…，界霖科技股份有限公司(5285)董事長蔡上元指出公司看好指出公司看  好下半年營收可望逐季走揚……今年每股純益可望挑戰4元，明年有機會站上5元。」 7.發生緣由:澄清媒體報導 8.因應措施:報導內容純屬法人預估，本公司並無提供財務預測，有關本公司之財務  與業務資訊，請以本公司於公開資訊觀測站公告為主。 9.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20261002 | 5285 | 界霖 | 2 | 1 | 2 | 6 | 11 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 5285 | 界霖 | 4 | 0 | 387420.0 | 0.0 |  | no_signal |
+| 20261002 | 5285 | 界霖 | 4 | 0 | 2792290.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

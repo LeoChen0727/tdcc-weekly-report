@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3264 欣銓
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:37 Asia/Taipei
+- generated_at: 2026-10-04 22:17:08 Asia/Taipei
 - stock_id: 3264
 - stock_name: 欣銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 250
-- high: 255
-- low: 244
-- close: 246
-- volume: 17975000
-- ma5: 265.4
-- ema23_primary: 239.03
-- distance_to_ema23_pct: 2.92
-- ma20: 239.28
-- ma60: 222.06
-- ma120: 218.28
-- return_5d: 0.61
-- return_20d: 12.07
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 2.81
-- distance_to_high_60_pct: -15.03
+- date: 20261002
+- open: 245
+- high: 247.5
+- low: 241.5
+- close: 245
+- volume: 11557000
+- ma5: 244.3
+- ema23_primary: 240.49
+- distance_to_ema23_pct: 1.87
+- ma20: 241.35
+- ma60: 221.91
+- ma120: 220.66
+- return_5d: -2.78
+- return_20d: 4.93
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 1.51
+- distance_to_high_60_pct: -15.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,223,237.5,222,235,11444000,213.54,10.05,212.72,217.22,1.68
-20260831,230,230.5,220.5,228,5877000,214.75,6.17,214.75,217.08,0.85
-20260901,233,239,232.5,237.5,7787000,216.64,9.63,216.95,217.23,1.1
-20260902,234,239.5,232,233.5,5024000,218.05,7.09,218.53,217.61,0.71
 20260903,237,237,226,226,4168000,218.71,3.33,219.25,217.77,0.61
 20260904,231,232,224.5,227,3077000,219.4,3.46,220.22,218.03,0.48
 20260907,230,233,227,227,3079000,220.04,3.17,220.45,218.22,0.53
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,289,289.5,274.5,276.5,21876000,237.16,16.59,236.22,221.32,2.09
 20260923,273,273.5,250.5,252,28819000,238.39,5.71,237.95,221.82,2.49
 20260924,250,255,244,246,17975000,239.03,2.92,239.28,222.06,1.47
+20260929,245,245,238,241.5,10352000,239.23,0.95,239.6,221.93,0.85
+20260930,243.5,247,238,243.5,15292000,239.59,1.63,240.38,221.88,1.21
+20261001,243.5,245.5,238.5,245.5,14614000,240.08,2.26,240.78,221.68,1.13
+20261002,245,247.5,241.5,245,11557000,240.49,1.87,241.35,221.91,0.87
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 72.27
-- over_600_ratio: 69.39
-- over_800_ratio: 66.09
-- over_1000_ratio: 65.14
-- over_400_change_1w: -1.01
-- over_800_change_1w: -2.04
-- over_1000_change_1w: -1.66
+- as_of_date: 20261002
+- over_400_ratio: 68.25
+- over_600_ratio: 65.47
+- over_800_ratio: 62.45
+- over_1000_ratio: 61.51
+- over_400_change_1w: -4.02
+- over_800_change_1w: -3.64
+- over_1000_change_1w: -3.63
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,71.64,-0.35,66.35,-0.15,65.07,-0.15,0,False,False
 20260717,71.47,-0.17,66.28,-0.07,65.2,0.13,1,False,True
 20260724,71.07,-0.4,65.6,-0.68,64.52,-0.68,0,False,False
 20260731,70.1,-0.97,64.55,-1.05,63.44,-1.08,0,False,False
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,72.87,1.03,67.28,1.3,66.34,1.67,2,True,True
 20260918,73.28,0.41,68.13,0.85,66.8,0.46,3,True,True
 20260924,72.27,-1.01,66.09,-2.04,65.14,-1.66,0,False,False
+20261002,68.25,-4.02,62.45,-3.64,61.51,-3.63,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3264 | 欣銓 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/09/22 2.公司名稱:Valutek,Inc. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  Valutek,Inc.擬處分出售欣銓科技股份有限公司普通股，出售股數不超過  15,972,408股，約當於3.26%的欣銓科技已發行股本，計畫採鉅額交易方式  執行本次出售，預計出售對象為財務投資機構。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3264 | 欣銓 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/22 2.公司名稱:Valutek,Inc. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  Valutek,Inc.擬處分出售欣銓科技股份有限公司普通股，出售股數不超過  15,972,408股，約當於3.26%的欣銓科技已發行股本，計畫採鉅額交易方式  執行本次出售，預計出售對象為財務投資機構。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3264 | 欣銓 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/09/22 2.公司名稱:Valutek,Inc. 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:不適用 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):  Valutek,Inc.擬處分出售欣銓科技股份有限公司普通股，出售股數不超過  15,972,408股，約當於3.26%的欣銓科技已發行股本，計畫採鉅額交易方式  執行本次出售，預計出售對象為財務投資機構。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3264 | 欣銓 | 44 | 2 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3264 | 欣銓 | 48 | 5 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

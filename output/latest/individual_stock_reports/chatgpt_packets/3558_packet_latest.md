@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3558 神準
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:42 Asia/Taipei
+- generated_at: 2026-10-04 22:17:19 Asia/Taipei
 - stock_id: 3558
 - stock_name: 神準
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -101,7 +101,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -126,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 122
-- high: 122.5
-- low: 120
-- close: 122
-- volume: 56000
-- ma5: 122.7
-- ema23_primary: 122.75
-- distance_to_ema23_pct: -0.61
-- ma20: 121.55
-- ma60: 126.71
-- ma120: 124.97
-- return_5d: -0.81
-- return_20d: -4.31
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 0.37
-- distance_to_high_60_pct: -16.72
+- date: 20261002
+- open: 128.5
+- high: 133
+- low: 128.5
+- close: 131
+- volume: 296000
+- ma5: 126.3
+- ema23_primary: 124.18
+- distance_to_ema23_pct: 5.49
+- ma20: 122.3
+- ma60: 126.38
+- ma120: 125.56
+- return_5d: 6.94
+- return_20d: 6.07
+- volume_ratio: 3.34
+- distance_to_ma20_pct_auxiliary: 7.11
+- distance_to_high_60_pct: -10.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,127.5,128.5,125.5,125.5,76000,127.54,-1.6,127.53,130.95,0.88
-20260831,124.5,125,122,122.5,82000,127.12,-3.64,127.55,130.72,0.93
-20260901,123,124.5,122.5,123,43000,126.78,-2.98,127.4,130.56,0.49
-20260902,124,125.5,122.5,123.5,80000,126.51,-2.38,127.17,130.55,0.91
 20260903,123.5,123.5,118.5,118.5,124000,125.84,-5.83,126.65,130.26,1.36
 20260904,119.5,120,119,119.5,45000,125.31,-4.64,126.22,129.98,0.5
 20260907,120,120.5,118.5,118.5,45000,124.74,-5.01,125.65,129.68,0.51
@@ -168,10 +163,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,125.5,125.5,123,124,65000,122.84,0.94,122.2,127.1,0.77
 20260923,123,123,122,122.5,31000,122.81,-0.25,121.83,126.88,0.41
 20260924,122,122.5,120,122,56000,122.75,-0.61,121.55,126.71,0.77
+20260929,121,124.5,121,124.5,52000,122.89,1.31,121.5,126.61,0.73
+20260930,124.5,125,123.5,125,43000,123.07,1.57,121.62,126.45,0.62
+20261001,124.5,129.5,124,129,206000,123.56,4.4,121.92,126.37,2.65
+20261002,128.5,133,128.5,131,296000,124.18,5.49,122.3,126.38,3.34
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 51.04
 - over_600_ratio: 49.59
 - over_800_ratio: 48.56
@@ -187,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,51.03,0,48.56,0,47.07,0,0,False,False
 20260717,51.03,0,48.56,0,47.07,0,0,False,False
 20260724,51.03,0,48.56,0,47.07,0,0,False,False
 20260731,51.03,0,48.56,0,47.07,0,0,False,False
@@ -199,6 +197,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,51.04,0,48.56,0,47.07,0,0,False,False
 20260918,51.04,0,48.56,0,47.07,0,0,False,False
 20260924,51.04,0,48.56,0,47.07,0,0,False,False
+20261002,51.04,0,48.56,0,47.07,0,0,False,False
 ```
 
 ## Candidate Context

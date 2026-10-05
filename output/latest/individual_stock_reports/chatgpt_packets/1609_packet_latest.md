@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:13 Asia/Taipei
+- generated_at: 2026-10-04 22:16:14 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 38
-- high: 38
-- low: 37.4
-- close: 37.85
-- volume: 1730773
-- ma5: 37.95
-- ema23_primary: 37.59
-- distance_to_ema23_pct: 0.69
-- ma20: 37.62
-- ma60: 37.44
-- ma120: 36.52
-- return_5d: 0.53
-- return_20d: 0.26
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 0.6
-- distance_to_high_60_pct: -14.46
+- date: 20261002
+- open: 38.65
+- high: 39
+- low: 38.05
+- close: 38.55
+- volume: 2911262
+- ma5: 38.47
+- ema23_primary: 37.89
+- distance_to_ema23_pct: 1.73
+- ma20: 37.83
+- ma60: 37.29
+- ma120: 36.71
+- return_5d: 1.85
+- return_20d: 2.8
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 1.91
+- distance_to_high_60_pct: -9.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,38.25,38.35,37.65,38.1,3635925,37.18,2.48,37.01,37.51,0.96
-20260831,38,38,37.35,37.6,2784988,37.21,1.04,37.16,37.42,0.73
-20260901,37.45,38.1,37.25,37.25,3873594,37.22,0.09,37.25,37.38,1.01
-20260902,37,37.65,37,37.5,1989828,37.24,0.7,37.34,37.39,0.53
 20260903,37.6,37.9,37,37,2643259,37.22,-0.59,37.39,37.38,0.7
 20260904,37.4,37.5,36.7,37.35,2202291,37.23,0.32,37.41,37.39,0.65
 20260907,37.75,37.75,36.95,37.2,1961836,37.23,-0.08,37.42,37.41,0.61
@@ -167,18 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,38.35,38.45,37.9,38.1,3790142,37.54,1.49,37.63,37.46,1.2
 20260923,38.2,38.25,37.8,37.85,2390192,37.57,0.76,37.62,37.46,0.76
 20260924,38,38,37.4,37.85,1730773,37.59,0.69,37.62,37.44,0.63
+20260929,38,38.55,37.75,38.5,4993226,37.66,2.22,37.65,37.45,1.77
+20260930,38.5,39,38.4,38.75,4929151,37.76,2.63,37.7,37.43,1.69
+20261001,39.25,39.3,38.25,38.7,4848716,37.83,2.29,37.77,37.35,1.63
+20261002,38.65,39,38.05,38.55,2911262,37.89,1.73,37.83,37.29,0.96
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 32.79
-- over_600_ratio: 31.26
-- over_800_ratio: 29.96
-- over_1000_ratio: 28.94
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.45
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20261002
+- over_400_ratio: 32.83
+- over_600_ratio: 31.25
+- over_800_ratio: 30.02
+- over_1000_ratio: 28.99
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,32.46,1.66,29.5,1.75,29.06,2.34,2,True,True
 20260717,32.11,-0.35,29.18,-0.32,28.5,-0.56,0,False,False
 20260724,31.95,-0.16,29,-0.18,28.35,-0.15,0,False,False
 20260731,31.65,-0.3,28.63,-0.37,27.6,-0.75,0,False,False
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,32.62,0.22,29.6,0.31,28.6,-0.15,3,False,True
 20260918,32.61,-0.01,29.72,0.12,28.49,-0.11,4,False,True
 20260924,32.79,0.18,29.96,0.24,28.94,0.45,5,False,True
+20261002,32.83,0.04,30.02,0.06,28.99,0.05,6,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1609 | 大亞 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落於新北市新莊區新北大道三段218號18樓之辦公室 2.事實發生日:115/9/10~115/9/10 3.董事會通過日期: 民國115年9月10日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：含公設面積共計129.3坪 每單位價格：每坪2,500元(未稅)，辦公室每月租金為323,250元（未稅） 交易總金額：使用權資產約新台幣16,853,541元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：大亞電線電纜股份有限公司 與公司之關係：母公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人原因：基於整體營運規劃需要 前次移轉之所有人、日期及金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 租期: 民國115年10月1日起至民國120年4月30日止 交付或付款條件:依照合約月繳 契約限制條款及其他重要約定事項:無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策單位：董事會 交易決定方式：租金依市場行情 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 營業辦公室用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年9月10日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 1609 | 大亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落於新北市新莊區新北大道三段218號18樓之辦公室 2.事實發生日:115/9/10~115/9/10 3.董事會通過日期: 民國115年9月10日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：含公設面積共計129.3坪 每單位價格：每坪2,500元(未稅)，辦公室每月租金為323,250元（未稅） 交易總金額：使用權資產約新台幣16,853,541元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：大亞電線電纜股份有限公司 與公司之關係：母公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人原因：基於整體營運規劃需要 前次移轉之所有人、日期及金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 租期: 民國115年10月1日起至民國120年4月30日止 交付或付款條件:依照合約月繳 契約限制條款及其他重要約定事項:無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策單位：董事會 交易決定方式：租金依市場行情 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 營業辦公室用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年9月10日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 1609 | 大亞 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）: 坐落於新北市新莊區新北大道三段218號18樓之辦公室 2.事實發生日:115/9/10~115/9/10 3.董事會通過日期: 民國115年9月10日 4.其他核決日期: 不適用 5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額: 交易單位數量：含公設面積共計129.3坪 每單位價格：每坪2,500元(未稅)，辦公室每月租金為323,250元（未稅） 交易總金額：使用權資產約新台幣16,853,541元 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關 係人者，得免揭露其姓名）: 交易相對人：大亞電線電纜股份有限公司 與公司之關係：母公司 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之 所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期 及移轉金額: 選定關係人原因：基於整體營運規劃需要 前次移轉之所有人、日期及金額：不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係 人之取得及處分日期、價格及交易當時與公司之關係: 不適用 9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明 認列情形）: 不適用 10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 租期: 民國115年10月1日起至民國120年4月30日止 交付或付款條件:依照合約月繳 契約限制條款及其他重要約定事項:無 11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及 決策單位: 決策單位：董事會 交易決定方式：租金依市場行情 12.專業估價者事務所或公司名稱及其估價金額: 不適用 13.專業估價師姓名: 不適用 14.專業估價師開業證書字號: 不適用 15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 16.是否尚未取得估價報告:否或不適用 17.尚未取得估價報告之原因: 不適用 18.估價結果有重大差異時，其差異原因及會計師意見: 不適用 19.會計師事務所名稱: 不適用 20.會計師姓名: 不適用 21.會計師開業證書字號: 不適用 22.經紀人及經紀費用: 不適用 23.取得或處分之具體目的或用途: 營業辦公室用 24.本次交易表示異議之董事之意見: 不適用 25.本次交易為關係人交易:是 26.監察人承認或審計委員會同意日期: 民國115年9月10日 27.本次交易係向關係人取得不動產或其使用權資產:是 28.依「公開發行公司取得或處分資產處理準則」第十六條規定 評估之價格:不適用 29.依前項評估之價格較交易價格為低者，依同準則第十七條規 定評估之價格:不適用 30.前已就同一件事件發布重大訊息日期: 不適用 31.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1609 | 大亞 | 8 | 8 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 1609 | 大亞 | 12 | 1 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1609 | 大亞 | 20 | 2 | 85260.0 | 0.0 |  | no_signal |
+| 20261002 | 1609 | 大亞 | 20 | 2 | 577460.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

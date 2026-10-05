@@ -1,78 +1,79 @@
 # TDCC Top Risk List
 
-- generated_at: 2026-09-26 15:41:50 Asia/Taipei
+- generated_at: 2026-10-03 15:42:46 Asia/Taipei
 - purpose: identify TDCC-strong names that are late, overheated, or divergent; do not treat these as pre-move accumulation.
 
 ## price_leading_tdcc Top 20
 
 | stock_id | stock_name | theme | theme_mainstream_status | tdcc_strength_score | tdcc_price_phase | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | risk_bucket | interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 6122 | 擎邦 | other electronics | mainstream_leader | 295.00 | price_leading_tdcc | 19.51 | 13.56 | 13.71 | 4.44 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 8047 | 星雲 | other electronics | mainstream_leader | 275.00 | price_leading_tdcc | 7.31 | 14.95 | 9.18 | 3.09 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3508 | 位速 | other electronics | mainstream_leader | 265.00 | price_leading_tdcc | 24.76 | 23.45 | 17.32 | 1.48 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 5355 | 佳總 | other electronics | mainstream_leader | 245.00 | price_leading_tdcc | 13.33 | 15.33 | 8.13 | 0.36 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3491 | 昇達科 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 9.12 | 12.85 | 6.13 | 0.54 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3094 | 聯傑 | semiconductor | mainstream_leader | 215.00 | price_leading_tdcc | 42.52 | 27.28 | 19.39 | 2.09 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 2404 | 漢唐 | other electronics | mainstream_leader | 205.00 | price_leading_tdcc | 19.53 | 18.92 | 18.57 | 1.70 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 1809 | 中釉 | traditional industries | mainstream_leader | 205.00 | price_leading_tdcc | 15.54 | 16.88 | 17.21 | 3.83 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3114 | 好德 | semiconductor | mainstream_leader | 205.00 | price_leading_tdcc | 1.33 | 11.12 | 8.83 | 3.40 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3042 | 晶技 | other electronics | mainstream_leader | 195.00 | price_leading_tdcc | 5.73 | 10.16 | 11.28 | 3.12 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3189 | 景碩 | semiconductor | mainstream_leader | 195.00 | price_leading_tdcc | 5.25 | 14.01 | 14.79 | 2.17 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 8064 | 東捷 | consumer electronics | mainstream_leader | 195.00 | price_leading_tdcc | 33.01 | 7.97 | 15.40 | 1.35 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 8996 | 高力 | other | single_name_signal | 195.00 | price_leading_tdcc | 16.79 | 15.38 | 15.38 | 0.70 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3717 | 聯嘉投控 | EV/auto electronics | non_mainstream_watch | 195.00 | price_leading_tdcc | 10.22 | 15.87 | 11.18 | 2.43 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 8046 | 南電 | other electronics | mainstream_leader | 195.00 | price_leading_tdcc | -4.25 | 13.58 | 10.47 | 1.13 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 2342 | 茂矽 | semiconductor | mainstream_leader | 185.00 | price_leading_tdcc | 20.05 | 20.65 | 18.65 | 8.67 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 6672 | 騰輝電子-KY | other electronics | mainstream_leader | 185.00 | price_leading_tdcc | 19.89 | 10.57 | 14.55 | 2.69 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 1727 | 中華化 | traditional industries | mainstream_leader | 185.00 | price_leading_tdcc | 19.20 | 25.46 | 18.46 | 5.43 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 2481 | 強茂 | power discrete/diodes | emerging_theme | 185.00 | price_leading_tdcc | 19.11 | 10.64 | 9.47 | 0.83 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 3035 | 智原 | semiconductor | mainstream_leader | 185.00 | price_leading_tdcc | 17.00 | 13.05 | 13.09 | 1.21 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6122 | 擎邦 | other electronics | mainstream_leader | 305.00 | price_leading_tdcc | 31.21 | 18.11 | 18.70 | 2.09 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 3508 | 位速 | other electronics | mainstream_leader | 275.00 | price_leading_tdcc | 19.49 | 13.67 | 10.78 | 0.55 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6743 | 安普新 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 24.39 | 15.88 | 17.91 | 3.44 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 2034 | 允強 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 17.07 | 10.21 | 10.85 | 1.24 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6505 | 台塑化 | biotechnology | mainstream_leader | 215.00 | price_leading_tdcc | 27.06 | 18.49 | 15.87 | 1.31 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 2404 | 漢唐 | other electronics | mainstream_leader | 215.00 | price_leading_tdcc | 25.37 | 18.43 | 14.15 | 1.17 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6278 | 台表科 | other electronics | mainstream_leader | 205.00 | price_leading_tdcc | 8.77 | 12.85 | 9.26 | 1.17 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 5347 | 世界 | other electronics | mainstream_leader | 205.00 | price_leading_tdcc | 25.08 | 11.41 | 13.04 | 0.82 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6691 | 洋基工程 | traditional industries | mainstream_leader | 205.00 | price_leading_tdcc | 22.08 | 14.17 | 15.45 | 1.76 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 2484 | 希華 | other electronics | mainstream_leader | 205.00 | price_leading_tdcc | 16.11 | 15.42 | 19.78 | 3.72 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6438 | 迅得 | other electronics | mainstream_leader | 195.00 | price_leading_tdcc | 5.33 | 10.94 | 9.59 | 3.00 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 4905 | 台聯電 | other electronics | mainstream_leader | 195.00 | price_leading_tdcc | 4.05 | 11.34 | 14.16 | 5.06 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 3162 | 精確 | semiconductor | mainstream_leader | 195.00 | price_leading_tdcc | 25.84 | 14.96 | 19.12 | 1.83 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 1459 | 聯發 | traditional industries | mainstream_leader | 195.00 | price_leading_tdcc | 20.26 | 14.53 | 17.76 | 5.75 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6127 | 九豪 | other electronics | mainstream_leader | 195.00 | price_leading_tdcc | 20.16 | 13.34 | 17.68 | 6.26 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 3035 | 智原 | semiconductor | mainstream_leader | 195.00 | price_leading_tdcc | 16.80 | 18.48 | 14.10 | 1.11 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6166 | 凌華 | other electronics | mainstream_leader | 195.00 | price_leading_tdcc | 11.11 | 12.99 | 8.29 | 0.46 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6994 | 富威電力 | other | single_name_signal | 195.00 | price_leading_tdcc | -11.22 | 12.97 | 7.37 | 3.08 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 6432 | 今展科 | other electronics | mainstream_leader | 185.00 | price_leading_tdcc | 7.77 | 19.67 | 13.07 | 4.92 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 3563 | 牧德 | other electronics | mainstream_leader | 185.00 | price_leading_tdcc | 7.04 | 12.65 | 8.22 | 1.46 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 
 ## overheated_after_tdcc Top 20
 
 | stock_id | stock_name | theme | theme_mainstream_status | tdcc_strength_score | tdcc_price_phase | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | risk_bucket | interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2030 | 彰源 | traditional industries | mainstream_leader | 255.00 | overheated_after_tdcc | 32.17 | 26.23 | 26.19 | 3.58 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 2033 | 佳大 | traditional industries | mainstream_leader | 235.00 | overheated_after_tdcc | 57.60 | 31.02 | 27.66 | 1.28 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 4924 | 欣厚-KY | other electronics | mainstream_leader | 205.00 | overheated_after_tdcc | 56.31 | 22.89 | 21.05 | 1.17 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 3605 | 宏致 | other electronics | mainstream_leader | 205.00 | overheated_after_tdcc | 53.56 | 41.05 | 32.42 | 0.69 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 6945 | 圓祥生技 | biotechnology | mainstream_leader | 205.00 | overheated_after_tdcc | 28.97 | 38.19 | 25.27 | 0.50 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 4174 | 浩鼎 | biotechnology | mainstream_leader | 205.00 | overheated_after_tdcc | 22.92 | 22.18 | 20.73 | 3.57 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 3037 | 欣興 | semiconductor | mainstream_leader | 205.00 | overheated_after_tdcc | 0.42 | 16.91 | 18.30 | 0.73 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 3691 | 碩禾 | consumer electronics | mainstream_leader | 195.00 | overheated_after_tdcc | 22.59 | 22.45 | 19.97 | 6.93 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 6168 | 宏齊 | other electronics | mainstream_leader | 185.00 | overheated_after_tdcc | 48.40 | 45.34 | 34.60 | 0.58 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 1569 | 濱川 | semiconductor equipment/materials | mainstream_follow_through | 185.00 | overheated_after_tdcc | 44.58 | 30.53 | 24.64 | 2.76 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 4956 | 光鋐 | consumer electronics | mainstream_leader | 185.00 | overheated_after_tdcc | 23.61 | 29.35 | 19.25 | 2.60 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 3016 | 嘉晶 | semiconductor | mainstream_leader | 175.00 | overheated_after_tdcc | 60.16 | 43.15 | 41.85 | 3.19 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 3624 | 光頡 | passive components | non_mainstream_watch | 175.00 | overheated_after_tdcc | 54.02 | 21.44 | 26.39 | 2.19 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 6715 | 嘉基 | other electronics | mainstream_leader | 175.00 | overheated_after_tdcc | 33.29 | 36.92 | 26.49 | 0.28 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 1528 | 恩德 | other electronics | mainstream_leader | 175.00 | overheated_after_tdcc | 30.51 | 29.56 | 15.16 | 0.77 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 8150 | 南茂 | semiconductor | mainstream_leader | 175.00 | overheated_after_tdcc | 24.03 | 20.90 | 20.48 | 2.29 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 8227 | 巨有科技 | other electronics | mainstream_leader | 165.00 | overheated_after_tdcc | 91.56 | 39.01 | 37.32 | 0.32 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 2305 | 全友 | other electronics | mainstream_leader | 165.00 | overheated_after_tdcc | 113.58 | 61.07 | 46.53 | 0.23 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 3653 | 健策 | other electronics | mainstream_leader | 145.00 | overheated_after_tdcc | 22.59 | 17.21 | 19.68 | 2.26 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 2030 | 彰源 | traditional industries | mainstream_leader | 265.00 | overheated_after_tdcc | 69.91 | 63.43 | 42.98 | 1.03 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3037 | 欣興 | semiconductor | mainstream_leader | 215.00 | overheated_after_tdcc | 34.12 | 30.07 | 25.24 | 1.05 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 6199 | 天品 | other electronics | mainstream_leader | 205.00 | overheated_after_tdcc | 38.66 | 21.84 | 20.50 | 1.37 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3042 | 晶技 | semiconductor | mainstream_leader | 205.00 | overheated_after_tdcc | 28.06 | 18.53 | 21.96 | 2.47 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3105 | 穩懋 | semiconductor | mainstream_leader | 205.00 | overheated_after_tdcc | 25.88 | 18.14 | 22.53 | 1.00 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 5309 | 系統電 | other electronics | mainstream_leader | 205.00 | overheated_after_tdcc | 25.14 | 23.16 | 23.24 | 3.71 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3189 | 景碩 | semiconductor | mainstream_leader | 205.00 | overheated_after_tdcc | 23.97 | 22.32 | 21.34 | 0.96 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 8046 | 南電 | other electronics | mainstream_leader | 205.00 | overheated_after_tdcc | 21.67 | 26.40 | 26.71 | 1.37 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3094 | 聯傑 | semiconductor | mainstream_leader | 195.00 | overheated_after_tdcc | 70.63 | 52.07 | 39.87 | 2.31 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 6168 | 宏齊 | other electronics | mainstream_leader | 195.00 | overheated_after_tdcc | 66.37 | 37.35 | 27.01 | 0.31 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 6672 | 騰輝電子-KY | other electronics | mainstream_leader | 195.00 | overheated_after_tdcc | 61.40 | 38.68 | 38.78 | 2.16 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 2340 | 台亞 | other electronics | mainstream_leader | 195.00 | overheated_after_tdcc | 33.97 | 32.49 | 31.19 | 4.58 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 6456 | GIS-KY | other electronics | mainstream_leader | 195.00 | overheated_after_tdcc | 32.52 | 37.63 | 27.73 | 1.79 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3701 | 大眾控 | other electronics | mainstream_leader | 195.00 | overheated_after_tdcc | 28.09 | 32.77 | 30.63 | 5.24 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3236 | 千如 | semiconductor | mainstream_leader | 195.00 | overheated_after_tdcc | 21.92 | 15.53 | 20.31 | 3.48 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3016 | 嘉晶 | semiconductor | mainstream_leader | 185.00 | overheated_after_tdcc | 80.50 | 50.55 | 42.17 | 0.41 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 4174 | 浩鼎 | other | single_name_signal | 185.00 | overheated_after_tdcc | 68.00 | 50.65 | 40.96 | 4.38 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 3624 | 光頡 | passive components | non_mainstream_watch | 185.00 | overheated_after_tdcc | 66.85 | 13.79 | 22.07 | 1.52 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 8150 | 南茂 | other electronics | mainstream_leader | 185.00 | overheated_after_tdcc | 40.80 | 40.08 | 29.74 | 2.14 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
+| 6207 | 雷科 | other electronics | mainstream_leader | 185.00 | overheated_after_tdcc | 33.94 | 28.22 | 24.06 | 2.37 | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
 
 ## tdcc_price_divergence Top 20
 
 | stock_id | stock_name | theme | theme_mainstream_status | tdcc_strength_score | tdcc_price_phase | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | risk_bucket | interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 6527 | 明達醫 | biotechnology | mainstream_leader | 375.00 | tdcc_price_divergence | -0.40 | -5.01 | 0.09 | 1.03 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 2107 | 厚生 | biotechnology | mainstream_leader | 345.00 | tdcc_price_divergence | -0.37 | -2.68 | 0.34 | 0.83 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 1452 | 宏益 | traditional industries | mainstream_leader | 315.00 | tdcc_price_divergence | -5.68 | -5.45 | -2.83 | 0.42 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 6170 | 統振 | other electronics | mainstream_leader | 315.00 | tdcc_price_divergence | -1.43 | -2.32 | 0.52 | 0.77 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 6578 | 達邦蛋白 | biotechnology | mainstream_leader | 295.00 | tdcc_price_divergence | -7.24 | -6.77 | -4.68 | 2.66 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4207 | 環泰 | other | single_name_signal | 295.00 | tdcc_price_divergence | -5.56 | -2.93 | -1.62 | 1.37 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 1438 | 三地開發 | traditional industries | mainstream_leader | 295.00 | tdcc_price_divergence | -3.80 | -2.54 | -2.11 | 0.88 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 7820 | 立盈 | other | single_name_signal | 285.00 | tdcc_price_divergence | -12.20 | -10.00 | -4.47 | 1.07 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4994 | 傳奇 | other electronics | mainstream_leader | 275.00 | tdcc_price_divergence | -3.51 | -2.91 | 0.23 | 0.78 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 1236 | 宏亞 | other | single_name_signal | 275.00 | tdcc_price_divergence | -1.17 | -5.36 | -1.51 | 0.74 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 6692 | 進能服 | other electronics | mainstream_leader | 265.00 | tdcc_price_divergence | -6.21 | -6.74 | -3.61 | 3.22 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 1439 | 雋揚 | traditional industries | mainstream_leader | 265.00 | tdcc_price_divergence | -3.60 | -6.23 | -2.61 | 0.15 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 5543 | 桓鼎-KY | traditional industries | mainstream_leader | 255.00 | tdcc_price_divergence | -5.59 | -3.73 | -3.51 | 0.10 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4972 | 湯石照明 | other electronics | mainstream_leader | 255.00 | tdcc_price_divergence | -2.10 | -2.22 | -0.62 | 0.60 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4943 | 康控-KY | other electronics | mainstream_leader | 255.00 | tdcc_price_divergence | -15.48 | -5.23 | -5.25 | 0.17 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 2929 | 淘帝-KY | traditional industries | mainstream_leader | 245.00 | tdcc_price_divergence | 2.46 | -2.82 | 1.81 | 0.58 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 2365 | 昆盈 | other electronics | mainstream_leader | 245.00 | tdcc_price_divergence | -7.24 | -2.66 | -1.57 | 0.43 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4538 | 大詠城 | other | single_name_signal | 245.00 | tdcc_price_divergence | -1.69 | -2.48 | -0.16 | 0.70 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 8409 | 商之器 | biotechnology | mainstream_leader | 245.00 | tdcc_price_divergence | -1.36 | -3.01 | -0.14 | 0.77 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 1604 | 聲寶 | other electronics | mainstream_leader | 235.00 | tdcc_price_divergence | 0.64 | -2.52 | -0.05 | 0.43 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6527 | 明達醫 | biotechnology | mainstream_leader | 385.00 | tdcc_price_divergence | 0.40 | -7.48 | -0.29 | 1.22 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 5523 | 豐謙 | traditional industries | mainstream_leader | 385.00 | tdcc_price_divergence | -0.16 | -7.11 | -0.16 | 0.27 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 1452 | 宏益 | traditional industries | mainstream_leader | 325.00 | tdcc_price_divergence | -6.14 | -7.11 | -2.57 | 0.62 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6578 | 達邦蛋白 | biotechnology | mainstream_leader | 305.00 | tdcc_price_divergence | -7.84 | -10.18 | -4.22 | 0.18 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4207 | 環泰 | other | single_name_signal | 305.00 | tdcc_price_divergence | -4.90 | -7.20 | -1.22 | 0.61 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 2926 | 誠品生活 | biotechnology | mainstream_leader | 285.00 | tdcc_price_divergence | -1.32 | -7.44 | -0.54 | 1.26 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4994 | 傳奇 | other electronics | mainstream_leader | 285.00 | tdcc_price_divergence | -0.49 | -8.02 | -1.38 | 5.35 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6692 | 進能服 | other electronics | mainstream_leader | 275.00 | tdcc_price_divergence | -1.94 | -8.68 | -2.74 | 0.80 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 8176 | 智捷 | other electronics | mainstream_leader | 275.00 | tdcc_price_divergence | -1.71 | -7.55 | -0.36 | 0.91 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4943 | 康控-KY | other electronics | mainstream_leader | 265.00 | tdcc_price_divergence | -15.32 | -15.08 | -6.14 | 1.27 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4536 | 拓凱 | other | single_name_signal | 255.00 | tdcc_price_divergence | -2.43 | -7.86 | -1.85 | 0.92 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 9950 | 萬國通 | other | single_name_signal | 255.00 | tdcc_price_divergence | -0.49 | -7.91 | -0.68 | 0.43 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4198 | 欣大健康 | other | single_name_signal | 245.00 | tdcc_price_divergence | 4.26 | -7.75 | -0.04 | 0.11 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 7767 | 仁大資訊 | other electronics | mainstream_leader | 245.00 | tdcc_price_divergence | 3.48 | -7.05 | 0.53 | 0.35 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6214 | 精誠 | other electronics | mainstream_leader | 245.00 | tdcc_price_divergence | 3.01 | -7.04 | -0.13 | 0.22 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 3713 | 新晶投控 | other electronics | mainstream_leader | 245.00 | tdcc_price_divergence | -6.12 | -8.37 | -2.42 | 0.55 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 5511 | 德昌 | traditional industries | mainstream_leader | 245.00 | tdcc_price_divergence | -2.82 | -7.23 | -0.87 | 0.38 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 6988 | 威力暘-創 | other | single_name_signal | 235.00 | tdcc_price_divergence | 1.33 | -8.70 | -3.17 | 1.97 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 3118 | 進階 | semiconductor | mainstream_leader | 235.00 | tdcc_price_divergence | 0.32 | -7.42 | 0.13 | 0.46 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 2239 | 英利-KY | traditional industries | mainstream_leader | 235.00 | tdcc_price_divergence | -5.01 | -8.05 | -1.83 | 0.33 | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |

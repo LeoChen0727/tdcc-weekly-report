@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6443 元晶
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:07 Asia/Taipei
+- generated_at: 2026-10-04 22:18:19 Asia/Taipei
 - stock_id: 6443
 - stock_name: 元晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -124,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 28.65
-- high: 29.4
-- low: 28
-- close: 28.25
-- volume: 15942276
-- ma5: 27.58
-- ema23_primary: 25.86
-- distance_to_ema23_pct: 9.24
-- ma20: 25.2
-- ma60: 27.04
-- ma120: 33.01
-- return_5d: 18.95
-- return_20d: 5.81
-- volume_ratio: 2.26
-- distance_to_ma20_pct_auxiliary: 12.13
-- distance_to_high_60_pct: -21.31
+- date: 20261002
+- open: 27.8
+- high: 29.2
+- low: 27.7
+- close: 28.75
+- volume: 7963358
+- ma5: 28.23
+- ema23_primary: 26.56
+- distance_to_ema23_pct: 8.23
+- ma20: 25.66
+- ma60: 26.67
+- ma120: 32.69
+- return_5d: 3.79
+- return_20d: 14.54
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: 12.02
+- distance_to_high_60_pct: -11.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,26.7,27.5,26.65,26.65,5153342,27.02,-1.37,26.56,31.22,1.22
-20260831,26.2,26.4,25.5,26,3872861,26.93,-3.47,26.61,30.96,0.94
-20260901,26,26.15,25.75,25.75,5302337,26.84,-4.05,26.61,30.73,1.26
-20260902,25.65,25.7,25.1,25.1,3434420,26.69,-5.96,26.48,30.54,0.87
 20260903,25.2,25.6,24.55,24.55,3308376,26.51,-7.4,26.37,30.29,0.87
 20260904,24.7,25,24.35,24.95,3099595,26.38,-5.43,26.32,30.04,0.81
 20260907,24.95,25.2,24.5,24.6,2766162,26.23,-6.23,26.2,29.78,0.74
@@ -166,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,30,30.2,28.05,28.4,43017402,25.46,11.56,25.05,27.27,6.96
 20260923,28,28.2,27,27.7,10047199,25.64,8.02,25.12,27.14,1.55
 20260924,28.65,29.4,28,28.25,15942276,25.86,9.24,25.2,27.04,2.26
+20260929,27.4,27.9,27.2,27.5,3356314,26,5.78,25.24,26.93,0.48
+20260930,27.65,29.55,27.65,28.75,13159959,26.23,9.62,25.38,26.83,1.77
+20261001,28.7,28.75,27.8,27.9,4764648,26.37,5.82,25.48,26.72,0.64
+20261002,27.8,29.2,27.7,28.75,7963358,26.56,8.23,25.66,26.67,1.04
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 15.36
-- over_600_ratio: 13.8
-- over_800_ratio: 13.55
-- over_1000_ratio: 12.85
-- over_400_change_1w: -0.96
-- over_800_change_1w: -0.96
-- over_1000_change_1w: -0.42
+- as_of_date: 20261002
+- over_400_ratio: 14.55
+- over_600_ratio: 13
+- over_800_ratio: 12.87
+- over_1000_ratio: 12.15
+- over_400_change_1w: -0.81
+- over_800_change_1w: -0.68
+- over_1000_change_1w: -0.7
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,16.79,0.04,14.48,-0.26,14.1,-0.46,1,False,False
 20260717,17.06,0.27,14.73,0.25,14.02,-0.08,2,False,True
 20260724,16.98,-0.08,14.64,-0.09,14.26,0.24,3,False,True
 20260731,17.94,0.96,15.69,1.05,14.41,0.15,4,True,True
@@ -197,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,16.55,0.1,14.44,0.28,13.71,0.1,1,True,True
 20260918,16.32,-0.23,14.51,0.07,13.27,-0.44,2,False,True
 20260924,15.36,-0.96,13.55,-0.96,12.85,-0.42,0,False,False
+20261002,14.55,-0.81,12.87,-0.68,12.15,-0.7,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6443 | 元晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/08/27 2.公司名稱:元晶太陽能科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月關係人交易申報 6.更正資訊項目/報表名稱:應收款/關係人交易申報明細資料 7.更正前金額/內容/頁次: 【應收款】 關係人名稱：厚固能源開發股份有限公司 本月應收款增減金額(仟元):8,386 本年累計應收款金額(仟元):8,386 占本年合併報表累計該科目百分比:2.50% 關係人名稱：元昱太陽光電股份有限公司 本月應收款增減金額(仟元):-26,162 本年累計應收款金額(仟元):0 占本年合併報表累計該科目百分比:0.00% 8.更正後金額/內容/頁次: 【應收款】 關係人名稱：厚固能源開發股份有限公司 本月應收款增減金額(仟元):8,386 本年累計應收款金額(仟元):8,386 占本年合併報表累計該科目百分比:2.50% 關係人名稱：元昱太陽光電股份有限公司 本月應收款增減金額(仟元):0 本年累計應收款金額(仟元):26,162 占本年合併報表累計該科目百分比:7.80% 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6443 | 元晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | stale_signal | 1.事實發生日:115/08/27 2.公司名稱:元晶太陽能科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:更正本公司115年6月關係人交易申報 6.更正資訊項目/報表名稱:應收款/關係人交易申報明細資料 7.更正前金額/內容/頁次: 【應收款】 關係人名稱：厚固能源開發股份有限公司 本月應收款增減金額(仟元):8,386 本年累計應收款金額(仟元):8,386 占本年合併報表累計該科目百分比:2.50% 關係人名稱：元昱太陽光電股份有限公司 本月應收款增減金額(仟元):-26,162 本年累計應收款金額(仟元):0 占本年合併報表累計該科目百分比:0.00% 8.更正後金額/內容/頁次: 【應收款】 關係人名稱：厚固能源開發股份有限公司 本月應收款增減金額(仟元):8,386 本年累計應收款金額(仟元):8,386 占本年合併報表累計該科目百分比:2.50% 關係人名稱：元昱太陽光電股份有限公司 本月應收款增減金額(仟元):0 本年累計應收款金額(仟元):26,162 占本年合併報表累計該科目百分比:7.80% 9.因應措施:更正後重新上傳公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6443 | 元晶 | 5 | 2 | 5 | 5 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 6443 | 元晶 | 1 | 1 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

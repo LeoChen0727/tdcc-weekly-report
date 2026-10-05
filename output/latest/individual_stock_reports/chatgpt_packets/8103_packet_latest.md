@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:25 Asia/Taipei
+- generated_at: 2026-10-04 22:19:00 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 355
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 359
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 122.5
-- high: 126
-- low: 121.5
-- close: 123
-- volume: 2944400
-- ma5: 125.4
-- ema23_primary: 115.96
-- distance_to_ema23_pct: 6.07
-- ma20: 120.22
-- ma60: 97.14
-- ma120: 100.12
-- return_5d: -6.82
-- return_20d: 7.89
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 2.31
-- distance_to_high_60_pct: -6.82
+- date: 20261002
+- open: 123
+- high: 124
+- low: 121
+- close: 121
+- volume: 1955142
+- ma5: 121.3
+- ema23_primary: 117.45
+- distance_to_ema23_pct: 3.03
+- ma20: 120.6
+- ma60: 98.39
+- ma120: 101.31
+- return_5d: -2.02
+- return_20d: -0.82
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 0.33
+- distance_to_high_60_pct: -8.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,115.5,116.5,107.5,108.5,5176982,91.82,18.17,88.08,89.8,1.49
-20260831,115.5,119,115,119,3561783,94.08,26.49,90.33,90.09,0.99
-20260901,120.5,127.5,116.5,126.5,17338178,96.78,30.71,92.88,90.51,3.9
-20260902,124.5,125.5,120.5,122,4586924,98.88,23.38,95.04,90.89,0.99
 20260903,122,123,118,121,3928316,100.73,20.13,96.86,91.25,0.82
 20260904,123,126,118.5,122.5,5723721,102.54,19.46,99.06,91.71,1.15
 20260907,125,128,122,123.5,4391489,104.29,18.42,101.22,92.19,0.85
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,130.5,130.5,121.5,122.5,6183566,114.57,6.92,119.28,96.33,0.92
 20260923,123.5,129,122,123.5,5647479,115.32,7.1,119.78,96.74,0.87
 20260924,122.5,126,121.5,123,2944400,115.96,6.07,120.22,97.14,0.48
+20260929,122.5,122.5,117,117,3898756,116.04,0.82,120.65,97.33,0.64
+20260930,118,124.5,116,121.5,3891707,116.5,4.29,120.78,97.63,0.64
+20261001,122,125,119,124,4022075,117.12,5.87,120.65,97.98,0.75
+20261002,123,124,121,121,1955142,117.45,3.03,120.6,98.39,0.37
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 46
-- over_600_ratio: 39.13
-- over_800_ratio: 31.06
-- over_1000_ratio: 27.56
-- over_400_change_1w: -4.75
-- over_800_change_1w: -4.93
-- over_1000_change_1w: -6.23
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20261002
+- over_400_ratio: 46.23
+- over_600_ratio: 37.62
+- over_800_ratio: 32.13
+- over_1000_ratio: 31.04
+- over_400_change_1w: 0.23
+- over_800_change_1w: 1.07
+- over_1000_change_1w: 3.48
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,46.74,-0.94,31.47,0.21,29.18,1.23,4,False,True
 20260717,43.11,-3.63,30.25,-1.22,29.17,-0.01,0,False,False
 20260724,42.49,-0.62,30.19,-0.06,27.95,-1.22,1,False,False
 20260731,42.26,-0.23,29.45,-0.74,29.45,1.5,2,False,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,47.53,-1.52,34.43,-1.95,30.78,-2.04,0,False,False
 20260918,50.75,3.22,35.99,1.56,33.79,3.01,1,True,True
 20260924,46,-4.75,31.06,-4.93,27.56,-6.23,0,False,False
+20261002,46.23,0.23,32.13,1.07,31.04,3.48,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8103 | 瀚荃 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/31 2.公司名稱:瀚荃股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/29工商時報B03版 6.報導內容:第一段報導:”7月自結損益，單月每股稅後純益（EPS）0.81元... 累計前七月達3.56元...今年獲利挑戰逾7元，明年有機會一個股本。” 7.發生緣由:依主管機關要求，應予澄清說明。 8.因應措施:媒體報導有關本公司營收之預測性資訊，本公司不予評論，實際財務資 訊及獲利狀況均以公開資訊觀測站之公告內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.事實發生日:115/08/31 2.公司名稱:瀚荃股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/29工商時報B03版 6.報導內容:第一段報導:”7月自結損益，單月每股稅後純益（EPS）0.81元... 累計前七月達3.56元...今年獲利挑戰逾7元，明年有機會一個股本。” 7.發生緣由:依主管機關要求，應予澄清說明。 8.因應措施:媒體報導有關本公司營收之預測性資訊，本公司不予評論，實際財務資 訊及獲利狀況均以公開資訊觀測站之公告內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 8103 | 瀚荃 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/08/31 2.公司名稱:瀚荃股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:115/08/29工商時報B03版 6.報導內容:第一段報導:”7月自結損益，單月每股稅後純益（EPS）0.81元... 累計前七月達3.56元...今年獲利挑戰逾7元，明年有機會一個股本。” 7.發生緣由:依主管機關要求，應予澄清說明。 8.因應措施:媒體報導有關本公司營收之預測性資訊，本公司不予評論，實際財務資 訊及獲利狀況均以公開資訊觀測站之公告內容為準。 9.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8103 | 瀚荃 | 9 | 5 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 8103 | 瀚荃 | 13 | 7 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8103 | 瀚荃 | 20 | 0 | 5586780.0 | 0.0 |  | no_signal |
+| 20261002 | 8103 | 瀚荃 | 22 | 0 | 2747760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

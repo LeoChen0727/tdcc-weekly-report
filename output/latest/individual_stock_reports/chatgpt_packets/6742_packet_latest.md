@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6742 澤米
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:13 Asia/Taipei
+- generated_at: 2026-10-04 22:18:33 Asia/Taipei
 - stock_id: 6742
 - stock_name: 澤米
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -101,6 +101,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -125,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 55.8
-- high: 57.7
-- low: 54.1
-- close: 54.7
-- volume: 2199168
-- ma5: 54.26
-- ema23_primary: 48.64
-- distance_to_ema23_pct: 12.47
-- ma20: 47.62
-- ma60: 47.39
-- ma120: 49.56
-- return_5d: 6.84
-- return_20d: 20.75
-- volume_ratio: 1.97
-- distance_to_ma20_pct_auxiliary: 14.86
-- distance_to_high_60_pct: -23.71
+- date: 20261002
+- open: 55
+- high: 58.3
+- low: 54.8
+- close: 57.7
+- volume: 1414175
+- ma5: 55.7
+- ema23_primary: 50.82
+- distance_to_ema23_pct: 13.55
+- ma20: 49.81
+- ma60: 46.87
+- ma120: 50.09
+- return_5d: 4.53
+- return_20d: 25.3
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 15.85
+- distance_to_high_60_pct: -7.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,45.3,45.7,44.3,44.55,538086,44.87,-0.71,43.94,52.31,1.51
-20260831,44.2,44.35,43.05,43.9,267557,44.79,-1.99,43.94,51.98,0.77
-20260901,44.1,46.8,43.9,45.6,515814,44.86,1.66,43.98,51.78,1.45
-20260902,45.1,46.9,44.9,46.05,491840,44.96,2.43,44.01,51.64,1.4
 20260903,48,49.55,44,44,1132679,44.88,-1.95,44.01,51.37,2.9
 20260904,44.55,45.2,43.5,44.95,342646,44.88,0.15,44.09,51.12,0.86
 20260907,46.5,46.6,44.1,44.2,353453,44.83,-1.4,44.1,50.95,0.87
@@ -167,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,55,55.6,52,52.7,1532708,47.44,11.1,46.6,47.78,1.73
 20260923,52.3,57.8,52.3,55.2,3935558,48.08,14.8,47.15,47.58,3.69
 20260924,55.8,57.7,54.1,54.7,2199168,48.64,12.47,47.62,47.39,1.97
+20260929,53.3,55,53.3,54.2,723913,49.1,10.39,48.1,47.19,0.64
+20260930,54.3,58.6,54.2,56.3,1743025,49.7,13.28,48.73,47.02,1.46
+20261001,56.9,58.2,55.1,55.6,967057,50.19,10.78,49.23,46.9,0.79
+20261002,55,58.3,54.8,57.7,1414175,50.82,13.55,49.81,46.87,1.12
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 34.4
-- over_600_ratio: 30.33
-- over_800_ratio: 29.34
+- as_of_date: 20261002
+- over_400_ratio: 35.03
+- over_600_ratio: 30.35
+- over_800_ratio: 29.36
 - over_1000_ratio: 25.94
-- over_400_change_1w: -0.64
-- over_800_change_1w: 0
+- over_400_change_1w: 0.63
+- over_800_change_1w: 0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,34.81,-0.23,27.04,0,25.92,0,0,False,False
 20260717,34.69,-0.12,28.18,1.14,25.92,0,1,False,True
 20260724,34.75,0.06,28.2,0.02,25.94,0.02,2,True,True
 20260731,34.97,0.22,29.34,1.14,25.94,0,3,False,True
@@ -198,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,35.08,-0.1,29.36,-0.01,25.94,0,2,False,False
 20260918,35.04,-0.04,29.34,-0.02,25.94,0,0,False,False
 20260924,34.4,-0.64,29.34,0,25.94,0,0,False,False
+20261002,35.03,0.63,29.36,0.02,25.94,0,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6742 | 澤米 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:   通過本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6742 | 澤米 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東常會日期:115/06/26 2.重要決議事項一、盈餘分配或盈虧撥補:通過本公司114年度虧損撥補案。 3.重要決議事項二、章程修訂:無。 4.重要決議事項三、營業報告書及財務報表:   通過本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無。 6.重要決議事項五、其他事項:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6742 | 澤米 | 6 | 1 | 5 | 6 | 7 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20261002 | 6742 | 澤米 | 1 | 1 | 3 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

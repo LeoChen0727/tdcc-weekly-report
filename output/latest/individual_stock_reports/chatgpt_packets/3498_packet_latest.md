@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3498 陽程
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:40 Asia/Taipei
+- generated_at: 2026-10-04 22:17:15 Asia/Taipei
 - stock_id: 3498
 - stock_name: 陽程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 198
-- high: 215
-- low: 197
-- close: 214
-- volume: 3139000
-- ma5: 201.9
-- ema23_primary: 188.94
-- distance_to_ema23_pct: 13.27
-- ma20: 194.5
-- ma60: 153.25
-- ma120: 133.49
-- return_5d: 15.99
-- return_20d: 5.16
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 10.03
-- distance_to_high_60_pct: -3.39
+- date: 20261002
+- open: 221
+- high: 226
+- low: 212
+- close: 215
+- volume: 2969000
+- ma5: 222.5
+- ema23_primary: 199.2
+- distance_to_ema23_pct: 7.93
+- ma20: 199.3
+- ma60: 160
+- ma120: 138.37
+- return_5d: 8.04
+- return_20d: 6.7
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 7.88
+- distance_to_high_60_pct: -8.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,200,203,189,189.5,1152000,160.83,17.83,155.28,130.21,0.49
-20260831,191,208,191,208,1452000,164.76,26.25,160.72,131.46,0.61
-20260901,215.5,217,194.5,203.5,4768000,167.99,21.14,165.72,132.68,1.89
-20260902,203,213,195,201.5,3075000,170.78,17.99,170.15,133.91,1.18
 20260903,216,221.5,191,192,6524000,172.55,11.27,174.2,134.91,2.27
 20260904,197.5,201,185.5,194,3414000,174.34,11.28,178.07,136.1,1.16
 20260907,194,196,188.5,189.5,1324000,175.6,7.92,181.3,137.33,0.45
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,202,210,196.5,205.5,3202000,185.53,10.76,194.2,150.33,1.23
 20260923,205,209.5,197.5,199,2085000,186.66,6.61,193.97,151.67,0.78
 20260924,198,215,197,214,3139000,188.94,13.27,194.5,153.25,1.11
+20260929,216,235,212,235,4753000,192.77,21.9,196.78,155.12,1.58
+20260930,234.5,234.5,221,229,6669000,195.79,16.96,197.82,156.87,2.05
+20261001,225,228,214,219.5,3684000,197.77,10.99,198.62,158.46,1.15
+20261002,221,226,212,215,2969000,199.2,7.93,199.3,160,0.93
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 55.35
-- over_600_ratio: 52.81
-- over_800_ratio: 49.5
-- over_1000_ratio: 48.11
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 53.76
+- over_600_ratio: 51.2
+- over_800_ratio: 48.82
+- over_1000_ratio: 47.43
+- over_400_change_1w: -1.59
+- over_800_change_1w: -0.68
+- over_1000_change_1w: -0.68
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,49.16,-2.68,43.94,-4.37,43.94,-2.95,0,False,False
 20260717,48.9,-0.26,42.29,-1.65,39.52,-4.42,0,False,False
 20260724,48.41,-0.49,43.97,1.68,39.82,0.3,1,False,True
 20260731,48.4,-0.01,42.14,-1.83,42.14,2.32,2,False,True
@@ -198,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,55.2,-1.72,51.44,-1.69,48.62,-3.12,0,False,False
 20260918,54.96,-0.24,49.41,-2.03,48.02,-0.6,0,False,False
 20260924,55.35,0.39,49.5,0.09,48.11,0.09,1,True,True
+20261002,53.76,-1.59,48.82,-0.68,47.43,-0.68,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3498 | 陽程 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.法律事件之當事人:上海陽程科技有限公司 2.法律事件之法院名稱或處分機關:河南省林州市人民法院 3.法律事件之相關文書案號:河南省林州市人民法院判決書                        （2025）豫0581民初7776號 4.事實發生日:115/07/09 5.發生原委(含爭訟標的):本公司之子公司上海陽程科技有限公司於2020年9月委由 北京市道成律師事務所，處理上海陽程科技有限公司與林州致遠電子科技有限公司間 承攬合同糾紛案說判決說明。 判決結果： 我方總計須在判決生效後 15 日內支付給原告人民幣23,998,347.23元，明細如下： ‧賠償金：人民幣23,163,739.23元（含已維修費、未維修貶值、停產及品質損失）。 ‧鑑定費：人民幣689,900元。 ‧案件受理費：人民幣139,708元。 ‧保全申請費：人民幣5,000元。 6.處理過程:提出上訴並持續與律師溝通。 7.對公司財務業務影響及預估影響金額:本案本公司已提列足額損失準備， 對財務業務無重大影響。因先前對造超額聲請財產保全應付予本公司貨款， 若依本次判決結果，本公司可聲請發還約人民幣789萬元之款項。 8.因應措施及改善情形: 本公司認為，原審裁判結果顯流於地方保護主義，對於本公司提出之多處明顯爭點未予 審酌，更刻意迴避訴訟時效等重大法律事實，在無法律依據下全盤採納對造主張，其 認事用法顯失公正。 為維護本公司權益擬提起上訴。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第2款所定對 股東權益或證券價格有重大影響之事項):不適用；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3498 | 陽程 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | 1.法律事件之當事人:上海陽程科技有限公司 2.法律事件之法院名稱或處分機關:河南省林州市人民法院 3.法律事件之相關文書案號:河南省林州市人民法院判決書                        （2025）豫0581民初7776號 4.事實發生日:115/07/09 5.發生原委(含爭訟標的):本公司之子公司上海陽程科技有限公司於2020年9月委由 北京市道成律師事務所，處理上海陽程科技有限公司與林州致遠電子科技有限公司間 承攬合同糾紛案說判決說明。 判決結果： 我方總計須在判決生效後 15 日內支付給原告人民幣23,998,347.23元，明細如下： ‧賠償金：人民幣23,163,739.23元（含已維修費、未維修貶值、停產及品質損失）。 ‧鑑定費：人民幣689,900元。 ‧案件受理費：人民幣139,708元。 ‧保全申請費：人民幣5,000元。 6.處理過程:提出上訴並持續與律師溝通。 7.對公司財務業務影響及預估影響金額:本案本公司已提列足額損失準備， 對財務業務無重大影響。因先前對造超額聲請財產保全應付予本公司貨款， 若依本次判決結果，本公司可聲請發還約人民幣789萬元之款項。 8.因應措施及改善情形: 本公司認為，原審裁判結果顯流於地方保護主義，對於本公司提出之多處明顯爭點未予 審酌，更刻意迴避訴訟時效等重大法律事實，在無法律依據下全盤採納對造主張，其 認事用法顯失公正。 為維護本公司權益擬提起上訴。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第2款所定對 股東權益或證券價格有重大影響之事項):不適用；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3498 | 陽程 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | 1.法律事件之當事人:上海陽程科技有限公司 2.法律事件之法院名稱或處分機關:河南省林州市人民法院 3.法律事件之相關文書案號:河南省林州市人民法院判決書                        （2025）豫0581民初7776號 4.事實發生日:115/07/09 5.發生原委(含爭訟標的):本公司之子公司上海陽程科技有限公司於2020年9月委由 北京市道成律師事務所，處理上海陽程科技有限公司與林州致遠電子科技有限公司間 承攬合同糾紛案說判決說明。 判決結果： 我方總計須在判決生效後 15 日內支付給原告人民幣23,998,347.23元，明細如下： ‧賠償金：人民幣23,163,739.23元（含已維修費、未維修貶值、停產及品質損失）。 ‧鑑定費：人民幣689,900元。 ‧案件受理費：人民幣139,708元。 ‧保全申請費：人民幣5,000元。 6.處理過程:提出上訴並持續與律師溝通。 7.對公司財務業務影響及預估影響金額:本案本公司已提列足額損失準備， 對財務業務無重大影響。因先前對造超額聲請財產保全應付予本公司貨款， 若依本次判決結果，本公司可聲請發還約人民幣789萬元之款項。 8.因應措施及改善情形: 本公司認為，原審裁判結果顯流於地方保護主義，對於本公司提出之多處明顯爭點未予 審酌，更刻意迴避訴訟時效等重大法律事實，在無法律依據下全盤採納對造主張，其 認事用法顯失公正。 為維護本公司權益擬提起上訴。 9.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第2款所定對 股東權益或證券價格有重大影響之事項):不適用；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3498 | 陽程 | 14 | 14 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
+| 20261002 | 3498 | 陽程 | 18 | 1 | 5 | 10 | 19 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

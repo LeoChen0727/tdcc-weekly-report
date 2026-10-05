@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3652 精聯
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:43 Asia/Taipei
+- generated_at: 2026-10-04 22:17:22 Asia/Taipei
 - stock_id: 3652
 - stock_name: 精聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 34.25
-- high: 34.55
-- low: 34
-- close: 34.1
-- volume: 65160
+- date: 20261002
+- open: 34.7
+- high: 35.2
+- low: 34.65
+- close: 34.9
+- volume: 119703
 - ma5: 34.31
-- ema23_primary: 33.67
-- distance_to_ema23_pct: 1.28
-- ma20: 33.29
-- ma60: 33.35
-- ma120: 32.89
-- return_5d: 1.79
-- return_20d: 1.94
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 2.44
-- distance_to_high_60_pct: -11.89
+- ema23_primary: 33.88
+- distance_to_ema23_pct: 3
+- ma20: 33.56
+- ma60: 33.16
+- ma120: 33.13
+- return_5d: 1.31
+- return_20d: 6.73
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 3.99
+- distance_to_high_60_pct: -9.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,33.7,33.8,33.3,33.6,76009,34.04,-1.29,34.44,34.54,0.07
-20260831,33.1,33.2,32.7,32.85,77085,33.94,-3.21,34.6,34.52,0.07
-20260901,32.85,33,32.8,32.8,89745,33.84,-3.08,34.74,34.5,0.08
-20260902,32.8,32.8,32.4,32.7,57157,33.75,-3.11,34.83,34.51,0.05
 20260903,33.3,33.3,31.8,31.8,130724,33.59,-5.32,34.7,34.48,0.12
 20260904,32.2,33.15,31.8,33.05,104598,33.54,-1.47,34.66,34.49,0.1
 20260907,33.3,33.65,32.4,32.4,186119,33.45,-3.13,34.45,34.49,0.22
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,34.85,34.85,34.35,34.35,98868,33.56,2.37,33.22,33.47,1.02
 20260923,34.55,34.8,34.35,34.45,47001,33.63,2.44,33.26,33.4,0.5
 20260924,34.25,34.55,34,34.1,65160,33.67,1.28,33.29,33.35,0.71
+20260929,33.7,34.15,33.7,33.85,45323,33.68,0.49,33.3,33.29,0.5
+20260930,33.95,34.25,33.6,34.2,54046,33.73,1.4,33.37,33.21,0.61
+20261001,34.35,34.6,33.8,34.5,56085,33.79,2.1,33.45,33.17,0.64
+20261002,34.7,35.2,34.65,34.9,119703,33.88,3,33.56,33.16,1.32
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 72.29
 - over_600_ratio: 69.84
 - over_800_ratio: 67.94
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,71.57,0,68.91,0,67.58,0,0,False,False
 20260717,71.57,0,68.91,0,67.58,0,0,False,False
 20260724,72.05,0.48,67.71,-1.2,67.71,0.13,1,False,True
 20260731,72.16,0.11,67.82,0.11,67.82,0.11,2,True,True
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,72.27,0,67.94,0,67.94,0,0,False,False
 20260918,72.29,0.02,67.94,0,67.94,0,1,False,False
 20260924,72.29,0,67.94,0,67.94,0,0,False,False
+20261002,72.29,0,67.94,0,67.94,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3260 威剛
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:37 Asia/Taipei
+- generated_at: 2026-10-04 22:17:08 Asia/Taipei
 - stock_id: 3260
 - stock_name: 威剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 261
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 265
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,33 +69,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 可分批買進
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 營收爆發低反應股
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 營收爆發低反應股 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: no_entry_now
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -104,8 +100,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -131,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 381
-- high: 381
-- low: 373.5
-- close: 378
-- volume: 4105000
-- ma5: 386.1
-- ema23_primary: 397.53
-- distance_to_ema23_pct: -4.91
-- ma20: 400.35
-- ma60: 399.87
-- ma120: 407.27
-- return_5d: -4.3
-- return_20d: -9.03
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -5.58
-- distance_to_high_60_pct: -17.74
+- date: 20261002
+- open: 384
+- high: 385.5
+- low: 379.5
+- close: 382
+- volume: 3794000
+- ma5: 378.9
+- ema23_primary: 392.17
+- distance_to_ema23_pct: -2.59
+- ma20: 393.68
+- ma60: 397.91
+- ma120: 407.5
+- return_5d: -0.26
+- return_20d: -7.39
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -2.97
+- distance_to_high_60_pct: -16.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,418,418.5,407,412,6697000,407.47,1.11,408.3,404.04,0.55
-20260831,408.5,416.5,407,413.5,4594000,407.98,1.35,409.4,403.3,0.39
-20260901,416.5,417.5,410.5,412,3920000,408.31,0.9,410.07,403.14,0.35
-20260902,411,415.5,409,412.5,3520000,408.66,0.94,410.9,403.3,0.32
 20260903,417,419.5,394,395,9994000,407.52,-3.07,409.6,402.87,0.97
 20260904,401,404.5,390.5,400.5,4708000,406.94,-1.58,408.82,403.04,0.49
 20260907,410,419,410,412,6263000,407.36,1.14,408.88,403.33,0.67
@@ -173,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,392,393,384,384,4599000,400.78,-4.19,403.88,400.64,0.79
 20260923,388.5,389.5,382.5,383,3294000,399.3,-4.08,402.23,400.21,0.59
 20260924,381,381,373.5,378,4105000,397.53,-4.91,400.35,399.87,0.75
+20260929,377.5,378,374,377,2713000,395.81,-4.75,398.6,399.35,0.51
+20260930,380,382.5,377,377.5,3361000,394.29,-4.26,396.8,398.78,0.64
+20261001,378.5,382,376.5,380,2539000,393.1,-3.33,395.2,398.27,0.49
+20261002,384,385.5,379.5,382,3794000,392.17,-2.59,393.68,397.91,0.73
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 34.24
-- over_600_ratio: 31.77
-- over_800_ratio: 29.78
-- over_1000_ratio: 28.41
-- over_400_change_1w: -1.66
-- over_800_change_1w: -2.36
-- over_1000_change_1w: -1.87
+- as_of_date: 20261002
+- over_400_ratio: 33.58
+- over_600_ratio: 31.18
+- over_800_ratio: 29.19
+- over_1000_ratio: 27.57
+- over_400_change_1w: -0.66
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.84
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -192,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,29.84,0.81,26.63,0.81,25.01,1.04,1,True,True
 20260717,30.09,0.25,26.29,-0.34,25.19,0.18,2,False,True
 20260724,30.52,0.43,26.14,-0.15,25.08,-0.11,3,False,False
 20260731,30.41,-0.11,26.23,0.09,24.06,-1.02,4,False,True
@@ -204,18 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,36.84,1.66,32.72,2.28,29.74,1.18,1,True,True
 20260918,35.9,-0.94,32.14,-0.58,30.28,0.54,2,False,True
 20260924,34.24,-1.66,29.78,-2.36,28.41,-1.87,0,False,False
+20261002,33.58,-0.66,29.19,-0.59,27.57,-0.84,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3260 | 威剛 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 22 | 4 | A_優先追蹤 |  |  |  | stale_signal | 1.事實發生日:115/09/16 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第9條第1項第2款規定辦理， 本公司發行國內第九次無擔保轉換公司債案至公告日止，債款代收銀行業已收足所有 應募款項並匯撥至專戶存儲銀行，共計新台幣3,060,000,000元整，特此公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3260 | 威剛 | revenue_breakout_low_response | 營收爆發低反應股 | 17 | 8 | D_降級_TDCC轉弱 |  |  |  | stale_signal | 1.事實發生日:115/09/29 2.公司名稱:威剛科技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:因應本公司辦理現金增資發行普通股，依本公司國內第九次無擔保轉換公司 債發行及轉換辦法規定調整轉換價格。 6.因應措施:自現金增資股款收足日115年10月14日起，國內第九次無擔保轉換公司債轉 換價格，由新台幣416元調整為新台幣410.2元。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司， 本則重大訊息同時符合證券交易法施行細則第7條第9款所定 對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3260 | 威剛 | 27 | 27 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3260 | 威剛 | 31 | 24 | 5 | 10 | 20 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

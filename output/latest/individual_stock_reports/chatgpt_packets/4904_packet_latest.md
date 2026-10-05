@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4904 遠傳
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:51 Asia/Taipei
+- generated_at: 2026-10-04 22:17:42 Asia/Taipei
 - stock_id: 4904
 - stock_name: 遠傳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 105
+- date: 20261002
+- open: 104.5
 - high: 106.5
-- low: 105
-- close: 105.5
-- volume: 1985784
-- ma5: 105.9
-- ema23_primary: 104.46
-- distance_to_ema23_pct: 0.99
-- ma20: 104.3
-- ma60: 102.58
-- ma120: 100.91
-- return_5d: -0.94
-- return_20d: 3.94
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 1.15
-- distance_to_high_60_pct: -2.77
+- low: 104.5
+- close: 106
+- volume: 4014485
+- ma5: 104.9
+- ema23_primary: 104.57
+- distance_to_ema23_pct: 1.37
+- ma20: 105
+- ma60: 102.66
+- ma120: 101.26
+- return_5d: 0.47
+- return_20d: 3.41
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 0.95
+- distance_to_high_60_pct: -2.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,101.5,101.5,99.8,100.5,6251598,101.71,-1.19,101.38,103.27,1.05
-20260831,99.8,101,99.8,101,9105155,101.65,-0.64,101.25,103.25,1.54
-20260901,100.5,101,100,101,3565741,101.6,-0.59,101.25,103.25,0.65
-20260902,100.5,102.5,100.5,102.5,9678275,101.67,0.81,101.33,103.27,1.74
 20260903,102.5,103.5,102,103.5,3510171,101.82,1.65,101.4,103.24,0.64
 20260904,103,104,102,104,3337751,102.01,1.95,101.45,103.19,0.62
 20260907,104.5,104.5,102,102,5386241,102.01,-0.01,101.47,103.08,0.99
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,106.5,106.5,105,105.5,2638062,104.26,1.19,103.88,102.54,0.51
 20260923,106,106.5,105,105.5,3732583,104.37,1.09,104.1,102.55,0.74
 20260924,105,106.5,105,105.5,1985784,104.46,0.99,104.3,102.58,0.4
+20260929,106,106,104,104.5,5442744,104.46,0.03,104.5,102.6,1.11
+20260930,105,105,103,103.5,6217738,104.38,-0.85,104.62,102.58,1.31
+20261001,103.5,105,103,105,3201796,104.44,0.54,104.83,102.61,0.68
+20261002,104.5,106.5,104.5,106,4014485,104.57,1.37,105,102.66,0.9
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 93.58
-- over_600_ratio: 92.69
-- over_800_ratio: 91.77
-- over_1000_ratio: 90.98
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 7
+- as_of_date: 20261002
+- over_400_ratio: 93.53
+- over_600_ratio: 92.64
+- over_800_ratio: 91.74
+- over_1000_ratio: 90.93
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,93.24,-0.52,91.41,-0.56,90.64,-0.46,0,False,False
 20260717,93.43,0.19,91.55,0.14,90.86,0.22,1,True,True
 20260724,93.54,0.11,91.75,0.2,90.93,0.07,2,True,True
 20260731,93.56,0.02,91.86,0.11,90.92,-0.01,3,False,True
@@ -199,22 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,93.48,0.03,91.74,0.08,90.9,0.08,5,True,True
 20260918,93.56,0.08,91.77,0.03,91.01,0.11,6,True,True
 20260924,93.58,0.02,91.77,0,90.98,-0.03,7,False,False
+20261002,93.53,-0.05,91.74,-0.03,90.93,-0.05,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4904 | 遠傳 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.事實發生日:115/09/10 2.公司名稱:遠傳電信股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 遠傳電信股份有限公司公佈民國一一五年八月自結單月合併營收為新臺幣95.47億 元，稅前息前折舊攤銷前淨利為新臺幣33.61億元，營業利益為新臺幣16.50億元， 歸屬於母公司業主之淨利為新臺幣12.32億元，每股盈餘為新臺幣0.34元。 累計本年度至八月自結合併營收為新臺幣752.68億元，稅前息前折舊攤銷前淨利為 新臺幣269.22億元，營業利益為新臺幣131.98億元，歸屬於母公司業主之淨利為新 臺幣101.00億元，每股盈餘為新臺幣2.80元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 4904 | 遠傳 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_2_3d | 1.事實發生日:115/09/10 2.公司名稱:遠傳電信股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:無 5.發生緣由:不適用 6.因應措施:不適用 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 遠傳電信股份有限公司公佈民國一一五年八月自結單月合併營收為新臺幣95.47億 元，稅前息前折舊攤銷前淨利為新臺幣33.61億元，營業利益為新臺幣16.50億元， 歸屬於母公司業主之淨利為新臺幣12.32億元，每股盈餘為新臺幣0.34元。 累計本年度至八月自結合併營收為新臺幣752.68億元，稅前息前折舊攤銷前淨利為 新臺幣269.22億元，營業利益為新臺幣131.98億元，歸屬於母公司業主之淨利為新 臺幣101.00億元，每股盈餘為新臺幣2.80元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4904 | 遠傳 | 6 | 4 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 4904 | 遠傳 | 2 | 2 | 4 | 9 | 16 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4904 | 遠傳 | 3 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20261002 | 4904 | 遠傳 | 3 | 0 | 73180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

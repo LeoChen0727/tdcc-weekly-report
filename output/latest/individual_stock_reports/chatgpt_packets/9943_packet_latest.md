@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9943 好樂迪
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:31 Asia/Taipei
+- generated_at: 2026-10-04 22:19:15 Asia/Taipei
 - stock_id: 9943
 - stock_name: 好樂迪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 50.6
-- high: 50.6
-- low: 50.3
+- date: 20261002
+- open: 50.4
+- high: 50.7
+- low: 50.4
 - close: 50.5
-- volume: 36502
-- ma5: 50.48
-- ema23_primary: 50.92
-- distance_to_ema23_pct: -0.83
-- ma20: 50.88
-- ma60: 51.89
-- ma120: 54.18
-- return_5d: -0.59
-- return_20d: -2.13
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -0.74
-- distance_to_high_60_pct: -12.33
+- volume: 49836
+- ma5: 50.4
+- ema23_primary: 50.76
+- distance_to_ema23_pct: -0.52
+- ma20: 50.71
+- ma60: 51.56
+- ma120: 53.94
+- return_5d: 0
+- return_20d: -1.37
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -8.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,51.5,51.8,51.2,51.2,45487,51.72,-1.01,51.28,53.88,0.53
-20260831,50.7,51.4,50.5,51.1,66232,51.67,-1.11,51.27,53.78,0.89
-20260901,51.4,51.5,51,51.3,22706,51.64,-0.66,51.28,53.68,0.34
-20260902,51.3,51.4,50.9,51.2,75667,51.6,-0.78,51.29,53.59,1.18
 20260903,51.3,51.4,50.9,51,52965,51.55,-1.07,51.27,53.49,0.84
 20260904,51.3,51.4,51,51.2,34463,51.52,-0.63,51.27,53.4,0.56
 20260907,51.3,51.5,51.1,51.5,64146,51.52,-0.04,51.26,53.31,1.04
@@ -168,10 +164,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,50.7,51,50.4,50.4,72928,51,-1.18,50.99,52.11,1.42
 20260923,50.5,50.5,50.5,50.5,35754,50.96,-0.9,50.93,52,0.7
 20260924,50.6,50.6,50.3,50.5,36502,50.92,-0.83,50.88,51.89,0.7
+20260929,50.5,50.5,50.1,50.2,80614,50.86,-1.3,50.83,51.77,1.51
+20260930,50.3,50.4,50.1,50.4,68891,50.82,-0.83,50.79,51.67,1.28
+20261001,50.5,50.5,50.3,50.4,18138,50.79,-0.76,50.74,51.62,0.34
+20261002,50.4,50.7,50.4,50.5,49836,50.76,-0.52,50.71,51.56,0.96
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 71.1
 - over_600_ratio: 70.64
 - over_800_ratio: 69.48
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,71.09,0.04,69.48,0,69.48,0,1,False,False
 20260717,71.09,0,69.48,0,69.48,0,0,False,False
 20260724,71.09,0,69.48,0,69.48,0,0,False,False
 20260731,71.09,0,69.48,0,69.48,0,0,False,False
@@ -199,6 +198,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,71.1,0,69.48,0,69.48,0,0,False,False
 20260918,71.1,0,69.48,0,69.48,0,0,False,False
 20260924,71.1,0,69.48,0,69.48,0,0,False,False
+20261002,71.1,0,69.48,0,69.48,0,0,False,False
 ```
 
 ## Candidate Context

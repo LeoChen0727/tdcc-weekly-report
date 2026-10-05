@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:30 Asia/Taipei
+- generated_at: 2026-10-04 22:16:52 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 57.4
-- high: 59.2
-- low: 56.5
-- close: 57.8
-- volume: 5306238
-- ma5: 56.6
-- ema23_primary: 52.46
-- distance_to_ema23_pct: 10.19
-- ma20: 52.52
-- ma60: 48.34
-- ma120: 45.52
-- return_5d: 10.1
-- return_20d: 20.92
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 10.05
-- distance_to_high_60_pct: -3.18
+- date: 20261002
+- open: 56.5
+- high: 58.2
+- low: 55.9
+- close: 57.6
+- volume: 4842657
+- ma5: 56.78
+- ema23_primary: 53.67
+- distance_to_ema23_pct: 7.32
+- ma20: 53.94
+- ma60: 48.69
+- ma120: 46.34
+- return_5d: -0.17
+- return_20d: 16.13
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 6.79
+- distance_to_high_60_pct: -3.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,48.35,49,48.25,48.55,3416514,46.54,4.31,46.39,48.06,0.94
-20260831,48.3,49.55,47.75,49.55,3538233,46.79,5.89,46.66,47.96,0.99
-20260901,49.5,50.3,49.3,50,5108225,47.06,6.25,46.92,47.81,1.41
-20260902,49.5,50,49.4,49.6,3315604,47.27,4.92,47.11,47.75,0.93
 20260903,49.7,50.8,49.7,50.6,6834505,47.55,6.41,47.39,47.69,1.86
 20260904,50.9,51.2,50.1,50.7,4309596,47.81,6.04,47.7,47.68,1.15
 20260907,51.2,52.3,50.4,52,5706215,48.16,7.97,48.01,47.7,1.51
@@ -166,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,57.3,59.7,56.6,56.9,9097963,51.45,10.59,51.51,48.09,1.77
 20260923,57.3,59.4,56.9,57.7,5736074,51.97,11.02,52.02,48.22,1.09
 20260924,57.4,59.2,56.5,57.8,5306238,52.46,10.19,52.52,48.34,0.99
+20260929,57.5,57.5,55,55.5,6563643,52.71,5.29,52.87,48.44,1.19
+20260930,55.9,56.8,55.8,56.6,5195072,53.03,6.72,53.22,48.52,0.93
+20261001,56.5,56.7,54.7,56.4,4222173,53.31,5.79,53.54,48.59,0.76
+20261002,56.5,58.2,55.9,57.6,4842657,53.67,7.32,53.94,48.69,0.86
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 77.88
-- over_600_ratio: 75.45
-- over_800_ratio: 74.06
-- over_1000_ratio: 72.93
-- over_400_change_1w: 0.65
-- over_800_change_1w: 0.53
-- over_1000_change_1w: 0.7
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 77.5
+- over_600_ratio: 75.11
+- over_800_ratio: 73.45
+- over_1000_ratio: 72.48
+- over_400_change_1w: -0.38
+- over_800_change_1w: -0.61
+- over_1000_change_1w: -0.45
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,76.01,0.3,72.08,0.2,70.79,0.3,2,True,True
 20260717,75.7,-0.31,71.89,-0.19,70.7,-0.09,0,False,False
 20260724,75.68,-0.02,72.01,0.12,70.72,0.02,1,False,True
 20260731,75.6,-0.08,71.88,-0.13,70.53,-0.19,0,False,False
@@ -197,18 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,76.91,0.29,73.11,0.32,71.96,0.25,6,True,True
 20260918,77.23,0.32,73.53,0.42,72.23,0.27,7,True,True
 20260924,77.88,0.65,74.06,0.53,72.93,0.7,8,True,True
+20261002,77.5,-0.38,73.45,-0.61,72.48,-0.45,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2855 | 統一證 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年8月份合併損益情形: (1)八月份稅前盈餘：1,640,592      仟元 (2)八月份稅後盈餘：1,226,301       仟元 (3)八月份每股稅前盈餘：1.024   元 (4)八月份每股稅後盈餘：0.766   元 (5)一至八月份累計稅前盈餘：13,324,189     仟元 (6)一至八月份累計稅後盈餘：12,058,112     仟元 (7)一至八月份累計每股稅前盈餘：8.320  元 (8)一至八月份累計每股稅後盈餘：7.530  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 2855 | 統一證 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年8月份合併損益情形: (1)八月份稅前盈餘：1,640,592      仟元 (2)八月份稅後盈餘：1,226,301       仟元 (3)八月份每股稅前盈餘：1.024   元 (4)八月份每股稅後盈餘：0.766   元 (5)一至八月份累計稅前盈餘：13,324,189     仟元 (6)一至八月份累計稅後盈餘：12,058,112     仟元 (7)一至八月份累計每股稅前盈餘：8.320  元 (8)一至八月份累計每股稅後盈餘：7.530  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2855 | 統一證 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/09/07 2.公司名稱:統一綜合證券股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:公告本公司自行結算115年8月份合併損益情形: (1)八月份稅前盈餘：1,640,592      仟元 (2)八月份稅後盈餘：1,226,301       仟元 (3)八月份每股稅前盈餘：1.024   元 (4)八月份每股稅後盈餘：0.766   元 (5)一至八月份累計稅前盈餘：13,324,189     仟元 (6)一至八月份累計稅後盈餘：12,058,112     仟元 (7)一至八月份累計每股稅前盈餘：8.320  元 (8)一至八月份累計每股稅後盈餘：7.530  元 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): 以上資訊係本公司初步自行結算結果並未經會計師簽證或核閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2855 | 統一證 | 9 | 3 | 5 | 9 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2855 | 統一證 | 13 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

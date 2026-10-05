@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:36 Asia/Taipei
+- generated_at: 2026-10-04 22:17:06 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 383.5
-- high: 383.5
-- low: 374.5
-- close: 378.5
-- volume: 1163000
-- ma5: 379.8
-- ema23_primary: 374.44
-- distance_to_ema23_pct: 1.09
-- ma20: 378.05
-- ma60: 376.61
-- ma120: 386.51
-- return_5d: 4.99
-- return_20d: -4.78
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 0.12
-- distance_to_high_60_pct: -23.54
+- date: 20261002
+- open: 396
+- high: 402
+- low: 391
+- close: 397
+- volume: 2846000
+- ma5: 390.8
+- ema23_primary: 380.24
+- distance_to_ema23_pct: 4.41
+- ma20: 377.6
+- ma60: 375.88
+- ma120: 387.33
+- return_5d: 4.47
+- return_20d: 1.28
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 5.14
+- distance_to_high_60_pct: -19.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,407.5,414.5,397.5,400,11113000,369.64,8.21,365.02,389.82,1.25
-20260831,390,401.5,383,386.5,4505000,371.04,4.17,368.9,388.7,0.51
-20260901,395.5,410,385,406,9549000,373.95,8.57,372.95,388.42,1.07
-20260902,399,400.5,392,392,2717000,375.46,4.41,376.32,388.4,0.31
 20260903,394.5,396.5,375,375,6072000,375.42,-0.11,377.25,387.62,0.72
 20260904,382,387,374.5,386,3296000,376.3,2.58,379.62,387.3,0.41
 20260907,398,398,383.5,384,3200000,376.94,1.87,380.32,387.06,0.42
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,393,398,381,385,6065000,373.53,3.07,378.2,377.65,1.14
 20260923,390.5,390.5,380,380,1762000,374.07,1.59,379,377.1,0.36
 20260924,383.5,383.5,374.5,378.5,1163000,374.44,1.09,378.05,376.61,0.29
+20260929,381,392.5,380,386,3903000,375.4,2.82,377.35,376.27,1.05
+20260930,390,406,388,398.5,7930000,377.33,5.61,377.95,376.23,2.05
+20261001,396,398,390,394,2343000,378.71,4.04,377.35,375.75,0.67
+20261002,396,402,391,397,2846000,380.24,4.41,377.6,375.88,0.81
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 49.44
-- over_600_ratio: 43.85
-- over_800_ratio: 42.04
-- over_1000_ratio: 39.19
-- over_400_change_1w: 1.52
-- over_800_change_1w: 1.8
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 50.78
+- over_600_ratio: 46.51
+- over_800_ratio: 42.94
+- over_1000_ratio: 40.07
+- over_400_change_1w: 1.34
+- over_800_change_1w: 0.9
+- over_1000_change_1w: 0.88
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,53.45,1.36,45.37,-0.03,42.46,-0.11,2,False,False
 20260717,54.05,0.6,45.38,0.01,41.85,-0.61,3,False,True
 20260724,53.56,-0.49,44.68,-0.7,40.68,-1.17,0,False,False
 20260731,51.13,-2.43,42.51,-2.17,39.01,-1.67,0,False,False
@@ -198,17 +197,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,49.27,-0.94,41.08,-0.17,39.3,0.36,3,False,True
 20260918,47.92,-1.35,40.24,-0.84,39.18,-0.12,0,False,False
 20260924,49.44,1.52,42.04,1.8,39.19,0.01,1,False,True
+20261002,50.78,1.34,42.94,0.9,40.07,0.88,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3211 | 順達 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.董事會決議日期:115/07/29 2.增資資金來源:員工認股權憑證執行轉換 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  不適用 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:新台幣10元 8.發行價格:每股認購價格新台幣67.60元 9.員工認購股數或配發金額:82,000股 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數):不適用 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:與已發行普通股股票相同 14.本次增資資金用途:不適用 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:   (1)本次員工認股權憑證轉換新股之增資基準日訂為115年07月29日。   (2)本次增資後實收資本額為新台幣1,543,870,210元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3211 | 順達 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | 1.董事會決議日期:115/07/29 2.增資資金來源:員工認股權憑證執行轉換 3.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 4.全案發行總金額及股數(如屬盈餘或公積轉增資，發行股數則不含配發給員工部分):  不適用 5.採總括申報發行新股案件，本次發行金額及股數:不適用 6.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 7.每股面額:新台幣10元 8.發行價格:每股認購價格新台幣67.60元 9.員工認購股數或配發金額:82,000股 10.公開銷售股數:不適用 11.原股東認購或無償配發比例(請註明暫定每仟股認購或配發股數):不適用 12.畸零股及逾期未認購股份之處理方式:不適用 13.本次發行新股之權利義務:與已發行普通股股票相同 14.本次增資資金用途:不適用 15.現金減資後再行募資之合理性及必要性 (募資當年度及前一年度有辦理現金減資者適用):不適用 16.其他應敘明事項:   (1)本次員工認股權憑證轉換新股之增資基準日訂為115年07月29日。   (2)本次增資後實收資本額為新台幣1,543,870,210元。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3211 | 順達 | 2 | 2 | 3 | 6 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3211 | 順達 | 1 | 1 | 4 | 6 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8070 長華*
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:24 Asia/Taipei
+- generated_at: 2026-10-04 22:18:58 Asia/Taipei
 - stock_id: 8070
 - stock_name: 長華*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -69,29 +69,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可分批買進
+- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。 進場策略：回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,6 +104,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -126,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 49.4
-- high: 49.7
-- low: 48.75
-- close: 49.7
-- volume: 1577793
-- ma5: 49.95
-- ema23_primary: 49.81
-- distance_to_ema23_pct: -0.22
-- ma20: 49.96
-- ma60: 49.65
-- ma120: 50.23
-- return_5d: -0.8
-- return_20d: -1.97
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -0.52
-- distance_to_high_60_pct: -17.44
+- date: 20261002
+- open: 50.2
+- high: 50.9
+- low: 49.85
+- close: 50.7
+- volume: 1987144
+- ma5: 50.1
+- ema23_primary: 49.93
+- distance_to_ema23_pct: 1.53
+- ma20: 49.87
+- ma60: 49.24
+- ma120: 50.38
+- return_5d: 2.32
+- return_20d: 0.2
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 1.66
+- distance_to_high_60_pct: -9.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,51.1,53.9,50.8,51.4,5604465,49.68,3.45,49.3,51.95,1.24
-20260831,50.9,51,49.5,50.2,3101741,49.73,0.95,49.46,51.7,0.68
-20260901,50.2,50.8,50.1,50.3,1384859,49.78,1.05,49.63,51.5,0.31
-20260902,50,51.2,49.8,50.6,1705588,49.84,1.52,49.8,51.35,0.38
 20260903,50.8,51.1,49.2,49.2,1829131,49.79,-1.19,49.9,51.18,0.41
 20260904,49.7,50.7,49.3,50.5,1640539,49.85,1.3,50.05,51.06,0.37
 20260907,51.1,51.2,49.9,49.9,1655755,49.85,0.09,50.11,50.91,0.37
@@ -168,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,50.4,50.4,49.7,49.9,1792453,49.85,0.11,50.09,49.77,0.89
 20260923,50.2,50.3,49.55,49.55,1029111,49.82,-0.54,50.01,49.71,0.55
 20260924,49.4,49.7,48.75,49.7,1577793,49.81,-0.22,49.96,49.65,0.86
+20260929,49.75,50,49.4,49.7,667296,49.8,-0.2,49.87,49.53,0.42
+20260930,50,50.4,50,50.2,942453,49.83,0.73,49.87,49.44,0.63
+20261001,50.3,50.5,50,50.2,885030,49.87,0.67,49.87,49.32,0.6
+20261002,50.2,50.9,49.85,50.7,1987144,49.93,1.53,49.87,49.24,1.34
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 73.84
-- over_600_ratio: 72.56
-- over_800_ratio: 71.03
-- over_1000_ratio: 69.95
-- over_400_change_1w: 0.03
-- over_800_change_1w: -0.11
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 8
+- as_of_date: 20261002
+- over_400_ratio: 73.88
+- over_600_ratio: 72.61
+- over_800_ratio: 70.98
+- over_1000_ratio: 69.88
+- over_400_change_1w: 0.04
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 9
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,74.03,-0.1,71.52,0.09,70.27,0.08,2,False,True
 20260717,73.78,-0.25,71.14,-0.38,70.15,-0.12,0,False,False
 20260724,73.11,-0.67,70.54,-0.6,69.69,-0.46,0,False,False
 20260731,73.05,-0.06,69.81,-0.73,68.8,-0.89,0,False,False
@@ -199,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,73.51,-0.09,70.82,0.15,69.36,0.17,6,False,True
 20260918,73.81,0.3,71.14,0.32,69.93,0.57,7,True,True
 20260924,73.84,0.03,71.03,-0.11,69.95,0.02,8,False,True
+20261002,73.88,0.04,70.98,-0.05,69.88,-0.07,9,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8070 | 長華* | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/23 2.公司名稱:長華電材股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 更正本公司115年7月關係人交易【取得資產】金額 6.更正資訊項目/報表名稱:115年7月關係人交易申報之取得資產 7.更正前金額/內容/頁次:未列入與關係人間之股票交易資訊 8.更正後金額/內容/頁次: 【取得資產】 關係人名稱：新應材股份有限公司 取得資產項目：普通股(現金增資) 本月取得資產金額：新台幣71,295仟元 本年累計取得資產金額：新台幣71,295仟元 9.因應措施:更正後內容重新上傳至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 8070 | 長華* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/23 2.公司名稱:長華電材股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由: 更正本公司115年7月關係人交易【取得資產】金額 6.更正資訊項目/報表名稱:115年7月關係人交易申報之取得資產 7.更正前金額/內容/頁次:未列入與關係人間之股票交易資訊 8.更正後金額/內容/頁次: 【取得資產】 關係人名稱：新應材股份有限公司 取得資產項目：普通股(現金增資) 本月取得資產金額：新台幣71,295仟元 本年累計取得資產金額：新台幣71,295仟元 9.因應措施:更正後內容重新上傳至公開資訊觀測站 10.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8070 | 長華* | 6 | 6 | 5 | 9 | 19 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。 |
+| 20261002 | 8070 | 長華* | 1 | 1 | 2 | 7 | 16 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 8070 | 長華* | 21 | 0 | 156120.0 | 0.0 |  | no_signal |
+| 20261002 | 8070 | 長華* | 22 | 0 | 459510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

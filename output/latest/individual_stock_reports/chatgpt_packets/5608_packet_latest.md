@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5608 四維航
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:59 Asia/Taipei
+- generated_at: 2026-10-04 22:18:00 Asia/Taipei
 - stock_id: 5608
 - stock_name: 四維航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 17.2
-- high: 17.2
-- low: 16.8
-- close: 17
-- volume: 2438650
-- ma5: 17.08
-- ema23_primary: 16.73
-- distance_to_ema23_pct: 1.63
-- ma20: 16.94
-- ma60: 15.38
-- ma120: 15.23
-- return_5d: 0.59
-- return_20d: 0.59
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 0.34
-- distance_to_high_60_pct: -12.82
+- date: 20261002
+- open: 17.1
+- high: 17.3
+- low: 16.95
+- close: 17.15
+- volume: 2173947
+- ma5: 16.96
+- ema23_primary: 16.8
+- distance_to_ema23_pct: 2.1
+- ma20: 16.99
+- ma60: 15.53
+- ma120: 15.25
+- return_5d: -0.29
+- return_20d: 3.94
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 0.94
+- distance_to_high_60_pct: -12.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,16.95,16.95,16.45,16.7,5888793,15.74,6.12,15.36,14.67,0.39
-20260831,16.95,17.5,16.8,16.95,7782505,15.84,7.02,15.54,14.7,0.51
-20260901,16.95,17.05,16.65,16.7,4727320,15.91,4.96,15.72,14.73,0.3
-20260902,16.7,16.95,16.45,16.5,4395120,15.96,3.39,15.88,14.76,0.28
 20260903,17.3,17.75,17.15,17.45,13237460,16.08,8.5,16.09,14.8,0.81
 20260904,17.65,17.95,17,17.2,9849972,16.18,6.33,16.29,14.84,0.59
 20260907,17.15,17.35,17,17.3,3963464,16.27,6.33,16.45,14.88,0.23
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,17.15,17.4,17.05,17.15,2481924,16.66,2.96,16.93,15.28,0.41
 20260923,17.3,17.3,17.05,17.2,1640502,16.7,2.98,16.94,15.33,0.33
 20260924,17.2,17.2,16.8,17,2438650,16.73,1.63,16.94,15.38,0.55
+20260929,16.95,17,16.6,16.7,2452196,16.72,-0.15,16.94,15.42,0.57
+20260930,16.85,16.95,16.75,16.95,1479942,16.74,1.23,16.94,15.45,0.37
+20261001,17,17.1,16.7,17,1736303,16.76,1.4,16.96,15.49,0.46
+20261002,17.1,17.3,16.95,17.15,2173947,16.8,2.1,16.99,15.53,0.59
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 30.38
-- over_600_ratio: 27.87
-- over_800_ratio: 26.94
-- over_1000_ratio: 25.6
-- over_400_change_1w: 0.52
-- over_800_change_1w: 0.82
-- over_1000_change_1w: 0.87
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 30.44
+- over_600_ratio: 27.95
+- over_800_ratio: 27.02
+- over_1000_ratio: 25.18
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.08
+- over_1000_change_1w: -0.42
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,28.6,-0.31,24.8,-0.61,22.95,-0.65,0,False,False
 20260717,28.46,-0.14,24.85,0.05,22.8,-0.15,1,False,True
 20260724,28.25,-0.21,23.92,-0.93,22.35,-0.45,0,False,False
 20260731,28.35,0.1,24.32,0.4,22.51,0.16,1,True,True
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,29.72,-0.47,25.78,-0.4,23.91,-0.89,0,False,False
 20260918,29.86,0.14,26.12,0.34,24.73,0.82,1,True,True
 20260924,30.38,0.52,26.94,0.82,25.6,0.87,2,True,True
+20261002,30.44,0.06,27.02,0.08,25.18,-0.42,3,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 5608 | 四維航 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北 4.法人說明會擇要訊息：(1)本公司財務及營運狀況說明 (2)活動諮詢:富邦證券 游小姐 電話:02-27725938#61610 信箱:karen.kj.yu@fubon.com 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 5608 | 四維航 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/24 1.召開法人說明會之日期：115/09/24 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北 4.法人說明會擇要訊息：(1)本公司財務及營運狀況說明 (2)活動諮詢:富邦證券 游小姐 電話:02-27725938#61610 信箱:karen.kj.yu@fubon.com 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 5608 | 四維航 | 14 | 11 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 5608 | 四維航 | 18 | 1 | 5 | 10 | 18 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

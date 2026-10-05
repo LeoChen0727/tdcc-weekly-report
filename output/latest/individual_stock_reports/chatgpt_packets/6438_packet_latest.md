@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:07 Asia/Taipei
+- generated_at: 2026-10-04 22:18:19 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 156
-- high: 162
-- low: 154.5
-- close: 157.5
-- volume: 1118497
-- ma5: 152.4
-- ema23_primary: 149.82
-- distance_to_ema23_pct: 5.13
-- ma20: 151.12
-- ma60: 148.22
-- ma120: 157.55
-- return_5d: 8.25
-- return_20d: 6.06
-- volume_ratio: 2.27
-- distance_to_ma20_pct_auxiliary: 4.22
-- distance_to_high_60_pct: -7.08
+- date: 20261002
+- open: 168.5
+- high: 170
+- low: 166
+- close: 168
+- volume: 1599682
+- ma5: 163.2
+- ema23_primary: 154.23
+- distance_to_ema23_pct: 8.93
+- ma20: 153.3
+- ma60: 148.32
+- ma120: 157.16
+- return_5d: 9.8
+- return_20d: 5.33
+- volume_ratio: 3
+- distance_to_ma20_pct_auxiliary: 9.59
+- distance_to_high_60_pct: -1.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,149,153.5,149,151,625619,145.81,3.56,145.43,148.81,2.33
-20260831,150,150,146,148.5,250142,146.03,1.69,145.95,148.59,0.95
-20260901,148.5,157.5,148.5,156,870141,146.86,6.22,146.55,148.57,3.02
-20260902,154,167,154,159.5,2240759,147.92,7.83,147.18,148.75,5.84
 20260903,162,164,154,154,970646,148.42,3.76,147.53,148.82,2.3
 20260904,156.5,158.5,152,156.5,437355,149.1,4.97,148.1,148.99,1.01
 20260907,158,158,154,155.5,392894,149.63,3.92,148.53,149.18,0.88
@@ -173,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,153.5,158.5,152,152.5,470430,148.77,2.51,150.38,148.46,1.03
 20260923,155,156,152,153,146087,149.12,2.6,150.68,148.38,0.32
 20260924,156,162,154.5,157.5,1118497,149.82,5.13,151.12,148.22,2.27
+20260929,157,164,156,162,1008689,150.84,7.4,151.68,148.09,1.97
+20260930,162,170,162,164,1457858,151.93,7.94,152.45,148.07,2.55
+20261001,165,167,163.5,164.5,714358,152.98,7.53,152.88,148.08,1.27
+20261002,168.5,170,166,168,1599682,154.23,8.93,153.3,148.32,3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 33.84
-- over_600_ratio: 31.09
-- over_800_ratio: 28.56
-- over_1000_ratio: 21.79
-- over_400_change_1w: 0
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: False
+- as_of_date: 20261002
+- over_400_ratio: 35.27
+- over_600_ratio: 31.36
+- over_800_ratio: 29.75
+- over_1000_ratio: 23.13
+- over_400_change_1w: 1.43
+- over_800_change_1w: 1.19
+- over_1000_change_1w: 1.34
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,33.25,0,28.69,-0.11,24.22,-0.09,2,False,False
 20260717,33.3,0.05,28.62,-0.07,24.15,-0.07,3,False,False
 20260724,32.84,-0.46,28.62,0,22.94,-1.21,4,False,False
 20260731,32.28,-0.56,27.42,-1.2,21.72,-1.22,0,False,False
@@ -204,22 +203,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,34.54,0.25,28.51,-0.03,21.76,-0.01,6,False,False
 20260918,33.84,-0.7,28.58,0.07,21.78,0.02,7,False,True
 20260924,33.84,0,28.56,-0.02,21.79,0.01,8,False,True
+20261002,35.27,1.43,29.75,1.19,23.13,1.34,9,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6438 | 迅得 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | 1.事實發生日:115/09/23 2.公司名稱:迅得機械股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定 辦理公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期:115/09/23 (2)代收款項機構名稱:台新國際商業銀行敦南分行 (3)委託存儲專戶行庫:華南商業銀行內壢分行；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6438 | 迅得 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | 1.事實發生日:115/09/23 2.公司名稱:迅得機械股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:依據「發行人募集與發行有價證券處理準則」第九條第一項第二款規定 辦理公告。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項): (1)訂約日期:115/09/23 (2)代收款項機構名稱:台新國際商業銀行敦南分行 (3)委託存儲專戶行庫:華南商業銀行內壢分行；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6438 | 迅得 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20261002 | 6438 | 迅得 | 1 | 1 | 4 | 4 | 5 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6438 | 迅得 | 25 | 0 | 1762010.0 | 0.0 |  | call_inflow |
+| 20261002 | 6438 | 迅得 | 24 | 0 | 3304690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

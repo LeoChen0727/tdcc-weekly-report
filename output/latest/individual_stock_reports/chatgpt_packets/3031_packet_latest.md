@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3031 佰鴻
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:33 Asia/Taipei
+- generated_at: 2026-10-04 22:16:58 Asia/Taipei
 - stock_id: 3031
 - stock_name: 佰鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 28.3
-- high: 31.05
-- low: 28.25
-- close: 30.45
-- volume: 7189070
-- ma5: 28.8
-- ema23_primary: 25.86
-- distance_to_ema23_pct: 17.74
-- ma20: 25.46
-- ma60: 25.22
-- ma120: 27.86
-- return_5d: 14.26
-- return_20d: 21.07
-- volume_ratio: 3.5
-- distance_to_ma20_pct_auxiliary: 19.58
-- distance_to_high_60_pct: -15.88
+- date: 20261002
+- open: 31.4
+- high: 33.5
+- low: 30.25
+- close: 32.8
+- volume: 10999738
+- ma5: 31.16
+- ema23_primary: 27.49
+- distance_to_ema23_pct: 19.33
+- ma20: 26.81
+- ma60: 25.09
+- ma120: 28.06
+- return_5d: 15.9
+- return_20d: 33.06
+- volume_ratio: 3.28
+- distance_to_ma20_pct_auxiliary: 22.35
+- distance_to_high_60_pct: -2.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,25.4,25.4,24.6,24.7,728979,23.94,3.18,23.24,26.61,0.95
-20260831,24.2,24.85,24.2,24.65,400731,24,2.72,23.39,26.5,0.53
-20260901,24.45,25.05,24.45,24.5,575668,24.04,1.91,23.5,26.39,0.78
-20260902,24.25,24.95,24.25,24.65,338850,24.09,2.32,23.57,26.32,0.48
 20260903,24.65,25.25,24.3,24.35,666721,24.11,0.98,23.64,26.24,0.94
 20260904,24.4,25.1,24,24.75,947060,24.17,2.42,23.74,26.2,1.29
 20260907,25.05,25.2,24.3,24.6,595093,24.2,1.65,23.8,26.15,0.81
@@ -168,18 +164,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,28.1,28.75,27.3,28.7,3083633,25.19,13.96,25.02,25.38,1.81
 20260923,27.95,29.3,27.35,28.3,3343314,25.44,11.22,25.2,25.29,1.9
 20260924,28.3,31.05,28.25,30.45,7189070,25.86,17.74,25.46,25.22,3.5
+20260929,30.35,31.65,30.3,31.25,10641422,26.31,18.77,25.79,25.19,4.17
+20260930,31.25,31.45,30.4,30.8,3719886,26.68,15.42,26.1,25.14,1.37
+20261001,30.6,31.5,30.1,30.5,2758118,27,12.95,26.4,25.08,0.98
+20261002,31.4,33.5,30.25,32.8,10999738,27.49,19.33,26.81,25.09,3.28
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 60.35
-- over_600_ratio: 58.96
-- over_800_ratio: 58.96
-- over_1000_ratio: 57.42
-- over_400_change_1w: -0.71
-- over_800_change_1w: 0.4
-- over_1000_change_1w: -0.59
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20261002
+- over_400_ratio: 59.89
+- over_600_ratio: 58.5
+- over_800_ratio: 58.5
+- over_1000_ratio: 57.46
+- over_400_change_1w: -0.46
+- over_800_change_1w: -0.46
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,60.6,1.09,59.59,0.76,58.04,0.78,1,True,True
 20260717,60.12,-0.48,59.37,-0.22,58.35,0.31,2,False,True
 20260724,60.02,-0.1,58.64,-0.73,58.14,-0.21,0,False,False
 20260731,59.5,-0.52,57.41,-1.23,56.91,-1.23,0,False,False
@@ -199,17 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,60.51,0.56,58.4,0.1,57.37,0.6,2,False,True
 20260918,61.06,0.55,58.56,0.16,58.01,0.64,3,True,True
 20260924,60.35,-0.71,58.96,0.4,57.42,-0.59,4,False,True
+20261002,59.89,-0.46,58.5,-0.46,57.46,0.04,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3031 | 佰鴻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利173,203,224元，每股配發新台幣1元 4.除權（息）交易日:115/07/20 5.最後過戶日:115/07/21 6.停止過戶起始日期:115/07/22 7.停止過戶截止日期:115/07/26 8.除權（息）基準日:115/07/26 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 3031 | 佰鴻 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | repeated_but_no_breakout | 1.董事會、股東會決議或公司決定日期:115/07/02 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利173,203,224元，每股配發新台幣1元 4.除權（息）交易日:115/07/20 5.最後過戶日:115/07/21 6.停止過戶起始日期:115/07/22 7.停止過戶截止日期:115/07/26 8.除權（息）基準日:115/07/26 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/14 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3031 | 佰鴻 | 6 | 1 | 5 | 6 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 3031 | 佰鴻 | 1 | 1 | 3 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:25 Asia/Taipei
+- generated_at: 2026-10-04 22:16:41 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 197
-- high: 198
-- low: 190
-- close: 191
-- volume: 1360568
-- ma5: 191.6
-- ema23_primary: 188.55
-- distance_to_ema23_pct: 1.3
-- ma20: 183.9
-- ma60: 209.18
-- ma120: 188.38
-- return_5d: -7.51
-- return_20d: 3.24
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 3.86
-- distance_to_high_60_pct: -43.32
+- date: 20261002
+- open: 198
+- high: 202
+- low: 195
+- close: 196.5
+- volume: 1418568
+- ma5: 195.6
+- ema23_primary: 190.96
+- distance_to_ema23_pct: 2.9
+- ma20: 186.65
+- ma60: 202.27
+- ma120: 191.14
+- return_5d: -0.25
+- return_20d: 6.79
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 5.28
+- distance_to_high_60_pct: -33.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,187.5,189,180.5,181.5,1623176,198.25,-8.45,200.93,225.88,0.48
-20260831,178,183,173.5,179.5,1760283,196.69,-8.74,199.9,225.92,0.53
-20260901,179.5,188.5,179.5,187,1393113,195.88,-4.53,198.25,226.07,0.44
-20260902,187,194.5,184,184,1793827,194.89,-5.59,197.18,226.4,0.61
 20260903,185,189.5,177,179,1055266,193.56,-7.52,195.12,226.57,0.38
 20260904,182,183.5,175,181.5,821388,192.56,-5.74,193.45,226.58,0.31
 20260907,184,187,181,184,934961,191.85,-4.09,191.75,226.51,0.37
@@ -168,26 +164,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,185,201,182.5,194.5,4958962,187.54,3.71,182.82,212.88,2.31
 20260923,195,199.5,189,197,3002171,188.33,4.61,183.6,211.28,1.36
 20260924,197,198,190,191,1360568,188.55,1.3,183.9,209.18,0.63
+20260929,190,202,190,196,1972776,189.17,3.61,184.62,207.04,0.9
+20260930,199.5,201.5,195.5,197.5,1606105,189.86,4.02,185.53,205.1,0.74
+20261001,197.5,200,195.5,197,988907,190.46,3.43,186.03,203.67,0.46
+20261002,198,202,195,196.5,1418568,190.96,2.9,186.65,202.27,0.66
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 50.33
-- over_600_ratio: 46.33
-- over_800_ratio: 43.57
-- over_1000_ratio: 39.27
-- over_400_change_1w: -2.06
-- over_800_change_1w: -1.26
-- over_1000_change_1w: -3.32
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20261002
+- over_400_ratio: 50.75
+- over_600_ratio: 45.99
+- over_800_ratio: 43.74
+- over_1000_ratio: 40.06
+- over_400_change_1w: 0.42
+- over_800_change_1w: 0.17
+- over_1000_change_1w: 0.79
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,55.67,-1.72,50.27,0.29,45.16,-1.2,2,False,True
 20260717,54.75,-0.92,49.1,-1.17,47.58,2.42,3,False,True
 20260724,53.69,-1.06,46.42,-2.68,43.45,-4.13,0,False,False
 20260731,52.96,-0.73,44.59,-1.83,42.33,-1.12,0,False,False
@@ -199,23 +198,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,49.69,-0.3,43.25,-0.07,40.35,-0.02,0,False,False
 20260918,52.39,2.7,44.83,1.58,42.59,2.24,1,True,True
 20260924,50.33,-2.06,43.57,-1.26,39.27,-3.32,0,False,False
+20261002,50.75,0.42,43.74,0.17,40.06,0.79,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2493 | 揚博 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市信義區信義路5段7號1樓(證券交易所資訊展示中心) 4.法人說明會擇要訊息：本公司業務及財務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 2493 | 揚博 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市信義區信義路5段7號1樓(證券交易所資訊展示中心) 4.法人說明會擇要訊息：本公司業務及財務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 2493 | 揚博 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/17 1.召開法人說明會之日期：115/09/17 2.召開法人說明會之時間：14 時 30 分 3.召開法人說明會之地點：台北市信義區信義路5段7號1樓(證券交易所資訊展示中心) 4.法人說明會擇要訊息：本公司業務及財務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2493 | 揚博 | 3 | 2 | 4 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2493 | 揚博 | 1 | 1 | 4 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2493 | 揚博 | 87 | 2 | 4968720.0 | 1580.0 | 3144.76 | no_signal |
+| 20261002 | 2493 | 揚博 | 89 | 2 | 4111180.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

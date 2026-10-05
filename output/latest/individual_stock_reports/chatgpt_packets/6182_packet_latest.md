@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6182 合晶
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:02 Asia/Taipei
+- generated_at: 2026-10-04 22:18:08 Asia/Taipei
 - stock_id: 6182
 - stock_name: 合晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 262
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 266
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -131,32 +131,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 116
-- high: 123
-- low: 114.5
-- close: 120.5
-- volume: 92271000
-- ma5: 117.2
-- ema23_primary: 112.08
-- distance_to_ema23_pct: 7.52
-- ma20: 110.95
-- ma60: 119.55
-- ma120: 95.13
-- return_5d: 9.05
-- return_20d: 10.55
-- volume_ratio: 1.75
-- distance_to_ma20_pct_auxiliary: 8.61
-- distance_to_high_60_pct: -38.05
+- date: 20261002
+- open: 131
+- high: 140
+- low: 128.5
+- close: 135
+- volume: 140842000
+- ma5: 127.9
+- ema23_primary: 117.39
+- distance_to_ema23_pct: 15
+- ma20: 114.8
+- ma60: 117.98
+- ma120: 98.34
+- return_5d: 16.88
+- return_20d: 22.17
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 17.6
+- distance_to_high_60_pct: -30.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,112,117.5,109.5,110,67776000,110.59,-0.53,106.22,117.6,1.22
-20260831,108,108.5,104,105.5,28469000,110.17,-4.23,107.09,117.84,0.5
-20260901,106.5,116,106.5,116,72007000,110.65,4.83,108.05,118.35,1.19
-20260902,114,114.5,109,110.5,67164000,110.64,-0.13,108.38,118.86,1.06
 20260903,111,112.5,104.5,104.5,47543000,110.13,-5.11,108.2,119.15,0.73
 20260904,108.5,111,106,111,36225000,110.2,0.73,108.7,119.69,0.54
 20260907,112,114,110,111.5,40054000,110.31,1.08,109.62,120.2,0.61
@@ -173,26 +169,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,116.5,125,116.5,119,100848000,110.93,7.28,109.95,119.91,2.18
 20260923,120,125,114.5,115.5,116114000,111.31,3.76,110.38,119.79,2.32
 20260924,116,123,114.5,120.5,92271000,112.08,7.52,110.95,119.55,1.75
+20260929,119.5,124.5,117,121,66064000,112.82,7.25,111.5,119.09,1.26
+20260930,123,133,121,133,155900000,114.5,16.16,112.88,118.59,2.64
+20261001,136,139.5,127.5,130,179477000,115.79,12.27,113.58,118.16,2.79
+20261002,131,140,128.5,135,140842000,117.39,15,114.8,117.98,2.07
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 27.53
-- over_600_ratio: 25.94
-- over_800_ratio: 25.01
-- over_1000_ratio: 23.35
-- over_400_change_1w: 0.87
-- over_800_change_1w: 0.89
-- over_1000_change_1w: 0.45
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 27.57
+- over_600_ratio: 25.74
+- over_800_ratio: 24.43
+- over_1000_ratio: 22.79
+- over_400_change_1w: 0.04
+- over_800_change_1w: -0.58
+- over_1000_change_1w: -0.56
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,43.19,-2.69,39.86,-2.79,38.02,-3.23,0,False,False
 20260717,42.43,-0.76,39.02,-0.84,37.45,-0.57,0,False,False
 20260724,39.71,-2.72,36.71,-2.31,35,-2.45,0,False,False
 20260731,38.49,-1.22,35.84,-0.87,34.42,-0.58,0,False,False
@@ -204,17 +203,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,25.36,0.87,23.04,0.67,21.82,0.67,1,True,True
 20260918,26.66,1.3,24.12,1.08,22.9,1.08,2,True,True
 20260924,27.53,0.87,25.01,0.89,23.35,0.45,3,True,True
+20261002,27.57,0.04,24.43,-0.58,22.79,-0.56,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.股東臨時會日期:115/09/22 2.重要決議事項:   (1)通過新增2026年度日常關聯交易預計額度的議案   (2)通過上海合晶硅材料股份有限公司第二期中長期員工持股計劃相關事項的議案   (3)通過提請股東會授權董事會辦理公司第二期中長期員工持股計劃相關事項的議案   (4)通過上海合晶硅材料股份有限公司2026年限制性股票激勵計劃相關事項的議案   (5)通過提請股東會授權董事會辦理公司2026年限制性股票激勵計劃相關事項的議案   (6)通過補選第三屆董事會獨立董事的議案 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 6182 | 合晶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | 1.股東臨時會日期:115/09/22 2.重要決議事項:   (1)通過新增2026年度日常關聯交易預計額度的議案   (2)通過上海合晶硅材料股份有限公司第二期中長期員工持股計劃相關事項的議案   (3)通過提請股東會授權董事會辦理公司第二期中長期員工持股計劃相關事項的議案   (4)通過上海合晶硅材料股份有限公司2026年限制性股票激勵計劃相關事項的議案   (5)通過提請股東會授權董事會辦理公司2026年限制性股票激勵計劃相關事項的議案   (6)通過補選第三屆董事會獨立董事的議案 3.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 6182 | 合晶 | 3 | 1 | 4 | 7 | 14 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20261002 | 6182 | 合晶 | 1 | 1 | 4 | 8 | 14 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

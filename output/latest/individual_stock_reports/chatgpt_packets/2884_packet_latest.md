@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:30 Asia/Taipei
+- generated_at: 2026-10-04 22:16:52 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 361
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 365
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 45.1
-- high: 45.95
-- low: 45.1
-- close: 45.6
-- volume: 18254771
-- ma5: 45.97
-- ema23_primary: 43.85
-- distance_to_ema23_pct: 3.98
-- ma20: 44.29
-- ma60: 39.19
-- ma120: 36.01
-- return_5d: -3.59
-- return_20d: 18.29
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 2.95
-- distance_to_high_60_pct: -3.7
+- date: 20261002
+- open: 45.05
+- high: 45.35
+- low: 44.95
+- close: 45.35
+- volume: 21945062
+- ma5: 45.21
+- ema23_primary: 44.23
+- distance_to_ema23_pct: 2.53
+- ma20: 45.37
+- ma60: 39.93
+- ma120: 36.44
+- return_5d: -0.55
+- return_20d: 11.98
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -0.04
+- distance_to_high_60_pct: -4.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,38.5,38.8,38.1,38.75,19760950,37.69,2.81,37.96,35.99,0.53
-20260831,38.5,39.75,38.5,39.75,75829053,37.86,4.98,38.02,36.1,1.96
-20260901,39.45,39.9,39,39.9,40006206,38.03,4.91,38.12,36.21,1.03
-20260902,39.65,40.6,39.35,40.5,47477441,38.24,5.91,38.24,36.33,1.21
 20260903,41.35,43.5,40.55,43.2,96702581,38.65,11.77,38.5,36.48,2.25
 20260904,43.25,43.55,42.8,43.55,61355856,39.06,11.49,38.77,36.65,1.36
 20260907,44,44.4,43.25,43.55,54265583,39.43,10.44,39.06,36.81,1.17
@@ -167,17 +163,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,46.75,46.75,45.8,46.05,17191693,43.52,5.81,43.59,38.8,0.34
 20260923,46.1,46.1,45.4,45.6,25178062,43.7,4.36,43.94,38.98,0.5
 20260924,45.1,45.95,45.1,45.6,18254771,43.85,3.98,44.29,39.19,0.37
+20260929,45,45.95,44.9,44.9,32018146,43.94,2.18,44.6,39.38,0.63
+20260930,45.2,45.35,44.75,44.85,30746754,44.02,1.89,44.85,39.57,0.64
+20261001,44.8,45.45,44.2,45.35,29162352,44.13,2.77,45.13,39.75,0.61
+20261002,45.05,45.35,44.95,45.35,21945062,44.23,2.53,45.37,39.93,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 74.45
-- over_600_ratio: 72.63
-- over_800_ratio: 71.34
-- over_1000_ratio: 70.33
-- over_400_change_1w: -0.09
+- as_of_date: 20261002
+- over_400_ratio: 74.39
+- over_600_ratio: 72.56
+- over_800_ratio: 71.25
+- over_1000_ratio: 70.27
+- over_400_change_1w: -0.06
 - over_800_change_1w: -0.09
-- over_1000_change_1w: -0.1
+- over_1000_change_1w: -0.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -186,7 +186,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,72.51,0.21,69.21,0.22,68.07,0.2,1,True,True
 20260717,72.66,0.15,69.35,0.14,68.23,0.16,2,True,True
 20260724,73.08,0.42,69.76,0.41,68.66,0.43,3,True,True
 20260731,73.32,0.24,70.05,0.29,68.95,0.29,4,True,True
@@ -198,22 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,74.44,0.04,71.28,0.1,70.26,0.09,4,True,True
 20260918,74.54,0.1,71.43,0.15,70.43,0.17,5,True,True
 20260924,74.45,-0.09,71.34,-0.09,70.33,-0.1,0,False,False
+20261002,74.39,-0.06,71.25,-0.09,70.27,-0.06,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:財務主管 2.發生變動日期:115/09/15 3.舊任者姓名、級職及簡歷:林靜宜部經理 4.新任者姓名、級職及簡歷:朱世玲資深協理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:職務調整 6.異動原因:職務調整 7.生效日期:115/09/21 8.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 2884 | 玉山金 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.事實發生日:115/09/29 2.公司名稱:三商美邦人壽 3.與公司關係(請輸入本公司或子公司):子公司 4.相互持股比例:100% 5.發生緣由:三商美邦人壽辦理現金增資案，發行新股7.8億股，每股溢價 發行新臺幣20.512821元，募集總金額新臺幣160億元，已於9月29日募集完成。 6.因應措施:無 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2884 | 玉山金 | 1 | 1 | 2 | 6 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2884 | 玉山金 | 5 | 5 | 5 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2884 | 玉山金 | 28 | 1 | 1017840.0 | 366420.0 | 2.78 | call_inflow |
+| 20261002 | 2884 | 玉山金 | 28 | 1 | 634650.0 | 5720.0 | 110.95 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:20 Asia/Taipei
+- generated_at: 2026-10-04 22:16:30 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 2480
-- high: 2490
-- low: 2470
-- close: 2475
-- volume: 14557662
-- ma5: 2475
-- ema23_primary: 2431.85
-- distance_to_ema23_pct: 1.77
-- ma20: 2432.5
-- ma60: 2401.83
-- ma120: 2323.88
-- return_5d: 2.06
-- return_20d: 2.7
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 1.75
-- distance_to_high_60_pct: -1.39
+- date: 20261002
+- open: 2505
+- high: 2515
+- low: 2495
+- close: 2500
+- volume: 15792206
+- ma5: 2488
+- ema23_primary: 2449.64
+- distance_to_ema23_pct: 2.06
+- ma20: 2448.25
+- ma60: 2404.42
+- ma120: 2342.21
+- return_5d: 0
+- return_20d: 4.82
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 2.11
+- distance_to_high_60_pct: -0.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,2440,2445,2410,2420,15025832,2388.58,1.32,2389.25,2383.67,0.68
-20260831,2395,2405,2375,2405,32792740,2389.95,0.63,2391,2384,1.49
-20260901,2395,2440,2390,2440,31855287,2394.12,1.92,2397,2385.25,1.48
-20260902,2415,2420,2385,2385,25151394,2393.36,-0.35,2396,2386.75,1.2
 20260903,2385,2400,2380,2390,14252351,2393.08,-0.13,2397.25,2388.17,0.7
 20260904,2415,2415,2390,2410,14102018,2394.49,0.65,2399.25,2390.75,0.71
 20260907,2435,2460,2430,2460,26898329,2399.95,2.5,2403.25,2394.25,1.33
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,2505,2510,2460,2460,22009927,2421.37,1.6,2425,2400.83,1
 20260923,2475,2505,2475,2500,22817873,2427.93,2.97,2429.25,2402.33,1.03
 20260924,2480,2490,2470,2475,14557662,2431.85,1.77,2432.5,2401.83,0.66
+20260929,2475,2495,2475,2475,26893348,2435.44,1.62,2435.25,2402,1.19
+20260930,2495,2510,2480,2480,34282491,2439.16,1.67,2439,2402.58,1.51
+20261001,2490,2510,2485,2510,20666092,2445.06,2.66,2442.5,2403.42,0.93
+20261002,2505,2515,2495,2500,15792206,2449.64,2.06,2448.25,2404.42,0.73
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 87.53
 - over_600_ratio: 86.44
-- over_800_ratio: 85.52
+- over_800_ratio: 85.54
 - over_1000_ratio: 84.77
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,87.74,-0.07,85.76,-0.06,85.01,-0.08,0,False,False
 20260717,87.67,-0.07,85.66,-0.1,84.91,-0.1,0,False,False
 20260724,87.48,-0.19,85.47,-0.19,84.7,-0.21,0,False,False
 20260731,87.39,-0.09,85.36,-0.11,84.62,-0.08,0,False,False
@@ -198,24 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,87.57,0.08,85.56,0.11,84.82,0.08,1,True,True
 20260918,87.48,-0.09,85.46,-0.1,84.7,-0.12,0,False,False
 20260924,87.53,0.05,85.52,0.06,84.77,0.07,1,True,True
+20261002,87.53,0,85.54,0.02,84.77,0,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/14 1.召開法人說明會之日期：115/09/14 2.召開法人說明會之時間：08 時 00 分 3.召開法人說明會之地點：W Hotel Taipei 4.法人說明會擇要訊息：本公司受邀參加瑞銀證券所舉辦之『UBS Taiwan Summit 2026』，會中就本公司7/16法說會已公開之財務數字、經營績效等相關資訊進行說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 2330 | 台積電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/14 1.召開法人說明會之日期：115/09/14 2.召開法人說明會之時間：08 時 00 分 3.召開法人說明會之地點：W Hotel Taipei 4.法人說明會擇要訊息：本公司受邀參加瑞銀證券所舉辦之『UBS Taiwan Summit 2026』，會中就本公司7/16法說會已公開之財務數字、經營績效等相關資訊進行說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 2330 | 台積電 | revenue_breakout_low_response | 營收爆發低反應股 | 15 | 33 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/09/14 1.召開法人說明會之日期：115/09/14 2.召開法人說明會之時間：08 時 00 分 3.召開法人說明會之地點：W Hotel Taipei 4.法人說明會擇要訊息：本公司受邀參加瑞銀證券所舉辦之『UBS Taiwan Summit 2026』，會中就本公司7/16法說會已公開之財務數字、經營績效等相關資訊進行說明。 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/10/15 1.召開法人說明會之日期：115/10/15 2.召開法人說明會之時間：14 時 00 分 3.召開法人說明會之地點：線上法說會 4.法人說明會擇要訊息：(1)公布本公司2026年第3季財務報告及2026年第4季業績展望。(2)參加方式：請參見https://investor.tsmc.com/chinese/quarterly-results/2026/q3 5.其他應敘明事項：無。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2330 | 台積電 | 14 | 14 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 2330 | 台積電 | 18 | 2 | 5 | 10 | 19 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 2330 | 台積電 | 1041 | 146 | 71842690.0 | 793870.0 | 90.5 | no_signal |
+| 20261002 | 2330 | 台積電 | 1049 | 138 | 65262660.0 | 377650.0 | 172.81 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

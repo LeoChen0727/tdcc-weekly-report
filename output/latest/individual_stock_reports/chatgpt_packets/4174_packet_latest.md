@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4174 浩鼎
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:46 Asia/Taipei
+- generated_at: 2026-10-04 22:17:30 Asia/Taipei
 - stock_id: 4174
 - stock_name: 浩鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 257
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 261
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 33
-- high: 34.15
-- low: 32.05
-- close: 32.45
-- volume: 3307000
-- ma5: 30.36
-- ema23_primary: 27.68
-- distance_to_ema23_pct: 17.24
-- ma20: 26.88
-- ma60: 27.12
-- ma120: 29.51
-- return_5d: 16.94
-- return_20d: 22.92
-- volume_ratio: 3.57
-- distance_to_ma20_pct_auxiliary: 20.73
-- distance_to_high_60_pct: -4.98
+- date: 20261002
+- open: 45.6
+- high: 45.6
+- low: 40.1
+- close: 42
+- volume: 5893000
+- ma5: 38.48
+- ema23_primary: 31.37
+- distance_to_ema23_pct: 33.9
+- ma20: 29.8
+- ma60: 27.81
+- ma120: 29.56
+- return_5d: 28.83
+- return_20d: 68
+- volume_ratio: 4.38
+- distance_to_ma20_pct_auxiliary: 40.96
+- distance_to_high_60_pct: -7.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,26.5,26.5,26.1,26.15,190000,26.54,-1.48,26.3,27.62,0.66
-20260831,26.05,26.05,25.35,25.4,449000,26.45,-3.96,26.23,27.55,1.65
-20260901,25.5,25.5,24.9,25.05,461000,26.33,-4.86,26.17,27.48,1.66
-20260902,25.3,25.4,24.85,25,235000,26.22,-4.65,26.11,27.42,0.85
 20260903,25.45,25.45,24.6,24.6,487000,26.08,-5.69,26.04,27.35,1.7
 20260904,24.35,25.5,24.3,25.05,545000,26,-3.65,26,27.3,1.8
 20260907,25.1,25.3,24.9,24.95,304000,25.91,-3.71,25.93,27.25,1
@@ -166,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,29.9,31.05,29,29.65,2047000,26.76,10.81,26.28,27.02,3.2
 20260923,29.25,32.6,29,32.6,2866000,27.24,19.66,26.57,27.06,3.73
 20260924,33,34.15,32.05,32.45,3307000,27.68,17.24,26.88,27.12,3.57
+20260929,32.65,35.65,32.45,35.65,1503000,28.34,25.79,27.35,27.23,1.52
+20260930,39,39.2,38.55,39.2,1168000,29.25,34.03,28.04,27.39,1.14
+20261001,43.1,43.1,43.1,43.1,1158000,30.4,41.77,28.95,27.6,1.09
+20261002,45.6,45.6,40.1,42,5893000,31.37,33.9,29.8,27.81,4.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 42.46
-- over_600_ratio: 40.23
-- over_800_ratio: 39.25
-- over_1000_ratio: 36.42
-- over_400_change_1w: 1.32
-- over_800_change_1w: 1.23
-- over_1000_change_1w: 1.95
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 42.96
+- over_600_ratio: 39.98
+- over_800_ratio: 39.47
+- over_1000_ratio: 37.44
+- over_400_change_1w: 0.5
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 1.02
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,41.59,-0.37,37.72,0.02,35.57,0.02,1,False,True
 20260717,41.98,0.39,37.72,0,35.57,0,2,False,False
 20260724,41.89,-0.09,37.72,0,35.57,0,0,False,False
 20260731,41.97,0.08,37.71,-0.01,35.56,-0.01,1,False,False
@@ -197,17 +196,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,41.07,0.31,37.98,0.74,33.79,0.11,2,True,True
 20260918,41.14,0.07,38.02,0.04,34.47,0.68,3,True,True
 20260924,42.46,1.32,39.25,1.23,36.42,1.95,4,True,True
+20261002,42.96,0.5,39.47,0.22,37.44,1.02,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4174 | 浩鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.發生變動日期:115/07/02 2.功能性委員會名稱:永續發展委員會 3.舊任者姓名:  (1)王慧君  (2)高國霖 4.舊任者簡歷:不適用  (1)王慧君/ 台灣浩鼎生技股份有限公司 執行長  (2)高國霖/ 台灣浩鼎生技股份有限公司 營運長 5.新任者姓名:  (1)蔣永芳  (2)陳雅琪 6.新任者簡歷:  (1)蔣永芳/ 台灣浩鼎生技股份有限公司 副董事長  (2)陳雅琪/ 台灣浩鼎生技股份有限公司 代理執行長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:經董事會決議調整委任本公司第一屆永續發展委員會委員二席 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/06/27 ~ 117/06/26 10.新任生效日期:115/07/02 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 4174 | 浩鼎 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | 1.發生變動日期:115/07/02 2.功能性委員會名稱:永續發展委員會 3.舊任者姓名:  (1)王慧君  (2)高國霖 4.舊任者簡歷:不適用  (1)王慧君/ 台灣浩鼎生技股份有限公司 執行長  (2)高國霖/ 台灣浩鼎生技股份有限公司 營運長 5.新任者姓名:  (1)蔣永芳  (2)陳雅琪 6.新任者簡歷:  (1)蔣永芳/ 台灣浩鼎生技股份有限公司 副董事長  (2)陳雅琪/ 台灣浩鼎生技股份有限公司 代理執行長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任 8.異動原因:經董事會決議調整委任本公司第一屆永續發展委員會委員二席 9.原任期（例xx/xx/xx ~ xx/xx/xx）:114/06/27 ~ 117/06/26 10.新任生效日期:115/07/02 11.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 4174 | 浩鼎 | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20261002 | 4174 | 浩鼎 | 8 | 1 | 5 | 8 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

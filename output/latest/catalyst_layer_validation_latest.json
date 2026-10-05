@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-30 19:41:00 Asia/Taipei",
+  "generated_at": "2026-10-02 19:56:24 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "data_table_rows": {
     "theme_event_calendar": 1,
     "company_theme_mapping": 28,
-    "quarterly_catalyst": 3169,
-    "event_catalyst_log": 3769
+    "quarterly_catalyst": 3206,
+    "event_catalyst_log": 3852
   },
-  "all_candidates_rows": 610,
+  "all_candidates_rows": 384,
   "catalyst_performance_rows": 3213,
   "catalyst_summary_rows": 21,
   "catalyst_needs_review_rows": 2,

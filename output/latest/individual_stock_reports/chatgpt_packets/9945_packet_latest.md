@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-09-28 22:17:31 Asia/Taipei
+- generated_at: 2026-10-04 22:19:15 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -70,16 +70,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -125,32 +125,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 30.35
-- high: 30.4
-- low: 29.6
-- close: 29.9
-- volume: 13127733
-- ma5: 29.32
-- ema23_primary: 28.57
-- distance_to_ema23_pct: 4.64
-- ma20: 28.41
-- ma60: 27.59
-- ma120: 26.19
-- return_5d: 3.28
-- return_20d: 4.55
-- volume_ratio: 2.32
-- distance_to_ma20_pct_auxiliary: 5.24
-- distance_to_high_60_pct: -3.08
+- date: 20261002
+- open: 29.25
+- high: 29.3
+- low: 29
+- close: 29.1
+- volume: 3575449
+- ma5: 29.35
+- ema23_primary: 28.76
+- distance_to_ema23_pct: 1.18
+- ma20: 28.65
+- ma60: 27.78
+- ma120: 26.31
+- return_5d: -1.52
+- return_20d: 2.83
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 1.58
+- distance_to_high_60_pct: -5.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,28.6,28.6,27.8,28,10359933,28.15,-0.54,28.19,26.95,1.19
-20260831,27.9,28,27.7,27.8,4469745,28.12,-1.15,28.23,26.99,0.52
-20260901,27.6,28.1,27.6,28.05,4192254,28.12,-0.24,28.3,27.04,0.49
-20260902,27.9,28.4,27.85,28.3,3302368,28.13,0.59,28.39,27.1,0.39
 20260903,28.3,28.5,28.15,28.25,4124099,28.14,0.38,28.49,27.15,0.49
 20260904,28.3,28.5,28.05,28.45,3851767,28.17,1,28.57,27.19,0.46
 20260907,28.7,28.7,27.8,27.9,5082933,28.15,-0.87,28.61,27.22,0.61
@@ -167,26 +163,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,29.3,29.4,28.85,28.95,5007814,28.35,2.1,28.32,27.49,0.99
 20260923,29.2,29.75,28.95,29.55,8610289,28.45,3.85,28.35,27.54,1.64
 20260924,30.35,30.4,29.6,29.9,13127733,28.57,4.64,28.41,27.59,2.32
+20260929,29.65,29.85,29.05,29.05,7370448,28.61,1.52,28.46,27.63,1.34
+20260930,29.45,29.85,29.3,29.45,4088023,28.68,2.67,28.55,27.68,0.75
+20261001,29.45,29.5,29.15,29.25,3828692,28.73,1.81,28.61,27.73,0.7
+20261002,29.25,29.3,29,29.1,3575449,28.76,1.18,28.65,27.78,0.65
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 66.36
-- over_600_ratio: 64.1
-- over_800_ratio: 62.89
-- over_1000_ratio: 62.1
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.15
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 66.41
+- over_600_ratio: 64.19
+- over_800_ratio: 62.83
+- over_1000_ratio: 62.02
+- over_400_change_1w: 0.05
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,64.53,-0.43,61.06,-0.54,60.44,-0.36,0,False,False
 20260717,64.84,0.31,61.38,0.32,60.79,0.35,1,True,True
 20260724,64.96,0.12,61.63,0.25,60.85,0.06,2,True,True
 20260731,65.3,0.34,61.97,0.34,61.15,0.3,3,True,True
@@ -198,23 +197,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,66.1,0.07,62.61,0.01,61.86,-0.03,1,False,True
 20260918,66.26,0.16,62.74,0.13,62.09,0.23,2,True,True
 20260924,66.36,0.1,62.89,0.15,62.1,0.01,3,True,True
+20261002,66.41,0.05,62.83,-0.06,62.02,-0.08,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.契約種類:承攬契約、結算協議書 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 潤德室內裝修設計工程(股)公司、子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約    契約金額：新台幣(以下同)453,021,637元(未稅)    契約起訖日期：開工日起至完工日止之工程期限為450個工作天。 (2)契約內容：【華山松江公設景觀梯廳裝修工程】之結算協議    原契約金額：92,018,778元(未稅)(業經114年03月12日董事會決議並公告)    本次追加金額：3,132,692元(未稅)    結算後總金額：95,151,470元(未稅) 7.專業估價者事務所或公司名稱及其估價結果: 契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約 中鼎不動產估價師事務所   估價金額453,386,946元(未稅) 8.不動產估價師姓名: 中鼎不動產估價師事務所：簡武池 9.不動產估價師開業證書字號: 中鼎不動產估價師事務所：(100)北市估字第000172號 10.取得之具體目的: 公設梯廳景觀裝修承攬及結算 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年9月23日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 114/03/12 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260924 | 9945 | 潤泰新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | stale_signal | 1.契約種類:承攬契約、結算協議書 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 潤德室內裝修設計工程(股)公司、子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約    契約金額：新台幣(以下同)453,021,637元(未稅)    契約起訖日期：開工日起至完工日止之工程期限為450個工作天。 (2)契約內容：【華山松江公設景觀梯廳裝修工程】之結算協議    原契約金額：92,018,778元(未稅)(業經114年03月12日董事會決議並公告)    本次追加金額：3,132,692元(未稅)    結算後總金額：95,151,470元(未稅) 7.專業估價者事務所或公司名稱及其估價結果: 契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約 中鼎不動產估價師事務所   估價金額453,386,946元(未稅) 8.不動產估價師姓名: 中鼎不動產估價師事務所：簡武池 9.不動產估價師開業證書字號: 中鼎不動產估價師事務所：(100)北市估字第000172號 10.取得之具體目的: 公設梯廳景觀裝修承攬及結算 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年9月23日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 114/03/12 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 9945 | 潤泰新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | 1.契約種類:承攬契約、結算協議書 2.事實發生日:115/9/23~115/9/23 3.董事會通過日期: 民國115年9月23日 4.其他核決日期: 不適用 5.契約相對人及其與公司之關係: 潤德室內裝修設計工程(股)公司、子公司 6.契約主要內容（含契約總金額、預計參與投入之金額及契約起迄日期） 、限制條款及其他重要約定事項: (1)契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約    契約金額：新台幣(以下同)453,021,637元(未稅)    契約起訖日期：開工日起至完工日止之工程期限為450個工作天。 (2)契約內容：【華山松江公設景觀梯廳裝修工程】之結算協議    原契約金額：92,018,778元(未稅)(業經114年03月12日董事會決議並公告)    本次追加金額：3,132,692元(未稅)    結算後總金額：95,151,470元(未稅) 7.專業估價者事務所或公司名稱及其估價結果: 契約內容：【潤泰之森公設景觀梯廳裝修工程】之承攬契約 中鼎不動產估價師事務所   估價金額453,386,946元(未稅) 8.不動產估價師姓名: 中鼎不動產估價師事務所：簡武池 9.不動產估價師開業證書字號: 中鼎不動產估價師事務所：(100)北市估字第000172號 10.取得之具體目的: 公設梯廳景觀裝修承攬及結算 11.本次交易表示異議之董事意見: 不適用 12.本次交易為關係人交易:是 13.監察人承認或審計委員會同意日期: 民國115年9月23日 14.估價報告是否為限定價格、特定價格或特殊價格:否或不適用 15.是否尚未取得估價報告:否或不適用 16.尚未取得估價報告之原因: 不適用 17.估價結果有重大差異時，其差異原因及會計師意見: 不適用 18.會計師事務所名稱: 不適用 19.會計師姓名: 不適用 20.會計師開業證書字號: 不適用 21.前已就同一件事件發布重大訊息日期: 114/03/12 22.其他敘明事項: 無；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 9945 | 潤泰新 | 8 | 8 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 9945 | 潤泰新 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 9945 | 潤泰新 | 15 | 0 | 3662260.0 | 0.0 |  | no_signal |
+| 20261002 | 9945 | 潤泰新 | 15 | 0 | 754840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:15 Asia/Taipei
+- generated_at: 2026-10-04 22:16:17 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -124,32 +124,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 114
-- high: 125
-- low: 109
-- close: 115.5
-- volume: 47932996
-- ma5: 109.4
-- ema23_primary: 97.86
-- distance_to_ema23_pct: 18.03
-- ma20: 97.5
-- ma60: 87.64
-- ma120: 84.38
-- return_5d: 10
-- return_20d: 19.2
-- volume_ratio: 5.43
-- distance_to_ma20_pct_auxiliary: 18.46
-- distance_to_high_60_pct: -7.6
+- date: 20261002
+- open: 111
+- high: 123
+- low: 111
+- close: 123
+- volume: 35901281
+- ma5: 115.6
+- ema23_primary: 103.14
+- distance_to_ema23_pct: 19.26
+- ma20: 101.25
+- ma60: 89.05
+- ma120: 86.54
+- return_5d: 5.58
+- return_20d: 30.57
+- volume_ratio: 2.74
+- distance_to_ma20_pct_auxiliary: 21.48
+- distance_to_high_60_pct: -1.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,97.1,100.5,95.3,98.1,7805835,86.13,13.9,83.25,85.63,1.56
-20260831,98.1,106,97.3,99.9,10204032,87.28,14.46,84.71,85.78,1.88
-20260901,100,101,94.5,95.3,7631288,87.95,8.36,85.86,85.81,1.33
-20260902,94.9,96.5,93.4,94.2,3187873,88.47,6.48,86.87,85.84,0.55
 20260903,94.1,95.1,89.1,89.2,3460712,88.53,0.76,87.58,85.78,0.59
 20260904,90,95.2,88.2,94.7,5890316,89.04,6.35,88.7,85.9,0.96
 20260907,94.7,95.4,90.8,91,4256734,89.21,2.01,89.43,85.99,0.68
@@ -166,26 +162,29 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,103,107,99.6,106,6851763,94.41,12.27,95.47,86.8,1.12
 20260923,105,116.5,103,116.5,21402346,96.25,21.04,96.57,87.24,3.13
 20260924,114,125,109,115.5,47932996,97.86,18.03,97.5,87.64,5.43
+20260929,113,122,104,118.5,29773336,99.58,19,98.52,88.08,3
+20260930,117,117,108,109,29883184,100.36,8.61,98.97,88.35,2.74
+20261001,108,116,105.5,112,18550381,101.33,10.53,99.81,88.53,1.62
+20261002,111,123,111,123,35901281,103.14,19.26,101.25,89.05,2.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
-- over_400_ratio: 68.87
-- over_600_ratio: 65.51
-- over_800_ratio: 64.97
-- over_1000_ratio: 62.27
-- over_400_change_1w: 3.99
-- over_800_change_1w: 6.47
-- over_1000_change_1w: 4.45
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20261002
+- over_400_ratio: 61.58
+- over_600_ratio: 59.74
+- over_800_ratio: 58.03
+- over_1000_ratio: 56.64
+- over_400_change_1w: -7.29
+- over_800_change_1w: -6.94
+- over_1000_change_1w: -5.63
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,56.43,-0.9,53.48,0.31,52.03,-0.42,5,False,True
 20260717,55.37,-1.06,51.16,-2.32,50.51,-1.52,0,False,False
 20260724,54.51,-0.86,51.48,0.32,49.39,-1.12,1,False,True
 20260731,54.48,-0.03,49.8,-1.68,49.8,0.41,2,False,True
@@ -197,22 +196,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,58.17,-0.85,51.65,-2.32,50.27,-0.92,0,False,False
 20260918,64.88,6.71,58.5,6.85,57.82,7.55,1,True,True
 20260924,68.87,3.99,64.97,6.47,62.27,4.45,2,True,True
+20261002,61.58,-7.29,58.03,-6.94,56.64,-5.63,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1727 | 中華化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | 1.董事會決議或公司決定增資基準日期:115/09/23 2.是否採總括申報發行新股(是，請併敘明預定發行期間/否):否 3.主管機關申報生效日期:115/09/17 4.董事會決議(追補)發行日期:115/08/12 5.發行總金額及股數:發行總金額視實際發行價格而定，普通股13,800,000股 6.採總括申報發行新股案件，本次發行金額及股數:不適用 7.採總括申報發行新股案件，本次發行後，剩餘之金額及股數餘額:不適用 8.每股面額:新台幣10元 9.發行價格:俟訂價後另行公告 10.員工認股股數:依公司法第267條規定保留10%，計1,380,000股由本公司員工認購。 11.原股東認購比率:增資發行新股80%，計11,040,000股由原股東按認股基準日   股東名簿記載之股東持股比例認購，每仟股的認購86.23682261股。 12.公開銷售方式及股數:依證券交易法第28條之1規定，提撥發行新股總額10%，   計1,380,000股辦理公開申購方式對外公開承銷。 13.畸零股及逾期未認購股份之處理方式:原股東認購不足一股之畸零股，自停止過   戶日起5日內由股東自行向本公司股務代理機構辦理拼湊整股認購，其拼湊不足   一股之畸零股及原股東、員工與對外公開承銷放棄認購或認購不足及申報拼   湊之部分，授權董事長洽特定人按發行價格認購。 14.本次發行新股之權利義務:與原有發行之普通股相同。 15.本次增資資金用途:償還銀行貸款、購置機器設備及充實營運資金。 16.現金增資認股基準日:115/10/19 17.最後過戶日:115/10/14 18.停止過戶起始日期:115/10/15 19.停止過戶截止日期:115/10/19 20.股款繳納期間:115/10/21-115/11/21 21.與代收及專戶存儲價款行庫訂約日期:俟正式簽約後另行公告 22.委託代收存款機構:俟正式簽約後另行公告 23.委託存儲款項機構:俟正式簽約後另行公告 24.其他應敘明事項: (1)本公司辦理現金增資發行普通股13,800,000股乙案，    業經金融監督管理委員會於115年09月17日業經金融監督管理委員會    金管證發字第1150354913號函申報生效在案。 (2)以上增資相關事宜如經主管機關核定處理、修正或為因應法令修訂    及其他未盡事宜，須予變更時，擬請董事會授權董事長全權處理之。；calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
+| 20261002 | 1727 | 中華化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | 1.事實發生日:115/10/01 2.公司名稱:臺灣中華化學工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:理財周刊 6.報導內容:理財周刊：外資大買296億、狂掃面板雙虎16萬張！中華化結親台塑卻淪 賣超王 翻開中華化(1727)2026年第二季的資產負債表： 公司整體的總資產只有 38.02億元。 股東權益(淨值)只有 21.60億元。 帳上躺著的現金及約當現金，更是只有少得可憐的 約1.70億元！ 然而，中華化董事會授權的合資投資上限，竟然高達 30億元(持股50%)！ 這筆30億元的資本承諾，整整佔了中華化總資產的79%，更是其全公司股東權益的 139%！ 一個帳上只有1.7億現金的小型特化廠，要去扛一筆高達30億元、耗時數年的建廠資 本支出，錢從哪裡來？是找銀行大舉借貸背上沉重利息。 7.發生緣由:澄清媒體報導 8.因應措施:無 9.其他應敘明事項: (1)有關媒體報導所稱「超過淨值百倍的龐大負債」一節，與事實不符。本公司截至115 年第2季合併財務報告之歸屬於母公司業主之權益約為新臺幣21.6億元；本案所涉新臺 幣30億元係本公司投資金額上限，並非已發生之負債，若以30億元與21.6億元比較，約 為1.39倍，並非報導所稱之百倍。 (2)有關媒體報導本案為「中華化投入30億元、台塑投入12億元」一節，與本公司董事 會決議內容不符。本案規劃由本公司投資金額上限新臺幣30億元，取得合資公司50%股 權；另由臺灣塑膠工業股份有限公司、臺灣化學纖維股份有限公司、台塑石化股份有限 公司及台塑生醫科技股份有限公司等台塑企業四家公司合計投資新臺幣30億元，取得50% 股權，雙方共同組成50：50之策略性合資架構。 (3)本案所涉新臺幣30億元係本公司多年期之股權投資上限，並非一次性於短期內支付， 亦非新增負債。以單一季度期末現金餘額與多年期投資上限直接比較，尚不足以完整反 映公司整體資金規劃、營運現金流、融資安排及後續投資時程。 (4)有關媒體提及外資單日賣超本公司股票8,650張，該交易量屬市場交易資料；惟進一 步將該交易結果解讀為「外資認定本公司具有致命融資風險」之說法，並非本公司已公 開資訊所能支持之結論。本公司不對股價及個別投資人之交易行為置評，並將持續以實 際營運成果、投資計畫執行進度及財務紀律接受市場檢驗。 (5)本公司再次強調，本案係為拓展電子級硫酸事業、整合雙方資源所推動之策略性合 資案，相關投資將依既定程序及實際進度辦理。本公司將審慎進行資金規劃及投資管理 ，以兼顧公司營運、財務健全及股東權益。 (6)以上說明係針對媒體報導內容之事實澄清，實際投資執行仍以本公司依法公告之資 訊及後續相關程序為準。；calendar event: ex_right on 20261013; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1727 | 中華化 | 3 | 1 | 3 | 8 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 1727 | 中華化 | 7 | 1 | 5 | 8 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 1727 | 中華化 | 31 | 0 | 27738680.0 | 0.0 |  | call_strong_inflow |
+| 20261002 | 1727 | 中華化 | 35 | 0 | 22475950.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

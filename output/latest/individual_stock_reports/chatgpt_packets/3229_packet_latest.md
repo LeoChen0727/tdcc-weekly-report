@@ -1,20 +1,20 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3229 晟鈦
 
 ## Metadata
-- generated_at: 2026-09-28 22:16:36 Asia/Taipei
+- generated_at: 2026-10-04 22:17:07 Asia/Taipei
 - stock_id: 3229
 - stock_name: 晟鈦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260924
-- price_rows: 362
-- current_main_price_date: 20260924
+- latest_price_date: 20261002
+- price_rows: 366
+- current_main_price_date: 20261002
 - current_main_price_universe_status: current
 - current_main_price_universe_source: official_daily_price_latest_main_price_date
 - listing_status_source_status: formal_listing_status_source_unavailable
-- source_tdcc_dataset_id: tdcc-20260924-db6f7ba61c9bf627
-- official_tdcc_signal_date: 20260924
-- latest_tdcc_date: 20260924
-- tdcc_rows: 22
+- source_tdcc_dataset_id: tdcc-20261002-d841316b0644c08f
+- official_tdcc_signal_date: 20261002
+- latest_tdcc_date: 20261002
+- tdcc_rows: 23
 - tdcc_history_status: tdcc_history_ready
 - tdcc_freshness_status: tdcc_window_fresh
 - tdcc_continuity_status: complete
@@ -126,32 +126,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260924
-- open: 57.1
-- high: 58.5
-- low: 55.7
-- close: 56.4
-- volume: 1457101
-- ma5: 59.14
-- ema23_primary: 57.35
-- distance_to_ema23_pct: -1.66
-- ma20: 57.37
-- ma60: 49.81
-- ma120: 44.79
-- return_5d: -3.75
-- return_20d: 2.36
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: -1.68
-- distance_to_high_60_pct: -22.63
+- date: 20261002
+- open: 59.5
+- high: 60.7
+- low: 58.3
+- close: 58.8
+- volume: 1350644
+- ma5: 57.98
+- ema23_primary: 57.67
+- distance_to_ema23_pct: 1.96
+- ma20: 58.49
+- ma60: 50.93
+- ma120: 46.1
+- return_5d: 2.44
+- return_20d: 14.84
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 0.52
+- distance_to_high_60_pct: -19.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260828,55.5,58,53.5,55.4,1818237,52.17,6.18,52.91,45.6,0.91
-20260831,55.4,56.9,53.2,53.4,1123660,52.28,2.15,53.2,45.71,0.58
-20260901,53.6,53.8,50.9,50.9,1325011,52.16,-2.42,53.36,45.82,0.68
-20260902,50,52.3,50,51.2,633221,52.08,-1.69,53.71,45.99,0.33
 20260903,51.2,51.3,48.6,48.6,900368,51.79,-6.16,53.84,46.05,0.46
 20260904,48.75,51.1,48.4,49.8,1111049,51.63,-3.54,54,46.16,0.56
 20260907,50.4,51.3,49.45,50.6,548138,51.54,-1.82,53.98,46.29,0.28
@@ -168,15 +164,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260922,61.1,61.4,57.1,57.3,3296427,57.44,-0.24,57.34,49.3,0.77
 20260923,57.9,58.4,56,57.4,1995978,57.44,-0.06,57.3,49.56,0.49
 20260924,57.1,58.5,55.7,56.4,1457101,57.35,-1.66,57.37,49.81,0.36
+20260929,56.5,58.5,56.2,57.1,1133433,57.33,-0.4,57.45,50.05,0.28
+20260930,57.6,60.4,57.6,58.6,2112106,57.43,2.03,57.71,50.32,0.52
+20261001,59,59.3,57.2,59,1070262,57.57,2.49,58.12,50.6,0.26
+20261002,59.5,60.7,58.3,58.8,1350644,57.67,1.96,58.49,50.93,0.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260924
+- as_of_date: 20261002
 - over_400_ratio: 68.21
 - over_600_ratio: 67.46
 - over_800_ratio: 67.46
 - over_1000_ratio: 67.46
-- over_400_change_1w: -2.51
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -187,7 +187,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260709,70.03,0.03,69.02,0.03,69.02,1.56,1,True,True
 20260717,70.04,0.01,69.03,0.01,69.03,0.01,2,True,True
 20260724,70.27,0.23,69.03,0,69.03,0,3,False,False
 20260731,70.27,0,69.03,0,69.03,0,0,False,False
@@ -199,18 +198,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260911,71.02,0.89,69.46,2,69.46,2,2,True,True
 20260918,70.72,-0.3,67.46,-2,67.46,-2,0,False,False
 20260924,68.21,-2.51,67.46,0,67.46,0,0,False,False
+20261002,68.21,0,67.46,0,67.46,0,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3229 | 晟鈦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d |
-| 20260924 | 3229 | 晟鈦 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20261002 | 3229 | 晟鈦 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20261001; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260924 | 3229 | 晟鈦 | 4 | 4 | 4 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20261002 | 3229 | 晟鈦 | 8 | 8 | 5 | 9 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |
