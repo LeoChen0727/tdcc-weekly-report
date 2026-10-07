@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-10-06 22:19:05 Asia/Taipei
+- generated_at: 2026-10-07 22:19:46 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: standard_rawdata_packet

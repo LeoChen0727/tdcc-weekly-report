@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1780 立弘
 
 ## Metadata
-- generated_at: 2026-10-06 22:16:52 Asia/Taipei
+- generated_at: 2026-10-07 22:17:05 Asia/Taipei
 - stock_id: 1780
 - stock_name: 立弘
 - packet_status: standard_rawdata_packet

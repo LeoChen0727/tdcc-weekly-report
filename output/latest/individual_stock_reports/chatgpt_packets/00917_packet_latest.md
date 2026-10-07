@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00917 中信特選金融
 
 ## Metadata
-- generated_at: 2026-10-06 22:16:31 Asia/Taipei
+- generated_at: 2026-10-07 22:16:42 Asia/Taipei
 - stock_id: 00917
 - stock_name: 中信特選金融
 - packet_status: standard_rawdata_packet
