@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 國慶科技
 
 ## Metadata
-- generated_at: 2026-10-07 22:17:03 Asia/Taipei
+- generated_at: 2026-10-08 22:17:01 Asia/Taipei
 - stock_id: 1721
 - stock_name: 國慶科技
 - packet_status: standard_180d_window_packet
