@@ -247,3 +247,9 @@ prevent lane-specific PRs or manual runs from reviving old shared paths.
 - 手動入口：`scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py`，只回放固定 ledger 並寫入本模型四份新產物；不接入遠端 producer workflow。
 - 獨立驗證：`scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py`，不匯入 producer 業務函式，不代表實際成交、PIT、OOS 或正式升級。
 - 固定政策、操作命令與保存邊界：[TDCC 保守成交研究 v1](specs/tdcc_conservative_execution_research_v1.md)。
+
+## 回檔後短線轉強股數單位補充研究（research-only）
+
+- 手動入口：`scripts/build_pullback_short_reclaim_share_unit_reconciliation.py`，僅寫入 detail、summary、manifest 三份精確命名的新產物，不接入遠端 producer workflow。
+- 獨立驗證：`scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py`，不匯入 producer 業務函式；僅補充 5904 官方 1:10 股數單位換算，不代表完整總報酬、首次發布 PIT 或正式升級。
+- 原訊號、買賣日期、原報酬與 primary 中未解異常全部保留；範圍詳見[回檔後短線轉強股數單位補充研究 v1](specs/pullback_short_reclaim_share_unit_reconciliation_v1.md)。
