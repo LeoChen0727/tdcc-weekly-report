@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2888 新光金
 
 ## Metadata
-- generated_at: 2026-10-08 22:17:40 Asia/Taipei
+- generated_at: 2026-10-09 22:17:04 Asia/Taipei
 - stock_id: 2888
 - stock_name: 新光金
 - packet_status: standard_rawdata_packet
