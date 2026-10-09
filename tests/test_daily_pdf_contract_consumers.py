@@ -12,12 +12,17 @@ LOW_VOLUME_MODEL_ID = "volume_range_breakout_v2_low_position_volume_attack"
 MID_VOLUME_MODEL_ID = "volume_range_breakout_v2_mid_position_momentum_attack"
 HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 REVENUE_MODEL_ID = "revenue_unreacted_range"
+PRESENTATION_VETO_MODELS = {
+    "hot_theme_pullback": "熱門族群回檔模型",
+    "tdcc_stealth_accumulation": "TDCC潛伏吸籌模型",
+}
 
 
-def presentation_veto_inputs(*, target_has_rows: bool = True) -> dict[str, pd.DataFrame]:
-    target = "hot_theme_pullback"
+def presentation_veto_inputs(
+    *, target: str = "hot_theme_pullback", target_has_rows: bool = True,
+) -> dict[str, pd.DataFrame]:
     other = "pullback_short_reclaim"
-    names = {target: "熱門族群回檔模型", other: "短線支撐收復模型"}
+    names = {target: PRESENTATION_VETO_MODELS[target], other: "短線支撐收復模型"}
     signals = []
     summary = []
     for line in ("mainstream", "non_mainstream"):
@@ -62,17 +67,18 @@ def presentation_veto_inputs(*, target_has_rows: bool = True) -> dict[str, pd.Da
     }
 
 
+@pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
 @pytest.mark.parametrize("target_has_rows", [True, False])
 @pytest.mark.parametrize("builder_name", [
     "build_mainstream_curated_pdf", "build_non_mainstream_curated_pdf",
     "build_mainstream_full_candidate_pdf", "build_non_mainstream_full_candidate_pdf",
 ])
 def test_four_stock_pdf_builders_remove_vetoed_model_and_preserve_overlap(
-    monkeypatch, builder_name: str, target_has_rows: bool,
+    monkeypatch, builder_name: str, target_has_rows: bool, target: str,
 ) -> None:
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
-    inputs = presentation_veto_inputs(target_has_rows=target_has_rows)
+    inputs = presentation_veto_inputs(target=target, target_has_rows=target_has_rows)
     original_signals = inputs["model_signals"].copy(deep=True)
     captured = []
     monkeypatch.setattr(renderer, "Paragraph", lambda text, *args, **kwargs: text)
@@ -84,7 +90,7 @@ def test_four_stock_pdf_builders_remove_vetoed_model_and_preserve_overlap(
     getattr(renderer, builder_name)(*args)
 
     text = repr(captured)
-    for forbidden in ("熱門族群回檔模型", "hot_theme_pullback", "9911", "9912", "僅停用模型摘要"):
+    for forbidden in (PRESENTATION_VETO_MODELS[target], target, "9911", "9912", "僅停用模型摘要"):
         assert forbidden not in text
     assert "短線支撐收復模型" in text
     assert "2330" in text
@@ -92,11 +98,14 @@ def test_four_stock_pdf_builders_remove_vetoed_model_and_preserve_overlap(
     pd.testing.assert_frame_equal(inputs["model_signals"], original_signals)
 
 
+@pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
 @pytest.mark.parametrize("line", ["mainstream", "non_mainstream"])
-def test_presentation_veto_preserves_other_model_rows_ranks_and_empty_roster_labels(line: str) -> None:
+def test_presentation_veto_preserves_other_model_rows_ranks_and_empty_roster_labels(
+    line: str, target: str,
+) -> None:
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
-    inputs = presentation_veto_inputs()
+    inputs = presentation_veto_inputs(target=target)
     baseline = {**inputs, "model_contract": inputs["model_contract"].assign(approved_for_daily_pdf="true")}
     other = "pullback_short_reclaim"
     pd.testing.assert_frame_equal(
@@ -106,24 +115,26 @@ def test_presentation_veto_preserves_other_model_rows_ranks_and_empty_roster_lab
     assert [row["model_id"] for row in renderer.core_model_specs(inputs, line)] == [other]
     assert [row["model_id"] for row in renderer.model_signal_rows_for_stock(inputs, "2330", line)] == [other]
     assert renderer.model_signal_rows_for_stock(inputs, "9911", line) == []
-    inputs["model_registry"] = inputs["model_registry"].query("model_id == 'hot_theme_pullback'")
-    inputs["model_signals"] = inputs["model_signals"].query("model_id == 'hot_theme_pullback'")
+    inputs["model_registry"] = inputs["model_registry"].query("model_id == @target")
+    inputs["model_signals"] = inputs["model_signals"].query("model_id == @target")
     assert renderer.core_model_specs(inputs, line) == []
     assert renderer.preferred_model_label_for_stock(inputs, "2330", line) == ""
 
 
-def test_presentation_veto_retains_independent_summary_rows() -> None:
+@pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
+def test_presentation_veto_retains_independent_summary_rows(target: str) -> None:
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
-    inputs = presentation_veto_inputs()
+    inputs = presentation_veto_inputs(target=target)
     rows = pd.DataFrame([{"stock_id": "2330"}, {"stock_id": "9911"}, {"stock_id": "7777"}])
     pd.testing.assert_frame_equal(renderer.daily_pdf_presented_model_rows(inputs, rows), rows)
 
 
-def test_warrant_intersection_veto_preserves_other_model_and_warrant_analysis(monkeypatch) -> None:
+@pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
+def test_warrant_intersection_veto_preserves_other_model_and_warrant_analysis(monkeypatch, target: str) -> None:
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
-    inputs = presentation_veto_inputs()
+    inputs = presentation_veto_inputs(target=target)
     inputs["model_signals"] = inputs["model_signals"].query("report_line == 'mainstream'")
     inputs["warrant"] = pd.DataFrame([
         {"stock_id": sid, "stock_name": f"合成股票{sid}", "warrant_flow_signal": "call",
@@ -143,12 +154,14 @@ def test_warrant_intersection_veto_preserves_other_model_and_warrant_analysis(mo
     assert "短線支撐收復模型" in repr(intersection)
     assert "#7 / 81.2" in repr(intersection)
     assert "9911" not in repr(intersection)
-    assert "熱門族群回檔模型" not in repr(captured)
+    assert PRESENTATION_VETO_MODELS[target] not in repr(captured)
+    assert target not in repr(captured)
     assert "9911" in repr(captured)  # Independent warrant observation remains.
 
 
-def test_runtime_contract_accepts_retained_vetoed_sources_but_rejects_rendered_model(monkeypatch) -> None:
-    inputs = presentation_veto_inputs()
+@pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
+def test_runtime_contract_accepts_retained_vetoed_sources_but_rejects_rendered_model(monkeypatch, target: str) -> None:
+    inputs = presentation_veto_inputs(target=target)
     rows = {
         validator.STOCK_MODEL_CONTRACT: inputs["model_contract"].to_dict("records"),
         validator.DAILY_MODEL_REGISTRY: inputs["model_registry"].astype(str).to_dict("records"),
@@ -156,28 +169,33 @@ def test_runtime_contract_accepts_retained_vetoed_sources_but_rejects_rendered_m
         validator.DAILY_MODEL_READINESS: inputs["model_readiness"].astype(str).to_dict("records"),
     }
     monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows.get(path, []))
-    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda *args: {"hot_theme_pullback", "pullback_short_reclaim"})
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda *args: {target, "pullback_short_reclaim"})
     monkeypatch.setattr(validator, "validate_pdf_integrated_operation_adapter_contract", lambda *args, **kwargs: [])
     errors, used, required, *_ = validator.validate(validator.VALIDATION_PHASE_RUNTIME)
     assert errors == []
     assert used == required == {"pullback_short_reclaim"}
     assert any("not approved_for_daily_pdf=true" in error for error in validator.validate_model_ids(
-        {"hot_theme_pullback"}, rows[validator.STOCK_MODEL_CONTRACT],
+        {target}, rows[validator.STOCK_MODEL_CONTRACT],
     ))
 
 
+@pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
+@pytest.mark.parametrize("forbidden_value", ["model_id", "model_name_zh"])
 @pytest.mark.parametrize("title", ["主流股每日推薦精華", "權證市場輔助分析"])
-def test_generated_stock_pdf_validation_rejects_vetoed_model(monkeypatch, tmp_path: Path, title: str) -> None:
+def test_generated_stock_pdf_validation_rejects_vetoed_model(
+    monkeypatch, tmp_path: Path, title: str, target: str, forbidden_value: str,
+) -> None:
     from types import SimpleNamespace
     import pypdf
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
-    inputs = presentation_veto_inputs()
+    inputs = presentation_veto_inputs(target=target)
+    forbidden_text = target if forbidden_value == "model_id" else PRESENTATION_VETO_MODELS[target]
     monkeypatch.setattr(renderer, "OUT", tmp_path)
     monkeypatch.setattr(pypdf, "PdfReader", lambda path: SimpleNamespace(pages=[
-        SimpleNamespace(extract_text=lambda: "短線支撐收復模型 熱門族群回檔模型"),
+        SimpleNamespace(extract_text=lambda: f"短線支撐收復模型 {forbidden_text}"),
     ]))
-    with pytest.raises(RuntimeError, match="熱門族群回檔模型"):
+    with pytest.raises(RuntimeError, match=forbidden_text):
         renderer.validate_outputs([tmp_path / f"{title}.pdf"], inputs)
 
 
@@ -204,7 +222,7 @@ def test_renderer_loads_presentation_approval_from_source_contract(monkeypatch) 
 
     monkeypatch.setattr(renderer, "read_latest_csv", lambda name: pd.DataFrame())
     inputs = renderer.load_inputs()
-    assert "hot_theme_pullback" in renderer.daily_pdf_suppressed_model_ids(inputs)
+    assert set(PRESENTATION_VETO_MODELS) <= renderer.daily_pdf_suppressed_model_ids(inputs)
 
 
 def model_row(model_id: str = LOW_VOLUME_MODEL_ID, approved: str = "true") -> dict[str, str]:

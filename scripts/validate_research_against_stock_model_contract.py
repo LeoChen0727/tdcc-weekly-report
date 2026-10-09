@@ -574,10 +574,10 @@ def contract_drift_blockers(
             model_id == REVENUE_MODEL_ID
             and revenue_state == REVENUE_PREPARED_CONTRACT_STATE
         )
-        # Withdrawing this model's PDF permission does not retire its research
+        # Withdrawing these models' PDF permission does not retire their research
         # baseline or waive any of the remaining contract-drift checks.
         and not (
-            model_id == "hot_theme_pullback"
+            model_id in {"hot_theme_pullback", "tdcc_stealth_accumulation"}
             and registry_row.get("approved_for_daily_pdf", "").strip() == "false"
             and all(
                 (row or {}).get("model_id", "").strip() == model_id
