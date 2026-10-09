@@ -1498,6 +1498,32 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 53
+    share_unit = rows[-1]
+    assert share_unit["migration_id"] == (
+        "pullback_short_reclaim_share_unit_reconciliation_20261009"
+    )
+    assert share_unit["changed_data_families"].split(";") == [
+        "pullback_short_reclaim_share_unit_reconciliation_detail",
+        "pullback_short_reclaim_share_unit_reconciliation_summary",
+        "pullback_short_reclaim_share_unit_reconciliation_manifest",
+    ]
+    assert share_unit["previous_contract_sha256s"] == "NEW;NEW;NEW"
+    assert share_unit["new_contract_sha256s"].split(";") == [
+        "cc89e4b95d23b7d87488ad0dbca068afafc425d3780e6f2417234acae5c7aa5d",
+        "37e0167f72fd8e6dd59ef047e3e2b33384e0d7a7347c78bc25671c7c66be501f",
+        "8ef7ba31e06d60272a8a7665b70e6cf1d3acc27049500a4e246bed331f042565",
+    ]
+    assert share_unit["affected_models"] == "pullback_short_reclaim"
+    assert share_unit["user_approval_reference"] == (
+        "user_requested_remaining_model_repairs_20261009"
+    )
+    assert share_unit["migration_status"] == "validated_user_approved_migration"
+    assert data_migration_row_sha256(share_unit) == (
+        "deb9f1bdc3824678c282611fd56d686ea48e777c3f1a9e8e549c265f90545929"
+    )
+    # Keep the complete pre-supplement migration chain and its exact assertions.
+    rows = rows[:-1]
     assert len(rows) == 52
     conservative = rows[-1]
     assert conservative["migration_id"] == "tdcc_stealth_accumulation_conservative_execution_research_20260930"
