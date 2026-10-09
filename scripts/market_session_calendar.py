@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+from html.parser import HTMLParser
 import json
 import os
 import re
@@ -30,7 +31,7 @@ UNKNOWN = "unknown"
 MARKET_STATUSES = {OPEN_CONFIRMED, CLOSED_SCHEDULED, CLOSED_EMERGENCY, UNKNOWN}
 
 TWSE_ANNUAL_CALENDAR_URL = "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
-DGPA_EMERGENCY_FEED_URL = "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
+DGPA_EMERGENCY_FEED_URL = "https://www.dgpa.gov.tw/typh/daily/nds.html"
 TWSE_EMERGENCY_RULE_URL = "https://www.twse.com.tw/zh/about/suspended_faq.html"
 
 STATIC_NON_TRADING_DAYS = Path("config/twse_non_trading_days.csv")
@@ -494,7 +495,150 @@ def classify_taipei_closure_scope(detail: str) -> str:
     return "full_day"
 
 
-def parse_dgpa_emergency_feed(payload: bytes) -> list[EmergencyNotice]:
+class _DGPAClosurePage(HTMLParser):
+    """Read the official dated announcement table, not navigation or scripts."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.text: list[str] = []
+        self.heading: list[str] = []
+        self.rows: list[list[tuple[dict[str, str | None], str]]] = []
+        self.table_count = 0
+        self.in_table = False
+        self.in_heading = False
+        self.ignored = 0
+        self.row: list[tuple[dict[str, str | None], str]] | None = None
+        self.cell: list[str] | None = None
+        self.cell_attrs: dict[str, str | None] = {}
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = dict(attrs)
+        if tag in {"script", "style"}:
+            self.ignored += 1
+        if tag == "div" and "Header_YMD" in (attributes.get("class") or "").split():
+            self.in_heading = True
+        if tag == "table" and attributes.get("id") == "Table":
+            self.table_count += 1
+            self.in_table = True
+        if self.in_table and tag == "tr":
+            if self.row is not None:
+                raise MarketSessionError("DGPA announcement table has an unclosed row")
+            self.row = []
+        if self.in_table and tag == "td":
+            if self.row is None or self.cell is not None:
+                raise MarketSessionError("DGPA announcement table has malformed cells")
+            self.cell, self.cell_attrs = [], attributes
+        if tag == "br" and self.cell is not None:
+            self.cell.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"script", "style"}:
+            self.ignored = max(0, self.ignored - 1)
+        if tag == "div":
+            self.in_heading = False
+        if tag == "td" and self.cell is not None:
+            assert self.row is not None
+            self.row.append((self.cell_attrs, "".join(self.cell).strip()))
+            self.cell = None
+        if tag == "tr" and self.row is not None:
+            if self.cell is not None:
+                raise MarketSessionError("DGPA announcement table has an unclosed cell")
+            self.rows.append(self.row)
+            self.row = None
+        if tag == "table":
+            self.in_table = False
+
+    def handle_data(self, data: str) -> None:
+        if self.ignored:
+            return
+        self.text.append(data)
+        if self.in_heading:
+            self.heading.append(data)
+        if self.cell is not None:
+            self.cell.append(data)
+
+
+def parse_dgpa_closure_page(
+    payload: bytes, *, assessment_date: str, as_of: datetime
+) -> list[EmergencyNotice]:
+    page = _DGPAClosurePage()
+    page.feed(payload.decode("utf-8-sig"))
+    page.close()
+    visible = " ".join(page.text)
+    heading = re.sub(r"\s+", "", "".join(page.heading))
+    matched = re.fullmatch(r"(\d{3})年(\d{1,2})月(\d{1,2})日天然災害停止上班及上課情形", heading)
+    updated_matches = re.findall(r"更新時間[：:]\s*(\d{4}/\d{2}/\d{2}\s+\d{2}:\d{2}:\d{2})", visible)
+    if (
+        not matched or len(updated_matches) != 1
+        or "行政院人事行政總處" not in visible
+        or page.table_count != 1 or page.in_table or page.row is not None or page.cell is not None
+    ):
+        raise MarketSessionError("DGPA official closure page has invalid identity/date/table schema")
+    try:
+        page_day = datetime(int(matched[1]) + 1911, int(matched[2]), int(matched[3]), tzinfo=TAIPEI_TZ)
+        updated = datetime.strptime(updated_matches[0], "%Y/%m/%d %H:%M:%S").replace(tzinfo=TAIPEI_TZ)
+    except ValueError as exc:
+        raise MarketSessionError("DGPA official closure page has invalid dates") from exc
+    age = (as_of.astimezone(TAIPEI_TZ) - updated).total_seconds()
+    if (
+        page_day.strftime("%Y%m%d") != assessment_date
+        or updated.date() != page_day.date() or not 0 <= age <= 1800
+    ):
+        raise MarketSessionError("DGPA official closure page is stale or does not cover assessment_date")
+    notices: list[EmergencyNotice] = []
+    announcements = 0
+    empty_marker = False
+    for cells in page.rows:
+        if not cells:  # Column headings use TH, not TD.
+            continue
+        if len(cells) == 1 and cells[0][0].get("colspan") == "3":
+            continue  # Official explanatory footer, not an announcement.
+        if len(cells) == 1 and cells[0][0].get("colspan") == "2":
+            if re.sub(r"\s+", "", cells[0][1]) != "無停班停課訊息。" or empty_marker:
+                raise MarketSessionError("DGPA official closure page has an unknown empty-state marker")
+            empty_marker = True
+            continue
+        if (
+            len(cells) != 2 or cells[0][0].get("headers") != "city_Name"
+            or cells[1][0].get("headers") != "StopWorkSchool_Info"
+            or not cells[0][1] or not cells[1][1]
+        ):
+            raise MarketSessionError("DGPA official closure page has an invalid announcement row")
+        announcements += 1
+        if cells[0][1].strip() != "臺北市":
+            continue
+        for detail in cells[1][1].splitlines():
+            detail = re.sub(r"\s+", "", detail)
+            if not detail:
+                continue
+            decision = re.fullmatch(r"(今天|明天)([^。]+)。?", detail)
+            if not decision:
+                raise MarketSessionError("DGPA Taipei announcement has an unrecognized date or local-area scope")
+            date_value = page_day + timedelta(days=decision[1] == "明天")
+            scope = classify_taipei_closure_scope(decision[2])
+            if scope == "unknown" or (
+                "停止上班" in decision[2] and re.search(r"照常上班|正常上班", decision[2])
+            ):
+                raise MarketSessionError("DGPA Taipei announcement has an unrecognized or conflicting decision")
+            notices.append(EmergencyNotice(
+                date=date_value.strftime("%Y%m%d"), scope=scope,
+                summary=f"臺北市:{detail}",
+                source_record_id=f"dgpa-page-{updated.strftime('%Y%m%d%H%M%S')}-{len(notices)}",
+                source_url=DGPA_EMERGENCY_FEED_URL, source_updated_at=updated.isoformat(),
+            ))
+    if (empty_marker and announcements) or (not empty_marker and not announcements):
+        raise MarketSessionError("DGPA official closure page has missing or conflicting announcements")
+    return notices
+
+
+def parse_dgpa_emergency_feed(
+    payload: bytes, *, assessment_date: str = "", as_of: datetime | None = None
+) -> list[EmergencyNotice]:
+    # Preserve explicit Atom consumers; the current official public endpoint is HTML.
+    if re.match(br"\s*(?:<!doctype\s+html[^>]*>\s*)?<html[\s>]", payload, re.I):
+        if not assessment_date or as_of is None:
+            raise MarketSessionError("DGPA official closure page requires an assessment date and query time")
+        return parse_dgpa_closure_page(payload, assessment_date=assessment_date, as_of=as_of)
     root = ET.fromstring(payload)
     if root.tag != f"{{{ATOM_NS['atom']}}}feed":
         raise MarketSessionError("DGPA emergency feed root is not an Atom feed")
@@ -605,7 +749,7 @@ def write_exceptional_evidence(
                 "reason": "Taipei City full-day or morning work suspension; TWSE emergency closure rule applies",
                 "government_area": "Taipei City",
                 "closure_scope": notice.scope,
-                "source_name": "DGPA emergency work and school closure feed via NCDR",
+                "source_name": "DGPA official emergency work and school closure announcement",
                 "source_url": notice.source_url,
                 "source_record_id": notice.source_record_id,
                 "source_updated_at": notice.source_updated_at,
@@ -763,7 +907,7 @@ def build_unknown_status(
         "generated_at": generated_at,
         "phase": phase,
         "assessment_date": assessment_date,
-        "market_session_date": market_session_date,
+        "market_session_date": market_session_date or assessment_date,
         "market_status": UNKNOWN,
         "expected_main_price_date": expected_main_price_date,
         "should_run_daily_pipeline": should_run,
@@ -952,7 +1096,9 @@ def refresh_market_session_status(
             url=DGPA_EMERGENCY_FEED_URL,
             timeout_seconds=timeout_seconds,
             fetch_bytes=fetch_bytes,
-            parse_bytes=parse_dgpa_emergency_feed,
+            parse_bytes=lambda payload: parse_dgpa_emergency_feed(
+                payload, assessment_date=assessment_date, as_of=as_of
+            ),
             diagnostics=feed_diagnostics,
         )
         latest_notices, notice_conflicts = consolidate_emergency_notices(notices)
