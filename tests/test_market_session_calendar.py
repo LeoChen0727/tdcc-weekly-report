@@ -519,6 +519,123 @@ def test_official_source_failure_is_unknown(tmp_path: Path) -> None:
     assert status["should_run_daily_pipeline"] is False
 
 
+def _official_closure_page(rows: str, *, day: str = "10", updated: str = "2026/07/10 19:23:15") -> bytes:
+    return (
+        '<HTML lang="zh-TW"><head><title>行政院人事行政總處</title></head><body>'
+        f'<div class="Header_YMD">115年7月{day}日 天然災害停止上班及上課情形</div>'
+        f'<h4>更新時間：{updated}</h4><TABLE id="Table"><TR><TH>縣市名稱</TH>'
+        f'<TH>是否停止上班上課情形</TH></TR><TBODY>{rows}</TBODY></TABLE></body></HTML>'
+    ).encode("utf-8")
+
+
+def _official_city_row(city: str, detail: str) -> str:
+    return (
+        f'<TR><TD headers="city_Name">{city}</TD>'
+        f'<TD headers="StopWorkSchool_Info">{detail}</TD></TR>'
+    )
+
+
+@pytest.mark.parametrize("decision,expected", [
+    ("今天停止上班、停止上課。", "closed_emergency"),
+    ("今天上午停止上班、停止上課。", "closed_emergency"),
+    ("今天下午停止上班、停止上課。", "unknown"),
+    ("今天照常上班、照常上課。", "unknown"),
+])
+def test_official_dgpa_page_preserves_taipei_closure_decisions(tmp_path, decision, expected):
+    payload = _official_closure_page(_official_city_row("臺北市", decision))
+    status = market_session.refresh_market_session_status(
+        tmp_path, phase="preflight", as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=_fetcher(payload), write_files=False,
+    )
+    assert status["market_status"] == expected
+    assert status["official_sources"]["dgpa_emergency_closure"]["status"] == "ok"
+    assert status["should_run_daily_pipeline"] is (expected == "unknown")
+
+
+@pytest.mark.parametrize("rows", [
+    '<TR><TD headers="city_Name" colspan="2"><h2>無停班停課訊息。</h2></TD></TR>',
+    _official_city_row("臺中市", "今天停止上班、停止上課。"),
+])
+def test_official_dgpa_page_empty_or_other_city_is_not_a_taipei_closure(tmp_path, rows):
+    status = market_session.refresh_market_session_status(
+        tmp_path, phase="preflight", as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=_fetcher(_official_closure_page(rows)), write_files=False,
+    )
+    assert status["reason_code"] == "awaiting_official_price_confirmation"
+    assert status["market_status"] == "unknown"  # Never open without price confirmation.
+    assert status["expected_main_price_date"] == "20260710"
+
+
+@pytest.mark.parametrize("mutation", ["stale", "future", "wrong_date", "empty", "truncated", "login", "local_area", "conflict"])
+def test_official_dgpa_page_invalid_content_stays_unknown(tmp_path, monkeypatch, mutation):
+    monkeypatch.setattr(market_session.time, "sleep", lambda _seconds: None)
+    payload = _official_closure_page(_official_city_row("臺北市", "今天停止上班、停止上課。"))
+    if mutation == "stale":
+        payload = payload.replace(b"19:23:15", b"18:00:00")
+    elif mutation == "future":
+        payload = payload.replace(b"19:23:15", b"20:00:00")
+    elif mutation == "wrong_date":
+        payload = payload.replace("7月10日".encode(), "7月9日".encode())
+    elif mutation == "empty":
+        payload = _official_closure_page("")
+    elif mutation == "truncated":
+        payload = payload.split(b"</TABLE>")[0]
+    elif mutation == "login":
+        payload = b"<WarningMessage><Warning>Login required</Warning></WarningMessage>"
+    elif mutation == "local_area":
+        payload = _official_closure_page(_official_city_row("臺北市", "某學校:今天停止上班、停止上課。"))
+    else:
+        payload = _official_closure_page(_official_city_row("臺北市", "今天照常上班、停止上班。"))
+    status = market_session.refresh_market_session_status(
+        tmp_path, phase="preflight", as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=_fetcher(payload), write_files=False,
+    )
+    assert status["market_status"] == "unknown"
+    assert status["reason_code"] == "official_source_unavailable"
+    assert status["should_run_daily_pipeline"] is False
+    assert status["official_sources"]["dgpa_emergency_closure"]["attempt_count"] == 3
+    assert not (tmp_path / market_session.MARKET_SESSION_STATUS).exists()
+
+
+def test_new_day_source_failure_persists_dated_unknown_without_masking_diagnostic(tmp_path, monkeypatch):
+    monkeypatch.setattr(market_session.time, "sleep", lambda _seconds: None)
+    previous = {
+        "generated_at": "2026-07-09T20:00:00+08:00", "market_status": "open_confirmed",
+        "phase": "confirm", "market_session_date": "20260709", "expected_main_price_date": "20260709",
+    }
+    market_session.write_market_session_status(tmp_path, previous)
+    bad = b"<WarningMessage><Warning>Login required</Warning></WarningMessage>"
+    status = market_session.refresh_market_session_status(
+        tmp_path, phase="preflight", as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=_fetcher(bad),
+    )
+    assert status["market_session_date"] == "20260710"
+    assert status["expected_main_price_date"] == ""
+    assert status["market_status"] == "unknown"
+    assert status["should_run_daily_pipeline"] is False
+    assert "source=dgpa_emergency_closure attempts=3" in status["reason"]
+    assert "not an Atom feed" in status["reason"]
+    assert hashlib.sha256(bad).hexdigest() in status["reason"]
+    assert json.loads((tmp_path / market_session.MARKET_SESSION_STATUS).read_text()) == status
+
+
+def test_same_day_source_failure_cannot_downgrade_confirmed_authority(tmp_path, monkeypatch):
+    monkeypatch.setattr(market_session.time, "sleep", lambda _seconds: None)
+    previous = {
+        "generated_at": "2026-07-10T19:00:00+08:00", "market_status": "open_confirmed",
+        "phase": "confirm", "market_session_date": "20260710", "expected_main_price_date": "20260710",
+    }
+    market_session.write_market_session_status(tmp_path, previous)
+    path = tmp_path / market_session.MARKET_SESSION_STATUS
+    before = path.read_bytes()
+    with pytest.raises(market_session.MarketSessionError):
+        market_session.refresh_market_session_status(
+            tmp_path, phase="preflight", as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+            fetch_bytes=_fetcher(b"<WarningMessage/>"),
+        )
+    assert path.read_bytes() == before
+
+
 def test_fetch_parse_preserves_http_retry_after_transport_retry(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
