@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 import ast
+import base64
+import copy
+import hashlib
+import json
 from pathlib import Path
 import sys
 
@@ -15,6 +19,8 @@ if str(SCRIPTS) not in sys.path:
 
 import build_pullback_short_reclaim_research as producer  # noqa: E402
 import validate_pullback_short_reclaim_research as validator  # noqa: E402
+import build_pullback_short_reclaim_share_unit_reconciliation as unit_producer  # noqa: E402
+import validate_pullback_short_reclaim_share_unit_reconciliation as unit_validator  # noqa: E402
 
 
 REPORT_DATE = "20260803"
@@ -706,3 +712,171 @@ def test_cli_without_registered_ownership_leaves_no_output(
     assert all(
         not path.exists() for path in producer._replay_output_paths(output_dir)
     )
+
+
+@pytest.fixture(scope="module")
+def frozen_share_unit_bundle() -> tuple:
+    """Read five pinned blobs once; never rerun the old market replay producer."""
+    config = json.loads((ROOT / unit_producer.CONFIG_REL).read_text(encoding="utf-8"))
+    bundle = unit_producer.build_bundle(ROOT)
+    sources = unit_validator.load_sources(ROOT)
+    return bundle, config, sources
+
+
+def _unit_manifest_rebound(detail: pd.DataFrame, summary: pd.DataFrame, manifest: dict) -> dict:
+    result = copy.deepcopy(manifest)
+    result["output_sha256"] = {
+        unit_validator.OUTPUTS[key]: hashlib.sha256(
+            frame.to_csv(index=False, lineterminator="\n").encode("utf-8")
+        ).hexdigest()
+        for key, frame in (("detail", detail), ("summary", summary))
+    }
+    return result
+
+
+def test_share_unit_frozen_population_dates_and_unresolved_primary_preserved(frozen_share_unit_bundle: tuple) -> None:
+    (detail, summary, manifest), config, sources = frozen_share_unit_bundle
+    result = unit_validator.validate_bundle(ROOT, detail, summary, manifest, config=config, sources=sources)
+    assert result == {
+        "source_rows": 3020, "unique_signal_events": 2992, "known_action_affected_rows": 1,
+        "unresolved_anomalies_retained": 1, "formal_use_allowed": False, "total_return_complete": False,
+    }
+    target = detail[detail.stock_id.eq("5904")].iloc[0]
+    assert target.entry_date == "20260714"
+    assert target.d20_exit_date == "20260819"  # Individual stock row 20, not market day 20.
+    assert target.d5_share_factor == target.d10_share_factor == "1"
+    assert target.d5_share_unit_return_pct == target.d5_return_pct
+    assert target.d10_share_unit_return_pct == target.d10_return_pct
+    assert target.d20_share_factor == "10"
+    assert target.d20_return_pct == "-88.270677"
+    assert target.d20_share_unit_return_pct == "17.293233"
+    assert target.primary_metric_included == "True"
+    assert target.anomaly_disposition == "unresolved_anomaly_candidate"
+    assert target.cash_flow_status == "not_modelled_not_total_return"
+    assert set(detail.formal_use_allowed) == {"False"}
+    assert set(detail.promotion_evidence_allowed) == {"False"}
+    assert set(detail.total_return_complete) == {"False"}
+    assert summary.partial_known_share_unit_affected_count.tolist() == ["0", "0", "1"]
+
+
+@pytest.mark.parametrize("column,value", [
+    ("d20_share_factor", "100"),
+    ("d20_share_unit_return_pct", "1072.932331"),
+    ("d5_share_factor", "10"),
+    ("d10_share_unit_return_pct", "904.51128"),
+    ("entry_date", "20260810"),
+    ("d20_exit_date", "20260810"),
+    ("d20_return_pct", "17.293233"),
+    ("primary_metric_included", "False"),
+    ("anomaly_disposition", "verified_non_comparable"),
+    ("formal_use_allowed", "True"),
+    ("promotion_evidence_allowed", "True"),
+    ("total_return_complete", "True"),
+    ("first_publication_pit_proven", "True"),
+    ("cash_flow_status", "complete_total_return"),
+])
+def test_share_unit_validator_rejects_detail_tampering_even_with_rebound_hash(
+    frozen_share_unit_bundle: tuple, column: str, value: str,
+) -> None:
+    (original, summary, manifest), config, sources = frozen_share_unit_bundle
+    detail = original.copy(deep=True)
+    detail.loc[detail.stock_id.eq("5904"), column] = value
+    rebound = _unit_manifest_rebound(detail, summary, manifest)
+    with pytest.raises(ValueError):
+        unit_validator.validate_bundle(ROOT, detail, summary, rebound, config=config, sources=sources)
+
+
+@pytest.mark.parametrize("column,value", [
+    ("average_return_pct", "99"),
+    ("unresolved_anomaly_candidate_count", "0"),
+    ("partial_known_share_unit_mature_count", "1965"),
+    ("partial_known_share_unit_affected_count", "0"),
+    ("partial_known_share_unit_win_rate_pct", "99"),
+    ("partial_known_share_unit_average_return_pct", "99"),
+    ("partial_known_share_unit_median_return_pct", "99"),
+    ("partial_known_share_unit_result_status", "corrected_primary"),
+])
+def test_share_unit_validator_rejects_summary_tampering_even_with_rebound_hash(
+    frozen_share_unit_bundle: tuple, column: str, value: str,
+) -> None:
+    (detail, original, manifest), config, sources = frozen_share_unit_bundle
+    summary = original.copy(deep=True)
+    summary.loc[summary.horizon.eq("D+20"), column] = value
+    rebound = _unit_manifest_rebound(detail, summary, manifest)
+    with pytest.raises(ValueError):
+        unit_validator.validate_bundle(ROOT, detail, summary, rebound, config=config, sources=sources)
+
+
+@pytest.mark.parametrize("mutation", ["factor", "effective_date", "receipt", "source_commit", "price_hash", "formal"])
+def test_share_unit_config_is_anchored_not_self_authenticating(frozen_share_unit_bundle: tuple, mutation: str) -> None:
+    (detail, summary, original_manifest), original_config, sources = frozen_share_unit_bundle
+    config = copy.deepcopy(original_config)
+    if mutation == "factor":
+        config["action"]["share_factor"] = 100
+    elif mutation == "effective_date":
+        config["action"]["effective_date"] = "20260720"
+    elif mutation == "receipt":
+        fake_receipt = base64.b64decode(config["action"]["receipt_body_base64"]).replace(b"5904", b"5905")
+        config["action"]["receipt_body_base64"] = base64.b64encode(fake_receipt).decode("ascii")
+        config["action"]["receipt_sha256"] = hashlib.sha256(fake_receipt).hexdigest()
+    elif mutation == "source_commit":
+        config["source_commit"] = "0" * 40
+    elif mutation == "price_hash":
+        config["price_source"]["raw_sha256"] = "0" * 64
+    else:
+        config["limitations"]["formal_model_use_allowed"] = True
+    manifest = copy.deepcopy(original_manifest)
+    manifest["config_canonical_sha256"] = hashlib.sha256(
+        json.dumps(config, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
+    manifest["action"] = config["action"]
+    with pytest.raises(RuntimeError):
+        unit_producer.validate_config(config)
+    with pytest.raises(ValueError):
+        unit_validator.validate_bundle(ROOT, detail, summary, manifest, config=config, sources=sources)
+
+
+def test_share_unit_validator_rejects_raw_source_and_manifest_hash_drift(frozen_share_unit_bundle: tuple) -> None:
+    (detail, summary, original_manifest), config, original_sources = frozen_share_unit_bundle
+    sources = dict(original_sources)
+    sources["price"] += b"\n"
+    with pytest.raises(ValueError, match="immutable input raw SHA"):
+        unit_validator.validate_bundle(ROOT, detail, summary, original_manifest, config=config, sources=sources)
+    manifest = copy.deepcopy(original_manifest)
+    manifest["output_sha256"][unit_validator.OUTPUTS["detail"]] = "0" * 64
+    with pytest.raises(ValueError, match="manifest"):
+        unit_validator.validate_bundle(ROOT, detail, summary, manifest, config=config, sources=original_sources)
+
+
+def test_share_unit_independent_validator_does_not_import_project_business_code() -> None:
+    tree = ast.parse((SCRIPTS / "validate_pullback_short_reclaim_share_unit_reconciliation.py").read_text(encoding="utf-8"))
+    imports = {
+        name.split(".", 1)[0]
+        for node in ast.walk(tree)
+        for name in ([alias.name for alias in node.names] if isinstance(node, ast.Import)
+                     else [node.module or ""] if isinstance(node, ast.ImportFrom) else [])
+    }
+    assert imports <= set(sys.stdlib_module_names) | {"pandas"}
+
+
+def test_share_unit_producer_rejects_double_adjustment(frozen_share_unit_bundle: tuple) -> None:
+    (detail, summary, _manifest), config, sources = frozen_share_unit_bundle
+    with pytest.raises(RuntimeError, match="already reconciled"):
+        unit_producer.build_reconciliation(detail, summary, unit_validator._csv(sources["anomalies"]),
+                                          unit_validator._csv(sources["price"]), config)
+
+
+def test_share_unit_committed_artifacts_pass_independent_byte_validation() -> None:
+    result = unit_validator.validate(ROOT)
+    assert result["source_rows"] == 3020
+    assert result["known_action_affected_rows"] == 1
+    assert result["formal_use_allowed"] is False
+
+
+def test_share_unit_artifact_exact_lf_checkout_contract() -> None:
+    prefix = "output/research/pullback_short_reclaim/pullback_short_reclaim_share_unit_reconciliation_v1_"
+    observed = [line.strip() for line in (ROOT / ".gitattributes").read_text(encoding="utf-8").splitlines()
+                if line.startswith(prefix)]
+    expected = [prefix + suffix + " text eol=lf" for suffix in ("detail.csv", "summary.csv", "manifest.json")]
+    assert len(observed) == 3
+    assert set(observed) == set(expected)

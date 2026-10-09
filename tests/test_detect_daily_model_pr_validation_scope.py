@@ -12,6 +12,35 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+PULLBACK_SHARE_UNIT_EXACT_PATHS = frozenset({
+    "scripts/build_pullback_short_reclaim_share_unit_reconciliation.py",
+    "scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py",
+    "config/pullback_short_reclaim_share_unit_reconciliation_v1.json",
+    "docs/specs/pullback_short_reclaim_share_unit_reconciliation_v1.md",
+    "tests/test_pullback_short_reclaim_research.py",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_share_unit_reconciliation_v1_detail.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_share_unit_reconciliation_v1_summary.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_share_unit_reconciliation_v1_manifest.json",
+})
+
+
+@pytest.mark.parametrize("path", sorted(PULLBACK_SHARE_UNIT_EXACT_PATHS))
+def test_pullback_share_unit_exact_paths_route_to_shared_research(path):
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({
+        scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH})
+
+
+@pytest.mark.parametrize("path", (
+    "config/pullback_short_reclaim_share_unit_reconciliation_v2.json",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_share_unit_reconciliation_v1_extra.csv",
+    "scripts/build_pullback_short_reclaim_share_unit_reconciliation_unregistered.py",
+))
+def test_pullback_share_unit_unknown_paths_fail_closed(path):
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
+
 TDCC_CONSERVATIVE_EXECUTION_EXACT_PATHS = frozenset({
     "scripts/build_tdcc_stealth_accumulation_conservative_execution_research.py",
     "scripts/validate_tdcc_stealth_accumulation_conservative_execution_research.py",
@@ -585,6 +614,7 @@ def test_tdcc_medium_term_unregistered_paths_fail_closed(path: str) -> None:
 
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
+        PULLBACK_SHARE_UNIT_EXACT_PATHS |
         TDCC_OUTCOME_UNIT_EXACT_PATHS |
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
         | TDCC_RECEIPTED_REPLAY_EXACT_PATHS | TDCC_CORPORATE_ACTION_LEDGER_EXACT_PATHS
