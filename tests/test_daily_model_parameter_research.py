@@ -496,44 +496,55 @@ def test_permissions_false_exception_does_not_apply_to_other_models() -> None:
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
-def _hot_theme_pdf_hidden_parity_inputs() -> dict:
+@pytest.fixture(params=["hot_theme_pullback", "tdcc_stealth_accumulation"])
+def pdf_hidden_model_id(request) -> str:
+    return request.param
+
+
+def _pdf_hidden_parity_inputs(model_id: str) -> dict:
+    function_suffix = {
+        "hot_theme_pullback": "hot_theme_pullback",
+        "tdcc_stealth_accumulation": "tdcc_stealth",
+    }[model_id]
+    pit_blocker = {
+        "hot_theme_pullback": "daily hot-theme labels are not fully backfilled as point-in-time model-layer fields",
+        "tdcc_stealth_accumulation": "TDCC historical first-release versions are not fully available as point-in-time model-layer fields",
+    }[model_id]
     return {
-        "model_id": "hot_theme_pullback",
+        "model_id": model_id,
         "registry_row": {
-            "model_id": "hot_theme_pullback",
+            "model_id": model_id,
             "contract_version": "v1",
             "owner_lane": "daily_model_maintenance",
-            "condition_function": "cond_hot_theme_pullback",
-            "score_function": "score_hot_theme_pullback",
-            "score_profile_id": "hot_theme_pullback",
+            "condition_function": f"cond_{function_suffix}",
+            "score_function": f"score_{function_suffix}",
+            "score_profile_id": model_id,
             "pdf_visibility": "pdf_core_model",
             "approved_for_daily_pdf": "false",
             "research_baseline_required": "true",
         },
         "condition_row": {
-            "model_id": "hot_theme_pullback",
-            "condition_function": "cond_hot_theme_pullback",
-            "score_function": "score_hot_theme_pullback",
-            "score_profile_id": "hot_theme_pullback",
+            "model_id": model_id,
+            "condition_function": f"cond_{function_suffix}",
+            "score_function": f"score_{function_suffix}",
+            "score_profile_id": model_id,
         },
         "production_row": {
-            "model_id": "hot_theme_pullback",
+            "model_id": model_id,
             "pdf_visibility": "pdf_core_model",
-            "score_profile_id": "hot_theme_pullback",
+            "score_profile_id": model_id,
         },
         "research_row": {
             "research_baseline_status": "production_proxy",
             "research_baseline_parameter_set_id": "production_current_proxy",
-            "parity_blocker": (
-                "daily hot-theme labels are not fully backfilled as point-in-time model-layer fields"
-            ),
+            "parity_blocker": pit_blocker,
         },
         "metric_rows": [],
     }
 
 
-def test_hot_theme_pdf_hidden_preserves_research_proxy_warning() -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_preserves_research_proxy_warning(pdf_hidden_model_id: str) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     hidden = classify_row(**values)
     values["registry_row"]["approved_for_daily_pdf"] = "true"
     visible = classify_row(**values)
@@ -544,9 +555,7 @@ def test_hot_theme_pdf_hidden_preserves_research_proxy_warning() -> None:
     assert hidden["research_baseline_exists"] == "True"
     assert hidden["research_contract_version"] == "research:production_current_proxy"
     assert hidden["promotion_required"] == "True"
-    assert hidden["parity_blocker"] == (
-        "daily hot-theme labels are not fully backfilled as point-in-time model-layer fields"
-    )
+    assert hidden["parity_blocker"] == values["research_row"]["parity_blocker"]
     assert validate_rows([hidden], []) == []
 
 
@@ -559,8 +568,8 @@ def test_hot_theme_pdf_hidden_preserves_research_proxy_warning() -> None:
         ("production_row", "score_profile_id"),
     ],
 )
-def test_hot_theme_pdf_hidden_rejects_contract_drift(component: str, field: str) -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_rejects_contract_drift(pdf_hidden_model_id: str, component: str, field: str) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     values[component][field] = "drifted"
     row = classify_row(**values)
 
@@ -571,8 +580,8 @@ def test_hot_theme_pdf_hidden_rejects_contract_drift(component: str, field: str)
 
 
 @pytest.mark.parametrize("permission", ["", "False", "FALSE", "True", "0", "no"])
-def test_hot_theme_pdf_hidden_rejects_invalid_permission(permission: str) -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_rejects_invalid_permission(pdf_hidden_model_id: str, permission: str) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     values["registry_row"]["approved_for_daily_pdf"] = permission
     row = classify_row(**values)
 
@@ -581,8 +590,8 @@ def test_hot_theme_pdf_hidden_rejects_invalid_permission(permission: str) -> Non
 
 
 @pytest.mark.parametrize("missing_row", [False, True])
-def test_hot_theme_pdf_hidden_still_requires_research_baseline(missing_row: bool) -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_still_requires_research_baseline(pdf_hidden_model_id: str, missing_row: bool) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     if missing_row:
         values["research_row"] = None
     else:
@@ -595,8 +604,8 @@ def test_hot_theme_pdf_hidden_still_requires_research_baseline(missing_row: bool
 
 
 @pytest.mark.parametrize("field", ["owner_lane", "pdf_visibility", "research_baseline_required"])
-def test_hot_theme_pdf_hidden_preserves_other_contract_guards(field: str) -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_preserves_other_contract_guards(pdf_hidden_model_id: str, field: str) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     values["registry_row"][field] = "invalid"
     row = classify_row(**values)
 
@@ -605,16 +614,16 @@ def test_hot_theme_pdf_hidden_preserves_other_contract_guards(field: str) -> Non
 
 
 @pytest.mark.parametrize("component", ["registry_row", "condition_row", "production_row"])
-def test_hot_theme_pdf_hidden_rejects_missing_contract_rows(component: str) -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_rejects_missing_contract_rows(pdf_hidden_model_id: str, component: str) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     values[component] = None
 
     assert classify_row(**values)["parity_status"] == "hard_fail_contract_drift"
 
 
 @pytest.mark.parametrize("component", ["all", "registry_row", "condition_row", "production_row"])
-def test_hot_theme_pdf_hidden_exception_is_model_specific(component: str) -> None:
-    values = _hot_theme_pdf_hidden_parity_inputs()
+def test_pdf_hidden_exception_is_model_specific(pdf_hidden_model_id: str, component: str) -> None:
+    values = _pdf_hidden_parity_inputs(pdf_hidden_model_id)
     if component == "all":
         values["model_id"] = "other_model"
         for key in ("registry_row", "condition_row", "production_row"):
