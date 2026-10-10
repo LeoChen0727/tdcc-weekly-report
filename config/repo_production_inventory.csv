@@ -712,3 +712,6 @@ tests/test_tdcc_stealth_accumulation_conservative_execution_research.py,test_pyt
 tests/test_validate_tdcc_stealth_accumulation_conservative_execution_research.py,test_python,research_backtest,active,Independent mutation and published artifact regressions,,
 scripts/build_pullback_short_reclaim_share_unit_reconciliation.py,python,research_backtest,active,Model-owned frozen-outcome official share-unit supplement producer,,
 scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py,python,research_backtest,active,Independent frozen-outcome official share-unit supplement validator,,
+scripts/build_pullback_short_reclaim_23ema_condition_comparison.py,python,research_backtest,active,Model-owned frozen-snapshot 23EMA-condition comparison producer,,
+scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py,python,research_backtest,active,Independent fixed-source three-state condition comparison validator,,
+tests/test_pullback_short_reclaim_23ema_condition_comparison.py,test_python,research_backtest,active,Frozen-source condition comparison and independent artifact mutation regressions,,
