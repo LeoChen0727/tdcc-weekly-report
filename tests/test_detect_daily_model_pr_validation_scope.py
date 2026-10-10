@@ -643,6 +643,7 @@ def test_tdcc_medium_term_unregistered_paths_fail_closed(path: str) -> None:
 
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
+        PULLBACK_COMPARISON_EXACT_PATHS |
         PULLBACK_SHARE_UNIT_EXACT_PATHS |
         TDCC_OUTCOME_UNIT_EXACT_PATHS |
         FOUR_MODEL_SHARED_RESEARCH_EXACT_PATHS | TDCC_OPERATION_REPLAY_EXACT_PATHS
