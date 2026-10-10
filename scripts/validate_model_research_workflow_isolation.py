@@ -32,6 +32,8 @@ PULLBACK_SHARE_UNIT_LOCAL_OWNER = "pullback_short_reclaim_share_unit_reconciliat
 PULLBACK_SHARE_UNIT_LOCAL_PRODUCER = "scripts/build_pullback_short_reclaim_share_unit_reconciliation.py"
 PULLBACK_COMPARISON_LOCAL_OWNER = "pullback_short_reclaim_23ema_condition_comparison"
 PULLBACK_COMPARISON_LOCAL_PRODUCER = "scripts/build_pullback_short_reclaim_23ema_condition_comparison.py"
+PULLBACK_MATCHED_FEATURE_LOCAL_OWNER = "pullback_short_reclaim_matched_feature_research"
+PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER = "scripts/build_pullback_short_reclaim_matched_feature_research.py"
 MEDIUM_TERM_LOCAL_OWNER = "tdcc_stealth_accumulation_medium_term_trend_research"
 MEDIUM_TERM_LOCAL_PRODUCER = "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py"
 ANNUAL_LOCAL_OWNER = "tdcc_stealth_accumulation_current_version_annual_replay"
@@ -608,6 +610,7 @@ def validate_registry_contract(
         REVENUE_OUTCOME_UNIT_LOCAL_OWNER: REVENUE_OUTCOME_UNIT_LOCAL_PRODUCER,
         PULLBACK_SHARE_UNIT_LOCAL_OWNER: PULLBACK_SHARE_UNIT_LOCAL_PRODUCER,
         PULLBACK_COMPARISON_LOCAL_OWNER: PULLBACK_COMPARISON_LOCAL_PRODUCER,
+        PULLBACK_MATCHED_FEATURE_LOCAL_OWNER: PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER,
         ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER,
         MEDIUM_TERM_LOCAL_OWNER: MEDIUM_TERM_LOCAL_PRODUCER,
     }
@@ -689,6 +692,10 @@ def validate_annual_local_workflow_exclusion(workflow_texts: dict[str, str]) -> 
         f"frozen-snapshot pullback_short_reclaim comparison producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()
         if Path(PULLBACK_COMPARISON_LOCAL_PRODUCER).stem in text
+    ] + [
+        f"fixed-source pullback_short_reclaim matched-feature producer is forbidden in every workflow: {path}"
+        for path, text in workflow_texts.items()
+        if Path(PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER).stem in text
     ] + [
         f"annual local-private producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()
@@ -2100,6 +2107,7 @@ def main() -> int:
     print("validated_local_frozen_outcome_owner=" + REVENUE_OUTCOME_UNIT_LOCAL_OWNER)
     print("validated_local_frozen_outcome_owner=" + PULLBACK_SHARE_UNIT_LOCAL_OWNER)
     print("validated_local_frozen_snapshot_comparison_owner=" + PULLBACK_COMPARISON_LOCAL_OWNER)
+    print("validated_local_fixed_source_matched_feature_owner=" + PULLBACK_MATCHED_FEATURE_LOCAL_OWNER)
     print("validated_local_private_entrypoints=2: " + ANNUAL_LOCAL_OWNER + ", " + MEDIUM_TERM_LOCAL_OWNER)
     return 0
 
