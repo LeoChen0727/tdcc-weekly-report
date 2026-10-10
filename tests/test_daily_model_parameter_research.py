@@ -496,18 +496,35 @@ def test_permissions_false_exception_does_not_apply_to_other_models() -> None:
 # END MODEL_OWNED_VALIDATION_SCOPE: revenue_unreacted_range
 
 
-@pytest.fixture(params=["hot_theme_pullback", "tdcc_stealth_accumulation"])
+@pytest.fixture(
+    params=[
+        "hot_theme_pullback",
+        "pullback_short_reclaim",
+        "tdcc_stealth_accumulation",
+    ]
+)
 def pdf_hidden_model_id(request) -> str:
     return request.param
 
 
 def _pdf_hidden_parity_inputs(model_id: str) -> dict:
-    function_suffix = {
-        "hot_theme_pullback": "hot_theme_pullback",
-        "tdcc_stealth_accumulation": "tdcc_stealth",
+    condition_function, score_function = {
+        "hot_theme_pullback": (
+            "cond_hot_theme_pullback",
+            "score_hot_theme_pullback",
+        ),
+        "pullback_short_reclaim": (
+            "cond_pullback_short_strength",
+            "score_pullback_short_reclaim",
+        ),
+        "tdcc_stealth_accumulation": (
+            "cond_tdcc_stealth",
+            "score_tdcc_stealth",
+        ),
     }[model_id]
     pit_blocker = {
         "hot_theme_pullback": "daily hot-theme labels are not fully backfilled as point-in-time model-layer fields",
+        "pullback_short_reclaim": "pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled",
         "tdcc_stealth_accumulation": "TDCC historical first-release versions are not fully available as point-in-time model-layer fields",
     }[model_id]
     return {
@@ -516,8 +533,8 @@ def _pdf_hidden_parity_inputs(model_id: str) -> dict:
             "model_id": model_id,
             "contract_version": "v1",
             "owner_lane": "daily_model_maintenance",
-            "condition_function": f"cond_{function_suffix}",
-            "score_function": f"score_{function_suffix}",
+            "condition_function": condition_function,
+            "score_function": score_function,
             "score_profile_id": model_id,
             "pdf_visibility": "pdf_core_model",
             "approved_for_daily_pdf": "false",
@@ -525,8 +542,8 @@ def _pdf_hidden_parity_inputs(model_id: str) -> dict:
         },
         "condition_row": {
             "model_id": model_id,
-            "condition_function": f"cond_{function_suffix}",
-            "score_function": f"score_{function_suffix}",
+            "condition_function": condition_function,
+            "score_function": score_function,
             "score_profile_id": model_id,
         },
         "production_row": {

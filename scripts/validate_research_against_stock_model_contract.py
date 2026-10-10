@@ -577,7 +577,11 @@ def contract_drift_blockers(
         # Withdrawing these models' PDF permission does not retire their research
         # baseline or waive any of the remaining contract-drift checks.
         and not (
-            model_id in {"hot_theme_pullback", "tdcc_stealth_accumulation"}
+            model_id in {
+                "hot_theme_pullback",
+                "pullback_short_reclaim",
+                "tdcc_stealth_accumulation",
+            }
             and registry_row.get("approved_for_daily_pdf", "").strip() == "false"
             and all(
                 (row or {}).get("model_id", "").strip() == model_id
