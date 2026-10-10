@@ -13,6 +13,35 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 ROOT = Path(__file__).resolve().parents[1]
 
 
+PULLBACK_COMPARISON_EXACT_PATHS = frozenset({
+    "scripts/build_pullback_short_reclaim_23ema_condition_comparison.py",
+    "scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py",
+    "tests/test_pullback_short_reclaim_23ema_condition_comparison.py",
+    "docs/specs/pullback_short_reclaim_23ema_condition_comparison_v1.md",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_detail.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_summary.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_features.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_manifest.json",
+})
+
+
+@pytest.mark.parametrize("path", sorted(PULLBACK_COMPARISON_EXACT_PATHS))
+def test_pullback_comparison_exact_paths_route_to_shared_research(path):
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({
+        scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH})
+
+
+@pytest.mark.parametrize("path", (
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v2_detail.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_extra.csv",
+    "scripts/build_pullback_short_reclaim_23ema_condition_comparison_unregistered.py",
+))
+def test_pullback_comparison_unknown_paths_fail_closed(path):
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
+
+
 PULLBACK_SHARE_UNIT_EXACT_PATHS = frozenset({
     "scripts/build_pullback_short_reclaim_share_unit_reconciliation.py",
     "scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py",

@@ -1498,6 +1498,46 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 55
+    comparison, source_read = rows[-2:]
+    owner = "pullback_short_reclaim_23ema_condition_comparison"
+    assert comparison["migration_id"] == owner + "_20261010"
+    assert comparison["changed_data_families"].split(";") == [
+        owner + "_detail", owner + "_summary", owner + "_features", owner + "_manifest",
+    ]
+    assert comparison["previous_contract_sha256s"] == "NEW;NEW;NEW;NEW"
+    assert comparison["new_contract_sha256s"].split(";") == [
+        "a0f7fc5f4d1f8e64b9705ac55b313c5a703cd5acfc12bd829764cebff57291ee",
+        "69937d7417be0439c2fa1f71ed1f5d352e922429547b5712c1ad2d3271c841f5",
+        "4cc820660a7b91b123aee23be30f34f8b2be7ef12bfd1afc385fddd2b6806020",
+        "84576b4dc734279803d746e289f99aa9b4925aa45fdd6811ef243c31d86f7e96",
+    ]
+    assert source_read["migration_id"] == owner + "_source_read_20261010"
+    assert source_read["changed_data_families"].split(";") == [
+        "pullback_short_reclaim_share_unit_reconciliation_detail",
+        "pullback_short_reclaim_share_unit_reconciliation_summary",
+    ]
+    assert source_read["previous_contract_sha256s"].split(";") == [
+        "cc89e4b95d23b7d87488ad0dbca068afafc425d3780e6f2417234acae5c7aa5d",
+        "37e0167f72fd8e6dd59ef047e3e2b33384e0d7a7347c78bc25671c7c66be501f",
+    ]
+    assert source_read["new_contract_sha256s"].split(";") == [
+        "3d66179c76b36b8d70f14c83d1c42d28c1cc39ea87dadd1695fccc83f832227b",
+        "8b70f63339decd612a245a7cbcf8a8856dbd8da8358930f95871a5f221cecef6",
+    ]
+    backgrounds = {row["data_family_id"]: row for row in read_csv("config/daily_model_background_data_registry.csv")}
+    sharing = {row["data_family_id"]: row for row in read_csv("config/daily_model_data_sharing_registry.csv")}
+    for migration in (comparison, source_read):
+        assert migration["affected_models"] == "pullback_short_reclaim"
+        assert migration["user_approval_reference"] == "user_20261010_pullback_short_reclaim_23ema_condition_comparison"
+        assert migration["migration_status"] == "validated_user_approved_migration"
+        for family, digest in zip(migration["changed_data_families"].split(";"), migration["new_contract_sha256s"].split(";")):
+            assert data_contract_sha256(backgrounds[family]) == digest
+            assert sharing[family]["data_contract_sha256"] == digest
+            assert sharing[family]["last_migration_id"] == migration["migration_id"]
+            assert sharing[family]["approved_consumer_models"] == "pullback_short_reclaim"
+    # Keep all 53 pre-comparison migration rows and their exact assertions.
+    rows = rows[:-2]
     assert len(rows) == 53
     share_unit = rows[-1]
     assert share_unit["migration_id"] == (

@@ -253,3 +253,9 @@ prevent lane-specific PRs or manual runs from reviving old shared paths.
 - 手動入口：`scripts/build_pullback_short_reclaim_share_unit_reconciliation.py`，僅寫入 detail、summary、manifest 三份精確命名的新產物，不接入遠端 producer workflow。
 - 獨立驗證：`scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py`，不匯入 producer 業務函式；僅補充 5904 官方 1:10 股數單位換算，不代表完整總報酬、首次發布 PIT 或正式升級。
 - 原訊號、買賣日期、原報酬與 primary 中未解異常全部保留；範圍詳見[回檔後短線轉強股數單位補充研究 v1](specs/pullback_short_reclaim_share_unit_reconciliation_v1.md)。
+
+## 回檔後短線轉強有限23EMA條件比較（research-only）
+
+- 手動入口：`scripts/build_pullback_short_reclaim_23ema_condition_comparison.py`，只讀固定版本的既有明細、摘要與當時快照欄位，僅寫入 detail、summary、features、manifest 四份精確命名的新產物，不接入遠端 producer workflow。
+- 獨立驗證：`scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py`，核對固定來源、三態缺值、各比較指標及內容雜湊，不匯入 producer 或 23EMA 業務函式。
+- 原訊號與 D5/D10/D20 日期、持有口徑不變；未解異常保留 primary，股數單位補充與排除候選敏感度分開標示。不修改正式模型或 PDF，也不構成正式勝率或升級證據；詳見[有限23EMA條件比較 v1](specs/pullback_short_reclaim_23ema_condition_comparison_v1.md)。

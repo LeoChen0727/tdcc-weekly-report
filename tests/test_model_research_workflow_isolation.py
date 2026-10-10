@@ -200,6 +200,48 @@ def test_pullback_share_unit_owner_has_only_three_exact_artifact_paths():
     assert {row["formal_evidence_status"] for row in rows} == {"research_only"}
 
 
+@pytest.mark.parametrize("mutation", ("none", "missing", "wrong", "unknown", "remote"))
+def test_pullback_comparison_owner_is_exact_and_local(mutation):
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    owner = validator.PULLBACK_COMPARISON_LOCAL_OWNER
+    producer = validator.PULLBACK_COMPARISON_LOCAL_PRODUCER
+    assert owned[owner] == producer
+    assert owner not in {row.model_id for row in rows}
+    if mutation == "missing":
+        del owned[owner]
+    elif mutation == "wrong":
+        owned[owner] = "scripts/unapproved.py"
+    elif mutation == "unknown":
+        owned["unapproved_pullback_comparison_owner"] = "scripts/unapproved.py"
+    elif mutation == "remote":
+        rows.append(replace(rows[0], model_id=owner, producer=producer))
+    assert bool(validator.validate_registry_contract(rows, owned)) == (mutation != "none")
+
+
+@pytest.mark.parametrize("path", (".github/workflows/unregistered.yml", ".github/workflows/unregistered.yaml"))
+def test_pullback_comparison_producer_remote_blocked_validator_allowed(path):
+    assert validator.validate_annual_local_workflow_exclusion({
+        path: "run: python " + validator.PULLBACK_COMPARISON_LOCAL_PRODUCER
+    })
+    assert validator.validate_annual_local_workflow_exclusion({
+        path: "run: python scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py"
+    }) == []
+
+
+def test_pullback_comparison_owner_has_only_four_exact_artifact_paths():
+    with validator.OWNERSHIP_REGISTRY.open(encoding="utf-8-sig", newline="") as handle:
+        rows = [row for row in validator.csv.DictReader(handle)
+                if row["owner_model_id"] == validator.PULLBACK_COMPARISON_LOCAL_OWNER]
+    prefix = "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_"
+    assert len(rows) == 4
+    assert {row["artifact_glob"] for row in rows} == {
+        prefix + "detail.csv", prefix + "summary.csv", prefix + "features.csv", prefix + "manifest.json"
+    }
+    assert {row["producer"] for row in rows} == {validator.PULLBACK_COMPARISON_LOCAL_PRODUCER}
+    assert {row["change_policy"] for row in rows} == {"model_owned_write"}
+    assert {row["formal_evidence_status"] for row in rows} == {"research_only"}
+
+
 def test_four_model_entrypoints_are_independent_opt_in_workflow_contracts() -> None:
     text, rows, _producers = _inputs()
     rows_by_model = {row.model_id: row for row in rows}

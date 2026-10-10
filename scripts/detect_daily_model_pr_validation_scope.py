@@ -443,6 +443,7 @@ REVENUE_MARKERS = (
 FINANCIAL_STATEMENT_MARKERS = ("financial_statement",)
 
 MODEL_LIKE_MARKERS = (
+    "pullback_short_reclaim_23ema_condition_comparison",
     "pullback_short_reclaim_share_unit_reconciliation",
     "tdcc_stealth_accumulation_conservative_execution_research",
     "tdcc_conservative_execution_research",
@@ -502,6 +503,14 @@ MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS = frozenset(
 
 MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS = frozenset(
     {
+        "scripts/build_pullback_short_reclaim_23ema_condition_comparison.py",
+        "scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py",
+        "tests/test_pullback_short_reclaim_23ema_condition_comparison.py",
+        "docs/specs/pullback_short_reclaim_23ema_condition_comparison_v1.md",
+        "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_detail.csv",
+        "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_summary.csv",
+        "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_features.csv",
+        "output/research/pullback_short_reclaim/pullback_short_reclaim_23ema_condition_comparison_v1_manifest.json",
         "scripts/build_pullback_short_reclaim_share_unit_reconciliation.py",
         "scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py",
         "config/pullback_short_reclaim_share_unit_reconciliation_v1.json",

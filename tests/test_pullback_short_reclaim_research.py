@@ -22,6 +22,33 @@ import validate_pullback_short_reclaim_research as validator  # noqa: E402
 import build_pullback_short_reclaim_share_unit_reconciliation as unit_producer  # noqa: E402
 import validate_pullback_short_reclaim_share_unit_reconciliation as unit_validator  # noqa: E402
 
+# Keep the model-owned comparison suite on the existing shared-research CI entrypoint.
+from test_pullback_short_reclaim_23ema_condition_comparison import (  # noqa: E402,F401
+    comparison_sources,
+    comparison_bundle,
+    comparison_references,
+    test_comparison_independent_bundle_success,
+    test_comparison_frozen_columns_dates_and_partial_basis_unchanged,
+    test_comparison_original_cell_tamper_rejected,
+    test_comparison_joined_feature_tamper_rejected,
+    test_comparison_source_and_snapshot_tamper_rejected,
+    test_comparison_legacy_crlf_identity_is_not_guessed,
+    test_comparison_summary_metrics_tamper_rejected,
+    test_comparison_full_and_same_schema_denominators_are_separate,
+    test_comparison_exhaustive_table_rows_and_order,
+    test_comparison_feature_table_tamper_rejected,
+    test_comparison_unknown_and_recorded_false_are_not_equivalent,
+    test_comparison_feature_numeric_boundaries,
+    test_comparison_return_thresholds_censoring_and_sensitivity_are_descriptive,
+    test_comparison_manifest_boundary_tamper_rejected,
+    test_comparison_validator_has_no_business_import,
+    test_comparison_unsafe_source_paths_fail_closed,
+    test_comparison_actual_artifact_bytes_validate,
+    test_comparison_new_anomaly_candidates_stay_primary,
+    test_comparison_feature_denominators_include_same_schema_populations,
+    test_comparison_immutable_output_lf_rules,
+)
+
 
 REPORT_DATE = "20260803"
 
