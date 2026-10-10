@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7228 宏捷科統一58購01
 
 ## Metadata
-- generated_at: 2026-10-09 22:18:38 Asia/Taipei
+- generated_at: 2026-10-10 22:18:43 Asia/Taipei
 - stock_id: 7228
 - stock_name: 宏捷科統一58購01
 - packet_status: partial_rawdata_packet

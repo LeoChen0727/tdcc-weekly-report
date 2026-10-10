@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00938 凱基優選30
 
 ## Metadata
-- generated_at: 2026-10-09 22:16:18 Asia/Taipei
+- generated_at: 2026-10-10 22:15:53 Asia/Taipei
 - stock_id: 00938
 - stock_name: 凱基優選30
 - packet_status: standard_rawdata_packet

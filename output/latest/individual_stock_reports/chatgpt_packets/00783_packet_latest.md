@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00783 富邦中証500
 
 ## Metadata
-- generated_at: 2026-10-09 22:16:16 Asia/Taipei
+- generated_at: 2026-10-10 22:15:50 Asia/Taipei
 - stock_id: 00783
 - stock_name: 富邦中証500
 - packet_status: standard_rawdata_packet
