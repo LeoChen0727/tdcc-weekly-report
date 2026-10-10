@@ -14,15 +14,21 @@ HIGH_VOLUME_MODEL_ID = "volume_range_breakout_v2_high_position_volume_attack"
 REVENUE_MODEL_ID = "revenue_unreacted_range"
 PRESENTATION_VETO_MODELS = {
     "hot_theme_pullback": "熱門族群回檔模型",
+    "pullback_short_reclaim": "回檔後短線轉強模型",
     "tdcc_stealth_accumulation": "TDCC潛伏吸籌模型",
+}
+PRESENTATION_CONTROL_MODELS = {
+    "hot_theme_pullback": ("pullback_short_reclaim", "短線支撐收復模型"),
+    "pullback_short_reclaim": ("synthetic_kept_model", "其他獨立模型"),
+    "tdcc_stealth_accumulation": ("pullback_short_reclaim", "短線支撐收復模型"),
 }
 
 
 def presentation_veto_inputs(
     *, target: str = "hot_theme_pullback", target_has_rows: bool = True,
 ) -> dict[str, pd.DataFrame]:
-    other = "pullback_short_reclaim"
-    names = {target: PRESENTATION_VETO_MODELS[target], other: "短線支撐收復模型"}
+    other, other_name = PRESENTATION_CONTROL_MODELS[target]
+    names = {target: PRESENTATION_VETO_MODELS[target], other: other_name}
     signals = []
     summary = []
     for line in ("mainstream", "non_mainstream"):
@@ -79,6 +85,7 @@ def test_four_stock_pdf_builders_remove_vetoed_model_and_preserve_overlap(
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
     inputs = presentation_veto_inputs(target=target, target_has_rows=target_has_rows)
+    _other, other_name = PRESENTATION_CONTROL_MODELS[target]
     original_signals = inputs["model_signals"].copy(deep=True)
     captured = []
     monkeypatch.setattr(renderer, "Paragraph", lambda text, *args, **kwargs: text)
@@ -92,7 +99,7 @@ def test_four_stock_pdf_builders_remove_vetoed_model_and_preserve_overlap(
     text = repr(captured)
     for forbidden in (PRESENTATION_VETO_MODELS[target], target, "9911", "9912", "僅停用模型摘要"):
         assert forbidden not in text
-    assert "短線支撐收復模型" in text
+    assert other_name in text
     assert "2330" in text
     assert "#7 / 81.2" in text
     pd.testing.assert_frame_equal(inputs["model_signals"], original_signals)
@@ -107,7 +114,7 @@ def test_presentation_veto_preserves_other_model_rows_ranks_and_empty_roster_lab
 
     inputs = presentation_veto_inputs(target=target)
     baseline = {**inputs, "model_contract": inputs["model_contract"].assign(approved_for_daily_pdf="true")}
-    other = "pullback_short_reclaim"
+    other, _other_name = PRESENTATION_CONTROL_MODELS[target]
     pd.testing.assert_frame_equal(
         pd.DataFrame(renderer.model_signal_rows(inputs, other, line)),
         pd.DataFrame(renderer.model_signal_rows(baseline, other, line)),
@@ -135,6 +142,7 @@ def test_warrant_intersection_veto_preserves_other_model_and_warrant_analysis(mo
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
     inputs = presentation_veto_inputs(target=target)
+    _other, other_name = PRESENTATION_CONTROL_MODELS[target]
     inputs["model_signals"] = inputs["model_signals"].query("report_line == 'mainstream'")
     inputs["warrant"] = pd.DataFrame([
         {"stock_id": sid, "stock_name": f"合成股票{sid}", "warrant_flow_signal": "call",
@@ -151,7 +159,7 @@ def test_warrant_intersection_veto_preserves_other_model_and_warrant_analysis(mo
     intersection = next(table for table in captured if isinstance(table, list) and "條件式解讀" in table[0])
     assert len(intersection) == 2
     assert "2330" in repr(intersection)
-    assert "短線支撐收復模型" in repr(intersection)
+    assert other_name in repr(intersection)
     assert "#7 / 81.2" in repr(intersection)
     assert "9911" not in repr(intersection)
     assert PRESENTATION_VETO_MODELS[target] not in repr(captured)
@@ -162,6 +170,7 @@ def test_warrant_intersection_veto_preserves_other_model_and_warrant_analysis(mo
 @pytest.mark.parametrize("target", PRESENTATION_VETO_MODELS)
 def test_runtime_contract_accepts_retained_vetoed_sources_but_rejects_rendered_model(monkeypatch, target: str) -> None:
     inputs = presentation_veto_inputs(target=target)
+    other, _other_name = PRESENTATION_CONTROL_MODELS[target]
     rows = {
         validator.STOCK_MODEL_CONTRACT: inputs["model_contract"].to_dict("records"),
         validator.DAILY_MODEL_REGISTRY: inputs["model_registry"].astype(str).to_dict("records"),
@@ -169,11 +178,11 @@ def test_runtime_contract_accepts_retained_vetoed_sources_but_rejects_rendered_m
         validator.DAILY_MODEL_READINESS: inputs["model_readiness"].astype(str).to_dict("records"),
     }
     monkeypatch.setattr(validator, "load_csv_rows", lambda path: rows.get(path, []))
-    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda *args: {target, "pullback_short_reclaim"})
+    monkeypatch.setattr(validator, "model_ids_from_report_outputs", lambda *args: {target, other})
     monkeypatch.setattr(validator, "validate_pdf_integrated_operation_adapter_contract", lambda *args, **kwargs: [])
     errors, used, required, *_ = validator.validate(validator.VALIDATION_PHASE_RUNTIME)
     assert errors == []
-    assert used == required == {"pullback_short_reclaim"}
+    assert used == required == {other}
     assert any("not approved_for_daily_pdf=true" in error for error in validator.validate_model_ids(
         {target}, rows[validator.STOCK_MODEL_CONTRACT],
     ))
@@ -190,10 +199,11 @@ def test_generated_stock_pdf_validation_rejects_vetoed_model(
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
     inputs = presentation_veto_inputs(target=target)
+    _other, other_name = PRESENTATION_CONTROL_MODELS[target]
     forbidden_text = target if forbidden_value == "model_id" else PRESENTATION_VETO_MODELS[target]
     monkeypatch.setattr(renderer, "OUT", tmp_path)
     monkeypatch.setattr(pypdf, "PdfReader", lambda path: SimpleNamespace(pages=[
-        SimpleNamespace(extract_text=lambda: f"短線支撐收復模型 {forbidden_text}"),
+        SimpleNamespace(extract_text=lambda: f"{other_name} {forbidden_text}"),
     ]))
     with pytest.raises(RuntimeError, match=forbidden_text):
         renderer.validate_outputs([tmp_path / f"{title}.pdf"], inputs)
