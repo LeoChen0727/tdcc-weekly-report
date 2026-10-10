@@ -13,6 +13,35 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 ROOT = Path(__file__).resolve().parents[1]
 
 
+PULLBACK_MATCHED_FEATURE_EXACT_PATHS = frozenset({
+    "scripts/build_pullback_short_reclaim_matched_feature_research.py",
+    "scripts/validate_pullback_short_reclaim_matched_feature_research.py",
+    "tests/test_pullback_short_reclaim_matched_feature_research.py",
+    "docs/specs/pullback_short_reclaim_matched_feature_research_v1.md",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_matched_feature_research_v1_metrics.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_matched_feature_research_v1_features.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_matched_feature_research_v1_audit.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_matched_feature_research_v1_manifest.json",
+})
+
+
+@pytest.mark.parametrize("path", sorted(PULLBACK_MATCHED_FEATURE_EXACT_PATHS))
+def test_pullback_matched_feature_exact_paths_route_to_shared_research(path):
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({
+        scope.RESEARCH_SAFETY_LITE, scope.SHARED_MODEL_RESEARCH})
+
+
+@pytest.mark.parametrize("path", (
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_matched_feature_research_v2_metrics.csv",
+    "output/research/pullback_short_reclaim/pullback_short_reclaim_matched_feature_research_v1_extra.csv",
+    "scripts/build_pullback_short_reclaim_matched_feature_research_unregistered.py",
+))
+def test_pullback_matched_feature_unknown_paths_fail_closed(path):
+    with pytest.raises(scope.ScopeDetectionError):
+        scope.domains_for_path(path)
+
+
 PULLBACK_COMPARISON_EXACT_PATHS = frozenset({
     "scripts/build_pullback_short_reclaim_23ema_condition_comparison.py",
     "scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py",
@@ -643,6 +672,7 @@ def test_tdcc_medium_term_unregistered_paths_fail_closed(path: str) -> None:
 
 def test_four_model_research_and_tdcc_stealth_pit_audit_route_exactly() -> None:
     assert scope.MODEL_OWNED_SHARED_RESEARCH_EXACT_PATHS == (
+        PULLBACK_MATCHED_FEATURE_EXACT_PATHS |
         PULLBACK_COMPARISON_EXACT_PATHS |
         PULLBACK_SHARE_UNIT_EXACT_PATHS |
         TDCC_OUTCOME_UNIT_EXACT_PATHS |

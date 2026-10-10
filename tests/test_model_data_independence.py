@@ -1498,6 +1498,55 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 57
+    matched_feature, matched_feature_source_read = rows[-2:]
+    matched_owner = "pullback_short_reclaim_matched_feature_research"
+    approval = "user_20261010_remove_pullback_short_pdf_continue_upgrade_research"
+    assert matched_feature["migration_id"] == matched_owner + "_20261010"
+    assert matched_feature["changed_data_families"].split(";") == [
+        matched_owner + "_metrics",
+        matched_owner + "_features",
+        matched_owner + "_audit",
+        matched_owner + "_manifest",
+    ]
+    assert matched_feature["previous_contract_sha256s"] == "NEW;NEW;NEW;NEW"
+    assert matched_feature["new_contract_sha256s"].split(";") == [
+        "40d222c879a433957f2e246ec45bcc981d0aa11f7c0190081c582524f032d3c9",
+        "d15befa93f0ffdd6acfe783325cc78eb9bf0a1ae732e6d13379f43ebbe621de5",
+        "28a0657e8520f4e4cefb753c7b7a9bcf9fd028632f124d8b122d170b4da9c19b",
+        "eaca971ad006caf48f10ec1c3f82623511f496ce81e3d1d958de91fc0b5f43d0",
+    ]
+    assert matched_feature_source_read["migration_id"] == matched_owner + "_source_read_20261010"
+    assert matched_feature_source_read["changed_data_families"].split(";") == [
+        "pullback_short_reclaim_23ema_condition_comparison_detail",
+        "pullback_short_reclaim_23ema_condition_comparison_manifest",
+    ]
+    assert matched_feature_source_read["previous_contract_sha256s"].split(";") == [
+        "a0f7fc5f4d1f8e64b9705ac55b313c5a703cd5acfc12bd829764cebff57291ee",
+        "84576b4dc734279803d746e289f99aa9b4925aa45fdd6811ef243c31d86f7e96",
+    ]
+    assert matched_feature_source_read["new_contract_sha256s"].split(";") == [
+        "1d027d9a9861638d42ecfc1a8c4e215ccac1da5557662cd4e145540e3f6c2587",
+        "1512285764391556ca96f21ed59ebde8b7290f48a77aabb59185babc172dc004",
+    ]
+    backgrounds = {row["data_family_id"]: row for row in read_csv("config/daily_model_background_data_registry.csv")}
+    sharing = {row["data_family_id"]: row for row in read_csv("config/daily_model_data_sharing_registry.csv")}
+    for migration in (matched_feature, matched_feature_source_read):
+        assert migration["affected_models"] == "pullback_short_reclaim"
+        assert migration["user_approval_reference"] == approval
+        assert migration["migration_status"] == "validated_user_approved_migration"
+        for family, digest in zip(migration["changed_data_families"].split(";"), migration["new_contract_sha256s"].split(";")):
+            assert data_contract_sha256(backgrounds[family]) == digest
+            assert sharing[family]["data_contract_sha256"] == digest
+            assert sharing[family]["last_migration_id"] == migration["migration_id"]
+            assert sharing[family]["approved_consumer_models"] == "pullback_short_reclaim"
+            assert sharing[family]["sharing_decision_reference"] == approval
+    exact_consumer = "scripts/build_pullback_short_reclaim_matched_feature_research.py"
+    for family in matched_feature_source_read["changed_data_families"].split(";"):
+        assert exact_consumer in backgrounds[family]["notes"]
+        assert exact_consumer in sharing[family]["notes"]
+    # Keep all 55 pre-matched-feature migration rows and their exact assertions.
+    rows = rows[:-2]
     assert len(rows) == 55
     comparison, source_read = rows[-2:]
     owner = "pullback_short_reclaim_23ema_condition_comparison"
@@ -1527,11 +1576,18 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     ]
     backgrounds = {row["data_family_id"]: row for row in read_csv("config/daily_model_background_data_registry.csv")}
     sharing = {row["data_family_id"]: row for row in read_csv("config/daily_model_data_sharing_registry.csv")}
+    superseded_by_matched_feature_source_read = dict(zip(
+        matched_feature_source_read["changed_data_families"].split(";"),
+        matched_feature_source_read["previous_contract_sha256s"].split(";"),
+    ))
     for migration in (comparison, source_read):
         assert migration["affected_models"] == "pullback_short_reclaim"
         assert migration["user_approval_reference"] == "user_20261010_pullback_short_reclaim_23ema_condition_comparison"
         assert migration["migration_status"] == "validated_user_approved_migration"
         for family, digest in zip(migration["changed_data_families"].split(";"), migration["new_contract_sha256s"].split(";")):
+            if family in superseded_by_matched_feature_source_read:
+                assert superseded_by_matched_feature_source_read[family] == digest
+                continue
             assert data_contract_sha256(backgrounds[family]) == digest
             assert sharing[family]["data_contract_sha256"] == digest
             assert sharing[family]["last_migration_id"] == migration["migration_id"]

@@ -21,6 +21,7 @@ import build_pullback_short_reclaim_research as producer  # noqa: E402
 import validate_pullback_short_reclaim_research as validator  # noqa: E402
 import build_pullback_short_reclaim_share_unit_reconciliation as unit_producer  # noqa: E402
 import validate_pullback_short_reclaim_share_unit_reconciliation as unit_validator  # noqa: E402
+import validate_pullback_short_reclaim_matched_feature_research as matched_feature_validator  # noqa: E402
 
 # Keep the model-owned comparison suite on the existing shared-research CI entrypoint.
 from test_pullback_short_reclaim_23ema_condition_comparison import (  # noqa: E402,F401
@@ -48,6 +49,44 @@ from test_pullback_short_reclaim_23ema_condition_comparison import (  # noqa: E4
     test_comparison_feature_denominators_include_same_schema_populations,
     test_comparison_immutable_output_lf_rules,
 )
+
+# Keep the model-owned matched-feature suite on the existing shared-research CI entrypoint.
+from test_pullback_short_reclaim_matched_feature_research import (  # noqa: E402,F401
+    independent_references,
+    matched_bundle,
+    source_payloads,
+    test_actual_published_artifacts_validate_when_present,
+    test_audit_identity_overlap_and_union_contract,
+    test_audit_tamper_rejected,
+    test_boundary_flags_fail_closed,
+    test_exact_eight_event_union_and_dispositions,
+    test_exact_schema_and_column_order,
+    test_feature_tamper_rejected,
+    test_frozen_source_hash_and_manifest_tamper_rejected,
+    test_manifest_tamper_rejected,
+    test_matched_bundle_independently_validates,
+    test_metric_tamper_rejected,
+    test_missing_paired_side_keeps_difference_blank,
+    test_model_owned_guard_rejects_foreign_model_write,
+    test_model_owned_guard_rejects_protected_index_or_head_drift,
+    test_model_owned_guard_rejects_unregistered_outputs,
+    test_row_order_and_exhaustiveness_are_contractual,
+    test_shallow_checkout_filesystem_fallback_is_content_sha_only,
+    test_source_candidate_disposition_change_rejected,
+    test_validator_has_no_producer_or_business_semantic_import,
+    test_write_bundle_different_existing_bytes_fails_without_overwrite,
+    test_write_bundle_same_existing_bytes_are_not_rewritten,
+)
+
+
+def test_matched_feature_published_bundle_ci_bridge() -> None:
+    result = matched_feature_validator.validate(ROOT)
+    assert result["source_rows"] == 3020
+    assert result["unique_signal_events"] == 2992
+    assert result["source_duplicate_groups"] == 28
+    assert result["union_review_candidate_events"] == 8
+    assert result["first_publication_pit_proven"] is False
+    assert result["formal_use_allowed"] is False
 
 
 REPORT_DATE = "20260803"

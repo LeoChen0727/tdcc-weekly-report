@@ -715,3 +715,6 @@ scripts/validate_pullback_short_reclaim_share_unit_reconciliation.py,python,rese
 scripts/build_pullback_short_reclaim_23ema_condition_comparison.py,python,research_backtest,active,Model-owned frozen-snapshot 23EMA-condition comparison producer,,
 scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py,python,research_backtest,active,Independent fixed-source three-state condition comparison validator,,
 tests/test_pullback_short_reclaim_23ema_condition_comparison.py,test_python,research_backtest,active,Frozen-source condition comparison and independent artifact mutation regressions,,
+scripts/build_pullback_short_reclaim_matched_feature_research.py,python,research_backtest,active,Model-owned fixed-source matched continuous-feature and dependence-diagnostic research producer,,
+scripts/validate_pullback_short_reclaim_matched_feature_research.py,python,research_backtest,active,Independent fixed-source matched-feature and dependence-diagnostic validator,,
+tests/test_pullback_short_reclaim_matched_feature_research.py,test_python,research_backtest,active,Fixed-source bundle missing-pair overlap ownership and independent tamper regressions,,
