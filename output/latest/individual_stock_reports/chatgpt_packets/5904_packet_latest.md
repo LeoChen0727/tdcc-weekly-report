@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5904 寶雅*
 
 ## Metadata
-- generated_at: 2026-10-10 22:17:58 Asia/Taipei
+- generated_at: 2026-10-11 22:17:47 Asia/Taipei
 - stock_id: 5904
 - stock_name: 寶雅*
 - packet_status: standard_180d_window_packet
