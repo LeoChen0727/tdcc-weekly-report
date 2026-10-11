@@ -718,3 +718,5 @@ tests/test_pullback_short_reclaim_23ema_condition_comparison.py,test_python,rese
 scripts/build_pullback_short_reclaim_matched_feature_research.py,python,research_backtest,active,Model-owned fixed-source matched continuous-feature and dependence-diagnostic research producer,,
 scripts/validate_pullback_short_reclaim_matched_feature_research.py,python,research_backtest,active,Independent fixed-source matched-feature and dependence-diagnostic validator,,
 tests/test_pullback_short_reclaim_matched_feature_research.py,test_python,research_backtest,active,Fixed-source bundle missing-pair overlap ownership and independent tamper regressions,,
+scripts/validate_tpex_nine_row_history_repair.py,python,official_price_data,active,獨立驗證經批准的 TPEx 2026 九列官方具名欄位修復及 81 列 history 衍生窗口,,
+tests/test_tpex_nine_row_history_repair.py,test_python,official_price_data,active,TPEx 九列修復的 identity 單位別名窗口非選定列與 atomic staging 回歸,,

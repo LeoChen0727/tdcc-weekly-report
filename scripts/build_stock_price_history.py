@@ -5,7 +5,10 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 import argparse
+import csv
+from decimal import Decimal, ROUND_HALF_EVEN
 import hashlib
+import io
 import json
 import math
 import os
@@ -91,6 +94,90 @@ def sha256_path(path: Path) -> str:
 
 def dataframe_csv_bytes(df: pd.DataFrame) -> bytes:
     return df.to_csv(index=False, encoding="utf-8", lineterminator="\n").encode("utf-8")
+
+
+def build_tpex_nine_row_history_postimages(
+    before: dict[str, bytes], manifest: dict
+) -> dict[str, bytes]:
+    """Patch nine approved history keys and their exact volume-only windows.
+
+    Keep every price, other indicator, unselected row, and original line ending.
+    This bounded receipt replay does not invoke the full history producer.
+    """
+    contracts = {
+        item["path"]: item for item in manifest["files"]
+        if item["path"].startswith("data/stock_price_history/")
+    }
+    stocks = ("5498", "6588", "7734")
+    dates = ("20260527", "20260602", "20260605")
+    if set(contracts) != {f"data/stock_price_history/{stock}.csv" for stock in stocks}:
+        raise ValueError("nine-row repair has unexpected history path scope")
+    facts = {(row["stock_id"], row["date"]): row for row in manifest["rows"]}
+    if len(manifest["rows"]) != 9 or set(facts) != {(stock, date) for stock in stocks for date in dates}:
+        raise ValueError("nine-row repair has unexpected history identity scope")
+    result = {}
+    for path, contract in contracts.items():
+        payload = before[path]
+        if sha256_bytes(payload) != contract["before_sha256"]:
+            raise ValueError(f"nine-row repair before SHA mismatch: {path}")
+        lines = payload.splitlines(keepends=True)
+        records = list(csv.reader(io.StringIO(payload.decode("utf-8-sig"))))
+        header = records[0]
+        if len(lines) != len(records) or len(header) != len(set(header)) or any(len(row) != len(header) for row in records[1:]):
+            raise ValueError(f"nine-row repair requires single-line complete CSV: {path}")
+        rows = [dict(zip(header, cells)) for cells in records[1:]]
+        stock = Path(path).stem
+        keys = [(row["stock_id"], row["date"]) for row in rows]
+        if len(keys) != len(set(keys)) or any(key[0] != stock for key in keys) or keys != sorted(keys):
+            raise ValueError(f"nine-row repair malformed history identities/order: {path}")
+        patches = {}
+        selected = []
+        for index, row in enumerate(rows):
+            key = row["stock_id"], row["date"]
+            if key not in facts:
+                continue
+            fact = facts[key]
+            if row["market"] != "TPEx" or row["source"] != fact["source_before"]:
+                raise ValueError(f"nine-row repair source mismatch: {path}/{key}")
+            if fact["source_after"] != row["source"] + "_SHARES_V1":
+                raise ValueError(f"nine-row repair unknown source units: {path}/{key}")
+            after = dict(row)
+            after.update(volume=fact["volume_shares"], trading_value=fact["trading_value_ntd"], source=fact["source_after"])
+            patches[index] = after
+            selected.append(index)
+        if len(selected) != 3:
+            raise ValueError(f"nine-row repair missing history identity: {path}")
+        windows = sorted({index for start in selected for index in range(start, min(start + 20, len(rows)))})
+        expected_windows = {
+            item["date"] for item in manifest["history_windows"] if item["stock_id"] == stock
+        }
+        if {rows[index]["date"] for index in windows} != expected_windows:
+            raise ValueError(f"nine-row repair history window mismatch: {path}")
+        volumes = [
+            None if patches.get(index, row)["volume"] in ("", "nan", "NaN")
+            else Decimal(patches.get(index, row)["volume"])
+            for index, row in enumerate(rows)
+        ]
+        for index in windows:
+            window = [value for value in volumes[max(0, index - 19):index + 1] if value is not None]
+            mean = sum(window) / len(window) if len(window) >= 5 else None
+            ratio = volumes[index] / mean if volumes[index] is not None and mean is not None and mean != 0 else None
+            after = patches.setdefault(index, dict(rows[index]))
+            after.update({
+                column: "" if value is None else str(value.quantize(Decimal("0.0001"), rounding=ROUND_HALF_EVEN))
+                for column, value in (("volume_ma20", mean), ("volume_ratio", ratio))
+            })
+        changed = list(lines)
+        for index, row in patches.items():
+            old = lines[index + 1]
+            ending = "\r\n" if old.endswith(b"\r\n") else "\n" if old.endswith(b"\n") else ""
+            buffer = io.StringIO(newline="")
+            csv.writer(buffer, lineterminator=ending).writerow([row[column] for column in header])
+            changed[index + 1] = buffer.getvalue().encode("utf-8")
+        result[path] = b"".join(changed)
+        if sha256_bytes(result[path]) != contract["after_sha256"]:
+            raise ValueError(f"nine-row repair postimage SHA mismatch: {path}")
+    return result
 
 
 def canonical_source_file(value: Any) -> str:
