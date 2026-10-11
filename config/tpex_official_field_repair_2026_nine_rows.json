@@ -1,0 +1,892 @@
+{
+  "schema_version": 1,
+  "repair_id": "tpex_official_field_repair_2026_nine_rows",
+  "base_ref": "7a96be629c4f9938f39d4b2274c8e5c7d6593283",
+  "approval_reference": "user_20261011_tpex_nine_row_history_repair_scope_1",
+  "stock_ids": [
+    "5498",
+    "6588",
+    "7734"
+  ],
+  "dates": [
+    "20260527",
+    "20260602",
+    "20260605"
+  ],
+  "original_publication_version_verified": false,
+  "writer_function": "scripts/repair_daily_price_range.py:build_tpex_nine_row_repair_manifest",
+  "read_functions": [
+    "scripts/repair_daily_price_range.py:build_tpex_nine_row_daily_postimages",
+    "scripts/repair_daily_price_range.py:stage_tpex_nine_row_repair",
+    "scripts/build_stock_price_history.py:build_tpex_nine_row_history_postimages",
+    "scripts/validate_tpex_nine_row_history_repair.py:validate_repair_postimages"
+  ],
+  "permitted_use": "daily_source_integrity_maintenance nine-key source repair only",
+  "forbidden_uses": [
+    "model promotion",
+    "backtest evidence",
+    "anomaly disposition",
+    "PDF operation rows"
+  ],
+  "rows": [
+    {
+      "stock_id": "5498",
+      "date": "20260527",
+      "source_before": "TPEX_OLD_DAILY_JSON",
+      "source_after": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "5498",
+        "凱崴",
+        "68.80",
+        "-1.50 ",
+        "72.00",
+        "72.20",
+        "67.10",
+        "69.19",
+        "7,765,534",
+        "537,313,966",
+        "7,130",
+        "68.50",
+        "4",
+        "68.80",
+        "33",
+        "193,548,545",
+        "68.80",
+        "75.60",
+        "62.00"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F05%2F27&response=json",
+      "captured_at": "2026-10-10T16:22:46.625258+00:00",
+      "body_sha256": "d20d9657e53d82ca0b78e238d0a2cbd33926f60f43f3d898f9ae90065fdb94f4",
+      "official_row_sha256": "d9956cd114e8df60c03a6c1af138b80f6476d8b02689f841d34f5ff58336948e",
+      "volume_shares": "7765534",
+      "trading_value_ntd": "537313966"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260527",
+      "source_before": "TPEX_OLD_DAILY_JSON",
+      "source_after": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "6588",
+        "東典光電",
+        "128.00",
+        "-6.00 ",
+        "137.00",
+        "137.00",
+        "127.50",
+        "130.95",
+        "995,510",
+        "130,358,458",
+        "1,116",
+        "127.50",
+        "22",
+        "128.00",
+        "12",
+        "34,700,825",
+        "128.00",
+        "140.50",
+        "115.50"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F05%2F27&response=json",
+      "captured_at": "2026-10-10T16:22:46.625258+00:00",
+      "body_sha256": "d20d9657e53d82ca0b78e238d0a2cbd33926f60f43f3d898f9ae90065fdb94f4",
+      "official_row_sha256": "a32dadbc1e98a2c49923077f17e68fb11f34b0192b62573abf88729c08f20236",
+      "volume_shares": "995510",
+      "trading_value_ntd": "130358458"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260527",
+      "source_before": "TPEX_OLD_DAILY_JSON",
+      "source_after": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "7734",
+        "印能科技",
+        "3840.00",
+        "+230.00",
+        "3790.00",
+        "3955.00",
+        "3600.00",
+        "3783.15",
+        "431,135",
+        "1,631,047,860",
+        "3,290",
+        "3835.00",
+        "3",
+        "3840.00",
+        "1",
+        "28,000,000",
+        "3840.00",
+        "4220.00",
+        "3460.00"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F05%2F27&response=json",
+      "captured_at": "2026-10-10T16:22:46.625258+00:00",
+      "body_sha256": "d20d9657e53d82ca0b78e238d0a2cbd33926f60f43f3d898f9ae90065fdb94f4",
+      "official_row_sha256": "9f0c2762b0970a1ed80ca09b4ad45f2a0db7486ef1f9e65d919a7d668d281aae",
+      "volume_shares": "431135",
+      "trading_value_ntd": "1631047860"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260602",
+      "source_before": "TPEX_OLD_DAILY_CSV",
+      "source_after": "TPEX_OLD_DAILY_CSV_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "5498",
+        "凱崴",
+        "63.40",
+        "-2.60 ",
+        "66.50",
+        "66.90",
+        "62.30",
+        "64.10",
+        "5,125,985",
+        "328,552,761",
+        "4,732",
+        "63.40",
+        "1",
+        "63.50",
+        "48",
+        "193,548,545",
+        "63.40",
+        "69.70",
+        "57.10"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F06%2F02&response=json",
+      "captured_at": "2026-10-10T16:22:46.780016+00:00",
+      "body_sha256": "bfe37ce4cd680258737ae2486bd686a1f83f3433ab3a50e4840e2dce0f6f537f",
+      "official_row_sha256": "4d2b242ea10e3dbe442c49855f8c7e232932117347b2e3e616296977fe87a975",
+      "volume_shares": "5125985",
+      "trading_value_ntd": "328552761"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260602",
+      "source_before": "TPEX_OLD_DAILY_CSV",
+      "source_after": "TPEX_OLD_DAILY_CSV_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "6588",
+        "東典光電",
+        "111.00",
+        "+3.50",
+        "109.00",
+        "116.50",
+        "108.00",
+        "111.56",
+        "2,030,073",
+        "226,475,424",
+        "1,872",
+        "111.00",
+        "16",
+        "111.50",
+        "20",
+        "34,700,825",
+        "111.00",
+        "122.00",
+        "99.90"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F06%2F02&response=json",
+      "captured_at": "2026-10-10T16:22:46.780016+00:00",
+      "body_sha256": "bfe37ce4cd680258737ae2486bd686a1f83f3433ab3a50e4840e2dce0f6f537f",
+      "official_row_sha256": "294bde71c937f3ecf08bb28b2e21fdb1172443a2eefe99b5b3227cc9650455bb",
+      "volume_shares": "2030073",
+      "trading_value_ntd": "226475424"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260602",
+      "source_before": "TPEX_OLD_DAILY_CSV",
+      "source_after": "TPEX_OLD_DAILY_CSV_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "7734",
+        "印能科技",
+        "3230.00",
+        "-185.00 ",
+        "3425.00",
+        "3425.00",
+        "3230.00",
+        "3294.83",
+        "141,149",
+        "465,062,220",
+        "2,673",
+        "3225.00",
+        "1",
+        "3245.00",
+        "1",
+        "28,000,000",
+        "3230.00",
+        "3550.00",
+        "2910.00"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F06%2F02&response=json",
+      "captured_at": "2026-10-10T16:22:46.780016+00:00",
+      "body_sha256": "bfe37ce4cd680258737ae2486bd686a1f83f3433ab3a50e4840e2dce0f6f537f",
+      "official_row_sha256": "29e529aabc3dcee9ef15896192926ade24cf746d6c683110c64bfe5dbaf1630c",
+      "volume_shares": "141149",
+      "trading_value_ntd": "465062220"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260605",
+      "source_before": "TPEX_OLD_DAILY_JSON",
+      "source_after": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "5498",
+        "凱崴",
+        "61.80",
+        "+0.70",
+        "60.50",
+        "61.80",
+        "57.20",
+        "59.61",
+        "3,776,949",
+        "225,155,608",
+        "3,296",
+        "61.70",
+        "11",
+        "61.80",
+        "1",
+        "193,548,545",
+        "61.80",
+        "67.90",
+        "55.70"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F06%2F05&response=json",
+      "captured_at": "2026-10-10T16:22:46.625258+00:00",
+      "body_sha256": "aa12beb23919e63ef1b130d21b647fed75fa6593f5af4209e826ed79e7339810",
+      "official_row_sha256": "b49809b6b075df305e4ca4499892aa9812b2ed5833efdb03ce516d4a2b6ff472",
+      "volume_shares": "3776949",
+      "trading_value_ntd": "225155608"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260605",
+      "source_before": "TPEX_OLD_DAILY_JSON",
+      "source_after": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "6588",
+        "東典光電",
+        "109.00",
+        "+0.50",
+        "108.00",
+        "109.00",
+        "102.00",
+        "106.74",
+        "549,311",
+        "58,636,044",
+        "674",
+        "108.50",
+        "5",
+        "109.00",
+        "2",
+        "34,700,825",
+        "109.00",
+        "119.50",
+        "98.10"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F06%2F05&response=json",
+      "captured_at": "2026-10-10T16:22:46.625258+00:00",
+      "body_sha256": "aa12beb23919e63ef1b130d21b647fed75fa6593f5af4209e826ed79e7339810",
+      "official_row_sha256": "b7fdffdf284442a8c7c4ad137a92bace0388dd5cf47139184462e651d74a914e",
+      "volume_shares": "549311",
+      "trading_value_ntd": "58636044"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260605",
+      "source_before": "TPEX_OLD_DAILY_JSON",
+      "source_after": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+      "official_fields": [
+        "代號",
+        "名稱",
+        "收盤",
+        "漲跌",
+        "開盤",
+        "最高",
+        "最低",
+        "均價",
+        "成交股數",
+        "成交金額(元)",
+        "成交筆數",
+        "最後買價",
+        "最後買量(張數)",
+        "最後賣價",
+        "最後賣量(張數)",
+        "發行股數",
+        "次日 參考價",
+        "次日 漲停價",
+        "次日 跌停價"
+      ],
+      "official_row": [
+        "7734",
+        "印能科技",
+        "3055.00",
+        "-55.00 ",
+        "3150.00",
+        "3205.00",
+        "2960.00",
+        "3090.22",
+        "129,976",
+        "401,654,695",
+        "1,607",
+        "3055.00",
+        "1",
+        "3080.00",
+        "2",
+        "28,000,000",
+        "3055.00",
+        "3360.00",
+        "2750.00"
+      ],
+      "official_url": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F06%2F05&response=json",
+      "captured_at": "2026-10-10T16:22:46.625258+00:00",
+      "body_sha256": "aa12beb23919e63ef1b130d21b647fed75fa6593f5af4209e826ed79e7339810",
+      "official_row_sha256": "6a9406a87c8ac54765db2b498fff7ab2f732a6bd61daa123c8c38dd5193bfddd",
+      "volume_shares": "129976",
+      "trading_value_ntd": "401654695"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/daily_price/20260527.csv",
+      "before_sha256": "319da6bc57641b51e2296da17a0b00957a862d9b370b7de41af0a18fc0cd0cdf",
+      "after_sha256": "9fa349b63229bc969ed599a02843b7e1d4a2474e6f0a8a2695fd9271f746603d"
+    },
+    {
+      "path": "data/daily_price/daily_price_20260527.csv",
+      "before_sha256": "319da6bc57641b51e2296da17a0b00957a862d9b370b7de41af0a18fc0cd0cdf",
+      "after_sha256": "9fa349b63229bc969ed599a02843b7e1d4a2474e6f0a8a2695fd9271f746603d"
+    },
+    {
+      "path": "data/daily_price/20260602.csv",
+      "before_sha256": "faca0646ce93c9c878d33c4508f2d05674d688d63c3282009b70dc0a7dd2c2c6",
+      "after_sha256": "87bcb246f40569445cd3f5f2ca2fa558d8e92d8ab7c40f31a744e56e6e8163f5"
+    },
+    {
+      "path": "data/daily_price/daily_price_20260602.csv",
+      "before_sha256": "faca0646ce93c9c878d33c4508f2d05674d688d63c3282009b70dc0a7dd2c2c6",
+      "after_sha256": "87bcb246f40569445cd3f5f2ca2fa558d8e92d8ab7c40f31a744e56e6e8163f5"
+    },
+    {
+      "path": "data/daily_price/20260605.csv",
+      "before_sha256": "028ce5df14f40d5222fae1c39cb44a5cc9425cdee9d1223074335bf54a64955a",
+      "after_sha256": "9f3e87d5ab416cb0a14068e1e557af0383063ee366b1c5f6a9b49f30da8bea17"
+    },
+    {
+      "path": "data/daily_price/daily_price_20260605.csv",
+      "before_sha256": "028ce5df14f40d5222fae1c39cb44a5cc9425cdee9d1223074335bf54a64955a",
+      "after_sha256": "9f3e87d5ab416cb0a14068e1e557af0383063ee366b1c5f6a9b49f30da8bea17"
+    },
+    {
+      "path": "data/stock_price_history/5498.csv",
+      "before_sha256": "daccaab5b74cc78bb78bf1722fca297954c31dbf33b9f06ac98adb16ccf00c6d",
+      "after_sha256": "395778ca4eba147b5b3040e2fa7e5e3c143d371ba5db58fc19bab130ec5a5a71"
+    },
+    {
+      "path": "data/stock_price_history/6588.csv",
+      "before_sha256": "e52f622b06017260d66c93ec855c1e47529c8845c63243959c106f20af94c245",
+      "after_sha256": "c8465580467d49967a90377e43d5417eb4b3acc76c0f376f5cd84cd823c6cd60"
+    },
+    {
+      "path": "data/stock_price_history/7734.csv",
+      "before_sha256": "9e6f382dcf42374f9797480fb3676f30f0f784cb7cda7be41f5d32acdd7d35cd",
+      "after_sha256": "0c9898ee7d63c25c332c89505de80bb6466cf0431a487c362dd79541f4cd2404"
+    }
+  ],
+  "history_windows": [
+    {
+      "stock_id": "5498",
+      "date": "20260527"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260528"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260529"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260601"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260602"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260603"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260604"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260605"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260608"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260609"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260610"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260611"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260612"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260615"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260616"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260617"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260618"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260622"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260623"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260624"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260625"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260626"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260629"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260630"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260701"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260702"
+    },
+    {
+      "stock_id": "5498",
+      "date": "20260703"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260527"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260528"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260529"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260601"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260602"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260603"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260604"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260605"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260608"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260609"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260610"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260611"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260612"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260615"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260616"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260617"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260618"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260622"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260623"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260624"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260625"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260626"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260629"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260630"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260701"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260702"
+    },
+    {
+      "stock_id": "6588",
+      "date": "20260703"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260527"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260528"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260529"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260601"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260602"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260603"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260604"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260605"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260608"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260609"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260610"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260611"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260612"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260615"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260616"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260617"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260618"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260622"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260623"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260624"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260625"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260626"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260629"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260630"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260701"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260702"
+    },
+    {
+      "stock_id": "7734",
+      "date": "20260703"
+    }
+  ]
+}

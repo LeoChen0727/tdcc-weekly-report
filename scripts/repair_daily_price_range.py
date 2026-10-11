@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import io
 import json
@@ -62,6 +63,192 @@ def dataframe_csv_bytes(df: pd.DataFrame, *, encoding: str = "utf-8-sig") -> byt
     return df.to_csv(index=False, lineterminator="\n").encode(encoding)
 
 
+def build_tpex_nine_row_repair_manifest(
+    saved_receipts: dict, plan: dict, approval_reference: str
+) -> dict:
+    """Bind the approved nine-key repair to saved official named-field receipts.
+
+    This does not fetch prices or verify the original publication version. The
+    resulting manifest is source-maintenance evidence, not model evidence.
+    """
+    stocks = ["5498", "6588", "7734"]
+    dates = ["20260527", "20260602", "20260605"]
+    expected_keys = {(stock, date) for stock in stocks for date in dates}
+    primary = plan["primary_diff"]
+    if not approval_reference.strip():
+        raise ValueError("nine-row repair requires an approval reference")
+    if {(row["stock_id"], row["date"]) for row in primary} != expected_keys:
+        raise ValueError("nine-row repair plan has unexpected stock/date keys")
+    rows = []
+    for date in dates:
+        comparisons = [
+            row for row in saved_receipts["tpex_field_comparisons"]
+            if row["official_date"] == date
+        ]
+        response_hashes = {row["official_response_sha256"] for row in comparisons}
+        if len(response_hashes) != 1:
+            raise ValueError(f"nine-row repair has no unique official receipt: {date}")
+        body_sha = response_hashes.pop()
+        responses = [
+            row for row in saved_receipts["official_responses"]
+            if row["response_sha256"] == body_sha
+        ]
+        if len(responses) != 1:
+            raise ValueError(f"nine-row repair has no unique official body: {date}")
+        response = responses[0]
+        body = response["body_utf8"].encode("utf-8")
+        if sha256_bytes(body) != body_sha:
+            raise ValueError(f"nine-row repair official body SHA mismatch: {date}")
+        decoded = json.loads(body)
+        if decoded.get("date") != date:
+            raise ValueError(f"nine-row repair official date mismatch: {date}")
+        for stock in stocks:
+            matches = []
+            for table in decoded["tables"]:
+                fields = table["fields"]
+                if "代號" not in fields:
+                    continue
+                index = fields.index("代號")
+                matches.extend(
+                    (fields, values) for values in table["data"]
+                    if str(values[index]).strip() == stock
+                )
+            if len(matches) != 1:
+                raise ValueError(f"nine-row repair official identity mismatch: {stock}/{date}")
+            fields, values = matches[0]
+            if len(fields) != len(set(fields)) or len(fields) != len(values):
+                raise ValueError(f"nine-row repair malformed official fields: {stock}/{date}")
+            official = dict(zip(fields, values))
+            volume = str(int(str(official["成交股數"]).replace(",", "")))
+            trading_value = str(int(str(official["成交金額(元)"]).replace(",", "")))
+            row_sha = sha256_bytes(json.dumps(
+                official, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+            ).encode("utf-8"))
+            selected = [
+                row for row in primary
+                if (row["stock_id"], row["date"]) == (stock, date)
+            ]
+            sources = {(row["source_before"], row["source_proposed"]) for row in selected}
+            if len(sources) != 1:
+                raise ValueError(f"nine-row repair source aliases disagree: {stock}/{date}")
+            source_before, source_after = sources.pop()
+            if source_before not in {"TPEX_OLD_DAILY_JSON", "TPEX_OLD_DAILY_CSV"} or source_after != source_before + "_SHARES_V1":
+                raise ValueError(f"nine-row repair has unknown source units: {stock}/{date}")
+            if any(
+                row["body_sha256"] != body_sha
+                or row["official_row_sha256"] != row_sha
+                or row["volume_proposed"] != volume
+                or row["trading_value_proposed"] != trading_value
+                for row in selected
+            ):
+                raise ValueError(f"nine-row repair plan disagrees with receipt: {stock}/{date}")
+            rows.append({
+                "stock_id": stock, "date": date,
+                "source_before": source_before, "source_after": source_after,
+                "official_fields": fields, "official_row": values,
+                "official_url": response["url"], "captured_at": response["captured_at_utc"],
+                "body_sha256": body_sha, "official_row_sha256": row_sha,
+                "volume_shares": volume, "trading_value_ntd": trading_value,
+            })
+    paths = {
+        f"data/daily_price/{prefix}{date}.csv"
+        for date in dates for prefix in ("", "daily_price_")
+    } | {f"data/stock_price_history/{stock}.csv" for stock in stocks}
+    if len(plan["files"]) != 9 or {item["path"] for item in plan["files"]} != paths:
+        raise ValueError("nine-row repair plan has unexpected file scope")
+    return {
+        "schema_version": 1,
+        "repair_id": "tpex_official_field_repair_2026_nine_rows",
+        "base_ref": plan["source_sha"], "approval_reference": approval_reference,
+        "stock_ids": stocks, "dates": dates,
+        "original_publication_version_verified": False,
+        "writer_function": "scripts/repair_daily_price_range.py:build_tpex_nine_row_repair_manifest",
+        "read_functions": [
+            "scripts/repair_daily_price_range.py:build_tpex_nine_row_daily_postimages",
+            "scripts/repair_daily_price_range.py:stage_tpex_nine_row_repair",
+            "scripts/build_stock_price_history.py:build_tpex_nine_row_history_postimages",
+            "scripts/validate_tpex_nine_row_history_repair.py:validate_repair_postimages",
+        ],
+        "permitted_use": "daily_source_integrity_maintenance nine-key source repair only",
+        "forbidden_uses": ["model promotion", "backtest evidence", "anomaly disposition", "PDF operation rows"],
+        "rows": rows,
+        "files": [{
+            "path": item["path"], "before_sha256": item["before_sha256"],
+            "after_sha256": item["projected_sha256"],
+        } for item in plan["files"]],
+        "history_windows": [{
+            "stock_id": item["stock_id"], "date": item["date"],
+        } for item in plan["derived_diff"]],
+    }
+
+
+def build_tpex_nine_row_daily_postimages(
+    before: dict[str, bytes], manifest: dict
+) -> dict[str, bytes]:
+    """Patch only the six approved daily aliases, retaining every other line."""
+    contracts = {
+        item["path"]: item for item in manifest["files"]
+        if item["path"].startswith("data/daily_price/")
+    }
+    expected_paths = {
+        f"data/daily_price/{prefix}{date}.csv"
+        for date in ("20260527", "20260602", "20260605")
+        for prefix in ("", "daily_price_")
+    }
+    if set(contracts) != expected_paths:
+        raise ValueError("nine-row repair has unexpected daily path scope")
+    facts = {(row["stock_id"], row["date"]): row for row in manifest["rows"]}
+    expected_keys = {
+        (stock, date) for stock in ("5498", "6588", "7734")
+        for date in ("20260527", "20260602", "20260605")
+    }
+    if len(manifest["rows"]) != 9 or set(facts) != expected_keys:
+        raise ValueError("nine-row repair has unexpected daily identity scope")
+    result = {}
+    for path, contract in contracts.items():
+        payload = before[path]
+        if sha256_bytes(payload) != contract["before_sha256"]:
+            raise ValueError(f"nine-row repair before SHA mismatch: {path}")
+        lines = payload.splitlines(keepends=True)
+        records = list(csv.reader(io.StringIO(payload.decode("utf-8-sig"))))
+        if len(lines) != len(records):
+            raise ValueError(f"nine-row repair requires single-line CSV records: {path}")
+        header = records[0]
+        if len(header) != len(set(header)) or any(len(row) != len(header) for row in records[1:]):
+            raise ValueError(f"nine-row repair malformed CSV: {path}")
+        changed = list(lines)
+        found = set()
+        for index, cells in enumerate(records[1:], start=1):
+            row = dict(zip(header, cells))
+            key = row["stock_id"], row["date"]
+            if key not in facts:
+                continue
+            if key in found:
+                raise ValueError(f"nine-row repair duplicate identity: {path}/{key}")
+            found.add(key)
+            fact = facts[key]
+            if row["market"] != "TPEx" or row["source"] != fact["source_before"]:
+                raise ValueError(f"nine-row repair source mismatch: {path}/{key}")
+            if fact["source_after"] != row["source"] + "_SHARES_V1":
+                raise ValueError(f"nine-row repair unknown source units: {path}/{key}")
+            row.update(volume=fact["volume_shares"], trading_value=fact["trading_value_ntd"], source=fact["source_after"])
+            old = lines[index]
+            ending = "\r\n" if old.endswith(b"\r\n") else "\n" if old.endswith(b"\n") else ""
+            buffer = io.StringIO(newline="")
+            csv.writer(buffer, lineterminator=ending).writerow([row[column] for column in header])
+            changed[index] = buffer.getvalue().encode("utf-8")
+        if len(found) != 3:
+            raise ValueError(f"nine-row repair missing daily identity: {path}")
+        result[path] = b"".join(changed)
+        if sha256_bytes(result[path]) != contract["after_sha256"]:
+            raise ValueError(f"nine-row repair postimage SHA mismatch: {path}")
+    for date in ("20260527", "20260602", "20260605"):
+        paths = [f"data/daily_price/{prefix}{date}.csv" for prefix in ("", "daily_price_")]
+        if before[paths[0]] != before[paths[1]] or result[paths[0]] != result[paths[1]]:
+            raise ValueError(f"nine-row repair daily aliases disagree: {date}")
+    return result
+
+
 def parse_selected_dates(value: str) -> list[str]:
     dates = [part for part in re.split(r"[,;\s]+", safe_str(value)) if part]
     if not dates:
@@ -73,6 +260,71 @@ def parse_selected_dates(value: str) -> list[str]:
     if dates != sorted(dates):
         raise ValueError("selected dates must be strictly ascending")
     return dates
+
+
+def stage_tpex_nine_row_repair(
+    repo_root: Path, manifest: dict, temporary_root: Path
+) -> dict:
+    """Atomically stage validated nine-file blobs without materializing data.
+
+    The caller owns the approved sparse task and its recorded temporary root.
+    Existing staged entries are preserved; failures leave the index unchanged.
+    """
+    from scripts.build_stock_price_history import build_tpex_nine_row_history_postimages
+    from scripts.validate_tpex_nine_row_history_repair import validate_repair_postimages
+
+    repo_root = repo_root.resolve()
+
+    def git(*arguments: str, payload: bytes | None = None, env: dict | None = None) -> bytes:
+        return subprocess.run(
+            ["git", *arguments], cwd=repo_root, input=payload,
+            capture_output=True, check=True, env=env,
+        ).stdout
+
+    paths = sorted(item["path"] for item in manifest["files"])
+    if any((repo_root / path).exists() for path in paths):
+        raise ValueError("nine-row staging requires absent sparse data files")
+    index = Path(git("rev-parse", "--path-format=absolute", "--git-path", "index").decode().strip())
+    lock = index.with_name(index.name + ".lock")
+    temporary_root.mkdir(parents=True, exist_ok=True)
+    # Standard Git index lock prevents a concurrent stage from being overwritten.
+    with lock.open("xb") as held_lock:
+        published = False
+        try:
+            before = {path: git("show", f":{path}") for path in paths}
+            after = build_tpex_nine_row_daily_postimages(before, manifest)
+            after.update(build_tpex_nine_row_history_postimages(before, manifest))
+            summary = validate_repair_postimages(before, after, manifest)
+            with tempfile.TemporaryDirectory(prefix="nine-row-index-", dir=temporary_root) as scratch:
+                scratch_index = Path(scratch) / "index"
+                shutil.copyfile(index, scratch_index)
+                env = dict(os.environ, GIT_INDEX_FILE=str(scratch_index))
+                entries = []
+                for path in paths:
+                    blob = git("hash-object", "-w", "--stdin", payload=after[path]).decode().strip()
+                    entries.append(f"100644 {blob}\t{path}\n")
+                git("update-index", "--index-info", payload="".join(entries).encode(), env=env)
+                git("update-index", "--skip-worktree", "--stdin", payload=("\n".join(paths) + "\n").encode(), env=env)
+                staged = {path: git("show", f":{path}", env=env) for path in paths}
+                validate_repair_postimages(before, staged, manifest)
+                # update-index touches only these existing regular-file entries.
+                original_entries = git("ls-files", "--stage").splitlines()
+                new_entries = git("ls-files", "--stage", env=env).splitlines()
+                selected = {path.encode() for path in paths}
+                keep = lambda rows: [row for row in rows if row.split(b"\t", 1)[1] not in selected]
+                if keep(original_entries) != keep(new_entries):
+                    raise ValueError("nine-row staging changed another index entry")
+                held_lock.write(scratch_index.read_bytes())
+                held_lock.flush()
+                os.fsync(held_lock.fileno())
+            held_lock.close()
+            os.replace(lock, index)
+            published = True
+            return summary
+        finally:
+            held_lock.close()
+            if not published:
+                lock.unlink(missing_ok=True)
 
 
 def parse_expected_date_contracts(values: list[str] | None) -> dict[str, tuple[str, int]]:
@@ -687,6 +939,8 @@ def run(args: argparse.Namespace) -> int:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Repair official daily price files for a date range.")
+    parser.add_argument("--approved-tpex-nine-row-manifest", type=Path)
+    parser.add_argument("--nine-row-index-temp", type=Path)
     parser.add_argument("--start-date", default="")
     parser.add_argument("--end-date", default="")
     parser.add_argument(
@@ -731,6 +985,13 @@ def _refresh_range_market_session() -> dict[str, Any]:
 
 def main() -> int:
     args = parse_args()
+    manifest_path = getattr(args, "approved_tpex_nine_row_manifest", None)
+    if manifest_path:
+        if not args.nine_row_index_temp or any((args.start_date, args.end_date, args.dates)):
+            raise ValueError("nine-row mode requires an explicit index temp and no date/range mode")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+        print(json.dumps(stage_tpex_nine_row_repair(ROOT, manifest, args.nine_row_index_temp), ensure_ascii=False, indent=2))
+        return 0
     if safe_str(getattr(args, "dates", "")):
         # Historical selected-date repair must not mutate today's market-session surface.
         return run(args)
