@@ -1498,6 +1498,36 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 58
+    replay = rows[-1]
+    assert replay["migration_id"] == "price_pullback_23ema_versioned_replay_v1_20261012"
+    assert replay["changed_data_families"].split(";") == [
+        "price_pullback_23ema_replay_v1_" + suffix
+        for suffix in ("ledger", "pit_coverage", "parity", "summary", "feature_comparison", "manifest")
+    ]
+    assert replay["previous_contract_sha256s"] == ";".join(["NEW"] * 6)
+    assert replay["new_contract_sha256s"].split(";") == [
+        "fb42799ad55f0c0678e6c2ddccb529b671ef1a5d52f87dcda1d21147bc495ca4",
+        "cdc19848624100c3db67ca93244c136955d40567e2d2b1957d75848112dd15c8",
+        "9e4e8dc9ae847a7e4d375b3ee6cfce32765f23912e52a05356364c228865cc98",
+        "71542d4c7be7854dd492f3004ef1775b547b23f58a609d724c5fa501d801b09d",
+        "5b7ed810388957d03780a0699ab2947d0ef26e94ada85957e8b7272f17e960c4",
+        "bd2d38a7ffea4d00624999733de5534f40c31092fb1a08e9aec2f86c210f574e",
+    ]
+    assert replay["affected_models"] == "price_pullback_23ema"
+    replay_approval = "user_20261012_option2_new_23ema_versioned_ledger_PIT_parity"
+    assert replay["user_approval_reference"] == replay_approval
+    assert replay["migration_status"] == "validated_user_approved_migration"
+    backgrounds = {row["data_family_id"]: row for row in read_csv("config/daily_model_background_data_registry.csv")}
+    sharing = {row["data_family_id"]: row for row in read_csv("config/daily_model_data_sharing_registry.csv")}
+    for family, digest in zip(replay["changed_data_families"].split(";"), replay["new_contract_sha256s"].split(";")):
+        assert data_contract_sha256(backgrounds[family]) == digest
+        assert sharing[family]["data_contract_sha256"] == digest
+        assert sharing[family]["last_migration_id"] == replay["migration_id"]
+        assert sharing[family]["approved_consumer_models"] == "price_pullback_23ema"
+        assert sharing[family]["sharing_decision_reference"] == replay_approval
+    # Preserve all 57 prior migration rows and their exact assertions below.
+    rows = rows[:-1]
     assert len(rows) == 57
     matched_feature, matched_feature_source_read = rows[-2:]
     matched_owner = "pullback_short_reclaim_matched_feature_research"
