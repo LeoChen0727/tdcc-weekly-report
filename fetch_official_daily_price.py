@@ -810,69 +810,68 @@ def fetch_twse_individual_fallback(
     return df
 
 
-def parse_tpex_list_row(item: list[Any], date_text: str, source: str) -> dict[str, Any] | None:
-    if len(item) < 8:
-        return None
+TPEX_SHARES_SOURCE_SUFFIX = "_SHARES_V1"
+TPEX_QUOTE_FIELDS = {
+    "stock_id": ("代號", "有價證券代號", "SecuritiesCompanyCode", "SecuritiesCode", "Code", "stock_id"),
+    "stock_name": ("名稱", "有價證券名稱", "CompanyName", "Name", "stock_name"),
+    "open_price": ("開盤", "開盤價", "Open", "OpenPrice"),
+    "high_price": ("最高", "最高價", "High", "HighPrice"),
+    "low_price": ("最低", "最低價", "Low", "LowPrice"),
+    "close_price": ("收盤", "收盤價", "Close", "ClosePrice"),
+    "volume": ("成交股數", "TradingShares"),
+    "trading_value": ("成交金額(元)", "TransactionAmount"),
+}
+TPEX_OPTIONAL_TABLE_FIELDS = {
+    "漲跌", "均價", "成交筆數", "最後買價", "最後買量(張數)",
+    "最後賣價", "最後賣量(張數)", "發行股數", "次日 參考價",
+    "次日 漲停價", "次日 跌停價",
+}
 
-    if not re.fullmatch(r"\s*\d{4,6}\s*", safe_str(item[0])):
-        return None
 
-    # TPEx 常見欄位：
-    # 0 代號
-    # 1 名稱
-    # 2 收盤
-    # 3 漲跌
-    # 4 開盤
-    # 5 最高
-    # 6 最低
-    # 7 成交股數 / 成交張數
-    # 8 成交金額
-    return normalize_row(
-        date_text=date_text,
-        stock_id=item[0],
-        stock_name=item[1] if len(item) > 1 else "",
-        market="TPEx",
-        close_price=item[2] if len(item) > 2 else "",
-        open_price=item[4] if len(item) > 4 else "",
-        high_price=item[5] if len(item) > 5 else "",
-        low_price=item[6] if len(item) > 6 else "",
-        volume=item[7] if len(item) > 7 else "",
-        trading_value=item[8] if len(item) > 8 else "",
-        source=source,
-    )
+def tpex_quote_field_indexes(fields: Any) -> dict[str, int]:
+    """Accept explicit share/NTD fields; never infer units from row positions."""
+    if not isinstance(fields, list) or not fields:
+        raise ValueError("TPEx missing fields/header")
+    names = [safe_str(field) for field in fields]
+    if any(not name for name in names) or len(names) != len(set(names)):
+        raise ValueError("TPEx blank or duplicate fields/header")
+    known = TPEX_OPTIONAL_TABLE_FIELDS | {name for aliases in TPEX_QUOTE_FIELDS.values() for name in aliases}
+    unknown = sorted(set(names) - known)
+    if unknown:
+        raise ValueError(f"TPEx unknown fields/header: {unknown}")
+    indexes: dict[str, int] = {}
+    for target, aliases in TPEX_QUOTE_FIELDS.items():
+        matches = [index for index, name in enumerate(names) if name in aliases]
+        if len(matches) != 1:
+            raise ValueError(f"TPEx missing or ambiguous required field: {target}")
+        indexes[target] = matches[0]
+    return indexes
+
+
+def tpex_shares_source(source: str) -> str:
+    return source if source.endswith(TPEX_SHARES_SOURCE_SUFFIX) else source + TPEX_SHARES_SOURCE_SUFFIX
+
+
+def parse_tpex_list_row(
+    item: list[Any], date_text: str, source: str, fields: list[Any] | None = None,
+) -> dict[str, Any] | None:
+    indexes = tpex_quote_field_indexes(fields)
+    if len(item) != len(fields):
+        raise ValueError("TPEx row width does not match fields/header")
+    values = {target: item[index] for target, index in indexes.items()}
+    return normalize_row(date_text=date_text, market="TPEx", source=tpex_shares_source(source), **values)
 
 
 def parse_tpex_dict_row(item: dict[str, Any], date_text: str, source: str) -> dict[str, Any] | None:
-    stock_id = (
-        item.get("SecuritiesCompanyCode")
-        or item.get("SecuritiesCode")
-        or item.get("Code")
-        or item.get("代號")
-        or item.get("有價證券代號")
-        or item.get("stock_id")
-    )
-
-    stock_name = (
-        item.get("CompanyName")
-        or item.get("Name")
-        or item.get("名稱")
-        or item.get("有價證券名稱")
-        or item.get("stock_name")
-    )
-
-    return normalize_row(
-        date_text=date_text,
-        stock_id=stock_id,
-        stock_name=stock_name,
-        market="TPEx",
-        open_price=item.get("Open") or item.get("OpenPrice") or item.get("開盤") or item.get("開盤價"),
-        high_price=item.get("High") or item.get("HighPrice") or item.get("最高") or item.get("最高價"),
-        low_price=item.get("Low") or item.get("LowPrice") or item.get("最低") or item.get("最低價"),
-        close_price=item.get("Close") or item.get("ClosePrice") or item.get("收盤") or item.get("收盤價"),
-        volume=item.get("TradingShares") or item.get("成交股數") or item.get("Volume") or item.get("成交量"),
-        trading_value=item.get("TransactionAmount") or item.get("成交金額") or item.get("TradingValue") or item.get("成交值"),
-        source=source,
-    )
+    if not any(name in item for name in TPEX_QUOTE_FIELDS["stock_id"]):
+        return None
+    values: dict[str, Any] = {}
+    for target, aliases in TPEX_QUOTE_FIELDS.items():
+        matches = [name for name in aliases if name in item]
+        if len(matches) != 1:
+            raise ValueError(f"TPEx missing or ambiguous required dictionary field: {target}")
+        values[target] = item[matches[0]]
+    return normalize_row(date_text=date_text, market="TPEx", source=tpex_shares_source(source), **values)
 
 
 def parse_tpex_json(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
@@ -909,25 +908,59 @@ def parse_tpex_json(text: str, date_text: str, source: str, log: list[str]) -> p
             parsed = parse_tpex_dict_row(node, date_text, source)
             if parsed:
                 rows.append(parsed)
-
-            for key in ["aaData", "data", "tables", "items", "list"]:
-                if key in node:
-                    walk(node[key])
-
-            for value in node.values():
+            handled = {"fields"}
+            if "fields" in node:
+                fields = node["fields"]
+                if not isinstance(fields, list):
+                    raise ValueError("TPEx missing fields/header")
+                names = {safe_str(field) for field in fields}
+                price_names = {
+                    name for key in ("open_price", "high_price", "low_price", "close_price")
+                    for name in TPEX_QUOTE_FIELDS[key]
+                }
+                is_quote_table = bool(names.intersection(TPEX_QUOTE_FIELDS["stock_id"])) or (
+                    bool(names.intersection(TPEX_QUOTE_FIELDS["stock_name"]))
+                    and bool(names.intersection(price_names))
+                ) or all(
+                    names.intersection(TPEX_QUOTE_FIELDS[key])
+                    for key in ("open_price", "high_price", "low_price", "close_price")
+                )
+                if is_quote_table:
+                    tpex_quote_field_indexes(fields)
+                for key in ["aaData", "data"]:
+                    if key not in node:
+                        continue
+                    handled.add(key)
+                    if not is_quote_table:
+                        # Summary tables do not define security quote fields.
+                        continue
+                    if not isinstance(node[key], list):
+                        raise ValueError("TPEx table data is not a list")
+                    for item in node[key]:
+                        if not isinstance(item, list):
+                            raise ValueError("TPEx table row is not a list")
+                        parsed = parse_tpex_list_row(item, date_text, source, fields)
+                        if parsed:
+                            rows.append(parsed)
+            for key, value in node.items():
+                if key in handled:
+                    continue
                 if isinstance(value, (list, dict)):
                     walk(value)
 
         elif isinstance(node, list):
             if node and all(not isinstance(x, (list, dict)) for x in node):
-                parsed = parse_tpex_list_row(node, date_text, source)
-                if parsed:
-                    rows.append(parsed)
+                if re.fullmatch(r"\s*\d{4,6}\s*", safe_str(node[0])):
+                    raise ValueError("TPEx missing fields for list row")
             else:
                 for value in node:
                     walk(value)
 
-    walk(obj)
+    try:
+        walk(obj)
+    except ValueError as exc:
+        log.append(f"{source}: rejected TPEx schema: {exc}")
+        return pd.DataFrame(columns=FINAL_COLUMNS)
 
     df = dataframe_from_rows(rows)
     log.append(f"{source}: parsed TPEx JSON rows={len(df)}")
@@ -946,20 +979,35 @@ def parse_tpex_csv(text: str, date_text: str, source: str, log: list[str]) -> pd
         log.append(f"{source}: rejected response date {response_date}; target date is {date_text}")
         return pd.DataFrame(columns=FINAL_COLUMNS)
 
-    rows = []
-
-    reader = csv.reader(io.StringIO(text.lstrip("\ufeff")))
-
-    for item in reader:
-        if len(item) < 8:
-            continue
-
-        if not re.fullmatch(r"\s*\d{4,6}\s*", safe_str(item[0])):
-            continue
-
-        parsed = parse_tpex_list_row(item, date_text, source)
-        if parsed:
-            rows.append(parsed)
+    rows: list[dict[str, Any]] = []
+    fields: list[str] | None = None
+    indexes: dict[str, int] = {}
+    reader = csv.reader(io.StringIO(text.lstrip("\ufeff")), strict=True)
+    try:
+        for item in reader:
+            # Strip only surplus delimiters once the header width is known;
+            # a blank final optional field is still part of the quote row.
+            while item and not safe_str(item[-1]) and (fields is None or len(item) > len(fields)):
+                item.pop()
+            if any(safe_str(value) in TPEX_QUOTE_FIELDS["stock_id"] for value in item):
+                fields = [safe_str(value) for value in item]
+                indexes = tpex_quote_field_indexes(fields)
+                continue
+            if fields is None:
+                continue
+            if len(item) > 1 and len(item) != len(fields):
+                raise ValueError("TPEx row width does not match fields/header")
+            code_index = indexes["stock_id"]
+            if code_index >= len(item) or not re.fullmatch(r"\s*\d{4,6}\s*", safe_str(item[code_index])):
+                continue
+            parsed = parse_tpex_list_row(item, date_text, source, fields)
+            if parsed:
+                rows.append(parsed)
+        if fields is None:
+            raise ValueError("TPEx missing fields/header")
+    except (ValueError, csv.Error) as exc:
+        log.append(f"{source}: rejected TPEx schema: {exc}")
+        return pd.DataFrame(columns=FINAL_COLUMNS)
 
     df = dataframe_from_rows(rows)
     log.append(f"{source}: parsed TPEx CSV rows={len(df)}")

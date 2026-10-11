@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+import csv
+import io
+import json
 
 import pandas as pd
 import pytest
@@ -21,7 +24,7 @@ def test_detect_target_date_rejects_invalid_override(monkeypatch) -> None:
         fetcher.detect_target_date()
 
 
-def _write_daily_price(path: Path, date_text: str, base_price: float, rows: int = 350) -> None:
+def _write_daily_price(path: Path, date_text: str, base_price: float, rows: int = 1400) -> None:
     records = []
     for index in range(rows):
         stock_id = f"{1000 + index}"
@@ -30,7 +33,8 @@ def _write_daily_price(path: Path, date_text: str, base_price: float, rows: int 
                 "date": date_text,
                 "stock_id": stock_id,
                 "stock_name": f"Stock{stock_id}",
-                "market": "TWSE",
+                # Quality selection requires a complete two-market payload.
+                "market": "TWSE" if index < 700 else "TPEx",
                 "open": base_price + index / 1000,
                 "high": base_price + 1 + index / 1000,
                 "low": base_price - 1 + index / 1000,
@@ -95,7 +99,8 @@ def test_tpex_csv_rejects_response_date_that_does_not_match_target():
 
 def test_tpex_json_accepts_nested_table_response_date_that_matches_target():
     text = (
-        '{"tables":[{"date":"115/06/09","data":[["006201","ETF","26.36","-0.09",'
+        '{"tables":[{"date":"115/06/09","fields":["代號","名稱","收盤","漲跌","開盤",'
+        '"最高","最低","成交股數","成交金額(元)"],"data":[["006201","ETF","26.36","-0.09",'
         '"26.33","26.38","26.31","63,012,000","1,660,553,000"]]}]}'
     )
     log: list[str] = []
@@ -107,6 +112,221 @@ def test_tpex_json_accepts_nested_table_response_date_that_matches_target():
     assert row["stock_id"] == "006201"
     assert row["date"] == "20260609"
     assert float(row["volume"]) == 63012000.0
+    assert row["source"] == "TPEX_TEST_SHARES_V1"
+
+
+def _tpex_official_quote_payload() -> dict:
+    # Saved official 2026-05-27 receipt, response SHA-256:
+    # d20d9657e53d82ca0b78e238d0a2cbd33926f60f43f3d898f9ae90065fdb94f4
+    return {
+        "date": "20260527",
+        "tables": [{
+            "date": "20260527",
+            "fields": [
+                "代號", "名稱", "收盤", "漲跌", "開盤", "最高", "最低", "均價",
+                "成交股數", "成交金額(元)", "成交筆數", "最後買價", "最後買量(張數)",
+                "最後賣價", "最後賣量(張數)", "發行股數", "次日 參考價", "次日 漲停價", "次日 跌停價",
+            ],
+            "data": [[
+                "5498", "凱崴", "68.80", "-1.50 ", "72.00", "72.20", "67.10", "69.19",
+                "7,765,534", "537,313,966", "7,130", "68.50", "4", "68.80", "33",
+                "193,548,545", "68.80", "75.60", "62.00",
+            ]],
+        }],
+    }
+
+
+@pytest.mark.parametrize("reorder", [False, True])
+def test_tpex_json_uses_official_19_column_share_and_ntd_fields(reorder):
+    payload = _tpex_official_quote_payload()
+    table = payload["tables"][0]
+    if reorder:
+        order = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, *range(10, 19)]
+        table["fields"] = [table["fields"][index] for index in order]
+        table["data"][0] = [table["data"][0][index] for index in order]
+    frame = fetcher.parse_tpex_json(json.dumps(payload), "20260527", "TPEX_OLD_DAILY_JSON", [])
+    assert list(frame.columns) == fetcher.FINAL_COLUMNS
+    assert len(frame) == 1
+    assert frame.iloc[0].to_dict() == {
+        "date": "20260527", "stock_id": "5498", "stock_name": "凱崴", "market": "TPEx",
+        "open": 72.0, "high": 72.2, "low": 67.1, "close": 68.8,
+        "volume": 7765534, "trading_value": 537313966, "source": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+    }
+
+
+@pytest.mark.parametrize("defect", [
+    "fieldless", "missing_shares", "missing_identity", "duplicate", "ambiguous_alias", "unknown_volume",
+    "unknown_amount_unit", "unknown_optional", "row_width", "fields_not_list",
+])
+def test_tpex_json_rejects_unbound_or_ambiguous_schema(defect):
+    payload = _tpex_official_quote_payload()
+    table = payload["tables"][0]
+    if defect == "fieldless":
+        del table["fields"]
+    elif defect == "missing_shares":
+        table["fields"].pop(8)
+        table["data"][0].pop(8)
+    elif defect == "missing_identity":
+        table["fields"] = table["fields"][2:]
+        table["data"][0] = table["data"][0][2:]
+        # A malformed quote table must reject the entire mixed batch.
+        payload["tables"].insert(0, _tpex_official_quote_payload()["tables"][0])
+    elif defect == "duplicate":
+        table["fields"][9] = table["fields"][8]
+    elif defect == "ambiguous_alias":
+        table["fields"].append("TradingShares")
+        table["data"][0].append("7,765,534")
+    elif defect == "unknown_volume":
+        table["fields"][8] = "成交量"
+    elif defect == "unknown_amount_unit":
+        table["fields"][9] = "成交金額"
+    elif defect == "unknown_optional":
+        table["fields"].append("未審核欄位")
+        table["data"][0].append("1")
+    elif defect == "row_width":
+        table["data"][0].pop()
+    else:
+        table["fields"] = "代號,成交股數"
+    log: list[str] = []
+    frame = fetcher.parse_tpex_json(json.dumps(payload), "20260527", "TPEX_OLD_DAILY_JSON", log)
+    assert frame.empty
+    assert any("rejected TPEx schema" in line for line in log)
+
+
+def test_tpex_json_binds_each_table_to_its_own_fields_and_visits_once(monkeypatch):
+    payload = _tpex_official_quote_payload()
+    second = _tpex_official_quote_payload()["tables"][0]
+    second["data"][0][0] = "6588"
+    second["data"][0][1] = "東典光電"
+    second["fields"].reverse()
+    second["data"][0].reverse()
+    payload["tables"].append(second)
+    normalize = fetcher.normalize_row
+    visited: list[str] = []
+
+    def recording_normalize(**kwargs):
+        visited.append(kwargs["stock_id"])
+        return normalize(**kwargs)
+
+    monkeypatch.setattr(fetcher, "normalize_row", recording_normalize)
+    frame = fetcher.parse_tpex_json(json.dumps(payload), "20260527", "TPEX_OLD_DAILY_JSON", [])
+    assert visited == ["5498", "6588"]
+    assert frame["volume"].tolist() == [7765534, 7765534]
+
+
+def test_tpex_json_keeps_quotes_when_response_also_has_non_security_summary():
+    payload = _tpex_official_quote_payload()
+    payload["tables"].append({"fields": ["項目", "數值"], "data": [["成交股票數", 1011]]})
+
+    frame = fetcher.parse_tpex_json(json.dumps(payload), "20260527", "TPEX_OLD_DAILY_JSON", [])
+
+    assert len(frame) == 1
+    assert frame.iloc[0]["stock_id"] == "5498"
+    assert frame.iloc[0]["volume"] == 7765534
+
+
+@pytest.mark.parametrize("reorder", [False, True])
+def test_tpex_csv_uses_header_with_quoted_numbers_and_preamble(reorder):
+    table = _tpex_official_quote_payload()["tables"][0]
+    if reorder:
+        table["fields"].reverse()
+        table["data"][0].reverse()
+    text = io.StringIO()
+    text.write("\ufeff資料日期:115/05/27\n上櫃股票每日收盤行情(不含定價)\n")
+    writer = csv.writer(text, quoting=csv.QUOTE_ALL)
+    writer.writerow(table["fields"] + [""])
+    writer.writerow(table["data"][0] + [""])
+    frame = fetcher.parse_tpex_csv(text.getvalue(), "20260527", "TPEX_OLD_DAILY_CSV", [])
+    assert len(frame) == 1
+    row = frame.iloc[0]
+    assert row["volume"] == 7765534
+    assert row["trading_value"] == 537313966
+    assert row["source"] == "TPEX_OLD_DAILY_CSV_SHARES_V1"
+
+
+@pytest.mark.parametrize("defect", ["fieldless", "duplicate", "missing_shares", "unknown_unit", "row_width"])
+def test_tpex_csv_rejects_unbound_header_or_row(defect):
+    table = _tpex_official_quote_payload()["tables"][0]
+    if defect == "duplicate":
+        table["fields"][9] = "成交股數"
+    elif defect == "missing_shares":
+        table["fields"].pop(8)
+        table["data"][0].pop(8)
+    elif defect == "unknown_unit":
+        table["fields"][8] = "成交張數"
+    elif defect == "row_width":
+        table["data"][0].pop()
+    text = io.StringIO()
+    writer = csv.writer(text)
+    if defect != "fieldless":
+        writer.writerow(table["fields"])
+    writer.writerow(table["data"][0])
+    log: list[str] = []
+    assert fetcher.parse_tpex_csv(text.getvalue(), "20260527", "TPEX_OLD_DAILY_CSV", log).empty
+    assert any("rejected TPEx schema" in line for line in log)
+
+
+def test_tpex_csv_rejects_partial_quote_batch_after_reordered_header():
+    table = _tpex_official_quote_payload()["tables"][0]
+    text = io.StringIO()
+    writer = csv.writer(text)
+    writer.writerow(list(reversed(table["fields"])))
+    writer.writerow(list(reversed(table["data"][0])))
+    # Identity is the last field after reordering; a short next row cannot be skipped.
+    writer.writerow(list(reversed(table["data"][0]))[:-1])
+    log: list[str] = []
+    assert fetcher.parse_tpex_csv(text.getvalue(), "20260527", "TPEX_OLD_DAILY_CSV", log).empty
+    assert any("row width" in line for line in log)
+
+
+def test_tpex_csv_preserves_empty_optional_column_before_trailing_delimiter():
+    table = _tpex_official_quote_payload()["tables"][0]
+    table["data"][0][-1] = ""
+    text = io.StringIO()
+    writer = csv.writer(text)
+    writer.writerow(table["fields"] + [""])
+    writer.writerow(table["data"][0] + [""])
+
+    frame = fetcher.parse_tpex_csv(text.getvalue(), "20260527", "TPEX_OLD_DAILY_CSV", [])
+
+    assert len(frame) == 1
+    assert frame.iloc[0]["volume"] == 7765534
+    assert frame.iloc[0]["trading_value"] == 537313966
+
+
+def _tpex_openapi_quote() -> dict:
+    return {
+        "SecuritiesCompanyCode": "5498", "CompanyName": "凱崴", "Close": "68.80",
+        "Open": "72.00", "High": "72.20", "Low": "67.10",
+        "TradingShares": "7,765,534", "TransactionAmount": "537,313,966",
+    }
+
+
+def test_tpex_dictionary_preserves_explicit_share_and_ntd_fields():
+    quote = _tpex_openapi_quote()
+    quote["TradingShares"] = 0
+    frame = fetcher.parse_tpex_json(json.dumps([quote]), "20260527", "TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES", [])
+    assert len(frame) == 1
+    assert frame.iloc[0]["volume"] == 0
+    assert frame.iloc[0]["trading_value"] == 537313966
+    assert frame.iloc[0]["source"] == "TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES_SHARES_V1"
+
+
+@pytest.mark.parametrize("key", ["Volume", "成交量", "成交張數"])
+def test_tpex_dictionary_rejects_ambiguous_or_lot_volume(key):
+    quote = _tpex_openapi_quote()
+    quote[key] = quote.pop("TradingShares")
+    log: list[str] = []
+    assert fetcher.parse_tpex_json(json.dumps([quote]), "20260527", "TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES", log).empty
+    assert any("required dictionary field: volume" in line for line in log)
+
+
+def test_tpex_dictionary_rejects_ambiguous_amount_unit():
+    quote = _tpex_openapi_quote()
+    quote["TradingValue"] = quote.pop("TransactionAmount")
+    log: list[str] = []
+    assert fetcher.parse_tpex_json(json.dumps([quote]), "20260527", "TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES", log).empty
+    assert any("required dictionary field: trading_value" in line for line in log)
 
 
 def test_tpex_fetch_skips_latest_only_openapi_for_historical_target(monkeypatch):
@@ -159,6 +379,9 @@ def test_twse_historical_json_requires_official_exact_response_date(monkeypatch)
     assert rejected.empty
     assert len(accepted) == 1
     assert accepted.iloc[0]["date"] == "20260717"
+    assert accepted.iloc[0]["source"] == "TWSE_RWD_JSON_MI_INDEX"
+    assert accepted.iloc[0]["volume"] == 1000
+    assert accepted.iloc[0]["trading_value"] == 500000
 
 
 def test_twse_historical_mode_skips_latest_only_openapi(monkeypatch):
