@@ -203,17 +203,26 @@ def is_weekend_yyyymmdd(value: Any) -> bool:
 
 
 def normalize_source_volume_units(df: pd.DataFrame) -> pd.DataFrame:
-    """Normalize all stock histories to share count.
+    """Keep schema-verified TPEx shares separate from unversioned compatibility.
 
-    The TPEx legacy daily JSON source reports trading volume in board lots.
-    Older daily files and TWSE files use shares. Without this conversion,
-    high-price TPEx names such as 8299 show a fake volume collapse from
-    millions of shares to a few thousand lots.
+    The collector's ``_SHARES_V1`` suffix records that named official fields
+    supplied share count, so those rows must not receive a lots conversion.
+    Unversioned TPEX_OLD_DAILY_JSON retains the existing conversion only for
+    compatibility. Its provider name does not prove the original row's unit:
+    historical field-offset errors require a separately scoped source repair.
     """
     result = df.copy()
     if "source" not in result.columns or "volume" not in result.columns:
         return result
     source = result["source"].astype(str).str.upper()
+    versioned_tpex = source.str.match(r"^TPEX_.*_(?:SHARES|LOTS)_V[^\s]+$")
+    verified_shares = source.str.endswith("_SHARES_V1")
+    unsupported = versioned_tpex & ~verified_shares
+    if unsupported.any():
+        raise ValueError(
+            "unsupported TPEx volume-unit source version: "
+            + ", ".join(sorted(set(source[unsupported])))
+        )
     legacy_tpex = source.eq("TPEX_OLD_DAILY_JSON")
     result.loc[legacy_tpex, "volume"] = pd.to_numeric(result.loc[legacy_tpex, "volume"], errors="coerce") * 1000
     return result

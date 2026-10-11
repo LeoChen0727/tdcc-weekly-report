@@ -1045,3 +1045,70 @@ def test_legacy_range_main_uses_current_market_session_refresh_seam(
 
     assert repair.main() == 17
     assert observed == ["called"]
+
+
+def test_tpex_schema_verified_shares_do_not_gain_legacy_lots_multiplier():
+    frame = pd.DataFrame(
+        {
+            "source": [
+                "TPEX_OLD_DAILY_JSON_SHARES_V1",
+                "TPEX_OLD_DAILY_CSV_SHARES_V1",
+                "TPEX_NEW_AFTERTRADING_JSON_SHARES_V1",
+                "TPEX_OPENAPI_MAINBOARD_DAILY_CLOSE_QUOTES_SHARES_V1",
+                "TPEX_OLD_DAILY_JSON",
+                "TPEX_OLD_DAILY_CSV",
+                "TWSE_RWD_JSON_MI_INDEX",
+            ],
+            "volume": [431135, 7765534, 2000, 0, 2, 2000, 3000],
+            "trading_value": [1631047860, 537313966, 40000, 0, 40000, 40000, 60000],
+        }
+    )
+    original = frame.copy(deep=True)
+
+    normalized = history.normalize_source_volume_units(frame)
+
+    assert normalized["volume"].tolist() == [431135, 7765534, 2000, 0, 2000, 2000, 3000]
+    assert normalized["trading_value"].tolist() == original["trading_value"].tolist()
+    pd.testing.assert_frame_equal(frame, original)
+    pd.testing.assert_frame_equal(
+        history.normalize_source_volume_units(normalized.iloc[:4]), normalized.iloc[:4]
+    )
+
+
+@pytest.mark.parametrize("source", ["TPEX_OLD_DAILY_JSON_SHARES_V2", "TPEX_OLD_DAILY_JSON_LOTS_V1"])
+def test_unknown_tpex_unit_version_fails_before_history_publish(source):
+    with pytest.raises(ValueError, match="unsupported TPEx volume-unit source version"):
+        history.normalize_source_volume_units(pd.DataFrame({"source": [source], "volume": [2]}))
+
+
+def test_schema_verified_tpex_daily_csv_reaches_history_rolling_volume_in_shares(tmp_path):
+    # Independent expected share counts; no production collector is imported.
+    dates = pd.bdate_range("2026-07-01", periods=20)
+    path = tmp_path / "daily_price_schema_verified.csv"
+    rows = [
+        {
+            "date": date.strftime("%Y%m%d"),
+            "stock_id": "5498",
+            "stock_name": "Example",
+            "market": "TPEx",
+            "open": 69,
+            "high": 71,
+            "low": 68,
+            "close": 70,
+            "volume": 1000 if index < 19 else 2000,
+            "trading_value": 70000 if index < 19 else 140000,
+            "source": "TPEX_OLD_DAILY_JSON_SHARES_V1",
+        }
+        for index, date in enumerate(dates)
+    ]
+    pd.DataFrame(rows).to_csv(path, index=False)
+    before = path.read_bytes()
+
+    normalized = history.normalize_daily_price_file(path)
+    result = history.add_indicators(normalized)
+
+    assert result["volume"].tolist() == [1000] * 19 + [2000]
+    assert result.iloc[-1]["volume_ma20"] == pytest.approx(1050)
+    assert result.iloc[-1]["volume_ratio"] == pytest.approx(2000 / 1050)
+    assert result.iloc[-1]["trading_value"] == 140000
+    assert path.read_bytes() == before
