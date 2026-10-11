@@ -1808,6 +1808,29 @@ def test_projection_chain_primary_guard_cannot_be_removed_or_succeed(mutation: s
     assert any("projection chain stage must fail closed" in error for error in errors)
 
 
+@pytest.mark.parametrize("mutation", ("valid", "missing", "wrong_producer", "remote"))
+def test_price_pullback_versioned_replay_has_exact_local_ownership(mutation):
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    owner = validator.PRICE_PULLBACK_REPLAY_LOCAL_OWNER
+    producer = validator.PRICE_PULLBACK_REPLAY_LOCAL_PRODUCER
+    assert owned[owner] == producer
+    if mutation == "missing":
+        del owned[owner]
+    elif mutation == "wrong_producer":
+        owned[owner] = validator.PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER
+    elif mutation == "remote":
+        rows.append(replace(rows[0], model_id=owner, producer=producer))
+    assert bool(validator.validate_registry_contract(rows, owned)) == (mutation != "valid")
+
+
+def test_price_pullback_versioned_replay_remains_manual_in_unregistered_workflow():
+    path = ".github/workflows/unregistered.yml"
+    text = "run: python " + validator.PRICE_PULLBACK_REPLAY_LOCAL_PRODUCER
+    assert validator.validate_annual_local_workflow_exclusion({path: text}) == [
+        f"versioned price_pullback_23ema replay producer is forbidden in every workflow: {path}"
+    ]
+
+
 def _annual_local_inputs():
     return (
         (validator.ROOT / validator.ANNUAL_LOCAL_CONFIG).read_bytes(),
