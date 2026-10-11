@@ -34,6 +34,8 @@ PULLBACK_COMPARISON_LOCAL_OWNER = "pullback_short_reclaim_23ema_condition_compar
 PULLBACK_COMPARISON_LOCAL_PRODUCER = "scripts/build_pullback_short_reclaim_23ema_condition_comparison.py"
 PULLBACK_MATCHED_FEATURE_LOCAL_OWNER = "pullback_short_reclaim_matched_feature_research"
 PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER = "scripts/build_pullback_short_reclaim_matched_feature_research.py"
+PRICE_PULLBACK_REPLAY_LOCAL_OWNER = "price_pullback_23ema_versioned_replay"
+PRICE_PULLBACK_REPLAY_LOCAL_PRODUCER = "scripts/build_price_pullback_23ema_versioned_replay.py"
 MEDIUM_TERM_LOCAL_OWNER = "tdcc_stealth_accumulation_medium_term_trend_research"
 MEDIUM_TERM_LOCAL_PRODUCER = "scripts/build_tdcc_stealth_accumulation_medium_term_trend_research.py"
 ANNUAL_LOCAL_OWNER = "tdcc_stealth_accumulation_current_version_annual_replay"
@@ -611,6 +613,7 @@ def validate_registry_contract(
         PULLBACK_SHARE_UNIT_LOCAL_OWNER: PULLBACK_SHARE_UNIT_LOCAL_PRODUCER,
         PULLBACK_COMPARISON_LOCAL_OWNER: PULLBACK_COMPARISON_LOCAL_PRODUCER,
         PULLBACK_MATCHED_FEATURE_LOCAL_OWNER: PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER,
+        PRICE_PULLBACK_REPLAY_LOCAL_OWNER: PRICE_PULLBACK_REPLAY_LOCAL_PRODUCER,
         ANNUAL_LOCAL_OWNER: ANNUAL_LOCAL_PRODUCER,
         MEDIUM_TERM_LOCAL_OWNER: MEDIUM_TERM_LOCAL_PRODUCER,
     }
@@ -696,6 +699,10 @@ def validate_annual_local_workflow_exclusion(workflow_texts: dict[str, str]) -> 
         f"fixed-source pullback_short_reclaim matched-feature producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()
         if Path(PULLBACK_MATCHED_FEATURE_LOCAL_PRODUCER).stem in text
+    ] + [
+        f"versioned price_pullback_23ema replay producer is forbidden in every workflow: {path}"
+        for path, text in workflow_texts.items()
+        if Path(PRICE_PULLBACK_REPLAY_LOCAL_PRODUCER).stem in text
     ] + [
         f"annual local-private producer is forbidden in every workflow: {path}"
         for path, text in workflow_texts.items()

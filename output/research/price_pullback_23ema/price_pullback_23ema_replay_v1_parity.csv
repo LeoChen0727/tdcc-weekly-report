@@ -1,0 +1,12 @@
+check_id,research_rule,formal_rule,status,detail
+target_operator,>=,>,different,strict_gt_legacy_refs changes only the operator on identical legacy gate/features
+same_day_priority,same_day_unresolved,target_first,different,formal independent trace checks target before updating the four-day stop
+d20_terminal,realized_D20_close,expired_d20_no_active_tracking,not_proven,adapter emits no realized D20 price; do not infer full formal return parity
+support_fields,OR across all support fields,first_numeric_alias,not_proven,production candidate rows and alias precedence are not reconstructed
+return20,recomputed trimmed close history,saved return_20d first,not_proven,rounding and candidate field lineage can change edge gates
+obv,trimmed research prefix,full price prefix,not_proven,no production selector import or matched historical input snapshot
+tdcc,as_of backward join,production as_of/latest row,not_proven,no original available_at or complete revision history
+warmup,weekly positive-volume warm-up then technical,full cleaned OHLC,different,formal target/MA/EMA trace is separately recomputed; pending right edge retained
+nonoverlap,stock/signal position before previous exit suppressed,formal buy-ranked position lineage,not_proven,counterfactual diagnostic positions are not formal positions
+effective_date,20251128..20260602,from 20260703,different,all research window rows predate formal signal effective_from
+full_production_selector_and_ranking,legacy five-gate cohort,candidate source/context/ranking/report line,not_proven,same-gate exit comparison is not full production parity
