@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2938 床的世界
 
 ## Metadata
-- generated_at: 2026-10-11 22:16:52 Asia/Taipei
+- generated_at: 2026-10-12 22:17:35 Asia/Taipei
 - stock_id: 2938
 - stock_name: 床的世界
 - packet_status: partial_rawdata_packet
