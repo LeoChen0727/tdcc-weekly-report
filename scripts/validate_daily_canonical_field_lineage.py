@@ -186,22 +186,54 @@ PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_SCOPES = {
 PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID = (
     "pullback_short_reclaim_model_score_consumer_exclusions_20260901"
 )
+PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_APPROVAL_REFERENCE = (
+    "user_20261012_continue_23ema_confirmation_lineage_research"
+)
+PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_SCOPES = {
+    "report_model_rank_23ema_confirmation_lineage_research_scope": (
+        "model_rank__formal_report_current",
+        "scripts/build_price_pullback_23ema_confirmation_lineage_research.py",
+        "model_scope_mismatch",
+    ),
+    "report_model_rank_23ema_confirmation_lineage_validator_scope": (
+        "model_rank__formal_report_current",
+        "scripts/validate_price_pullback_23ema_confirmation_lineage_research.py",
+        "model_scope_mismatch",
+    ),
+    "report_model_score_23ema_confirmation_lineage_operation_views": (
+        "model_score__formal_report_current",
+        "scripts/build_price_pullback_23ema_confirmation_lineage_research.py",
+        "cross_artifact_literal",
+    ),
+}
+PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_MIGRATION_ID = (
+    "price_pullback_23ema_confirmation_lineage_consumer_exclusions_20261012"
+)
 CONSUMER_EXCLUSION_APPROVAL_REFERENCES = frozenset(
     {
         CONSUMER_EXCLUSION_APPROVAL_REFERENCE,
         SNAPSHOT_REVISION_LINEAGE_APPROVAL_REFERENCE,
         PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE,
+        PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_APPROVAL_REFERENCE,
     }
 )
 CONSUMER_EXCLUSION_APPROVAL_SCOPES = {
     PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE: (
         PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_SCOPES
     ),
+    PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_APPROVAL_REFERENCE: (
+        PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_SCOPES
+    ),
 }
 CONSUMER_EXCLUSION_MIGRATION_APPROVAL_SCOPES = {
     PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL_REFERENCE: {
         PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID: tuple(
             PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_SCOPES
+        ),
+    },
+    PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_APPROVAL_REFERENCE: {
+        PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_MIGRATION_ID: tuple(
+            PRICE_PULLBACK_23EMA_CONFIRMATION_LINEAGE_SCOPES
         ),
     },
 }
