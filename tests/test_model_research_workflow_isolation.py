@@ -1831,6 +1831,29 @@ def test_price_pullback_versioned_replay_remains_manual_in_unregistered_workflow
     ]
 
 
+@pytest.mark.parametrize("mutation", ("valid", "missing", "wrong_producer", "remote"))
+def test_price_pullback_confirmation_lineage_has_exact_local_ownership(mutation):
+    rows, owned = validator.load_registry(), validator.load_model_owned_producers()
+    owner = validator.PRICE_PULLBACK_CONFIRMATION_LOCAL_OWNER
+    producer = validator.PRICE_PULLBACK_CONFIRMATION_LOCAL_PRODUCER
+    assert owned[owner] == producer
+    if mutation == "missing":
+        del owned[owner]
+    elif mutation == "wrong_producer":
+        owned[owner] = validator.PRICE_PULLBACK_REPLAY_LOCAL_PRODUCER
+    elif mutation == "remote":
+        rows.append(replace(rows[0], model_id=owner, producer=producer))
+    assert bool(validator.validate_registry_contract(rows, owned)) == (mutation != "valid")
+
+
+def test_price_pullback_confirmation_lineage_remains_manual_in_unregistered_workflow():
+    path = ".github/workflows/unregistered.yml"
+    text = "run: python " + validator.PRICE_PULLBACK_CONFIRMATION_LOCAL_PRODUCER
+    assert validator.validate_annual_local_workflow_exclusion({path: text}) == [
+        f"saved-confirmation price_pullback_23ema lineage producer is forbidden in every workflow: {path}"
+    ]
+
+
 def _annual_local_inputs():
     return (
         (validator.ROOT / validator.ANNUAL_LOCAL_CONFIG).read_bytes(),
