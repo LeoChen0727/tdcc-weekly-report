@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import csv
 import hashlib
 import json
@@ -43,6 +44,26 @@ PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID = (
 PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_APPROVAL = (
     "user_authorized_pullback_short_reclaim_volume_v2_consumer_exclusions_20260901"
 )
+CONFIRMATION_LINEAGE_EXCLUSION_MIGRATION_ID = (
+    "price_pullback_23ema_confirmation_lineage_consumer_exclusions_20261012"
+)
+CONFIRMATION_LINEAGE_EXCLUSION_APPROVAL = (
+    "user_20261012_continue_23ema_confirmation_lineage_research"
+)
+CONFIRMATION_LINEAGE_EXCLUSIONS = {
+    "report_model_rank_23ema_confirmation_lineage_research_scope": (
+        "model_rank__formal_report_current", "model_rank",
+        "scripts/build_price_pullback_23ema_confirmation_lineage_research.py", "model_scope_mismatch",
+    ),
+    "report_model_rank_23ema_confirmation_lineage_validator_scope": (
+        "model_rank__formal_report_current", "model_rank",
+        "scripts/validate_price_pullback_23ema_confirmation_lineage_research.py", "model_scope_mismatch",
+    ),
+    "report_model_score_23ema_confirmation_lineage_operation_views": (
+        "model_score__formal_report_current", "model_score",
+        "scripts/build_price_pullback_23ema_confirmation_lineage_research.py", "cross_artifact_literal",
+    ),
+}
 COLLISION_MIGRATION_ID = "volume_v2_dispatcher_collision_registry_20260718"
 APPROVAL = "user_requested_formal_lineage_hardening_20260718"
 MODELS = ";".join(sorted(lineage.VOLUME_V2_MODELS))
@@ -1785,6 +1806,7 @@ def build_valid_repo(root: Path) -> None:
         "canonical_field_consumer_theme_exclusions_20260718",
         RANKING_VALIDATOR_EXCLUSION_MIGRATION_ID,
         PULLBACK_SHORT_RECLAIM_CONSUMER_EXCLUSION_MIGRATION_ID,
+        CONFIRMATION_LINEAGE_EXCLUSION_MIGRATION_ID,
     }
     write_csv(
         root / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH,
@@ -2188,6 +2210,165 @@ def test_pullback_short_reclaim_model_score_exclusions_are_exact_model_scope_mis
         exact["module"] for exact in expected.values()
     )
     assert lineage.validate(tmp_path) == []
+
+
+def test_23ema_confirmation_lineage_exclusions_pin_exact_three_reviewed_collisions(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    _, exclusions = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH)
+    selected = {r["exclusion_id"]: r for r in exclusions
+                if r["approval_reference"] == CONFIRMATION_LINEAGE_EXCLUSION_APPROVAL}
+    assert set(selected) == set(CONFIRMATION_LINEAGE_EXCLUSIONS)
+    artifact = "output/latest/daily_candidate_model_signals_for_report_latest.csv"
+    for exclusion_id, (lineage_id, field, module, classification) in CONFIRMATION_LINEAGE_EXCLUSIONS.items():
+        row = selected[exclusion_id]
+        assert (row["lineage_id"], row["field_name"], row["artifact_path"], row["module"], row["classification"]) == (
+            lineage_id, field, artifact, module, classification,
+        )
+        assert row["last_migration_id"] == CONFIRMATION_LINEAGE_EXCLUSION_MIGRATION_ID
+        assert row["contract_sha256"] == lineage.consumer_exclusion_contract_sha256(row)
+        assert row["evidence"]
+
+    _, migrations = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH)
+    approved = [r for r in migrations if r["user_approval_reference"] == CONFIRMATION_LINEAGE_EXCLUSION_APPROVAL]
+    assert len(approved) == 1
+    migration = approved[0]
+    assert migration["migration_id"] == CONFIRMATION_LINEAGE_EXCLUSION_MIGRATION_ID
+    changed = migration["changed_exclusion_ids"].split(";")
+    assert changed == list(CONFIRMATION_LINEAGE_EXCLUSIONS)
+    assert migration["previous_contract_sha256s"] == "NEW;NEW;NEW"
+    assert migration["new_contract_sha256s"].split(";") == [selected[k]["contract_sha256"] for k in changed]
+    assert set(migration["affected_modules"].split(";")) == {v[2] for v in CONFIRMATION_LINEAGE_EXCLUSIONS.values()}
+    assert set(migration["affected_lineage_ids"].split(";")) == {v[0] for v in CONFIRMATION_LINEAGE_EXCLUSIONS.values()}
+    assert migration["migration_status"] == lineage.CONSUMER_EXCLUSION_MIGRATION_STATUS
+    _, registry = lineage._read_artifact(tmp_path / lineage.REGISTRY_PATH)
+    for row in registry:
+        if row["lineage_id"] in {v[0] for v in CONFIRMATION_LINEAGE_EXCLUSIONS.values()}:
+            assert not set(row["allowed_consumer_modules"].split(";")).intersection(v[2] for v in CONFIRMATION_LINEAGE_EXCLUSIONS.values())
+    assert lineage.validate(tmp_path) == []
+
+
+@pytest.mark.parametrize("mutation", ["module", "classification", "artifact", "field", "unapproved_reference"])
+def test_23ema_confirmation_lineage_exclusion_cannot_expand_reviewed_tuple(tmp_path: Path, mutation: str) -> None:
+    build_valid_repo(tmp_path)
+    _, registry = lineage._read_artifact(tmp_path / lineage.REGISTRY_PATH)
+    _, exclusions = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH)
+    exclusion_id = "report_model_rank_23ema_confirmation_lineage_research_scope"
+    row = next(r for r in exclusions if r["exclusion_id"] == exclusion_id)
+    if mutation == "module":
+        row["module"] = "scripts/unreviewed_other_model_consumer.py"
+        (tmp_path / row["module"]).write_text("", encoding="utf-8")
+        expected = "approval scope mismatch"
+    elif mutation == "classification":
+        row["classification"] = "routing_metadata_only"
+        expected = "approval scope mismatch"
+    elif mutation == "artifact":
+        row["artifact_path"] = "output/latest/all_candidates_latest.csv"
+        expected = "artifact mismatch"
+    elif mutation == "field":
+        row["field_name"] = "model_score"
+        expected = "field mismatch"
+    else:
+        row["approval_reference"] = "unapproved_23ema_confirmation_exclusion"
+        expected = "approval mismatch"
+    row["contract_sha256"] = lineage.consumer_exclusion_contract_sha256(row)
+    errors, _ = lineage._validate_consumer_exclusions(tmp_path, registry, exclusions)
+    assert any(expected in e and exclusion_id in e for e in errors)
+
+
+def test_23ema_confirmation_lineage_approval_cannot_authorize_a_different_migration(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    _, exclusions = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH)
+    _, migrations = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH)
+    wrong = next(r for r in migrations if r["migration_id"] == "canonical_field_consumer_theme_exclusions_20260718")
+    wrong["user_approval_reference"] = CONFIRMATION_LINEAGE_EXCLUSION_APPROVAL
+    errors = lineage._validate_consumer_exclusion_migrations(exclusions, migrations)
+    assert any("migration approval scope mismatch" in e and wrong["migration_id"] in e for e in errors)
+
+
+def test_23ema_confirmation_lineage_exclusion_contract_hash_is_fail_closed(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    _, registry = lineage._read_artifact(tmp_path / lineage.REGISTRY_PATH)
+    _, exclusions = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH)
+    row = next(r for r in exclusions if r["exclusion_id"] == "report_model_score_23ema_confirmation_lineage_operation_views")
+    row["notes"] += " unreviewed change without a migration"
+    errors, _ = lineage._validate_consumer_exclusions(tmp_path, registry, exclusions)
+    assert any("exclusion contract SHA mismatch" in e and row["exclusion_id"] in e for e in errors)
+
+
+def test_23ema_confirmation_lineage_migration_tip_pins_each_exclusion(tmp_path: Path) -> None:
+    build_valid_repo(tmp_path)
+    _, exclusions = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH)
+    _, migrations = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSION_MIGRATIONS_PATH)
+    migration = next(r for r in migrations if r["migration_id"] == CONFIRMATION_LINEAGE_EXCLUSION_MIGRATION_ID)
+    hashes = migration["new_contract_sha256s"].split(";")
+    hashes[0] = "0" * 64
+    migration["new_contract_sha256s"] = ";".join(hashes)
+    errors = lineage._validate_consumer_exclusion_migrations(exclusions, migrations)
+    assert any("migration tip does not pin contract" in e for e in errors)
+
+
+@pytest.mark.parametrize("exclusion_id", list(CONFIRMATION_LINEAGE_EXCLUSIONS))
+def test_23ema_confirmation_lineage_exclusion_is_stale_without_its_exact_literal(tmp_path: Path, exclusion_id: str) -> None:
+    build_valid_repo(tmp_path)
+    lineage_id, field, module, _ = CONFIRMATION_LINEAGE_EXCLUSIONS[exclusion_id]
+    path = tmp_path / module
+    source = path.read_text(encoding="utf-8")
+    assert repr(field) in source
+    path.write_text(source.replace(repr(field), repr("removed_" + field)), encoding="utf-8")
+    _, registry = lineage._read_artifact(tmp_path / lineage.REGISTRY_PATH)
+    _, exclusions = lineage._read_artifact(tmp_path / lineage.CONSUMER_EXCLUSIONS_PATH)
+    errors = lineage._validate_reverse_current_consumers(tmp_path, registry, exclusions)
+    assert any("stale canonical consumer exclusion" in e and f"lineage_id={lineage_id}" in e and f"module={module}" in e for e in errors)
+
+
+def test_23ema_confirmation_lineage_review_proves_frozen_model_owned_sources() -> None:
+    """Review evidence for these exceptions, not a new runtime source-hash gate."""
+    producer = ast.parse((ROOT / "scripts/build_price_pullback_23ema_confirmation_lineage_research.py").read_text(encoding="utf-8"))
+    validator = ast.parse((ROOT / "scripts/validate_price_pullback_23ema_confirmation_lineage_research.py").read_text(encoding="utf-8"))
+    def constants(tree):
+        result = {}
+        for node in tree.body:
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if isinstance(target, ast.Name):
+                        try:
+                            result[target.id] = ast.literal_eval(node.value)
+                        except (ValueError, TypeError):
+                            pass
+        return result
+    def functions(tree):
+        return {n.name: n for n in tree.body if isinstance(n, ast.FunctionDef)}
+    def model_comparison(node, operator):
+        return (isinstance(node, ast.Compare) and len(node.ops) == 1 and isinstance(node.ops[0], operator)
+                and isinstance(node.left, ast.Call) and isinstance(node.left.func, ast.Attribute)
+                and node.left.func.attr == "get" and node.left.args
+                and isinstance(node.left.args[0], ast.Constant) and node.left.args[0].value == "model_id"
+                and any(isinstance(c, ast.Name) and c.id == "MODEL_ID" for c in node.comparators))
+    pc, vc = constants(producer), constants(validator)
+    assert pc["MODEL_ID"] == vc["MODEL_ID"] == "price_pullback_23ema"
+    assert vc["DECISION_REF"] == "2f1374ff78376ced98e142a9632b227845507dd6"
+    assert vc["ACTIVE_REF"] == "ea8ae537480b27f166e64c3fc8350cb73e53c2b4"
+    assert vc["OUTCOME_REF"] == "7db2863af59c88ca419baba1c8a7f709a2e0aff2"
+    pf, vf = functions(producer), functions(validator)
+    assert any(model_comparison(n, ast.Eq) for n in ast.walk(pf["model_rows"]))
+    assert any(model_comparison(n, ast.NotEq) for n in ast.walk(vf["_source_index"]))
+    build = pf["build"]
+    rank_source = next(n for n in ast.walk(build) if isinstance(n, ast.Assign)
+                       and any(isinstance(t, ast.Tuple) and any(isinstance(e, ast.Name) and e.id == "rank_raw" for e in t.elts) for t in n.targets))
+    assert isinstance(rank_source.value, ast.Call) and isinstance(rank_source.value.func, ast.Attribute)
+    assert rank_source.value.func.attr == "get"
+    assert [n.id for n in rank_source.value.args if isinstance(n, ast.Name)] == ["decision_ref", "RANK_PATH"]
+    assert any(isinstance(n, ast.DictComp) and any(isinstance(g.iter, ast.Call)
+               and isinstance(g.iter.func, ast.Name) and g.iter.func.id == "model_rows"
+               and any(isinstance(a, ast.Name) and a.id == "rank_raw" for a in g.iter.args) for g in n.generators) for n in ast.walk(build))
+    assert not any(isinstance(n, ast.Constant) and n.value == "model_score" for n in ast.walk(build))
+    operation = pf["operation_rows"]
+    assert any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "model_rows" for n in ast.walk(operation))
+    assert any(isinstance(n, ast.Constant) and n.value == "model_score" for n in ast.walk(operation))
+    bound_rank = [n for n in ast.walk(vf["validate_source_rows"]) if isinstance(n, ast.Subscript)
+                  and isinstance(n.value, ast.Name) and n.value.id == "sources"
+                  and isinstance(n.slice, ast.Tuple)]
+    assert any([e.id for e in n.slice.elts if isinstance(e, ast.Name)] == ["DECISION_REF", "RANK_PATH"] for n in bound_rank)
 
 
 def test_pullback_consumer_exclusion_unapproved_reference_fails_closed(
