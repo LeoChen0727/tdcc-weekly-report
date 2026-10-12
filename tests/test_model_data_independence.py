@@ -1498,6 +1498,33 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 59
+    confirmation = rows[-1]
+    assert confirmation["migration_id"] == "price_pullback_23ema_confirmation_lineage_research_v1_20261012"
+    assert confirmation["changed_data_families"].split(";") == [
+        "price_pullback_23ema_confirmation_lineage_research_v1_" + suffix
+        for suffix in ("rows", "summary", "manifest")
+    ]
+    assert confirmation["previous_contract_sha256s"] == "NEW;NEW;NEW"
+    assert confirmation["new_contract_sha256s"].split(";") == [
+        "39ebd20b09cf49bb2ee6e16242379b8f36a3ea5cda8ee647486fb9f8488fad65",
+        "d30541392214e9c000eb3e41d572c56c3dddb539db1a644f04928ed80b8126f2",
+        "0ba1a805d94b4633fedd8f8721fb0c213d806962850bb2796c37f1a768667cfb",
+    ]
+    assert confirmation["affected_models"] == "price_pullback_23ema"
+    confirmation_approval = "user_20261012_continue_23ema_confirmation_lineage_research"
+    assert confirmation["user_approval_reference"] == confirmation_approval
+    assert confirmation["migration_status"] == "validated_user_approved_migration"
+    backgrounds = {row["data_family_id"]: row for row in read_csv("config/daily_model_background_data_registry.csv")}
+    sharing = {row["data_family_id"]: row for row in read_csv("config/daily_model_data_sharing_registry.csv")}
+    for family, digest in zip(confirmation["changed_data_families"].split(";"), confirmation["new_contract_sha256s"].split(";")):
+        assert data_contract_sha256(backgrounds[family]) == digest
+        assert sharing[family]["data_contract_sha256"] == digest
+        assert sharing[family]["last_migration_id"] == confirmation["migration_id"]
+        assert sharing[family]["approved_consumer_models"] == "price_pullback_23ema"
+        assert sharing[family]["sharing_decision_reference"] == confirmation_approval
+    # Preserve all 58 prior migration rows and their exact assertions below.
+    rows = rows[:-1]
     assert len(rows) == 58
     replay = rows[-1]
     assert replay["migration_id"] == "price_pullback_23ema_versioned_replay_v1_20261012"

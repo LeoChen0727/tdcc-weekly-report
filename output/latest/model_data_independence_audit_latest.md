@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-10-12 02:53:10 Asia/Taipei`
-- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=129`
+- 產生時間：`2026-10-12 15:25:50 Asia/Taipei`
+- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=133`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -108,6 +108,9 @@
 | data_family_ownership | price_pullback_23ema_replay_v1_summary | PASS | model_owned_not_shared | none |
 | data_family_ownership | price_pullback_23ema_replay_v1_feature_comparison | PASS | model_owned_not_shared | none |
 | data_family_ownership | price_pullback_23ema_replay_v1_manifest | PASS | model_owned_not_shared | none |
+| data_family_ownership | price_pullback_23ema_confirmation_lineage_research_v1_rows | PASS | model_owned_not_shared | none |
+| data_family_ownership | price_pullback_23ema_confirmation_lineage_research_v1_summary | PASS | model_owned_not_shared | none |
+| data_family_ownership | price_pullback_23ema_confirmation_lineage_research_v1_manifest | PASS | model_owned_not_shared | none |
 | numerical_anomaly_governance | repo_wide_root_cause_disposition_contract | PASS | repo_wide_governance_contract | none |
 | numerical_anomaly_governance | monthly_revenue_history_legacy_threshold_flag | CONTAINED | legacy_threshold_flag_candidate_only | source schema still uses a legacy anomaly field name and must be treated as candidate-only |
 | numerical_anomaly_governance | revenue_unreacted_range | CONTAINED | model_owned_root_cause_pending | corporate-action PIT, independent-source corroboration, and adjustment-basis checks remain incomplete |
@@ -164,3 +167,4 @@
 | validator_independence | scripts/validate_pullback_short_reclaim_23ema_condition_comparison.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_pullback_short_reclaim_matched_feature_research.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_price_pullback_23ema_versioned_replay.py | PASS | independent_research_replay_validator | none |
+| validator_independence | scripts/validate_price_pullback_23ema_confirmation_lineage_research.py | PASS | independent_research_replay_validator | none |
