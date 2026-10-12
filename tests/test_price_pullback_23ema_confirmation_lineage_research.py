@@ -3,9 +3,11 @@ from __future__ import annotations
 import ast
 import csv
 import io
+import json
 import subprocess
 import sys
 from collections import Counter
+from contextlib import contextmanager
 from datetime import date, timedelta
 from pathlib import Path
 from types import SimpleNamespace
@@ -375,3 +377,112 @@ def test_research_writer_protected_signature_detects_other_model_artifact_drift(
     before = research_writer.protected_signature(repo)
     other.write_bytes(b"value\n2\n")
     assert research_writer.protected_signature(repo) != before
+
+
+def real_guard_fixture(tmp_path):
+    repo, _, _ = registered_fake_repository(tmp_path)
+    subprocess.run(["git", "init", "-q", str(repo)], check=True, capture_output=True)
+    foreign = repo / "output/research/foreign_model/evidence.csv"
+    foreign.parent.mkdir(parents=True)
+    foreign.write_bytes(b"value\n1\n")
+    subprocess.run(["git", "-C", str(repo), "add", "--", "output/research/foreign_model/evidence.csv"],
+                   check=True, capture_output=True)
+    return repo, tmp_path / "guarded-external-output", foreign
+
+
+def write_exact_guard_outputs(output):
+    output.mkdir()
+    for name in research_writer.OUTPUT_NAMES:
+        (output / name).write_bytes(b"synthetic guard fixture\n")
+
+
+def test_real_model_owned_guard_allows_only_exact_three_artifacts(tmp_path):
+    repo, output, _ = real_guard_fixture(tmp_path)
+    with research_writer.model_owned_artifact_guard(repo, output) as receipt:
+        write_exact_guard_outputs(output)
+    assert receipt["protected_sentinel_before_sha256"] == receipt["protected_sentinel_after_sha256"]
+    assert {p.name for p in output.iterdir()} == set(research_writer.OUTPUT_NAMES)
+
+
+@pytest.mark.parametrize("drift", ["foreign_artifact", "registration_config"])
+@pytest.mark.parametrize("body_failure", [False, True])
+def test_real_model_owned_guard_detects_repository_drift_even_on_failure(tmp_path, drift, body_failure):
+    repo, output, foreign = real_guard_fixture(tmp_path)
+    changed = foreign if drift == "foreign_artifact" else repo / "config/model_research_artifact_ownership.csv"
+    with pytest.raises(ValueError, match="protected model/production artifacts or repository changed"):
+        with research_writer.model_owned_artifact_guard(repo, output):
+            write_exact_guard_outputs(output)
+            changed.write_bytes(changed.read_bytes() + b"unexpected runtime mutation\n")
+            if body_failure:
+                raise RuntimeError("synthetic build failure after repository drift")
+
+
+def test_real_model_owned_guard_rejects_extra_external_artifact(tmp_path):
+    repo, output, _ = real_guard_fixture(tmp_path)
+    with pytest.raises(ValueError, match="output scope changed outside three artifacts"):
+        with research_writer.model_owned_artifact_guard(repo, output):
+            write_exact_guard_outputs(output)
+            (output / "foreign_artifact.csv").write_bytes(b"foreign scope\n")
+
+
+def test_real_model_owned_guard_rejects_success_without_all_three_outputs(tmp_path):
+    repo, output, _ = real_guard_fixture(tmp_path)
+    with pytest.raises(ValueError, match="did not create exactly three artifacts"):
+        with research_writer.model_owned_artifact_guard(repo, output):
+            output.mkdir()
+            (output / research_writer.OUTPUT_NAMES[0]).write_bytes(b"incomplete output\n")
+
+
+def test_main_build_capture_and_all_three_writes_are_inside_real_guard(tmp_path, monkeypatch):
+    repo, output, _ = real_guard_fixture(tmp_path)
+    original_guard = research_writer.model_owned_artifact_guard
+    original_csv_writer = research_writer.write_csv
+    original_write_text = Path.write_text
+    active = {"inside": False}
+    writes = []
+
+    @contextmanager
+    def instrument_real_guard(*args, **kwargs):
+        with original_guard(*args, **kwargs) as receipt:
+            active["inside"] = True
+            try:
+                yield receipt
+            finally:
+                active["inside"] = False
+
+    def saved_source_stub(*args, **kwargs):
+        assert active["inside"], "source build escaped the real ownership guard"
+        row = {field: "" for field in research_writer.FIELDS}
+        row.update(model_id=validator.MODEL_ID, confirmed_buy_rank_eligible="True",
+                   saved_active_state="active_operation", saved_terminal_state="expired_d20_no_active_tracking",
+                   report_line="mainstream")
+        return [row], {}
+
+    def capture_stub(*args, **kwargs):
+        assert active["inside"], "capture request escaped the real ownership guard"
+        return {}
+
+    def guarded_csv_write(path, rows, fields):
+        assert active["inside"], "CSV write escaped the real ownership guard"
+        writes.append(path.name)
+        return original_csv_writer(path, rows, fields)
+
+    def guarded_text_write(path, *args, **kwargs):
+        if path.parent == output:
+            assert active["inside"], "manifest write escaped the real ownership guard"
+            writes.append(path.name)
+        return original_write_text(path, *args, **kwargs)
+
+    monkeypatch.setattr(research_writer, "model_owned_artifact_guard", instrument_real_guard)
+    monkeypatch.setattr(research_writer, "capture_metadata", capture_stub)
+    monkeypatch.setattr(research_writer, "build", saved_source_stub)
+    monkeypatch.setattr(research_writer, "write_csv", guarded_csv_write)
+    monkeypatch.setattr(Path, "write_text", guarded_text_write)
+    monkeypatch.setattr(sys, "argv", ["research-writer", "--repo-root", str(repo), "--output-root", str(output),
+                                     "--decision-ref", validator.DECISION_REF, "--active-ref", validator.ACTIVE_REF,
+                                     "--outcome-ref", validator.OUTCOME_REF, "--capture-run-id", str(validator.CAPTURE_RUN_ID)])
+    assert research_writer.main() == 0
+    assert writes == research_writer.OUTPUT_NAMES
+    assert not active["inside"]
+    manifest = json.loads((output / research_writer.OUTPUT_NAMES[2]).read_text(encoding="utf-8"))
+    assert manifest["protected_sentinel_before_sha256"] == manifest["protected_sentinel_after_sha256"]

@@ -9,6 +9,7 @@ import json
 import math
 import subprocess
 from collections import Counter
+from contextlib import contextmanager
 from datetime import datetime, time, timezone, timedelta
 from pathlib import Path
 
@@ -100,7 +101,7 @@ class GitSources:
             raise ValueError("Git source reader failed")
 
 
-def protected_signature(repo: Path) -> str:
+def protected_signature(repo: Path, *, include_allowed: bool = False) -> str:
     raw = subprocess.check_output(["git", "-C", str(repo), "ls-files", "--stage", "-z"])
     items = {}
     for record in raw.split(b"\0"):
@@ -108,12 +109,13 @@ def protected_signature(repo: Path) -> str:
             continue
         metadata, name = record.split(b"\t", 1)
         path = name.decode("utf-8")
-        if path in ALLOW:
+        if path in ALLOW and not include_allowed:
             continue
         file = repo / path
-        items[path] = sha(file.read_bytes()) if file.is_file() else metadata.decode("ascii")
+        value = sha(file.read_bytes()) if file.is_file() else "__missing__"
+        items[path] = [metadata.decode("ascii"), value] if include_allowed else value if file.is_file() else metadata.decode("ascii")
     for name in subprocess.check_output(["git", "-C", str(repo), "ls-files", "--others", "--exclude-standard", "-z"]).split(b"\0"):
-        if name and name.decode("utf-8") not in ALLOW:
+        if name and (include_allowed or name.decode("utf-8") not in ALLOW):
             file = repo / name.decode("utf-8")
             items[name.decode("utf-8")] = sha(file.read_bytes())
     return sha(canonical(items))
@@ -130,6 +132,34 @@ def require_registration(repo: Path):
         if not any(r["registered_producers"] == PRODUCER and r["producer_write_scope"] == path
                    and MODEL_ID in r["approved_consumer_models"].split(";") for r in shares):
             raise ValueError(f"unregistered consumer/writer {path}")
+
+
+@contextmanager
+def model_owned_artifact_guard(repo: Path, output: Path):
+    """Guard exact external artifacts and sparse Git state, including failures."""
+    repo, output = repo.resolve(), output.resolve()
+    if output == repo or repo in output.parents:
+        raise ValueError("research evidence must use registered external artifact root")
+    if output.exists() and any(output.iterdir()):
+        raise ValueError("immutable research root is not empty")
+    require_registration(repo)
+    before = protected_signature(repo)
+    repository_before = protected_signature(repo, include_allowed=True)
+    receipt = dict(protected_sentinel_before_sha256=before, protected_sentinel_after_sha256=before)
+    completed = False
+    try:
+        yield receipt
+        completed = True
+    finally:
+        names = {path.name for path in output.iterdir()} if output.exists() else set()
+        if names - set(OUTPUT_NAMES) or (output.exists() and any(not path.is_file() for path in output.iterdir())):
+            raise ValueError("model-owned output scope changed outside three artifacts")
+        after = protected_signature(repo)
+        if before != after or repository_before != protected_signature(repo, include_allowed=True):
+            raise ValueError("protected model/production artifacts or repository changed")
+        receipt["protected_sentinel_after_sha256"] = after
+        if completed and names != set(OUTPUT_NAMES):
+            raise ValueError("model-owned producer did not create exactly three artifacts")
 
 
 def model_rows(raw: bytes) -> list[dict[str, str]]:
@@ -307,22 +337,14 @@ def main() -> int:
     parser.add_argument("--repo-slug", default="LeoChen0727/tdcc-weekly-report")
     args = parser.parse_args()
     repo, output = args.repo_root.resolve(), args.output_root.resolve()
-    if output == repo or repo in output.parents:
-        raise ValueError("research evidence must use registered external artifact root")
-    if output.exists() and any(output.iterdir()):
-        raise ValueError("immutable research root is not empty")
-    require_registration(repo)
-    before = protected_signature(repo)
-    rows, manifest = build(repo, args.decision_ref, args.active_ref, args.outcome_ref, capture_metadata(args.repo_slug, args.capture_run_id))
-    output.mkdir(parents=True, exist_ok=True)
-    write_csv(output / OUTPUT_NAMES[0], rows, FIELDS)
-    write_csv(output / OUTPUT_NAMES[1], summaries(rows), ["metric", "value", "basis"])
-    after = protected_signature(repo)
-    if before != after:
-        raise ValueError("protected model/production artifacts changed")
-    manifest.update(protected_sentinel_before_sha256=before, protected_sentinel_after_sha256=after,
-                    output_files=[dict(path=name, bytes=(output / name).stat().st_size, sha256=sha((output / name).read_bytes())) for name in OUTPUT_NAMES[:2]])
-    (output / OUTPUT_NAMES[2]).write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    with model_owned_artifact_guard(repo, output) as guard_receipt:
+        rows, manifest = build(repo, args.decision_ref, args.active_ref, args.outcome_ref, capture_metadata(args.repo_slug, args.capture_run_id))
+        output.mkdir(parents=True, exist_ok=True)
+        write_csv(output / OUTPUT_NAMES[0], rows, FIELDS)
+        write_csv(output / OUTPUT_NAMES[1], summaries(rows), ["metric", "value", "basis"])
+        manifest.update(**guard_receipt,
+                        output_files=[dict(path=name, bytes=(output / name).stat().st_size, sha256=sha((output / name).read_bytes())) for name in OUTPUT_NAMES[:2]])
+        (output / OUTPUT_NAMES[2]).write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"23EMA原confirmed來源映射 {len(rows)} 列；逐列entry/lifecycle一致；非績效或promotion證據。")
     return 0
 
