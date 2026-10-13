@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-10-12 22:19:46 Asia/Taipei
+- generated_at: 2026-10-13 22:18:39 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet

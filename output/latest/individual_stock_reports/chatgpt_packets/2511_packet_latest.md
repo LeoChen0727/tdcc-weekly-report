@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2511 太子
 
 ## Metadata
-- generated_at: 2026-10-12 22:17:22 Asia/Taipei
+- generated_at: 2026-10-13 22:17:05 Asia/Taipei
 - stock_id: 2511
 - stock_name: 太子
 - packet_status: standard_180d_window_packet

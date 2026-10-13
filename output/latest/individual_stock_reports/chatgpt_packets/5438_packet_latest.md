@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5438 東友
 
 ## Metadata
-- generated_at: 2026-10-12 22:18:38 Asia/Taipei
+- generated_at: 2026-10-13 22:17:55 Asia/Taipei
 - stock_id: 5438
 - stock_name: 東友
 - packet_status: standard_180d_window_packet

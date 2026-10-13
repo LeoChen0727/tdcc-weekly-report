@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2923 鼎固-KY
 
 ## Metadata
-- generated_at: 2026-10-12 22:17:35 Asia/Taipei
+- generated_at: 2026-10-13 22:17:13 Asia/Taipei
 - stock_id: 2923
 - stock_name: 鼎固-KY
 - packet_status: standard_180d_window_packet

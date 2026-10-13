@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3390 旭軟
 
 ## Metadata
-- generated_at: 2026-10-12 22:17:53 Asia/Taipei
+- generated_at: 2026-10-13 22:17:26 Asia/Taipei
 - stock_id: 3390
 - stock_name: 旭軟
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2028 威致
 
 ## Metadata
-- generated_at: 2026-10-12 22:17:01 Asia/Taipei
+- generated_at: 2026-10-13 22:16:51 Asia/Taipei
 - stock_id: 2028
 - stock_name: 威致
 - packet_status: standard_180d_window_packet

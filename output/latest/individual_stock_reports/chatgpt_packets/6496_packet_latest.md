@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6496 科懋
 
 ## Metadata
-- generated_at: 2026-10-12 22:19:05 Asia/Taipei
+- generated_at: 2026-10-13 22:18:13 Asia/Taipei
 - stock_id: 6496
 - stock_name: 科懋
 - packet_status: standard_180d_window_packet

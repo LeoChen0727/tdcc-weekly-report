@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-10-12 22:17:11 Asia/Taipei
+- generated_at: 2026-10-13 22:16:57 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet

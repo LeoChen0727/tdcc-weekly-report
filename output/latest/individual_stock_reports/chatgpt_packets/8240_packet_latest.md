@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8240 華宏
 
 ## Metadata
-- generated_at: 2026-10-12 22:19:49 Asia/Taipei
+- generated_at: 2026-10-13 22:18:41 Asia/Taipei
 - stock_id: 8240
 - stock_name: 華宏
 - packet_status: standard_180d_window_packet

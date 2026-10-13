@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6204 艾華
 
 ## Metadata
-- generated_at: 2026-10-12 22:18:54 Asia/Taipei
+- generated_at: 2026-10-13 22:18:05 Asia/Taipei
 - stock_id: 6204
 - stock_name: 艾華
 - packet_status: standard_180d_window_packet
