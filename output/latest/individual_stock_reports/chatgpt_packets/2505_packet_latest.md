@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2505 國揚
 
 ## Metadata
-- generated_at: 2026-10-14 22:17:05 Asia/Taipei
+- generated_at: 2026-10-15 22:17:17 Asia/Taipei
 - stock_id: 2505
 - stock_name: 國揚
 - packet_status: standard_180d_window_packet

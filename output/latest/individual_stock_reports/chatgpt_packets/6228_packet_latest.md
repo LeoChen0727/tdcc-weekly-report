@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6228 全譜
 
 ## Metadata
-- generated_at: 2026-10-14 22:18:02 Asia/Taipei
+- generated_at: 2026-10-15 22:18:48 Asia/Taipei
 - stock_id: 6228
 - stock_name: 全譜
 - packet_status: standard_180d_window_packet

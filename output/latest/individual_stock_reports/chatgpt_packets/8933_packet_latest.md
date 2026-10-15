@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8933 愛地雅
 
 ## Metadata
-- generated_at: 2026-10-14 22:18:39 Asia/Taipei
+- generated_at: 2026-10-15 22:19:47 Asia/Taipei
 - stock_id: 8933
 - stock_name: 愛地雅
 - packet_status: standard_180d_window_packet

@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "workflow": "individual_stock_data_refresh.yml",
-  "github_run_id": "38578571038",
-  "github_run_url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/38578571038",
-  "github_head_sha": "0a335b379c777c7bd6b82cd0e248935776231e9d",
+  "github_run_id": "38749457139",
+  "github_run_url": "https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/38749457139",
+  "github_head_sha": "97e8cb774970dafb374624df0e20ca7081d82139",
   "github_ref_name": "main",
   "official_signal_date": "20261002",
   "source_tdcc_dataset_id": "tdcc-20261002-d841316b0644c08f",
@@ -12,5 +12,5 @@
     "tdcc_validation_path": "output/latest/tdcc_weekly_candidate_report_validation_latest.json",
     "tdcc_dataset_manifest_path": "output/latest/tdcc_dataset_manifest_latest.json"
   },
-  "generated_at": "2026-10-14T22:21:14.319022+08:00"
+  "generated_at": "2026-10-15T22:23:30.029317+08:00"
 }

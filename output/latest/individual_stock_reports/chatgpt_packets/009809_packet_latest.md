@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009809 富邦淨零ESG50
 
 ## Metadata
-- generated_at: 2026-10-14 22:16:36 Asia/Taipei
+- generated_at: 2026-10-15 22:16:31 Asia/Taipei
 - stock_id: 009809
 - stock_name: 富邦淨零ESG50
 - packet_status: standard_rawdata_packet
