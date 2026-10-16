@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8488 吉源-KY
 
 ## Metadata
-- generated_at: 2026-10-15 22:19:45 Asia/Taipei
+- generated_at: 2026-10-16 22:18:16 Asia/Taipei
 - stock_id: 8488
 - stock_name: 吉源-KY
 - packet_status: standard_180d_window_packet

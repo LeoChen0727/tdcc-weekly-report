@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006203 元大MSCI台灣
 
 ## Metadata
-- generated_at: 2026-10-15 22:16:25 Asia/Taipei
+- generated_at: 2026-10-16 22:16:09 Asia/Taipei
 - stock_id: 006203
 - stock_name: 元大MSCI台灣
 - packet_status: standard_rawdata_packet

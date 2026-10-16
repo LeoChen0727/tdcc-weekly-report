@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6629 泰金-KY
 
 ## Metadata
-- generated_at: 2026-10-15 22:19:03 Asia/Taipei
+- generated_at: 2026-10-16 22:17:50 Asia/Taipei
 - stock_id: 6629
 - stock_name: 泰金-KY
 - packet_status: standard_180d_window_packet

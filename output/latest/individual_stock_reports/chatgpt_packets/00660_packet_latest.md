@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00660 元大歐洲50
 
 ## Metadata
-- generated_at: 2026-10-15 22:16:26 Asia/Taipei
+- generated_at: 2026-10-16 22:16:10 Asia/Taipei
 - stock_id: 00660
 - stock_name: 元大歐洲50
 - packet_status: standard_rawdata_packet

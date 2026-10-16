@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-10-15 22:16:29 Asia/Taipei
+- generated_at: 2026-10-16 22:16:11 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: standard_rawdata_packet

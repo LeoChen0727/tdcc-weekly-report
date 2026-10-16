@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3718 中光電投控
 
 ## Metadata
-- generated_at: 2026-10-15 22:18:01 Asia/Taipei
+- generated_at: 2026-10-16 22:17:10 Asia/Taipei
 - stock_id: 3718
 - stock_name: 中光電投控
 - packet_status: partial_rawdata_packet
