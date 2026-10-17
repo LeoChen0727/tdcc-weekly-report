@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00762 元大全球AI
 
 ## Metadata
-- generated_at: 2026-10-16 22:16:10 Asia/Taipei
+- generated_at: 2026-10-17 22:16:07 Asia/Taipei
 - stock_id: 00762
 - stock_name: 元大全球AI
 - packet_status: standard_rawdata_packet

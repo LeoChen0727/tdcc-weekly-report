@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7085 群聯元大5B購12
 
 ## Metadata
-- generated_at: 2026-10-16 22:18:01 Asia/Taipei
+- generated_at: 2026-10-17 22:18:58 Asia/Taipei
 - stock_id: 7085
 - stock_name: 群聯元大5B購12
 - packet_status: partial_rawdata_packet

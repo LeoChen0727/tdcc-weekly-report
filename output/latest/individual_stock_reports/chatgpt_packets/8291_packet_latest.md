@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8291 尚茂
 
 ## Metadata
-- generated_at: 2026-10-16 22:18:13 Asia/Taipei
+- generated_at: 2026-10-17 22:19:17 Asia/Taipei
 - stock_id: 8291
 - stock_name: 尚茂
 - packet_status: standard_180d_window_packet

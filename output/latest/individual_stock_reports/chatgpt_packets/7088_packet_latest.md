@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7088 凡甲統一65購01
 
 ## Metadata
-- generated_at: 2026-10-16 22:18:01 Asia/Taipei
+- generated_at: 2026-10-17 22:18:58 Asia/Taipei
 - stock_id: 7088
 - stock_name: 凡甲統一65購01
 - packet_status: partial_rawdata_packet

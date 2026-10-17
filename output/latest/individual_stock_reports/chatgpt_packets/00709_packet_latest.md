@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00709 富邦歐洲
 
 ## Metadata
-- generated_at: 2026-10-16 22:16:10 Asia/Taipei
+- generated_at: 2026-10-17 22:16:07 Asia/Taipei
 - stock_id: 00709
 - stock_name: 富邦歐洲
 - packet_status: standard_rawdata_packet
