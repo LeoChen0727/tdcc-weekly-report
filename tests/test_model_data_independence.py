@@ -34,6 +34,7 @@ from model_data_independence import (  # noqa: E402
     _validate_current_migration_chain,
     _validate_independent_governed_imports,
     aggregate_semantic_sha256,
+    build_current_model_semantics,
     data_contract_sha256,
     data_migration_row_sha256,
     migration_row_sha256,
@@ -190,6 +191,17 @@ def test_every_active_model_has_exact_ast_semantic_ownership() -> None:
     assert errors == []
     assert set(semantics) == ACTIVE_MODELS
     assert all(model.semantic_sha256 and model.items for model in semantics.values())
+    pullback = semantics["price_pullback_23ema"]
+    original_selector = {key: value for key, value in pullback.items.items() if "::" not in key}
+    assert len(original_selector) == 32
+    assert aggregate_semantic_sha256(original_selector) == (
+        "e7bb3f5db4487301188a4e0b069a8f55b5e7590c58e1b02ec89f2ae9c175016d"
+    )
+    assert set(pullback.entry_functions) == {
+        "cond_pullback", "score_pullback",
+        "scripts/build_daily_price_pullback_23ema_operation_section.py::build_section",
+        "scripts/price_pullback_23ema_confirmed_history.py::load_prior_confirmed_operations",
+    }
 
 
 def test_shared_business_semantics_are_disclosed_as_contained_not_technical() -> None:
@@ -1498,6 +1510,25 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 60
+    operation_history = rows[-1]
+    assert operation_history["migration_id"] == "price_pullback_23ema_confirmed_operation_history_20261018"
+    assert operation_history["changed_data_families"] == "price_pullback_23ema_operation_section"
+    assert operation_history["previous_contract_sha256s"] == "NEW"
+    assert operation_history["affected_models"] == "price_pullback_23ema"
+    assert operation_history["user_approval_reference"] == "user_20261018_authorize_formal_adapter_and_source_recovery"
+    assert operation_history["migration_status"] == "validated_user_approved_migration"
+    background = next(row for row in read_csv("config/daily_model_background_data_registry.csv") if row["data_family_id"] == operation_history["changed_data_families"])
+    sharing_row = next(row for row in read_csv("config/daily_model_data_sharing_registry.csv") if row["data_family_id"] == operation_history["changed_data_families"])
+    assert sharing_row["ownership_mode"] == "model_owned_not_shared"
+    assert sharing_row["registered_producers"] == background["producer"] == "scripts/update_daily_published_model_snapshots.py"
+    assert sharing_row["producer_write_scope"] == background["artifact_path"] == "output/history/daily_model_snapshots/daily_price_pullback_23ema_operation_section_*.csv"
+    assert sharing_row["approved_consumer_models"] == background["consumer_models"] == "price_pullback_23ema"
+    assert sharing_row["data_contract_sha256"] == data_contract_sha256(background) == operation_history["new_contract_sha256s"]
+    assert sharing_row["last_migration_id"] == operation_history["migration_id"]
+    assert sharing_row["sharing_decision_reference"] == operation_history["user_approval_reference"]
+    # Keep the entire prior research registration and immutable baseline intact.
+    rows = rows[:-1]
     assert len(rows) == 59
     confirmation = rows[-1]
     assert confirmation["migration_id"] == "price_pullback_23ema_confirmation_lineage_research_v1_20261012"
@@ -3759,3 +3790,95 @@ def test_new_model_cannot_reuse_contained_legacy_monolith_status() -> None:
     errors: list[str] = []
     _validate_current_migration_chain([*ownership, fake], shared, migrations, errors)
     assert any("new formal model must use a model-owned module" in error for error in errors)
+
+
+def _qualified_owner_fixture(tmp_path: Path) -> tuple[dict[str, str], dict[str, str]]:
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    (scripts / "selector.py").write_text(
+        "LIMIT = 2\ndef gate(row):\n    return row > LIMIT\ndef score(row):\n    return row\n",
+        encoding="utf-8",
+    )
+    (scripts / "adapter.py").write_text(
+        "LIMIT = 3\ndef row_value():\n    return LIMIT\n"
+        "def build_section():\n    callback = row_value\n    return callback()\n",
+        encoding="utf-8",
+    )
+    selector = SourceSemanticGraph(
+        "scripts/selector.py", (scripts / "selector.py").read_text(encoding="utf-8")
+    )
+    local_items = selector.semantic_items(("gate", "score"))
+    owner = {
+        "model_id": "owner_model",
+        "production_source_file": "scripts/selector.py",
+        "execution_entry_functions": "gate;score",
+        "semantic_item_count": str(len(local_items)),
+        "semantic_sha256": aggregate_semantic_sha256(local_items),
+        "ownership_status": "model_owned_module",
+        "change_policy": "model_semantic_migration_only",
+        "required_validation_commands": "ownership_validator",
+    }
+    contract = {
+        "production_source_file": "scripts/selector.py",
+        "condition_function": "gate",
+        "score_function": "score",
+    }
+    return owner, contract
+
+
+def test_source_qualified_ownership_preserves_local_hashes_and_pins_callback(tmp_path: Path) -> None:
+    owner, contract = _qualified_owner_fixture(tmp_path)
+    errors: list[str] = []
+    before, before_shared = build_current_model_semantics(
+        [owner], {"owner_model": contract}, errors, root=tmp_path
+    )
+    assert errors == []
+    qualified = SourceSemanticGraph(
+        "scripts/adapter.py", (tmp_path / "scripts/adapter.py").read_text(encoding="utf-8")
+    ).runtime_semantic_items(("build_section",))
+    expected = {
+        **before["owner_model"].items,
+        **{f"scripts/adapter.py::{key}": value for key, value in qualified.items()},
+    }
+    owner.update(
+        execution_entry_functions="gate;score;scripts/adapter.py::build_section",
+        semantic_item_count=str(len(expected)),
+        semantic_sha256=aggregate_semantic_sha256(expected),
+    )
+    after, after_shared = build_current_model_semantics(
+        [owner], {"owner_model": contract}, errors, root=tmp_path
+    )
+    assert errors == []
+    assert after["owner_model"].items == expected
+    assert all(after["owner_model"].items[key] == value for key, value in before["owner_model"].items.items())
+    assert "scripts/adapter.py::function:row_value" in expected
+    assert "scripts/adapter.py::global:LIMIT" in expected
+    assert before_shared == after_shared == {}
+    (tmp_path / "scripts/adapter.py").write_text(
+        (tmp_path / "scripts/adapter.py").read_text(encoding="utf-8").replace("LIMIT = 3", "LIMIT = 4"),
+        encoding="utf-8",
+    )
+    drift_errors: list[str] = []
+    build_current_model_semantics([owner], {"owner_model": contract}, drift_errors, root=tmp_path)
+    assert any("semantic SHA drift" in error for error in drift_errors)
+
+
+@pytest.mark.parametrize(
+    "entry, expected_error",
+    [
+        ("scripts/missing.py::load", "missing execution source file"),
+        ("scripts/adapter.py::missing", "missing runtime root functions"),
+        ("../adapter.py::build_section", "invalid source-qualified execution entry"),
+    ],
+)
+def test_source_qualified_ownership_rejects_unresolved_entry(
+    tmp_path: Path, entry: str, expected_error: str
+) -> None:
+    owner, contract = _qualified_owner_fixture(tmp_path)
+    owner["execution_entry_functions"] += ";" + entry
+    errors: list[str] = []
+    semantics, _shared = build_current_model_semantics(
+        [owner], {"owner_model": contract}, errors, root=tmp_path
+    )
+    assert semantics == {}
+    assert any(expected_error in error for error in errors)

@@ -242,6 +242,21 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
         ),
         date_columns=("operation_asof_date",),
     ),
+    SnapshotArtifact(
+        artifact_id="price_pullback_23ema_operation_section",
+        source_name="daily_price_pullback_23ema_operation_section_latest.csv",
+        snapshot_stem="daily_price_pullback_23ema_operation_section",
+        required_columns=(
+            "model_id", "pdf_view", "pdf_section", "row_type", "stock_id",
+            "report_line", "signal_date", "operation_asof_date", "buy_rank_eligible",
+            "row_action_status", "entry_rule_id", "stop_loss_rule_id", "exit_rule_id",
+            "model_rank", "display_rank", "model_rank_overall",
+            "confirmation_source_artifact", "confirmation_source_sha256",
+            "confirmation_row_sha256", "confirmation_snapshot_revision",
+            "confirmation_snapshot_report_date",
+        ),
+        date_columns=("operation_asof_date",),
+    ),
 )
 ARTIFACTS_BY_ID = {artifact.artifact_id: artifact for artifact in ARTIFACTS}
 

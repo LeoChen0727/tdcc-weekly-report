@@ -31,6 +31,15 @@ def repository_file(repository_root: Path, path_text: object) -> Path:
 
 
 def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "20260615") -> None:
+    artifact = update_snapshots.ARTIFACTS_BY_ID["price_pullback_23ema_operation_section"]
+    confirmation = {column: "" for column in artifact.required_columns}
+    confirmation.update(
+        model_id="price_pullback_23ema", pdf_view="full",
+        pdf_section="confirmed_operation", row_type="empty_state",
+        operation_asof_date=report_date, buy_rank_eligible="False",
+        row_action_status="empty_state",
+    )
+    write_csv(latest_dir / artifact.source_name, [confirmation])
     write_csv(
         latest_dir / "data_freshness_latest.csv",
         [
@@ -271,6 +280,7 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
         "model_registry",
         "model_signals_for_report",
         "model_summary_for_report",
+        "price_pullback_23ema_operation_section",
         "neckline_volume_breakout_confirmation_operation_section",
         "revenue_unreacted_range_operation_section",
         "volume_breakout_operation_evidence_audit",
@@ -329,6 +339,7 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
         "model_summary_for_report",
     }
     protected_ids = {
+        "price_pullback_23ema_operation_section",
         "model_registry",
         "model_parameters",
         "volume_breakout_operation_section",
@@ -1858,3 +1869,39 @@ def test_revenue_operation_snapshot_contract_is_exactly_registered() -> None:
         "buy_rank_eligible",
         "operation_asof_date",
     } <= set(artifact.required_columns)
+
+
+def test_price_pullback_snapshot_preserves_original_unranked_confirmation(tmp_path: Path) -> None:
+    from price_pullback_23ema_confirmed_history import load_prior_confirmed_operations
+
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, "20261016")
+    artifact_id = "price_pullback_23ema_operation_section"
+    artifact = update_snapshots.ARTIFACTS_BY_ID[artifact_id]
+    source = latest_dir / artifact.source_name
+    frame = pd.read_csv(source, dtype=str, keep_default_na=False)
+    frame.loc[0, ["row_type", "stock_id", "signal_date", "report_line"]] = [
+        "data", "1234", "20261016", "mainstream",
+    ]
+    frame.loc[0, ["model_rank", "display_rank", "model_rank_overall"]] = ["3", "4", "5"]
+    frame = pd.concat([frame.assign(pdf_view="full"), frame.assign(pdf_view="highlight")])
+    frame.to_csv(source, index=False)
+    first = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir, snapshot_dir=snapshot_dir, manifest_path=manifest_path,
+        generated_at="2026-10-16 16:00:00 Asia/Taipei", commit_sha="original",
+        artifact_ids=[artifact_id],
+    )
+    frame["buy_rank_eligible"] = "True"
+    frame["row_action_status"] = "confirmed_buy_candidate"
+    frame.to_csv(source, index=False)
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir, snapshot_dir=snapshot_dir, manifest_path=manifest_path,
+        generated_at="2026-10-16 17:00:00 Asia/Taipei", commit_sha="revision",
+        artifact_ids=[artifact_id], revision_reason="later_eligibility_revision",
+    )
+    assert set(first["artifact_id"]) == {artifact_id}
+    loaded = load_prior_confirmed_operations("20261019", repository_root=tmp_path)
+    assert loaded.empty
+    assert loaded.attrs["rejected_confirmations"][0]["buy_rank_eligible"] == "False"

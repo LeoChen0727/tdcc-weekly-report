@@ -644,6 +644,7 @@ def test_daily_full_stages_only_exact_manifest_snapshot_revisions() -> None:
         "volume_breakout_operation_evidence_audit",
         "w_bottom_right_side_operation_section",
         "neckline_volume_breakout_confirmation_operation_section",
+        "price_pullback_23ema_operation_section",
     )
     assert stage_block.count(
         "python scripts/stage_daily_published_snapshot_revisions.py"
@@ -1607,6 +1608,8 @@ def test_daily_model_maintenance_pr_workflow_runs_focused_pdf_operation_tests() 
         "tests/test_daily_volume_breakout_operation_section.py",
         "tests/test_daily_w_bottom_operation_sections.py",
         "tests/test_daily_price_pullback_23ema_operation_section.py",
+        "tests/test_price_pullback_23ema_confirmed_history.py",
+        "tests/test_price_pullback_23ema_confirmed_binding_validator.py",
         "tests/test_mature_model_row_level_metric_contract_audit.py",
         "tests/test_hot_theme_pullback_research.py",
         "tests/test_pullback_short_reclaim_research.py",

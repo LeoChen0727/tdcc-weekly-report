@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import csv
+import hashlib
+import io
+import json
+import re
 import sys
 from pathlib import Path
 
@@ -7,25 +12,47 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from build_daily_price_pullback_23ema_operation_section import (  # noqa: E402
-    APPROVAL_VERSION,
-    AUDIT_CSV,
-    AUDIT_MD,
-    BUY_FILTER_ID,
-    ENTRY_RULE_ID,
-    EXIT_RULE_ID,
-    MODEL_ID,
-    OPERATION_MODULE_ID,
-    OUT_CSV,
-    OUT_MD,
-    SECTION_EMPTY_NOTE_ZH,
-    STOP_LOSS_RULE_ID,
-)
-from tracking_utils import DOCS_LATEST_DIR, read_csv  # noqa: E402
+from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, read_csv  # noqa: E402
 from validate_daily_operation_adapter_protected_fields import validate_adapter_frame  # noqa: E402
 
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST_NAME = "daily_published_model_snapshot_manifest.csv"
+SNAPSHOT_REPOSITORY_PATH = Path("output/history/daily_model_snapshots")
+REQUIRED_MANIFEST_COLUMNS = {"snapshot_report_date", "artifact_id", "snapshot_path", "snapshot_sha256"}
+MODEL_ID = "price_pullback_23ema"
+OPERATION_MODULE_ID = "price_pullback_23ema_prev20_breakout_stop_v1"
+APPROVAL_VERSION = "price_pullback_23ema_operation_v1_20260703"
+BUY_FILTER_ID = "v1_gate_return20_tdcc_high_obv"
+ENTRY_RULE_ID = "signal_date_next_open"
+STOP_LOSS_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
+EXIT_RULE_ID = "close_prev20_high_break_next_open"
+OUT_CSV = LATEST_DIR / "daily_price_pullback_23ema_operation_section_latest.csv"
+OUT_MD = OUT_CSV.with_suffix(".md")
+AUDIT_CSV = LATEST_DIR / "daily_price_pullback_23ema_operation_evidence_audit_latest.csv"
+AUDIT_MD = AUDIT_CSV.with_suffix(".md")
+SECTION_EMPTY_NOTE_ZH = {
+    "confirmed_operation": "本日無股票推薦",
+    "active_operation": "目前無操作中追蹤列",
+}
+RANK_COLUMNS = ("model_rank", "display_rank", "model_rank_overall")
+PROOF_COLUMNS = (
+    "confirmation_source_artifact", "confirmation_source_sha256",
+    "confirmation_row_sha256", "confirmation_snapshot_revision",
+    "confirmation_snapshot_report_date",
+)
+# These fields describe the new lifecycle row, rather than the frozen confirmation.
+ACTIVE_MUTABLE_COLUMNS = {
+    "pdf_view", "pdf_section", "pdf_section_zh", "display_order",
+    "operation_asof_date", "operation_source_date_status", "operation_status",
+    "operation_status_zh", "buy_rank_eligible", "row_action_status",
+    "daily_signal_date", "daily_model_signal_count", "adapter_source", "generated_at",
+    "entry_date", "entry_price", "target_price", "stop_loss_price",
+    "stop_loss_label_zh", "stop_confirmed_days", "operation_age_days",
+    "realized_exit_date", "realized_exit_reason", "pdf_note_zh", *PROOF_COLUMNS,
+}
 
 REQUIRED_COLUMNS = {
+    *RANK_COLUMNS, *PROOF_COLUMNS,
     "model_id",
     "model_name_zh",
     "pdf_view",
@@ -177,6 +204,129 @@ def validate_section(df: pd.DataFrame) -> list[str]:
     return errors
 
 
+def validate_confirmation_bindings(
+    frame: pd.DataFrame,
+    *,
+    repository_root: Path,
+    snapshot_dir: Path | None = None,
+    manifest_path: Path | None = None,
+) -> list[str]:
+    """Independently bind active rows to immutable, originally buy-ranked r1 rows.
+
+    This checks saved-input consumption, not PIT coverage or backtest returns.
+    No production selector, lifecycle, or confirmation-reader function is imported.
+    """
+    required = {"pdf_section", "row_type", "stock_id", "signal_date", "report_line",
+                "operation_asof_date", *RANK_COLUMNS, *PROOF_COLUMNS}
+    if not required.issubset(frame.columns):
+        return [f"confirmation binding missing columns: {sorted(required - set(frame.columns))}"]
+    data = frame.fillna("").astype(str)
+    data = data[data["row_type"].eq("data")]
+    errors: list[str] = []
+    for _, row in data.iterrows():
+        if not all(re.fullmatch(r"[1-9][0-9]*", row[field]) for field in RANK_COLUMNS):
+            errors.append(f"23EMA data row missing original rank: {row['stock_id']}")
+    active = data[data["pdf_section"].eq("active_operation")]
+    if active.empty:
+        return errors
+    root = Path(repository_root).resolve()
+    directory = Path(snapshot_dir or root / SNAPSHOT_REPOSITORY_PATH).resolve()
+    manifest_file = Path(manifest_path or directory / MANIFEST_NAME)
+    try:
+        manifest = pd.read_csv(manifest_file, dtype=str, keep_default_na=False)
+        missing = REQUIRED_MANIFEST_COLUMNS - set(manifest.columns)
+        if missing:
+            return errors + [f"confirmation manifest missing columns: {sorted(missing)}"]
+        revision_columns = {"snapshot_revision", "supersedes_snapshot_sha256", "revision_reason"}
+        present = revision_columns & set(manifest.columns)
+        if present and present != revision_columns:
+            return errors + ["confirmation manifest has a partial revision schema"]
+        if not present:
+            manifest = manifest.assign(snapshot_revision="r1", supersedes_snapshot_sha256="",
+                                       revision_reason="legacy_v1_manifest")
+        elif manifest["snapshot_revision"].eq("").any():
+            return errors + ["confirmation manifest has a blank snapshot_revision"]
+    except (OSError, ValueError, RuntimeError) as exc:
+        return errors + [f"cannot validate original confirmations: {exc}"]
+    for _, row in active.iterrows():
+        identity = (row["stock_id"], row["signal_date"], row["report_line"])
+        prefix = f"23EMA original confirmation {identity}"
+        date = row["confirmation_snapshot_report_date"]
+        if (re.fullmatch(r"[0-9]{8}", date) is None or date != row["signal_date"]
+                or date >= row["operation_asof_date"]
+                or row["confirmation_snapshot_revision"] != "r1"):
+            errors.append(f"{prefix}: invalid original revision/date")
+            continue
+        matches = manifest[
+            manifest["artifact_id"].eq("price_pullback_23ema_operation_section")
+            & manifest["snapshot_report_date"].eq(date)
+            & manifest["snapshot_revision"].eq("r1")
+        ]
+        if len(matches) != 1:
+            errors.append(f"{prefix}: requires exactly one manifest r1")
+            continue
+        original_manifest = matches.iloc[0]
+        sha = str(original_manifest["snapshot_sha256"])
+        name = Path(str(original_manifest["snapshot_path"]).replace("\\", "/")).name
+        expected_name = f"daily_price_pullback_23ema_operation_section_{date}_r1_{sha[:12]}.csv"
+        legacy = (original_manifest["revision_reason"] == "legacy_v1_manifest"
+                  and name == f"daily_price_pullback_23ema_operation_section_{date}.csv")
+        relative = (SNAPSHOT_REPOSITORY_PATH / name).as_posix()
+        if (re.fullmatch(r"[0-9a-f]{64}", sha) is None
+                or str(original_manifest["supersedes_snapshot_sha256"])
+                or (name != expected_name and not legacy)
+                or str(original_manifest["snapshot_path"]).replace("\\", "/") != relative
+                or row["confirmation_source_artifact"] != relative):
+            errors.append(f"{prefix}: original source path/hash identity mismatch")
+            continue
+        path = (directory / name).resolve()
+        if not path.is_relative_to(directory):
+            errors.append(f"{prefix}: original source escapes approved snapshot directory")
+            continue
+        try:
+            payload = path.read_bytes()
+            lf = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            accepted_hashes = {hashlib.sha256(item).hexdigest()
+                               for item in (payload, lf, lf.replace(b"\n", b"\r\n"))}
+            if (sha not in accepted_hashes
+                    or hashlib.sha256(lf).hexdigest() != row["confirmation_source_sha256"]):
+                errors.append(f"{prefix}: original source SHA-256 mismatch")
+                continue
+            reader = csv.DictReader(io.StringIO(lf.decode("utf-8-sig"), newline=""))
+            originals = [item for item in reader if (
+                item.get("model_id") == MODEL_ID and item.get("row_type") == "data"
+                and item.get("pdf_section") in {"confirmed_operation", "confirmed_unranked_operation"}
+                and tuple(item.get(field, "") for field in ("stock_id", "signal_date", "report_line")) == identity
+            )]
+        except (OSError, UnicodeError, csv.Error) as exc:
+            errors.append(f"{prefix}: cannot read original source: {exc}")
+            continue
+        views = {item.get("pdf_view"): item for item in originals}
+        if len(originals) != 2 or set(views) != {"full", "highlight"}:
+            errors.append(f"{prefix}: original confirmation requires unique full/highlight pair")
+            continue
+        original = views["full"]
+        if ({key: value for key, value in original.items() if key != "pdf_view"}
+                != {key: value for key, value in views["highlight"].items() if key != "pdf_view"}):
+            errors.append(f"{prefix}: original full/highlight values conflict")
+            continue
+        if (original.get("pdf_section") != "confirmed_operation"
+                or original.get("buy_rank_eligible") != "True"
+                or original.get("operation_asof_date") != date
+                or not all(re.fullmatch(r"[1-9][0-9]*", original.get(field, "")) for field in RANK_COLUMNS)):
+            errors.append(f"{prefix}: original confirmation was not buy-ranked")
+            continue
+        row_sha = hashlib.sha256(json.dumps(original, ensure_ascii=False, sort_keys=True,
+                                           separators=(",", ":")).encode("utf-8")).hexdigest()
+        if row_sha != row["confirmation_row_sha256"]:
+            errors.append(f"{prefix}: original row SHA-256 mismatch")
+        changed = sorted(field for field, value in original.items()
+                         if field not in ACTIVE_MUTABLE_COLUMNS and row.get(field, "") != value)
+        if changed:
+            errors.append(f"{prefix}: frozen confirmation fields changed: {changed}")
+    return errors
+
+
 def validate_audit(audit: pd.DataFrame) -> list[str]:
     errors: list[str] = []
     if audit.empty:
@@ -196,6 +346,7 @@ def main() -> int:
     audit = read_csv(AUDIT_CSV, dtype=str).fillna("") if AUDIT_CSV.exists() else pd.DataFrame()
     if not section.empty:
         errors.extend(validate_section(section))
+        errors.extend(validate_confirmation_bindings(section, repository_root=ROOT))
     if not audit.empty:
         errors.extend(validate_audit(audit))
     if errors:

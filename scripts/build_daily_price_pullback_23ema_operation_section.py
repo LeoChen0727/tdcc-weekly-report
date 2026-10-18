@@ -12,16 +12,17 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_daily_candidate_model_layer import price_history_for_stock  # noqa: E402
-from daily_snapshot_revision_utils import (  # noqa: E402
-    SnapshotRevision,
-    select_latest_snapshot_revisions,
+from price_pullback_23ema_confirmed_history import (  # noqa: E402
+    PROOF_COLUMNS,
+    RANK_COLUMNS,
+    has_original_ranks,
+    load_prior_confirmed_operations,
 )
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, normalize_code, read_csv, safe_str, to_number, write_csv  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
-MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
 
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
@@ -158,6 +159,8 @@ OUTPUT_COLUMNS = [
     "approval_note_zh",
     "pdf_note_zh",
     "adapter_note_zh",
+    *RANK_COLUMNS,
+    *PROOF_COLUMNS,
     "generated_at",
 ]
 
@@ -178,6 +181,8 @@ AUDIT_COLUMNS = [
     "stop_loss_price",
     "stop_confirmed_days",
     "reason",
+    *RANK_COLUMNS,
+    *PROOF_COLUMNS,
     "generated_at",
 ]
 
@@ -300,54 +305,10 @@ def daily_model_signal_rows(signals: pd.DataFrame, report_date: str) -> pd.DataF
     return rows.reset_index(drop=True)
 
 
-def signal_snapshot_paths(report_date: str) -> list[SnapshotRevision]:
-    return list(
-        select_latest_snapshot_revisions(
-            MODEL_SNAPSHOT_DIR,
-            "model_signals_for_report",
-            through_date=compact_date(report_date),
-            repository_root=ROOT,
-        )
+def load_prior_confirmed_history(report_date: str) -> pd.DataFrame:
+    return load_prior_confirmed_operations(
+        report_date, repository_root=ROOT, snapshot_dir=MODEL_SNAPSHOT_DIR,
     )
-
-
-def load_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
-    frames: list[pd.DataFrame] = []
-    log = read_csv(MODEL_SIGNAL_LOG_CSV, dtype=str).fillna("")
-    if not log.empty and {"model_id", "signal_date"}.issubset(log.columns):
-        part = log[log["model_id"].astype(str).eq(MODEL_ID)].copy()
-        part["signal_date"] = part["signal_date"].map(compact_date)
-        part = part[(part["signal_date"].ge(FORMAL_SIGNAL_EFFECTIVE_FROM)) & part["signal_date"].le(report_date)]
-        if not part.empty:
-            part["_source_priority"] = 1
-            frames.append(part)
-    for snapshot in signal_snapshot_paths(report_date):
-        frame = read_csv(snapshot.path, dtype=str).fillna("")
-        if frame.empty or "model_id" not in frame.columns:
-            continue
-        frame = frame[frame["model_id"].astype(str).eq(MODEL_ID)].copy()
-        if frame.empty:
-            continue
-        frame["signal_date"] = frame.get("signal_date", pd.Series(dtype=str)).map(compact_date)
-        frame = frame[(frame["signal_date"].ge(FORMAL_SIGNAL_EFFECTIVE_FROM)) & frame["signal_date"].le(report_date)]
-        if frame.empty:
-            continue
-        frame["_source_priority"] = 2
-        frames.append(frame)
-    current = daily_model_signal_rows(current_signals, report_date)
-    if not current.empty:
-        current["_source_priority"] = 3
-        frames.append(current)
-    if not frames:
-        return pd.DataFrame()
-    out = pd.concat(frames, ignore_index=True, sort=False)
-    out["stock_id"] = out.get("stock_id", pd.Series(dtype=str)).map(stock_id_key)
-    if "report_bucket" not in out.columns:
-        out["report_bucket"] = ""
-    out = out[(out["signal_date"] != "") & (out["stock_id"] != "")].copy()
-    out["_source_priority"] = pd.to_numeric(out["_source_priority"], errors="coerce").fillna(0)
-    out = out.sort_values(["signal_date", "stock_id", "report_bucket", "_source_priority"], ascending=[True, True, True, False])
-    return out.drop_duplicates(["signal_date", "stock_id", "report_bucket"], keep="first").reset_index(drop=True)
 
 
 def price_for_stock(stock_id: str) -> pd.DataFrame:
@@ -604,7 +565,7 @@ def base_row(
         "failure_definition_zh": FAILURE_DEFINITION_ZH,
         "daily_signal_date": report_date,
         "daily_model_signal_count": str(daily_signal_count),
-        "adapter_source": "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history",
+        "adapter_source": "daily_candidate_model_signals_for_report_latest",
         "adapter_source_status": "ready",
         "approval_source": safe_str(approval.get("approval_source")),
         "approved_for_daily": safe_str(approval.get("approved_for_daily")),
@@ -617,11 +578,15 @@ def base_row(
         "approval_note_zh": safe_str(approval.get("approval_note_zh")),
         "pdf_note_zh": "",
         "adapter_note_zh": "model-owned operation row; PDF must not infer lifecycle from candidate signals",
+        **{field: safe_str(row.get(field)) for field in RANK_COLUMNS},
+        **{field: "" for field in PROOF_COLUMNS},
         "generated_at": generated_at,
     }
 
 
 def confirmed_rows(row: pd.Series, approval: dict[str, str], report_date: str, count: int, generated_at: str) -> list[dict[str, str]]:
+    if not has_original_ranks(row):
+        raise RuntimeError("23EMA current confirmation missing original model/display rank")
     out: list[dict[str, str]] = []
     for view in PDF_VIEWS:
         item = base_row(row, approval, report_date, count, generated_at, view, "confirmed_operation")
@@ -633,8 +598,16 @@ def confirmed_rows(row: pd.Series, approval: dict[str, str], report_date: str, c
 
 
 def active_rows(row: pd.Series, approval: dict[str, str], report_date: str, count: int, generated_at: str) -> tuple[list[dict[str, str]], dict[str, str]]:
+    if (
+        safe_str(row.get("pdf_section")) != "confirmed_operation"
+        or not true_text(row.get("buy_rank_eligible"))
+        or not has_original_ranks(row)
+        or any(not safe_str(row.get(field)) for field in PROOF_COLUMNS)
+    ):
+        return [], audit_row(row, report_date, generated_at, "blocked_missing_original_confirmation", "False", "original_buy_ranked_confirmation_required")
     state = operation_lifecycle(row, report_date)
     audit = audit_row(row, report_date, generated_at, safe_str(state.get("state")), "False", safe_str(state.get("state")))
+    audit.update({field: safe_str(row.get(field)) for field in (*RANK_COLUMNS, *PROOF_COLUMNS)})
     if not state.get("included"):
         audit["exit_date"] = safe_str(state.get("exit_date"))
         audit["exit_reason"] = safe_str(state.get("exit_reason"))
@@ -645,8 +618,27 @@ def active_rows(row: pd.Series, approval: dict[str, str], report_date: str, coun
     out: list[dict[str, str]] = []
     action = safe_str(state.get("state"))
     for view in PDF_VIEWS:
-        item = base_row(row, approval, report_date, count, generated_at, view, "active_operation")
+        item = {
+            field: safe_str(row.get(field)) for field in OUTPUT_COLUMNS
+            if field not in {
+                "pdf_section", "operation_status", "operation_status_zh",
+                "buy_rank_eligible", "row_action_status",
+            }
+        }
+        item.update(approval)
+        item["pdf_view"] = view
+        item["pdf_section"] = "active_operation"
+        item["pdf_section_zh"] = SECTION_ZH["active_operation"]
+        item["operation_asof_date"] = report_date
+        item["operation_source_date_status"] = "current_report_date"
+        item["operation_status"] = "active_operation"
+        item["operation_status_zh"] = SECTION_ZH["active_operation"]
+        item["buy_rank_eligible"] = "False"
         item["row_action_status"] = action
+        item["daily_signal_date"] = report_date
+        item["daily_model_signal_count"] = str(count)
+        item["adapter_source"] = "original_buy_ranked_confirmed_operation_snapshots+stock_price_history"
+        item["generated_at"] = generated_at
         item["entry_date"] = safe_str(state.get("entry_date"))
         item["entry_price"] = format_price(state.get("entry_price"))
         item["target_price"] = format_price(state.get("target_price"))
@@ -766,7 +758,7 @@ def empty_row(pdf_view: str, pdf_section: str, report_date: str, daily_signal_co
         "failure_definition_zh": FAILURE_DEFINITION_ZH,
         "daily_signal_date": report_date,
         "daily_model_signal_count": str(daily_signal_count),
-        "adapter_source": "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history",
+        "adapter_source": "current_report_signals+original_buy_ranked_confirmed_operation_snapshots+stock_price_history",
         "adapter_source_status": "ready",
         "approval_source": safe_str(approval.get("approval_source")),
         "approved_for_daily": safe_str(approval.get("approved_for_daily")),
@@ -779,33 +771,41 @@ def empty_row(pdf_view: str, pdf_section: str, report_date: str, daily_signal_co
         "approval_note_zh": safe_str(approval.get("approval_note_zh")),
         "pdf_note_zh": SECTION_EMPTY_NOTE_ZH[pdf_section],
         "adapter_note_zh": "explicit model-owned empty state; PDF must not infer missing lifecycle rows",
+        **{field: "" for field in (*RANK_COLUMNS, *PROOF_COLUMNS)},
         "generated_at": generated_at,
     }
 
 
 def build_section(signals: pd.DataFrame, approval_frame: pd.DataFrame, report_date: str, generated_at: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     current = daily_model_signal_rows(signals, report_date)
-    history = load_signal_history(signals, report_date)
+    history = load_prior_confirmed_history(report_date)
     approval = approval_context(approval_frame)
     daily_signal_count = int(current["stock_id"].nunique()) if not current.empty else 0
 
     active_candidates = pd.DataFrame()
     if not history.empty:
-        active_candidates = history[history["signal_date"].map(compact_date).lt(report_date)].copy()
+        active_candidates = history[history["signal_date"].map(compact_date).lt(report_date)].sort_values("signal_date").copy()
 
     rows: list[dict[str, str]] = []
     audit_rows: list[dict[str, str]] = []
+    for rejected in history.attrs.get("rejected_confirmations", []):
+        audit_rows.append(audit_row(pd.Series(rejected), report_date, generated_at, "blocked_original_confirmation", "False", rejected["confirmation_rejection_reason"]))
+    if history.empty and not audit_rows:
+        audit_rows.append(audit_row(pd.Series(dtype=str), report_date, generated_at, "blocked_missing_original_confirmation", "False", history.attrs.get("history_status", "no_prior_confirmation_snapshot")))
     active_by_key: dict[tuple[str, str], tuple[str, list[dict[str, str]], dict[str, str]]] = {}
     for _, row in active_candidates.iterrows():
         active, audit = active_rows(row, approval, report_date, daily_signal_count, generated_at)
-        audit_rows.append(audit)
         if not active:
+            audit_rows.append(audit)
             continue
         key = (stock_id_key(row.get("stock_id")), safe_str(row.get("report_bucket")) or safe_str(row.get("report_line")))
         signal_date = compact_date(row.get("signal_date"))
         existing = active_by_key.get(key)
-        if existing is None or signal_date >= existing[0]:
-            active_by_key[key] = (signal_date, active, audit)
+        if existing is not None:
+            audit_rows.append(audit_row(row, report_date, generated_at, "suppressed_existing_active_position", "False", "same_stock_already_active"))
+            continue
+        audit_rows.append(audit)
+        active_by_key[key] = (signal_date, active, audit)
 
     active_keys = set(active_by_key)
     for display_order, (_key, (_signal_date, active, _audit)) in enumerate(sorted(active_by_key.items()), start=1):
