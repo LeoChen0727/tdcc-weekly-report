@@ -3,6 +3,14 @@ name: Repair Daily Price Range
 on:
   workflow_dispatch:
     inputs:
+      source_profile:
+        description: "legacy 保留原模式；selected_source_only 僅修復本次核准八日，不接續 Daily Full"
+        required: false
+        default: legacy
+        type: choice
+        options:
+          - legacy
+          - selected_source_only
       dates:
         description: "Exact selected dates; the frozen 20260814 repair accepts only the seven pre-authorized dates"
         required: false
@@ -97,8 +105,32 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests lxml html5lib tabulate
 
+      - name: Recover approved selected sources without production resume
+        if: inputs.source_profile == 'selected_source_only'
+        shell: bash
+        env:
+          SELECTED_DATES: ${{ inputs.dates }}
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          set -euo pipefail
+          exact_dates="20261005,20261006,20261007,20261008,20261012,20261013,20261014,20261015"
+          if [ "$SELECTED_DATES" != "$exact_dates" ] || [ -n "$START_DATE" ] || [ -n "$END_DATE" ]; then
+            echo "::error::selected_source_only accepts only the eight approved dates and no range inputs."
+            exit 1
+          fi
+          python -B scripts/run_selected_daily_price_source_recovery.py \
+            --dates "$SELECTED_DATES" \
+            --source-base-sha "$REPAIR_BASE_SHA" \
+            --capture-root "${{ runner.temp }}/selected-source-only" \
+            --max-days 8 \
+            --apply
+          python scripts/validate_daily_price_history_continuity.py \
+            --main-price-date 20261015 \
+            --no-write-report
+
       - name: Repair exact selected daily prices and controlled stock histories
-        if: inputs.dates != ''
+        if: inputs.dates != '' && inputs.source_profile == 'legacy'
         shell: bash
         env:
           SELECTED_DATES: ${{ inputs.dates }}
@@ -147,14 +179,14 @@ jobs:
             --expected-untouched-history-count 323
 
       - name: Validate selected repair continuity without report writes
-        if: inputs.dates != ''
+        if: inputs.dates != '' && inputs.source_profile == 'legacy'
         run: |
           python scripts/validate_daily_price_history_continuity.py \
             --main-price-date 20260811 \
             --no-write-report
 
       - name: Repair legacy daily price range and rebuild histories
-        if: inputs.dates == ''
+        if: inputs.dates == '' && inputs.source_profile == 'legacy'
         shell: bash
         env:
           START_DATE: ${{ inputs.start_date }}
@@ -176,7 +208,7 @@ jobs:
           python scripts/validate_daily_price_history_continuity.py
 
       - name: Validate exact seven-date source and history repair
-        if: inputs.dates != ''
+        if: inputs.dates != '' && inputs.source_profile == 'legacy'
         shell: bash
         run: |
           set -euo pipefail
@@ -205,7 +237,7 @@ jobs:
             --no-write-report
 
       - name: Prove controlled history repair second apply is byte-identical
-        if: inputs.dates != ''
+        if: inputs.dates != '' && inputs.source_profile == 'legacy'
         shell: bash
         run: |
           set -euo pipefail
@@ -239,7 +271,7 @@ jobs:
           cmp "${{ runner.temp }}/selected-before-status.nul" "${{ runner.temp }}/selected-after-status.nul"
 
       - name: Stage only exact selected-date repair paths
-        if: inputs.dates != ''
+        if: inputs.dates != '' && inputs.source_profile == 'legacy'
         shell: bash
         run: |
           set -euo pipefail
@@ -283,7 +315,7 @@ jobs:
           git status --short
 
       - name: Stage legacy range repair outputs
-        if: inputs.dates == ''
+        if: inputs.dates == '' && inputs.source_profile == 'legacy'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -293,6 +325,28 @@ jobs:
           git add output/latest/stock_price_history_manifest.*
           git add output/latest/daily_price_history_continuity_latest.* || true
           git add docs/latest/stock_price_history_manifest.* || true
+
+      - name: Stage only validated selected source-only paths
+        if: inputs.source_profile == 'selected_source_only'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add --pathspec-from-file="${{ runner.temp }}/selected-source-only/selected-paths.nul" --pathspec-file-nul
+          python scripts/validate_daily_price_history_continuity.py \
+            --verify-staged-paths-json "${{ runner.temp }}/selected-source-only/selected-paths.json" \
+            --no-write-report
+
+      - name: Retain official capture and selected repair evidence
+        if: always() && inputs.source_profile == 'selected_source_only'
+        uses: actions/upload-artifact@v4
+        with:
+          name: selected-source-only-recovery
+          path: |
+            ${{ runner.temp }}/selected-source-only/
+            output/latest/repair_daily_price_range_latest.*
+            output/latest/repair_daily_price_range_check_code_latest.csv
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Commit repaired daily price range
         shell: bash

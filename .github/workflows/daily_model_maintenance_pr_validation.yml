@@ -177,7 +177,7 @@ jobs:
 
       - name: 來源修復回歸測試
         run: |
-          python -m pytest tests/test_backfill_official_daily_price.py tests/test_historical_tpex_price_repair.py -q
+          python -m pytest tests/test_backfill_official_daily_price.py tests/test_historical_tpex_price_repair.py tests/test_selected_daily_price_source_recovery.py -q
 
       - name: Run current repository core regression tests
         run: |
