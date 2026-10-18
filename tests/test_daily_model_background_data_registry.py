@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import csv
 from pathlib import Path
 
 import sys
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -12,6 +14,7 @@ if str(SCRIPTS) not in sys.path:
 
 from validate_daily_model_background_data_registry import load_registry, validate_registry  # noqa: E402
 from model_data_independence import strict_csv_rows  # noqa: E402
+import validate_daily_model_background_data_registry as background_validator  # noqa: E402
 
 
 def registry_rows() -> list[dict[str, str]]:
@@ -279,3 +282,219 @@ def test_registry_loader_fails_on_unquoted_comma_overflow(tmp_path: Path) -> Non
     rows = strict_csv_rows(path, ("data_family_id", "notes"), errors)
     assert rows == []
     assert any("field count 3 does not match header count 2" in error for error in errors)
+
+
+def write_forward_capture_csv(path: Path, columns: tuple[str, ...], rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=columns, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+@pytest.fixture
+def forward_capture_fixture(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[Path, dict[str, str]]:
+    family = "price_pullback_23ema_operation_section"
+    row = deepcopy(next(item for item in registry_rows() if item["data_family_id"] == family))
+    sharing_path = ROOT / "config/daily_model_data_sharing_registry.csv"
+    with sharing_path.open(encoding="utf-8-sig", newline="") as stream:
+        sharing_row = next(item for item in csv.DictReader(stream) if item["data_family_id"] == family)
+    write_forward_capture_csv(
+        tmp_path / "config/daily_model_data_sharing_registry.csv",
+        background_validator.DATA_SHARING_COLUMNS, [sharing_row],
+    )
+    write_forward_capture_csv(
+        tmp_path / "output/latest/data_freshness_latest.csv", ("main_price_date",),
+        [{"main_price_date": "20261002"}],
+    )
+    validator_path = tmp_path / row["validator"]
+    validator_path.parent.mkdir(parents=True)
+    validator_path.write_text("# Synthetic validator-path fixture.\n", encoding="utf-8")
+    monkeypatch.setattr(background_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(background_validator, "REQUIRED_FAMILIES", {family})
+    return tmp_path, row
+
+
+def write_forward_capture_snapshot(root: Path, snapshot_date: str) -> Path:
+    path = root / "output/history/daily_model_snapshots" / (
+        f"daily_price_pullback_23ema_operation_section_{snapshot_date}_r1_" + "a" * 12 + ".csv"
+    )
+    write_forward_capture_csv(path, ("operation_asof_date",), [{"operation_asof_date": snapshot_date}])
+    return path
+
+
+def test_forward_capture_before_official_date_allows_registered_absence(
+    forward_capture_fixture: tuple[Path, dict[str, str]],
+) -> None:
+    root, row = forward_capture_fixture
+    assert not list(root.glob(row["artifact_path"]))
+    assert validate_registry([row], require_artifacts=True) == []
+
+
+@pytest.mark.parametrize("report_date", ["20261019", "20261020"])
+def test_forward_capture_at_or_after_official_date_requires_artifacts(
+    forward_capture_fixture: tuple[Path, dict[str, str]], report_date: str,
+) -> None:
+    root, row = forward_capture_fixture
+    write_forward_capture_csv(
+        root / "output/latest/data_freshness_latest.csv", ("main_price_date",),
+        [{"main_price_date": report_date}],
+    )
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("artifact_path does not exist or match files" in error for error in errors)
+
+
+@pytest.mark.parametrize("payload", [
+    None, "", "wrong_column\n20261002\n", "main_price_date\n", "main_price_date\n\"\"\n",
+    "main_price_date\n20260230\n", "main_price_date\n2026-10-02\n", "main_price_date\n 20261002\n",
+    "main_price_date\n20261002\n20261018\n", "main_price_date,main_price_date\n20261002,20261002\n",
+])
+def test_forward_capture_missing_or_invalid_freshness_fails_closed(
+    forward_capture_fixture: tuple[Path, dict[str, str]], payload: str | None,
+) -> None:
+    root, row = forward_capture_fixture
+    freshness = root / "output/latest/data_freshness_latest.csv"
+    if payload is None:
+        freshness.unlink()
+    else:
+        freshness.write_text(payload, encoding="utf-8")
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("valid official data_freshness main_price_date is required" in error for error in errors)
+
+
+@pytest.mark.parametrize("field,value", [
+    ("point_in_time_status", "forward_capture_not_before_20261020_consumer_disabled_not_full_PIT"),
+    ("consumer_models", "all_models"), ("producer", "scripts/other_writer.py"),
+    ("artifact_path", "output/history/other_model/*.csv"),
+])
+@pytest.mark.parametrize("require_artifacts", [False, True])
+def test_forward_capture_background_metadata_mismatch_fails_closed(
+    forward_capture_fixture: tuple[Path, dict[str, str]], field: str, value: str, require_artifacts: bool,
+) -> None:
+    _, row = forward_capture_fixture
+    row[field] = value
+    errors = validate_registry([row], require_artifacts=require_artifacts)
+    assert any("forward capture metadata mismatch" in error for error in errors)
+
+
+@pytest.mark.parametrize("defect", ["missing", "consumer_access_mode", "approved_consumer_models"])
+def test_forward_capture_sharing_metadata_mismatch_fails_closed(
+    forward_capture_fixture: tuple[Path, dict[str, str]], defect: str,
+) -> None:
+    root, row = forward_capture_fixture
+    sharing_path = root / "config/daily_model_data_sharing_registry.csv"
+    with sharing_path.open(encoding="utf-8-sig", newline="") as stream:
+        sharing_row = next(csv.DictReader(stream))
+    if defect == "missing":
+        sharing_path.unlink()
+    else:
+        sharing_row[defect] = "consumer_enabled_or_unregistered_model"
+        write_forward_capture_csv(sharing_path, background_validator.DATA_SHARING_COLUMNS, [sharing_row])
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("forward capture" in error and ("data-sharing" in error or "registration" in error) for error in errors)
+
+
+@pytest.mark.parametrize("constant,value", [
+    ("CAPTURE_NOT_BEFORE_REPORT_DATE", "20261020"), ("CONFIRMATION_CONSUMER_ENABLED", True),
+])
+def test_forward_capture_model_owned_marker_contradiction_fails_closed(
+    forward_capture_fixture: tuple[Path, dict[str, str]], monkeypatch: pytest.MonkeyPatch,
+    constant: str, value: str | bool,
+) -> None:
+    _, row = forward_capture_fixture
+    monkeypatch.setattr(background_validator, constant, value)
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("metadata contradicts the model-owned cutoff or disabled consumer" in error for error in errors)
+
+
+def test_forward_capture_existing_pre_cutoff_file_is_never_skipped(
+    forward_capture_fixture: tuple[Path, dict[str, str]],
+) -> None:
+    root, row = forward_capture_fixture
+    write_forward_capture_snapshot(root, "20261002")
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("historical backfill is forbidden" in error for error in errors)
+
+
+def test_forward_capture_existing_file_cannot_override_official_logical_date(
+    forward_capture_fixture: tuple[Path, dict[str, str]],
+) -> None:
+    root, row = forward_capture_fixture
+    write_forward_capture_snapshot(root, "20261019")
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("capture snapshot date exceeds official main_price_date" in error for error in errors)
+
+
+def test_forward_capture_valid_physical_date_passes_after_cutoff(
+    forward_capture_fixture: tuple[Path, dict[str, str]],
+) -> None:
+    root, row = forward_capture_fixture
+    write_forward_capture_csv(
+        root / "output/latest/data_freshness_latest.csv", ("main_price_date",),
+        [{"main_price_date": "20261019"}],
+    )
+    write_forward_capture_snapshot(root, "20261019")
+    assert validate_registry([row], require_artifacts=True) == []
+
+
+@pytest.mark.parametrize("defect", ["missing_date", "mismatched_date", "invalid_date", "empty", "filename", "directory"])
+def test_forward_capture_existing_physical_file_is_validated(
+    forward_capture_fixture: tuple[Path, dict[str, str]], defect: str,
+) -> None:
+    root, row = forward_capture_fixture
+    write_forward_capture_csv(
+        root / "output/latest/data_freshness_latest.csv", ("main_price_date",),
+        [{"main_price_date": "20261019"}],
+    )
+    path = write_forward_capture_snapshot(root, "20261019")
+    if defect == "missing_date":
+        path.write_text("stock_id\n1234\n", encoding="utf-8")
+    elif defect == "mismatched_date":
+        path.write_text("operation_asof_date\n20261018\n", encoding="utf-8")
+    elif defect == "invalid_date":
+        path.write_text("operation_asof_date\n20260230\n", encoding="utf-8")
+    elif defect == "empty":
+        path.write_text("operation_asof_date\n", encoding="utf-8")
+    elif defect == "filename":
+        path.rename(path.with_name("daily_price_pullback_23ema_operation_section_20261019_backup.csv"))
+    else:
+        path.unlink()
+        path.mkdir()
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("invalid physical capture artifact" in error for error in errors)
+
+
+def test_forward_capture_does_not_relax_other_registered_family_artifact_guards(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rows = registry_rows()
+    monkeypatch.setattr(background_validator, "ROOT", tmp_path)
+    monkeypatch.setattr(background_validator, "REQUIRED_FAMILIES", set())
+    checked = []
+    for row in rows:
+        if row["data_family_id"] == "price_pullback_23ema_operation_section" or not row["artifact_path"]:
+            continue
+        errors = validate_registry([row], require_artifacts=True)
+        assert any(f"{row['data_family_id']}: artifact_path does not exist or match files" in error for error in errors)
+        checked.append(row["data_family_id"])
+    assert len(checked) > 80
+
+
+def test_forward_capture_family_registration_is_required(
+    forward_capture_fixture: tuple[Path, dict[str, str]],
+) -> None:
+    errors = validate_registry([], require_artifacts=True)
+    assert any("registry missing required background data families" in error and "price_pullback_23ema_operation_section" in error for error in errors)
+
+
+def test_forward_capture_cannot_use_generic_missing_family_placeholder(
+    forward_capture_fixture: tuple[Path, dict[str, str]],
+) -> None:
+    _, row = forward_capture_fixture
+    row.update(
+        scope="missing_shared_data_family", cleanup_status="blocked_missing_source_or_validator",
+        artifact_path="", validator="not_implemented", allowed_use="none until implemented",
+    )
+    errors = validate_registry([row], require_artifacts=True)
+    assert any("forward capture metadata mismatch for scope" in error for error in errors)
+    assert any("forward capture metadata mismatch for artifact_path" in error for error in errors)
