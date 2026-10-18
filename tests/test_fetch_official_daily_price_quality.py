@@ -4,11 +4,14 @@ from pathlib import Path
 import csv
 import io
 import json
+import hashlib
+from types import SimpleNamespace
 
 import pandas as pd
 import pytest
 
 import fetch_official_daily_price as fetcher
+import scripts.build_stock_price_history as history
 
 
 def test_detect_target_date_uses_market_session_override(monkeypatch) -> None:
@@ -448,3 +451,148 @@ def test_apply_canonical_stock_names_overrides_corrupted_endpoint_name(tmp_path,
 
     assert out.iloc[0]["stock_name"] == "宏旭-KY"
     assert any("Applied canonical stock names" in item for item in log)
+
+
+
+def _tpex_observed_20261005_payload() -> dict:
+    # Official no1430 JSON saved by run 39114045701; raw response SHA-256:
+    # 24413a4dde2bd6cf6cce54dc4902081b1d11b099ef57b49fdbd85de0bebb4f77
+    return {
+        "date": "20261005", "flagField": "張數", "stat": "ok",
+        "tables": [{
+            "title": "上櫃股票每日收盤行情(不含定價)", "date": "115/10/05",
+            "fields": [
+                "代號", "名稱", "收盤 ", "漲跌", "開盤 ", "最高 ", "最低",
+                "成交股數  ", " 成交金額(元)", " 成交筆數 ", "最後買價",
+                "最後買量<br>(張數)", "最後賣價", "最後賣量<br>(張數)",
+                "發行股數 ", "次日漲停價 ", "次日跌停價",
+            ],
+            "data": [[
+                "1240", "茂生農經", "53.90", "-0.10", "54.00", "54.20", "53.80",
+                "61,000", "3,293,100", "28", "53.80", "10", "54.00", "5",
+                "46,443,992", "59.20", "48.55",
+            ]],
+        }],
+    }
+
+
+def _decode_observed_tpex_payload(payload: dict, fmt: str, log: list[str]):
+    if fmt == "json":
+        return fetcher.parse_tpex_json(json.dumps(payload), "20261005", "TPEX_OBSERVED_JSON", log)
+    text = io.StringIO()
+    # Use an already accepted full-year preamble; ROC slash date parsing is separate.
+    text.write(f"資料日期:{payload['date']}\n")
+    writer = csv.writer(text, quoting=csv.QUOTE_ALL)
+    table = payload["tables"][0]
+    writer.writerow(table["fields"])
+    writer.writerows(table["data"])
+    return fetcher.parse_tpex_csv(text.getvalue(), "20261005", "TPEX_OBSERVED_CSV", log)
+
+
+@pytest.mark.parametrize("fmt", ["json", "csv"])
+@pytest.mark.parametrize("reorder", [False, True])
+def test_tpex_observed_17_fields_preserve_quote_mapping_and_units(monkeypatch, fmt, reorder):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    payload = _tpex_observed_20261005_payload()
+    table = payload["tables"][0]
+    if reorder:
+        table["fields"].reverse()
+        table["data"][0].reverse()
+    frame = _decode_observed_tpex_payload(payload, fmt, [])
+    assert list(frame.columns) == fetcher.FINAL_COLUMNS
+    assert len(frame) == 1
+    assert frame.iloc[0].to_dict() == {
+        "date": "20261005", "stock_id": "1240", "stock_name": "茂生農經", "market": "TPEx",
+        "open": 54.0, "high": 54.2, "low": 53.8, "close": 53.9,
+        "volume": 61000, "trading_value": 3293100,
+        "source": f"TPEX_OBSERVED_{fmt.upper()}_SHARES_V1",
+    }
+
+
+@pytest.mark.parametrize("fmt", ["json", "csv"])
+@pytest.mark.parametrize("defect", ["wrong_date", "unknown_field"])
+def test_tpex_observed_schema_keeps_date_and_unknown_field_rejections(monkeypatch, fmt, defect):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    payload = _tpex_observed_20261005_payload()
+    if defect == "wrong_date":
+        payload["date"] = "20261016"
+        payload["tables"][0]["date"] = "20261016"
+    else:
+        payload["tables"][0]["fields"].append("未批准額外欄位")
+        payload["tables"][0]["data"][0].append("9999.95")
+    log: list[str] = []
+    assert _decode_observed_tpex_payload(payload, fmt, log).empty
+    expected = "rejected response dates" if defect == "wrong_date" else "unknown fields/header"
+    assert any(expected in line for line in log)
+
+
+
+@pytest.mark.parametrize("fmt", ["json", "csv"])
+def test_tpex_real_request_receipt_binds_normalized_rows_to_history(monkeypatch, tmp_path, fmt):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    monkeypatch.setattr(fetcher, "FETCH_RESPONSE_PROVENANCE", [])
+    payload = _tpex_observed_20261005_payload()
+    if fmt == "json":
+        text = json.dumps(payload, ensure_ascii=False)
+    else:
+        output = io.StringIO()
+        output.write("資料日期:20261005\n")
+        writer = csv.writer(output, quoting=csv.QUOTE_ALL)
+        writer.writerow(payload["tables"][0]["fields"])
+        writer.writerows(payload["tables"][0]["data"])
+        text = output.getvalue()
+    twse_text = json.dumps({
+        "date": "20261005",
+        "data9": [["2330", "TSMC", "1000", "1", "1000000", "1000", "1005", "995", "1000"]],
+    })
+
+    def response(url, **kwargs):
+        if "twse.com.tw/rwd/zh/afterTrading/MI_INDEX" in url:
+            body, status = twse_text, 200
+        elif "otc_quotes_no1430/stk_wn1430_result.php" in url and f"o={fmt}" in url:
+            body, status = text, 200
+        else:
+            body, status = "", 404
+        return SimpleNamespace(status_code=status, text=body, content=body.encode("utf-8"))
+
+    monkeypatch.setattr(fetcher.requests, "get", response)
+    twse = fetcher.fetch_twse_batch("20261005", [])
+    tpex = fetcher.fetch_tpex_batch("20261005", [])
+    assert len(twse) == len(tpex) == 1
+    frame = fetcher.combine_market_data(twse, tpex)
+    source = f"TPEX_OTC_QUOTES_NO1430_{fmt.upper()}_SHARES_V1"
+    assert set(tpex["source"]) == {source}
+    assert tpex.iloc[0]["volume"] == 61000
+    provenance = fetcher.fetch_response_provenance()
+    tpex_receipts = [item for item in provenance if "otc_quotes_no1430" in item["endpoint"] and item["status_code"] == 200]
+    assert len(tpex_receipts) == 1
+    receipt = tpex_receipts[0]
+    assert receipt["raw_sha256"] == hashlib.sha256(text.encode("utf-8")).hexdigest()
+    assert receipt["normalized_sha256"] == receipt["raw_sha256"]
+    assert receipt["expected_response_date"] == "20261005"
+    assert receipt["observed_response_dates"] == ["20261005"]
+    assert receipt["exact_date_match"] is True
+
+    directory = tmp_path / "data/daily_price"
+    directory.mkdir(parents=True)
+    canonical = directory / "daily_price_20261005.csv"
+    legacy = directory / "20261005.csv"
+    data = frame.to_csv(index=False, lineterminator="\n").encode("utf-8-sig")
+    canonical.write_bytes(data)
+    legacy.write_bytes(data)
+    monkeypatch.setattr(history, "DATA_DAILY_PRICE_DIR", directory)
+    report = {"schema_version": "repair_daily_price_range_v2", "rows": [{
+        "date": "20261005", "status": "repaired", "total_rows": len(frame),
+        "canonical_path": "data/daily_price/daily_price_20261005.csv",
+        "legacy_path": "data/daily_price/20261005.csv",
+        "saved_files": "data/daily_price/20261005.csv;data/daily_price/daily_price_20261005.csv",
+        "price_sha256": hashlib.sha256(data).hexdigest(),
+        "fetch_response_provenance": provenance,
+    }]}
+    history.validate_selected_daily_source_binding(report, ["20261005"])
+    assert receipt["source_name"] == source
+
+    # The existing guard must still reject the original unversioned mismatch.
+    receipt["source_name"] = source.removesuffix("_SHARES_V1")
+    with pytest.raises(ValueError, match="frame/provenance source mismatch"):
+        history.validate_selected_daily_source_binding(report, ["20261005"])

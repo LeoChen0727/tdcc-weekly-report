@@ -825,6 +825,7 @@ TPEX_OPTIONAL_TABLE_FIELDS = {
     "漲跌", "均價", "成交筆數", "最後買價", "最後買量(張數)",
     "最後賣價", "最後賣量(張數)", "發行股數", "次日 參考價",
     "次日 漲停價", "次日 跌停價",
+    "最後買量<br>(張數)", "最後賣量<br>(張數)", "次日漲停價", "次日跌停價",
 }
 
 
@@ -1070,7 +1071,7 @@ def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
             url,
             log,
             referer="https://www.tpex.org.tw/",
-            source_name=source,
+            source_name=tpex_shares_source(source),
             expected_response_date=(date_text if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES else ""),
         )
 
