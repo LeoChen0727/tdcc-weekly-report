@@ -1071,7 +1071,7 @@ def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
             url,
             log,
             referer="https://www.tpex.org.tw/",
-            source_name=source,
+            source_name=tpex_shares_source(source),
             expected_response_date=(date_text if REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES else ""),
         )
 
