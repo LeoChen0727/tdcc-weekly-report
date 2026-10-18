@@ -33,6 +33,9 @@ ARTIFACT_SNAPSHOT_STEMS = {
     "revenue_unreacted_range_operation_section": (
         "daily_revenue_unreacted_range_operation_section"
     ),
+    "price_pullback_23ema_operation_section": (
+        "daily_price_pullback_23ema_operation_section"
+    ),
 }
 REQUIRED_MANIFEST_COLUMNS = {
     "snapshot_report_date",

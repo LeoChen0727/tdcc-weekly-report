@@ -1246,6 +1246,7 @@ jobs:
             --artifact-id volume_breakout_operation_evidence_audit \
             --artifact-id w_bottom_right_side_operation_section \
             --artifact-id neckline_volume_breakout_confirmation_operation_section \
+            --artifact-id price_pullback_23ema_operation_section \
             $REVENUE_UNREACTED_RANGE_V2_SNAPSHOT_ARGS \
             --revision-reason daily_full_post_audit_artifacts
           python scripts/validate_daily_published_model_snapshots.py --phase runtime
@@ -1386,6 +1387,7 @@ jobs:
           --artifact-id volume_breakout_operation_evidence_audit
           --artifact-id w_bottom_right_side_operation_section
           --artifact-id neckline_volume_breakout_confirmation_operation_section
+          --artifact-id price_pullback_23ema_operation_section
           $REVENUE_UNREACTED_RANGE_V2_SNAPSHOT_ARGS
 
       - name: Validate immutable published snapshot revisions

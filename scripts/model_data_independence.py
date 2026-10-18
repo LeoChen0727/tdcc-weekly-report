@@ -855,17 +855,50 @@ def build_current_model_semantics(
         if not entries:
             errors.append(f"{model_id}: execution_entry_functions is empty")
             continue
+        local_entries = tuple(entry for entry in entries if "::" not in entry)
         condition = contract["condition_function"]
         score = contract["score_function"]
-        if condition not in entries:
+        if condition not in local_entries:
             errors.append(f"{model_id}: condition_function must be an execution entry: {condition}")
-        if not graph.function_exists_anywhere(score, entries):
+        if not graph.function_exists_anywhere(score, local_entries):
             errors.append(f"{model_id}: score_function is not reachable from execution entries: {score}")
-        elif score in graph.functions and score not in entries:
+        elif score in graph.functions and score not in local_entries:
             errors.append(f"{model_id}: top-level score_function must be an execution entry: {score}")
         try:
-            items = graph.semantic_items(entries)
-        except ValueError as exc:
+            # Preserve every legacy local key/hash. Model-owned operation
+            # modules use explicit source-qualified roots in this same row.
+            items = graph.semantic_items(local_entries)
+            locations = {item: (source_file, item) for item in items}
+            qualified_roots: dict[str, list[str]] = defaultdict(list)
+            for entry in entries:
+                if "::" not in entry:
+                    continue
+                qualified_source, entry_function = entry.rsplit("::", 1)
+                relative_source = Path(qualified_source)
+                if (
+                    relative_source.is_absolute()
+                    or ".." in relative_source.parts
+                    or relative_source.as_posix() != qualified_source
+                    or relative_source.suffix != ".py"
+                    or not entry_function
+                ):
+                    raise ValueError(f"{model_id}: invalid source-qualified execution entry: {entry}")
+                qualified_roots[qualified_source].append(entry_function)
+            for qualified_source, roots in sorted(qualified_roots.items()):
+                if qualified_source not in graph_cache:
+                    qualified_path = root / qualified_source
+                    if not qualified_path.is_file():
+                        raise ValueError(f"{model_id}: missing execution source file: {qualified_source}")
+                    graph_cache[qualified_source] = SourceSemanticGraph(
+                        qualified_source, qualified_path.read_text(encoding="utf-8")
+                    )
+                qualified_items = graph_cache[qualified_source].runtime_semantic_items(roots)
+                for item, item_hash in qualified_items.items():
+                    qualified_item = f"{qualified_source}::{item}"
+                    items[qualified_item] = item_hash
+                    locations[qualified_item] = (qualified_source, item)
+                source_consumers[qualified_source].add(model_id)
+        except (ValueError, SyntaxError, UnicodeError) as exc:
             errors.append(str(exc))
             continue
         semantic_hash = aggregate_semantic_sha256(items)
@@ -886,7 +919,7 @@ def build_current_model_semantics(
         source_consumers[source_file].add(model_id)
         semantics[model_id] = ModelSemantic(model_id, source_file, entries, items, semantic_hash)
         for item in items:
-            item_consumers[(source_file, item)].append(model_id)
+            item_consumers[locations[item]].append(model_id)
 
     for source_file, consumers in source_consumers.items():
         if len(consumers) < 2:
@@ -1175,7 +1208,8 @@ def validate_model_semantic_ownership(*, base_ref: str | None = None) -> tuple[l
             )
         if row["semantic_class"] not in VALID_SHARED_SEMANTIC_CLASS:
             errors.append(f"{source_file}::{item}: invalid semantic_class")
-        actual_hash = semantics[consumers[0]].items[item]
+        model_items = semantics[consumers[0]].items
+        actual_hash = model_items.get(f"{source_file}::{item}", model_items.get(item))
         if row["canonical_ast_sha256"] != actual_hash:
             errors.append(
                 f"{source_file}::{item}: shared semantic SHA drift; "
