@@ -727,4 +727,4 @@ scripts/build_price_pullback_23ema_confirmation_lineage_research.py,python,resea
 scripts/validate_price_pullback_23ema_confirmation_lineage_research.py,python,research_backtest,active,23EMA confirmation lineage 的獨立身分、來源、原始排名與 close-confirmed terminal 規則驗證,,
 tests/test_price_pullback_23ema_confirmation_lineage_research.py,test_python,research_backtest,active,23EMA confirmation lineage 合成 regression 與獨立驗證反例,,
 scripts/run_selected_daily_price_source_recovery.py,python,official_price_data,active,保存官方來源契約並調用既有 selected 修復；不更新模型、readiness 或 PDF,.github/workflows/repair_daily_price_range.yml,
-tests/test_selected_daily_price_source_recovery.py,test_python,official_price_data,active,selected source-only 官方來源契約與回歸驗證,,
+tests/test_daily_selected_price_source_recovery.py,test_python,official_price_data,active,selected source-only 官方來源契約與回歸驗證,,
