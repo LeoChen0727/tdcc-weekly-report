@@ -394,17 +394,31 @@ def test_forward_capture_sharing_metadata_mismatch_fails_closed(
     assert any("forward capture" in error and ("data-sharing" in error or "registration" in error) for error in errors)
 
 
-@pytest.mark.parametrize("constant,value", [
-    ("CAPTURE_NOT_BEFORE_REPORT_DATE", "20261020"), ("CONFIRMATION_CONSUMER_ENABLED", True),
+@pytest.mark.parametrize("marker", [
+    "forward_capture_not_before_20261019_consumer_enabled_not_full_PIT",
+    "forward_capture_not_before_20260230_consumer_disabled_not_full_PIT",
 ])
-def test_forward_capture_model_owned_marker_contradiction_fails_closed(
-    forward_capture_fixture: tuple[Path, dict[str, str]], monkeypatch: pytest.MonkeyPatch,
-    constant: str, value: str | bool,
+def test_forward_capture_registry_activation_marker_contradiction_fails_closed(
+    forward_capture_fixture: tuple[Path, dict[str, str]], marker: str,
 ) -> None:
     _, row = forward_capture_fixture
-    monkeypatch.setattr(background_validator, constant, value)
+    row["point_in_time_status"] = marker
     errors = validate_registry([row], require_artifacts=True)
-    assert any("metadata contradicts the model-owned cutoff or disabled consumer" in error for error in errors)
+    assert any("invalid forward capture registry marker" in error for error in errors)
+
+
+def test_forward_capture_validator_does_not_import_production_modules() -> None:
+    import ast
+
+    source = (ROOT / "scripts/validate_daily_model_background_data_registry.py").read_text(encoding="utf-8")
+    tree = ast.parse(source)
+    modules = {
+        node.module if isinstance(node, ast.ImportFrom) else alias.name
+        for node in ast.walk(tree)
+        if isinstance(node, (ast.Import, ast.ImportFrom))
+        for alias in node.names
+    }
+    assert modules == {"__future__", "argparse", "csv", "datetime", "pathlib", "re", "model_data_independence"}
 
 
 def test_forward_capture_existing_pre_cutoff_file_is_never_skipped(

@@ -7,10 +7,6 @@ from pathlib import Path
 import re
 
 from model_data_independence import DATA_SHARING_COLUMNS, strict_csv_rows, validate_data_sharing
-from price_pullback_23ema_confirmed_history import (
-    CAPTURE_NOT_BEFORE_REPORT_DATE,
-    CONFIRMATION_CONSUMER_ENABLED,
-)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -153,8 +149,17 @@ def validate_price_pullback_forward_capture_registration(
         f"{family}: forward capture metadata mismatch for {field}: expected={value!r} observed={row.get(field)!r}"
         for field, value in expected.items() if row.get(field) != value
     ]
-    if CAPTURE_NOT_BEFORE_REPORT_DATE != "20261019" or CONFIRMATION_CONSUMER_ENABLED is not False:
-        errors.append(f"{family}: forward capture metadata contradicts the model-owned cutoff or disabled consumer")
+    marker = re.fullmatch(
+        r"forward_capture_not_before_([0-9]{8})_consumer_disabled_not_full_PIT",
+        row.get("point_in_time_status", ""),
+    )
+    try:
+        if marker is None:
+            raise ValueError("expected a registered capture cutoff with consumer_disabled")
+        capture_not_before = _strict_capture_date(marker.group(1))
+    except ValueError as exc:
+        errors.append(f"{family}: invalid forward capture registry marker: {exc}")
+        return errors, False
     sharing = strict_csv_rows(
         ROOT / "config/daily_model_data_sharing_registry.csv", DATA_SHARING_COLUMNS, errors
     )
@@ -197,7 +202,7 @@ def validate_price_pullback_forward_capture_registration(
             if match is None:
                 raise ValueError("capture filename must identify an immutable dated revision")
             snapshot_date = _strict_capture_date(match.group(1))
-            if snapshot_date < CAPTURE_NOT_BEFORE_REPORT_DATE:
+            if snapshot_date < capture_not_before:
                 raise ValueError("capture snapshot predates the permitted cutoff; historical backfill is forbidden")
             if snapshot_date > report_date:
                 raise ValueError("capture snapshot date exceeds official main_price_date")
@@ -206,7 +211,7 @@ def validate_price_pullback_forward_capture_registration(
                 raise ValueError("capture operation_asof_date must match its immutable snapshot date")
         except (OSError, UnicodeError, ValueError, csv.Error) as exc:
             errors.append(f"{family}: invalid physical capture artifact {path}: {exc}")
-    return errors, not errors and report_date < CAPTURE_NOT_BEFORE_REPORT_DATE
+    return errors, not errors and report_date < capture_not_before
 
 
 def validate_registry(
