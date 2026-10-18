@@ -448,3 +448,76 @@ def test_apply_canonical_stock_names_overrides_corrupted_endpoint_name(tmp_path,
 
     assert out.iloc[0]["stock_name"] == "宏旭-KY"
     assert any("Applied canonical stock names" in item for item in log)
+
+
+
+def _tpex_observed_20261005_payload() -> dict:
+    # Official no1430 JSON saved by run 39114045701; raw response SHA-256:
+    # 24413a4dde2bd6cf6cce54dc4902081b1d11b099ef57b49fdbd85de0bebb4f77
+    return {
+        "date": "20261005", "flagField": "張數", "stat": "ok",
+        "tables": [{
+            "title": "上櫃股票每日收盤行情(不含定價)", "date": "115/10/05",
+            "fields": [
+                "代號", "名稱", "收盤 ", "漲跌", "開盤 ", "最高 ", "最低",
+                "成交股數  ", " 成交金額(元)", " 成交筆數 ", "最後買價",
+                "最後買量<br>(張數)", "最後賣價", "最後賣量<br>(張數)",
+                "發行股數 ", "次日漲停價 ", "次日跌停價",
+            ],
+            "data": [[
+                "1240", "茂生農經", "53.90", "-0.10", "54.00", "54.20", "53.80",
+                "61,000", "3,293,100", "28", "53.80", "10", "54.00", "5",
+                "46,443,992", "59.20", "48.55",
+            ]],
+        }],
+    }
+
+
+def _decode_observed_tpex_payload(payload: dict, fmt: str, log: list[str]):
+    if fmt == "json":
+        return fetcher.parse_tpex_json(json.dumps(payload), "20261005", "TPEX_OBSERVED_JSON", log)
+    text = io.StringIO()
+    # Use an already accepted full-year preamble; ROC slash date parsing is separate.
+    text.write(f"資料日期:{payload['date']}\n")
+    writer = csv.writer(text, quoting=csv.QUOTE_ALL)
+    table = payload["tables"][0]
+    writer.writerow(table["fields"])
+    writer.writerows(table["data"])
+    return fetcher.parse_tpex_csv(text.getvalue(), "20261005", "TPEX_OBSERVED_CSV", log)
+
+
+@pytest.mark.parametrize("fmt", ["json", "csv"])
+@pytest.mark.parametrize("reorder", [False, True])
+def test_tpex_observed_17_fields_preserve_quote_mapping_and_units(monkeypatch, fmt, reorder):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    payload = _tpex_observed_20261005_payload()
+    table = payload["tables"][0]
+    if reorder:
+        table["fields"].reverse()
+        table["data"][0].reverse()
+    frame = _decode_observed_tpex_payload(payload, fmt, [])
+    assert list(frame.columns) == fetcher.FINAL_COLUMNS
+    assert len(frame) == 1
+    assert frame.iloc[0].to_dict() == {
+        "date": "20261005", "stock_id": "1240", "stock_name": "茂生農經", "market": "TPEx",
+        "open": 54.0, "high": 54.2, "low": 53.8, "close": 53.9,
+        "volume": 61000, "trading_value": 3293100,
+        "source": f"TPEX_OBSERVED_{fmt.upper()}_SHARES_V1",
+    }
+
+
+@pytest.mark.parametrize("fmt", ["json", "csv"])
+@pytest.mark.parametrize("defect", ["wrong_date", "unknown_field"])
+def test_tpex_observed_schema_keeps_date_and_unknown_field_rejections(monkeypatch, fmt, defect):
+    monkeypatch.setattr(fetcher, "REQUIRE_EXACT_HISTORICAL_RESPONSE_DATES", True)
+    payload = _tpex_observed_20261005_payload()
+    if defect == "wrong_date":
+        payload["date"] = "20261016"
+        payload["tables"][0]["date"] = "20261016"
+    else:
+        payload["tables"][0]["fields"].append("未批准額外欄位")
+        payload["tables"][0]["data"][0].append("9999.95")
+    log: list[str] = []
+    assert _decode_observed_tpex_payload(payload, fmt, log).empty
+    expected = "rejected response dates" if defect == "wrong_date" else "unknown fields/header"
+    assert any(expected in line for line in log)
