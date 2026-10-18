@@ -137,6 +137,7 @@ def test_apply_uses_existing_selected_producers_and_independent_validator_only(t
     assert validator.count("--selected-date-contract") == 2
     assert "--no-write-report" in validator
     assert "--pathspec-nul-output" in validator
+    assert "--history-stock-id-output" in validator
     assert "--expected-created-stock-id" in validator
     for cmd, kw in calls:
         assert kw == {"cwd": tmp_path, "check": True}
@@ -179,5 +180,5 @@ def test_source_only_profile_preserves_legacy_and_has_exact_eight_scope():
         }:
             assert "inputs.source_profile == 'legacy'" in step["if"]
     stage = next(s for s in steps if s["name"] == "Stage only validated selected source-only paths")
-    assert "--pathspec-from-file=" in stage["run"]
+    assert "selected-stock-ids.txt" in stage["run"]
     assert "--verify-staged-paths-json" in stage["run"]

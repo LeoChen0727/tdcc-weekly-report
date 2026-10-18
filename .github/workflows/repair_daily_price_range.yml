@@ -331,7 +331,32 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add --pathspec-from-file="${{ runner.temp }}/selected-source-only/selected-paths.nul" --pathspec-file-nul
+          while IFS= read -r stock_id; do
+            if [[ ! "$stock_id" =~ ^[0-9]{4}$|^00[0-9]{3,4}$ ]]; then
+              echo "::error::Invalid selected history stock id: $stock_id"
+              exit 1
+            fi
+            git add -- "data/stock_price_history/${stock_id}.csv"
+          done < "${{ runner.temp }}/selected-source-only/selected-stock-ids.txt"
+          git add -- \
+            data/daily_price/20261005.csv data/daily_price/daily_price_20261005.csv \
+            data/daily_price/20261006.csv data/daily_price/daily_price_20261006.csv \
+            data/daily_price/20261007.csv data/daily_price/daily_price_20261007.csv \
+            data/daily_price/20261008.csv data/daily_price/daily_price_20261008.csv \
+            data/daily_price/20261012.csv data/daily_price/daily_price_20261012.csv \
+            data/daily_price/20261013.csv data/daily_price/daily_price_20261013.csv \
+            data/daily_price/20261014.csv data/daily_price/daily_price_20261014.csv \
+            data/daily_price/20261015.csv data/daily_price/daily_price_20261015.csv \
+            output/latest/stock_price_history_manifest.csv \
+            output/latest/stock_price_history_manifest.json \
+            output/latest/stock_price_history_manifest.md \
+            docs/latest/stock_price_history_manifest.csv \
+            docs/latest/stock_price_history_manifest.json \
+            docs/latest/stock_price_history_manifest.md \
+            output/latest/repair_daily_price_range_latest.csv \
+            output/latest/repair_daily_price_range_check_code_latest.csv \
+            output/latest/repair_daily_price_range_latest.json \
+            output/latest/repair_daily_price_range_latest.md
           python scripts/validate_daily_price_history_continuity.py \
             --verify-staged-paths-json "${{ runner.temp }}/selected-source-only/selected-paths.json" \
             --no-write-report

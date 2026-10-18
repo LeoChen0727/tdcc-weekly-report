@@ -147,6 +147,7 @@ def apply_contracts(root: Path, capture_root: Path, contracts: dict, *, runner=N
         "--require-all-eligible-changed",
         "--pathspec-nul-output", str(capture_root / "selected-paths.nul"),
         "--pathspec-json-output", str(capture_root / "selected-paths.json"),
+        "--history-stock-id-output", str(capture_root / "selected-stock-ids.txt"),
         "--no-write-report",
     ]
     for stock_id in contracts["created_stock_ids"]:
