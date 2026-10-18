@@ -14,12 +14,15 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_daily_price_pullback_23ema_operation_section as builder  # noqa: E402
 import validate_daily_operation_adapter_protected_fields as protected_fields  # noqa: E402
 import validate_daily_price_pullback_23ema_operation_section as validator  # noqa: E402
+import price_pullback_23ema_confirmed_history as confirmation_history  # noqa: E402
 
 
 @pytest.fixture(autouse=True)
 def isolated_confirmation_history(monkeypatch, tmp_path) -> None:
     monkeypatch.setattr(builder, "ROOT", tmp_path)
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", tmp_path / "output/history/daily_model_snapshots")
+    monkeypatch.setattr(confirmation_history, "CONFIRMATION_CONSUMER_ENABLED", False)
+    monkeypatch.setattr(confirmation_history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20260701")
 
 
 def approval_frame() -> pd.DataFrame:
@@ -60,6 +63,8 @@ def signal_row(signal_date: str = "20260703") -> dict[str, str]:
 
 
 def save_original_confirmation(signal_date: str = "20260703", **changes: str) -> dict[str, str]:
+    # Synthetic activation is scoped to the existing lifecycle regression cases.
+    confirmation_history.CONFIRMATION_CONSUMER_ENABLED = True
     source = signal_row(signal_date)
     source.update(changes)
     rows = builder.confirmed_rows(pd.Series(source), approval_frame().iloc[0].to_dict(), signal_date, 1, "original_generation")
@@ -198,8 +203,8 @@ def test_raw_old_signal_alone_never_creates_active_without_original_confirmation
     monkeypatch.setattr(builder, "price_for_stock", lambda _stock_id: pytest.fail("raw old signal must not enter lifecycle"))
     section, audit = builder.build_section(pd.DataFrame([signal_row()]), approval_frame(), "20260708", "fixture")
     assert section[section["row_type"].eq("data")].empty
-    assert "blocked_missing_original_confirmation" in set(audit["audit_status"])
-    assert "missing_confirmation_manifest" in set(audit["reason"])
+    assert "capture_only_consumer_disabled" in set(audit["audit_status"])
+    assert "capture_only_consumer_disabled" in set(audit["reason"])
 
 
 @pytest.mark.parametrize("field", ["model_rank", "display_rank", "model_rank_overall"])

@@ -16,6 +16,13 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import price_pullback_23ema_confirmed_history as history
 
 
+@pytest.fixture(autouse=True)
+def activated_reader_unit_fixture(monkeypatch):
+    # Exercise the dormant reader independently of the capture-only deployment.
+    monkeypatch.setattr(history, "CONFIRMATION_CONSUMER_ENABLED", True)
+    monkeypatch.setattr(history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20261001")
+
+
 def confirmation_rows(**changes: str) -> list[dict[str, str]]:
     row = {
         "model_id": history.MODEL_ID, "row_type": "data",
@@ -111,10 +118,9 @@ def test_later_revision_cannot_replace_original_rank(tmp_path) -> None:
     assert loaded.iloc[0]["confirmation_source_sha256"] == original["snapshot_sha256"]
 
 
-def test_missing_history_bootstraps_empty_and_never_reads_latest_or_signal_log(tmp_path) -> None:
-    loaded = history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
-    assert loaded.empty
-    assert loaded.attrs["history_status"] == "missing_confirmation_manifest"
+def test_activated_consumer_fails_closed_without_history(tmp_path) -> None:
+    with pytest.raises(RuntimeError, match="missing its manifest"):
+        history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
     assert list(tmp_path.iterdir()) == []
 
 
@@ -125,7 +131,8 @@ def test_only_manifest_registered_original_snapshot_is_consumed(tmp_path) -> Non
         "snapshot_path": "not-read.csv", "snapshot_sha256": "a" * 64,
         "snapshot_revision": "r1", "supersedes_snapshot_sha256": "", "revision_reason": "fixture",
     }])
-    assert history.load_prior_confirmed_operations("20261019", repository_root=tmp_path).empty
+    with pytest.raises(RuntimeError, match="missing its history family"):
+        history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
 
 
 @pytest.mark.parametrize("mismatch", ["model_rank", "buy_rank_eligible", "stock_name"])
@@ -209,3 +216,28 @@ def test_same_stock_dual_report_membership_preserves_both_original_keys(tmp_path
     assert len(loaded) == 2
     assert set(loaded["report_line"]) == {"mainstream", "non_mainstream"}
     assert set(loaded["model_rank"]) == {"3", "8"}
+
+
+def test_capture_only_never_consumes_even_a_saved_ranked_confirmation(tmp_path, monkeypatch) -> None:
+    _, entry, _ = write_snapshot(tmp_path, confirmation_rows())
+    write_manifest(tmp_path, [entry])
+    monkeypatch.setattr(history, "CONFIRMATION_CONSUMER_ENABLED", False)
+    loaded = history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
+    assert loaded.empty
+    assert loaded.attrs["history_status"] == "capture_only_consumer_disabled"
+
+
+def test_capture_not_started_is_distinct_from_missing_activated_history(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(history, "CONFIRMATION_CONSUMER_ENABLED", False)
+    monkeypatch.setattr(history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20261019")
+    loaded = history.load_prior_confirmed_operations("20261018", repository_root=tmp_path)
+    assert loaded.empty
+    assert loaded.attrs["history_status"] == "capture_not_started"
+
+
+def test_activated_consumer_cannot_import_pre_capture_snapshot(tmp_path, monkeypatch) -> None:
+    _, entry, _ = write_snapshot(tmp_path, confirmation_rows())
+    write_manifest(tmp_path, [entry])
+    monkeypatch.setattr(history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20261019")
+    with pytest.raises(RuntimeError, match="predates forward capture start"):
+        history.load_prior_confirmed_operations("20261020", repository_root=tmp_path)

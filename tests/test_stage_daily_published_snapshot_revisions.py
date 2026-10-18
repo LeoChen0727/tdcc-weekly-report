@@ -229,3 +229,92 @@ def test_exact_manifest_staging_rejects_pre_staged_unregistered_snapshot_and_res
     assert _git(tmp_path, "diff", "--cached", "--name-only").splitlines() == [
         backup_relative
     ]
+
+
+def _write_capture_fixture(root: Path) -> tuple[Path, Path, Path]:
+    _git(root, "init")
+    latest = root / "output/latest"
+    latest.mkdir(parents=True)
+    pd.DataFrame([{
+        "main_price_date": "20261019", "report_ready": "True",
+        "warrant_ready": "True", "daily_pdf_ready": "True",
+    }]).to_csv(latest / "data_freshness_latest.csv", index=False)
+    artifact = publisher.ARTIFACTS_BY_ID["price_pullback_23ema_operation_section"]
+    rows = []
+    for view in ("highlight", "full"):
+        for section in ("confirmed_operation", "active_operation"):
+            row = {column: "" for column in artifact.required_columns}
+            row.update(
+                model_id="price_pullback_23ema", pdf_view=view, pdf_section=section,
+                row_type="empty_state", operation_asof_date="20261019",
+                daily_signal_date="20261019", buy_rank_eligible="False", row_action_status="empty_state",
+            )
+            rows.append(row)
+    pd.DataFrame(rows).to_csv(latest / artifact.source_name, index=False)
+    snapshots = root / "output/history/daily_model_snapshots"
+    manifest_path = snapshots / "daily_published_model_snapshot_manifest.csv"
+    result = publisher.build_daily_published_model_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest_path,
+        artifact_ids=[artifact.artifact_id], generated_at="2026-10-19", commit_sha="capture-fixture",
+    )
+    snapshot_path = root / result.iloc[0]["snapshot_path"]
+    backup = snapshots / "daily_price_pullback_23ema_operation_section_20261019_backup.csv"
+    backup.write_text("unregistered backup\n", encoding="utf-8")
+    return manifest_path, snapshot_path, backup
+
+
+def test_capture_staging_uses_only_exact_new_r1_manifest_paths(tmp_path: Path) -> None:
+    manifest, snapshot, backup = _write_capture_fixture(tmp_path)
+    staged = staging.stage_registered_snapshot_revisions(
+        report_date="20261019", artifact_ids={"price_pullback_23ema_operation_section"},
+        manifest_path=manifest, snapshot_dir=manifest.parent, repository_root=tmp_path,
+    )
+    expected = {manifest.relative_to(tmp_path).as_posix(), snapshot.relative_to(tmp_path).as_posix()}
+    assert set(staged) == expected
+    assert set(_git(tmp_path, "diff", "--cached", "--name-only").splitlines()) == expected
+    assert backup.relative_to(tmp_path).as_posix() not in expected
+
+
+def test_capture_staging_rejects_prelaunch_selection_without_index_change(tmp_path: Path) -> None:
+    manifest, snapshot, _ = _write_capture_fixture(tmp_path)
+    before = _index_bytes(tmp_path)
+    with pytest.raises(RuntimeError, match="historical backfill is forbidden"):
+        staging.stage_registered_snapshot_revisions(
+            report_date="20261002", artifact_ids={"price_pullback_23ema_operation_section"},
+            manifest_path=manifest, snapshot_dir=manifest.parent, repository_root=tmp_path,
+        )
+    assert _index_bytes(tmp_path) == before
+
+
+def test_capture_staging_rejects_prelaunch_archive_outside_selection(tmp_path: Path) -> None:
+    manifest, snapshot, _ = _write_fixture(tmp_path)
+    forbidden = manifest.parent / ("daily_price_pullback_23ema_operation_section_20261002_r1_" + "a" * 12 + ".csv")
+    forbidden.write_text("unauthorized archive\n", encoding="utf-8")
+    before = _index_bytes(tmp_path)
+    with pytest.raises(RuntimeError, match="historical backfill is forbidden"):
+        staging.stage_registered_snapshot_revisions(
+            report_date="20260720", artifact_ids={"data_freshness"},
+            manifest_path=manifest, snapshot_dir=manifest.parent, repository_root=tmp_path,
+        )
+    assert _index_bytes(tmp_path) == before
+
+
+def test_capture_staging_rechecks_complete_schema_before_git_add(tmp_path: Path) -> None:
+    manifest, snapshot, _ = _write_capture_fixture(tmp_path)
+    frame = pd.read_csv(snapshot, dtype=str, keep_default_na=False).drop(columns=["generated_at"])
+    frame.to_csv(snapshot, index=False)
+    digest = publisher.sha256_file(snapshot)
+    new_snapshot = snapshot.with_name(snapshot.name.replace(snapshot.stem[-12:], digest[:12]))
+    snapshot.rename(new_snapshot)
+    manifest_frame = pd.read_csv(manifest, dtype=str, keep_default_na=False)
+    manifest_frame["snapshot_path"] = new_snapshot.relative_to(tmp_path).as_posix()
+    manifest_frame["source_sha256"] = digest
+    manifest_frame["snapshot_sha256"] = digest
+    manifest_frame.to_csv(manifest, index=False)
+    before = _index_bytes(tmp_path)
+    with pytest.raises(RuntimeError, match="missing required columns.*generated_at"):
+        staging.stage_registered_snapshot_revisions(
+            report_date="20261019", artifact_ids={"price_pullback_23ema_operation_section"},
+            manifest_path=manifest, snapshot_dir=manifest.parent, repository_root=tmp_path,
+        )
+    assert _index_bytes(tmp_path) == before

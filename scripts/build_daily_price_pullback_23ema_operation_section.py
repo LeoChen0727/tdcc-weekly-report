@@ -791,7 +791,14 @@ def build_section(signals: pd.DataFrame, approval_frame: pd.DataFrame, report_da
     for rejected in history.attrs.get("rejected_confirmations", []):
         audit_rows.append(audit_row(pd.Series(rejected), report_date, generated_at, "blocked_original_confirmation", "False", rejected["confirmation_rejection_reason"]))
     if history.empty and not audit_rows:
-        audit_rows.append(audit_row(pd.Series(dtype=str), report_date, generated_at, "blocked_missing_original_confirmation", "False", history.attrs.get("history_status", "no_prior_confirmation_snapshot")))
+        history_status = history.attrs.get("history_status", "no_prior_confirmation_snapshot")
+        audit_status = {
+            "capture_not_started": "capture_not_started",
+            "capture_only_consumer_disabled": "capture_only_consumer_disabled",
+            "no_prior_confirmation_snapshot": "no_prior_confirmation_snapshot",
+            "no_eligible_prior_confirmation": "no_eligible_prior_confirmation",
+        }.get(history_status, "blocked_missing_original_confirmation")
+        audit_rows.append(audit_row(pd.Series(dtype=str), report_date, generated_at, audit_status, "False", history_status))
     active_by_key: dict[tuple[str, str], tuple[str, list[dict[str, str]], dict[str, str]]] = {}
     for _, row in active_candidates.iterrows():
         active, audit = active_rows(row, approval, report_date, daily_signal_count, generated_at)

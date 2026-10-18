@@ -1512,11 +1512,11 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
     assert len(rows) == 60
     operation_history = rows[-1]
-    assert operation_history["migration_id"] == "price_pullback_23ema_confirmed_operation_history_20261018"
+    assert operation_history["migration_id"] == "price_pullback_23ema_forward_capture_only_20261018"
     assert operation_history["changed_data_families"] == "price_pullback_23ema_operation_section"
     assert operation_history["previous_contract_sha256s"] == "NEW"
     assert operation_history["affected_models"] == "price_pullback_23ema"
-    assert operation_history["user_approval_reference"] == "user_20261018_authorize_formal_adapter_and_source_recovery"
+    assert operation_history["user_approval_reference"] == "user_20261018_authorize_forward_confirmation_capture"
     assert operation_history["migration_status"] == "validated_user_approved_migration"
     background = next(row for row in read_csv("config/daily_model_background_data_registry.csv") if row["data_family_id"] == operation_history["changed_data_families"])
     sharing_row = next(row for row in read_csv("config/daily_model_data_sharing_registry.csv") if row["data_family_id"] == operation_history["changed_data_families"])

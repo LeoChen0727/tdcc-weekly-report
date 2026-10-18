@@ -24,6 +24,10 @@ from update_daily_published_model_snapshots import (  # noqa: E402
     repository_root_for_snapshot_dir,
     resolve_manifest_snapshot_path,
     sha256_file,
+    selected_artifacts,
+    validate_artifact_frame,
+    validate_capture_history_bounds,
+    require_capture_report_date,
     validate_revision_group,
 )
 
@@ -207,6 +211,7 @@ def _registered_manifest_snapshot_paths(
                 "daily snapshot manifest has an unregistered artifact_id: "
                 f"{artifact_id!r}"
             )
+        require_capture_report_date(artifact, report_date)
         ordered = validate_revision_group(
             group,
             report_date=report_date,
@@ -251,6 +256,7 @@ def stage_registered_snapshot_revisions(
     unknown = sorted(set(artifact_ids) - set(ARTIFACTS_BY_ID))
     if unknown:
         raise RuntimeError(f"unknown daily snapshot artifact_ids: {unknown}")
+    selected_artifacts(artifact_ids, report_date=normalized_date)
 
     manifest_path = Path(manifest_path)
     snapshot_dir = Path(snapshot_dir)
@@ -266,6 +272,7 @@ def stage_registered_snapshot_revisions(
             manifest,
             context=f"snapshot staging manifest {manifest_path.as_posix()}",
         )
+        validate_capture_history_bounds(manifest, snapshot_dir)
         manifest_relative = _repository_relative(manifest_path, repository_root)
         snapshot_prefix = (
             _repository_relative(snapshot_dir, repository_root).rstrip("/") + "/"
@@ -335,6 +342,8 @@ def stage_registered_snapshot_revisions(
                         f"report_date={normalized_date} artifact_id={artifact_id} "
                         f"revision={revision}"
                     )
+                if artifact.capture_not_before_report_date:
+                    validate_artifact_frame(snapshot_path, artifact, normalized_date)
                 paths.append(_repository_relative(snapshot_path, repository_root))
 
         exact_paths = sorted(set([manifest_relative, *paths]))

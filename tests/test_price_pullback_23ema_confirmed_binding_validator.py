@@ -100,3 +100,18 @@ def test_binding_row_hash_survives_crlf_checkout_with_quoted_multiline_cell(tmp_
     frame, path = saved_confirmation(tmp_path, stock_name="第一行\n第二行")
     path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
     assert validator.validate_confirmation_bindings(frame, repository_root=tmp_path) == []
+
+
+def test_capture_only_rejects_active_even_when_original_binding_is_valid(tmp_path):
+    frame, _ = saved_confirmation(tmp_path)
+    assert validator.validate_confirmation_bindings(frame, repository_root=tmp_path) == []
+    assert any("not activated" in error for error in validator.validate_capture_only_section(frame))
+
+
+def test_capture_only_allows_confirmed_rows_and_empty_active_state(tmp_path):
+    frame, _ = saved_confirmation(tmp_path)
+    frame.loc[0, "pdf_section"] = "confirmed_operation"
+    assert validator.validate_capture_only_section(frame) == []
+    frame.loc[0, "pdf_section"] = "active_operation"
+    frame.loc[0, "row_type"] = "empty_state"
+    assert validator.validate_capture_only_section(frame) == []

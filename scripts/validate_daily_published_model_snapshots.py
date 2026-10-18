@@ -27,6 +27,7 @@ from update_daily_published_model_snapshots import (  # noqa: E402
     selected_artifacts,
     sha256_file,
     validate_artifact_frame,
+    validate_capture_history_bounds,
     validate_revision_group,
 )
 
@@ -177,6 +178,8 @@ def validate_historical_snapshot_frame(
 ) -> pd.DataFrame:
     """Validate historical shape/date facts without applying today's schema."""
 
+    if artifact.capture_not_before_report_date:
+        return validate_artifact_frame(path, artifact, report_date)
     df = pd.read_csv(path, dtype=str)
     for col in artifact.date_columns:
         if col not in df.columns:
@@ -212,6 +215,10 @@ def validate_current_report_snapshots(
     except Exception as exc:
         return [str(exc)]
 
+    try:
+        validate_capture_history_bounds(full_manifest, snapshot_dir)
+    except RuntimeError as exc:
+        return [str(exc)]
     manifest = full_manifest.copy()
     if phase == "runtime":
         manifest = manifest[
@@ -219,16 +226,18 @@ def validate_current_report_snapshots(
         ].copy()
 
     try:
-        artifacts = selected_artifacts(artifact_ids)
+        artifacts = selected_artifacts(artifact_ids, report_date=report_date)
     except RuntimeError as exc:
         return [str(exc)]
     selected_ids = {artifact.artifact_id for artifact in artifacts}
+    validation_artifacts = ARTIFACTS if artifact_ids is None else artifacts
+    validation_ids = {artifact.artifact_id for artifact in validation_artifacts}
     if artifact_ids is None:
         unknown_manifest_ids = sorted(
             {
                 safe_str(value)
                 for value in manifest["artifact_id"].tolist()
-                if safe_str(value) not in selected_ids
+                if safe_str(value) not in validation_ids
             }
         )
         if unknown_manifest_ids:
@@ -236,14 +245,14 @@ def validate_current_report_snapshots(
                 "manifest contains unknown artifact_id rows: "
                 f"{unknown_manifest_ids}"
             )
-    manifest = manifest[manifest["artifact_id"].map(safe_str).isin(selected_ids)].copy()
+    manifest = manifest[manifest["artifact_id"].map(safe_str).isin(validation_ids)].copy()
 
     errors.extend(validate_manifest_paths(manifest, snapshot_dir))
     errors.extend(
         validate_no_unreferenced_versioned_snapshots(
             manifest,
             snapshot_dir,
-            artifacts,
+            validation_artifacts,
             report_date=report_date if phase == "runtime" else "",
         )
     )
@@ -265,7 +274,7 @@ def validate_current_report_snapshots(
         paths = sorted(set(manifest.loc[duplicate_paths, "snapshot_path"].astype(str)))
         errors.append(f"manifest reuses immutable snapshot paths: {paths}")
 
-    artifacts_by_id = {artifact.artifact_id: artifact for artifact in artifacts}
+    artifacts_by_id = {artifact.artifact_id: artifact for artifact in validation_artifacts}
     repository_root = repository_root_for_snapshot_dir(snapshot_dir)
     active_rows: dict[tuple[str, str], pd.Series] = {}
     for (row_report_date, artifact_id), group in manifest.groupby(

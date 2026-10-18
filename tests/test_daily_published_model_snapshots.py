@@ -31,15 +31,6 @@ def repository_file(repository_root: Path, path_text: object) -> Path:
 
 
 def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "20260615") -> None:
-    artifact = update_snapshots.ARTIFACTS_BY_ID["price_pullback_23ema_operation_section"]
-    confirmation = {column: "" for column in artifact.required_columns}
-    confirmation.update(
-        model_id="price_pullback_23ema", pdf_view="full",
-        pdf_section="confirmed_operation", row_type="empty_state",
-        operation_asof_date=report_date, buy_rank_eligible="False",
-        row_action_status="empty_state",
-    )
-    write_csv(latest_dir / artifact.source_name, [confirmation])
     write_csv(
         latest_dir / "data_freshness_latest.csv",
         [
@@ -280,7 +271,6 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
         "model_registry",
         "model_signals_for_report",
         "model_summary_for_report",
-        "price_pullback_23ema_operation_section",
         "neckline_volume_breakout_confirmation_operation_section",
         "revenue_unreacted_range_operation_section",
         "volume_breakout_operation_evidence_audit",
@@ -339,7 +329,6 @@ def test_warrant_formal_sync_updates_only_selected_snapshot_families(
         "model_summary_for_report",
     }
     protected_ids = {
-        "price_pullback_23ema_operation_section",
         "model_registry",
         "model_parameters",
         "volume_breakout_operation_section",
@@ -1871,37 +1860,186 @@ def test_revenue_operation_snapshot_contract_is_exactly_registered() -> None:
     } <= set(artifact.required_columns)
 
 
-def test_price_pullback_snapshot_preserves_original_unranked_confirmation(tmp_path: Path) -> None:
-    from price_pullback_23ema_confirmed_history import load_prior_confirmed_operations
-
-    latest_dir = tmp_path / "output" / "latest"
-    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
-    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
-    write_minimal_latest_artifacts(latest_dir, "20261016")
-    artifact_id = "price_pullback_23ema_operation_section"
-    artifact = update_snapshots.ARTIFACTS_BY_ID[artifact_id]
+def write_capture_artifact(latest_dir: Path, report_date: str = "20261019") -> Path:
+    artifact = update_snapshots.ARTIFACTS_BY_ID["price_pullback_23ema_operation_section"]
+    rows = []
+    for view in ("highlight", "full"):
+        for section in ("confirmed_operation", "active_operation"):
+            row = {column: "" for column in artifact.required_columns}
+            row.update(
+                model_id="price_pullback_23ema", pdf_view=view, pdf_section=section,
+                row_type="empty_state", operation_asof_date=report_date,
+                daily_signal_date=report_date, report_line="both",
+                buy_rank_eligible="False", row_action_status="empty_state",
+            )
+            rows.append(row)
     source = latest_dir / artifact.source_name
-    frame = pd.read_csv(source, dtype=str, keep_default_na=False)
-    frame.loc[0, ["row_type", "stock_id", "signal_date", "report_line"]] = [
-        "data", "1234", "20261016", "mainstream",
-    ]
-    frame.loc[0, ["model_rank", "display_rank", "model_rank_overall"]] = ["3", "4", "5"]
-    frame = pd.concat([frame.assign(pdf_view="full"), frame.assign(pdf_view="highlight")])
-    frame.to_csv(source, index=False)
-    first = update_snapshots.build_daily_published_model_snapshots(
-        latest_dir=latest_dir, snapshot_dir=snapshot_dir, manifest_path=manifest_path,
-        generated_at="2026-10-16 16:00:00 Asia/Taipei", commit_sha="original",
-        artifact_ids=[artifact_id],
+    write_csv(source, rows)
+    return source
+
+
+def capture_paths(root: Path) -> tuple[Path, Path, Path]:
+    latest = root / "output/latest"
+    snapshots = root / "output/history/daily_model_snapshots"
+    return latest, snapshots, snapshots / "daily_published_model_snapshot_manifest.csv"
+
+
+def test_capture_date_uses_model_owned_constant_and_preserves_original_eleven() -> None:
+    from price_pullback_23ema_confirmed_history import CAPTURE_NOT_BEFORE_REPORT_DATE
+
+    artifact = update_snapshots.ARTIFACTS_BY_ID["price_pullback_23ema_operation_section"]
+    assert artifact.capture_not_before_report_date == CAPTURE_NOT_BEFORE_REPORT_DATE == "20261019"
+    assert len(update_snapshots.selected_artifacts(None, report_date="20261002")) == 11
+    assert len(update_snapshots.selected_artifacts(None, report_date="20261018")) == 11
+    assert len(update_snapshots.selected_artifacts(None, report_date="20261019")) == 12
+    assert all(
+        not item.capture_not_before_report_date
+        for item in update_snapshots.selected_artifacts(None, report_date="20261002")
     )
-    frame["buy_rank_eligible"] = "True"
-    frame["row_action_status"] = "confirmed_buy_candidate"
-    frame.to_csv(source, index=False)
+    with pytest.raises(RuntimeError, match="historical backfill is forbidden"):
+        update_snapshots.selected_artifacts([artifact.artifact_id], report_date="20261002")
+
+
+def test_capture_contract_requires_complete_adapter_schema() -> None:
+    import ast
+
+    tree = ast.parse((ROOT / "scripts/build_daily_price_pullback_23ema_operation_section.py").read_text(encoding="utf-8"))
+    from price_pullback_23ema_confirmed_history import PROOF_COLUMNS, RANK_COLUMNS
+
+    expansion = {"RANK_COLUMNS": RANK_COLUMNS, "PROOF_COLUMNS": PROOF_COLUMNS}
+    definition = next(
+        node.value for node in tree.body
+        if isinstance(node, ast.Assign) and any(
+            isinstance(target, ast.Name) and target.id == "OUTPUT_COLUMNS" for target in node.targets
+        )
+    )
+    expected = []
+    for item in definition.elts:
+        expected.extend(expansion[item.value.id] if isinstance(item, ast.Starred) else [ast.literal_eval(item)])
+    artifact = update_snapshots.ARTIFACTS_BY_ID["price_pullback_23ema_operation_section"]
+    assert list(artifact.required_columns) == expected
+
+
+def test_capture_becomes_required_by_date_even_when_source_is_missing(tmp_path: Path) -> None:
+    latest, snapshots, manifest = capture_paths(tmp_path)
+    write_minimal_latest_artifacts(latest, "20261019")
+    with pytest.raises(RuntimeError, match="required daily published artifact is missing.*23ema"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+        )
+    original_ids = [item.artifact_id for item in update_snapshots.ARTIFACTS if not item.capture_not_before_report_date]
     update_snapshots.build_daily_published_model_snapshots(
-        latest_dir=latest_dir, snapshot_dir=snapshot_dir, manifest_path=manifest_path,
-        generated_at="2026-10-16 17:00:00 Asia/Taipei", commit_sha="revision",
-        artifact_ids=[artifact_id], revision_reason="later_eligibility_revision",
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+        artifact_ids=original_ids,
     )
-    assert set(first["artifact_id"]) == {artifact_id}
-    loaded = load_prior_confirmed_operations("20261019", repository_root=tmp_path)
-    assert loaded.empty
-    assert loaded.attrs["rejected_confirmations"][0]["buy_rank_eligible"] == "False"
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+    )
+    assert any("manifest missing current report_date=20261019" in error and "23ema" in error for error in errors)
+
+
+@pytest.mark.parametrize("report_date", ["20261002", "20261018"])
+def test_capture_rejects_explicit_prelaunch_publish(tmp_path: Path, report_date: str) -> None:
+    latest, snapshots, manifest = capture_paths(tmp_path)
+    write_minimal_latest_artifacts(latest, report_date)
+    write_capture_artifact(latest, report_date)
+    with pytest.raises(RuntimeError, match="historical backfill is forbidden"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+            artifact_ids=["price_pullback_23ema_operation_section"],
+        )
+    assert not manifest.exists()
+
+
+@pytest.mark.parametrize("defect", ["schema", "view", "section", "active", "old_date", "rank", "view_drift", "duplicate"])
+def test_capture_fails_closed_before_creating_any_snapshot(tmp_path: Path, defect: str) -> None:
+    latest, snapshots, manifest = capture_paths(tmp_path)
+    write_minimal_latest_artifacts(latest, "20261019")
+    source = write_capture_artifact(latest)
+    frame = pd.read_csv(source, dtype=str, keep_default_na=False)
+    if defect == "schema":
+        frame = frame.drop(columns=["generated_at"])
+    elif defect == "view":
+        frame = frame[frame["pdf_view"].eq("full")]
+    elif defect == "section":
+        frame = frame[~(frame["pdf_view"].eq("full") & frame["pdf_section"].eq("active_operation"))]
+    elif defect == "active":
+        frame.loc[frame["pdf_section"].eq("active_operation"), "row_type"] = "data"
+    elif defect == "old_date":
+        frame["operation_asof_date"] = "20261002"
+    elif defect in {"rank", "duplicate"}:
+        mask = frame["pdf_section"].eq("confirmed_operation")
+        frame.loc[mask, ["row_type", "stock_id", "signal_date", "report_line", "buy_rank_eligible"]] = [
+            "data", "1234", "20261019", "mainstream", "True",
+        ]
+        if defect == "duplicate":
+            frame.loc[mask, ["model_rank", "display_rank", "model_rank_overall"]] = ["1", "2", "3"]
+            frame = pd.concat([frame, frame[mask]])
+    elif defect == "view_drift":
+        frame.loc[0, "adapter_note_zh"] = "drift"
+    frame.to_csv(source, index=False)
+    with pytest.raises(RuntimeError):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+            artifact_ids=["price_pullback_23ema_operation_section"],
+        )
+    assert not manifest.exists()
+    assert not list(snapshots.glob("daily_price_pullback_23ema_operation_section_*.csv"))
+
+
+def test_price_pullback_capture_preserves_original_unranked_r1(tmp_path: Path) -> None:
+    latest, snapshots, manifest = capture_paths(tmp_path)
+    write_minimal_latest_artifacts(latest, "20261019")
+    source = write_capture_artifact(latest)
+    frame = pd.read_csv(source, dtype=str, keep_default_na=False)
+    mask = frame["pdf_section"].eq("confirmed_operation")
+    frame.loc[mask, ["row_type", "stock_id", "signal_date", "report_line", "row_action_status"]] = [
+        "data", "1234", "20261019", "mainstream", "confirmed_unranked_operation",
+    ]
+    frame.loc[mask, ["model_rank", "display_rank", "model_rank_overall"]] = ["3", "", "5"]
+    frame.to_csv(source, index=False)
+    original_payload = source.read_bytes()
+    first = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+        generated_at="2026-10-19 16:00:00 Asia/Taipei", commit_sha="original",
+        artifact_ids=["price_pullback_23ema_operation_section"],
+    )
+    first_path = repository_file(tmp_path, first.iloc[0]["snapshot_path"])
+    assert first_path.read_bytes() == original_payload
+    assert first.iloc[0]["snapshot_revision"] == "r1"
+    frame.loc[mask, "buy_rank_eligible"] = "True"
+    frame.loc[mask, "row_action_status"] = "confirmed_buy_candidate"
+    frame.loc[mask, "display_rank"] = "4"
+    frame.to_csv(source, index=False)
+    second = update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+        artifact_ids=["price_pullback_23ema_operation_section"], revision_reason="later_eligibility_revision",
+    )
+    assert second.iloc[0]["snapshot_revision"] == "r2"
+    assert first_path.read_bytes() == original_payload
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+        artifact_ids=["price_pullback_23ema_operation_section"],
+    )
+    assert errors == []
+
+
+@pytest.mark.parametrize("phase", ["full", "runtime"])
+def test_prelaunch_capture_file_is_rejected_outside_selected_scope(tmp_path: Path, phase: str) -> None:
+    latest, snapshots, manifest = capture_paths(tmp_path)
+    write_minimal_latest_artifacts(latest, "20261002")
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+    )
+    forbidden = snapshots / ("daily_price_pullback_23ema_operation_section_20261002_r1_" + "a" * 12 + ".csv")
+    forbidden.write_text("unauthorized archive\n", encoding="utf-8")
+    errors = validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+        artifact_ids=["data_freshness"], phase=phase,
+    )
+    assert any("historical backfill is forbidden" in error for error in errors)
+    with pytest.raises(RuntimeError, match="historical backfill is forbidden"):
+        update_snapshots.build_daily_published_model_snapshots(
+            latest_dir=latest, snapshot_dir=snapshots, manifest_path=manifest,
+            artifact_ids=["data_freshness"],
+        )

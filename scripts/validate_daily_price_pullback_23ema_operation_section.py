@@ -204,6 +204,14 @@ def validate_section(df: pd.DataFrame) -> list[str]:
     return errors
 
 
+def validate_capture_only_section(frame: pd.DataFrame) -> list[str]:
+    """Independently enforce the current capture-only deployment boundary."""
+    if not {"row_type", "pdf_section"}.issubset(frame.columns):
+        return ["capture-only validation requires row_type and pdf_section"]
+    active = frame[frame["row_type"].eq("data") & frame["pdf_section"].eq("active_operation")]
+    return ["23EMA confirmation consumer is not activated; active data rows are forbidden"] if not active.empty else []
+
+
 def validate_confirmation_bindings(
     frame: pd.DataFrame,
     *,
@@ -346,6 +354,7 @@ def main() -> int:
     audit = read_csv(AUDIT_CSV, dtype=str).fillna("") if AUDIT_CSV.exists() else pd.DataFrame()
     if not section.empty:
         errors.extend(validate_section(section))
+        errors.extend(validate_capture_only_section(section))
         errors.extend(validate_confirmation_bindings(section, repository_root=ROOT))
     if not audit.empty:
         errors.extend(validate_audit(audit))

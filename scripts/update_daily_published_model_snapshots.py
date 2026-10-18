@@ -20,6 +20,10 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from price_pullback_23ema_confirmed_history import (  # noqa: E402
+    CAPTURE_NOT_BEFORE_REPORT_DATE,
+    CONFIRMATION_CONSUMER_ENABLED,
+)
 from tracking_utils import (  # noqa: E402
     HISTORY_DIR,
     LATEST_DIR,
@@ -55,6 +59,7 @@ class SnapshotArtifact:
     snapshot_stem: str
     required_columns: tuple[str, ...] = ()
     date_columns: tuple[str, ...] = ()
+    capture_not_before_report_date: str = ""
 
 
 ARTIFACTS: tuple[SnapshotArtifact, ...] = (
@@ -247,15 +252,102 @@ ARTIFACTS: tuple[SnapshotArtifact, ...] = (
         source_name="daily_price_pullback_23ema_operation_section_latest.csv",
         snapshot_stem="daily_price_pullback_23ema_operation_section",
         required_columns=(
-            "model_id", "pdf_view", "pdf_section", "row_type", "stock_id",
-            "report_line", "signal_date", "operation_asof_date", "buy_rank_eligible",
-            "row_action_status", "entry_rule_id", "stop_loss_rule_id", "exit_rule_id",
-            "model_rank", "display_rank", "model_rank_overall",
-            "confirmation_source_artifact", "confirmation_source_sha256",
-            "confirmation_row_sha256", "confirmation_snapshot_revision",
+            "model_id",
+            "model_name_zh",
+            "pdf_view",
+            "pdf_section",
+            "pdf_section_zh",
+            "row_type",
+            "operation_asof_date",
+            "operation_source_date_status",
+            "report_line",
+            "report_line_memberships",
+            "display_order",
+            "stock_id",
+            "stock_name",
+            "stock_display",
+            "operation_status",
+            "operation_status_zh",
+            "operation_quality",
+            "operation_quality_zh",
+            "row_action_status",
+            "buy_rank_eligible",
+            "signal_date",
+            "entry_rule_id",
+            "entry_basis_zh",
+            "entry_price_basis",
+            "entry_date",
+            "entry_price",
+            "stop_loss_rule_id",
+            "stop_loss_price",
+            "stop_loss_label_zh",
+            "stop_basis_zh",
+            "exit_rule_id",
+            "exit_rule_zh",
+            "planned_holding_days",
+            "operation_age_days",
+            "target_price",
+            "target_label_zh",
+            "stop_confirmed_days",
+            "realized_exit_date",
+            "realized_exit_reason",
+            "model_score",
+            "reason_tags",
+            "risk_tags_zh",
+            "rank_reason_zh",
+            "sample_size",
+            "win_rate_zh",
+            "neutral_rate_zh",
+            "failure_rate_zh",
+            "avg_return_zh",
+            "technical_package_sample_size",
+            "technical_package_win_rate_zh",
+            "technical_package_neutral_rate_zh",
+            "technical_package_failure_rate_zh",
+            "technical_package_avg_return_zh",
+            "row_metric_status",
+            "row_metric_scope",
+            "row_metric_id",
+            "row_metric_label_zh",
+            "row_metric_matched_add_score_ids",
+            "row_metric_sample_size",
+            "row_metric_win_rate_zh",
+            "row_metric_neutral_rate_zh",
+            "row_metric_failure_rate_zh",
+            "row_metric_avg_return_zh",
+            "row_metric_median_return_zh",
+            "row_metric_source",
+            "row_metric_selection_status",
+            "win_definition_zh",
+            "neutral_definition_zh",
+            "failure_definition_zh",
+            "daily_signal_date",
+            "daily_model_signal_count",
+            "adapter_source",
+            "adapter_source_status",
+            "approval_source",
+            "approved_for_daily",
+            "operation_module_approved_for_daily",
+            "approval_status",
+            "operation_module_id",
+            "approval_version",
+            "operation_directive_level",
+            "buy_filter_id",
+            "approval_note_zh",
+            "pdf_note_zh",
+            "adapter_note_zh",
+            "model_rank",
+            "display_rank",
+            "model_rank_overall",
+            "confirmation_source_artifact",
+            "confirmation_source_sha256",
+            "confirmation_row_sha256",
+            "confirmation_snapshot_revision",
             "confirmation_snapshot_report_date",
+            "generated_at",
         ),
         date_columns=("operation_asof_date",),
+        capture_not_before_report_date=CAPTURE_NOT_BEFORE_REPORT_DATE,
     ),
 )
 ARTIFACTS_BY_ID = {artifact.artifact_id: artifact for artifact in ARTIFACTS}
@@ -563,7 +655,106 @@ def validate_artifact_frame(path: Path, artifact: SnapshotArtifact, report_date:
             raise RuntimeError(
                 f"{path.as_posix()} column {col} must match report date {report_date}; observed={sorted(values)}"
             )
+    if artifact.capture_not_before_report_date:
+        require_capture_report_date(artifact, report_date)
+        validate_price_pullback_capture_frame(df, report_date, source=path.as_posix())
     return df
+
+
+def require_capture_report_date(artifact: SnapshotArtifact, report_date: str) -> None:
+    start = artifact.capture_not_before_report_date
+    if start and (not report_date or report_date < start):
+        raise RuntimeError(
+            f"{artifact.artifact_id}: prospective capture forbids report_date={report_date} "
+            f"before capture_not_before_report_date={start}; historical backfill is forbidden"
+        )
+
+
+def validate_capture_history_bounds(manifest: pd.DataFrame, snapshot_dir: Path) -> None:
+    """Reject an attempted pre-launch archive even outside the selected family."""
+
+    for artifact in ARTIFACTS:
+        if not artifact.capture_not_before_report_date:
+            continue
+        if not manifest.empty:
+            rows = manifest[manifest["artifact_id"].map(safe_str).eq(artifact.artifact_id)]
+            for _, row in rows.iterrows():
+                require_capture_report_date(
+                    artifact, normalize_date(row.get("snapshot_report_date", ""))
+                )
+                if safe_str(row.get("revision_reason", "")) == LEGACY_REVISION_REASON:
+                    raise RuntimeError(f"{artifact.artifact_id}: legacy capture backfill is forbidden")
+        pattern = re.compile(
+            rf"{re.escape(artifact.snapshot_stem)}_(\d{{8}})(?:_|\.csv)"
+        )
+        for path in snapshot_dir.glob(f"{artifact.snapshot_stem}_*.csv"):
+            match = pattern.match(path.name)
+            if match is None:
+                raise RuntimeError(f"unregistered prospective capture snapshot filename: {path.name}")
+            require_capture_report_date(artifact, match.group(1))
+
+
+def validate_price_pullback_capture_frame(
+    frame: pd.DataFrame, report_date: str, *, source: str
+) -> None:
+    """Check capture completeness without constructing or changing operation rows."""
+
+    def reject(message: str) -> None:
+        raise RuntimeError(f"{source}: 23EMA prospective capture {message}")
+
+    work = frame.fillna("").map(safe_str)
+    if work.empty or set(work["model_id"]) != {"price_pullback_23ema"}:
+        reject("requires non-empty model-owned rows")
+    if set(work["pdf_view"]) != {"highlight", "full"}:
+        reject("requires both highlight and full views")
+    if set(work["pdf_section"]) != {"confirmed_operation", "active_operation"}:
+        reject("requires confirmed_operation and active_operation sections")
+    if not set(work["row_type"]) <= {"data", "empty_state"}:
+        reject("has an invalid row_type")
+    if set(work["operation_asof_date"]) != {report_date}:
+        reject("operation_asof_date must exactly match the current report date")
+    if set(work["daily_signal_date"]) != {report_date}:
+        reject("daily_signal_date must exactly match the current report date")
+    for (view, section), rows in work.groupby(["pdf_view", "pdf_section"]):
+        data = rows[rows["row_type"].eq("data")]
+        empty = rows[rows["row_type"].eq("empty_state")]
+        if data.empty and len(empty) != 1:
+            reject(f"{view}/{section} requires exactly one empty state")
+        if not data.empty and not empty.empty:
+            reject(f"{view}/{section} cannot mix data and empty states")
+        if section == "active_operation" and not CONFIRMATION_CONSUMER_ENABLED and not data.empty:
+            reject("capture-only phase forbids active operation data")
+        if not empty.empty and (
+            empty["stock_id"].ne("").any()
+            or empty["buy_rank_eligible"].ne("False").any()
+            or empty["row_action_status"].ne("empty_state").any()
+        ):
+            reject(f"{view}/{section} has a non-empty lifecycle disguised as an empty state")
+    expected_pairs = {
+        (view, section)
+        for view in ("highlight", "full")
+        for section in ("confirmed_operation", "active_operation")
+    }
+    if set(zip(work["pdf_view"], work["pdf_section"])) != expected_pairs:
+        reject("requires both sections in both views")
+    confirmed = work[work["pdf_section"].eq("confirmed_operation") & work["row_type"].eq("data")]
+    if confirmed.duplicated(["pdf_view", "stock_id", "signal_date", "report_line"]).any():
+        reject("contains duplicate original confirmation identities")
+    for _, row in confirmed.iterrows():
+        if not row["stock_id"] or row["signal_date"] != report_date:
+            reject("confirmed data must identify a current-date stock signal")
+        if row["buy_rank_eligible"] not in {"True", "False"}:
+            reject("confirmed data must preserve an explicit buy_rank_eligible value")
+        if row["buy_rank_eligible"] == "True" and any(
+            re.fullmatch(r"[1-9][0-9]*", row[column]) is None
+            for column in ("model_rank", "display_rank", "model_rank_overall")
+        ):
+            reject("buy-ranked confirmation requires all three original positive integer ranks")
+    compare_columns = [column for column in work.columns if column != "pdf_view"]
+    full_rows = sorted(map(tuple, work[work["pdf_view"].eq("full")][compare_columns].to_numpy()))
+    highlight_rows = sorted(map(tuple, work[work["pdf_view"].eq("highlight")][compare_columns].to_numpy()))
+    if full_rows != highlight_rows:
+        reject("highlight and full views must preserve identical original rows")
 
 
 def parse_snapshot_revision(value: object) -> int:
@@ -1012,16 +1203,26 @@ def publish_snapshot_transaction(
         raise
 
 
-def selected_artifacts(artifact_ids: Collection[str] | None) -> tuple[SnapshotArtifact, ...]:
+def selected_artifacts(
+    artifact_ids: Collection[str] | None, *, report_date: str = ""
+) -> tuple[SnapshotArtifact, ...]:
     if artifact_ids is None:
-        return ARTIFACTS
+        return tuple(
+            artifact for artifact in ARTIFACTS
+            if not report_date or not artifact.capture_not_before_report_date
+            or report_date >= artifact.capture_not_before_report_date
+        )
     requested = {safe_str(artifact_id) for artifact_id in artifact_ids if safe_str(artifact_id)}
     if not requested:
         raise RuntimeError("explicit daily snapshot artifact selection must not be empty")
     unknown = sorted(requested - set(ARTIFACTS_BY_ID))
     if unknown:
         raise RuntimeError(f"unknown daily snapshot artifact ids: {unknown}")
-    return tuple(artifact for artifact in ARTIFACTS if artifact.artifact_id in requested)
+    artifacts = tuple(artifact for artifact in ARTIFACTS if artifact.artifact_id in requested)
+    if report_date:
+        for artifact in artifacts:
+            require_capture_report_date(artifact, report_date)
+    return artifacts
 
 
 def _build_daily_published_model_snapshots_under_lock(
@@ -1034,8 +1235,8 @@ def _build_daily_published_model_snapshots_under_lock(
     revision_reason: str = "",
 ) -> pd.DataFrame:
     state = freshness_state(latest_dir)
-    artifacts = selected_artifacts(artifact_ids)
     report_date = state["main_price_date"]
+    artifacts = selected_artifacts(artifact_ids, report_date=report_date)
     generated_at = generated_at or now_text()
     commit_sha = commit_sha if commit_sha is not None else git_sha()
     revision_reason = safe_str(revision_reason)
@@ -1059,6 +1260,7 @@ def _build_daily_published_model_snapshots_under_lock(
         )
     else:
         old_manifest = pd.DataFrame(columns=MANIFEST_COLUMNS)
+    validate_capture_history_bounds(old_manifest, snapshot_dir)
 
     revision_groups: dict[tuple[str, str], pd.DataFrame] = {}
     revision_canonical_hashes: dict[tuple[str, str], set[str]] = {}
@@ -1121,6 +1323,8 @@ def _build_daily_published_model_snapshots_under_lock(
                         f"{key[0]}/{key[1]}/{revision}: "
                         "existing immutable snapshot hash mismatch"
                     )
+                if artifact.capture_not_before_report_date:
+                    validate_artifact_frame(existing_path, artifact, key[0])
                 canonical_sha = sha256_file(existing_path)
                 if canonical_sha in canonical_payloads:
                     raise RuntimeError(

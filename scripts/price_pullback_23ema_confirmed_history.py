@@ -28,6 +28,11 @@ from daily_snapshot_revision_utils import (
 MODEL_ID = "price_pullback_23ema"
 ARTIFACT_ID = "price_pullback_23ema_operation_section"
 SNAPSHOT_STEM = "daily_price_pullback_23ema_operation_section"
+# Earliest permitted forward capture, subject to the official source/runtime gates.
+# A later, separately validated activation must pin the first real r1 before
+# enabling consumption. Capturing rows does not approve operation/return evidence.
+CAPTURE_NOT_BEFORE_REPORT_DATE = "20261019"
+CONFIRMATION_CONSUMER_ENABLED = False
 RANK_COLUMNS = ("model_rank", "display_rank", "model_rank_overall")
 PROOF_COLUMNS = (
     "confirmation_source_artifact",
@@ -63,12 +68,20 @@ def load_prior_confirmed_operations(
     """Read only r1 confirmations before report_date from the publisher manifest.
 
     Later revisions cannot introduce a position or upgrade an original unranked
-    confirmation. No manifest/history is a valid empty bootstrap, not permission
-    to seed positions from old signals, a latest artifact, or research evidence.
+    confirmation. Capture-only deployment cannot create positions, even when
+    old files exist. An activated consumer must fail closed on missing history.
     """
     asof = normalize_report_date(report_date)
     if not asof:
         raise RuntimeError(f"invalid 23EMA confirmation report_date: {report_date!r}")
+    if not CONFIRMATION_CONSUMER_ENABLED:
+        result = pd.DataFrame()
+        result.attrs.update(
+            history_status=("capture_not_started" if asof < CAPTURE_NOT_BEFORE_REPORT_DATE
+                            else "capture_only_consumer_disabled"),
+            rejected_confirmations=[],
+        )
+        return result
     root = Path(repository_root).resolve()
     directory = Path(snapshot_dir or root / SNAPSHOT_REPOSITORY_PATH).resolve()
     manifest_file = Path(manifest_path or directory / MANIFEST_NAME)
@@ -76,18 +89,20 @@ def load_prior_confirmed_operations(
     rejected: list[dict[str, str]] = []
     status = "missing_confirmation_manifest"
     if not manifest_file.is_file():
-        result = pd.DataFrame()
-        result.attrs.update(history_status=status, rejected_confirmations=rejected)
-        return result
+        raise RuntimeError("activated 23EMA confirmation consumer is missing its manifest")
     manifest = pd.read_csv(manifest_file, dtype=str, keep_default_na=False)
     missing = REQUIRED_MANIFEST_COLUMNS - set(manifest.columns)
     if missing:
         raise RuntimeError(f"23EMA confirmation manifest missing columns: {sorted(missing)}")
     manifest = normalize_revision_manifest_schema(manifest, source=manifest_file.as_posix())
     work = manifest[manifest["artifact_id"].eq(ARTIFACT_ID)].copy()
+    if work.empty:
+        raise RuntimeError("activated 23EMA confirmation consumer is missing its history family")
     work["_date"] = work["snapshot_report_date"].map(normalize_report_date)
     if work["_date"].eq("").any():
         raise RuntimeError("23EMA confirmation manifest has an invalid snapshot date")
+    if work["_date"].lt(CAPTURE_NOT_BEFORE_REPORT_DATE).any():
+        raise RuntimeError("23EMA confirmation snapshot predates forward capture start")
     work["_revision"] = work["snapshot_revision"].map(normalize_snapshot_revision)
     work = work[work["_date"].lt(asof)]
     status = "no_prior_confirmation_snapshot"
