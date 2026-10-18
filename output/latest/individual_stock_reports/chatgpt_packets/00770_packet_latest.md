@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00770 國泰北美科技
 
 ## Metadata
-- generated_at: 2026-10-17 22:16:07 Asia/Taipei
+- generated_at: 2026-10-18 22:16:09 Asia/Taipei
 - stock_id: 00770
 - stock_name: 國泰北美科技
 - packet_status: standard_rawdata_packet
