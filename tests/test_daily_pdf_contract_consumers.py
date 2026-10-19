@@ -230,7 +230,7 @@ def test_generated_pdf_veto_does_not_match_another_model_name_suffix(monkeypatch
 def test_renderer_loads_presentation_approval_from_source_contract(monkeypatch) -> None:
     from scripts import generate_chatgpt_side_daily_reports as renderer
 
-    monkeypatch.setattr(renderer, "read_latest_csv", lambda name: pd.DataFrame())
+    monkeypatch.setattr(renderer, "read_latest_csv", lambda name, **kwargs: pd.DataFrame())
     inputs = renderer.load_inputs()
     assert set(PRESENTATION_VETO_MODELS) <= renderer.daily_pdf_suppressed_model_ids(inputs)
 

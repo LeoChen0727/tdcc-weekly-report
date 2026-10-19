@@ -193,7 +193,7 @@ def test_load_inputs_keeps_other_models_while_retiring_dormant_legacy_revenue(
         ]
     )
     for readiness in (pd.DataFrame(), dormant_readiness()):
-        def fake_read_latest_csv(name: str) -> pd.DataFrame:
+        def fake_read_latest_csv(name: str, **kwargs) -> pd.DataFrame:
             if name == "daily_candidate_model_signals_for_report_latest.csv":
                 return signals.copy()
             if name == "model_operation_readiness_latest.csv":

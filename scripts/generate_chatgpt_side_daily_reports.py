@@ -2266,7 +2266,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         REVENUE_UNREACTED_RANGE_OPERATION_INPUT_KEY: read_latest_csv(
             "daily_revenue_unreacted_range_operation_section_latest.csv"
         ),
-        "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv"),
+        "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv", dtype={"stock_id": str}),
         "group_rotation": read_latest_csv("daily_candidate_group_rotation_latest.csv"),
         "themes": read_latest_csv("daily_theme_leadership_latest.csv"),
         "volume_layer": read_latest_csv("volume_attack_theme_layer_latest.csv"),

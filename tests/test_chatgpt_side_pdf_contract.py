@@ -3,6 +3,7 @@ from __future__ import annotations
 import ast
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
 from scripts import generate_chatgpt_side_daily_reports as renderer
@@ -14,6 +15,43 @@ WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 RENDERER = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 README_PUBLISHER = ROOT / "publish_chatgpt_report_readme_and_check.py"
+
+
+def test_load_inputs_preserves_taxonomy_stock_ids_for_operation_report_lines(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    config = tmp_path / "config"
+    config.mkdir()
+    (config / "stock_model_contract_registry.csv").write_text(
+        "model_id,approved_for_daily_pdf\n",
+        encoding="utf-8",
+    )
+    latest = tmp_path / "latest"
+    latest.mkdir()
+    (latest / "stock_theme_taxonomy_latest.csv").write_text(
+        "stock_id,stock_name,report_line\n"
+        "006207,復華滬深,non_mainstream\n"
+        "6207,雷科,mainstream\n",
+        encoding="utf-8-sig",
+    )
+    monkeypatch.setattr(renderer, "REPO", tmp_path)
+    monkeypatch.setattr(renderer, "LATEST", latest)
+
+    inputs = renderer.load_inputs()
+
+    assert inputs["stock_theme_taxonomy"]["stock_id"].tolist() == ["006207", "6207"]
+    rows = pd.DataFrame(
+        [
+            {"stock_id": "006207", "stock_name": "復華滬深", "row_type": "data"},
+            {"stock_id": "6207", "stock_name": "雷科", "row_type": "data"},
+        ]
+    )
+    mainstream = renderer.filter_volume_operation_rows_for_line(rows, inputs, "mainstream")
+    non_mainstream = renderer.filter_volume_operation_rows_for_line(rows, inputs, "non_mainstream")
+
+    assert mainstream["stock_id"].tolist() == ["6207"]
+    assert non_mainstream["stock_id"].tolist() == ["006207"]
 
 
 def test_renderer_source_gate_preserves_closed_session_validation_replay_date(
