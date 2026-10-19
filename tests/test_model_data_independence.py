@@ -327,6 +327,12 @@ def test_revenue_v2_adapter_migrations_pin_activation_history_and_price_basis_re
         if row["migration_id"]
         == "revenue_formal_adapter_price_basis_repair_20260925"
     )
+    unpublished_gap_recovery = next(
+        row
+        for row in migrations
+        if row["migration_id"]
+        == "revenue_unreacted_range_unpublished_confirmation_gap_recovery_20261019"
+    )
 
     assert ownership["production_source_file"] == (
         "scripts/build_daily_revenue_unreacted_range_operation_section.py"
@@ -335,8 +341,8 @@ def test_revenue_v2_adapter_migrations_pin_activation_history_and_price_basis_re
         "_selected_source_mid_falling;build_operation_section"
     )
     assert ownership["ownership_status"] == "model_owned_module"
-    assert ownership["last_migration_id"] == price_basis_repair["migration_id"]
-    assert ownership["approval_reference"] == price_basis_repair["user_approval_reference"]
+    assert ownership["last_migration_id"] == unpublished_gap_recovery["migration_id"]
+    assert ownership["approval_reference"] == unpublished_gap_recovery["user_approval_reference"]
     assert history_repair["changed_semantics"] == "model:revenue_unreacted_range"
     assert history_repair["previous_sha256s"] == activation["new_sha256s"].split(";")[0]
     assert history_repair["new_sha256s"] == (
@@ -348,14 +354,25 @@ def test_revenue_v2_adapter_migrations_pin_activation_history_and_price_basis_re
     assert price_basis_repair["source_file"] == ownership["production_source_file"]
     assert price_basis_repair["changed_semantics"] == "model:revenue_unreacted_range"
     assert price_basis_repair["previous_sha256s"] == history_repair["new_sha256s"]
-    assert price_basis_repair["new_sha256s"] == semantic_record_sha256(
-        "model:revenue_unreacted_range", ownership
+    assert price_basis_repair["new_sha256s"] == (
+        "2fc3367c17bb04eb6c9204772ca7e566dce994bdd461a6e75600eba2f22d55c8"
     )
     assert price_basis_repair["affected_models"] == "revenue_unreacted_range"
     assert price_basis_repair["user_approval_reference"] == (
         "user_authorized_revenue_formal_adapter_price_basis_repair_20260925"
     )
     assert price_basis_repair["migration_status"] == "validated_user_approved_migration"
+    assert unpublished_gap_recovery["source_file"] == ownership["production_source_file"]
+    assert unpublished_gap_recovery["changed_semantics"] == "model:revenue_unreacted_range"
+    assert unpublished_gap_recovery["previous_sha256s"] == price_basis_repair["new_sha256s"]
+    assert unpublished_gap_recovery["new_sha256s"] == semantic_record_sha256(
+        "model:revenue_unreacted_range", ownership
+    )
+    assert unpublished_gap_recovery["affected_models"] == "revenue_unreacted_range"
+    assert unpublished_gap_recovery["user_approval_reference"] == (
+        "user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery"
+    )
+    assert unpublished_gap_recovery["migration_status"] == "validated_user_approved_migration"
 
     changed = activation["changed_semantics"].split(";")
     previous = activation["previous_sha256s"].split(";")
@@ -1481,6 +1498,10 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
         "config/approved_operation_evidence/"
         "revenue_unreacted_range_formal_price_basis_v1_20260925.csv"
     ) in sources
+    assert (
+        "config/approved_operation_evidence/"
+        "revenue_unreacted_range_unpublished_confirmation_coverage_v1_20261019.json"
+    ) in sources
     assert "config/revenue_unreacted_range_price_comparability_resolution.csv" not in sources
     assert sharing["ownership_mode"] == "model_owned_not_shared"
     assert sharing["owner_model_or_family"] == "revenue_unreacted_range"
@@ -1489,10 +1510,10 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
     assert sharing["approved_consumer_models"] == "revenue_unreacted_range"
     assert sharing["data_contract_sha256"] == data_contract_sha256(background)
     assert sharing["last_migration_id"] == (
-        "revenue_formal_adapter_price_basis_repair_20260925"
+        "revenue_unreacted_range_unpublished_confirmation_gap_recovery_20261019"
     )
     assert sharing["sharing_decision_reference"] == (
-        "user_authorized_revenue_formal_adapter_price_basis_repair_20260925"
+        "user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery"
     )
     independent = next(
         row
@@ -1510,6 +1531,23 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 61
+    recovery = rows[-1]
+    family = "revenue_unreacted_range_formal_price_basis_operation_adapter"
+    assert recovery["migration_id"] == "revenue_unreacted_range_unpublished_confirmation_gap_recovery_20261019"
+    assert recovery["changed_data_families"] == family
+    assert recovery["affected_models"] == "revenue_unreacted_range"
+    assert recovery["previous_contract_sha256s"] == "f52a36f8befb48a1d989aadf2c30c72f843df5de785e381596378cd0c2cc2b57"
+    assert recovery["new_contract_sha256s"] == "fba7d4c682982eded6e7c5dac6d3ab90ce2e5d578e2411a0af0565bd4afc2535"
+    assert recovery["user_approval_reference"] == "user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery"
+    assert recovery["migration_status"] == "validated_user_approved_migration"
+    background = next(row for row in read_csv("config/daily_model_background_data_registry.csv") if row["data_family_id"] == family)
+    sharing_row = next(row for row in read_csv("config/daily_model_data_sharing_registry.csv") if row["data_family_id"] == family)
+    assert data_contract_sha256(background) == sharing_row["data_contract_sha256"] == recovery["new_contract_sha256s"]
+    assert sharing_row["last_migration_id"] == recovery["migration_id"]
+    assert sharing_row["sharing_decision_reference"] == recovery["user_approval_reference"]
+    # Preserve every assertion for the 60 prior migration rows.
+    rows = rows[:-1]
     assert len(rows) == 60
     operation_history = rows[-1]
     assert operation_history["migration_id"] == "price_pullback_23ema_forward_capture_only_20261018"

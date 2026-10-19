@@ -528,6 +528,8 @@ jobs:
             tests/test_validate_revenue_unreacted_range_anomaly_dispositions.py \
             tests/test_validate_revenue_unreacted_range_promotion_preparation.py \
             tests/test_revenue_unreacted_range_operation_adapter.py \
+            tests/test_daily_revenue_unreacted_range_operation_section.py \
+            tests/test_validate_daily_revenue_unreacted_range_operation_section.py \
             tests/test_revenue_unreacted_range_forward_holdout.py \
             tests/test_revenue_unreacted_range_forward_holdout_v2.py \
             --deselect=tests/test_revenue_unreacted_range_forward_holdout_v2.py::test_v1_exact17_metadata_reproduces_authorized_bundle_digest \

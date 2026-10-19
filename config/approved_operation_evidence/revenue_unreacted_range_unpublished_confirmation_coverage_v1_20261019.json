@@ -1,0 +1,150 @@
+{
+  "schema_version": "revenue_unpublished_confirmation_coverage_v1",
+  "model_id": "revenue_unreacted_range",
+  "variant_id": "source_mid_falling",
+  "approval_reference": "user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery",
+  "base_commit_sha": "75ae6afd4c4a3fb3b948b7a8bf8630268484515d",
+  "last_formal_publication_date": "20261002",
+  "forward_start_date": "20261019",
+  "coverage_start_date": "20261003",
+  "coverage_end_date": "20261018",
+  "never_published_confirmation_dates": [
+    "20261005",
+    "20261006",
+    "20261007",
+    "20261008",
+    "20261012",
+    "20261013",
+    "20261014",
+    "20261015",
+    "20261016"
+  ],
+  "evidence_policy": "coverage_only_not_confirmation_or_return_evidence",
+  "publication_evidence": [
+    {
+      "path": "output/latest/daily_authority_release_latest.json",
+      "canonical_sha256": "ac250ca0608c4698b43687631aff84b5cd5c0efa00dcea6f8ecb7181807d1956",
+      "expected_main_price_date": "20261002",
+      "market_session_date": "20261002",
+      "release_id": "daily-authority-20261002-37000837301-1"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+      "canonical_sha256": "c63a71abfe7e2544ccd83c893d4d3a25b3714aabfe19c071163012e6114e6de3",
+      "max_snapshot_report_date": "20261002",
+      "row_count": 536
+    }
+  ],
+  "formal_history_inventory": [
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260828_68e9e920c6fe91167fb0c2eaacb3772c2a4c586bbfe43e439fca302d83426969.csv",
+      "report_date": "20260828",
+      "canonical_sha256": "68e9e920c6fe91167fb0c2eaacb3772c2a4c586bbfe43e439fca302d83426969"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260831_fbe7aa4e475663727de45c8410ad758b5e5a32936d84e32d79d8a147462e9144.csv",
+      "report_date": "20260831",
+      "canonical_sha256": "fbe7aa4e475663727de45c8410ad758b5e5a32936d84e32d79d8a147462e9144"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260901_7799f2b15d976075ba9959f4edc1f570c439efac42b651d5d5a4cd84d94135af.csv",
+      "report_date": "20260901",
+      "canonical_sha256": "7799f2b15d976075ba9959f4edc1f570c439efac42b651d5d5a4cd84d94135af"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260902_4944401ddeda863c4e0ab13da5bc8ad1fe03fed4648c600fd65789764578e1b9.csv",
+      "report_date": "20260902",
+      "canonical_sha256": "4944401ddeda863c4e0ab13da5bc8ad1fe03fed4648c600fd65789764578e1b9"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260903_a5f28bd72947a6151f90558d298e65d4cffa3350b8e02b67767f90c42835731d.csv",
+      "report_date": "20260903",
+      "canonical_sha256": "a5f28bd72947a6151f90558d298e65d4cffa3350b8e02b67767f90c42835731d"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260904_4e42d3a624b1902a68206f6fede46b10e7ec9fd2a62851165c7c67e8f514dfcf.csv",
+      "report_date": "20260904",
+      "canonical_sha256": "4e42d3a624b1902a68206f6fede46b10e7ec9fd2a62851165c7c67e8f514dfcf"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260907_b2cf284abb8c6307ce48d1039972df5cfbdd884b34292dd85fec31a9a51b604e.csv",
+      "report_date": "20260907",
+      "canonical_sha256": "b2cf284abb8c6307ce48d1039972df5cfbdd884b34292dd85fec31a9a51b604e"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260908_e92e13065dc7e71e2131ffeb00823aecb93cdd376d263df77fa977ae219ac87a.csv",
+      "report_date": "20260908",
+      "canonical_sha256": "e92e13065dc7e71e2131ffeb00823aecb93cdd376d263df77fa977ae219ac87a"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260909_765c27e0bd53559529fd1abe89152aa3cd6d134c6cabc7c2aca864faaa7612b9.csv",
+      "report_date": "20260909",
+      "canonical_sha256": "765c27e0bd53559529fd1abe89152aa3cd6d134c6cabc7c2aca864faaa7612b9"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260910_08258a3a75ba4de45fbf265867fb1fe8aa82d01cd31d4a00df1ef8021878a0c4.csv",
+      "report_date": "20260910",
+      "canonical_sha256": "08258a3a75ba4de45fbf265867fb1fe8aa82d01cd31d4a00df1ef8021878a0c4"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260911_b587c8917c9ddd9b3351dc45551ea36d7c5885d536f98c230c61d653ecb541f7.csv",
+      "report_date": "20260911",
+      "canonical_sha256": "b587c8917c9ddd9b3351dc45551ea36d7c5885d536f98c230c61d653ecb541f7"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260916_6a232739679892ed1e54ad398e3e16e9d11ca79693f9fe56e87f72fd95df67d6.csv",
+      "report_date": "20260916",
+      "canonical_sha256": "6a232739679892ed1e54ad398e3e16e9d11ca79693f9fe56e87f72fd95df67d6"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260917_2134f47818f6f58fecd31139ad097829d6c0feda6f3a5d7397b68161c8091550.csv",
+      "report_date": "20260917",
+      "canonical_sha256": "2134f47818f6f58fecd31139ad097829d6c0feda6f3a5d7397b68161c8091550"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260918_128ce56cc3288a5f8975afe5b272f5600d7993506ae85bf4398321c45b76b821.csv",
+      "report_date": "20260918",
+      "canonical_sha256": "128ce56cc3288a5f8975afe5b272f5600d7993506ae85bf4398321c45b76b821"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260921_a6afe761b4654b0de27966608983dec32df2a9d2c5f78635c15f11267bcb144f.csv",
+      "report_date": "20260921",
+      "canonical_sha256": "a6afe761b4654b0de27966608983dec32df2a9d2c5f78635c15f11267bcb144f"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260922_b5f8490279c5d9acf7fd7a08fb88f23ec1c3b9e00075ce1012b058a642d82c5d.csv",
+      "report_date": "20260922",
+      "canonical_sha256": "b5f8490279c5d9acf7fd7a08fb88f23ec1c3b9e00075ce1012b058a642d82c5d"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260923_575765afa310410722609baaeac54accb407ab2d7ce018857108ee86e70e6aa1.csv",
+      "report_date": "20260923",
+      "canonical_sha256": "575765afa310410722609baaeac54accb407ab2d7ce018857108ee86e70e6aa1"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260924_5f37f252d5c4116cb3f027734419ad59b499895dc5f69618e7c7ebf47f4b2497.csv",
+      "report_date": "20260924",
+      "canonical_sha256": "5f37f252d5c4116cb3f027734419ad59b499895dc5f69618e7c7ebf47f4b2497"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260929_4a8fc73fa0d1fc544a88647a2105bc9e7e0d6d32d0241f06ed72d27435ec85d1.csv",
+      "report_date": "20260929",
+      "canonical_sha256": "4a8fc73fa0d1fc544a88647a2105bc9e7e0d6d32d0241f06ed72d27435ec85d1"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20260930_b607ca53184075f890d56a9657c0313a2bf88b889631498eee37393782f8c793.csv",
+      "report_date": "20260930",
+      "canonical_sha256": "b607ca53184075f890d56a9657c0313a2bf88b889631498eee37393782f8c793"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20261001_47a8edb2b4ae9f41f792a30a2fdd3bda9bf6977ae0171c6710cb9e36a910f8ce.csv",
+      "report_date": "20261001",
+      "canonical_sha256": "47a8edb2b4ae9f41f792a30a2fdd3bda9bf6977ae0171c6710cb9e36a910f8ce"
+    },
+    {
+      "path": "output/history/daily_model_snapshots/daily_revenue_unreacted_range_operation_section_20261002_235ca262fb25099c92f8e0b6dbe3dda366f3403c9946d6bc15235fe31be22692.csv",
+      "report_date": "20261002",
+      "canonical_sha256": "235ca262fb25099c92f8e0b6dbe3dda366f3403c9946d6bc15235fe31be22692"
+    }
+  ]
+}

@@ -632,7 +632,7 @@ scripts/validate_revenue_unreacted_range_operation_adapter.py,python,model_gover
 tests/test_revenue_unreacted_range_operation_adapter.py,test_python,model_governance,active,disabled adapter schema lifecycle timing uniqueness permissions and no-writer regression tests; no runtime artifact PDF or production execution,,
 scripts/build_daily_revenue_unreacted_range_operation_section.py,python,model_governance,active,model-owned formal source_mid_falling v2 operation artifact producer invoked only by readiness-gated Daily Full,.github/workflows/daily_full_pipeline.yml,
 scripts/validate_daily_revenue_unreacted_range_operation_section.py,python,model_governance,active,independent formal revenue operation schema lifecycle lineage hash and append-only history validator invoked only by readiness-gated Daily Full,.github/workflows/daily_full_pipeline.yml,
-tests/test_daily_revenue_unreacted_range_operation_section.py,test_python,model_governance,active,formal revenue operation producer and independent validator regression tests,,
+tests/test_daily_revenue_unreacted_range_operation_section.py,test_python,model_governance,active,formal revenue operation producer and independent validator regression tests,.github/workflows/daily_model_maintenance_pr_validation.yml,
 scripts/build_revenue_unreacted_range_frozen_rule_launch_evidence.py,python,model_governance,active,evidence-only immutable frozen-rule chronological benchmark regime and transaction-cost launch evidence producer,,
 scripts/validate_revenue_unreacted_range_frozen_rule_launch_evidence.py,python,model_governance,active,independent frozen-rule evidence replay validator with no producer or production business-semantic import,,
 tests/test_revenue_unreacted_range_frozen_rule_launch_evidence.py,test_python,model_governance,active,frozen-rule launch evidence provenance independence chronology comparator cost and mutation regressions,,
@@ -731,3 +731,4 @@ tests/test_price_pullback_23ema_confirmed_history.py,test_python,daily_productio
 tests/test_price_pullback_23ema_confirmed_binding_validator.py,test_python,daily_production,active,獨立驗證原確認 snapshot、row SHA、資格、排名與凍結欄位綁定的回歸測試,,
 scripts/run_selected_daily_price_source_recovery.py,python,official_price_data,active,保存官方來源契約並調用既有 selected 修復；不更新模型、readiness 或 PDF,.github/workflows/repair_daily_price_range.yml,
 tests/test_daily_selected_price_source_recovery.py,test_python,official_price_data,active,selected source-only 官方來源契約與回歸驗證,,
+tests/test_validate_daily_revenue_unreacted_range_operation_section.py,test_python,model_governance,active,獨立正式 revenue validator 回歸：未發布缺口 audit-only 不放寬正式 history proof,.github/workflows/daily_model_maintenance_pr_validation.yml,
