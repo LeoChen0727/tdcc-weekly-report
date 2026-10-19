@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-10-02 11:55:19 UTC`
-- main_price_date: `20261002`
+- generated_at: `2026-10-19 10:46:51 UTC`
+- main_price_date: `20261019`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
@@ -26,40 +26,40 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 103 | 56.310679611650485 | 1.0808446811533614 | 52.42718446601942 | -0.018663024102431956 | ok_initial_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 59 | 57.6271186440678 | 0.438178070600849 | 49.152542372881356 | -1.0351300721421328 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 10 | 50.0 | 3.817799784978763 | 40.0 | 0.925955420550278 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 107 | 55.140186915887845 | 0.9831310346207353 | 51.4018691588785 | -0.07657982680202817 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 61 | 57.377049180327866 | 0.6603450287352511 | 49.18032786885246 | -0.7461237363499653 | ok_initial_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 11 | 54.54545454545454 | 4.869688251885818 | 45.45454545454545 | 1.5824576886620683 | insufficient_sample |
 
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 101 | 52.475247524752476 | 0.03760167517962665 | 53.46534653465347 | 0.30247514757359556 | ok_initial_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 103 | 53.398058252427184 | 0.17872215722027665 | 54.36893203883495 | 0.4613279684891178 | ok_initial_sample |
 | phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 59 | 54.23728813559322 | -1.3965259684870186 | 50.847457627118644 | -1.3291359270408545 | ok_initial_sample |
-| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 8 | 37.5 | -0.7689450906822755 | 37.5 | -4.735236292985046 | insufficient_sample |
+| phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 10 | 50.0 | 6.726636695894513 | 50.0 | 3.9377269746925223 | insufficient_sample |
 
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 6168 | 宏齊 | other | overheated_after_tdcc |
-| 6715 | 嘉基 | other | overheated_after_tdcc |
-| 2033 | 佳大 | other | overheated_after_tdcc |
-| 1569 | 濱川 | other | overheated_after_tdcc |
-| 4956 | 光鋐 | other | overheated_after_tdcc |
-| 2030 | 彰源 | other | overheated_after_tdcc |
-| 3691 | 碩禾 | other | overheated_after_tdcc |
-| 4174 | 浩鼎 | other | overheated_after_tdcc |
+| 6456 | GIS-KY | other | overheated_after_tdcc |
+| 4919 | 新唐 | other | overheated_after_tdcc |
+| 6485 | 點序 | other | overheated_after_tdcc |
+| 2466 | 冠西電 | other | overheated_after_tdcc |
+| 6207 | 雷科 | other | overheated_after_tdcc |
+| 8289 | 泰藝 | other | overheated_after_tdcc |
+| 3114 | 好德 | other | overheated_after_tdcc |
+| 3615 | 安可 | other | overheated_after_tdcc |
+| 5309 | 系統電 | other | overheated_after_tdcc |
+| 3189 | 景碩 | other | overheated_after_tdcc |
+| 6488 | 環球晶 | other | overheated_after_tdcc |
+| 3042 | 晶技 | other | overheated_after_tdcc |
+| 3236 | 千如 | other | overheated_after_tdcc |
 | 3624 | 光頡 | passive components | overheated_after_tdcc |
+| 3016 | 嘉晶 | other | overheated_after_tdcc |
 | 8150 | 南茂 | other | overheated_after_tdcc |
+| 6456 | GIS-KY | other | overheated_after_tdcc |
 | 6168 | 宏齊 | other | overheated_after_tdcc |
-| 6945 | 圓祥生技 | other | overheated_after_tdcc |
-| 6715 | 嘉基 | other | overheated_after_tdcc |
-| 2033 | 佳大 | other | overheated_after_tdcc |
-| 1569 | 濱川 | other | overheated_after_tdcc |
-| 3094 | 聯傑 | other | price_leading_tdcc |
-| 2030 | 彰源 | other | overheated_after_tdcc |
-| 4924 | 欣厚-KY | other | overheated_after_tdcc |
-| 4174 | 浩鼎 | other | overheated_after_tdcc |
-| 3624 | 光頡 | passive components | overheated_after_tdcc |
+| 4919 | 新唐 | other | overheated_after_tdcc |
+| 6485 | 點序 | other | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 

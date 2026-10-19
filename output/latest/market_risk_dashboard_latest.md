@@ -1,10 +1,10 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-10-02 19:55:13 Asia/Taipei`
-- data_date: `20261002`
-- market_regime: `mild_bull`
-- risk_level: `neutral`
-- risk_score: `1`
+- generated_at: `2026-10-19 18:46:46 Asia/Taipei`
+- data_date: `20261019`
+- market_regime: `high_risk`
+- risk_level: `very_high_risk`
+- risk_score: `8`
 - futures_options_source_status: `ready`
 
 ## 資料狀態
@@ -13,42 +13,42 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20261002 |
-| futures_contracts | ok | 66 | 20261002 |
-| options_call_put | ok | 30 | 20261002 |
-| put_call_ratio | ok | 21 | 20261002 |
-| taiwan_vix | ok | 65 | 20261002 |
+| institutional_fo | ok | 3 | 20261016 |
+| futures_contracts | ok | 66 | 20261016 |
+| options_call_put | ok | 30 | 20261016 |
+| put_call_ratio | ok | 20 | 20261016 |
+| taiwan_vix | ok | 75 | 20261019 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 48,475.74 | +0.66% | +5.01% | True | True | strong_bull |
-| TPEx | 426.93 | +3.18% | +4.91% | True | True | mild_bull |
+| TWSE | 46,822.08 | -5.03% | +2.12% | False | True | correction |
+| TPEx | 394.05 | -7.91% | -1.29% | False | False | high_risk |
 
 ## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -80,304 | foreign_heavy_net_short |
-| Dealer TX futures net OI | -1,006 |  |
-| Trust TX futures net OI | +74,669 |  |
-| Retail MTX net OI proxy | +6,187 | neutral |
-| Foreign TXO call net OI | -1,113 |  |
-| Foreign TXO put net OI | +581 |  |
-| TXO put/call OI ratio | 80.84% | call_crowded_or_low_hedge |
-| Taiwan VIX | 21.90 | calm |
+| Foreign TX futures net OI | -93,675 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +3,197 |  |
+| Trust TX futures net OI | +82,464 |  |
+| Retail MTX net OI proxy | +11,123 | retail_net_long_watch |
+| Foreign TXO call net OI | +703 |  |
+| Foreign TXO put net OI | +7,320 |  |
+| TXO put/call OI ratio | 67.60% | call_crowded_or_low_hedge |
+| Taiwan VIX | 26.33 | watch |
 
 ## 近期總經事件日曆
 
-- 20260930 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 2nd Quarter 2026; State PCE, 2025 (days=-2, importance=high)
-- 20260930 US_PCE_personal_income: Personal Income and Outlays, August 2026 (days=-2, importance=high)
-- 20261002 US_employment_situation: Employment Situation release schedule: September 2026 (days=0, importance=high)
-- 20261006 US_trade: U.S. International Trade in Goods and Services, August 2026 (days=4, importance=medium)
-- 20261014 US_CPI: CPI release schedule: September 2026 (days=12, importance=high)
-- 20261028 FOMC: FOMC decision (October 27-28, 2026) (days=26, importance=high)
-- 20261029 US_GDP: GDP (Advance Estimate), 3rd Quarter 2026 (days=27, importance=medium)
-- 20261029 US_PCE_personal_income: Personal Income and Outlays, September 2026 (days=27, importance=high)
+- 20261014 US_CPI: CPI release schedule: September 2026 (days=-5, importance=high)
+- 20261028 FOMC: FOMC decision (October 27-28, 2026) (days=9, importance=high)
+- 20261029 US_GDP: GDP (Advance Estimate), 3rd Quarter 2026 (days=10, importance=medium)
+- 20261029 US_PCE_personal_income: Personal Income and Outlays, September 2026 (days=10, importance=high)
+- 20261104 US_trade: U.S. International Trade in Goods and Services, September 2026 (days=16, importance=medium)
+- 20261106 US_employment_situation: Employment Situation release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE 2026 JULY 2026 AUGUST 2026 SEPTEMBER 2026 OCTOBER 2026 NOVEMBER 2026 DECEMBER 2026 JANUARY 2027 FEBRUARY 2027 MARCH 2027 APRIL 2027 MAY 2027 JUNE 2027 JULY 2027 AUGUST 2027 SEPTEMBER 2027 OCTOBER 2027 NOVEMBER 2027 DECEMBER 2027 ENTIRE YEAR, 2026 ENTIRE YEAR, 2027 PRIOR YEARS BY NEWS RELEASE BUSINESS EMPLOYMENT DYNAMICS CONSUMER PRICE INDEX COUNTY EMPLOYMENT AND WAGES EMPLOYMENT COST INDEX EMPLOYMENT SITUATION JOB OPENINGS AND LABOR TURNOVER PRODUCER PRICE INDEX PRODUCTIVITY AND COSTS REAL EARNINGS U.S. EXPORT AND IMPORT PRICE INDEXES METROPOLITAN AREA EMPLOYMENT AND UNEMPLOYMENT STATE EMPLOYMENT AND UNEMPLOYMENT (days=18, importance=high)
+- 20261106 US_employment_situation: Employment Situation release schedule: October 2026 (days=18, importance=high)
+- 20261110 US_CPI: CPI release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE 2026 JULY 2026 AUGUST 2026 SEPTEMBER 2026 OCTOBER 2026 NOVEMBER 2026 DECEMBER 2026 JANUARY 2027 FEBRUARY 2027 MARCH 2027 APRIL 2027 MAY 2027 JUNE 2027 JULY 2027 AUGUST 2027 SEPTEMBER 2027 OCTOBER 2027 NOVEMBER 2027 DECEMBER 2027 ENTIRE YEAR, 2026 ENTIRE YEAR, 2027 PRIOR YEARS BY NEWS RELEASE BUSINESS EMPLOYMENT DYNAMICS CONSUMER PRICE INDEX COUNTY EMPLOYMENT AND WAGES EMPLOYMENT COST INDEX EMPLOYMENT SITUATION JOB OPENINGS AND LABOR TURNOVER PRODUCER PRICE INDEX PRODUCTIVITY AND COSTS REAL EARNINGS U.S. EXPORT AND IMPORT PRICE INDEXES METROPOLITAN AREA EMPLOYMENT AND UNEMPLOYMENT STATE EMPLOYMENT AND UNEMPLOYMENT (days=22, importance=high)
 
 ## 半年技術圖表
 
@@ -63,21 +63,23 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: strong_bull; close 48,475.74; 6M range 32,572.43-48,475.74; distance from 6M high +0.00%; above MA20=True, above MA60=True.
-- TPEx / OTC: mild_bull; close 426.93; 6M range 317.90-453.50; distance from 6M high -5.86%; above MA20=True, above MA60=True.
+- TWSE / TAIEX: correction; close 46,822.08; 6M range 36,958.80-49,822.55; distance from 6M high -6.02%; above MA20=False, above MA60=True.
+- TPEx / OTC: high_risk; close 394.05; 6M range 326.23-453.50; distance from 6M high -13.11%; above MA20=False, above MA60=False.
 
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+6,187`
-- state: `neutral`
+- latest_proxy_value: `+11,123`
+- state: `retail_net_long_watch`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
 
 ## 風險提醒
 
-- TWSE strong bull
+- TWSE correction
+- TPEx below MA60 and 20d return negative
 - Foreign TX futures heavy net short
+- Retail MTX proxy net long watch
 
 ## 使用邊界
 
@@ -88,26 +90,26 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `21.9`
-- 252D high / low / percentile: `44.33` / `21.18` / `2.5%`
+- Taiwan VIX latest: `26.33`
+- 252D high / low / percentile: `44.33` / `21.18` / `17.65%`
 - 504D percentile: `-`
-- z-score: `-2.08`
-- vix_return_5d / 10d / 20d: `0.32%` / `-10.5%` / `-16.06%`
-- TWSE / TPEx position: TWSE dist 60D high `0%`, TPEx dist 60D high `0%`
-- vix_index_interpretation: `low_vol_complacency_at_high`
+- z-score: `-1.16`
+- vix_return_5d / 10d / 20d: `7.25%` / `17.28%` / `-3.52%`
+- TWSE / TPEx position: TWSE dist 60D high `-6.02%`, TPEx dist 60D high `-8.89%`
+- vix_index_interpretation: `vix_context_neutral_observe`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `6,187`
+- retail_mtx_net_oi_proxy latest: `11,123`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
-- 252D high / low / percentile: `16,227` / `-3,246` / `41.86%`
+- 252D high / low / percentile: `16,227` / `-3,246` / `87.5%`
 - 504D percentile: `-`
-- retail_mtx_index_interpretation: `retail_positioning_normal`
+- retail_mtx_index_interpretation: `retail_positioning_observe`
 
 ## Combined Sentiment Interpretation
 
 - combined_sentiment_interpretation: `sentiment_mixed_observe`
-- sentiment_warning_level: `low`
+- sentiment_warning_level: `medium`
 - data_quality_note: short_history：可提供短樣本分位，但未達 252 日完整歷史。
 
 Operation meaning: use sentiment context only with TWSE / TPEx technical position, market_regime, Put/Call, and foreign TX futures net OI. Do not use VIX or retail MTX as standalone buy/sell signals.
