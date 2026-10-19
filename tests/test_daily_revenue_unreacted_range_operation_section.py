@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import shutil
 import sys
@@ -14,6 +15,110 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_revenue_unreacted_range_operation_section as builder  # noqa: E402
 import validate_daily_revenue_unreacted_range_operation_section as validator  # noqa: E402
+
+
+def _unpublished_replay_fixture(tmp_path: Path) -> tuple[dict[str, object], builder.UnpublishedConfirmationCoverage]:
+    price_path = tmp_path / "synthetic_price.csv"
+    price_path.write_text("synthetic immutable objective input\n", encoding="utf-8")
+    frame = pd.DataFrame({
+        "date": ["20261005", "20261006", "20261007", "20261016", "20261019"],
+        "analysis_close": [10.0, 11.0, 12.0, 13.0, 14.0],
+        "analysis_open": [10.0, 11.0, 12.0, 13.0, 14.0],
+        "analysis_ma60": [2.0] * 5, "analysis_ma120": [1.0] * 5,
+        "cross_breakout_prev20": [True, False, False, True, False],
+    })
+    source = {
+        "source_sequence_index": 0, "source_table_date": "20261005",
+        "source_trade_date": "20261005", "revenue_period": "202609",
+        "position_bucket": "mid_pos_40_75", "shape_bucket": "falling",
+        "position_120d_pct": 50.0, "shape_return20_pct": -6.0,
+        "shape_ema23_slope5_pct": -0.5, "source_revenue_anomaly_candidate_flag": False,
+        "monthly_revenue_source_row_sha256": "a" * 64,
+    }
+    args = dict(
+        stock_id="1714", stock_name="合成測試股", frame=frame, sources=[source],
+        report_date="20261019", report_line="non_mainstream", taxonomy={},
+        monthly_source_path=tmp_path / "synthetic_monthly.csv", price_source_path=price_path,
+        taxonomy_paths=(), prior_confirmed_history={},
+    )
+    coverage = builder.UnpublishedConfirmationCoverage(
+        approval_reference="user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery",
+        artifact_path="synthetic_approved_coverage.json", artifact_sha256="b" * 64,
+        base_commit_sha="75ae6afd4c4a3fb3b948b7a8bf8630268484515d",
+        last_formal_publication_date="20261002", forward_start_date="20261019",
+        never_published_confirmation_dates=frozenset({"20261006"}),
+    )
+    return args, coverage
+
+
+def test_approved_unpublished_confirmation_is_audit_only_and_does_not_suppress_new_confirmation(tmp_path: Path) -> None:
+    args, coverage = _unpublished_replay_fixture(tmp_path)
+    records = builder.replay_stock_lifecycle(**args, unpublished_coverage=coverage)
+    assert [row["lifecycle_state"] for row in records] == [
+        "unpublished_confirmation_audit_only", "confirmed_operation",
+    ]
+    audit, confirmed = records
+    assert audit["signal_date"] == "20261005"
+    assert confirmed["signal_date"] == "20261016"
+    assert confirmed["confirmation_date"] == "20261019"
+    assert audit["audit_disposition"] == "never_formally_published_no_position"
+    assert all(audit[field] == "" for field in ("entry_date", "entry_price", "exit_date", "exit_price"))
+    assert builder._lifecycle_replay_sha256(records) == builder._lifecycle_replay_sha256([confirmed])
+
+
+def test_missing_confirmation_without_explicit_coverage_still_raises(tmp_path: Path) -> None:
+    args, _coverage = _unpublished_replay_fixture(tmp_path)
+    with pytest.raises(builder.RevenueOperationAdapterError, match="lacks a prior formal buy-ranked"):
+        builder.replay_stock_lifecycle(**args)
+
+
+def test_uncovered_confirmation_date_still_raises(tmp_path: Path) -> None:
+    from dataclasses import replace
+
+    args, coverage = _unpublished_replay_fixture(tmp_path)
+    coverage = replace(coverage, never_published_confirmation_dates=frozenset({"20261007"}))
+    with pytest.raises(builder.RevenueOperationAdapterError, match="lacks a prior formal buy-ranked"):
+        builder.replay_stock_lifecycle(**args, unpublished_coverage=coverage)
+
+
+def test_unpublished_coverage_conflicting_with_existing_formal_proof_raises(tmp_path: Path) -> None:
+    args, coverage = _unpublished_replay_fixture(tmp_path)
+    args["prior_confirmed_history"] = {
+        "revenue_unreacted_range|source_mid_falling|1714|20261005": ("immutable_history.csv", "c" * 64),
+    }
+    with pytest.raises(builder.RevenueOperationAdapterError, match="coverage contradicts a formal confirmed"):
+        builder.replay_stock_lifecycle(**args, unpublished_coverage=coverage)
+
+
+def test_forward_recovery_does_not_backdate_a_gap_report(tmp_path: Path) -> None:
+    args, coverage = _unpublished_replay_fixture(tmp_path)
+    args["report_date"] = "20261016"
+    with pytest.raises(builder.RevenueOperationAdapterError, match="recovery_not_started"):
+        builder.replay_stock_lifecycle(**args, unpublished_coverage=coverage)
+
+
+def test_existing_published_position_retains_original_non_overlap(tmp_path: Path) -> None:
+    args, coverage = _unpublished_replay_fixture(tmp_path)
+    args["frame"].loc[:1, "date"] = ["20261001", "20261002"]
+    args["prior_confirmed_history"] = {
+        "revenue_unreacted_range|source_mid_falling|1714|20261001": ("immutable_history.csv", "c" * 64),
+    }
+    records = builder.replay_stock_lifecycle(**args, unpublished_coverage=coverage)
+    assert [row["lifecycle_state"] for row in records] == ["active_operation"]
+    assert records[0]["signal_date"] == "20261001"
+    assert records[0]["confirmed_history_artifact"] == "immutable_history.csv"
+
+
+def test_unpublished_audit_log_has_no_formal_trade_or_return_claim(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    args, coverage = _unpublished_replay_fixture(tmp_path)
+    records = builder.replay_stock_lifecycle(**args, unpublished_coverage=coverage)
+    assert builder.log_unpublished_confirmation_audits(records) == 1
+    event = json.loads(capsys.readouterr().out)
+    assert event["event"] == "revenue_unpublished_confirmation_audit_only"
+    assert event["formal_position_created"] is False
+    assert event["formal_trade_or_return_evidence"] is False
+    assert event["recovery_coverage_sha256"] == coverage.artifact_sha256
+    assert not ({"entry_price", "exit_price", "realized_return"} & set(event))
 
 
 def _objective_fixture(tmp_path: Path) -> dict[str, object]:
@@ -336,8 +441,11 @@ def test_d0_d1_d2_lifecycle_requires_append_only_confirmed_proof(
 
 
 def test_d30_close_removes_position_from_current_sections(
-    tmp_path: Path,
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    # This synthetic position was formally confirmed in the fixture timeline;
+    # the production October publication gap is tested separately below.
+    monkeypatch.setattr(builder, "UNPUBLISHED_RECOVERY_LAST_PUBLICATION_DATE", "20261030")
     fixture = _objective_fixture(tmp_path / "fixture")
     dates = fixture["dates"]
     destination = tmp_path / "artifacts"
@@ -626,3 +734,153 @@ def test_independent_validator_rejects_raw_source_hash_drift(
     prices.to_csv(price_path, index=False, lineterminator="\n")
     with pytest.raises(validator.ValidationError, match="raw price source hash drift"):
         validator.validate_artifact(artifact)
+
+
+def _write_synthetic_coverage(path: Path, document: dict[str, object], monkeypatch: pytest.MonkeyPatch) -> None:
+    payload = (json.dumps(document, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+    path.write_bytes(payload)
+    monkeypatch.setattr(builder, "UNPUBLISHED_CONFIRMATION_COVERAGE_SHA256", hashlib.sha256(payload).hexdigest())
+
+
+def _synthetic_coverage_fixture(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[Path, Path, dict[str, object]]:
+    document = json.loads(builder.UNPUBLISHED_CONFIRMATION_COVERAGE_PATH.read_text(encoding="utf-8-sig"))
+    history_dir = tmp_path / "synthetic_history"
+    history_dir.mkdir()
+    inventory = []
+    for original in document["formal_history_inventory"]:
+        date = original["report_date"]
+        row = {column: "" for column in builder.OUTPUT_COLUMNS}
+        row.update(operation_asof_date=date, model_id=builder.MODEL_ID, row_type="empty_state")
+        payload = pd.DataFrame([row], columns=builder.OUTPUT_COLUMNS).to_csv(index=False, lineterminator="\n").encode("utf-8")
+        digest = hashlib.sha256(payload).hexdigest()
+        name = f"daily_revenue_unreacted_range_operation_section_{date}_{digest}.csv"
+        (history_dir / name).write_bytes(payload)
+        inventory.append({
+            "path": f"output/history/daily_model_snapshots/{name}",
+            "report_date": date, "canonical_sha256": digest,
+        })
+    document["formal_history_inventory"] = inventory
+    path = tmp_path / "synthetic_coverage.json"
+    _write_synthetic_coverage(path, document, monkeypatch)
+    return path, history_dir, document
+
+
+def test_coverage_config_pin_binds_the_approved_positive_publication_evidence() -> None:
+    text = builder.UNPUBLISHED_CONFIRMATION_COVERAGE_PATH.read_text(encoding="utf-8-sig")
+    canonical = text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+    assert hashlib.sha256(canonical).hexdigest() == builder.UNPUBLISHED_CONFIRMATION_COVERAGE_SHA256
+    document = json.loads(text)
+    assert len(document["formal_history_inventory"]) == 22
+    assert document["publication_evidence"][0]["release_id"] == "daily-authority-20261002-37000837301-1"
+
+
+def test_coverage_loader_validates_positive_evidence_and_all_published_files(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    path, history_dir, _document = _synthetic_coverage_fixture(tmp_path, monkeypatch)
+    coverage = builder.load_unpublished_confirmation_coverage(path, history_dir=history_dir)
+    assert coverage.forward_start_date == "20261019"
+    assert coverage.last_formal_publication_date == "20261002"
+    assert coverage.never_published_confirmation_dates == frozenset({
+        "20261005", "20261006", "20261007", "20261008", "20261012", "20261013", "20261014", "20261015", "20261016",
+    })
+
+
+def test_coverage_loader_rejects_unapproved_config_bytes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    path, history_dir, _document = _synthetic_coverage_fixture(tmp_path, monkeypatch)
+    path.write_bytes(path.read_bytes() + b" ")
+    with pytest.raises(builder.RevenueOperationAdapterError, match="coverage canonical SHA mismatch"):
+        builder.load_unpublished_confirmation_coverage(path, history_dir=history_dir)
+
+
+@pytest.mark.parametrize("defect", ["model", "authority", "manifest", "dates", "inventory", "path"])
+def test_coverage_loader_rejects_incomplete_or_contradictory_coverage(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, defect: str) -> None:
+    path, history_dir, document = _synthetic_coverage_fixture(tmp_path, monkeypatch)
+    if defect == "model":
+        document["model_id"] = "another_model"
+    elif defect == "authority":
+        document["publication_evidence"][0]["expected_main_price_date"] = "20261006"
+    elif defect == "manifest":
+        document["publication_evidence"][1]["max_snapshot_report_date"] = "20261006"
+    elif defect == "dates":
+        document["never_published_confirmation_dates"].remove("20261006")
+    elif defect == "inventory":
+        document["formal_history_inventory"].pop()
+    else:
+        document["formal_history_inventory"][0]["path"] = "../../unrelated.csv"
+    _write_synthetic_coverage(path, document, monkeypatch)
+    with pytest.raises(builder.RevenueOperationAdapterError):
+        builder.load_unpublished_confirmation_coverage(path, history_dir=history_dir)
+
+
+@pytest.mark.parametrize("defect", ["missing", "hash", "date"])
+def test_coverage_loader_keeps_published_history_loss_or_drift_strict(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, defect: str) -> None:
+    path, history_dir, document = _synthetic_coverage_fixture(tmp_path, monkeypatch)
+    original = document["formal_history_inventory"][0]
+    history_path = history_dir / Path(original["path"]).name
+    if defect == "missing":
+        history_path.unlink()
+    elif defect == "hash":
+        frame = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+        frame["adapter_note_zh"] = "drift"
+        frame.to_csv(history_path, index=False, lineterminator="\n")
+    else:
+        frame = pd.read_csv(history_path, dtype=str, keep_default_na=False)
+        frame["operation_asof_date"] = "20260829"
+        payload = frame.to_csv(index=False, lineterminator="\n").encode("utf-8")
+        digest = hashlib.sha256(payload).hexdigest()
+        name = f"daily_revenue_unreacted_range_operation_section_{original['report_date']}_{digest}.csv"
+        history_path.unlink()
+        (history_dir / name).write_bytes(payload)
+        original.update(path=f"output/history/daily_model_snapshots/{name}", canonical_sha256=digest)
+        _write_synthetic_coverage(path, document, monkeypatch)
+    with pytest.raises(builder.RevenueOperationAdapterError, match="previously published formal history"):
+        builder.load_unpublished_confirmation_coverage(path, history_dir=history_dir)
+
+
+def test_coverage_loader_rejects_present_gap_history_as_a_contradiction(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    path, history_dir, _document = _synthetic_coverage_fixture(tmp_path, monkeypatch)
+    conflict = history_dir / "daily_revenue_unreacted_range_operation_section_20261006_r1_aaaaaaaaaaaa.csv"
+    conflict.write_text("synthetic contradictory fixture\n", encoding="utf-8")
+    with pytest.raises(builder.RevenueOperationAdapterError, match="coverage contradicts existing gap history"):
+        builder.load_unpublished_confirmation_coverage(path, history_dir=history_dir)
+
+
+def test_gap_build_report_is_blocked_before_any_source_read_or_history_write(tmp_path: Path) -> None:
+    with pytest.raises(builder.RevenueOperationAdapterError, match="recovery_not_started"):
+        builder.build_operation_section(
+            monthly_revenue_path=tmp_path / "missing_monthly.csv", report_date="20261016",
+            prior_history_dir=tmp_path / "no_history",
+        )
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_forward_build_keeps_audits_out_of_pdf_rows_and_does_not_rewrite_history(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    policy, history_dir, _document = _synthetic_coverage_fixture(tmp_path, monkeypatch)
+    replay_dir = tmp_path / "replay"
+    replay_dir.mkdir()
+    args, _coverage = _unpublished_replay_fixture(replay_dir)
+    old_history = {item.name: item.read_bytes() for item in history_dir.iterdir()}
+    monkeypatch.setattr(builder, "_load_formal_price_basis", lambda path: None)
+    monkeypatch.setattr(builder, "load_monthly_revenue_history", lambda path: pd.DataFrame([{"stock_id": "1714", "stock_name": "合成測試股"}]))
+    monkeypatch.setattr(builder, "load_taxonomy", lambda paths: {})
+    monkeypatch.setattr(builder, "_price_file_map", lambda path: {"1714": args["price_source_path"]})
+    monkeypatch.setattr(builder, "load_price_history", lambda *args_, **kwargs: args["frame"].copy())
+    monkeypatch.setattr(builder, "_attach_source_indices", lambda rows, frame: args["sources"])
+    section, records = builder.build_operation_section(
+        monthly_revenue_path=args["monthly_source_path"], prior_history_dir=history_dir,
+        unpublished_coverage_path=policy, report_date="20261019", taxonomy_paths=(),
+    )
+    assert tuple(section.columns) == builder.OUTPUT_COLUMNS
+    assert set(section["operation_asof_date"]) == {"20261019"}
+    data = section[section["row_type"].eq("data")]
+    assert set(data["pdf_section"]) == {"confirmed_operation"}
+    assert set(data["signal_date"]) == {"20261016"}
+    assert not set(section["pdf_section"]) & {"unpublished_confirmation_audit_only"}
+    assert sum(row["lifecycle_state"] == "unpublished_confirmation_audit_only" for row in records) == 1
+    builder.write_artifacts(
+        section, output_csv=tmp_path / "new_latest/operation.csv", output_md=tmp_path / "new_latest/operation.md",
+        docs_latest_dir=tmp_path / "new_docs", history_dir=history_dir,
+    )
+    assert all((history_dir / name).read_bytes() == payload for name, payload in old_history.items())
+    new_names = set(item.name for item in history_dir.iterdir()) - set(old_history)
+    assert len(new_names) == 1
+    assert all("_20261019_" in name for name in new_names)

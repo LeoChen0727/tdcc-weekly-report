@@ -22,6 +22,7 @@ producer 只讀：
 - `data/monthly_revenue_history/monthly_revenue_history.csv`
 - `data/stock_price_history/<stock_id>.csv`
 - `config/approved_operation_evidence/revenue_unreacted_range_formal_price_basis_v1_20260925.csv`
+- `config/approved_operation_evidence/revenue_unreacted_range_unpublished_confirmation_coverage_v1_20261019.json`：僅用於下述已核准未發布確認缺口的分類。
 - `config/stock_theme_map.csv`
 - `config/stock_theme_taxonomy_manual.csv`
 - `config/stock_theme_authorized_seed.csv`
@@ -106,6 +107,41 @@ PDF view 也不得同時出現在 `confirmed_operation` 與 `active_operation`�
 `confirmed_unranked_operation` 在沒有額外授權前永遠只輸出 empty state，
 不得把未排名列日後升格為 active。
 
+### 20261019 未發布確認缺口恢復政策
+
+授權參照為 `user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery`。
+上述 versioned coverage JSON 綁定 baseline commit
+`75ae6afd4c4a3fb3b948b7a8bf8630268484515d` 的 authority release、publication
+manifest 與 22 個既有正式歷史檔 inventory，限定未發布確認交易日為
+`20261005/20261006/20261007/20261008/20261012/20261013/20261014/20261015/20261016`，
+`forward_start_date=20261019`。producer 必須先校驗核准檔的 canonical UTF-8
+（去 BOM、換行統一 LF）SHA-256：
+`750ebfc963e22044bb2f8da2c2396763f1aa0cd9df0a970728f13290a9578ff0`。
+此檔只證明該 baseline 的發布 coverage，不能證明確認曾正式發布、曾開倉、
+真實交易或報酬，也不補足首次發布 PIT。
+
+只在上述明列日期、缺少先前正式 buy-ranked confirmed proof，且核准檔證明
+當日未發布時，來源重播紀錄可標記為
+`lifecycle_state=unpublished_confirmation_audit_only` 與
+`audit_disposition=never_formally_published_no_position`。紀錄僅留於記憶體
+`all_records` 與逐列結構化 log
+`event=revenue_unpublished_confirmation_audit_only`，並綁定
+`recovery_approval_reference`、`recovery_coverage_artifact`、
+`recovery_coverage_sha256` 與 `recovery_base_commit_sha`；summary log 使用
+`unpublished_confirmation_audit_rows` 計數。
+
+這些紀錄不開倉、不佔用持倉 non-overlap 區間，不得進入 `lifecycle_records`、
+`confirmed_operation`、`active_operation`、PDF 或正式 history snapshot。
+既有 `OUTPUT_COLUMNS`、凍結門檻、D+1 close 確認、D+2 open 進場、D30 close
+出場及已正式發布持倉的 non-overlap 規則不變；不回填或改寫既有正式歷史。
+自 `20261019` 起的新確認仍須正常發布並留下不可變正式 proof，後續 active
+列才可成立。
+
+若日期不在核准 coverage、超出發布邊界、曾有發布卻遺失確認檔，或核准檔
+缺少／雜湊不符，維持原本 fail-closed。缺少核准 coverage 參數的 replay
+亦維持原本行為。獨立 validator 的正式 confirmed proof 檢查不放寬，
+不得用 audit-only 標籤取代正式歷史證據。
+
 ## Artifact 與 schema
 
 正式輸出：
@@ -164,7 +200,7 @@ append-only proof。
 ```text
 python scripts/build_daily_revenue_unreacted_range_operation_section.py
 python scripts/validate_daily_revenue_unreacted_range_operation_section.py
-python -m pytest tests/test_daily_revenue_unreacted_range_operation_section.py -q
+python -m pytest tests/test_daily_revenue_unreacted_range_operation_section.py tests/test_validate_daily_revenue_unreacted_range_operation_section.py -q
 ```
 
 本檔與上述兩個 scripts 僅建立 model-owned formal adapter infrastructure；

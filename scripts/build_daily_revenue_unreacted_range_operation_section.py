@@ -9,6 +9,7 @@ outputs, readiness artifacts, and mutable latest artifacts are never inputs.
 
 import argparse
 import csv
+from dataclasses import dataclass
 from datetime import datetime
 import hashlib
 import io
@@ -70,6 +71,13 @@ APPROVAL_VERSION = (
 )
 APPROVAL_STATUS = "provisional_backtest_supported_oos_unconfirmed"
 FORMAL_SIGNAL_EFFECTIVE_FROM = "20260831"
+UNPUBLISHED_CONFIRMATION_COVERAGE_PATH = (
+    ROOT / "config/approved_operation_evidence"
+    / "revenue_unreacted_range_unpublished_confirmation_coverage_v1_20261019.json"
+)
+UNPUBLISHED_CONFIRMATION_COVERAGE_SHA256 = "750ebfc963e22044bb2f8da2c2396763f1aa0cd9df0a970728f13290a9578ff0"
+UNPUBLISHED_RECOVERY_LAST_PUBLICATION_DATE = "20261002"
+UNPUBLISHED_RECOVERY_FORWARD_START_DATE = "20261019"
 RULE_SPEC_ID = "revenue_unreacted_range_source_mid_falling_d30_v1"
 RULE_CANONICAL_SHA256 = (
     "1d9fd669251180d2f7edbedb30b121660a218bad232ca49573353000db155633"
@@ -320,6 +328,17 @@ OUTPUT_COLUMNS = (
 
 class RevenueOperationAdapterError(RuntimeError):
     """An objective input or formal lifecycle contract is invalid."""
+
+
+@dataclass(frozen=True)
+class UnpublishedConfirmationCoverage:
+    approval_reference: str
+    artifact_path: str
+    artifact_sha256: str
+    base_commit_sha: str
+    last_formal_publication_date: str
+    forward_start_date: str
+    never_published_confirmation_dates: frozenset[str]
 
 
 def now_taipei_text() -> str:
@@ -1048,6 +1067,95 @@ def load_prior_confirmed_history(
     return confirmed
 
 
+def load_unpublished_confirmation_coverage(
+    path: Path = UNPUBLISHED_CONFIRMATION_COVERAGE_PATH, *, history_dir: Path = HISTORY_DIR,
+) -> UnpublishedConfirmationCoverage:
+    try:
+        text = path.read_text(encoding="utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+    except (OSError, UnicodeError) as exc:
+        raise RevenueOperationAdapterError(f"approved unpublished coverage is unavailable: {path}") from exc
+    actual_sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    if actual_sha != UNPUBLISHED_CONFIRMATION_COVERAGE_SHA256:
+        raise RevenueOperationAdapterError("approved unpublished coverage canonical SHA mismatch")
+    try:
+        document = json.loads(text)
+    except ValueError as exc:
+        raise RevenueOperationAdapterError("approved unpublished coverage JSON is invalid") from exc
+    expected = {
+        "schema_version": "revenue_unpublished_confirmation_coverage_v1",
+        "model_id": MODEL_ID, "variant_id": MODEL_VARIANT_ID,
+        "approval_reference": "user_20261019_authorize_revenue_unpublished_confirmation_gap_recovery",
+        "base_commit_sha": "75ae6afd4c4a3fb3b948b7a8bf8630268484515d",
+        "last_formal_publication_date": UNPUBLISHED_RECOVERY_LAST_PUBLICATION_DATE,
+        "forward_start_date": UNPUBLISHED_RECOVERY_FORWARD_START_DATE,
+        "coverage_start_date": "20261003", "coverage_end_date": "20261018",
+        "evidence_policy": "coverage_only_not_confirmation_or_return_evidence",
+        "never_published_confirmation_dates": [
+            "20261005", "20261006", "20261007", "20261008", "20261012",
+            "20261013", "20261014", "20261015", "20261016",
+        ],
+        "publication_evidence": [
+            {
+                "path": "output/latest/daily_authority_release_latest.json",
+                "canonical_sha256": "ac250ca0608c4698b43687631aff84b5cd5c0efa00dcea6f8ecb7181807d1956",
+                "expected_main_price_date": "20261002", "market_session_date": "20261002",
+                "release_id": "daily-authority-20261002-37000837301-1",
+            },
+            {
+                "path": "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+                "canonical_sha256": "c63a71abfe7e2544ccd83c893d4d3a25b3714aabfe19c071163012e6114e6de3",
+                "max_snapshot_report_date": "20261002", "row_count": 536,
+            },
+        ],
+    }
+    if not isinstance(document, dict) or set(document) != set(expected) | {"formal_history_inventory"}:
+        raise RevenueOperationAdapterError("approved unpublished coverage schema mismatch")
+    for field, value in expected.items():
+        if document[field] != value:
+            raise RevenueOperationAdapterError(f"approved unpublished coverage metadata mismatch: {field}")
+    inventory = document["formal_history_inventory"]
+    if not isinstance(inventory, list) or len(inventory) != 22:
+        raise RevenueOperationAdapterError("approved unpublished coverage requires all 22 published history files")
+    seen: set[str] = set()
+    dates: set[str] = set()
+    for item in inventory:
+        if not isinstance(item, dict) or set(item) != {"path", "report_date", "canonical_sha256"}:
+            raise RevenueOperationAdapterError("published history inventory schema mismatch")
+        match = re.fullmatch(
+            r"output/history/daily_model_snapshots/(daily_revenue_unreacted_range_operation_section_"
+            r"(20[0-9]{6})_([0-9a-f]{64})\.csv)", str(item["path"]),
+        )
+        if match is None or item["path"] in seen:
+            raise RevenueOperationAdapterError("published history inventory path is invalid or duplicated")
+        seen.add(item["path"])
+        date = _date_text(item["report_date"], label="published history inventory date")
+        if date != match.group(2) or date > document["last_formal_publication_date"] or item["canonical_sha256"] != match.group(3):
+            raise RevenueOperationAdapterError("published history inventory date/hash metadata mismatch")
+        dates.add(date)
+        history_path = history_dir / match.group(1)
+        if not history_path.is_file():
+            raise RevenueOperationAdapterError(f"previously published formal history is missing: {history_path}")
+        semantic = _canonical_semantic_csv_bytes(history_path.read_bytes(), source_name=str(history_path))
+        if hashlib.sha256(semantic).hexdigest() != item["canonical_sha256"]:
+            raise RevenueOperationAdapterError(f"previously published formal history hash drift: {history_path}")
+        frame = pd.read_csv(io.BytesIO(semantic), dtype=str, keep_default_na=False)
+        if frame.empty or set(frame["operation_asof_date"]) != {date}:
+            raise RevenueOperationAdapterError(f"previously published formal history date drift: {history_path}")
+    if len(dates) != 22 or max(dates) != document["last_formal_publication_date"]:
+        raise RevenueOperationAdapterError("published history inventory coverage is incomplete")
+    for existing in history_dir.glob("daily_revenue_unreacted_range_operation_section_*.csv"):
+        match = re.match(r"daily_revenue_unreacted_range_operation_section_([0-9]{8})_", existing.name)
+        if match and document["coverage_start_date"] <= match.group(1) <= document["coverage_end_date"]:
+            raise RevenueOperationAdapterError(f"unpublished coverage contradicts existing gap history: {existing}")
+    return UnpublishedConfirmationCoverage(
+        approval_reference=document["approval_reference"], artifact_path=_display_path(path),
+        artifact_sha256=actual_sha, base_commit_sha=document["base_commit_sha"],
+        last_formal_publication_date=document["last_formal_publication_date"],
+        forward_start_date=document["forward_start_date"],
+        never_published_confirmation_dates=frozenset(document["never_published_confirmation_dates"]),
+    )
+
+
 def replay_stock_lifecycle(
     stock_id: str,
     stock_name: str,
@@ -1062,7 +1170,10 @@ def replay_stock_lifecycle(
     taxonomy_paths: Sequence[Path],
     prior_confirmed_history: Mapping[str, tuple[str, str]],
     price_basis_path: Path = FORMAL_PRICE_BASIS_PATH,
+    unpublished_coverage: UnpublishedConfirmationCoverage | None = None,
 ) -> list[dict[str, Any]]:
+    if unpublished_coverage is not None and report_date < unpublished_coverage.forward_start_date:
+        raise RevenueOperationAdapterError("unpublished confirmation recovery_not_started for report_date")
     records: list[dict[str, Any]] = []
     blocked_through_index = -1
     price_sha = _file_sha256(price_source_path)
@@ -1072,6 +1183,8 @@ def replay_stock_lifecycle(
         _display_path(price_basis_path),
         *(_display_path(path) for path in taxonomy_paths),
     ]
+    if unpublished_coverage is not None:
+        base_source_artifacts.append(unpublished_coverage.artifact_path)
     for trigger_index in range(len(frame)):
         signal_date = str(frame.at[trigger_index, "date"])
         if signal_date < FORMAL_SIGNAL_EFFECTIVE_FROM:
@@ -1183,6 +1296,27 @@ def replay_stock_lifecycle(
             frame.at[confirmation_index, "date"]
         )
         base["confirmation_close"] = round(confirmation_close, 8)
+        if (
+            selected_member
+            and unpublished_coverage is not None
+            and base["confirmation_date"] in unpublished_coverage.never_published_confirmation_dates
+        ):
+            if operation_key in prior_confirmed_history:
+                raise RevenueOperationAdapterError(
+                    f"unpublished coverage contradicts a formal confirmed history row: {operation_key}"
+                )
+            records.append({
+                **base,
+                "lifecycle_state": "unpublished_confirmation_audit_only",
+                "audit_disposition": "never_formally_published_no_position",
+                "recovery_approval_reference": unpublished_coverage.approval_reference,
+                "recovery_coverage_artifact": unpublished_coverage.artifact_path,
+                "recovery_coverage_sha256": unpublished_coverage.artifact_sha256,
+                "recovery_base_commit_sha": unpublished_coverage.base_commit_sha,
+            })
+            # No position existed: this signal must not suppress a later legal
+            # confirmation through the formal same-stock non-overlap window.
+            continue
         blocked_through_index = planned_exit_index
         if entry_index >= len(frame):
             if selected_member:
@@ -1269,7 +1403,11 @@ def _lifecycle_replay_sha256(
             for column in columns
         ]
         for record in sorted(
-            records, key=lambda row: str(row["operation_key"])
+            (
+                row for row in records
+                if row["lifecycle_state"] != "unpublished_confirmation_audit_only"
+            ),
+            key=lambda row: str(row["operation_key"]),
         )
     ]
     return hashlib.sha256(
@@ -1277,6 +1415,29 @@ def _lifecycle_replay_sha256(
             payload, ensure_ascii=False, separators=(",", ":")
         ).encode("utf-8")
     ).hexdigest()
+
+
+def log_unpublished_confirmation_audits(records: Sequence[Mapping[str, Any]]) -> int:
+    audits = [row for row in records if row["lifecycle_state"] == "unpublished_confirmation_audit_only"]
+    for row in audits:
+        if any(row.get(field) for field in ("entry_date", "entry_price", "exit_date", "exit_price")):
+            raise RevenueOperationAdapterError("audit-only unpublished confirmation cannot contain an operation price")
+        event = {
+            "event": "revenue_unpublished_confirmation_audit_only",
+            "model_id": MODEL_ID,
+            "model_variant_id": MODEL_VARIANT_ID,
+            **{
+                field: row[field] for field in (
+                    "operation_key", "signal_date", "confirmation_date", "report_date",
+                    "audit_disposition", "recovery_approval_reference", "recovery_coverage_artifact",
+                    "recovery_coverage_sha256", "recovery_base_commit_sha",
+                )
+            },
+            "formal_position_created": False,
+            "formal_trade_or_return_evidence": False,
+        }
+        print(json.dumps(event, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+    return len(audits)
 
 
 def _fixed_row_metadata() -> dict[str, Any]:
@@ -1565,9 +1726,12 @@ def build_operation_section(
     taxonomy_paths: Sequence[Path] = TAXONOMY_PATHS,
     prior_history_dir: Path = HISTORY_DIR,
     price_basis_path: Path = FORMAL_PRICE_BASIS_PATH,
+    unpublished_coverage_path: Path = UNPUBLISHED_CONFIRMATION_COVERAGE_PATH,
     report_date: str | None = None,
     generated_at: str | None = None,
 ) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
+    if report_date and UNPUBLISHED_RECOVERY_LAST_PUBLICATION_DATE < _date_text(report_date, label="report_date") < UNPUBLISHED_RECOVERY_FORWARD_START_DATE:
+        raise RevenueOperationAdapterError("unpublished confirmation recovery_not_started; gap report dates cannot be backfilled")
     _load_formal_price_basis(price_basis_path)
     revenue = load_monthly_revenue_history(monthly_revenue_path)
     taxonomy_map = load_taxonomy(taxonomy_paths)
@@ -1613,6 +1777,13 @@ def build_operation_section(
             )
         normalized_report_date = max(available_dates)
     generated = generated_at or now_taipei_text()
+    unpublished_coverage = None
+    if normalized_report_date > UNPUBLISHED_RECOVERY_LAST_PUBLICATION_DATE:
+        if normalized_report_date < UNPUBLISHED_RECOVERY_FORWARD_START_DATE:
+            raise RevenueOperationAdapterError("unpublished confirmation recovery_not_started; gap report dates cannot be backfilled")
+        unpublished_coverage = load_unpublished_confirmation_coverage(
+            unpublished_coverage_path, history_dir=prior_history_dir,
+        )
     prior_confirmed = (
         load_prior_confirmed_history(
             prior_history_dir,
@@ -1677,6 +1848,7 @@ def build_operation_section(
                 taxonomy_paths=taxonomy_paths,
                 prior_confirmed_history=prior_confirmed,
                 price_basis_path=price_basis_path,
+                unpublished_coverage=unpublished_coverage,
             )
             all_records.extend(records)
             current_records.extend(
@@ -1708,6 +1880,7 @@ def build_operation_section(
             _display_path(stock_price_history_dir),
             _display_path(price_basis_path),
             *(_display_path(path) for path in taxonomy_paths),
+            *((unpublished_coverage.artifact_path,) if unpublished_coverage is not None else ()),
         )
     )
     rows: list[dict[str, Any]] = []
@@ -2007,6 +2180,7 @@ def main() -> int:
         report_date=args.report_date,
         generated_at=args.generated_at,
     )
+    audit_count = log_unpublished_confirmation_audits(records)
     outputs = write_artifacts(
         section,
         output_csv=args.output_csv,
@@ -2020,7 +2194,8 @@ def main() -> int:
     print(
         "Saved formal revenue operation adapter: "
         f"rows={len(section)} data_rows={data_rows} "
-        f"lifecycle_records={len(records)} "
+        f"lifecycle_records={len(records) - audit_count} "
+        f"unpublished_confirmation_audit_rows={audit_count} "
         "semantic_sha256="
         f"{outputs['artifact_semantic_sha256']}"
     )
