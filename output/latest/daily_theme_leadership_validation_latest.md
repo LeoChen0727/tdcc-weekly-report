@@ -1,10 +1,10 @@
 # Daily Theme Leadership Layer Validation
 
 - status: `pass`
-- main_price_date: `20261019`
-- theme_rows: `20`
-- two_line_rows: `349`
-- all_candidate_rows: `349`
+- main_price_date: `20261020`
+- theme_rows: `37`
+- two_line_rows: `507`
+- all_candidate_rows: `507`
 
 ## Errors
 

@@ -448,7 +448,7 @@
 2207,和泰車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2208,台船,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2211,長榮鋼,鋼鐵工業,鋼鐵工業,非主流,,,,,,provisional_industry_mapping
-2221,大甲,其他,其他,非主流,,,,,,
+2221,大甲,其他業,其他業,非主流,,,,,,
 2227,裕日車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2228,劍麟,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2230,泰茂,居家生活,居家生活,非主流,,,,,,
@@ -1142,7 +1142,7 @@
 4536,拓凱,運動休閒,運動休閒,非主流,,,,,,
 4538,大詠城,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4540,全球傳動,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
-4541,晟田,其他業,其他業,非主流,,,,,,
+4541,晟田,其他,其他,非主流,,,,,,
 4542,科嶠,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 4543,萬在,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 4545,銘鈺,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -1667,6 +1667,7 @@
 6597,立誠,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 6598,ABC-KY,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 6603,富強鑫,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
+6604,儒億,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 6605,帝寶,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 6606,建德工業,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 6609,瀧澤科,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1836,7 +1837,7 @@
 6952,大武山,其他業,其他業,非主流,,,,,,
 6953,家碩,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6955,邦睿生技-創,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
-6957,裕慶-KY,其他業,其他業,非主流,,,,,,
+6957,裕慶-KY,其他,其他,非主流,,,,,,
 6958,日盛台駿,其他業,其他業,非主流,,,,,,
 6961,旅天下,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 6962,奕力-KY,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
@@ -2148,7 +2149,7 @@
 7799,禾榮科,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 7803,雲象科技-創,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 7805,威聯通,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
-7806,精華生醫,權證/衍生商品,權證/衍生商品,非主流,,,,,,
+7806,精華生醫,食品工業,食品工業,非主流,,,,,,provisional_industry_mapping
 7810,捷創科技,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 7811,民盛,運動休閒,運動休閒,非主流,,,,,,
 7812,稜研科技*-創,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
@@ -2174,7 +2175,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2336,7 +2337,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
+9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
