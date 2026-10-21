@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20261016,7806,精華生醫,TPEx,55.2,56.7,55.2,55.3,172000.0,9537800.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261016.csv,,,,,,-1.426,,,,,,,,,,,,,,,,,,,,,
 20261019,7806,精華生醫,TPEx,55.2,55.5,55.0,55.1,161000.0,8872400.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261019.csv,,,,,,-0.3617,,,,,,,,,,,,,,,,,,,,,
 20261020,7806,精華生醫,TPEx,55.0,55.2,55.0,55.2,71000.0,3907500.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261020.csv,,,,,,0.1815,,,,,,,,,,,,,,,,,,,,,
+20261021,7806,精華生醫,TPEx,55.9,55.9,55.1,55.5,56000.0,3101200.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261021.csv,55.44,55.44,55.44,55.44,55.8599,0.5435,,,,,160600.0,0.3487,58.5,58.5,58.5,55.0,55.0,55.0,0.1082,0.1082,0.1082,-0.6442,-5.1282,-5.1282,-5.1282,0.9091,0.9091
