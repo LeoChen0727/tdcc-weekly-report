@@ -1952,7 +1952,9 @@ def test_capture_rejects_explicit_prelaunch_publish(tmp_path: Path, report_date:
 
 
 @pytest.mark.parametrize("defect", ["schema", "view", "section", "active", "old_date", "rank", "view_drift", "duplicate"])
-def test_capture_fails_closed_before_creating_any_snapshot(tmp_path: Path, defect: str) -> None:
+def test_capture_fails_closed_before_creating_any_snapshot(tmp_path: Path, defect: str, monkeypatch) -> None:
+    # Retain the capture-only guard independently of the authorized deployment.
+    monkeypatch.setattr(update_snapshots, "CONFIRMATION_CONSUMER_ENABLED", False)
     latest, snapshots, manifest = capture_paths(tmp_path)
     write_minimal_latest_artifacts(latest, "20261019")
     source = write_capture_artifact(latest)

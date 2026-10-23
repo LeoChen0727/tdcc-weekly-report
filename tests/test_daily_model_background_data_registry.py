@@ -363,7 +363,7 @@ def test_forward_capture_missing_or_invalid_freshness_fails_closed(
 
 
 @pytest.mark.parametrize("field,value", [
-    ("point_in_time_status", "forward_capture_not_before_20261020_consumer_disabled_not_full_PIT"),
+    ("point_in_time_status", "forward_capture_not_before_20261020_consumer_enabled_not_full_PIT"),
     ("consumer_models", "all_models"), ("producer", "scripts/other_writer.py"),
     ("artifact_path", "output/history/other_model/*.csv"),
 ])
@@ -395,8 +395,8 @@ def test_forward_capture_sharing_metadata_mismatch_fails_closed(
 
 
 @pytest.mark.parametrize("marker", [
-    "forward_capture_not_before_20261019_consumer_enabled_not_full_PIT",
-    "forward_capture_not_before_20260230_consumer_disabled_not_full_PIT",
+    "forward_capture_not_before_20261019_consumer_unknown_not_full_PIT",
+    "forward_capture_not_before_20260230_consumer_enabled_not_full_PIT",
 ])
 def test_forward_capture_registry_activation_marker_contradiction_fails_closed(
     forward_capture_fixture: tuple[Path, dict[str, str]], marker: str,

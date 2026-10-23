@@ -142,7 +142,7 @@ def validate_price_pullback_forward_capture_registration(
         "source_artifacts": "output/latest/daily_price_pullback_23ema_operation_section_latest.csv",
         "consumer_surfaces": "daily_production",
         "consumer_models": "price_pullback_23ema",
-        "point_in_time_status": "forward_capture_not_before_20261019_consumer_disabled_not_full_PIT",
+        "point_in_time_status": "forward_capture_not_before_20261019_consumer_enabled_not_full_PIT",
         "cleanup_status": "active",
     }
     errors = [
@@ -150,12 +150,12 @@ def validate_price_pullback_forward_capture_registration(
         for field, value in expected.items() if row.get(field) != value
     ]
     marker = re.fullmatch(
-        r"forward_capture_not_before_([0-9]{8})_consumer_disabled_not_full_PIT",
+        r"forward_capture_not_before_([0-9]{8})_consumer_enabled_not_full_PIT",
         row.get("point_in_time_status", ""),
     )
     try:
         if marker is None:
-            raise ValueError("expected a registered capture cutoff with consumer_disabled")
+            raise ValueError("expected a registered capture cutoff with consumer_enabled")
         capture_not_before = _strict_capture_date(marker.group(1))
     except ValueError as exc:
         errors.append(f"{family}: invalid forward capture registry marker: {exc}")
@@ -173,7 +173,7 @@ def validate_price_pullback_forward_capture_registration(
             "registered_producers": expected["producer"],
             "producer_write_scope": artifact_pattern,
             "approved_consumer_models": "price_pullback_23ema",
-            "consumer_access_mode": "owner_model_forward_capture_only_consumer_disabled",
+            "consumer_access_mode": "owner_model_original_r1_confirmation_history_consumer_enabled",
         }
         for field, value in expected_sharing.items():
             if registrations[0].get(field) != value:

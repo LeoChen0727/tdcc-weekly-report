@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import price_pullback_23ema_confirmed_history as history
+import validate_daily_price_pullback_23ema_operation_section as validator
 
 
 @pytest.fixture(autouse=True)
@@ -21,6 +22,9 @@ def activated_reader_unit_fixture(monkeypatch):
     # Exercise the dormant reader independently of the capture-only deployment.
     monkeypatch.setattr(history, "CONFIRMATION_CONSUMER_ENABLED", True)
     monkeypatch.setattr(history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20261001")
+    monkeypatch.setattr(history, "FIRST_REAL_R1_REPORT_DATE", "20261016")
+    monkeypatch.setattr(history, "FIRST_REAL_R1_PATH", "")
+    monkeypatch.setattr(history, "FIRST_REAL_R1_SHA256", "")
 
 
 def confirmation_rows(**changes: str) -> list[dict[str, str]]:
@@ -45,6 +49,7 @@ def write_snapshot(
     supersedes: str = "",
     legacy: bool = False,
     crlf: bool = False,
+    report_date: str = "20261016",
 ) -> tuple[Path, dict[str, str], bytes]:
     buffer = io.StringIO(newline="")
     writer = csv.DictWriter(buffer, fieldnames=list(rows[0]), lineterminator="\r\n" if crlf else "\n")
@@ -52,18 +57,24 @@ def write_snapshot(
     writer.writerows(rows)
     payload = buffer.getvalue().encode("utf-8")
     sha = history.snapshot_payload_sha256(payload)
-    stem = f"{history.SNAPSHOT_STEM}_20261016"
+    stem = f"{history.SNAPSHOT_STEM}_{report_date}"
     name = f"{stem}.csv" if legacy else f"{stem}_{revision}_{sha[:12]}.csv"
     relative = history.SNAPSHOT_REPOSITORY_PATH / name
     path = repository_root / relative
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(payload)
     entry = {
-        "snapshot_report_date": "20261016", "artifact_id": history.ARTIFACT_ID,
+        "snapshot_report_date": report_date, "artifact_id": history.ARTIFACT_ID,
         "snapshot_path": relative.as_posix(), "snapshot_sha256": sha,
         "snapshot_revision": revision, "supersedes_snapshot_sha256": supersedes,
         "revision_reason": "original_saved_confirmation" if revision == "r1" else "source_revision",
     }
+    if revision == "r1" and not history.FIRST_REAL_R1_SHA256:
+        # Each synthetic history binds its own earliest original, never the
+        # production pin or a regenerated rank from a later revision.
+        history.FIRST_REAL_R1_REPORT_DATE = report_date
+        history.FIRST_REAL_R1_PATH = relative.as_posix()
+        history.FIRST_REAL_R1_SHA256 = sha
     return path, entry, payload
 
 
@@ -174,11 +185,16 @@ def test_same_day_and_future_confirmations_are_not_prior_positions(tmp_path) -> 
 
 
 def test_legacy_manifest_and_crlf_hash_remain_compatible(tmp_path) -> None:
-    _, entry, payload = write_snapshot(tmp_path, confirmation_rows(), legacy=True, crlf=True)
+    _, pinned, _ = write_snapshot(tmp_path, confirmation_rows(row_type="empty_state"))
+    _, entry, payload = write_snapshot(
+        tmp_path, confirmation_rows(signal_date="20261017", operation_asof_date="20261017"),
+        legacy=True, crlf=True, report_date="20261017",
+    )
     entry["snapshot_sha256"] = hashlib.sha256(payload).hexdigest()
-    for field in ("snapshot_revision", "supersedes_snapshot_sha256", "revision_reason"):
-        del entry[field]
-    write_manifest(tmp_path, [entry])
+    for item in (pinned, entry):
+        for field in ("snapshot_revision", "supersedes_snapshot_sha256", "revision_reason"):
+            del item[field]
+    write_manifest(tmp_path, [pinned, entry])
     loaded = history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
     assert len(loaded) == 1
     assert loaded.iloc[0]["confirmation_source_sha256"] == history.snapshot_payload_sha256(payload)
@@ -241,3 +257,64 @@ def test_activated_consumer_cannot_import_pre_capture_snapshot(tmp_path, monkeyp
     monkeypatch.setattr(history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20261019")
     with pytest.raises(RuntimeError, match="predates forward capture start"):
         history.load_prior_confirmed_operations("20261020", repository_root=tmp_path)
+
+
+def write_policy(tmp_path: Path, *, enabled: bool) -> Path:
+    path = tmp_path / "confirmation_policy.py"
+    values = {
+        "CONFIRMATION_CONSUMER_ENABLED": enabled,
+        "FIRST_REAL_R1_REPORT_DATE": history.FIRST_REAL_R1_REPORT_DATE,
+        "FIRST_REAL_R1_PATH": history.FIRST_REAL_R1_PATH,
+        "FIRST_REAL_R1_SHA256": history.FIRST_REAL_R1_SHA256,
+    }
+    path.write_text("\n".join(f"{name} = {value!r}" for name, value in values.items()), encoding="utf-8")
+    return path
+
+
+@pytest.mark.parametrize("mode", ["wrong_hash", "missing_first", "later_substitute", "wrong_path", "tampered_payload"])
+def test_activation_requires_the_pinned_first_real_r1(tmp_path, mode) -> None:
+    path, entry, payload = write_snapshot(tmp_path, confirmation_rows())
+    if mode == "wrong_hash":
+        entry["snapshot_sha256"] = "a" * 64
+    elif mode == "missing_first":
+        entry["snapshot_revision"] = "r2"
+        entry["supersedes_snapshot_sha256"] = history.FIRST_REAL_R1_SHA256
+    elif mode == "later_substitute":
+        _, entry, _ = write_snapshot(
+            tmp_path, confirmation_rows(signal_date="20261017", operation_asof_date="20261017"),
+            report_date="20261017",
+        )
+    elif mode == "wrong_path":
+        entry["snapshot_path"] = entry["snapshot_path"].replace("_20261016_", "_20261017_")
+    else:
+        path.write_bytes(payload.replace(b"70.0", b"90.0"))
+    write_manifest(tmp_path, [entry])
+    with pytest.raises(RuntimeError, match="pinned first real r1"):
+        history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
+    errors = validator.validate_confirmation_activation(
+        pd.DataFrame(), repository_root=tmp_path,
+        policy_path=write_policy(tmp_path, enabled=True),
+    )
+    assert errors
+    assert all("first real r1" in error for error in errors)
+
+
+def test_activation_validator_keeps_capture_only_active_rows_forbidden(tmp_path) -> None:
+    frame = pd.DataFrame([{"row_type": "data", "pdf_section": "active_operation"}])
+    errors = validator.validate_confirmation_activation(
+        frame, repository_root=tmp_path,
+        policy_path=write_policy(tmp_path, enabled=False),
+    )
+    assert errors == ["23EMA confirmation consumer is not activated; active data rows are forbidden"]
+
+
+def test_enabled_pinned_reader_and_independent_validator_accept_original_binding(tmp_path) -> None:
+    _, entry, _ = write_snapshot(tmp_path, confirmation_rows())
+    write_manifest(tmp_path, [entry])
+    loaded = history.load_prior_confirmed_operations("20261019", repository_root=tmp_path)
+    assert len(loaded) == 1
+    active = loaded.assign(pdf_section="active_operation", operation_asof_date="20261019", buy_rank_eligible="False")
+    assert validator.validate_confirmation_activation(
+        active, repository_root=tmp_path, policy_path=write_policy(tmp_path, enabled=True),
+    ) == []
+    assert validator.validate_confirmation_bindings(active, repository_root=tmp_path) == []

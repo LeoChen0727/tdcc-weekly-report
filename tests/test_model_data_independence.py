@@ -1531,6 +1531,17 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 62
+    activation = rows[-1]
+    assert activation["migration_id"] == "price_pullback_23ema_confirmation_history_consumer_activation_20261023"
+    assert activation["changed_data_families"] == "price_pullback_23ema_operation_section"
+    assert activation["previous_contract_sha256s"] == "0bc7b3e46e1504e81a7a64439f802bd6ecda2b7e9b6d0b518a81c4af6f9f96aa"
+    assert activation["new_contract_sha256s"] == "8bbfed50bfb81e95a3174f066d1d1fa07d3f8f7bdc8a95b540db5640b1f4d0e5"
+    assert activation["affected_models"] == "price_pullback_23ema"
+    assert activation["user_approval_reference"] == "user_20261023_authorize_23ema_confirmation_history_consumer_activation"
+    assert activation["migration_status"] == "validated_user_approved_migration"
+    # Preserve every assertion for all 61 prior migrations, including capture-only.
+    rows = rows[:-1]
     assert len(rows) == 61
     recovery = rows[-1]
     family = "revenue_unreacted_range_formal_price_basis_operation_adapter"
@@ -1562,9 +1573,11 @@ def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     assert sharing_row["registered_producers"] == background["producer"] == "scripts/update_daily_published_model_snapshots.py"
     assert sharing_row["producer_write_scope"] == background["artifact_path"] == "output/history/daily_model_snapshots/daily_price_pullback_23ema_operation_section_*.csv"
     assert sharing_row["approved_consumer_models"] == background["consumer_models"] == "price_pullback_23ema"
-    assert sharing_row["data_contract_sha256"] == data_contract_sha256(background) == operation_history["new_contract_sha256s"]
-    assert sharing_row["last_migration_id"] == operation_history["migration_id"]
-    assert sharing_row["sharing_decision_reference"] == operation_history["user_approval_reference"]
+    assert operation_history["new_contract_sha256s"] == activation["previous_contract_sha256s"]
+    assert sharing_row["data_contract_sha256"] == data_contract_sha256(background) == activation["new_contract_sha256s"]
+    assert sharing_row["last_migration_id"] == activation["migration_id"]
+    assert sharing_row["sharing_decision_reference"] == activation["user_approval_reference"]
+    assert sharing_row["consumer_access_mode"] == "owner_model_original_r1_confirmation_history_consumer_enabled"
     # Keep the entire prior research registration and immutable baseline intact.
     rows = rows[:-1]
     assert len(rows) == 59

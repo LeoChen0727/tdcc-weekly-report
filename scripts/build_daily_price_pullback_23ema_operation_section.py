@@ -799,14 +799,31 @@ def build_section(signals: pd.DataFrame, approval_frame: pd.DataFrame, report_da
             "no_eligible_prior_confirmation": "no_eligible_prior_confirmation",
         }.get(history_status, "blocked_missing_original_confirmation")
         audit_rows.append(audit_row(pd.Series(dtype=str), report_date, generated_at, audit_status, "False", history_status))
+    admitted_by_key: dict[tuple[str, str], pd.Series] = {}
     active_by_key: dict[tuple[str, str], tuple[str, list[dict[str, str]], dict[str, str]]] = {}
     for _, row in active_candidates.iterrows():
+        key = (stock_id_key(row.get("stock_id")), safe_str(row.get("report_bucket")) or safe_str(row.get("report_line")))
+        signal_date = compact_date(row.get("signal_date"))
+        prior = admitted_by_key.get(key)
+        if prior is not None:
+            # Admission belongs to the original confirmation date. Recomputing
+            # only at the current as-of date would revive an overlapping signal
+            # after the earlier position exits.
+            prior_on_confirmation_date = operation_lifecycle(prior, signal_date)
+            if prior_on_confirmation_date.get("included"):
+                rejected = audit_row(
+                    row, report_date, generated_at,
+                    "suppressed_existing_active_position", "False",
+                    "same_stock_active_on_original_confirmation_date",
+                )
+                rejected.update({field: safe_str(row.get(field)) for field in (*RANK_COLUMNS, *PROOF_COLUMNS)})
+                audit_rows.append(rejected)
+                continue
+        admitted_by_key[key] = row
         active, audit = active_rows(row, approval, report_date, daily_signal_count, generated_at)
         if not active:
             audit_rows.append(audit)
             continue
-        key = (stock_id_key(row.get("stock_id")), safe_str(row.get("report_bucket")) or safe_str(row.get("report_line")))
-        signal_date = compact_date(row.get("signal_date"))
         existing = active_by_key.get(key)
         if existing is not None:
             audit_rows.append(audit_row(row, report_date, generated_at, "suppressed_existing_active_position", "False", "same_stock_already_active"))

@@ -29,10 +29,16 @@ MODEL_ID = "price_pullback_23ema"
 ARTIFACT_ID = "price_pullback_23ema_operation_section"
 SNAPSHOT_STEM = "daily_price_pullback_23ema_operation_section"
 # Earliest permitted forward capture, subject to the official source/runtime gates.
-# A later, separately validated activation must pin the first real r1 before
-# enabling consumption. Capturing rows does not approve operation/return evidence.
+# History consumption is authorized by the model-owned 20261023 activation
+# migration and pinned to the first real r1. It is not return or promotion proof.
 CAPTURE_NOT_BEFORE_REPORT_DATE = "20261019"
-CONFIRMATION_CONSUMER_ENABLED = False
+CONFIRMATION_CONSUMER_ENABLED = True
+FIRST_REAL_R1_REPORT_DATE = "20261019"
+FIRST_REAL_R1_PATH = (
+    "output/history/daily_model_snapshots/"
+    "daily_price_pullback_23ema_operation_section_20261019_r1_d41214b72349.csv"
+)
+FIRST_REAL_R1_SHA256 = "d41214b72349a9683cd686636a5c750b03752caebfd2c85bbb5dcee718b9008f"
 RANK_COLUMNS = ("model_rank", "display_rank", "model_rank_overall")
 PROOF_COLUMNS = (
     "confirmation_source_artifact",
@@ -104,6 +110,23 @@ def load_prior_confirmed_operations(
     if work["_date"].lt(CAPTURE_NOT_BEFORE_REPORT_DATE).any():
         raise RuntimeError("23EMA confirmation snapshot predates forward capture start")
     work["_revision"] = work["snapshot_revision"].map(normalize_snapshot_revision)
+    first_real = work[
+        work["_date"].eq(FIRST_REAL_R1_REPORT_DATE) & work["_revision"].eq("r1")
+    ]
+    if len(first_real) != 1:
+        raise RuntimeError("23EMA confirmation history requires exactly one pinned first real r1")
+    first_source = first_real.iloc[0]
+    if (str(first_source["snapshot_sha256"]) != FIRST_REAL_R1_SHA256
+            or str(first_source["snapshot_path"]).replace("\\", "/") != FIRST_REAL_R1_PATH
+            or str(first_source["supersedes_snapshot_sha256"])):
+        raise RuntimeError("23EMA pinned first real r1 manifest identity mismatch")
+    first_path = _resolve_snapshot_path(
+        str(first_source["snapshot_path"]), repository_root=root,
+        approved_relative_path=Path(FIRST_REAL_R1_PATH), snapshot_dir=directory,
+    )
+    _require_path_under_snapshot_dir(first_path, directory)
+    if snapshot_payload_sha256(first_path.read_bytes()) != FIRST_REAL_R1_SHA256:
+        raise RuntimeError("23EMA pinned first real r1 source SHA-256 mismatch")
     work = work[work["_date"].lt(asof)]
     status = "no_prior_confirmation_snapshot"
     for date, group in work.groupby("_date", sort=True):
