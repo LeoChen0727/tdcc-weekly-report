@@ -23,6 +23,8 @@ def isolated_confirmation_history(monkeypatch, tmp_path) -> None:
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", tmp_path / "output/history/daily_model_snapshots")
     monkeypatch.setattr(confirmation_history, "CONFIRMATION_CONSUMER_ENABLED", False)
     monkeypatch.setattr(confirmation_history, "CAPTURE_NOT_BEFORE_REPORT_DATE", "20260701")
+    for field in ("FIRST_REAL_R1_REPORT_DATE", "FIRST_REAL_R1_PATH", "FIRST_REAL_R1_SHA256"):
+        monkeypatch.setattr(confirmation_history, field, "", raising=False)
 
 
 def approval_frame() -> pd.DataFrame:
@@ -80,6 +82,9 @@ def save_original_confirmation(signal_date: str = "20260703", **changes: str) ->
         "snapshot_revision": "r1", "supersedes_snapshot_sha256": "", "revision_reason": "original_confirmed_rows",
     }
     pd.DataFrame([entry]).to_csv(builder.MODEL_SNAPSHOT_DIR / "daily_published_model_snapshot_manifest.csv", index=False)
+    confirmation_history.FIRST_REAL_R1_REPORT_DATE = signal_date
+    confirmation_history.FIRST_REAL_R1_PATH = relative.as_posix()
+    confirmation_history.FIRST_REAL_R1_SHA256 = sha
     return entry
 
 
@@ -260,6 +265,57 @@ def test_active_rows_reject_unranked_source_before_price_replay(monkeypatch) -> 
     rows, audit = builder.active_rows(pd.Series(raw), {}, "20260708", 0, "fixture")
     assert rows == []
     assert audit["reason"] == "original_buy_ranked_confirmation_required"
+
+
+def test_overlapping_historical_confirmation_never_revives_after_prior_exit(monkeypatch) -> None:
+    # The later signal has a higher previous-high target, so the old as-of-only
+    # deduplication incorrectly revives it after the first position has exited.
+    price = active_price()
+    price.loc[price["date"].eq("20260706"), "high"] = 30.0
+    price.loc[price["date"].eq("20260708"), "close"] = 12.5
+    price.loc[price["date"].eq("20260708"), "high"] = 13.0
+    price = pd.concat([
+        price,
+        pd.DataFrame([
+            {"date": "20260709", "open": 12.6, "high": 13.0, "low": 12.0, "close": 12.7},
+            {"date": "20260710", "open": 12.8, "high": 13.0, "low": 12.0, "close": 12.7},
+        ]),
+    ], ignore_index=True)
+    monkeypatch.setattr(builder, "price_for_stock", lambda _stock_id: price)
+    first = save_original_confirmation("20260703")
+    overlapping = save_original_confirmation("20260707")
+
+    def save_history(*entries: dict[str, str]) -> None:
+        pd.DataFrame(entries).to_csv(
+            builder.MODEL_SNAPSHOT_DIR / "daily_published_model_snapshot_manifest.csv",
+            index=False,
+        )
+        confirmation_history.FIRST_REAL_R1_REPORT_DATE = first["snapshot_report_date"]
+        confirmation_history.FIRST_REAL_R1_PATH = first["snapshot_path"]
+        confirmation_history.FIRST_REAL_R1_SHA256 = first["snapshot_sha256"]
+
+    save_history(first, overlapping)
+    section, audit = builder.build_section(
+        pd.DataFrame([signal_row("20260709")]), approval_frame(), "20260709", "fixture",
+    )
+    data = section[section["row_type"].eq("data")]
+    assert set(data["pdf_section"]) == {"confirmed_operation"}
+    assert set(data["signal_date"]) == {"20260709"}
+    suppressed = audit[audit["signal_date"].eq("20260707")]
+    assert set(suppressed["audit_status"]) == {"suppressed_existing_active_position"}
+    assert set(suppressed["reason"]) == {"same_stock_active_on_original_confirmation_date"}
+    assert set(suppressed["included_in_daily_adapter"]) == {"False"}
+
+    after_exit = save_original_confirmation("20260709")
+    save_history(first, overlapping, after_exit)
+    section, _ = builder.build_section(
+        pd.DataFrame(columns=["model_id", "signal_date", "stock_id"]),
+        approval_frame(), "20260710", "fixture",
+    )
+    data = section[section["row_type"].eq("data")]
+    assert set(data["pdf_section"]) == {"active_operation"}
+    assert set(data["signal_date"]) == {"20260709"}
+    assert set(data["entry_date"]) == {"20260710"}
 
 
 def test_protected_fields_are_written_once_by_adapter_constructors() -> None:

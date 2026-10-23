@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import csv
 import hashlib
 import io
@@ -212,6 +213,72 @@ def validate_capture_only_section(frame: pd.DataFrame) -> list[str]:
     return ["23EMA confirmation consumer is not activated; active data rows are forbidden"] if not active.empty else []
 
 
+def validate_confirmation_activation(
+    frame: pd.DataFrame,
+    *,
+    repository_root: Path,
+    policy_path: Path | None = None,
+) -> list[str]:
+    """Read model-owned literal policy without importing production functions.
+
+    The first-r1 and saved-row bindings are source-consumption checks, not
+    independent selector, PIT, realized-return or promotion evidence.
+    """
+    source = policy_path or Path(__file__).with_name("price_pullback_23ema_confirmed_history.py")
+    names = {
+        "CONFIRMATION_CONSUMER_ENABLED", "FIRST_REAL_R1_REPORT_DATE",
+        "FIRST_REAL_R1_PATH", "FIRST_REAL_R1_SHA256",
+    }
+    policy: dict[str, object] = {}
+    try:
+        for statement in ast.parse(source.read_text(encoding="utf-8-sig")).body:
+            if isinstance(statement, ast.Assign):
+                for target in statement.targets:
+                    if isinstance(target, ast.Name) and target.id in names:
+                        if target.id in policy:
+                            return [f"23EMA confirmation policy repeats {target.id}"]
+                        policy[target.id] = ast.literal_eval(statement.value)
+        if (set(policy) != names
+                or type(policy["CONFIRMATION_CONSUMER_ENABLED"]) is not bool
+                or any(not isinstance(policy[name], str) for name in names - {"CONFIRMATION_CONSUMER_ENABLED"})):
+            return ["23EMA confirmation policy requires its literal activation flag and first-r1 identity"]
+        if not policy["CONFIRMATION_CONSUMER_ENABLED"]:
+            return validate_capture_only_section(frame)
+        directory = (Path(repository_root) / SNAPSHOT_REPOSITORY_PATH).resolve()
+        manifest = pd.read_csv(directory / MANIFEST_NAME, dtype=str, keep_default_na=False)
+        needed = {"artifact_id", "snapshot_report_date", "snapshot_revision",
+                  "snapshot_sha256", "snapshot_path", "supersedes_snapshot_sha256"}
+        if not needed.issubset(manifest.columns):
+            return ["23EMA activation manifest lacks explicit original-r1 columns"]
+        original = manifest[
+            manifest["artifact_id"].eq("price_pullback_23ema_operation_section")
+            & manifest["snapshot_report_date"].eq(policy["FIRST_REAL_R1_REPORT_DATE"])
+            & manifest["snapshot_revision"].eq("r1")
+        ]
+        if len(original) != 1:
+            return ["23EMA activation requires exactly one pinned first real r1"]
+        row = original.iloc[0]
+        expected_path = str(policy["FIRST_REAL_R1_PATH"])
+        expected_sha = str(policy["FIRST_REAL_R1_SHA256"])
+        name = Path(expected_path).name
+        if (row["snapshot_sha256"] != expected_sha
+                or str(row["snapshot_path"]).replace("\\", "/") != expected_path
+                or expected_path != (SNAPSHOT_REPOSITORY_PATH / name).as_posix()
+                or re.fullmatch(r"[0-9a-f]{64}", expected_sha) is None
+                or row["supersedes_snapshot_sha256"]):
+            return ["23EMA activation first real r1 manifest identity mismatch"]
+        path = (directory / name).resolve()
+        if not path.is_relative_to(directory):
+            return ["23EMA activation first real r1 escapes the snapshot directory"]
+        payload = path.read_bytes()
+        canonical = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        if hashlib.sha256(canonical).hexdigest() != expected_sha:
+            return ["23EMA activation first real r1 source SHA-256 mismatch"]
+    except (OSError, UnicodeError, ValueError, SyntaxError) as exc:
+        return [f"cannot validate 23EMA activation first real r1: {exc}"]
+    return []
+
+
 def validate_confirmation_bindings(
     frame: pd.DataFrame,
     *,
@@ -354,7 +421,7 @@ def main() -> int:
     audit = read_csv(AUDIT_CSV, dtype=str).fillna("") if AUDIT_CSV.exists() else pd.DataFrame()
     if not section.empty:
         errors.extend(validate_section(section))
-        errors.extend(validate_capture_only_section(section))
+        errors.extend(validate_confirmation_activation(section, repository_root=ROOT))
         errors.extend(validate_confirmation_bindings(section, repository_root=ROOT))
     if not audit.empty:
         errors.extend(validate_audit(audit))
