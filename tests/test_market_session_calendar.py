@@ -535,6 +535,89 @@ def _official_city_row(city: str, detail: str) -> str:
     )
 
 
+def _regional_official_closure_page(decision: str = "今天停止上班、停止上課。") -> bytes:
+    # Reduced schema from the retained 20261023 official page, SHA-256:
+    # 908169ab8d419a1f2b4df75b4320b65c0903eb4a96662fc1de6a6f19b0ef4500.
+    rows = (
+        '<TR><TD rowSpan="2" headers="city_Region North">北部地區</TD>'
+        '<TD headers="city_Name Keelung City">基隆市</TD>'
+        '<TD>今天照常上班、照常上課。</TD></TR>'
+        '<TR><TD headers="city_Name Taipei City">臺北市</TD>'
+        f'<TD>{decision}</TD></TR>'
+        '<TR><TD rowSpan="1" headers="city_Region Outer Island area">外島地區</TD>'
+        '<TD headers="city_Name Kinmen County">金門縣</TD>'
+        '<TD>今天照常上班、照常上課。</TD></TR>'
+        '<TR><TD colspan="3">備註：官方說明</TD></TR>'
+    )
+    return _official_closure_page(rows).replace(
+        '<TR><TH>縣市名稱</TH><TH>是否停止上班上課情形</TH></TR>'.encode(),
+        ('<THEAD><TR><TD id="city_Region">區域</TD><TD id="city_Name">縣市名稱</TD>'
+         '<TD id="StopWorkSchool_Info">是否停止上班上課情形</TD></TR></THEAD>').encode(),
+    )
+
+
+@pytest.mark.parametrize("decision,expected", [
+    ("今天停止上班、停止上課。", "closed_emergency"),
+    ("今天上午停止上班、停止上課。", "closed_emergency"),
+    ("今天下午停止上班、停止上課。", "unknown"),
+    ("今天照常上班、照常上課。", "unknown"),
+])
+def test_official_dgpa_region_table_preserves_taipei_market_gate(tmp_path, decision, expected):
+    status = market_session.refresh_market_session_status(
+        tmp_path, phase="preflight", as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        fetch_bytes=_fetcher(_regional_official_closure_page(decision)), write_files=False,
+    )
+    assert status["market_status"] == expected
+    assert status["official_sources"]["dgpa_emergency_closure"]["status"] == "ok"
+    assert status["should_run_daily_pipeline"] is (expected == "unknown")
+    if expected == "closed_emergency":
+        assert status["reason_code"] == "taipei_full_day_or_morning_work_suspension"
+    else:
+        assert status["reason_code"] != "twse_tpex_target_date_confirmed"
+
+
+@pytest.mark.parametrize("mutation", [
+    "wrong_header", "duplicate_header", "region_header", "zero_span", "short_span",
+    "long_span", "missing_region", "city_header", "decision_header", "extra_cell",
+    "city_span", "duplicate_city", "missing_decision", "incomplete_span",
+])
+def test_official_dgpa_region_table_rejects_unrecognized_structure(mutation):
+    payload = _regional_official_closure_page().decode()
+    if mutation == "wrong_header":
+        payload = payload.replace('id="city_Region"', 'id="unknown"')
+    elif mutation == "duplicate_header":
+        payload = payload.replace('id="city_Name"', 'id="city_Region"')
+    elif mutation == "region_header":
+        payload = payload.replace('headers="city_Region North"', 'headers="unknown North"')
+    elif mutation == "zero_span":
+        payload = payload.replace('rowSpan="2"', 'rowSpan="0"')
+    elif mutation == "short_span":
+        payload = payload.replace('rowSpan="2"', 'rowSpan="1"')
+    elif mutation == "long_span":
+        payload = payload.replace('rowSpan="2"', 'rowSpan="3"')
+    elif mutation == "missing_region":
+        payload = payload.replace('<TD rowSpan="2" headers="city_Region North">北部地區</TD>', '')
+    elif mutation == "city_header":
+        payload = payload.replace('headers="city_Name Taipei City"', 'headers="not_city_Name Taipei City"')
+    elif mutation == "decision_header":
+        payload = payload.replace('<TD>今天停止上班、停止上課。', '<TD headers="city_Name">今天停止上班、停止上課。')
+    elif mutation == "extra_cell":
+        payload = payload.replace('<TD>今天停止上班、停止上課。', '<TD>額外欄位</TD><TD>今天停止上班、停止上課。')
+    elif mutation == "city_span":
+        payload = payload.replace('<TD headers="city_Name Taipei City">', '<TD rowspan="2" headers="city_Name Taipei City">')
+    elif mutation == "duplicate_city":
+        payload = payload.replace('>基隆市</TD>', '>臺北市</TD>')
+    elif mutation == "missing_decision":
+        payload = payload.replace('今天停止上班、停止上課。', '')
+    else:
+        payload = payload.replace('rowSpan="1" headers="city_Region Outer', 'rowSpan="2" headers="city_Region Outer')
+    with pytest.raises(market_session.MarketSessionError):
+        market_session.parse_dgpa_closure_page(
+            payload.encode(), assessment_date="20260710",
+            as_of=datetime(2026, 7, 10, 19, 30, tzinfo=TAIPEI_TZ),
+        )
+
+
 @pytest.mark.parametrize("decision,expected", [
     ("今天停止上班、停止上課。", "closed_emergency"),
     ("今天上午停止上班、停止上課。", "closed_emergency"),

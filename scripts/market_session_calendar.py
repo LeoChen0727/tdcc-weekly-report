@@ -588,8 +588,23 @@ def parse_dgpa_closure_page(
     notices: list[EmergencyNotice] = []
     announcements = 0
     empty_marker = False
-    for cells in page.rows:
-        if not cells:  # Column headings use TH, not TD.
+    # The public three-column page uses TD headings and a region cell spanning
+    # several cities. Keep that explicit schema separate from the two-column one.
+    regional_header = (
+        ("city_Region", "區域"),
+        ("city_Name", "縣市名稱"),
+        ("StopWorkSchool_Info", "是否停止上班上課情形"),
+    )
+    regional_layout = bool(page.rows) and tuple(
+        (attrs.get("id"), re.sub(r"\s+", "", text))
+        for attrs, text in page.rows[0]
+    ) == regional_header
+    region_rows_remaining = 0
+    regional_cities: set[str] = set()
+    for row_index, cells in enumerate(page.rows):
+        if regional_layout and row_index == 0:
+            continue
+        if not cells:  # The two-column schema uses TH headings.
             continue
         if len(cells) == 1 and cells[0][0].get("colspan") == "3":
             continue  # Official explanatory footer, not an announcement.
@@ -598,7 +613,35 @@ def parse_dgpa_closure_page(
                 raise MarketSessionError("DGPA official closure page has an unknown empty-state marker")
             empty_marker = True
             continue
-        if (
+        if regional_layout:
+            if len(cells) == 3:
+                region_attrs, region_text = cells[0]
+                region_headers = (region_attrs.get("headers") or "").split()
+                span = region_attrs.get("rowspan") or ""
+                if (
+                    region_rows_remaining or len(region_headers) < 2
+                    or region_headers[0] != "city_Region" or not region_text
+                    or not re.fullmatch(r"[1-9]\d*", span)
+                    or region_attrs.get("colspan") not in {None, "1"}
+                ):
+                    raise MarketSessionError("DGPA official closure page has an invalid region row")
+                region_rows_remaining = int(span)
+                cells = cells[1:]
+            if len(cells) != 2 or not region_rows_remaining:
+                raise MarketSessionError("DGPA official closure page has an invalid region span")
+            city_headers = (cells[0][0].get("headers") or "").split()
+            if (
+                len(city_headers) < 2 or city_headers[0] != "city_Name"
+                or cells[1][0].get("headers") not in {None, "StopWorkSchool_Info"}
+                or any(attrs.get(key) not in {None, "1"}
+                       for attrs, _text in cells for key in ("colspan", "rowspan"))
+                or not cells[0][1] or not cells[1][1]
+                or cells[0][1] in regional_cities
+            ):
+                raise MarketSessionError("DGPA official closure page has an invalid announcement row")
+            region_rows_remaining -= 1
+            regional_cities.add(cells[0][1])
+        elif (
             len(cells) != 2 or cells[0][0].get("headers") != "city_Name"
             or cells[1][0].get("headers") != "StopWorkSchool_Info"
             or not cells[0][1] or not cells[1][1]
@@ -626,6 +669,8 @@ def parse_dgpa_closure_page(
                 source_record_id=f"dgpa-page-{updated.strftime('%Y%m%d%H%M%S')}-{len(notices)}",
                 source_url=DGPA_EMERGENCY_FEED_URL, source_updated_at=updated.isoformat(),
             ))
+    if region_rows_remaining:
+        raise MarketSessionError("DGPA official closure page has an incomplete region span")
     if (empty_marker and announcements) or (not empty_marker and not announcements):
         raise MarketSessionError("DGPA official closure page has missing or conflicting announcements")
     return notices
