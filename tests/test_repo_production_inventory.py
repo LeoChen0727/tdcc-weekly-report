@@ -1140,10 +1140,32 @@ def test_pr_safe_trust_root_paths_are_exact_after_ledger_retirement() -> None:
             ".github/workflows/individual_stock_pr_validation.yml",
             "scripts/detect_individual_stock_pr_scope.py",
             "scripts/validate_repo_production_inventory.py",
+            "scripts/pr_inherited_market_closure.py",
             *helper_paths,
             "config/repo_file_lifecycle_semantic_migrations.csv",
         }
     )
+
+
+def test_shared_closure_evidence_cannot_change_without_maintainer_approval(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    target = "scripts/pr_inherited_market_closure.py"
+    assert target in inventory.PR_SAFE_TRUST_ROOT_PATHS
+    base_sha, head_sha = _install_trust_guard_git_stub(
+        monkeypatch, diff_payload=b"M\0" + target.encode() + b"\0",
+    )
+    arguments = dict(
+        base_repository=inventory.PR_SAFE_REPOSITORY,
+        head_repository=inventory.PR_SAFE_REPOSITORY,
+    )
+    rejected = inventory.validate_pr_trust_root_change(
+        base_sha, head_sha, maintainer_approved="false", **arguments,
+    )
+    assert any("trust-root-maintenance-approved" in error for error in rejected)
+    assert inventory.validate_pr_trust_root_change(
+        base_sha, head_sha, maintainer_approved="true", **arguments,
+    ) == []
 
 
 def test_routine_guard_does_not_read_retired_authorization_csv() -> None:

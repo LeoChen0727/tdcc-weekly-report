@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import hashlib
 import subprocess
 from pathlib import Path
 
@@ -16,6 +17,54 @@ WORKFLOW = ROOT / ".github" / "workflows" / "daily_model_maintenance_pr_validati
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 WARRANT_WORKFLOW = ROOT / ".github" / "workflows" / "warrant_flow.yml"
 PDF_REPLAY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_pdf_replay_pr_validation.yml"
+
+
+def test_inherited_market_closure_regression_wiring_preserves_production_gates() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    step = job_step("repo_current_contracts", "驗證繼承休市來源的 PR 控制邊界", text)
+    assert step
+    assert active_field(step, "if") is None
+    assert active_field(step, "continue-on-error") is None
+    assert active_field(step, "shell") == "bash"
+    assert active_field(step, "run") == (
+        "set -euo pipefail\n"
+        "python -m pytest -q tests/test_pr_inherited_market_closure.py "
+        "tests/test_repo_advanced_integrity_pr_safe.py "
+        "tests/test_daily_published_model_snapshots_pr_safe.py "
+        "tests/test_repo_production_inventory.py "
+        "tests/test_daily_model_maintenance_pr_validation_workflow.py"
+    )
+    assert not any(token in step for token in (
+        "scripts/build_", "scripts/update_", "scripts/generate_", "workflow_dispatch", "|| true",
+    ))
+    current = job_step("repo_current_contracts", "Validate current repository and PDF contracts", text)
+    assert active_field(current, "if") is None
+    assert 'python scripts/validate_repo_advanced_integrity_pr_safe.py --base-ref "$BASE_SHA"' in (active_field(current, "run") or "")
+    production = job_step("repo_current_contracts", "Validate selected production and PDF contracts", text)
+    assert active_field(production, "if") == "needs.scope.outputs.production_pdf_contracts == 'true"
+    assert 'python scripts/validate_daily_published_model_snapshots_pr_safe.py --base-ref "$BASE_SHA"' in (active_field(production, "run") or "")
+    wrapper = ROOT / "scripts/validate_daily_published_model_snapshots_pr_safe.py"
+    canonical_sha = hashlib.sha256(wrapper.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+    assert f"SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256: {canonical_sha}" in job_block("repo_current_contracts", text)
+
+
+@pytest.mark.parametrize("path", (
+    "scripts/pr_inherited_market_closure.py",
+    "tests/test_pr_inherited_market_closure.py",
+    "tests/test_repo_production_inventory.py",
+))
+def test_inherited_market_closure_exact_paths_route_to_current_contracts(path: str) -> None:
+    assert path in model_scope.INHERITED_MARKET_CLOSURE_VALIDATION_PATHS
+    assert path in model_scope.WATCHED_PATH_PATTERNS
+    assert path in model_scope.LEGACY_REPO_CURRENT_EXACT_PATHS
+    assert model_scope.domains_for_path(path) == frozenset({model_scope.REPO_CURRENT_CONTRACTS})
+
+
+def test_inherited_market_closure_scope_has_no_glob_or_producer_authorization() -> None:
+    assert model_scope.INHERITED_MARKET_CLOSURE_VALIDATION_PATHS == (
+        "scripts/pr_inherited_market_closure.py", "tests/test_pr_inherited_market_closure.py",
+        "tests/test_repo_production_inventory.py",
+    )
 
 
 JOB_LINE = re.compile(

@@ -16,6 +16,10 @@ from validate_daily_published_model_snapshots import (  # noqa: E402
     ARTIFACTS,
     validate_current_report_snapshots,
 )
+from pr_inherited_market_closure import (  # noqa: E402
+    is_inherited_market_closure_candidate,
+    validate_inherited_market_closure,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -762,6 +766,26 @@ def is_control_plane_self_update_migration(
     )
 
 
+def validate_inherited_closure_control_delta(
+    base_ref: str,
+    changed_paths: set[str],
+    *,
+    repository_root: Path,
+) -> list[str]:
+    # Import only when this PR-only branch is reached. The advanced wrapper
+    # owns the shared control-plane boundary; snapshot artifact protection
+    # remains independently enforced below.
+    from validate_repo_advanced_integrity_pr_safe import (
+        validate_inherited_closure_control_delta as validate_control_delta,
+    )
+
+    return validate_control_delta(
+        base_ref,
+        changed_paths,
+        repository_root=repository_root,
+    )
+
+
 def validate_pr_safe_snapshot_contract(
     base_ref: str,
     *,
@@ -778,6 +802,63 @@ def validate_pr_safe_snapshot_contract(
     strict_surface_changes = {
         path for path in changed_paths if requires_strict_runtime_validation(path)
     }
+    effective_latest_dir = latest_dir or repository_root / "output" / "latest"
+    strict_errors = validate_current_report_snapshots(
+        latest_dir=effective_latest_dir,
+        snapshot_dir=repository_root / "output" / "history" / "daily_model_snapshots",
+        manifest_path=(
+            repository_root
+            / "output"
+            / "history"
+            / "daily_model_snapshots"
+            / "daily_published_model_snapshot_manifest.csv"
+        ),
+    )
+    if not strict_errors:
+        return []
+
+    if is_inherited_market_closure_candidate(
+        effective_latest_dir / "data_freshness_latest.csv"
+    ):
+        if strict_errors != [EXPECTED_STRICT_NOT_READY_ERROR]:
+            return [
+                "PR-safe closed-market snapshot validation may inherit only the exact "
+                "report_ready=False error; the strict validator reported other failures",
+                *strict_errors,
+            ]
+        if effective_latest_dir.resolve() != (
+            repository_root / "output" / "latest"
+        ).resolve():
+            return [
+                "PR-safe closed-market snapshot validation requires the repository "
+                "latest directory"
+            ]
+        # Neither a shared control-delta decision nor an earlier historical
+        # migration may authorize changing a snapshot, publisher, or source.
+        # Only these two original strict paths are PR control-plane surfaces.
+        protected_snapshot_changes = strict_surface_changes - {
+            PR_SAFE_HELPER_PATH,
+            PR_VALIDATION_WORKFLOW_PATH,
+        }
+        if protected_snapshot_changes:
+            return [
+                "full runtime daily published model snapshot validation is required "
+                "because the PR changes protected snapshot surface(s): "
+                + ", ".join(sorted(protected_snapshot_changes)),
+                *strict_errors,
+            ]
+        control_errors = validate_inherited_closure_control_delta(
+            base_ref,
+            changed_paths,
+            repository_root=repository_root,
+        )
+        if control_errors:
+            return control_errors
+        return validate_inherited_market_closure(
+            base_ref,
+            repository_root=repository_root,
+        )
+
     if is_initial_pr_safe_gate_bootstrap(
         base_ref,
         strict_surface_changes,
@@ -803,20 +884,6 @@ def validate_pr_safe_snapshot_contract(
         repository_root=repository_root,
     ):
         strict_surface_changes = set()
-    effective_latest_dir = latest_dir or repository_root / "output" / "latest"
-    strict_errors = validate_current_report_snapshots(
-        latest_dir=effective_latest_dir,
-        snapshot_dir=repository_root / "output" / "history" / "daily_model_snapshots",
-        manifest_path=(
-            repository_root
-            / "output"
-            / "history"
-            / "daily_model_snapshots"
-            / "daily_published_model_snapshot_manifest.csv"
-        ),
-    )
-    if not strict_errors:
-        return []
     if strict_surface_changes:
         return [
             "full runtime daily published model snapshot validation is required because "

@@ -87,8 +87,15 @@ MODEL_EVIDENCE_INTEGRITY_PATHS = (
     "tests/test_volume_v2_high_position_d15_reconciliation.py",
 )
 
+INHERITED_MARKET_CLOSURE_VALIDATION_PATHS = (
+    "scripts/pr_inherited_market_closure.py",
+    "tests/test_pr_inherited_market_closure.py",
+    "tests/test_repo_production_inventory.py",
+)
+
 WATCHED_PATH_PATTERNS = (
     *MODEL_EVIDENCE_INTEGRITY_PATHS,
+    *INHERITED_MARKET_CLOSURE_VALIDATION_PATHS,
     "scripts/build_revenue_unreacted_range_outcome_unit_reconciliation.py",
     "scripts/validate_revenue_unreacted_range_outcome_unit_reconciliation.py",
     "config/revenue_unreacted_range_outcome_unit_actions_v1.json",
@@ -734,6 +741,7 @@ RESEARCH_DOMAINS = frozenset(
 LEGACY_REPO_CURRENT_EXACT_PATHS = frozenset(
     {
         *MODEL_EVIDENCE_INTEGRITY_PATHS,
+        *INHERITED_MARKET_CLOSURE_VALIDATION_PATHS,
         "config/daily_model_background_data_registry.csv",
         "config/daily_model_condition_spec.csv",
         "output/latest/daily_neckline_volume_breakout_confirmation_operation_section_latest.csv",

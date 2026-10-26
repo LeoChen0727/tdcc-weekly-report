@@ -92,6 +92,7 @@ PR_SAFE_TRUST_ROOT_PATHS = frozenset(
         "scripts/validate_repo_production_inventory.py",
         "scripts/validate_repo_advanced_integrity_pr_safe.py",
         "scripts/validate_daily_published_model_snapshots_pr_safe.py",
+        "scripts/pr_inherited_market_closure.py",
         PR_SAFE_LIFECYCLE_AUTHORIZATION_PATH,
     }
 )
