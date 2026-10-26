@@ -181,6 +181,18 @@ jobs:
           python scripts/validate_git_worktree_safety.py
           python scripts/validate_repo_code_isolation_policy.py
 
+      - name: 驗證模型證據修復與保留邊界
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_formal_model_evidence_pins.py
+          python scripts/validate_neckline_operation_metadata.py
+          python scripts/audit_volume_v2_low_position_d15_reconciliation.py --output "$RUNNER_TEMP/volume-low-d15-reconciliation.json"
+          python scripts/validate_volume_v2_low_position_d15_reconciliation.py --receipt "$RUNNER_TEMP/volume-low-d15-reconciliation.json"
+          python scripts/audit_volume_v2_high_position_d15_reconciliation.py --output "$RUNNER_TEMP/volume-high-d15-reconciliation.json"
+          python scripts/validate_volume_v2_high_position_d15_reconciliation.py --receipt "$RUNNER_TEMP/volume-high-d15-reconciliation.json"
+          python -m pytest -q tests/test_formal_model_evidence_pins.py tests/test_neckline_operation_metadata.py tests/test_volume_v2_low_position_d15_reconciliation.py tests/test_volume_v2_high_position_d15_reconciliation.py
+
       - name: 來源修復回歸測試
         run: |
           python -m pytest tests/test_backfill_official_daily_price.py tests/test_historical_tpex_price_repair.py tests/test_daily_selected_price_source_recovery.py -q

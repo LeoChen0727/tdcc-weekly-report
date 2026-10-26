@@ -24,7 +24,7 @@
 | hot_theme_pullback | production_proxy | production_current_proxy | 6 | 5590 | 906 | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | usable_for_relative_research_only_until_blocker_resolved |
 | revenue_unreacted_range | production_parity | revenue_unreacted_range_source_mid_falling_frozen_rule_launch_evidence_v1_20260830 | 2 | 53 | 48 |  | usable_as_exact_production_parity_provisional_backtest_supported_oos_unconfirmed_post_launch_monitoring_non_hard_no_tuning_no_reselection_monthly_revenue_only |
 | w_bottom_right_side | production_parity | w_bottom_early_entry_operation_v2 | 3 | 44 | 44 |  | usable_as_exact_baseline |
-| neckline_volume_breakout_confirmation | production_parity | neckline_strict_45_signal_90_score_v1 | 0 | 51 | 51 |  | usable_as_exact_baseline |
+| neckline_volume_breakout_confirmation | production_parity | neckline_strict_45_signal_90_score_v1 | 0 | 51 | 50 |  | usable_as_exact_baseline |
 | pullback_short_reclaim | production_proxy | production_current_proxy | 3 | 89287 | 1863 | pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled | usable_for_relative_research_only_until_blocker_resolved |
 | tdcc_stealth_accumulation | production_proxy | production_current_proxy | 3 | 41834 | 1790 | tdcc_price_phase is not fully available historically for every signal date | usable_for_relative_research_only_until_blocker_resolved |
 | tdcc_short_term_continuation_d5_d10 | production_proxy | production_current_proxy | 2 | 3804 | 869 | daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies | usable_for_relative_research_only_until_blocker_resolved |
