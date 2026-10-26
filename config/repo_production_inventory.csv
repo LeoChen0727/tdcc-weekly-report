@@ -732,3 +732,5 @@ tests/test_price_pullback_23ema_confirmed_binding_validator.py,test_python,daily
 scripts/run_selected_daily_price_source_recovery.py,python,official_price_data,active,保存官方來源契約並調用既有 selected 修復；不更新模型、readiness 或 PDF,.github/workflows/repair_daily_price_range.yml,
 tests/test_daily_selected_price_source_recovery.py,test_python,official_price_data,active,selected source-only 官方來源契約與回歸驗證,,
 tests/test_validate_daily_revenue_unreacted_range_operation_section.py,test_python,model_governance,active,獨立正式 revenue validator 回歸：未發布缺口 audit-only 不放寬正式 history proof,.github/workflows/daily_model_maintenance_pr_validation.yml,
+scripts/pr_inherited_market_closure.py,python,repo_infrastructure,active,read-only inherited authoritative emergency-closure Git identity and PR control validation evidence,,
+tests/test_pr_inherited_market_closure.py,test_python,repo_infrastructure,active,inherited emergency-closure authority immutability sparse checkout and source semantics regressions,,

@@ -23,6 +23,11 @@ try:
 except ImportError:
     import validate_repo_advanced_integrity as strict_validator  # noqa: E402
 
+from pr_inherited_market_closure import (  # noqa: E402
+    is_inherited_market_closure_candidate,
+    validate_inherited_market_closure,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 FRESHNESS_RELATIVE_PATH = "output/latest/data_freshness_latest.csv"
@@ -170,6 +175,24 @@ LIFECYCLE_ADDITIVE_LIST_COLUMNS = frozenset(
     }
 )
 REGULAR_BLOB_MODES = frozenset({"100644", "100755"})
+
+# PR-only control validation. The independent base-owned trust-root guard still
+# requires maintainer approval for edits to either wrapper. No production
+# source, publisher, readiness, or snapshot surface is admitted here.
+CLOSURE_CONTROL_PATHS = frozenset({
+    PR_SAFE_HELPER_PATH,
+    "scripts/validate_daily_published_model_snapshots_pr_safe.py",
+    PR_VALIDATION_WORKFLOW_PATH,
+    PRODUCTION_INVENTORY_PATH,
+})
+CLOSURE_CONTROL_MODULE = "scripts/pr_inherited_market_closure.py"
+CLOSURE_SCOPE_DETECTOR = "scripts/detect_daily_model_pr_validation_scope.py"
+CLOSURE_EXPECTED_EXTERNAL_ERRORS = frozenset({
+    "external source official_daily_price readiness report_ready is not True",
+    "external source daily_stock_monitor readiness report_ready is not True",
+    "external source all_candidates readiness report_ready is not True",
+    "external source daily_pdf_source readiness daily_pdf_ready is not True",
+})
 
 PR_SAFE_BOOTSTRAP_SURFACES = frozenset(
     {
@@ -2544,6 +2567,336 @@ def is_initial_pr_safe_gate_bootstrap(
     )
 
 
+def _closure_documentation_relocation_allowed(
+    base_ref: str,
+    subject_path: str,
+    before_values: set[str],
+    after_values: set[str],
+    changed_paths: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    """Derive one truthful documentation-reference move without granting rights."""
+    removed = before_values - after_values
+    added = after_values - before_values
+    if len(removed) != 1 or len(added) != 1:
+        return False
+    old_doc, new_doc = next(iter(removed)), next(iter(added))
+
+    def safe_relative_path(path: str) -> bool:
+        return bool(
+            path and path == normalize_repository_path(path)
+            and not Path(path).is_absolute() and ":" not in path
+            and all(part not in {"", ".", ".."} for part in path.split("/"))
+        )
+
+    def regular_checkout(path: str) -> bool:
+        local = repository_root / path
+        return bool(
+            safe_relative_path(path) and not local.is_symlink() and local.is_file()
+            and local.resolve().is_relative_to(repository_root.resolve())
+        )
+
+    def exact_regular_entry(entry: tuple[str, str, str, str] | None, path: str) -> bool:
+        return bool(
+            entry is not None and entry[0] == "100644" and entry[1] == "blob"
+            and re.fullmatch(r"[0-9a-f]{40}", entry[2]) and entry[3] == path
+        )
+
+    try:
+        lifecycle_validator = "scripts/validate_repo_file_lifecycle_inventory.py"
+        for path in (subject_path, lifecycle_validator):
+            if path in changed_paths:
+                return False
+            base_entry = git_tree_entry_at_ref(
+                base_ref, path, repository_root=repository_root,
+            )
+            head_entry = git_tree_entry_at_ref(
+                "HEAD", path, repository_root=repository_root,
+            )
+            if not (
+                exact_regular_entry(base_entry, path)
+                and exact_regular_entry(head_entry, path)
+                and base_entry[2] == head_entry[2]
+            ):
+                return False
+            if not regular_checkout(path) or not unchanged_base_regular_blob_dependency(
+                base_ref, path, repository_root=repository_root,
+            ):
+                return False
+        for path in (old_doc, new_doc):
+            if (
+                not path.startswith("docs/") or not path.endswith(".md")
+                or path not in changed_paths or not regular_checkout(path)
+            ):
+                return False
+            if not exact_regular_entry(git_tree_entry_at_ref(
+                "HEAD", path, repository_root=repository_root,
+            ), path):
+                return False
+            head_payload = git_blob_at_ref("HEAD", path, repository_root=repository_root)
+            current_payload = (repository_root / path).read_bytes()
+            if head_payload is None or (
+                head_payload.replace(b"\r\n", b"\n")
+                != current_payload.replace(b"\r\n", b"\n")
+            ):
+                return False
+        if not exact_regular_entry(git_tree_entry_at_ref(
+            base_ref, old_doc, repository_root=repository_root,
+        ), old_doc):
+            return False
+        base_old = git_blob_at_ref(base_ref, old_doc, repository_root=repository_root)
+        if base_old is None:
+            return False
+        old_text = (repository_root / old_doc).read_text(encoding="utf-8-sig")
+        new_text = (repository_root / new_doc).read_text(encoding="utf-8-sig")
+        return bool(
+            subject_path in base_old.decode("utf-8-sig")
+            and subject_path not in old_text and subject_path in new_text
+        )
+    except (OSError, UnicodeError, ValueError, RuntimeError, TypeError):
+        return False
+
+
+def _closure_inventory_delta_errors(
+    base_ref: str, changed_paths: set[str], *, repository_root: Path,
+) -> list[str]:
+    errors: list[str] = []
+    for relative, key in ((PRODUCTION_INVENTORY_PATH, "path"), (LIFECYCLE_INVENTORY_PATH, "path")):
+        if relative not in changed_paths:
+            continue
+        before, b_errors = csv_rows_by_key(
+            git_blob_at_ref(base_ref, relative, repository_root=repository_root),
+            key=key, source=f"{base_ref}:{relative}",
+        )
+        after, a_errors = csv_rows_by_key(
+            (repository_root / relative).read_bytes(), key=key, source=relative,
+        )
+        errors.extend([*b_errors, *a_errors])
+        if b_errors or a_errors:
+            continue
+        if set(before) - set(after):
+            errors.append(f"inherited-closure inventory cannot remove rows: {relative}")
+        for path, row in after.items():
+            old = before.get(path)
+            if old is None:
+                kind = row.get("kind", row.get("type", ""))
+                # New code is validation-only;
+                # source writers and artifact stage patterns are not admitted.
+                valid_path = bool(re.fullmatch(r"(?:scripts/(?:audit_|validate_)[A-Za-z0-9_]+\.py|tests/test_[A-Za-z0-9_]+\.py|docs/(?:specs|rules)/[A-Za-z0-9_]+\.md)", path))
+                valid_path = valid_path or path == CLOSURE_CONTROL_MODULE
+                if path not in changed_paths or not valid_path or kind not in {"python", "test_python", "guidance_doc"}:
+                    errors.append(f"inherited-closure inventory new row is not validation control: {path}")
+                if row.get("status") != "active" or row.get("owner") not in {"research_backtest", "repo_infrastructure", "daily_production", "model_governance"}:
+                    errors.append(f"inherited-closure inventory owner/status rejected: {path}")
+                if any(row.get(column, "").strip() for column in ("allowed_stage_patterns", "reads_artifact", "writes_artifact")):
+                    errors.append(f"inherited-closure registration cannot add artifact permissions: {path}")
+                if set(split_list(row.get("allowed_workflows", row.get("called_by_workflow", "")))) - {PR_VALIDATION_WORKFLOW_PATH}:
+                    errors.append(f"inherited-closure registration cannot authorize production workflow: {path}")
+                continue
+            if set(row) != set(old):
+                errors.append(f"inherited-closure inventory schema changed: {relative}")
+                continue
+            for column, value in row.items():
+                if value == old[column]:
+                    continue
+                allowed_column = (
+                    column == "allowed_workflows" if relative == PRODUCTION_INVENTORY_PATH
+                    else column in {"tested_by", "documented_by", "called_by_workflow", "imported_by"}
+                )
+                prior_values, values = set(split_list(old[column])), set(split_list(value))
+                additions = values - prior_values
+                if (
+                    relative == LIFECYCLE_INVENTORY_PATH and column == "documented_by"
+                    and prior_values - values
+                    and all(value == old[field] for field, value in row.items() if field != column)
+                    and _closure_documentation_relocation_allowed(
+                        base_ref, path, prior_values, values, changed_paths,
+                        repository_root=repository_root,
+                    )
+                ):
+                    continue
+                if not allowed_column or not prior_values <= values:
+                    errors.append(f"inherited-closure inventory semantics changed: {path} column={column}")
+                    continue
+                if column in {"allowed_workflows", "called_by_workflow"}:
+                    if additions - {PR_VALIDATION_WORKFLOW_PATH} or not path.startswith("scripts/validate_"):
+                        errors.append(f"inherited-closure execution permission rejected: {path}")
+                else:
+                    prefix = "docs/" if column == "documented_by" else "tests/test_"
+                    wrapper_paths = {
+                        PR_SAFE_HELPER_PATH,
+                        "scripts/validate_daily_published_model_snapshots_pr_safe.py",
+                    }
+                    control_import = (
+                        column == "imported_by" and path in wrapper_paths
+                        and additions <= wrapper_paths
+                    )
+                    if any(
+                        item not in changed_paths
+                        or not (item.startswith(prefix) or control_import)
+                        for item in additions
+                    ):
+                        errors.append(f"inherited-closure lineage is not an additive changed validation reference: {path} column={column}")
+    return errors
+
+
+def _closure_validation_step_paths(step: object) -> tuple[set[str], list[str]]:
+    if not isinstance(step, dict) or set(step) != {"name", "shell", "run"} or step.get("shell") != "bash":
+        return set(), ["inherited-closure new CI steps must be unconditional bash validation steps"]
+    paths: set[str] = set()
+    produced: set[str] = set()
+    consumed: set[str] = set()
+    errors: list[str] = []
+    lines = step.get("run", "").splitlines()
+    if not lines or lines[0].strip() != "set -euo pipefail":
+        errors.append("inherited-closure new CI step must fail closed")
+    for line in lines[1:]:
+        command = line.strip()
+        if not command:
+            continue
+        validator = re.fullmatch(r"python (scripts/validate_[A-Za-z0-9_]+\.py)", command)
+        receipt = re.fullmatch(r'python (scripts/(audit_|validate_)[A-Za-z0-9_]+\.py) --(output|receipt) "\$RUNNER_TEMP/([A-Za-z0-9_-]+\.json)"', command)
+        tests = re.fullmatch(r"python -m pytest -q ((?:tests/test_[A-Za-z0-9_]+\.py)(?: tests/test_[A-Za-z0-9_]+\.py)*)", command)
+        if validator:
+            paths.add(validator.group(1))
+        elif receipt and (receipt.group(2), receipt.group(3)) in {("audit_", "output"), ("validate_", "receipt")}:
+            paths.add(receipt.group(1))
+            target = receipt.group(4)
+            if receipt.group(3) == "output":
+                if target in produced:
+                    errors.append("inherited-closure CI receipt output must be unique")
+                produced.add(target)
+            else:
+                if target not in produced or target in consumed:
+                    errors.append("inherited-closure CI receipt must be independently checked once after capture")
+                consumed.add(target)
+        elif tests:
+            paths.update(tests.group(1).split())
+        else:
+            errors.append(f"inherited-closure CI command is not validation-only: {command}")
+    if produced != consumed or not any(path.startswith("tests/") for path in paths):
+        errors.append("inherited-closure CI step requires focused tests and validation of every receipt")
+    return paths, errors
+
+
+def _closure_workflow_delta_errors(base_ref: str, changed_paths: set[str], *, repository_root: Path) -> list[str]:
+    if PR_VALIDATION_WORKFLOW_PATH not in changed_paths:
+        return []
+    before, errors = parse_workflow_document(git_blob_at_ref(base_ref, PR_VALIDATION_WORKFLOW_PATH, repository_root=repository_root), source="base PR workflow")
+    after, current_errors = parse_workflow_document((repository_root / PR_VALIDATION_WORKFLOW_PATH).read_bytes(), source="current PR workflow")
+    errors.extend(current_errors)
+    if errors:
+        return errors
+    before, after = copy.deepcopy(before), copy.deepcopy(after)
+    try:
+        base_job = before["jobs"]["repo_current_contracts"]
+        job = after["jobs"]["repo_current_contracts"]
+        old_steps, steps = base_job["steps"], job["steps"]
+        if not isinstance(old_steps, list) or not isinstance(steps, list):
+            raise TypeError("steps must be lists")
+        cursor = 0
+        new_paths: set[str] = set()
+        for step in steps:
+            if cursor < len(old_steps) and step == old_steps[cursor]:
+                cursor += 1
+            else:
+                paths, step_errors = _closure_validation_step_paths(step)
+                new_paths.update(paths)
+                errors.extend(step_errors)
+        if cursor != len(old_steps):
+            errors.append("inherited-closure CI cannot delete, rewrite, skip, or reorder existing steps")
+        job["steps"] = old_steps
+        pin = "SNAPSHOT_PR_SAFE_CONTROL_HELPER_SHA256"
+        if job.get("env", {}).get(pin) != base_job.get("env", {}).get(pin):
+            wrapper = "scripts/validate_daily_published_model_snapshots_pr_safe.py"
+            expected = canonical_sha256((repository_root / wrapper).read_bytes())
+            if wrapper not in changed_paths or job["env"].get(pin) != expected:
+                errors.append("inherited-closure CI pin must match the changed snapshot wrapper")
+            job["env"][pin] = base_job["env"][pin]
+        if before != after:
+            errors.append("inherited-closure CI permissions, triggers, jobs and existing semantics must remain unchanged")
+        registered = {row["path"]: row for row in read_csv_rows(repository_root / PRODUCTION_INVENTORY_PATH)}
+        for path in new_paths:
+            row = registered.get(path, {})
+            if PR_VALIDATION_WORKFLOW_PATH not in split_list(row.get("allowed_workflows", "")) and not path.startswith("tests/"):
+                errors.append(f"inherited-closure CI validation command is not registered: {path}")
+            if row.get("allowed_stage_patterns", "").strip():
+                errors.append(f"inherited-closure CI command has production write permissions: {path}")
+        if RESEARCH_WORKFLOW_REGRESSION_TEST_PATH not in changed_paths:
+            errors.append("inherited-closure CI registration requires workflow regression coverage")
+    except (KeyError, TypeError, AttributeError, OSError) as exc:
+        errors.append(f"inherited-closure CI structure is invalid: {exc}")
+    return errors
+
+
+def _closure_scope_delta_errors(base_ref: str, changed_paths: set[str], *, repository_root: Path) -> list[str]:
+    if CLOSURE_SCOPE_DETECTOR not in changed_paths:
+        return []
+    try:
+        base_tree = ast.parse(git_blob_at_ref(base_ref, CLOSURE_SCOPE_DETECTOR, repository_root=repository_root).decode("utf-8"))
+        tree = ast.parse((repository_root / CLOSURE_SCOPE_DETECTOR).read_text(encoding="utf-8"))
+        def assignments(module: ast.Module) -> dict[str, ast.Assign]:
+            return {node.targets[0].id: node for node in module.body if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name)}
+        old, current = assignments(base_tree), assignments(tree)
+        additions = set(current) - set(old)
+        pools = {name: ast.literal_eval(current[name].value) for name in additions}
+        def valid_validation_path(path: object) -> bool:
+            if not isinstance(path, str) or not (
+                re.fullmatch(r"(?:scripts/(?:audit_|validate_)[A-Za-z0-9_]+\.py|tests/test_[A-Za-z0-9_]+\.py)", path)
+                or path == CLOSURE_CONTROL_MODULE
+            ):
+                return False
+            return path in changed_paths or unchanged_base_regular_blob_dependency(
+                base_ref, path, repository_root=repository_root,
+            )
+        if any(
+            not isinstance(values, (tuple, list, set)) or not values
+            or any(not valid_validation_path(path) for path in values)
+            for values in pools.values()
+        ):
+            return ["inherited-closure scope constants require exact changed or unchanged-base validation paths"]
+        for name in ("WATCHED_PATH_PATTERNS", "LEGACY_REPO_CURRENT_EXACT_PATHS"):
+            node, original = current[name], old[name]
+            value = node.value.args[0] if isinstance(node.value, ast.Call) else node.value
+            prior = original.value.args[0] if isinstance(original.value, ast.Call) else original.value
+            if not isinstance(value, (ast.Tuple, ast.List, ast.Set)) or not isinstance(prior, (ast.Tuple, ast.List, ast.Set)):
+                raise ValueError("unsupported scope collection")
+            filtered = [item for item in value.elts if not (isinstance(item, ast.Starred) and isinstance(item.value, ast.Name) and item.value.id in pools)]
+            if ast.dump(ast.List(elts=filtered, ctx=ast.Load())) != ast.dump(ast.List(elts=prior.elts, ctx=ast.Load())):
+                raise ValueError("existing scope paths changed")
+            node.value = copy.deepcopy(original.value)
+        tree.body = [node for node in tree.body if node not in [current[name] for name in additions]]
+        if ast.dump(tree) != ast.dump(base_tree):
+            return ["inherited-closure scope detector may only expand existing exact validation routes"]
+    except (AttributeError, OSError, SyntaxError, UnicodeError, ValueError, TypeError, KeyError) as exc:
+        return [f"inherited-closure scope detector delta rejected: {exc}"]
+    return []
+
+
+def validate_inherited_closure_control_delta(
+    base_ref: str, changed_paths: set[str], *, repository_root: Path,
+) -> list[str]:
+    """Verify control deltas independently of closure or production readiness.
+
+    This does not authorize trust-root maintenance; the separate base-owned
+    maintainer-label check remains mandatory for wrapper edits.
+    """
+    errors = []
+    forbidden = {path for path in changed_paths if requires_strict_runtime_validation(path, repository_root=repository_root) and path not in CLOSURE_CONTROL_PATHS}
+    if forbidden:
+        errors.append("inherited-closure PR cannot modify runtime surfaces: " + ", ".join(sorted(forbidden)))
+    if LIFECYCLE_SEMANTIC_MIGRATIONS_PATH in changed_paths:
+        errors.append("inherited-closure PR cannot author its own lifecycle authorization")
+    try:
+        errors.extend(_closure_inventory_delta_errors(base_ref, changed_paths, repository_root=repository_root))
+        errors.extend(_closure_workflow_delta_errors(base_ref, changed_paths, repository_root=repository_root))
+        errors.extend(_closure_scope_delta_errors(base_ref, changed_paths, repository_root=repository_root))
+    except (OSError, ValueError, KeyError, TypeError, UnicodeError) as exc:
+        errors.append(f"inherited-closure control delta cannot be verified: {exc}")
+    return errors
+
+
 def validate_pr_safe_advanced_integrity_contract(
     base_ref: str,
     *,
@@ -2566,6 +2919,14 @@ def validate_pr_safe_advanced_integrity_contract(
     external_errors = strict_validator.validate_external_source_contract()
     if not external_errors:
         return []
+
+    if is_inherited_market_closure_candidate(repository_root / FRESHNESS_RELATIVE_PATH):
+        if sorted(external_errors) != sorted(CLOSURE_EXPECTED_EXTERNAL_ERRORS):
+            return ["PR-only inherited closure requires exactly the four unchanged readiness errors", *external_errors]
+        return [
+            *validate_inherited_closure_control_delta(base_ref, changed_paths, repository_root=repository_root),
+            *validate_inherited_market_closure(base_ref, repository_root=repository_root),
+        ]
 
     strict_surface_changes = {
         path
