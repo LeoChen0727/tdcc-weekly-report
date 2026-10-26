@@ -31,6 +31,22 @@ The registry records ownership and consumer approval. It does not define model c
 
 ## Validation
 
+### 23EMA 固定核准證據與追蹤契約
+
+`docs/specs/price_pullback_23ema_operation_candidate_spec.md` 是已釘選的歷史核准證據，
+不得加入後續追蹤契約或直接更新核准 hash。2026-10-23 原始確認歷史 consumer
+啟用契約獨立保存在
+`docs/specs/price_pullback_23ema_confirmation_history_consumer_activation_spec.md`。
+此分離不改動正式規則、核准績效、原始發布綁定或任何模型的執行行為。
+
+### 頸線核准中繼資料更正
+
+2026-10-26 依原凍結明細確認：正式頸線研究有 51 筆交易、50 檔股票。
+2368 的兩筆交易不重疊，兩筆均保留；不改價格、報酬或任何操作條件。
+核准摘要、正式推薦中繼資料與 parity 的股票數同步為 50，交易數維持 51。
+原核准 spec 與 evidence pin 保持歷史版本，不以修正文書為由重設固定 hash。
+同模型另一研究母體的 8590 筆／1722 檔不屬本次更正。
+
 Run:
 
 ```text

@@ -226,7 +226,7 @@ NECKLINE_APPROVAL_METRICS = {
     "median_return_pct": "4.4597",
     "avg_max_close_return_pct": "8.5713",
     "avg_min_close_return_pct": "-6.2885",
-    "unique_stock_count": "51",
+    "unique_stock_count": "50",
 }
 
 

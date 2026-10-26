@@ -1,7 +1,7 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-10-23 19:10:10 Asia/Taipei`
-- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=135`
+- 產生時間：`2026-10-26 15:33:09 Asia/Taipei`
+- 結果：`CONTAINED=23, DISCLOSED_NOT_INDEPENDENT=4, PASS=138`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
 - `DISCLOSED_NOT_INDEPENDENT` 代表該 validator 只能做 implementation consistency，不得當成獨立模型正確性證據。
@@ -170,3 +170,6 @@
 | validator_independence | scripts/validate_price_pullback_23ema_versioned_replay.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_price_pullback_23ema_confirmation_lineage_research.py | PASS | independent_research_replay_validator | none |
 | validator_independence | scripts/validate_daily_price_pullback_23ema_operation_section.py | PASS | independent_contract_artifact_binding_validator | none |
+| validator_independence | scripts/validate_neckline_operation_metadata.py | PASS | independent_contract_artifact_binding_validator | none |
+| validator_independence | scripts/validate_volume_v2_low_position_d15_reconciliation.py | PASS | independent_source_lineage_validator | none |
+| validator_independence | scripts/validate_volume_v2_high_position_d15_reconciliation.py | PASS | independent_source_lineage_validator | none |

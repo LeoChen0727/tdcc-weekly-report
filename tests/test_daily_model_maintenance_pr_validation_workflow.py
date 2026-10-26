@@ -2233,3 +2233,38 @@ def test_tdcc_corporate_action_ledger_ci_rejects_weakened_checks(old: str, new: 
     mutated = text.replace(old, new, 1)
     assert not tdcc_corporate_action_ledger_step_contract_ok(mutated)
     assert not domain_workload_contract_ok(mutated)
+
+
+def test_model_evidence_integrity_is_checked_without_replaying_model_producers() -> None:
+    step = job_step("repo_current_contracts", "驗證模型證據修復與保留邊界")
+    for command in (
+        "python scripts/validate_formal_model_evidence_pins.py",
+        "python scripts/validate_neckline_operation_metadata.py",
+        "python scripts/audit_volume_v2_low_position_d15_reconciliation.py",
+        "python scripts/validate_volume_v2_low_position_d15_reconciliation.py",
+        "python scripts/audit_volume_v2_high_position_d15_reconciliation.py",
+        "python scripts/validate_volume_v2_high_position_d15_reconciliation.py",
+        "tests/test_formal_model_evidence_pins.py",
+        "tests/test_neckline_operation_metadata.py",
+        "tests/test_volume_v2_low_position_d15_reconciliation.py",
+        "tests/test_volume_v2_high_position_d15_reconciliation.py",
+    ):
+        assert command in step
+    assert '$RUNNER_TEMP/volume-low-d15-reconciliation.json' in step
+    assert '$RUNNER_TEMP/volume-high-d15-reconciliation.json' in step
+    assert "continue-on-error" not in step
+    assert "build_volume_range_breakout" not in step
+    assert "build_daily_candidate_model_layer" not in step
+    for path in (
+        "scripts/validate_formal_model_evidence_pins.py",
+        "scripts/validate_neckline_operation_metadata.py",
+        "scripts/audit_volume_v2_low_position_d15_reconciliation.py",
+        "scripts/validate_volume_v2_low_position_d15_reconciliation.py",
+        "scripts/audit_volume_v2_high_position_d15_reconciliation.py",
+        "scripts/validate_volume_v2_high_position_d15_reconciliation.py",
+        "tests/test_formal_model_evidence_pins.py",
+        "tests/test_neckline_operation_metadata.py",
+        "tests/test_volume_v2_low_position_d15_reconciliation.py",
+        "tests/test_volume_v2_high_position_d15_reconciliation.py",
+    ):
+        assert model_scope.REPO_CURRENT_CONTRACTS in model_scope.domains_for_path(path)

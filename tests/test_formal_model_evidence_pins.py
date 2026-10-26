@@ -539,3 +539,23 @@ def test_price_pullback_pin_uses_promoted_spec_not_mutable_latest() -> None:
     )
     assert pin.evidence_path == "docs/specs/price_pullback_23ema_operation_candidate_spec.md"
     assert "latest" not in pin.evidence_path
+
+
+def test_price_pullback_tracking_contract_preserves_original_evidence_pin() -> None:
+    pin = evidence_pin_for_model(
+        "price_pullback_23ema", "price_pullback_23ema_operation_v1_20260703"
+    )
+    assert pin.canonical_sha256 == (
+        "a11d540368868d1854865b1d8a64f466ff368e0e618bc666c3411770cf61dd5e"
+    )
+    evidence_text = (ROOT / pin.evidence_path).read_text(encoding="utf-8-sig")
+    consumer_text = (
+        ROOT / "docs/specs/price_pullback_23ema_confirmation_history_consumer_activation_spec.md"
+    ).read_text(encoding="utf-8-sig")
+    migration = "price_pullback_23ema_confirmation_history_consumer_activation_20261023"
+    assert migration not in evidence_text
+    assert migration in consumer_text
+    assert "20261019_r1_d41214b72349.csv" in consumer_text
+    assert "d41214b72349a9683cd686636a5c750b03752caebfd2c85bbb5dcee718b9008f" in consumer_text
+    assert "buy_rank_eligible=True" in consumer_text
+    assert "既有 unresolved anomaly 與研究升級限制維持" in consumer_text
