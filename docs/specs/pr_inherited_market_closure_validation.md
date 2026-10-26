@@ -54,6 +54,7 @@ report_ready must be True before publishing model snapshots; observed=False
 
 PR 可新增已註冊且無寫入權限的驗證程式、測試及說明文件；既有 inventory 只可增加精確的驗證執行或 lineage 參照。
 不得刪除既有 row、修改 owner/status/用途、增加資料讀寫或 production stage 權限，亦不得由本 PR 自寫 lifecycle 授權 migration。
+`documented_by` 另允許可重現的單一文件參照搬移：恰好刪一個 Markdown 參照並加一個，其餘 row 欄位不變；subject 程式與 lifecycle validator 的 base／HEAD regular blob 必須相同，且不在變更清單。舊、新文件須為變更清單內的實體 regular Git blob，工作目錄須與 HEAD bytes 相符；舊文件在 base 含 subject 完整路徑、目前不再含該路徑，新文件目前包含該路徑。這只修正文檔參照衍生值，不延伸至讀寫或執行權限，並須通過原 lifecycle validator。
 新增 workflow step 必須無條件使用 bash 及 `set -euo pipefail`，只執行明確的 validator/audit/pytest 文法；audit receipt 必須逐一獨立驗證。
 不得修改既有 steps、permissions、triggers 或 jobs；scope detector 只可擴充實際變更或可證明與 base 相同的精確 validation 路徑。既有 routes 與 routing 函式必須保持相同。
 

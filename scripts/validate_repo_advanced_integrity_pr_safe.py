@@ -2567,6 +2567,97 @@ def is_initial_pr_safe_gate_bootstrap(
     )
 
 
+def _closure_documentation_relocation_allowed(
+    base_ref: str,
+    subject_path: str,
+    before_values: set[str],
+    after_values: set[str],
+    changed_paths: set[str],
+    *,
+    repository_root: Path,
+) -> bool:
+    """Derive one truthful documentation-reference move without granting rights."""
+    removed = before_values - after_values
+    added = after_values - before_values
+    if len(removed) != 1 or len(added) != 1:
+        return False
+    old_doc, new_doc = next(iter(removed)), next(iter(added))
+
+    def safe_relative_path(path: str) -> bool:
+        return bool(
+            path and path == normalize_repository_path(path)
+            and not Path(path).is_absolute() and ":" not in path
+            and all(part not in {"", ".", ".."} for part in path.split("/"))
+        )
+
+    def regular_checkout(path: str) -> bool:
+        local = repository_root / path
+        return bool(
+            safe_relative_path(path) and not local.is_symlink() and local.is_file()
+            and local.resolve().is_relative_to(repository_root.resolve())
+        )
+
+    def exact_regular_entry(entry: tuple[str, str, str, str] | None, path: str) -> bool:
+        return bool(
+            entry is not None and entry[0] == "100644" and entry[1] == "blob"
+            and re.fullmatch(r"[0-9a-f]{40}", entry[2]) and entry[3] == path
+        )
+
+    try:
+        lifecycle_validator = "scripts/validate_repo_file_lifecycle_inventory.py"
+        for path in (subject_path, lifecycle_validator):
+            if path in changed_paths:
+                return False
+            base_entry = git_tree_entry_at_ref(
+                base_ref, path, repository_root=repository_root,
+            )
+            head_entry = git_tree_entry_at_ref(
+                "HEAD", path, repository_root=repository_root,
+            )
+            if not (
+                exact_regular_entry(base_entry, path)
+                and exact_regular_entry(head_entry, path)
+                and base_entry[2] == head_entry[2]
+            ):
+                return False
+            if not regular_checkout(path) or not unchanged_base_regular_blob_dependency(
+                base_ref, path, repository_root=repository_root,
+            ):
+                return False
+        for path in (old_doc, new_doc):
+            if (
+                not path.startswith("docs/") or not path.endswith(".md")
+                or path not in changed_paths or not regular_checkout(path)
+            ):
+                return False
+            if not exact_regular_entry(git_tree_entry_at_ref(
+                "HEAD", path, repository_root=repository_root,
+            ), path):
+                return False
+            head_payload = git_blob_at_ref("HEAD", path, repository_root=repository_root)
+            current_payload = (repository_root / path).read_bytes()
+            if head_payload is None or (
+                head_payload.replace(b"\r\n", b"\n")
+                != current_payload.replace(b"\r\n", b"\n")
+            ):
+                return False
+        if not exact_regular_entry(git_tree_entry_at_ref(
+            base_ref, old_doc, repository_root=repository_root,
+        ), old_doc):
+            return False
+        base_old = git_blob_at_ref(base_ref, old_doc, repository_root=repository_root)
+        if base_old is None:
+            return False
+        old_text = (repository_root / old_doc).read_text(encoding="utf-8-sig")
+        new_text = (repository_root / new_doc).read_text(encoding="utf-8-sig")
+        return bool(
+            subject_path in base_old.decode("utf-8-sig")
+            and subject_path not in old_text and subject_path in new_text
+        )
+    except (OSError, UnicodeError, ValueError, RuntimeError, TypeError):
+        return False
+
+
 def _closure_inventory_delta_errors(
     base_ref: str, changed_paths: set[str], *, repository_root: Path,
 ) -> list[str]:
@@ -2615,6 +2706,16 @@ def _closure_inventory_delta_errors(
                 )
                 prior_values, values = set(split_list(old[column])), set(split_list(value))
                 additions = values - prior_values
+                if (
+                    relative == LIFECYCLE_INVENTORY_PATH and column == "documented_by"
+                    and prior_values - values
+                    and all(value == old[field] for field, value in row.items() if field != column)
+                    and _closure_documentation_relocation_allowed(
+                        base_ref, path, prior_values, values, changed_paths,
+                        repository_root=repository_root,
+                    )
+                ):
+                    continue
                 if not allowed_column or not prior_values <= values:
                     errors.append(f"inherited-closure inventory semantics changed: {path} column={column}")
                     continue

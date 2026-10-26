@@ -2432,3 +2432,211 @@ def test_closure_scope_cannot_rewrite_existing_routes_or_add_unrelated_paths(
         current = current.replace("return path in LEGACY_REPO_CURRENT_EXACT_PATHS", "return True")
     (tmp_path / pr_safe.CLOSURE_SCOPE_DETECTOR).write_text(current, encoding="utf-8")
     assert pr_safe._closure_scope_delta_errors("base", paths, repository_root=tmp_path)
+
+
+@pytest.fixture
+def truthful_document_relocation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> dict:
+    subject = "scripts/subject.py"
+    validator = "scripts/" + "validate_" + "repo_file_lifecycle_inventory.py"
+    old_doc, new_doc = "docs/specs/old_subject.md", "docs/specs/new_subject.md"
+    current_files = {
+        subject: b"def subject():\n    return 1\n",
+        validator: b"def validate():\n    return []\n",
+        old_doc: b"# Original pinned source specification\n",
+        new_doc: f"# Consumer documentation\nUse `{subject}`.\n".encode(),
+    }
+    blobs = {("HEAD", path): value for path, value in current_files.items()}
+    for path in (subject, validator):
+        blobs[("base", path)] = current_files[path]
+    blobs[("base", old_doc)] = f"# Original specification\nUse `{subject}`.\n".encode()
+    entries = {
+        key: ("100644", "blob", hashlib.sha1(value).hexdigest(), key[1])
+        for key, value in blobs.items()
+    }
+    for relative, value in current_files.items():
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(value)
+    monkeypatch.setattr(pr_safe, "git_blob_at_ref", lambda ref, path, **_k: blobs.get((ref, path)))
+    monkeypatch.setattr(pr_safe, "git_tree_entry_at_ref", lambda ref, path, **_k: entries.get((ref, path)))
+    return {"root": tmp_path, "subject": subject, "validator": validator,
+            "old_doc": old_doc, "new_doc": new_doc, "blobs": blobs, "entries": entries,
+            "before": {old_doc}, "after": {new_doc}, "changed": {old_doc, new_doc}}
+
+
+def documentation_relocation_allowed(state: dict) -> bool:
+    return pr_safe._closure_documentation_relocation_allowed(
+        "base", state["subject"], state["before"], state["after"], state["changed"],
+        repository_root=state["root"],
+    )
+
+
+def test_documentation_relocation_requires_truthful_base_old_and_head_new_reference(
+    truthful_document_relocation: dict,
+) -> None:
+    assert documentation_relocation_allowed(truthful_document_relocation)
+
+
+def test_documentation_relocation_preserves_other_document_refs_and_allows_crlf_only(
+    truthful_document_relocation: dict,
+) -> None:
+    state = truthful_document_relocation
+    state["before"].add("docs/specs/retained_subject.md")
+    state["after"].add("docs/specs/retained_subject.md")
+    for path in (state["subject"], state["validator"], state["old_doc"], state["new_doc"]):
+        target = state["root"] / path
+        target.write_bytes(target.read_bytes().replace(b"\n", b"\r\n"))
+    assert documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("mutation", [
+    "subject-code", "validator-code", "old-still-refers", "new-does-not-refer",
+    "base-old-did-not-refer", "base-old-missing", "old-not-changed", "new-not-changed",
+    "old-head-payload-mismatch", "new-head-payload-mismatch", "new-head-missing-bytes",
+])
+def test_documentation_relocation_rejects_unverified_or_untruthful_evidence(
+    truthful_document_relocation: dict, mutation: str,
+) -> None:
+    state = truthful_document_relocation
+    root, old, new = state["root"], state["old_doc"], state["new_doc"]
+    if mutation in {"subject-code", "validator-code"}:
+        target = state["subject"] if mutation == "subject-code" else state["validator"]
+        (root / target).write_text("# code behavior changed\n", encoding="utf-8")
+    elif mutation == "old-still-refers":
+        value = (state["subject"] + " still referenced\n").encode()
+        (root / old).write_bytes(value)
+        state["blobs"][("HEAD", old)] = value
+    elif mutation == "new-does-not-refer":
+        value = b"# Unrelated document\n"
+        (root / new).write_bytes(value)
+        state["blobs"][("HEAD", new)] = value
+    elif mutation == "base-old-did-not-refer":
+        state["blobs"][("base", old)] = b"# Already unrelated at base\n"
+    elif mutation == "base-old-missing":
+        state["blobs"].pop(("base", old))
+    elif mutation in {"old-not-changed", "new-not-changed"}:
+        state["changed"].remove(old if mutation == "old-not-changed" else new)
+    elif mutation == "new-head-missing-bytes":
+        state["blobs"].pop(("HEAD", new))
+    else:
+        state["blobs"][("HEAD", old if mutation.startswith("old-") else new)] = b"# Different committed document\n"
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("side", ["before", "after"])
+@pytest.mark.parametrize("mutation", ["empty", "two"])
+def test_documentation_relocation_is_exactly_one_removed_and_one_added_reference(
+    truthful_document_relocation: dict, side: str, mutation: str,
+) -> None:
+    state = truthful_document_relocation
+    if mutation == "empty":
+        state[side].clear()
+    else:
+        state[side].add("docs/specs/other_subject.md")
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("role", ["subject", "validator", "old_doc", "new_doc"])
+@pytest.mark.parametrize("mutation", ["missing", "directory", "symlink"])
+def test_documentation_relocation_rejects_nonregular_or_missing_checkout(
+    truthful_document_relocation: dict, monkeypatch: pytest.MonkeyPatch,
+    role: str, mutation: str,
+) -> None:
+    state = truthful_document_relocation
+    target = state["root"] / state[role]
+    if mutation == "symlink":
+        original = Path.is_symlink
+        monkeypatch.setattr(Path, "is_symlink", lambda path: path == target or original(path))
+    else:
+        target.unlink()
+        if mutation == "directory":
+            target.mkdir()
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("role,ref", [
+    ("subject", "base"), ("validator", "base"),
+    ("subject", "HEAD"), ("validator", "HEAD"),
+    ("old_doc", "base"), ("old_doc", "HEAD"), ("new_doc", "HEAD"),
+])
+@pytest.mark.parametrize("mutation", ["untracked", "symlink-mode", "executable-mode", "tree-type", "wrong-path", "bad-oid"])
+def test_documentation_relocation_requires_exact_tracked_regular_git_blobs(
+    truthful_document_relocation: dict, role: str, ref: str, mutation: str,
+) -> None:
+    state = truthful_document_relocation
+    key = (ref, state[role])
+    if mutation == "untracked":
+        state["entries"].pop(key)
+    else:
+        mode, kind, oid, path = state["entries"][key]
+        state["entries"][key] = (
+            "120000" if mutation == "symlink-mode" else "100755" if mutation == "executable-mode" else mode,
+            "tree" if mutation == "tree-type" else kind,
+            "invalid" if mutation == "bad-oid" else oid,
+            "other/path.md" if mutation == "wrong-path" else path,
+        )
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("role", ["subject", "validator"])
+def test_documentation_relocation_cannot_hide_changed_head_code_with_base_checkout(
+    truthful_document_relocation: dict, role: str,
+) -> None:
+    state = truthful_document_relocation
+    key = ("HEAD", state[role])
+    mode, kind, _, path = state["entries"][key]
+    changed_head = b"# Changed committed code with a restored base checkout\n"
+    state["blobs"][key] = changed_head
+    state["entries"][key] = (mode, kind, hashlib.sha1(changed_head).hexdigest(), path)
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("role", ["subject", "validator"])
+def test_documentation_relocation_does_not_cover_code_listed_as_changed(
+    truthful_document_relocation: dict, role: str,
+) -> None:
+    state = truthful_document_relocation
+    state["changed"].add(state[role])
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("path", [
+    "docs/../outside.md", "docs/specs//new.md", "docs/specs/./new.md",
+    "docs\\specs\\new.md", "/absolute.md", "C:/outside.md",
+    "docs/specs/new.py", "scripts/new.md",
+])
+def test_documentation_relocation_does_not_authorize_unsafe_or_nondocument_paths(
+    truthful_document_relocation: dict, path: str,
+) -> None:
+    state = truthful_document_relocation
+    state["after"] = {path}
+    state["changed"].add(path)
+    assert not documentation_relocation_allowed(state)
+
+
+@pytest.mark.parametrize("other_change", [None, "owner", "status", "tested_by", "reads_artifact", "writes_artifact"])
+def test_inventory_document_relocation_cannot_carry_any_other_row_change(
+    truthful_document_relocation: dict, other_change: str | None,
+) -> None:
+    state = truthful_document_relocation
+    row = {"path": state["subject"], "type": "python", "owner": "daily_production",
+           "status": "active", "called_by_workflow": "", "imported_by": "",
+           "tested_by": "", "documented_by": state["old_doc"],
+           "reads_artifact": "", "writes_artifact": "", "keep_reason": "keep",
+           "delete_reason": "", "removal_risk": "high"}
+    state["blobs"][("base", pr_safe.LIFECYCLE_INVENTORY_PATH)] = csv_payload([row])
+    current = {**row, "documented_by": state["new_doc"]}
+    if other_change:
+        current[other_change] = "tests/test_extra.py" if other_change == "tested_by" else "changed"
+        state["changed"].add("tests/test_extra.py")
+    write_csv(state["root"] / pr_safe.LIFECYCLE_INVENTORY_PATH, [current])
+    state["changed"].add(pr_safe.LIFECYCLE_INVENTORY_PATH)
+    errors = pr_safe._closure_inventory_delta_errors(
+        "base", state["changed"], repository_root=state["root"],
+    )
+    if other_change:
+        assert any("documented_by" in error and "semantics changed" in error for error in errors)
+    else:
+        assert errors == []
