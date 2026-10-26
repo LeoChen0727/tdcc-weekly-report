@@ -1,38 +1,28 @@
 {
-  "assessment_date": "20261023",
-  "authority_base_commit_sha": "7f19b59184ea1927d0b61aa78d84a2db05e11c5a",
-  "authority_generation_id": "daily-authority-20261023-39949390425-1",
+  "assessment_date": "20261026",
+  "authority_base_commit_sha": "9b588342955e3e0d9aaadb0c240be3077224c5a6",
+  "authority_generation_id": "daily-authority-20261026-40314845325-1",
   "authority_producer": "daily_full_pipeline",
-  "authority_release_id": "daily-authority-20261023-39949390425-1",
-  "emergency_notice": {
-    "date": "20261023",
-    "scope": "full_day",
-    "source_record_id": "dgpa-page-20261023194703-0",
-    "source_updated_at": "2026-10-23T19:47:03+08:00",
-    "source_url": "https://www.dgpa.gov.tw/typh/daily/nds.html",
-    "summary": "臺北市:今天停止上班、停止上課。"
-  },
+  "authority_release_id": "daily-authority-20261026-40314845325-1",
   "exceptional_non_trading_days": [
     "20260710",
     "20261023"
   ],
   "expected_main_price_date": "20261022",
-  "generated_at": "2026-10-23T19:56:51+08:00",
-  "market_session_date": "20261023",
-  "market_status": "closed_emergency",
+  "generated_at": "2026-10-26T19:27:32+08:00",
+  "market_session_date": "20261026",
+  "market_status": "closed_scheduled",
   "official_sources": {
     "dgpa_emergency_closure": {
       "attempt_count": 1,
-      "byte_len": 25250,
+      "byte_len": 15037,
       "conflict_dates": [],
-      "latest_taipei_notice_dates": [
-        "20261023"
-      ],
-      "queried_at": "2026-10-23T19:56:51+08:00",
-      "sha256": "e8f8f26638873ce30c00905bfd968053f10e1a340d1016bb85f8a892ee7d6b00",
+      "latest_taipei_notice_dates": [],
+      "queried_at": "2026-10-26T19:27:32+08:00",
+      "sha256": "69c8dc42cd6759303a1fb0602040d4cd6a6231f75358fef5b542f660cf258b06",
       "source": "dgpa_emergency_closure",
       "status": "ok",
-      "taipei_notice_count": 1,
+      "taipei_notice_count": 0,
       "url": "https://www.dgpa.gov.tw/typh/daily/nds.html"
     },
     "twse_annual_calendar": {
@@ -42,7 +32,7 @@
       "covered_years": [
         2026
       ],
-      "queried_at": "2026-10-23T19:56:51+08:00",
+      "queried_at": "2026-10-26T19:27:32+08:00",
       "sha256": "7644c1a8af784c09f54670fd7413f536b13eb76c54d658058e8873d1aee32117",
       "source": "twse_annual_calendar",
       "status": "ok",
@@ -55,8 +45,8 @@
   },
   "phase": "preflight",
   "price_confirmation": {},
-  "reason": "臺北市:今天停止上班、停止上課。",
-  "reason_code": "taipei_full_day_or_morning_work_suspension",
+  "reason": "臺灣光復暨金門古寧頭大捷紀念日",
+  "reason_code": "twse_annual_holiday",
   "scheduled_non_trading_days": [
     "20260101",
     "20260212",
