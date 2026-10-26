@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import csv
+import copy
 import hashlib
 import io
 from pathlib import Path
 
 import pytest
+import yaml
 
 from scripts import validate_repo_advanced_integrity as strict_validator
 from scripts import validate_repo_advanced_integrity_pr_safe as pr_safe
@@ -2035,3 +2037,398 @@ def test_legacy_exact_target_bypasses_are_retired() -> None:
         ("validate", "repo", "production", "inventory")
     )
     assert production_validator_module not in source
+
+
+@pytest.fixture
+def inherited_closure_repo(
+    historical_replay_repo: Path, monkeypatch: pytest.MonkeyPatch,
+) -> Path:
+    """Isolate routing from the independently tested authority evidence checker."""
+    row = {
+        **FRESHNESS_ROW,
+        "market_session_status": "closed_emergency",
+        "main_price_date_source": "validated_stock_history",
+        "historical_replay_main_price_date": "",
+        "expected_price_history_high_water_date": "",
+        "stock_monitor_price_date": FRESHNESS_ROW["main_price_date"],
+        "all_candidates_date": FRESHNESS_ROW["main_price_date"],
+    }
+    write_csv(historical_replay_repo / pr_safe.FRESHNESS_RELATIVE_PATH, [row])
+    monkeypatch.setattr(pr_safe, "validate_inherited_market_closure", lambda *_a, **_k: [])
+    return historical_replay_repo
+
+
+def test_inherited_closure_only_relaxes_pr_context_and_keeps_strict_false(
+    inherited_closure_repo: Path,
+) -> None:
+    assert set(strict_validator.validate()) == pr_safe.CLOSURE_EXPECTED_EXTERNAL_ERRORS
+    assert pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha", repository_root=inherited_closure_repo,
+    ) == []
+    assert set(strict_validator.validate()) == pr_safe.CLOSURE_EXPECTED_EXTERNAL_ERRORS
+
+
+@pytest.mark.parametrize("mutation", ["missing", "extra", "duplicate", "wrong-source"])
+def test_inherited_closure_requires_exact_four_runtime_readiness_errors(
+    inherited_closure_repo: Path, monkeypatch: pytest.MonkeyPatch, mutation: str,
+) -> None:
+    errors = sorted(pr_safe.CLOSURE_EXPECTED_EXTERNAL_ERRORS)
+    if mutation == "missing":
+        errors.pop()
+    elif mutation == "extra":
+        errors.append("external source calendar_sources unexpected failure")
+    elif mutation == "duplicate":
+        errors.append(errors[0])
+    else:
+        errors[0] = "external source unrelated readiness report_ready is not True"
+    monkeypatch.setattr(strict_validator, "validate_external_source_contract", lambda: errors)
+    observed = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha", repository_root=inherited_closure_repo,
+    )
+    assert observed[0] == "PR-only inherited closure requires exactly the four unchanged readiness errors"
+    assert observed[1:] == errors
+
+
+def test_inherited_closure_never_skips_static_contract_failure(
+    inherited_closure_repo: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(strict_validator, "validate_required_configs", lambda: ["static contract defect"])
+    monkeypatch.setattr(pr_safe, "validate_inherited_market_closure", lambda *_a, **_k: pytest.fail("static failure reached closure relaxation"))
+    assert pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha", repository_root=inherited_closure_repo,
+    ) == ["PR-safe advanced-integrity validation cannot bypass static contract failures", "static contract defect"]
+
+
+def test_inherited_closure_propagates_authority_verification_failure(
+    inherited_closure_repo: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(pr_safe, "validate_inherited_market_closure", lambda *_a, **_k: ["closure authority differs from base"])
+    assert pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha", repository_root=inherited_closure_repo,
+    ) == ["closure authority differs from base"]
+
+
+@pytest.mark.parametrize("path", [
+    "build_data_freshness_latest.py", "scripts/run_chatgpt_daily_report_entrypoint.py",
+    ".github/workflows/daily_full_pipeline.yml", pr_safe.FRESHNESS_RELATIVE_PATH,
+    pr_safe.EXTERNAL_SOURCE_CONTRACT_PATH, pr_safe.STRICT_VALIDATOR_PATH,
+    "scripts/replay_historical_structured_sources.py",
+])
+def test_inherited_closure_rejects_runtime_and_source_producer_changes(
+    inherited_closure_repo: Path, monkeypatch: pytest.MonkeyPatch, path: str,
+) -> None:
+    monkeypatch.setattr(pr_safe, "changed_paths_from_base", lambda *_a, **_k: ({path}, []))
+    errors = pr_safe.validate_pr_safe_advanced_integrity_contract(
+        "base-sha", repository_root=inherited_closure_repo,
+    )
+    assert any("cannot modify runtime surfaces" in error and path in error for error in errors)
+
+
+def test_inherited_closure_cannot_author_lifecycle_permission_ledger(tmp_path: Path) -> None:
+    errors = pr_safe.validate_inherited_closure_control_delta(
+        "base-sha", {pr_safe.LIFECYCLE_SEMANTIC_MIGRATIONS_PATH}, repository_root=tmp_path,
+    )
+    assert "inherited-closure PR cannot author its own lifecycle authorization" in errors
+
+
+def test_inherited_closure_rejects_external_contract_registered_producer(
+    inherited_closure_repo: Path,
+) -> None:
+    rows = pr_safe.read_csv_rows(inherited_closure_repo / pr_safe.EXTERNAL_SOURCE_CONTRACT_PATH)
+    producer = "scripts/build_new_registered_source.py"
+    rows[0]["producer"] = producer
+    write_csv(inherited_closure_repo / pr_safe.EXTERNAL_SOURCE_CONTRACT_PATH, rows)
+    errors = pr_safe.validate_inherited_closure_control_delta(
+        "base-sha", {producer}, repository_root=inherited_closure_repo,
+    )
+    assert any("cannot modify runtime surfaces" in error and producer in error for error in errors)
+
+
+def closure_inventory_fixture(
+    root: Path, monkeypatch: pytest.MonkeyPatch, relative: str,
+) -> tuple[list[dict[str, str]], dict[str, bytes]]:
+    if relative == pr_safe.PRODUCTION_INVENTORY_PATH:
+        row = {"path": "scripts/validate_existing.py", "kind": "python", "owner": "repo_infrastructure", "status": "active", "purpose": "existing", "allowed_workflows": "", "allowed_stage_patterns": ""}
+    else:
+        row = {"path": "scripts/validate_existing.py", "type": "python", "owner": "repo_infrastructure", "status": "active", "called_by_workflow": "", "imported_by": "", "tested_by": "tests/test_existing.py", "documented_by": "docs/specs/existing.md", "writes_artifact": "", "reads_artifact": "", "keep_reason": "keep", "delete_reason": "", "removal_risk": "medium"}
+    rows = [row]
+    payloads = {relative: csv_payload(rows)}
+    write_csv(root / relative, rows)
+    monkeypatch.setattr(pr_safe, "git_blob_at_ref", lambda _ref, path, **_k: payloads.get(path))
+    return rows, payloads
+
+
+@pytest.mark.parametrize("relative", [pr_safe.PRODUCTION_INVENTORY_PATH, pr_safe.LIFECYCLE_INVENTORY_PATH])
+def test_closure_inventory_accepts_only_additive_registered_validation_refs(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, relative: str,
+) -> None:
+    rows, _ = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    field = "allowed_workflows" if relative == pr_safe.PRODUCTION_INVENTORY_PATH else "tested_by"
+    value = pr_safe.PR_VALIDATION_WORKFLOW_PATH if field == "allowed_workflows" else "tests/test_existing.py;tests/test_new.py"
+    rows[0][field] = value
+    write_csv(tmp_path / relative, rows)
+    assert pr_safe._closure_inventory_delta_errors("base", {relative, "tests/test_new.py"}, repository_root=tmp_path) == []
+
+
+@pytest.mark.parametrize("source,consumer,allowed", [
+    (pr_safe.PR_SAFE_HELPER_PATH, "scripts/validate_daily_published_model_snapshots_pr_safe.py", True),
+    (pr_safe.PR_SAFE_HELPER_PATH, "scripts/build_any_model.py", False),
+    (pr_safe.PR_SAFE_HELPER_PATH, pr_safe.PR_VALIDATION_WORKFLOW_PATH, False),
+    (pr_safe.PR_SAFE_HELPER_PATH, pr_safe.PRODUCTION_INVENTORY_PATH, False),
+    ("scripts/validate_existing.py", "scripts/validate_daily_published_model_snapshots_pr_safe.py", False),
+])
+def test_closure_inventory_control_import_is_limited_to_maintainer_guarded_wrappers(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    source: str, consumer: str, allowed: bool,
+) -> None:
+    relative = pr_safe.LIFECYCLE_INVENTORY_PATH
+    rows, payloads = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    rows[0]["path"] = source
+    payloads[relative] = csv_payload(rows)
+    rows[0]["imported_by"] = consumer
+    write_csv(tmp_path / relative, rows)
+    if consumer == pr_safe.PRODUCTION_INVENTORY_PATH:
+        production_rows = [{
+            "path": source, "kind": "python", "owner": "repo_infrastructure",
+            "status": "active", "purpose": "existing validator",
+            "allowed_workflows": "", "allowed_stage_patterns": "",
+        }]
+        payloads[consumer] = csv_payload(production_rows)
+        write_csv(tmp_path / consumer, production_rows)
+    errors = pr_safe._closure_inventory_delta_errors(
+        "base", {relative, source, consumer}, repository_root=tmp_path,
+    )
+    assert bool(errors) is not allowed
+
+
+@pytest.mark.parametrize("relative,field,value", [
+    (pr_safe.PRODUCTION_INVENTORY_PATH, "owner", "daily_production"),
+    (pr_safe.PRODUCTION_INVENTORY_PATH, "purpose", "rewritten semantic purpose"),
+    (pr_safe.PRODUCTION_INVENTORY_PATH, "allowed_stage_patterns", "output/latest/*"),
+    (pr_safe.PRODUCTION_INVENTORY_PATH, "allowed_workflows", ".github/workflows/daily_full_pipeline.yml"),
+    (pr_safe.LIFECYCLE_INVENTORY_PATH, "writes_artifact", "output/latest/model.csv"),
+    (pr_safe.LIFECYCLE_INVENTORY_PATH, "reads_artifact", "data/prices.csv"),
+    (pr_safe.LIFECYCLE_INVENTORY_PATH, "tested_by", ""),
+    (pr_safe.LIFECYCLE_INVENTORY_PATH, "documented_by", "docs/specs/existing.md;docs/specs/not_changed.md"),
+    (pr_safe.LIFECYCLE_INVENTORY_PATH, "called_by_workflow", ".github/workflows/daily_full_pipeline.yml"),
+    (pr_safe.LIFECYCLE_INVENTORY_PATH, "removal_risk", "low"),
+])
+def test_closure_inventory_rejects_semantic_permission_or_lineage_mutation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, relative: str, field: str, value: str,
+) -> None:
+    rows, _ = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    rows[0][field] = value
+    write_csv(tmp_path / relative, rows)
+    assert pr_safe._closure_inventory_delta_errors("base", {relative}, repository_root=tmp_path)
+
+
+@pytest.mark.parametrize("relative", [pr_safe.PRODUCTION_INVENTORY_PATH, pr_safe.LIFECYCLE_INVENTORY_PATH])
+def test_closure_inventory_rejects_row_deletion(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, relative: str,
+) -> None:
+    rows, payloads = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    payloads[relative] = csv_payload([*rows, {**rows[0], "path": "scripts/validate_deleted.py"}])
+    assert any("cannot remove rows" in error for error in pr_safe._closure_inventory_delta_errors("base", {relative}, repository_root=tmp_path))
+
+
+@pytest.mark.parametrize("relative", [pr_safe.PRODUCTION_INVENTORY_PATH, pr_safe.LIFECYCLE_INVENTORY_PATH])
+def test_closure_inventory_registers_new_validation_control_without_artifact_permissions(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, relative: str,
+) -> None:
+    rows, _ = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    new = {**rows[0], "path": "scripts/validate_new_control.py"}
+    rows.append(new)
+    write_csv(tmp_path / relative, rows)
+    assert pr_safe._closure_inventory_delta_errors("base", {relative, new["path"]}, repository_root=tmp_path) == []
+
+
+@pytest.mark.parametrize("field,value", [
+    ("path", "scripts/build_new_model.py"), ("status", "retired"),
+    ("owner", "unknown"), ("allowed_stage_patterns", "output/latest/*"),
+    ("allowed_workflows", ".github/workflows/daily_full_pipeline.yml"),
+])
+def test_closure_inventory_rejects_new_producer_or_production_authorization(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, field: str, value: str,
+) -> None:
+    relative = pr_safe.PRODUCTION_INVENTORY_PATH
+    rows, _ = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    new = {**rows[0], "path": "scripts/validate_new_control.py", field: value}
+    rows.append(new)
+    write_csv(tmp_path / relative, rows)
+    assert pr_safe._closure_inventory_delta_errors("base", {relative, new["path"]}, repository_root=tmp_path)
+
+
+@pytest.mark.parametrize("field,value", [
+    ("reads_artifact", "data/source.csv"),
+    ("writes_artifact", "output/latest/model.csv"),
+    ("called_by_workflow", ".github/workflows/daily_full_pipeline.yml"),
+])
+def test_closure_inventory_new_lifecycle_control_cannot_acquire_data_or_runtime_access(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, field: str, value: str,
+) -> None:
+    relative = pr_safe.LIFECYCLE_INVENTORY_PATH
+    rows, _ = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    new = {**rows[0], "path": "scripts/validate_new_control.py", field: value}
+    rows.append(new)
+    write_csv(tmp_path / relative, rows)
+    assert pr_safe._closure_inventory_delta_errors("base", {relative, new["path"]}, repository_root=tmp_path)
+
+
+def test_closure_inventory_does_not_accept_arbitrary_new_permission_column(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    relative = pr_safe.PRODUCTION_INVENTORY_PATH
+    rows, _ = closure_inventory_fixture(tmp_path, monkeypatch, relative)
+    rows[0]["new_permission"] = "arbitrary writer authorization"
+    write_csv(tmp_path / relative, rows)
+    assert any("schema changed" in error for error in pr_safe._closure_inventory_delta_errors(
+        "base", {relative}, repository_root=tmp_path,
+    ))
+
+
+def closure_validation_step() -> dict[str, str]:
+    return {"name": "Independent validation", "shell": "bash", "run": "\n".join([
+        "set -euo pipefail", "python scripts/validate_example.py",
+        'python scripts/audit_example.py --output "$RUNNER_TEMP/example.json"',
+        'python scripts/validate_example_receipt.py --receipt "$RUNNER_TEMP/example.json"',
+        "python -m pytest -q tests/test_example.py",
+    ])}
+
+
+def test_closure_validation_step_accepts_read_only_audit_and_independent_receipt() -> None:
+    paths, errors = pr_safe._closure_validation_step_paths(closure_validation_step())
+    assert errors == []
+    assert paths == {"scripts/validate_example.py", "scripts/audit_example.py", "scripts/validate_example_receipt.py", "tests/test_example.py"}
+
+
+@pytest.mark.parametrize("mutation", [
+    "producer", "shell-escape", "ignore-failure", "condition", "continue", "wrong-shell",
+    "no-failclosed", "no-tests", "no-receipt-check", "receipt-before-output", "duplicate-output", "duplicate-check",
+])
+def test_closure_validation_step_rejects_producer_bypass_and_unchecked_receipts(mutation: str) -> None:
+    step = closure_validation_step()
+    run = step["run"]
+    if mutation == "producer":
+        step["run"] += "\npython scripts/build_model.py"
+    elif mutation == "shell-escape":
+        step["run"] += "\npython scripts/validate_example.py; python scripts/build_model.py"
+    elif mutation == "ignore-failure":
+        step["run"] = run.replace("python scripts/validate_example.py", "python scripts/validate_example.py || true")
+    elif mutation in {"condition", "continue"}:
+        step["if" if mutation == "condition" else "continue-on-error"] = "always()" if mutation == "condition" else True
+    elif mutation == "wrong-shell":
+        step["shell"] = "pwsh"
+    elif mutation == "no-failclosed":
+        step["run"] = run.replace("set -euo pipefail\n", "")
+    elif mutation == "no-tests":
+        step["run"] = run.rsplit("\n", 1)[0]
+    elif mutation == "no-receipt-check":
+        step["run"] = "\n".join(line for line in run.splitlines() if "--receipt" not in line)
+    elif mutation == "receipt-before-output":
+        lines = run.splitlines()
+        lines[2], lines[3] = lines[3], lines[2]
+        step["run"] = "\n".join(lines)
+    elif mutation == "duplicate-output":
+        step["run"] += '\npython scripts/audit_example.py --output "$RUNNER_TEMP/example.json"'
+    else:
+        step["run"] += '\npython scripts/validate_example_receipt.py --receipt "$RUNNER_TEMP/example.json"'
+    assert pr_safe._closure_validation_step_paths(step)[1]
+
+
+def closure_workflow_fixture(root: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[dict, set[str]]:
+    base = {"on": {"pull_request": None}, "permissions": {"contents": "read"}, "jobs": {"repo_current_contracts": {"runs-on": "ubuntu-latest", "steps": [{"name": "Existing gate", "run": "python scripts/validate_existing.py"}, {"name": "Existing tests", "run": "python -m pytest -q tests/test_existing.py"}]}}}
+    current = copy.deepcopy(base)
+    current["jobs"]["repo_current_contracts"]["steps"].insert(1, closure_validation_step())
+    target = root / pr_safe.PR_VALIDATION_WORKFLOW_PATH
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(yaml.safe_dump(current), encoding="utf-8")
+    rows = [{"path": path, "allowed_workflows": pr_safe.PR_VALIDATION_WORKFLOW_PATH, "allowed_stage_patterns": ""} for path in ("scripts/validate_example.py", "scripts/audit_example.py", "scripts/validate_example_receipt.py")]
+    write_csv(root / pr_safe.PRODUCTION_INVENTORY_PATH, rows)
+    monkeypatch.setattr(pr_safe, "git_blob_at_ref", lambda _ref, path, **_k: yaml.safe_dump(base).encode() if path == pr_safe.PR_VALIDATION_WORKFLOW_PATH else None)
+    return current, {pr_safe.PR_VALIDATION_WORKFLOW_PATH, pr_safe.RESEARCH_WORKFLOW_REGRESSION_TEST_PATH}
+
+
+def test_closure_workflow_accepts_only_an_additive_validation_step(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    _, paths = closure_workflow_fixture(tmp_path, monkeypatch)
+    assert pr_safe._closure_workflow_delta_errors("base", paths, repository_root=tmp_path) == []
+
+
+@pytest.mark.parametrize("mutation", ["permission", "trigger", "delete-step", "rewrite-step", "reorder-step", "job-condition", "no-regression", "unregistered-command", "write-permission"])
+def test_closure_workflow_preserves_existing_steps_permissions_triggers_and_registration(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mutation: str,
+) -> None:
+    current, paths = closure_workflow_fixture(tmp_path, monkeypatch)
+    job = current["jobs"]["repo_current_contracts"]
+    if mutation == "permission":
+        current["permissions"]["contents"] = "write"
+    elif mutation == "trigger":
+        current["on"] = {"workflow_dispatch": None}
+    elif mutation == "delete-step":
+        job["steps"].pop(0)
+    elif mutation == "rewrite-step":
+        job["steps"][0]["run"] += " || true"
+    elif mutation == "reorder-step":
+        job["steps"][0], job["steps"][2] = job["steps"][2], job["steps"][0]
+    elif mutation == "job-condition":
+        job["if"] = "false"
+    elif mutation == "no-regression":
+        paths.remove(pr_safe.RESEARCH_WORKFLOW_REGRESSION_TEST_PATH)
+    else:
+        rows = pr_safe.read_csv_rows(tmp_path / pr_safe.PRODUCTION_INVENTORY_PATH)
+        rows[0]["allowed_workflows" if mutation == "unregistered-command" else "allowed_stage_patterns"] = "" if mutation == "unregistered-command" else "output/latest/*"
+        write_csv(tmp_path / pr_safe.PRODUCTION_INVENTORY_PATH, rows)
+    (tmp_path / pr_safe.PR_VALIDATION_WORKFLOW_PATH).write_text(yaml.safe_dump(current), encoding="utf-8")
+    assert pr_safe._closure_workflow_delta_errors("base", paths, repository_root=tmp_path)
+
+
+def closure_scope_fixture(root: Path, monkeypatch: pytest.MonkeyPatch, *, addition: str = "tests/test_new_control.py") -> tuple[str, set[str]]:
+    base = 'WATCHED_PATH_PATTERNS = ("config/base.csv",)\nLEGACY_REPO_CURRENT_EXACT_PATHS = frozenset(("config/base.csv",))\ndef route(path):\n    return path in LEGACY_REPO_CURRENT_EXACT_PATHS\n'
+    current = f'NEW_CONTROL_PATHS = ({addition!r},)\n' + base.replace('("config/base.csv",)', '("config/base.csv", *NEW_CONTROL_PATHS)')
+    target = root / pr_safe.CLOSURE_SCOPE_DETECTOR
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(current, encoding="utf-8")
+    monkeypatch.setattr(pr_safe, "git_blob_at_ref", lambda _ref, path, **_k: base.encode() if path == pr_safe.CLOSURE_SCOPE_DETECTOR else None)
+    return current, {pr_safe.CLOSURE_SCOPE_DETECTOR, addition}
+
+
+def test_closure_scope_accepts_exact_added_validation_paths(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    _, paths = closure_scope_fixture(tmp_path, monkeypatch)
+    assert pr_safe._closure_scope_delta_errors("base", paths, repository_root=tmp_path) == []
+
+
+def test_closure_scope_can_add_existing_unchanged_validation_route(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = "scripts/validate_existing_control.py"
+    _, paths = closure_scope_fixture(tmp_path, monkeypatch, addition=path)
+    paths.remove(path)
+    checked: list[str] = []
+    def verify_dependency(_base: str, relative: str, **_kwargs: object) -> bool:
+        checked.append(relative)
+        return relative == path
+    monkeypatch.setattr(pr_safe, "unchanged_base_regular_blob_dependency", verify_dependency)
+    assert pr_safe._closure_scope_delta_errors("base", paths, repository_root=tmp_path) == []
+    assert checked == [path]
+
+
+@pytest.mark.parametrize("addition", ["tests/*", "scripts/build_new_model.py", "data/new_prices.csv", "tests/../data/new.csv"])
+def test_closure_scope_rejects_globs_producers_data_and_traversal(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, addition: str,
+) -> None:
+    _, paths = closure_scope_fixture(tmp_path, monkeypatch, addition=addition)
+    assert pr_safe._closure_scope_delta_errors("base", paths, repository_root=tmp_path)
+
+
+@pytest.mark.parametrize("mutation", ["unchanged-path", "remove-base", "routing-logic"])
+def test_closure_scope_cannot_rewrite_existing_routes_or_add_unrelated_paths(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mutation: str,
+) -> None:
+    current, paths = closure_scope_fixture(tmp_path, monkeypatch)
+    if mutation == "unchanged-path":
+        paths.remove("tests/test_new_control.py")
+    elif mutation == "remove-base":
+        current = current.replace('"config/base.csv", *NEW_CONTROL_PATHS', '*NEW_CONTROL_PATHS,')
+    else:
+        current = current.replace("return path in LEGACY_REPO_CURRENT_EXACT_PATHS", "return True")
+    (tmp_path / pr_safe.CLOSURE_SCOPE_DETECTOR).write_text(current, encoding="utf-8")
+    assert pr_safe._closure_scope_delta_errors("base", paths, repository_root=tmp_path)

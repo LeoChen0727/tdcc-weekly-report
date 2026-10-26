@@ -3,6 +3,7 @@ from __future__ import annotations
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pandas as pd
 import pytest
@@ -13,6 +14,205 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import validate_daily_published_model_snapshots as strict_snapshots  # noqa: E402
 import validate_daily_published_model_snapshots_pr_safe as pr_safe  # noqa: E402
+
+
+@pytest.fixture
+def inherited_closure_snapshot_control(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> tuple[Path, list[str]]:
+    calls: list[str] = []
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: (
+            {pr_safe.PR_SAFE_HELPER_PATH, pr_safe.PR_VALIDATION_WORKFLOW_PATH},
+            [],
+        ),
+    )
+
+    def strict_validator(**_kwargs: object) -> list[str]:
+        calls.append("strict")
+        return [pr_safe.EXPECTED_STRICT_NOT_READY_ERROR]
+
+    def candidate(path: Path) -> bool:
+        calls.append("candidate")
+        assert path == tmp_path / "output" / "latest" / "data_freshness_latest.csv"
+        return True
+
+    def control_delta(
+        base_ref: str,
+        changed_paths: set[str],
+        *,
+        repository_root: Path,
+    ) -> list[str]:
+        calls.append("control")
+        assert base_ref == "base-sha"
+        assert changed_paths == {
+            pr_safe.PR_SAFE_HELPER_PATH,
+            pr_safe.PR_VALIDATION_WORKFLOW_PATH,
+        }
+        assert repository_root == tmp_path
+        return []
+
+    def closure(base_ref: str, *, repository_root: Path) -> list[str]:
+        calls.append("closure")
+        assert base_ref == "base-sha"
+        assert repository_root == tmp_path
+        return []
+
+    monkeypatch.setattr(pr_safe, "validate_current_report_snapshots", strict_validator)
+    monkeypatch.setattr(pr_safe, "is_inherited_market_closure_candidate", candidate)
+    monkeypatch.setattr(pr_safe, "validate_inherited_closure_control_delta", control_delta)
+    monkeypatch.setattr(pr_safe, "validate_inherited_market_closure", closure)
+    return tmp_path, calls
+
+
+def test_inherited_closure_snapshot_control_runs_strict_before_shared_gates(
+    inherited_closure_snapshot_control: tuple[Path, list[str]],
+) -> None:
+    repo, calls = inherited_closure_snapshot_control
+    assert pr_safe.validate_pr_safe_snapshot_contract(
+        "base-sha", repository_root=repo
+    ) == []
+    assert calls == ["strict", "candidate", "control", "closure"]
+
+
+def test_inherited_closure_snapshot_control_rejects_control_delta_errors(
+    inherited_closure_snapshot_control: tuple[Path, list[str]],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, calls = inherited_closure_snapshot_control
+    monkeypatch.setattr(
+        pr_safe,
+        "validate_inherited_closure_control_delta",
+        lambda *_args, **_kwargs: ["control workflow attempted a producer invocation"],
+    )
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        "base-sha", repository_root=repo
+    )
+    assert errors == ["control workflow attempted a producer invocation"]
+    assert calls == ["strict", "candidate"]
+
+
+def test_inherited_closure_snapshot_control_requires_shared_closure_proof(
+    inherited_closure_snapshot_control: tuple[Path, list[str]],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, calls = inherited_closure_snapshot_control
+    monkeypatch.setattr(
+        pr_safe,
+        "validate_inherited_market_closure",
+        lambda *_args, **_kwargs: ["closure freshness differs from base"],
+    )
+    assert pr_safe.validate_pr_safe_snapshot_contract(
+        "base-sha", repository_root=repo
+    ) == ["closure freshness differs from base"]
+    assert calls == ["strict", "candidate", "control"]
+
+
+@pytest.mark.parametrize(
+    "strict_errors",
+    [
+        ["manifest has duplicate snapshot revision rows"],
+        [pr_safe.EXPECTED_STRICT_NOT_READY_ERROR, "snapshot hash mismatch"],
+        [pr_safe.EXPECTED_STRICT_NOT_READY_ERROR] * 2,
+    ],
+)
+def test_inherited_closure_snapshot_control_rejects_every_additional_runtime_error(
+    inherited_closure_snapshot_control: tuple[Path, list[str]],
+    monkeypatch: pytest.MonkeyPatch,
+    strict_errors: list[str],
+) -> None:
+    repo, calls = inherited_closure_snapshot_control
+    monkeypatch.setattr(
+        pr_safe,
+        "validate_current_report_snapshots",
+        lambda **_kwargs: strict_errors,
+    )
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        "base-sha", repository_root=repo
+    )
+    assert "may inherit only the exact" in errors[0]
+    assert errors[1:] == strict_errors
+    assert calls == ["candidate"]
+
+
+@pytest.mark.parametrize(
+    "changed_path",
+    [
+        pr_safe.FRESHNESS_RELATIVE_PATH,
+        "output/history/daily_model_snapshots/daily_published_model_snapshot_manifest.csv",
+        "output/history/daily_model_snapshots/20261021/source.csv",
+        "scripts/update_daily_published_model_snapshots.py",
+        "scripts/daily_snapshot_revision_utils.py",
+        "scripts/validate_daily_published_model_snapshots.py",
+        "build_data_freshness_latest.py",
+        ".github/workflows/daily_full_pipeline.yml",
+        pr_safe.PR_BOUNDARY_VALIDATOR_PATH,
+        *(f"output/latest/{artifact.source_name}" for artifact in pr_safe.ARTIFACTS),
+    ],
+)
+def test_inherited_closure_cannot_override_snapshot_source_or_publisher_protection(
+    inherited_closure_snapshot_control: tuple[Path, list[str]],
+    monkeypatch: pytest.MonkeyPatch,
+    changed_path: str,
+) -> None:
+    repo, calls = inherited_closure_snapshot_control
+    monkeypatch.setattr(
+        pr_safe,
+        "changed_paths_from_base",
+        lambda *_args, **_kwargs: ({changed_path}, []),
+    )
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        "base-sha", repository_root=repo
+    )
+    assert "full runtime" in errors[0]
+    assert changed_path in errors[0]
+    assert errors[-1] == pr_safe.EXPECTED_STRICT_NOT_READY_ERROR
+    assert calls == ["strict", "candidate"]
+
+
+def test_inherited_closure_snapshot_rejects_alternate_latest_directory(
+    inherited_closure_snapshot_control: tuple[Path, list[str]],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repo, calls = inherited_closure_snapshot_control
+    monkeypatch.setattr(pr_safe, "is_inherited_market_closure_candidate", lambda _path: True)
+    errors = pr_safe.validate_pr_safe_snapshot_contract(
+        "base-sha", repository_root=repo, latest_dir=repo / "alternate-latest"
+    )
+    assert errors == [
+        "PR-safe closed-market snapshot validation requires the repository latest directory"
+    ]
+    assert calls == ["strict"]
+
+
+def test_snapshot_closure_control_delta_forwards_to_advanced_owner(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observed: list[tuple[str, set[str], Path]] = []
+
+    def validate_control_delta(
+        base_ref: str,
+        changed_paths: set[str],
+        *,
+        repository_root: Path,
+    ) -> list[str]:
+        observed.append((base_ref, changed_paths, repository_root))
+        return ["owner rejection sentinel"]
+
+    monkeypatch.setitem(
+        sys.modules,
+        "validate_repo_advanced_integrity_pr_safe",
+        SimpleNamespace(validate_inherited_closure_control_delta=validate_control_delta),
+    )
+    paths = {pr_safe.PR_SAFE_HELPER_PATH}
+    assert pr_safe.validate_inherited_closure_control_delta(
+        "base-sha", paths, repository_root=tmp_path
+    ) == ["owner rejection sentinel"]
+    assert observed == [("base-sha", paths, tmp_path)]
 
 
 def run_git(repo: Path, *args: str) -> str:
