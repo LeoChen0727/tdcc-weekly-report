@@ -16,12 +16,19 @@ import validate_daily_published_model_snapshots as strict_snapshots  # noqa: E40
 import validate_daily_published_model_snapshots_pr_safe as pr_safe  # noqa: E402
 
 
-@pytest.fixture
+@pytest.fixture(params=["closed_emergency", "closed_scheduled"])
 def inherited_closure_snapshot_control(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
+    request: pytest.FixtureRequest,
 ) -> tuple[Path, list[str]]:
     calls: list[str] = []
+    freshness = tmp_path / "output" / "latest" / "data_freshness_latest.csv"
+    freshness.parent.mkdir(parents=True)
+    pd.DataFrame(
+        [{"market_session_status": request.param, "report_ready": "False", "daily_pdf_ready": "False"}]
+    ).to_csv(freshness, index=False)
+    candidate_selector = pr_safe.is_inherited_market_closure_candidate
     monkeypatch.setattr(
         pr_safe,
         "changed_paths_from_base",
@@ -38,7 +45,9 @@ def inherited_closure_snapshot_control(
     def candidate(path: Path) -> bool:
         calls.append("candidate")
         assert path == tmp_path / "output" / "latest" / "data_freshness_latest.csv"
-        return True
+        # Exercise the shared selector for each status; only the independent
+        # authority proof is stubbed by this wrapper-routing fixture.
+        return candidate_selector(path)
 
     def control_delta(
         base_ref: str,
@@ -72,10 +81,14 @@ def test_inherited_closure_snapshot_control_runs_strict_before_shared_gates(
     inherited_closure_snapshot_control: tuple[Path, list[str]],
 ) -> None:
     repo, calls = inherited_closure_snapshot_control
+    freshness = repo / "output" / "latest" / "data_freshness_latest.csv"
+    prior_payload = freshness.read_bytes()
     assert pr_safe.validate_pr_safe_snapshot_contract(
         "base-sha", repository_root=repo
     ) == []
     assert calls == ["strict", "candidate", "control", "closure"]
+    assert freshness.read_bytes() == prior_payload
+    assert pr_safe.validate_current_report_snapshots() == [pr_safe.EXPECTED_STRICT_NOT_READY_ERROR]
 
 
 def test_inherited_closure_snapshot_control_rejects_control_delta_errors(

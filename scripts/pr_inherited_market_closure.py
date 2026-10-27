@@ -1,4 +1,4 @@
-"""Read-only PR evidence for an unchanged, authoritative emergency closure.
+"""Read-only PR evidence for an unchanged, authoritative market closure.
 
 This module never declares a source ready. Callers must still compare the exact
 runtime failures and enforce their own protected-change boundary.
@@ -32,6 +32,7 @@ INHERITED_SOURCE_PATHS = (
 )
 DGPA_URL = "https://www.dgpa.gov.tw/typh/daily/nds.html"
 ANNUAL_URL = "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
+SCHEDULED_URL = "https://www.twse.com.tw/en/trading/holiday.html"
 RULE_URL = "https://www.twse.com.tw/zh/about/suspended_faq.html"
 REASON_CODE = "taipei_full_day_or_morning_work_suspension"
 
@@ -151,9 +152,54 @@ def is_inherited_market_closure_candidate(freshness_path: Path) -> bool:
     """Only select a branch; full authorization is always the validator's job."""
     try:
         rows = _csv(freshness_path.read_bytes(), FRESHNESS_PATH)
-        return len(rows) == 1 and rows[0].get("market_session_status") == "closed_emergency"
+        return len(rows) == 1 and rows[0].get("market_session_status") in {"closed_emergency", "closed_scheduled"}
     except (OSError, ValueError, UnicodeError, csv.Error):
         return False
+
+
+def _scheduled_semantics(
+    market: dict[str, Any], scheduled: list[dict[str, str]],
+    exceptional: list[dict[str, str]], sources: dict[str, Any], session: str,
+) -> None:
+    """Check a conservative subset of immutable scheduled-closure authority.
+
+    The saved source metadata is not the original response body. In particular,
+    this branch does not infer a holiday's translated reason or an emergency
+    notice's scope from metadata alone.
+    """
+    _require(market.get("emergency_notice", {}) == {}, "scheduled closure must not contain an emergency notice")
+    for name in ("dgpa_emergency_closure", "twse_annual_calendar"):
+        _require(sources[name].get("error") in (None, ""), f"scheduled official source has an error: {name}")
+    for row in scheduled:
+        _require(row.get("market") == "TWSE_TPEx" and row.get("source_url") == SCHEDULED_URL, "invalid scheduled calendar source identity")
+        _require(datetime.strptime(row["date"], "%Y%m%d").weekday() < 5, "scheduled calendar must contain weekdays only")
+        _require(bool(row.get("reason", "").strip()), "missing scheduled calendar reason")
+    for row in exceptional:
+        _require(row.get("market_status") == "closed_emergency" and row.get("market") == "TWSE_TPEx" and row.get("closure_scope") in {"full_day", "morning"}, "invalid prior exceptional calendar closure")
+    weekday = datetime.strptime(session, "%Y%m%d").weekday()
+    if weekday >= 5:
+        _require(market.get("reason_code") == "weekend" and market.get("reason") == "weekend", "invalid weekend closure reason")
+    else:
+        _require(market.get("reason_code") == "twse_annual_holiday", "invalid scheduled holiday reason_code")
+        _require(session in {row["date"] for row in scheduled}, "scheduled holiday is absent from calendar")
+        _require(isinstance(market.get("reason"), str) and bool(market["reason"].strip()), "missing scheduled holiday reason")
+    annual = sources["twse_annual_calendar"]
+    years = annual.get("covered_years")
+    _require(isinstance(years, list) and bool(years) and all(type(year) is int and 2000 <= year <= 2099 for year in years), "invalid scheduled annual covered_years")
+    _require(years == sorted(set(years)) and int(session[:4]) in years, "scheduled annual calendar must uniquely cover closure year")
+    weekday_count = annual.get("closed_weekday_count")
+    _require(type(weekday_count) is int and weekday_count >= 0, "invalid annual closed_weekday_count")
+    _require(weekday_count == sum(int(row["date"][:4]) in years for row in scheduled), "annual closed_weekday_count differs from scheduled calendar")
+    dgpa = sources["dgpa_emergency_closure"]
+    notice_dates = dgpa.get("latest_taipei_notice_dates")
+    _require(isinstance(notice_dates, list), "invalid scheduled notice dates")
+    for value in notice_dates:
+        _date(value, "scheduled latest_taipei_notice_dates")
+    _require(notice_dates == sorted(set(notice_dates)), "duplicate or unordered scheduled notice dates")
+    count = dgpa.get("taipei_notice_count")
+    _require(type(count) is int and count >= 0 and count >= len(notice_dates) and (count == 0) == (not notice_dates), "invalid scheduled Taipei notice count")
+    _require(dgpa.get("conflict_dates") == [], "ambiguous scheduled emergency source dates")
+    _require(all(value < session for value in notice_dates), "scheduled inheritance permits only prior emergency notice dates")
 
 
 def _closure_semantics(payloads: dict[str, bytes], previous: dict[str, Any]) -> None:
@@ -167,11 +213,13 @@ def _closure_semantics(payloads: dict[str, bytes], previous: dict[str, Any]) -> 
     generated = _timestamp(market.get("generated_at"), "market.generated_at")
     _require(generated.utcoffset() == timedelta(hours=8) and generated.strftime("%Y%m%d") == session, "closure generation must belong to its Taipei session date")
     _require(type(market.get("schema_version")) is int and market["schema_version"] == 1, "invalid market schema")
-    _require(market.get("market_status") == "closed_emergency", "market must remain closed_emergency")
+    status = market.get("market_status")
+    _require(status in {"closed_emergency", "closed_scheduled"}, "market must remain closed_emergency or closed_scheduled")
     _require(market.get("assessment_date") == session, "assessment date differs from session")
     _require(market.get("phase") in {"preflight", "confirm"}, "invalid closure phase")
     _require(market.get("should_run_daily_pipeline") is False, "closed market must keep should_run_daily_pipeline false")
-    _require(market.get("reason_code") == REASON_CODE, "invalid emergency closure reason_code")
+    if status == "closed_emergency":
+        _require(market.get("reason_code") == REASON_CODE, "invalid emergency closure reason_code")
     _require(market.get("price_confirmation") == {}, "closed market must not contain price confirmation")
     release = manifest.get("release_id")
     _require(isinstance(release, str) and bool(re.fullmatch(rf"daily-authority-{session}-[1-9]\d*-[1-9]\d*", release)), "invalid authority release identity")
@@ -191,7 +239,7 @@ def _closure_semantics(payloads: dict[str, bytes], previous: dict[str, Any]) -> 
         _require(manifest.get(field) == market.get(field), f"manifest semantic mismatch: {field}")
     for csv_field, json_field in {"market_session_status": "market_status", "market_session_date": "market_session_date", "expected_main_price_date": "expected_main_price_date", "market_session_reason_code": "reason_code", "market_session_generated_at": "generated_at"}.items():
         _require(freshness.get(csv_field) == market.get(json_field), f"freshness market mismatch: {csv_field}")
-    report_note = "market session is not open_confirmed: market_session_status=closed_emergency"
+    report_note = f"market session is not open_confirmed: market_session_status={status}"
     for field, value in {"report_ready": "False", "daily_pdf_ready": "False", "report_ready_note": report_note, "daily_pdf_ready_note": f"core daily data not ready: {report_note}", "main_price_date_source": "validated_stock_history", "historical_replay_main_price_date": "", "expected_price_history_high_water_date": ""}.items():
         _require(freshness.get(field) == value, f"closure freshness mismatch: {field}")
     main_date = _date(freshness.get("main_price_date"), "main_price_date")
@@ -211,21 +259,22 @@ def _closure_semantics(payloads: dict[str, bytes], previous: dict[str, Any]) -> 
     _require(len(set(scheduled_dates)) == len(scheduled_dates) and len(set(exceptional_dates)) == len(exceptional_dates), "duplicate calendar dates")
     _require(market.get("scheduled_non_trading_days") == sorted(scheduled_dates), "scheduled calendar identity mismatch")
     _require(market.get("exceptional_non_trading_days") == sorted(exceptional_dates), "exceptional calendar identity mismatch")
-    closure_rows = [row for row in exceptional if row["date"] == session]
-    _require(len(closure_rows) == 1, "emergency closure needs one exceptional-calendar row")
-    notice = market.get("emergency_notice")
-    _require(isinstance(notice, dict), "missing emergency notice")
-    _require(notice.get("date") == session and notice.get("scope") in {"full_day", "morning"}, "invalid emergency notice date/scope")
-    _require(bool(notice.get("summary")) and notice.get("summary") == market.get("reason"), "emergency notice reason mismatch")
-    _require(notice.get("source_url") == DGPA_URL and bool(notice.get("source_record_id")), "invalid emergency notice source identity")
-    notice_time = _timestamp(notice.get("source_updated_at"), "notice.source_updated_at")
-    _require(notice_time <= generated, "emergency notice is newer than closure publication")
-    closure = closure_rows[0]
-    for field, value in {"market_status": "closed_emergency", "market": "TWSE_TPEx", "government_area": "Taipei City", "closure_scope": notice["scope"], "source_url": DGPA_URL, "source_record_id": notice["source_record_id"], "source_updated_at": notice["source_updated_at"], "twse_rule_url": RULE_URL}.items():
-        _require(closure.get(field) == value, f"exceptional calendar mismatch: {field}")
-    first = _timestamp(closure.get("first_observed_at"), "closure.first_observed_at")
-    last = _timestamp(closure.get("last_observed_at"), "closure.last_observed_at")
-    _require(notice_time <= first <= last <= generated, "invalid emergency calendar observation chronology")
+    if status == "closed_emergency":
+        closure_rows = [row for row in exceptional if row["date"] == session]
+        _require(len(closure_rows) == 1, "emergency closure needs one exceptional-calendar row")
+        notice = market.get("emergency_notice")
+        _require(isinstance(notice, dict), "missing emergency notice")
+        _require(notice.get("date") == session and notice.get("scope") in {"full_day", "morning"}, "invalid emergency notice date/scope")
+        _require(bool(notice.get("summary")) and notice.get("summary") == market.get("reason"), "emergency notice reason mismatch")
+        _require(notice.get("source_url") == DGPA_URL and bool(notice.get("source_record_id")), "invalid emergency notice source identity")
+        notice_time = _timestamp(notice.get("source_updated_at"), "notice.source_updated_at")
+        _require(notice_time <= generated, "emergency notice is newer than closure publication")
+        closure = closure_rows[0]
+        for field, value in {"market_status": "closed_emergency", "market": "TWSE_TPEx", "government_area": "Taipei City", "closure_scope": notice["scope"], "source_url": DGPA_URL, "source_record_id": notice["source_record_id"], "source_updated_at": notice["source_updated_at"], "twse_rule_url": RULE_URL}.items():
+            _require(closure.get(field) == value, f"exceptional calendar mismatch: {field}")
+        first = _timestamp(closure.get("first_observed_at"), "closure.first_observed_at")
+        last = _timestamp(closure.get("last_observed_at"), "closure.last_observed_at")
+        _require(notice_time <= first <= last <= generated, "invalid emergency calendar observation chronology")
     sources = market.get("official_sources")
     _require(isinstance(sources, dict), "missing official source evidence")
     for name, url in (("dgpa_emergency_closure", DGPA_URL), ("twse_annual_calendar", ANNUAL_URL)):
@@ -236,16 +285,27 @@ def _closure_semantics(payloads: dict[str, bytes], previous: dict[str, Any]) -> 
         for field in ("byte_len", "attempt_count"):
             _require(type(source.get(field)) is int and source[field] > 0, f"invalid official source {field}: {name}")
         _require(_timestamp(source.get("queried_at"), f"{name}.queried_at") == generated, f"official source query time mismatch: {name}")
-    dgpa = sources["dgpa_emergency_closure"]
-    _require(dgpa.get("conflict_dates") == [] and dgpa.get("latest_taipei_notice_dates") == [session], "ambiguous emergency source dates")
-    _require(type(dgpa.get("taipei_notice_count")) is int and dgpa["taipei_notice_count"] > 0, "missing Taipei closure notice")
-    annual = sources["twse_annual_calendar"]
-    _require(isinstance(annual.get("covered_years"), list) and int(session[:4]) in annual["covered_years"], "annual calendar does not cover closure year")
+    if status == "closed_emergency":
+        dgpa = sources["dgpa_emergency_closure"]
+        _require(dgpa.get("conflict_dates") == [] and dgpa.get("latest_taipei_notice_dates") == [session], "ambiguous emergency source dates")
+        _require(type(dgpa.get("taipei_notice_count")) is int and dgpa["taipei_notice_count"] > 0, "missing Taipei closure notice")
+        annual = sources["twse_annual_calendar"]
+        _require(isinstance(annual.get("covered_years"), list) and int(session[:4]) in annual["covered_years"], "annual calendar does not cover closure year")
+    else:
+        _scheduled_semantics(market, scheduled, exceptional, sources, session)
     _require(sources.get("twse_emergency_rule") == {"status": "reference", "url": RULE_URL}, "invalid emergency rule identity")
     day = datetime.strptime(session, "%Y%m%d") - timedelta(days=1)
     closed = set(scheduled_dates) | set(exceptional_dates)
-    while day.weekday() >= 5 or day.strftime("%Y%m%d") in closed:
-        day -= timedelta(days=1)
+    if status == "closed_scheduled":
+        for _ in range(45):
+            if day.weekday() < 5 and day.strftime("%Y%m%d") not in closed:
+                break
+            day -= timedelta(days=1)
+        else:
+            raise ClosureEvidenceError("scheduled closure has no prior trading date within 45 days")
+    else:
+        while day.weekday() >= 5 or day.strftime("%Y%m%d") in closed:
+            day -= timedelta(days=1)
     _require(expected_date == day.strftime("%Y%m%d"), "closure expected date differs from prior trading date")
 
     previous_date = _date(previous.get("market_session_date"), "previous market_session_date")
@@ -254,7 +314,7 @@ def _closure_semantics(payloads: dict[str, bytes], previous: dict[str, Any]) -> 
     if previous_date == session:
         _require(previous.get("expected_main_price_date") == expected_date, "same-session expected date changed")
         if previous.get("market_status") in {"open_confirmed", "closed_scheduled", "closed_emergency"}:
-            _require(previous.get("market_status") == "closed_emergency" and previous.get("phase") == market["phase"], "terminal market session changed")
+            _require(previous.get("market_status") == status and previous.get("phase") == market["phase"], "terminal market session changed")
         ranks = {"preflight": 0, "confirm": 1}
         _require(ranks.get(previous.get("phase"), -1) <= ranks[market["phase"]], "market phase moves backward")
 
@@ -284,5 +344,5 @@ def validate_inherited_market_closure(base_ref: str, *, repository_root: Path) -
         _, previous_payload = _blob(root, baseline, MARKET_PATH)
         _closure_semantics(payloads, _json(previous_payload, "authority transition preimage"))
     except (ClosureEvidenceError, OSError, ValueError, UnicodeError, csv.Error, TypeError, KeyError, OverflowError) as exc:
-        return [f"inherited emergency closure evidence invalid: {exc}"]
+        return [f"inherited market closure evidence invalid: {exc}"]
     return []

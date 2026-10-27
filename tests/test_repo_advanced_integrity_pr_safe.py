@@ -2039,19 +2039,24 @@ def test_legacy_exact_target_bypasses_are_retired() -> None:
     assert production_validator_module not in source
 
 
-@pytest.fixture
+@pytest.fixture(params=["closed_emergency", "closed_scheduled"])
 def inherited_closure_repo(
     historical_replay_repo: Path, monkeypatch: pytest.MonkeyPatch,
+    request: pytest.FixtureRequest,
 ) -> Path:
     """Isolate routing from the independently tested authority evidence checker."""
+    market_status = request.param
+    report_note = f"market session is not open_confirmed: market_session_status={market_status}"
     row = {
         **FRESHNESS_ROW,
-        "market_session_status": "closed_emergency",
+        "market_session_status": market_status,
         "main_price_date_source": "validated_stock_history",
         "historical_replay_main_price_date": "",
         "expected_price_history_high_water_date": "",
         "stock_monitor_price_date": FRESHNESS_ROW["main_price_date"],
         "all_candidates_date": FRESHNESS_ROW["main_price_date"],
+        "report_ready_note": report_note,
+        "daily_pdf_ready_note": f"core daily data not ready: {report_note}",
     }
     write_csv(historical_replay_repo / pr_safe.FRESHNESS_RELATIVE_PATH, [row])
     monkeypatch.setattr(pr_safe, "validate_inherited_market_closure", lambda *_a, **_k: [])
