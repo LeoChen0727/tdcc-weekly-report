@@ -536,7 +536,9 @@ def close_return_pct(close: float, entry_price: float) -> float:
 
 
 def w_bottom_exit_state(price: pd.DataFrame, entry_idx: int, asof_idx: int, entry_price: float, stop_price: float) -> dict[str, str]:
-    for idx in range(entry_idx, asof_idx + 1):
+    d20_idx = entry_idx + 19
+    d40_idx = entry_idx + 39
+    for idx in range(entry_idx, min(asof_idx, d40_idx) + 1):
         close = number_text(price.iloc[idx].get("close"))
         if not math.isnan(stop_price) and not math.isnan(close) and close < stop_price:
             return {
@@ -544,29 +546,25 @@ def w_bottom_exit_state(price: pd.DataFrame, entry_idx: int, asof_idx: int, entr
                 "exit_date": safe_str(price.iloc[idx].get("date")),
                 "exit_reason": "w_structure_low_close_stop",
             }
-    d20_idx = entry_idx + 19
-    if d20_idx <= asof_idx and d20_idx < len(price):
-        d20_close = number_text(price.iloc[d20_idx].get("close"))
-        if close_return_pct(d20_close, entry_price) >= 10.0:
+        if idx == d20_idx and close_return_pct(close, entry_price) >= 10.0:
             return {
                 "state": "exited",
                 "exit_date": safe_str(price.iloc[d20_idx].get("date")),
                 "exit_reason": "d20_gain10_close_exit",
             }
-    d40_idx = entry_idx + 39
-    if d40_idx <= asof_idx:
-        exit_idx = min(d40_idx, len(price) - 1)
-        return {
-            "state": "exited",
-            "exit_date": safe_str(price.iloc[exit_idx].get("date")),
-            "exit_reason": "d40_close_exit",
-        }
+        if idx == d40_idx:
+            return {
+                "state": "exited",
+                "exit_date": safe_str(price.iloc[idx].get("date")),
+                "exit_reason": "d40_close_exit",
+            }
     return {"state": "active", "exit_date": "", "exit_reason": ""}
 
 
 def neckline_exit_state(price: pd.DataFrame, entry_idx: int, asof_idx: int, entry_price: float) -> dict[str, str]:
+    d20_idx = entry_idx + 19
     reached_plus5 = False
-    for idx in range(entry_idx, asof_idx + 1):
+    for idx in range(entry_idx, min(asof_idx, d20_idx) + 1):
         close = number_text(price.iloc[idx].get("close"))
         ret = close_return_pct(close, entry_price)
         if math.isnan(ret):
@@ -585,7 +583,6 @@ def neckline_exit_state(price: pd.DataFrame, entry_idx: int, asof_idx: int, entr
                 "exit_date": safe_str(price.iloc[idx].get("date")),
                 "exit_reason": "pulled_back_to_5pct_after_plus5_without_tp10",
             }
-    d20_idx = entry_idx + 19
     if d20_idx <= asof_idx:
         exit_idx = min(d20_idx, len(price) - 1)
         return {
