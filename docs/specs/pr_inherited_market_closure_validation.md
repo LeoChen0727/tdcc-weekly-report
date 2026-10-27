@@ -1,9 +1,10 @@
-# PR 繼承緊急休市來源驗證
+# PR 繼承休市來源驗證
 
 本控制由 `repo_infrastructure` 維護，只供 PR 判斷既存來源狀態是否可合法繼承。
 它不宣告來源 ready、不發布快照、不產生 PDF、不改選股或操作條件，也不提供模型績效或升級證據。
 
-只有 `market_session_status=closed_emergency` 可以進入新增分支；`closed_scheduled`、缺值、其他市場狀態與新增來源錯誤均不適用。
+只有 `market_session_status=closed_emergency` 或 `closed_scheduled` 可以進入候選分支；候選狀態本身不構成繼承授權。
+缺值、其他市場狀態與新增來源錯誤均不適用，兩種休市各須通過其權威證據檢查。
 既有 historical replay 分支及正式 runtime validators 保留原行為。
 `scripts/pr_inherited_market_closure.py` 是兩個 PR wrapper 共用的低階來源身分及不可變性檢查，不解讀任何模型條件。
 
@@ -27,8 +28,25 @@
 12. `scripts/validate_daily_publish_freshness_gate.py`
 13. `scripts/validate_repo_advanced_integrity.py`
 
-還須核對緊急休市官方來源身分、日期與時間順序、release ID/base commit、三個 manifest surface 的 SHA-256、行事曆及前一交易日。
+還須核對官方來源身分、日期與時間順序、release ID/base commit、三個 manifest surface 的 SHA-256、行事曆及前一交易日。
 新 PR 不得把休市狀態改成 ready，或用服務失敗替代官方休市證據。
+
+## 排定休市的獨立證據分支
+
+`closed_scheduled` 延伸經使用者明確授權，僅允許沿用已存在於精確 main 基準的權威 release；不得由 PR 新建或改寫來源證據。
+共同的不可變性、manifest、時間順序與兩個 readiness=False 檢查全部保留。兩個 PR wrapper、正式 validator、workflow、trust-root guard 及其核准規則均保持原樣。
+
+排定休市必須驗證成功的 TWSE 年曆及 DGPA 來源身分、SHA-256 格式、正數 bytes/attempts、與 publication 相同的 query timestamp；年曆須涵蓋該 session 年份。
+`twse_annual_holiday` 須落在年曆列明的平日休市日期；`weekend` 須為星期六或日。休市原因、年曆日期、來源及計數須與各分支契約相符。
+排定行事曆各列須為唯一的平日日期、`market=TWSE_TPEx` 且指向既有官方靜態年曆 URL；不得要求英文靜態假日名稱與官方 release 的中文原因字串相同。
+年曆 `covered_years` 須為不重複的整數年份，`closed_weekday_count` 須與這些年份在不可變行事曆中的列數相符。
+DGPA 可保留過去日期的公告；日期須有序且唯一，計數須合理。當日公告缺乏足夠本文證據時，本保守分支拒絕該 session，不自行推斷優先權或緊急公告的適用範圍。
+當期缺年曆、來源失敗、衝突的緊急公告、偽造日期或不一致的計數均拒絕，不以靜態 fallback 或服務錯誤推論休市。
+前一交易日須從既有排定與緊急休市日期重算，排定分支最多檢查前 45 個日曆日、找不到即拒絕；同 session 已終結的市場狀態及 phase 不得改寫，也不得倒退。
+緊急休市仍須原本的 DGPA 公告本文欄位、exceptional calendar、觀測時間順序及規則來源證據，不能改走排定休市規則省略檢查。
+
+這些檢查驗證 Git 基準中既有權威主張可被原封不動繼承；來源 metadata 的 SHA 並不等於本 PR 重新取得或獨立驗證了官方原始回應。
+本次不擷取新來源、不改 `available_at`，也不解除任何模型的 point-in-time 或持倉 parity 阻礙。
 
 ## 精確 runtime 錯誤邊界
 
