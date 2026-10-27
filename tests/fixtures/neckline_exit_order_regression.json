@@ -1,0 +1,3345 @@
+{
+  "fixture_version": 1,
+  "purpose": "Regression-only actual existing date/close windows for the 13 D20 ordering cases. Not PIT, publication/position parity, performance evidence, new market observations, or a model condition change.",
+  "source_commit": "9b588342955e3e0d9aaadb0c240be3077224c5a6",
+  "source_replay_report_raw_sha256": "f8a2b00d917e287690bbcff688058208df0537ec19afdc4585455f6f3e471c0c",
+  "source_replay_detail_raw_sha256": "1c00b20e4c726b7cca276d2245ef8f6f419ff693241f30bb5ff2d27b7e17c824",
+  "entry_basis": "Fixed stored confirmation_entry_date and confirmation_entry_price; existing current price file version, not reconstructed original research price version.",
+  "asof": "20261021",
+  "cases": [
+    {
+      "case_id": "2368_20250604",
+      "stock_id": "2368",
+      "entry_date": "20250604",
+      "entry_price": 272.0,
+      "source_file": "data/stock_price_history/2368.csv",
+      "source_raw_sha256": "6d1649999e2f14ef86e8b141da49716f946eb5a6a88ff25ba39c28b5c32dbea7",
+      "expected_formal": {
+        "exit_date": "20250701",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 294.5,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20250704",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 300.5,
+        "holding_sessions": 23
+      },
+      "prices": [
+        {
+          "date": "20250604",
+          "close": 268.0
+        },
+        {
+          "date": "20250605",
+          "close": 279.0
+        },
+        {
+          "date": "20250606",
+          "close": 270.5
+        },
+        {
+          "date": "20250609",
+          "close": 278.5
+        },
+        {
+          "date": "20250610",
+          "close": 281.5
+        },
+        {
+          "date": "20250611",
+          "close": 282.5
+        },
+        {
+          "date": "20250612",
+          "close": 278.5
+        },
+        {
+          "date": "20250613",
+          "close": 278.0
+        },
+        {
+          "date": "20250616",
+          "close": 279.5
+        },
+        {
+          "date": "20250617",
+          "close": 269.0
+        },
+        {
+          "date": "20250618",
+          "close": 263.5
+        },
+        {
+          "date": "20250619",
+          "close": 264.0
+        },
+        {
+          "date": "20250620",
+          "close": 266.5
+        },
+        {
+          "date": "20250623",
+          "close": 269.5
+        },
+        {
+          "date": "20250624",
+          "close": 274.0
+        },
+        {
+          "date": "20250625",
+          "close": 272.0
+        },
+        {
+          "date": "20250626",
+          "close": 269.5
+        },
+        {
+          "date": "20250627",
+          "close": 276.0
+        },
+        {
+          "date": "20250630",
+          "close": 295.0
+        },
+        {
+          "date": "20250701",
+          "close": 294.5
+        },
+        {
+          "date": "20250702",
+          "close": 290.5
+        },
+        {
+          "date": "20250703",
+          "close": 290.0
+        },
+        {
+          "date": "20250704",
+          "close": 300.5
+        }
+      ]
+    },
+    {
+      "case_id": "6451_20250813",
+      "stock_id": "6451",
+      "entry_date": "20250813",
+      "entry_price": 174.0,
+      "source_file": "data/stock_price_history/6451.csv",
+      "source_raw_sha256": "dfb3657d69320d6bb401692180449b100fb8bd754c0431af3ea50df8391ff449",
+      "expected_formal": {
+        "exit_date": "20250909",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 161.0,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260204",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 208.0,
+        "holding_sessions": 119
+      },
+      "prices": [
+        {
+          "date": "20250813",
+          "close": 169.5
+        },
+        {
+          "date": "20250814",
+          "close": 172.5
+        },
+        {
+          "date": "20250815",
+          "close": 169.5
+        },
+        {
+          "date": "20250818",
+          "close": 164.5
+        },
+        {
+          "date": "20250819",
+          "close": 163.0
+        },
+        {
+          "date": "20250820",
+          "close": 155.0
+        },
+        {
+          "date": "20250821",
+          "close": 158.5
+        },
+        {
+          "date": "20250822",
+          "close": 154.5
+        },
+        {
+          "date": "20250825",
+          "close": 168.0
+        },
+        {
+          "date": "20250826",
+          "close": 168.0
+        },
+        {
+          "date": "20250827",
+          "close": 170.5
+        },
+        {
+          "date": "20250828",
+          "close": 165.0
+        },
+        {
+          "date": "20250829",
+          "close": 165.0
+        },
+        {
+          "date": "20250901",
+          "close": 160.5
+        },
+        {
+          "date": "20250902",
+          "close": 161.0
+        },
+        {
+          "date": "20250903",
+          "close": 158.0
+        },
+        {
+          "date": "20250904",
+          "close": 157.0
+        },
+        {
+          "date": "20250905",
+          "close": 161.0
+        },
+        {
+          "date": "20250908",
+          "close": 167.5
+        },
+        {
+          "date": "20250909",
+          "close": 161.0
+        },
+        {
+          "date": "20250910",
+          "close": 159.0
+        },
+        {
+          "date": "20250911",
+          "close": 158.0
+        },
+        {
+          "date": "20250912",
+          "close": 160.5
+        },
+        {
+          "date": "20250916",
+          "close": 158.0
+        },
+        {
+          "date": "20250917",
+          "close": 158.5
+        },
+        {
+          "date": "20250918",
+          "close": 162.0
+        },
+        {
+          "date": "20250919",
+          "close": 162.5
+        },
+        {
+          "date": "20250922",
+          "close": 165.5
+        },
+        {
+          "date": "20250923",
+          "close": 164.5
+        },
+        {
+          "date": "20250924",
+          "close": 159.5
+        },
+        {
+          "date": "20250925",
+          "close": 158.5
+        },
+        {
+          "date": "20250926",
+          "close": 152.0
+        },
+        {
+          "date": "20250930",
+          "close": 155.5
+        },
+        {
+          "date": "20251001",
+          "close": 153.0
+        },
+        {
+          "date": "20251002",
+          "close": 151.5
+        },
+        {
+          "date": "20251003",
+          "close": 150.0
+        },
+        {
+          "date": "20251007",
+          "close": 153.0
+        },
+        {
+          "date": "20251008",
+          "close": 153.0
+        },
+        {
+          "date": "20251009",
+          "close": 150.0
+        },
+        {
+          "date": "20251013",
+          "close": 141.0
+        },
+        {
+          "date": "20251014",
+          "close": 137.0
+        },
+        {
+          "date": "20251015",
+          "close": 137.5
+        },
+        {
+          "date": "20251016",
+          "close": 143.0
+        },
+        {
+          "date": "20251017",
+          "close": 139.0
+        },
+        {
+          "date": "20251020",
+          "close": 143.5
+        },
+        {
+          "date": "20251021",
+          "close": 145.0
+        },
+        {
+          "date": "20251022",
+          "close": 143.0
+        },
+        {
+          "date": "20251023",
+          "close": 140.0
+        },
+        {
+          "date": "20251027",
+          "close": 140.5
+        },
+        {
+          "date": "20251028",
+          "close": 145.0
+        },
+        {
+          "date": "20251029",
+          "close": 147.0
+        },
+        {
+          "date": "20251030",
+          "close": 141.5
+        },
+        {
+          "date": "20251031",
+          "close": 143.5
+        },
+        {
+          "date": "20251103",
+          "close": 157.5
+        },
+        {
+          "date": "20251104",
+          "close": 150.0
+        },
+        {
+          "date": "20251105",
+          "close": 149.0
+        },
+        {
+          "date": "20251106",
+          "close": 153.0
+        },
+        {
+          "date": "20251107",
+          "close": 149.0
+        },
+        {
+          "date": "20251110",
+          "close": 152.5
+        },
+        {
+          "date": "20251111",
+          "close": 146.5
+        },
+        {
+          "date": "20251112",
+          "close": 151.5
+        },
+        {
+          "date": "20251113",
+          "close": 153.0
+        },
+        {
+          "date": "20251114",
+          "close": 147.5
+        },
+        {
+          "date": "20251117",
+          "close": 147.0
+        },
+        {
+          "date": "20251118",
+          "close": 140.5
+        },
+        {
+          "date": "20251119",
+          "close": 135.5
+        },
+        {
+          "date": "20251120",
+          "close": 140.5
+        },
+        {
+          "date": "20251121",
+          "close": 133.5
+        },
+        {
+          "date": "20251124",
+          "close": 140.5
+        },
+        {
+          "date": "20251125",
+          "close": 143.0
+        },
+        {
+          "date": "20251126",
+          "close": 150.0
+        },
+        {
+          "date": "20251127",
+          "close": 154.5
+        },
+        {
+          "date": "20251128",
+          "close": 166.0
+        },
+        {
+          "date": "20251201",
+          "close": 157.0
+        },
+        {
+          "date": "20251202",
+          "close": 156.0
+        },
+        {
+          "date": "20251203",
+          "close": 161.5
+        },
+        {
+          "date": "20251204",
+          "close": 158.5
+        },
+        {
+          "date": "20251205",
+          "close": 157.0
+        },
+        {
+          "date": "20251208",
+          "close": 160.0
+        },
+        {
+          "date": "20251209",
+          "close": 167.0
+        },
+        {
+          "date": "20251210",
+          "close": 172.0
+        },
+        {
+          "date": "20251211",
+          "close": 172.5
+        },
+        {
+          "date": "20251212",
+          "close": 176.0
+        },
+        {
+          "date": "20251215",
+          "close": 168.0
+        },
+        {
+          "date": "20251216",
+          "close": 159.5
+        },
+        {
+          "date": "20251217",
+          "close": 158.0
+        },
+        {
+          "date": "20251218",
+          "close": 154.0
+        },
+        {
+          "date": "20251219",
+          "close": 155.5
+        },
+        {
+          "date": "20251222",
+          "close": 163.0
+        },
+        {
+          "date": "20251223",
+          "close": 166.5
+        },
+        {
+          "date": "20251224",
+          "close": 168.5
+        },
+        {
+          "date": "20251226",
+          "close": 164.5
+        },
+        {
+          "date": "20251229",
+          "close": 157.5
+        },
+        {
+          "date": "20251230",
+          "close": 160.5
+        },
+        {
+          "date": "20251231",
+          "close": 166.0
+        },
+        {
+          "date": "20260102",
+          "close": 164.5
+        },
+        {
+          "date": "20260105",
+          "close": 158.5
+        },
+        {
+          "date": "20260106",
+          "close": 156.5
+        },
+        {
+          "date": "20260107",
+          "close": 155.0
+        },
+        {
+          "date": "20260108",
+          "close": 154.5
+        },
+        {
+          "date": "20260109",
+          "close": 153.0
+        },
+        {
+          "date": "20260112",
+          "close": 154.0
+        },
+        {
+          "date": "20260113",
+          "close": 148.5
+        },
+        {
+          "date": "20260114",
+          "close": 152.0
+        },
+        {
+          "date": "20260115",
+          "close": 149.5
+        },
+        {
+          "date": "20260116",
+          "close": 148.0
+        },
+        {
+          "date": "20260119",
+          "close": 146.0
+        },
+        {
+          "date": "20260120",
+          "close": 146.5
+        },
+        {
+          "date": "20260121",
+          "close": 152.5
+        },
+        {
+          "date": "20260122",
+          "close": 152.0
+        },
+        {
+          "date": "20260123",
+          "close": 148.0
+        },
+        {
+          "date": "20260126",
+          "close": 146.5
+        },
+        {
+          "date": "20260127",
+          "close": 148.5
+        },
+        {
+          "date": "20260128",
+          "close": 159.5
+        },
+        {
+          "date": "20260129",
+          "close": 169.5
+        },
+        {
+          "date": "20260130",
+          "close": 161.0
+        },
+        {
+          "date": "20260202",
+          "close": 172.5
+        },
+        {
+          "date": "20260203",
+          "close": 189.5
+        },
+        {
+          "date": "20260204",
+          "close": 208.0
+        }
+      ]
+    },
+    {
+      "case_id": "2324_20250926",
+      "stock_id": "2324",
+      "entry_date": "20250926",
+      "entry_price": 36.0,
+      "source_file": "data/stock_price_history/2324.csv",
+      "source_raw_sha256": "db237897cb0e8571b8420a36ffe7178b4c40415d2dfa9d5af690142f1f32f9bd",
+      "expected_formal": {
+        "exit_date": "20251029",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 34.55,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260601",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 40.35,
+        "holding_sessions": 160
+      },
+      "prices": [
+        {
+          "date": "20250926",
+          "close": 33.4
+        },
+        {
+          "date": "20250930",
+          "close": 32.4
+        },
+        {
+          "date": "20251001",
+          "close": 31.75
+        },
+        {
+          "date": "20251002",
+          "close": 32.65
+        },
+        {
+          "date": "20251003",
+          "close": 32.05
+        },
+        {
+          "date": "20251007",
+          "close": 32.65
+        },
+        {
+          "date": "20251008",
+          "close": 31.95
+        },
+        {
+          "date": "20251009",
+          "close": 32.25
+        },
+        {
+          "date": "20251013",
+          "close": 31.5
+        },
+        {
+          "date": "20251014",
+          "close": 31.0
+        },
+        {
+          "date": "20251015",
+          "close": 31.65
+        },
+        {
+          "date": "20251016",
+          "close": 31.85
+        },
+        {
+          "date": "20251017",
+          "close": 33.3
+        },
+        {
+          "date": "20251020",
+          "close": 32.95
+        },
+        {
+          "date": "20251021",
+          "close": 34.3
+        },
+        {
+          "date": "20251022",
+          "close": 35.95
+        },
+        {
+          "date": "20251023",
+          "close": 35.0
+        },
+        {
+          "date": "20251027",
+          "close": 35.2
+        },
+        {
+          "date": "20251028",
+          "close": 34.5
+        },
+        {
+          "date": "20251029",
+          "close": 34.55
+        },
+        {
+          "date": "20251030",
+          "close": 33.85
+        },
+        {
+          "date": "20251031",
+          "close": 33.05
+        },
+        {
+          "date": "20251103",
+          "close": 33.25
+        },
+        {
+          "date": "20251104",
+          "close": 32.35
+        },
+        {
+          "date": "20251105",
+          "close": 32.1
+        },
+        {
+          "date": "20251106",
+          "close": 32.5
+        },
+        {
+          "date": "20251107",
+          "close": 31.65
+        },
+        {
+          "date": "20251110",
+          "close": 31.55
+        },
+        {
+          "date": "20251111",
+          "close": 30.65
+        },
+        {
+          "date": "20251112",
+          "close": 30.85
+        },
+        {
+          "date": "20251113",
+          "close": 30.65
+        },
+        {
+          "date": "20251114",
+          "close": 29.9
+        },
+        {
+          "date": "20251117",
+          "close": 29.05
+        },
+        {
+          "date": "20251118",
+          "close": 28.65
+        },
+        {
+          "date": "20251119",
+          "close": 29.4
+        },
+        {
+          "date": "20251120",
+          "close": 29.4
+        },
+        {
+          "date": "20251121",
+          "close": 28.65
+        },
+        {
+          "date": "20251124",
+          "close": 28.7
+        },
+        {
+          "date": "20251125",
+          "close": 29.55
+        },
+        {
+          "date": "20251126",
+          "close": 29.5
+        },
+        {
+          "date": "20251127",
+          "close": 29.6
+        },
+        {
+          "date": "20251128",
+          "close": 29.35
+        },
+        {
+          "date": "20251201",
+          "close": 29.45
+        },
+        {
+          "date": "20251202",
+          "close": 29.5
+        },
+        {
+          "date": "20251203",
+          "close": 30.15
+        },
+        {
+          "date": "20251204",
+          "close": 30.4
+        },
+        {
+          "date": "20251205",
+          "close": 30.3
+        },
+        {
+          "date": "20251208",
+          "close": 30.55
+        },
+        {
+          "date": "20251209",
+          "close": 29.8
+        },
+        {
+          "date": "20251210",
+          "close": 29.95
+        },
+        {
+          "date": "20251211",
+          "close": 29.85
+        },
+        {
+          "date": "20251212",
+          "close": 30.05
+        },
+        {
+          "date": "20251215",
+          "close": 29.35
+        },
+        {
+          "date": "20251216",
+          "close": 29.4
+        },
+        {
+          "date": "20251217",
+          "close": 29.55
+        },
+        {
+          "date": "20251218",
+          "close": 29.7
+        },
+        {
+          "date": "20251219",
+          "close": 29.7
+        },
+        {
+          "date": "20251222",
+          "close": 30.7
+        },
+        {
+          "date": "20251223",
+          "close": 30.0
+        },
+        {
+          "date": "20251224",
+          "close": 30.0
+        },
+        {
+          "date": "20251226",
+          "close": 30.0
+        },
+        {
+          "date": "20251229",
+          "close": 30.4
+        },
+        {
+          "date": "20251230",
+          "close": 30.35
+        },
+        {
+          "date": "20251231",
+          "close": 30.4
+        },
+        {
+          "date": "20260102",
+          "close": 30.8
+        },
+        {
+          "date": "20260105",
+          "close": 30.8
+        },
+        {
+          "date": "20260106",
+          "close": 30.8
+        },
+        {
+          "date": "20260107",
+          "close": 30.95
+        },
+        {
+          "date": "20260108",
+          "close": 30.05
+        },
+        {
+          "date": "20260109",
+          "close": 29.55
+        },
+        {
+          "date": "20260112",
+          "close": 30.35
+        },
+        {
+          "date": "20260113",
+          "close": 30.9
+        },
+        {
+          "date": "20260114",
+          "close": 31.35
+        },
+        {
+          "date": "20260115",
+          "close": 31.05
+        },
+        {
+          "date": "20260116",
+          "close": 30.85
+        },
+        {
+          "date": "20260119",
+          "close": 32.25
+        },
+        {
+          "date": "20260120",
+          "close": 32.6
+        },
+        {
+          "date": "20260121",
+          "close": 31.9
+        },
+        {
+          "date": "20260122",
+          "close": 33.1
+        },
+        {
+          "date": "20260123",
+          "close": 33.35
+        },
+        {
+          "date": "20260126",
+          "close": 32.25
+        },
+        {
+          "date": "20260127",
+          "close": 32.3
+        },
+        {
+          "date": "20260128",
+          "close": 32.55
+        },
+        {
+          "date": "20260129",
+          "close": 31.8
+        },
+        {
+          "date": "20260130",
+          "close": 32.75
+        },
+        {
+          "date": "20260202",
+          "close": 32.3
+        },
+        {
+          "date": "20260203",
+          "close": 32.0
+        },
+        {
+          "date": "20260204",
+          "close": 32.35
+        },
+        {
+          "date": "20260205",
+          "close": 31.3
+        },
+        {
+          "date": "20260206",
+          "close": 30.7
+        },
+        {
+          "date": "20260209",
+          "close": 30.7
+        },
+        {
+          "date": "20260210",
+          "close": 30.6
+        },
+        {
+          "date": "20260211",
+          "close": 30.6
+        },
+        {
+          "date": "20260223",
+          "close": 29.5
+        },
+        {
+          "date": "20260224",
+          "close": 29.65
+        },
+        {
+          "date": "20260225",
+          "close": 30.1
+        },
+        {
+          "date": "20260226",
+          "close": 31.65
+        },
+        {
+          "date": "20260302",
+          "close": 31.4
+        },
+        {
+          "date": "20260303",
+          "close": 30.35
+        },
+        {
+          "date": "20260304",
+          "close": 29.4
+        },
+        {
+          "date": "20260305",
+          "close": 30.4
+        },
+        {
+          "date": "20260306",
+          "close": 31.45
+        },
+        {
+          "date": "20260309",
+          "close": 31.3
+        },
+        {
+          "date": "20260310",
+          "close": 31.75
+        },
+        {
+          "date": "20260311",
+          "close": 32.35
+        },
+        {
+          "date": "20260312",
+          "close": 32.65
+        },
+        {
+          "date": "20260313",
+          "close": 32.2
+        },
+        {
+          "date": "20260316",
+          "close": 31.7
+        },
+        {
+          "date": "20260317",
+          "close": 32.2
+        },
+        {
+          "date": "20260318",
+          "close": 32.85
+        },
+        {
+          "date": "20260319",
+          "close": 32.6
+        },
+        {
+          "date": "20260320",
+          "close": 33.0
+        },
+        {
+          "date": "20260323",
+          "close": 32.7
+        },
+        {
+          "date": "20260324",
+          "close": 31.7
+        },
+        {
+          "date": "20260325",
+          "close": 31.5
+        },
+        {
+          "date": "20260326",
+          "close": 31.5
+        },
+        {
+          "date": "20260327",
+          "close": 30.25
+        },
+        {
+          "date": "20260330",
+          "close": 28.25
+        },
+        {
+          "date": "20260331",
+          "close": 26.95
+        },
+        {
+          "date": "20260401",
+          "close": 27.45
+        },
+        {
+          "date": "20260402",
+          "close": 27.4
+        },
+        {
+          "date": "20260407",
+          "close": 26.85
+        },
+        {
+          "date": "20260408",
+          "close": 27.9
+        },
+        {
+          "date": "20260409",
+          "close": 27.3
+        },
+        {
+          "date": "20260410",
+          "close": 28.2
+        },
+        {
+          "date": "20260413",
+          "close": 29.0
+        },
+        {
+          "date": "20260414",
+          "close": 29.5
+        },
+        {
+          "date": "20260415",
+          "close": 29.45
+        },
+        {
+          "date": "20260416",
+          "close": 29.4
+        },
+        {
+          "date": "20260417",
+          "close": 30.35
+        },
+        {
+          "date": "20260420",
+          "close": 30.25
+        },
+        {
+          "date": "20260421",
+          "close": 31.45
+        },
+        {
+          "date": "20260422",
+          "close": 32.75
+        },
+        {
+          "date": "20260423",
+          "close": 31.2
+        },
+        {
+          "date": "20260424",
+          "close": 30.3
+        },
+        {
+          "date": "20260427",
+          "close": 30.0
+        },
+        {
+          "date": "20260428",
+          "close": 29.85
+        },
+        {
+          "date": "20260429",
+          "close": 29.7
+        },
+        {
+          "date": "20260430",
+          "close": 29.0
+        },
+        {
+          "date": "20260504",
+          "close": 29.2
+        },
+        {
+          "date": "20260505",
+          "close": 29.3
+        },
+        {
+          "date": "20260506",
+          "close": 29.2
+        },
+        {
+          "date": "20260507",
+          "close": 29.45
+        },
+        {
+          "date": "20260508",
+          "close": 29.65
+        },
+        {
+          "date": "20260511",
+          "close": 30.8
+        },
+        {
+          "date": "20260512",
+          "close": 29.9
+        },
+        {
+          "date": "20260513",
+          "close": 31.3
+        },
+        {
+          "date": "20260514",
+          "close": 30.25
+        },
+        {
+          "date": "20260515",
+          "close": 28.65
+        },
+        {
+          "date": "20260518",
+          "close": 28.25
+        },
+        {
+          "date": "20260519",
+          "close": 27.8
+        },
+        {
+          "date": "20260520",
+          "close": 27.6
+        },
+        {
+          "date": "20260521",
+          "close": 30.35
+        },
+        {
+          "date": "20260522",
+          "close": 31.5
+        },
+        {
+          "date": "20260525",
+          "close": 34.65
+        },
+        {
+          "date": "20260526",
+          "close": 33.6
+        },
+        {
+          "date": "20260527",
+          "close": 33.4
+        },
+        {
+          "date": "20260528",
+          "close": 33.5
+        },
+        {
+          "date": "20260529",
+          "close": 36.7
+        },
+        {
+          "date": "20260601",
+          "close": 40.35
+        }
+      ]
+    },
+    {
+      "case_id": "6706_20251001",
+      "stock_id": "6706",
+      "entry_date": "20251001",
+      "entry_price": 88.2,
+      "source_file": "data/stock_price_history/6706.csv",
+      "source_raw_sha256": "b2cd10d2d0699dd63962a7386f072127eb2a17863e795bd1df06a25a432804ad",
+      "expected_formal": {
+        "exit_date": "20251031",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 69.1,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20251203",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 100.0,
+        "holding_sessions": 43
+      },
+      "prices": [
+        {
+          "date": "20251001",
+          "close": 86.3
+        },
+        {
+          "date": "20251002",
+          "close": 82.0
+        },
+        {
+          "date": "20251003",
+          "close": 82.4
+        },
+        {
+          "date": "20251007",
+          "close": 79.3
+        },
+        {
+          "date": "20251008",
+          "close": 76.6
+        },
+        {
+          "date": "20251009",
+          "close": 73.3
+        },
+        {
+          "date": "20251013",
+          "close": 72.3
+        },
+        {
+          "date": "20251014",
+          "close": 70.0
+        },
+        {
+          "date": "20251015",
+          "close": 69.9
+        },
+        {
+          "date": "20251016",
+          "close": 71.4
+        },
+        {
+          "date": "20251017",
+          "close": 70.2
+        },
+        {
+          "date": "20251020",
+          "close": 71.5
+        },
+        {
+          "date": "20251021",
+          "close": 71.2
+        },
+        {
+          "date": "20251022",
+          "close": 71.9
+        },
+        {
+          "date": "20251023",
+          "close": 69.3
+        },
+        {
+          "date": "20251027",
+          "close": 70.9
+        },
+        {
+          "date": "20251028",
+          "close": 70.0
+        },
+        {
+          "date": "20251029",
+          "close": 69.9
+        },
+        {
+          "date": "20251030",
+          "close": 68.5
+        },
+        {
+          "date": "20251031",
+          "close": 69.1
+        },
+        {
+          "date": "20251103",
+          "close": 69.2
+        },
+        {
+          "date": "20251104",
+          "close": 66.1
+        },
+        {
+          "date": "20251105",
+          "close": 72.7
+        },
+        {
+          "date": "20251106",
+          "close": 79.9
+        },
+        {
+          "date": "20251107",
+          "close": 82.4
+        },
+        {
+          "date": "20251110",
+          "close": 85.4
+        },
+        {
+          "date": "20251111",
+          "close": 80.6
+        },
+        {
+          "date": "20251112",
+          "close": 80.1
+        },
+        {
+          "date": "20251113",
+          "close": 78.8
+        },
+        {
+          "date": "20251114",
+          "close": 79.0
+        },
+        {
+          "date": "20251117",
+          "close": 81.0
+        },
+        {
+          "date": "20251118",
+          "close": 77.9
+        },
+        {
+          "date": "20251119",
+          "close": 77.6
+        },
+        {
+          "date": "20251120",
+          "close": 80.9
+        },
+        {
+          "date": "20251121",
+          "close": 75.6
+        },
+        {
+          "date": "20251124",
+          "close": 79.7
+        },
+        {
+          "date": "20251125",
+          "close": 85.8
+        },
+        {
+          "date": "20251126",
+          "close": 79.7
+        },
+        {
+          "date": "20251127",
+          "close": 82.0
+        },
+        {
+          "date": "20251128",
+          "close": 88.9
+        },
+        {
+          "date": "20251201",
+          "close": 92.1
+        },
+        {
+          "date": "20251202",
+          "close": 91.1
+        },
+        {
+          "date": "20251203",
+          "close": 100.0
+        }
+      ]
+    },
+    {
+      "case_id": "4904_20251008",
+      "stock_id": "4904",
+      "entry_date": "20251008",
+      "entry_price": 90.2,
+      "source_file": "data/stock_price_history/4904.csv",
+      "source_raw_sha256": "2be80d6ca3ea744313151bf2db5cb156a03bb7d80420d67c89491f4911a2bf6e",
+      "expected_formal": {
+        "exit_date": "20251106",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 93.5,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20251110",
+        "exit_reason": "pulled_back_to_5pct_after_plus5_without_tp10",
+        "exit_price": 94.0,
+        "holding_sessions": 22
+      },
+      "prices": [
+        {
+          "date": "20251008",
+          "close": 91.2
+        },
+        {
+          "date": "20251009",
+          "close": 91.0
+        },
+        {
+          "date": "20251013",
+          "close": 91.2
+        },
+        {
+          "date": "20251014",
+          "close": 91.6
+        },
+        {
+          "date": "20251015",
+          "close": 91.8
+        },
+        {
+          "date": "20251016",
+          "close": 92.6
+        },
+        {
+          "date": "20251017",
+          "close": 92.5
+        },
+        {
+          "date": "20251020",
+          "close": 92.8
+        },
+        {
+          "date": "20251021",
+          "close": 93.2
+        },
+        {
+          "date": "20251022",
+          "close": 94.2
+        },
+        {
+          "date": "20251023",
+          "close": 94.6
+        },
+        {
+          "date": "20251027",
+          "close": 92.4
+        },
+        {
+          "date": "20251028",
+          "close": 92.5
+        },
+        {
+          "date": "20251029",
+          "close": 92.5
+        },
+        {
+          "date": "20251030",
+          "close": 92.1
+        },
+        {
+          "date": "20251031",
+          "close": 92.5
+        },
+        {
+          "date": "20251103",
+          "close": 94.1
+        },
+        {
+          "date": "20251104",
+          "close": 94.0
+        },
+        {
+          "date": "20251105",
+          "close": 94.0
+        },
+        {
+          "date": "20251106",
+          "close": 93.5
+        },
+        {
+          "date": "20251107",
+          "close": 95.5
+        },
+        {
+          "date": "20251110",
+          "close": 94.0
+        }
+      ]
+    },
+    {
+      "case_id": "3714_20260108",
+      "stock_id": "3714",
+      "entry_date": "20260108",
+      "entry_price": 37.4,
+      "source_file": "data/stock_price_history/3714.csv",
+      "source_raw_sha256": "58397073ad0abad9c1cc8a1f10aca1fb4ec92d226f48839f4a7892f33c8f6ff5",
+      "expected_formal": {
+        "exit_date": "20260204",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 36.7,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260312",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 43.65,
+        "holding_sessions": 38
+      },
+      "prices": [
+        {
+          "date": "20260108",
+          "close": 35.35
+        },
+        {
+          "date": "20260109",
+          "close": 34.95
+        },
+        {
+          "date": "20260112",
+          "close": 35.3
+        },
+        {
+          "date": "20260113",
+          "close": 35.3
+        },
+        {
+          "date": "20260114",
+          "close": 35.35
+        },
+        {
+          "date": "20260115",
+          "close": 35.0
+        },
+        {
+          "date": "20260116",
+          "close": 34.55
+        },
+        {
+          "date": "20260119",
+          "close": 35.3
+        },
+        {
+          "date": "20260120",
+          "close": 37.15
+        },
+        {
+          "date": "20260121",
+          "close": 35.5
+        },
+        {
+          "date": "20260122",
+          "close": 34.9
+        },
+        {
+          "date": "20260123",
+          "close": 35.2
+        },
+        {
+          "date": "20260126",
+          "close": 37.9
+        },
+        {
+          "date": "20260127",
+          "close": 37.5
+        },
+        {
+          "date": "20260128",
+          "close": 36.9
+        },
+        {
+          "date": "20260129",
+          "close": 36.1
+        },
+        {
+          "date": "20260130",
+          "close": 35.15
+        },
+        {
+          "date": "20260202",
+          "close": 35.65
+        },
+        {
+          "date": "20260203",
+          "close": 36.1
+        },
+        {
+          "date": "20260204",
+          "close": 36.7
+        },
+        {
+          "date": "20260205",
+          "close": 37.15
+        },
+        {
+          "date": "20260206",
+          "close": 35.6
+        },
+        {
+          "date": "20260209",
+          "close": 35.7
+        },
+        {
+          "date": "20260210",
+          "close": 36.2
+        },
+        {
+          "date": "20260211",
+          "close": 35.7
+        },
+        {
+          "date": "20260223",
+          "close": 37.0
+        },
+        {
+          "date": "20260224",
+          "close": 38.4
+        },
+        {
+          "date": "20260225",
+          "close": 38.2
+        },
+        {
+          "date": "20260226",
+          "close": 38.1
+        },
+        {
+          "date": "20260302",
+          "close": 38.75
+        },
+        {
+          "date": "20260303",
+          "close": 38.1
+        },
+        {
+          "date": "20260304",
+          "close": 36.5
+        },
+        {
+          "date": "20260305",
+          "close": 38.35
+        },
+        {
+          "date": "20260306",
+          "close": 39.15
+        },
+        {
+          "date": "20260309",
+          "close": 37.15
+        },
+        {
+          "date": "20260310",
+          "close": 37.5
+        },
+        {
+          "date": "20260311",
+          "close": 39.7
+        },
+        {
+          "date": "20260312",
+          "close": 43.65
+        }
+      ]
+    },
+    {
+      "case_id": "2327_20260123",
+      "stock_id": "2327",
+      "entry_date": "20260123",
+      "entry_price": 302.0,
+      "source_file": "data/stock_price_history/2327.csv",
+      "source_raw_sha256": "7a2d12eaa5f9426a79cee1ad8827b88b31e963e5116d6583fc5ab921b261b5b7",
+      "expected_formal": {
+        "exit_date": "20260303",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 280.5,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260417",
+        "exit_reason": "pulled_back_to_5pct_after_plus5_without_tp10",
+        "exit_price": 316.5,
+        "holding_sessions": 51
+      },
+      "prices": [
+        {
+          "date": "20260123",
+          "close": 291.5
+        },
+        {
+          "date": "20260126",
+          "close": 287.0
+        },
+        {
+          "date": "20260127",
+          "close": 295.0
+        },
+        {
+          "date": "20260128",
+          "close": 285.5
+        },
+        {
+          "date": "20260129",
+          "close": 277.0
+        },
+        {
+          "date": "20260130",
+          "close": 277.5
+        },
+        {
+          "date": "20260202",
+          "close": 258.0
+        },
+        {
+          "date": "20260203",
+          "close": 266.5
+        },
+        {
+          "date": "20260204",
+          "close": 267.0
+        },
+        {
+          "date": "20260205",
+          "close": 258.0
+        },
+        {
+          "date": "20260206",
+          "close": 248.5
+        },
+        {
+          "date": "20260209",
+          "close": 250.0
+        },
+        {
+          "date": "20260210",
+          "close": 254.0
+        },
+        {
+          "date": "20260211",
+          "close": 256.0
+        },
+        {
+          "date": "20260223",
+          "close": 281.5
+        },
+        {
+          "date": "20260224",
+          "close": 301.0
+        },
+        {
+          "date": "20260225",
+          "close": 300.0
+        },
+        {
+          "date": "20260226",
+          "close": 298.0
+        },
+        {
+          "date": "20260302",
+          "close": 292.0
+        },
+        {
+          "date": "20260303",
+          "close": 280.5
+        },
+        {
+          "date": "20260304",
+          "close": 259.0
+        },
+        {
+          "date": "20260305",
+          "close": 267.5
+        },
+        {
+          "date": "20260306",
+          "close": 265.0
+        },
+        {
+          "date": "20260309",
+          "close": 248.5
+        },
+        {
+          "date": "20260310",
+          "close": 258.5
+        },
+        {
+          "date": "20260311",
+          "close": 264.5
+        },
+        {
+          "date": "20260312",
+          "close": 251.5
+        },
+        {
+          "date": "20260313",
+          "close": 258.0
+        },
+        {
+          "date": "20260316",
+          "close": 260.0
+        },
+        {
+          "date": "20260317",
+          "close": 286.0
+        },
+        {
+          "date": "20260318",
+          "close": 280.5
+        },
+        {
+          "date": "20260319",
+          "close": 275.0
+        },
+        {
+          "date": "20260320",
+          "close": 271.0
+        },
+        {
+          "date": "20260323",
+          "close": 253.0
+        },
+        {
+          "date": "20260324",
+          "close": 250.5
+        },
+        {
+          "date": "20260325",
+          "close": 260.0
+        },
+        {
+          "date": "20260326",
+          "close": 262.0
+        },
+        {
+          "date": "20260327",
+          "close": 260.0
+        },
+        {
+          "date": "20260330",
+          "close": 258.0
+        },
+        {
+          "date": "20260331",
+          "close": 243.5
+        },
+        {
+          "date": "20260401",
+          "close": 251.5
+        },
+        {
+          "date": "20260402",
+          "close": 246.0
+        },
+        {
+          "date": "20260407",
+          "close": 256.0
+        },
+        {
+          "date": "20260408",
+          "close": 271.5
+        },
+        {
+          "date": "20260409",
+          "close": 281.5
+        },
+        {
+          "date": "20260410",
+          "close": 285.0
+        },
+        {
+          "date": "20260413",
+          "close": 303.5
+        },
+        {
+          "date": "20260414",
+          "close": 312.0
+        },
+        {
+          "date": "20260415",
+          "close": 322.0
+        },
+        {
+          "date": "20260416",
+          "close": 325.0
+        },
+        {
+          "date": "20260417",
+          "close": 316.5
+        }
+      ]
+    },
+    {
+      "case_id": "3051_20260122",
+      "stock_id": "3051",
+      "entry_date": "20260122",
+      "entry_price": 28.6,
+      "source_file": "data/stock_price_history/3051.csv",
+      "source_raw_sha256": "17d6483c006954e9342efb9f16c917cf30d53a3fec69ef7c7d9ac437bbfebfc1",
+      "expected_formal": {
+        "exit_date": "20260302",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 23.05,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260526",
+        "exit_reason": "pulled_back_to_5pct_after_plus5_without_tp10",
+        "exit_price": 28.2,
+        "holding_sessions": 78
+      },
+      "prices": [
+        {
+          "date": "20260122",
+          "close": 27.25
+        },
+        {
+          "date": "20260123",
+          "close": 27.75
+        },
+        {
+          "date": "20260126",
+          "close": 27.0
+        },
+        {
+          "date": "20260127",
+          "close": 26.0
+        },
+        {
+          "date": "20260128",
+          "close": 25.25
+        },
+        {
+          "date": "20260129",
+          "close": 25.05
+        },
+        {
+          "date": "20260130",
+          "close": 24.95
+        },
+        {
+          "date": "20260202",
+          "close": 24.25
+        },
+        {
+          "date": "20260203",
+          "close": 24.95
+        },
+        {
+          "date": "20260204",
+          "close": 24.95
+        },
+        {
+          "date": "20260205",
+          "close": 24.2
+        },
+        {
+          "date": "20260206",
+          "close": 22.9
+        },
+        {
+          "date": "20260209",
+          "close": 22.6
+        },
+        {
+          "date": "20260210",
+          "close": 22.3
+        },
+        {
+          "date": "20260211",
+          "close": 22.15
+        },
+        {
+          "date": "20260223",
+          "close": 22.7
+        },
+        {
+          "date": "20260224",
+          "close": 23.15
+        },
+        {
+          "date": "20260225",
+          "close": 23.3
+        },
+        {
+          "date": "20260226",
+          "close": 23.15
+        },
+        {
+          "date": "20260302",
+          "close": 23.05
+        },
+        {
+          "date": "20260303",
+          "close": 22.2
+        },
+        {
+          "date": "20260304",
+          "close": 20.85
+        },
+        {
+          "date": "20260305",
+          "close": 21.0
+        },
+        {
+          "date": "20260306",
+          "close": 21.65
+        },
+        {
+          "date": "20260309",
+          "close": 20.25
+        },
+        {
+          "date": "20260310",
+          "close": 20.3
+        },
+        {
+          "date": "20260311",
+          "close": 21.05
+        },
+        {
+          "date": "20260312",
+          "close": 21.6
+        },
+        {
+          "date": "20260313",
+          "close": 21.3
+        },
+        {
+          "date": "20260316",
+          "close": 21.55
+        },
+        {
+          "date": "20260317",
+          "close": 21.8
+        },
+        {
+          "date": "20260318",
+          "close": 21.5
+        },
+        {
+          "date": "20260319",
+          "close": 20.8
+        },
+        {
+          "date": "20260320",
+          "close": 21.35
+        },
+        {
+          "date": "20260323",
+          "close": 20.2
+        },
+        {
+          "date": "20260324",
+          "close": 20.2
+        },
+        {
+          "date": "20260325",
+          "close": 20.8
+        },
+        {
+          "date": "20260326",
+          "close": 20.3
+        },
+        {
+          "date": "20260327",
+          "close": 20.6
+        },
+        {
+          "date": "20260330",
+          "close": 20.1
+        },
+        {
+          "date": "20260331",
+          "close": 19.7
+        },
+        {
+          "date": "20260401",
+          "close": 20.1
+        },
+        {
+          "date": "20260402",
+          "close": 19.9
+        },
+        {
+          "date": "20260407",
+          "close": 19.75
+        },
+        {
+          "date": "20260408",
+          "close": 20.9
+        },
+        {
+          "date": "20260409",
+          "close": 20.6
+        },
+        {
+          "date": "20260410",
+          "close": 20.1
+        },
+        {
+          "date": "20260413",
+          "close": 20.1
+        },
+        {
+          "date": "20260414",
+          "close": 20.6
+        },
+        {
+          "date": "20260415",
+          "close": 20.6
+        },
+        {
+          "date": "20260416",
+          "close": 20.75
+        },
+        {
+          "date": "20260417",
+          "close": 20.55
+        },
+        {
+          "date": "20260420",
+          "close": 22.6
+        },
+        {
+          "date": "20260421",
+          "close": 24.85
+        },
+        {
+          "date": "20260422",
+          "close": 25.2
+        },
+        {
+          "date": "20260423",
+          "close": 23.15
+        },
+        {
+          "date": "20260424",
+          "close": 23.15
+        },
+        {
+          "date": "20260427",
+          "close": 24.1
+        },
+        {
+          "date": "20260428",
+          "close": 26.5
+        },
+        {
+          "date": "20260429",
+          "close": 27.45
+        },
+        {
+          "date": "20260430",
+          "close": 28.35
+        },
+        {
+          "date": "20260504",
+          "close": 29.4
+        },
+        {
+          "date": "20260505",
+          "close": 29.85
+        },
+        {
+          "date": "20260506",
+          "close": 27.3
+        },
+        {
+          "date": "20260507",
+          "close": 27.15
+        },
+        {
+          "date": "20260508",
+          "close": 26.0
+        },
+        {
+          "date": "20260511",
+          "close": 26.35
+        },
+        {
+          "date": "20260512",
+          "close": 26.0
+        },
+        {
+          "date": "20260513",
+          "close": 25.5
+        },
+        {
+          "date": "20260514",
+          "close": 26.4
+        },
+        {
+          "date": "20260515",
+          "close": 25.55
+        },
+        {
+          "date": "20260518",
+          "close": 24.85
+        },
+        {
+          "date": "20260519",
+          "close": 25.1
+        },
+        {
+          "date": "20260520",
+          "close": 24.85
+        },
+        {
+          "date": "20260521",
+          "close": 25.65
+        },
+        {
+          "date": "20260522",
+          "close": 28.2
+        },
+        {
+          "date": "20260525",
+          "close": 30.8
+        },
+        {
+          "date": "20260526",
+          "close": 28.2
+        }
+      ]
+    },
+    {
+      "case_id": "4526_20260126",
+      "stock_id": "4526",
+      "entry_date": "20260126",
+      "entry_price": 37.1,
+      "source_file": "data/stock_price_history/4526.csv",
+      "source_raw_sha256": "d93f04c7fc3f343aaffff5f4d45fe4b2bc427069a4bd766d218422eced9e81ff",
+      "expected_formal": {
+        "exit_date": "20260304",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 31.0,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260506",
+        "exit_reason": "pulled_back_to_5pct_after_plus5_without_tp10",
+        "exit_price": 37.0,
+        "holding_sessions": 62
+      },
+      "prices": [
+        {
+          "date": "20260126",
+          "close": 36.75
+        },
+        {
+          "date": "20260127",
+          "close": 36.05
+        },
+        {
+          "date": "20260128",
+          "close": 36.2
+        },
+        {
+          "date": "20260129",
+          "close": 35.45
+        },
+        {
+          "date": "20260130",
+          "close": 33.5
+        },
+        {
+          "date": "20260202",
+          "close": 32.75
+        },
+        {
+          "date": "20260203",
+          "close": 31.8
+        },
+        {
+          "date": "20260204",
+          "close": 34.3
+        },
+        {
+          "date": "20260205",
+          "close": 36.1
+        },
+        {
+          "date": "20260206",
+          "close": 33.85
+        },
+        {
+          "date": "20260209",
+          "close": 35.0
+        },
+        {
+          "date": "20260210",
+          "close": 33.6
+        },
+        {
+          "date": "20260211",
+          "close": 32.55
+        },
+        {
+          "date": "20260223",
+          "close": 35.8
+        },
+        {
+          "date": "20260224",
+          "close": 36.65
+        },
+        {
+          "date": "20260225",
+          "close": 35.3
+        },
+        {
+          "date": "20260226",
+          "close": 33.6
+        },
+        {
+          "date": "20260302",
+          "close": 34.2
+        },
+        {
+          "date": "20260303",
+          "close": 32.95
+        },
+        {
+          "date": "20260304",
+          "close": 31.0
+        },
+        {
+          "date": "20260305",
+          "close": 31.75
+        },
+        {
+          "date": "20260306",
+          "close": 31.9
+        },
+        {
+          "date": "20260309",
+          "close": 29.65
+        },
+        {
+          "date": "20260310",
+          "close": 30.35
+        },
+        {
+          "date": "20260311",
+          "close": 32.05
+        },
+        {
+          "date": "20260312",
+          "close": 32.55
+        },
+        {
+          "date": "20260313",
+          "close": 33.75
+        },
+        {
+          "date": "20260316",
+          "close": 33.65
+        },
+        {
+          "date": "20260317",
+          "close": 33.7
+        },
+        {
+          "date": "20260318",
+          "close": 33.1
+        },
+        {
+          "date": "20260319",
+          "close": 32.6
+        },
+        {
+          "date": "20260320",
+          "close": 32.1
+        },
+        {
+          "date": "20260323",
+          "close": 34.0
+        },
+        {
+          "date": "20260324",
+          "close": 34.85
+        },
+        {
+          "date": "20260325",
+          "close": 34.8
+        },
+        {
+          "date": "20260326",
+          "close": 34.0
+        },
+        {
+          "date": "20260327",
+          "close": 34.6
+        },
+        {
+          "date": "20260330",
+          "close": 33.15
+        },
+        {
+          "date": "20260331",
+          "close": 32.0
+        },
+        {
+          "date": "20260401",
+          "close": 34.45
+        },
+        {
+          "date": "20260402",
+          "close": 33.15
+        },
+        {
+          "date": "20260407",
+          "close": 32.75
+        },
+        {
+          "date": "20260408",
+          "close": 34.5
+        },
+        {
+          "date": "20260409",
+          "close": 36.0
+        },
+        {
+          "date": "20260410",
+          "close": 35.05
+        },
+        {
+          "date": "20260413",
+          "close": 35.05
+        },
+        {
+          "date": "20260414",
+          "close": 34.55
+        },
+        {
+          "date": "20260415",
+          "close": 34.2
+        },
+        {
+          "date": "20260416",
+          "close": 34.1
+        },
+        {
+          "date": "20260417",
+          "close": 34.4
+        },
+        {
+          "date": "20260420",
+          "close": 35.1
+        },
+        {
+          "date": "20260421",
+          "close": 34.25
+        },
+        {
+          "date": "20260422",
+          "close": 33.8
+        },
+        {
+          "date": "20260423",
+          "close": 32.0
+        },
+        {
+          "date": "20260424",
+          "close": 33.0
+        },
+        {
+          "date": "20260427",
+          "close": 32.3
+        },
+        {
+          "date": "20260428",
+          "close": 34.95
+        },
+        {
+          "date": "20260429",
+          "close": 34.3
+        },
+        {
+          "date": "20260430",
+          "close": 36.75
+        },
+        {
+          "date": "20260504",
+          "close": 37.5
+        },
+        {
+          "date": "20260505",
+          "close": 40.3
+        },
+        {
+          "date": "20260506",
+          "close": 37.0
+        }
+      ]
+    },
+    {
+      "case_id": "4534_20260226",
+      "stock_id": "4534",
+      "entry_date": "20260226",
+      "entry_price": 30.7,
+      "source_file": "data/stock_price_history/4534.csv",
+      "source_raw_sha256": "0ea63e242f96d2b0774b033cf717ab8cc7cabc0e5e88ff20a6625fc4ef78f265",
+      "expected_formal": {
+        "exit_date": "20260326",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 25.3,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260608",
+        "exit_reason": "pulled_back_to_5pct_after_plus5_without_tp10",
+        "exit_price": 31.85,
+        "holding_sessions": 69
+      },
+      "prices": [
+        {
+          "date": "20260226",
+          "close": 29.5
+        },
+        {
+          "date": "20260302",
+          "close": 31.1
+        },
+        {
+          "date": "20260303",
+          "close": 29.1
+        },
+        {
+          "date": "20260304",
+          "close": 27.85
+        },
+        {
+          "date": "20260305",
+          "close": 29.3
+        },
+        {
+          "date": "20260306",
+          "close": 29.0
+        },
+        {
+          "date": "20260309",
+          "close": 26.1
+        },
+        {
+          "date": "20260310",
+          "close": 25.8
+        },
+        {
+          "date": "20260311",
+          "close": 28.35
+        },
+        {
+          "date": "20260312",
+          "close": 29.3
+        },
+        {
+          "date": "20260313",
+          "close": 29.5
+        },
+        {
+          "date": "20260316",
+          "close": 30.05
+        },
+        {
+          "date": "20260317",
+          "close": 28.05
+        },
+        {
+          "date": "20260318",
+          "close": 27.5
+        },
+        {
+          "date": "20260319",
+          "close": 26.0
+        },
+        {
+          "date": "20260320",
+          "close": 28.6
+        },
+        {
+          "date": "20260323",
+          "close": 28.3
+        },
+        {
+          "date": "20260324",
+          "close": 26.25
+        },
+        {
+          "date": "20260325",
+          "close": 26.0
+        },
+        {
+          "date": "20260326",
+          "close": 25.3
+        },
+        {
+          "date": "20260327",
+          "close": 25.4
+        },
+        {
+          "date": "20260330",
+          "close": 24.9
+        },
+        {
+          "date": "20260331",
+          "close": 23.1
+        },
+        {
+          "date": "20260401",
+          "close": 23.4
+        },
+        {
+          "date": "20260402",
+          "close": 23.1
+        },
+        {
+          "date": "20260407",
+          "close": 22.7
+        },
+        {
+          "date": "20260408",
+          "close": 23.35
+        },
+        {
+          "date": "20260409",
+          "close": 24.35
+        },
+        {
+          "date": "20260410",
+          "close": 26.75
+        },
+        {
+          "date": "20260413",
+          "close": 29.4
+        },
+        {
+          "date": "20260414",
+          "close": 28.0
+        },
+        {
+          "date": "20260415",
+          "close": 26.5
+        },
+        {
+          "date": "20260416",
+          "close": 26.6
+        },
+        {
+          "date": "20260417",
+          "close": 26.3
+        },
+        {
+          "date": "20260420",
+          "close": 26.75
+        },
+        {
+          "date": "20260421",
+          "close": 26.2
+        },
+        {
+          "date": "20260422",
+          "close": 25.9
+        },
+        {
+          "date": "20260423",
+          "close": 24.5
+        },
+        {
+          "date": "20260424",
+          "close": 24.35
+        },
+        {
+          "date": "20260427",
+          "close": 23.65
+        },
+        {
+          "date": "20260428",
+          "close": 24.4
+        },
+        {
+          "date": "20260429",
+          "close": 25.5
+        },
+        {
+          "date": "20260430",
+          "close": 24.45
+        },
+        {
+          "date": "20260504",
+          "close": 23.9
+        },
+        {
+          "date": "20260505",
+          "close": 24.35
+        },
+        {
+          "date": "20260506",
+          "close": 23.9
+        },
+        {
+          "date": "20260507",
+          "close": 24.05
+        },
+        {
+          "date": "20260508",
+          "close": 23.95
+        },
+        {
+          "date": "20260511",
+          "close": 23.05
+        },
+        {
+          "date": "20260512",
+          "close": 23.4
+        },
+        {
+          "date": "20260513",
+          "close": 22.9
+        },
+        {
+          "date": "20260514",
+          "close": 23.4
+        },
+        {
+          "date": "20260515",
+          "close": 22.8
+        },
+        {
+          "date": "20260518",
+          "close": 22.5
+        },
+        {
+          "date": "20260519",
+          "close": 22.0
+        },
+        {
+          "date": "20260520",
+          "close": 21.75
+        },
+        {
+          "date": "20260521",
+          "close": 22.05
+        },
+        {
+          "date": "20260522",
+          "close": 24.25
+        },
+        {
+          "date": "20260525",
+          "close": 26.65
+        },
+        {
+          "date": "20260526",
+          "close": 26.6
+        },
+        {
+          "date": "20260527",
+          "close": 25.75
+        },
+        {
+          "date": "20260528",
+          "close": 25.65
+        },
+        {
+          "date": "20260529",
+          "close": 28.2
+        },
+        {
+          "date": "20260601",
+          "close": 27.45
+        },
+        {
+          "date": "20260602",
+          "close": 27.0
+        },
+        {
+          "date": "20260603",
+          "close": 28.8
+        },
+        {
+          "date": "20260604",
+          "close": 31.65
+        },
+        {
+          "date": "20260605",
+          "close": 33.15
+        },
+        {
+          "date": "20260608",
+          "close": 31.85
+        }
+      ]
+    },
+    {
+      "case_id": "8289_20260303",
+      "stock_id": "8289",
+      "entry_date": "20260303",
+      "entry_price": 41.3,
+      "source_file": "data/stock_price_history/8289.csv",
+      "source_raw_sha256": "77d923be1e310c7018e292820814bd411ccf5f5ced5f98abbf0751b5e89f0ab8",
+      "expected_formal": {
+        "exit_date": "20260330",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 38.75,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260416",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 47.2,
+        "holding_sessions": 31
+      },
+      "prices": [
+        {
+          "date": "20260303",
+          "close": 40.5
+        },
+        {
+          "date": "20260304",
+          "close": 36.45
+        },
+        {
+          "date": "20260305",
+          "close": 36.5
+        },
+        {
+          "date": "20260306",
+          "close": 35.9
+        },
+        {
+          "date": "20260309",
+          "close": 32.6
+        },
+        {
+          "date": "20260310",
+          "close": 31.75
+        },
+        {
+          "date": "20260311",
+          "close": 33.25
+        },
+        {
+          "date": "20260312",
+          "close": 33.6
+        },
+        {
+          "date": "20260313",
+          "close": 34.55
+        },
+        {
+          "date": "20260316",
+          "close": 38.0
+        },
+        {
+          "date": "20260317",
+          "close": 38.6
+        },
+        {
+          "date": "20260318",
+          "close": 37.9
+        },
+        {
+          "date": "20260319",
+          "close": 36.45
+        },
+        {
+          "date": "20260320",
+          "close": 34.8
+        },
+        {
+          "date": "20260323",
+          "close": 33.4
+        },
+        {
+          "date": "20260324",
+          "close": 36.7
+        },
+        {
+          "date": "20260325",
+          "close": 38.8
+        },
+        {
+          "date": "20260326",
+          "close": 36.35
+        },
+        {
+          "date": "20260327",
+          "close": 39.95
+        },
+        {
+          "date": "20260330",
+          "close": 38.75
+        },
+        {
+          "date": "20260331",
+          "close": 37.4
+        },
+        {
+          "date": "20260401",
+          "close": 37.05
+        },
+        {
+          "date": "20260402",
+          "close": 35.75
+        },
+        {
+          "date": "20260407",
+          "close": 35.4
+        },
+        {
+          "date": "20260408",
+          "close": 36.85
+        },
+        {
+          "date": "20260409",
+          "close": 36.35
+        },
+        {
+          "date": "20260410",
+          "close": 37.75
+        },
+        {
+          "date": "20260413",
+          "close": 41.5
+        },
+        {
+          "date": "20260414",
+          "close": 40.35
+        },
+        {
+          "date": "20260415",
+          "close": 42.95
+        },
+        {
+          "date": "20260416",
+          "close": 47.2
+        }
+      ]
+    },
+    {
+      "case_id": "6197_20260318",
+      "stock_id": "6197",
+      "entry_date": "20260318",
+      "entry_price": 193.0,
+      "source_file": "data/stock_price_history/6197.csv",
+      "source_raw_sha256": "942f75bc1d0dfd2c8b8a346127c9ef6d9e326becabcd2a7ad373a767277c71f2",
+      "expected_formal": {
+        "exit_date": "20260416",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 180.0,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260504",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 228.5,
+        "holding_sessions": 31
+      },
+      "prices": [
+        {
+          "date": "20260318",
+          "close": 195.0
+        },
+        {
+          "date": "20260319",
+          "close": 196.0
+        },
+        {
+          "date": "20260320",
+          "close": 195.5
+        },
+        {
+          "date": "20260323",
+          "close": 180.0
+        },
+        {
+          "date": "20260324",
+          "close": 173.5
+        },
+        {
+          "date": "20260325",
+          "close": 176.0
+        },
+        {
+          "date": "20260326",
+          "close": 169.5
+        },
+        {
+          "date": "20260327",
+          "close": 171.5
+        },
+        {
+          "date": "20260330",
+          "close": 162.5
+        },
+        {
+          "date": "20260331",
+          "close": 158.5
+        },
+        {
+          "date": "20260401",
+          "close": 163.0
+        },
+        {
+          "date": "20260402",
+          "close": 157.5
+        },
+        {
+          "date": "20260407",
+          "close": 173.0
+        },
+        {
+          "date": "20260408",
+          "close": 182.0
+        },
+        {
+          "date": "20260409",
+          "close": 179.0
+        },
+        {
+          "date": "20260410",
+          "close": 179.0
+        },
+        {
+          "date": "20260413",
+          "close": 179.5
+        },
+        {
+          "date": "20260414",
+          "close": 179.5
+        },
+        {
+          "date": "20260415",
+          "close": 180.0
+        },
+        {
+          "date": "20260416",
+          "close": 180.0
+        },
+        {
+          "date": "20260417",
+          "close": 185.5
+        },
+        {
+          "date": "20260420",
+          "close": 189.0
+        },
+        {
+          "date": "20260421",
+          "close": 186.0
+        },
+        {
+          "date": "20260422",
+          "close": 187.5
+        },
+        {
+          "date": "20260423",
+          "close": 187.5
+        },
+        {
+          "date": "20260424",
+          "close": 174.5
+        },
+        {
+          "date": "20260427",
+          "close": 178.0
+        },
+        {
+          "date": "20260428",
+          "close": 188.0
+        },
+        {
+          "date": "20260429",
+          "close": 206.5
+        },
+        {
+          "date": "20260430",
+          "close": 208.0
+        },
+        {
+          "date": "20260504",
+          "close": 228.5
+        }
+      ]
+    },
+    {
+      "case_id": "4973_20260319",
+      "stock_id": "4973",
+      "entry_date": "20260319",
+      "entry_price": 97.1,
+      "source_file": "data/stock_price_history/4973.csv",
+      "source_raw_sha256": "73f28bffd739c876a30445bf23f96860224025a5d3c8f3fa8cbd0c548e779962",
+      "expected_formal": {
+        "exit_date": "20260417",
+        "exit_reason": "fixed_20d_close_without_tp10_or_neutral",
+        "exit_price": 77.6,
+        "holding_sessions": 20
+      },
+      "known_old_adapter": {
+        "exit_date": "20260511",
+        "exit_reason": "tp10_close_win",
+        "exit_price": 109.5,
+        "holding_sessions": 35
+      },
+      "prices": [
+        {
+          "date": "20260319",
+          "close": 98.2
+        },
+        {
+          "date": "20260320",
+          "close": 88.4
+        },
+        {
+          "date": "20260323",
+          "close": 79.6
+        },
+        {
+          "date": "20260324",
+          "close": 71.7
+        },
+        {
+          "date": "20260325",
+          "close": 70.9
+        },
+        {
+          "date": "20260326",
+          "close": 64.1
+        },
+        {
+          "date": "20260327",
+          "close": 61.2
+        },
+        {
+          "date": "20260330",
+          "close": 67.3
+        },
+        {
+          "date": "20260331",
+          "close": 61.8
+        },
+        {
+          "date": "20260401",
+          "close": 67.9
+        },
+        {
+          "date": "20260402",
+          "close": 68.0
+        },
+        {
+          "date": "20260407",
+          "close": 69.3
+        },
+        {
+          "date": "20260408",
+          "close": 76.2
+        },
+        {
+          "date": "20260409",
+          "close": 71.3
+        },
+        {
+          "date": "20260410",
+          "close": 78.3
+        },
+        {
+          "date": "20260413",
+          "close": 79.8
+        },
+        {
+          "date": "20260414",
+          "close": 79.8
+        },
+        {
+          "date": "20260415",
+          "close": 78.1
+        },
+        {
+          "date": "20260416",
+          "close": 76.8
+        },
+        {
+          "date": "20260417",
+          "close": 77.6
+        },
+        {
+          "date": "20260420",
+          "close": 79.4
+        },
+        {
+          "date": "20260421",
+          "close": 87.3
+        },
+        {
+          "date": "20260422",
+          "close": 90.2
+        },
+        {
+          "date": "20260423",
+          "close": 82.4
+        },
+        {
+          "date": "20260424",
+          "close": 80.1
+        },
+        {
+          "date": "20260427",
+          "close": 88.1
+        },
+        {
+          "date": "20260428",
+          "close": 91.6
+        },
+        {
+          "date": "20260429",
+          "close": 87.3
+        },
+        {
+          "date": "20260430",
+          "close": 83.1
+        },
+        {
+          "date": "20260504",
+          "close": 85.4
+        },
+        {
+          "date": "20260505",
+          "close": 87.7
+        },
+        {
+          "date": "20260506",
+          "close": 91.7
+        },
+        {
+          "date": "20260507",
+          "close": 95.5
+        },
+        {
+          "date": "20260508",
+          "close": 99.6
+        },
+        {
+          "date": "20260511",
+          "close": 109.5
+        }
+      ]
+    }
+  ]
+}
