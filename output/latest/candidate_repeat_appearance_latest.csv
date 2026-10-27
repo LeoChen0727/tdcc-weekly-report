@@ -1,364 +1,368 @@
 signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
-20261021,3264,欣銓,51,8,5,10,20,20260524,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2027,大成鋼,50,4,5,10,20,20260523,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,6285,啟碁,43,6,5,10,20,20260529,20261021,pattern|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,6770,力積電,43,2,5,10,20,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2376,技嘉,38,3,5,10,20,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2347,聯強,34,3,5,10,20,20260523,20261021,range_rebound|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,3260,威剛,34,3,5,10,20,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4989,榮科,34,3,5,10,20,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6274,台燿,34,3,5,10,20,20260528,20261021,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,8299,群聯,34,3,5,10,20,20260524,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2451,創見,33,3,5,10,20,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3036,文曄,33,3,5,10,20,20260526,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1802,台玻,32,3,5,10,20,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2609,陽明,32,4,5,10,20,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3715,定穎投控,32,7,5,10,20,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3231,緯創,31,3,5,10,20,20260523,20261021,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2383,台光電,29,3,5,10,20,20260523,20261021,revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,3094,聯傑,28,3,5,10,20,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5351,鈺創,28,3,5,10,20,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2464,盟立,26,3,5,10,20,20260525,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5475,德宏,26,1,5,10,20,20260524,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2103,台橡,25,2,5,10,20,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8046,南電,25,4,5,10,20,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2330,台積電,21,3,5,10,20,20260526,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2368,金像電,21,5,5,10,20,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2618,長榮航,21,2,5,10,20,20260526,20261021,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,3044,健鼎,21,2,5,10,20,20260523,20261021,pullback_rebound|range_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,3081,聯亞,21,3,5,10,20,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3498,陽程,21,3,5,10,20,20260528,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,6415,矽力*-KY,21,2,5,10,20,20260523,20261021,pullback_rebound|range_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
-20261021,2615,萬海,20,3,5,10,20,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4958,臻鼎-KY,19,3,5,10,19,20260601,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2489,瑞軒,18,2,5,10,18,20260525,20261021,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6190,萬泰科,17,15,5,10,19,20260524,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2855,統一證,16,4,5,10,18,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6547,高端疫苗,16,3,5,10,18,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1312,國喬,16,6,5,10,17,20260528,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2030,彰源,16,3,5,10,17,20260525,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5864,致和證,16,3,5,10,17,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8358,金居,16,3,5,10,17,20260618,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4939,亞電,16,1,5,10,16,20260528,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6015,宏遠證,15,3,5,10,17,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6016,康和證,15,3,5,10,17,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6141,柏承,15,1,5,10,17,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3234,光環,15,3,5,10,16,20260618,20261021,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4991,環宇-KY,15,3,5,10,16,20260528,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2254,巨鎧精密-創,14,3,5,10,19,20260904,20261021,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
-20261021,2061,風青,14,3,5,10,16,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3707,漢磊,14,3,5,10,14,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5483,中美晶,12,3,5,10,14,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2412,中華電,11,2,5,10,18,20260529,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
-20261021,6187,萬潤,11,3,5,10,18,20260524,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6179,亞通,10,3,5,10,19,20260523,20261021,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
-20261021,1727,中華化,10,2,5,10,18,20260601,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3035,智原,10,3,5,10,17,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2034,允強,10,3,5,10,15,20260525,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1101,台泥,10,4,5,10,13,20260529,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4566,時碩工業,9,1,5,9,10,20260528,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,1710,東聯,8,3,5,9,17,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3293,鈊象,8,3,5,9,16,20260524,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3518,柏騰,8,3,5,9,10,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,0056,元大高股息,8,7,5,8,17,20260523,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
-20261021,2104,國際中橡,8,5,5,8,14,20260601,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3673,TPK-KY,8,2,5,8,14,20260523,20261021,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1434,福懋,8,3,5,8,13,20260529,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6155,鈞寶,8,3,5,8,12,20260523,20261021,pattern,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
-20261021,8050,廣積,8,6,5,8,11,20260524,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2409,友達,7,4,5,9,18,20260525,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4977,眾達-KY,7,2,5,9,17,20260526,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
-20261021,8096,擎亞,7,7,5,9,17,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6191,精成科,7,3,5,9,12,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2033,佳大,7,1,5,8,14,20260810,20261021,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,2484,希華,7,3,5,8,9,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2892,第一金,7,7,5,7,15,20260523,20261021,pattern,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。
-20261021,1785,光洋科,7,3,5,7,11,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3149,正達,7,3,5,7,11,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6173,信昌電,7,3,5,7,11,20260630,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3189,景碩,6,4,5,9,19,20260525,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
-20261021,8150,南茂,6,2,5,9,19,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1102,亞泥,6,4,5,9,17,20260602,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4916,事欣科,6,3,5,9,15,20260526,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4919,新唐,6,3,5,9,13,20260525,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6442,光聖,6,2,5,8,17,20260526,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3324,雙鴻,6,3,5,8,13,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6257,矽格,6,3,5,7,17,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2328,廣宇,6,2,5,7,16,20260523,20261021,true_breakout,continued_many_days,連續 6 日上榜，需區分醞釀延續或訊號鈍化。
-20261021,6197,佳必琪,6,3,5,7,13,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6805,富世達,6,2,5,7,13,20260525,20261021,range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5469,瀚宇博,6,1,5,7,11,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8086,宏捷科,6,3,5,6,6,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3045,台灣大,5,1,5,9,19,20260523,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
-20261021,8027,鈦昇,5,3,5,9,19,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2345,智邦,5,3,5,9,18,20260523,20261021,revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
-20261021,4904,遠傳,5,3,5,9,17,20260601,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
-20261021,6933,AMAX-KY,5,4,5,9,12,20260714,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6548,長科*,5,3,5,8,18,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3711,日月光投控,5,5,5,7,17,20260525,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8021,尖點,5,2,5,7,16,20260523,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。
-20261021,3624,光頡,5,3,5,7,15,20260618,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6152,百一,5,2,5,7,14,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3236,千如,5,3,5,6,10,20260618,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3030,德律,5,3,5,6,7,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,9933,中鼎,5,3,5,5,10,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4906,正文,4,2,4,9,19,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6199,天品,4,3,4,9,19,20260618,20261021,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,5876,上海商銀,4,3,4,9,18,20260526,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
-20261021,3661,世芯-KY,4,3,4,9,17,20260526,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6207,雷科,4,3,4,9,17,20260524,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
-20261021,3105,穩懋,4,3,4,9,14,20260524,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3374,精材,4,4,4,9,13,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1809,中釉,4,2,4,9,12,20260525,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
-20261021,6505,台塑化,4,4,4,8,16,20260523,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 16 次，但尚未有效突破，需等待攻擊確認。
-20261021,4960,誠美材,4,3,4,8,12,20260526,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,3031,佰鴻,4,3,4,8,11,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3535,晶彩科,4,3,4,8,11,20260523,20261021,pattern|pullback_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8111,立碁,4,3,4,7,12,20260810,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3037,欣興,4,4,4,6,16,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6269,台郡,4,3,4,6,16,20260523,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,5340,建榮,4,2,4,6,15,20260622,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6153,嘉聯益,4,2,4,6,15,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2603,長榮,4,4,4,6,14,20260523,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。
-20261021,5498,凱崴,4,2,4,6,13,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8039,台虹,4,4,4,6,12,20260523,20261021,pattern,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
-20261021,2402,毅嘉,4,3,4,6,10,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6901,鑽石投資,4,3,4,6,6,20260523,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1305,華夏,4,3,4,5,8,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1718,中纖,4,4,4,5,8,20260529,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2002,中鋼,4,1,4,5,7,20260525,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2023,燁輝,4,4,4,5,7,20260525,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。
-20261021,2468,華經,4,2,4,4,9,20260602,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6226,光鼎,4,3,4,4,7,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2356,英業達,3,3,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2357,華碩,3,3,4,9,19,20260523,20261021,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2382,廣達,3,3,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2406,國碩,3,3,4,9,19,20260523,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2486,一詮,3,2,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2646,星宇航空,3,3,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2885,元大金,3,2,4,9,19,20260523,20261021,range_rebound|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2890,永豐金,3,2,4,9,19,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3033,威健,3,3,4,9,19,20260526,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3702,大聯大,3,3,4,9,19,20260524,20261021,pullback_rebound|revenue_breakout_low_response|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3706,神達,3,3,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5880,合庫金,3,2,4,9,19,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8112,至上,3,3,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8422,可寧衛*,3,3,4,9,19,20260526,20261021,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2889,國票金,3,2,4,9,18,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3017,奇鋐,3,2,4,9,18,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5314,世紀*,3,3,4,9,16,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,9105,泰金寶-DR,3,2,4,9,16,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2515,中工,3,2,4,9,15,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1595,川寶,3,3,4,9,9,20260622,20261021,revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2313,華通,3,2,4,8,18,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2637,慧洋-KY,3,2,4,8,18,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3016,嘉晶,3,3,3,8,18,20260525,20261021,pattern|revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,2851,中再保,3,2,3,8,16,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3693,營邦,3,3,4,8,14,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2323,中環,3,3,3,8,13,20260526,20261021,pattern|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3717,聯嘉投控,3,3,3,8,11,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6234,高僑,3,1,4,8,10,20260622,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,3034,聯詠,3,1,4,7,17,20260526,20261021,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3354,律勝,3,3,4,7,15,20260528,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,3543,州巧,3,3,3,7,11,20260709,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8028,昇陽半導體,3,2,3,7,10,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2834,臺企銀,3,3,3,6,16,20260527,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8996,高力,3,2,3,6,16,20260523,20261021,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6147,頎邦,3,3,4,6,14,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4526,東台,3,1,3,6,13,20260523,20261021,true_breakout,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3048,益登,3,2,4,6,12,20260525,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1560,中砂,3,3,3,6,11,20260602,20261021,pattern|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,8431,匯鑽科,3,3,4,6,10,20260618,20261021,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,4542,科嶠,3,2,3,6,8,20260524,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6532,瑞耘,3,2,4,6,7,20260831,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3605,宏致,3,3,3,5,15,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1440,南紡,3,3,3,5,7,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6526,達發,3,3,3,5,7,20260526,20261021,pattern|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3013,晟銘電,3,2,4,5,6,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2105,正新,3,1,4,5,5,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5388,中磊,3,2,3,4,13,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2305,全友,3,2,3,4,12,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,9958,世紀鋼,3,3,3,4,12,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6218,豪勉,3,3,3,4,11,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1528,恩德,3,1,3,4,10,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6148,驊宏資,3,3,3,4,9,20260703,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4577,達航科技,3,3,3,4,6,20260524,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6449,鈺邦,3,3,4,4,6,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2332,友訊,3,1,3,4,5,20260523,20261021,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3630,新鉅科,3,2,3,4,5,20260618,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8213,志超,3,1,3,4,4,20260526,20261021,true_breakout,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3443,創意,3,3,3,3,12,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2542,興富發,3,3,3,3,10,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1402,遠東新,3,3,3,3,7,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4976,佳凌,3,3,3,3,7,20260523,20261021,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3305,昇貿,3,2,3,3,5,20260525,20261021,pattern|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,8932,智通*,3,3,3,3,5,20260523,20261021,pullback_rebound|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2439,美律,3,3,3,3,4,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2504,國產,3,1,3,3,4,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2633,台灣高鐵,3,1,3,3,4,20260602,20261021,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2912,統一超,3,2,3,3,4,20260601,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4155,訊映,3,3,3,3,4,20260605,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,3483,力致,3,1,3,3,3,20260523,20261021,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,4167,松瑞藥,3,3,3,3,3,20260528,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4760,勤凱科技,3,3,3,3,3,20260528,20261021,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6277,宏正,3,3,3,3,3,20260526,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6517,保勝光學,3,1,3,3,3,20260618,20261021,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,6756,威鋒電子,3,3,3,3,3,20260525,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,8069,元太,3,2,3,3,3,20260623,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8089,康全電訊,3,3,3,3,3,20261019,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,1708,東鹼,2,2,4,9,19,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1714,和桐,2,2,4,9,19,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1717,長興,2,2,4,9,19,20260526,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2302,麗正,2,2,4,9,19,20260525,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2327,國巨*,2,2,4,9,19,20260525,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2344,華邦電,2,2,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2360,致茂,2,2,4,9,19,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2379,瑞昱,2,2,4,9,19,20260523,20261021,range_rebound|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2395,研華,2,2,4,9,19,20260524,20261021,revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2441,超豐,2,2,4,9,19,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2610,華航,2,2,4,9,19,20260526,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3006,晶豪科,2,2,4,9,19,20260524,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6005,群益證,2,2,4,9,19,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6209,今國光,2,1,4,9,19,20260523,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6239,力成,2,2,4,9,19,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6531,愛普*,2,2,4,9,19,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3450,聯鈞,2,2,4,9,18,20260601,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3380,明泰,2,2,4,9,17,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1609,大亞,2,2,4,9,16,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1711,永光,2,2,4,9,16,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2369,菱生,2,2,4,9,16,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2352,佳世達,2,1,4,9,15,20260523,20261021,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2455,全新,2,2,4,9,15,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8103,瀚荃,2,2,4,9,15,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1326,台化,2,2,4,9,14,20260529,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2472,立隆電,2,2,4,9,14,20260525,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2492,華新科,2,2,4,9,14,20260525,20261021,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6533,晶心科,2,2,4,9,13,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2401,凌陽,2,2,4,9,11,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6282,康舒,2,2,4,9,10,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1909,榮成,2,2,3,8,18,20260601,20261021,revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2317,鴻海,2,2,3,8,18,20260523,20261021,pattern|pullback_rebound|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2337,旺宏,2,2,3,8,18,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2408,南亞科,2,2,3,8,18,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2436,偉詮電,2,2,4,8,18,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2605,新興,2,2,3,8,18,20260601,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6108,競國,2,2,4,8,18,20260523,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6446,藥華藥,2,2,3,8,18,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6834,天二科技,2,2,4,8,18,20260523,20261021,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,2301,光寶科,2,2,3,8,17,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2316,楠梓電,2,2,4,8,17,20260525,20261021,revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2351,順德,2,2,3,8,16,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2880,華南金,2,2,4,8,16,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2801,彰銀,2,2,4,8,14,20260601,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3532,台勝科,2,2,3,8,13,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2493,揚博,2,2,3,8,11,20260525,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3406,玉晶光,2,2,4,8,11,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3062,建漢,2,1,4,8,10,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5465,富驊,2,1,3,8,8,20260922,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,8131,福懋科,2,2,4,7,15,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2399,映泰,2,2,4,7,14,20260526,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3026,禾伸堂,2,2,3,7,14,20260525,20261021,pattern|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,6669,緯穎,2,2,3,7,12,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6742,澤米,2,2,3,7,10,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2449,京元電子,2,2,3,6,16,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2891,中信金,2,1,2,6,16,20260523,20261021,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,6426,統新,2,2,3,6,14,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3090,日電貿,2,2,4,6,11,20260525,20261021,revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2481,強茂,2,2,3,5,14,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2897,王道銀行,2,2,2,5,14,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2478,大毅,2,2,4,5,11,20260526,20261021,pattern|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2606,裕民,2,2,2,5,11,20260523,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4770,上品,2,1,2,5,10,20260525,20261021,true_breakout,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,6127,九豪,2,2,4,5,10,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3005,神基,2,2,2,5,8,20260526,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3311,閎暉,2,2,4,5,8,20260526,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5243,乙盛-KY,2,2,4,5,7,20260526,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6174,安碁,2,2,4,5,6,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3441,聯一光電,2,1,4,4,9,20260524,20261021,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,2375,凱美,2,2,4,4,8,20260525,20261021,revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2367,燿華,2,2,3,4,5,20260526,20261021,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,6695,芯鼎,2,1,2,4,4,20260525,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,2886,兆豐金,2,2,2,3,13,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2303,聯電,2,2,3,3,11,20260525,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5521,工信,2,2,3,3,7,20260612,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8383,千附,2,2,2,3,7,20260524,20261021,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3047,訊舟,2,2,2,3,4,20260526,20261021,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,4720,德淵,2,1,3,3,4,20260526,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,4716,大立,2,1,3,3,3,20260618,20261021,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,5228,鈺鎧,2,1,3,3,3,20260622,20261021,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,6957,裕慶-KY,2,2,3,3,3,20261001,20261021,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,2324,仁寶,2,2,2,2,7,20260523,20261021,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3376,新日興,2,2,2,2,6,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6689,伊雲谷,2,2,2,2,4,20260916,20261021,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
-20261021,1216,統一,2,2,2,2,3,20260601,20261021,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,2312,金寶,2,2,2,2,3,20260523,20261021,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,1476,儒鴻,2,2,2,2,2,20260528,20261021,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,3545,敦泰,2,1,2,2,2,20260523,20261021,true_breakout,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,4533,協易機,2,2,2,2,2,20260702,20261021,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,5904,寶雅*,2,2,2,2,2,20260713,20261021,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
-20261021,1815,富喬,1,1,4,9,18,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6672,騰輝電子-KY,1,1,3,8,18,20260523,20261021,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
-20261021,6196,帆宣,1,1,3,8,16,20260525,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2342,茂矽,1,1,3,8,15,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6271,同欣電,1,1,3,8,14,20260525,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1569,濱川,1,1,4,8,13,20260907,20261021,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
-20261021,2881,富邦金,1,1,3,8,12,20260523,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
-20261021,3675,德微,1,1,4,8,12,20260528,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2466,冠西電,1,1,3,8,11,20260622,20261021,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
-20261021,4908,前鼎,1,1,3,8,10,20260524,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2049,上銀,1,1,2,7,17,20260528,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2374,佳能,1,1,3,7,17,20260523,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
-20261021,6278,台表科,1,1,2,7,16,20260526,20261021,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
-20261021,2101,南港,1,1,3,7,14,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5425,台半,1,1,3,7,14,20260528,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6182,合晶,1,1,2,7,13,20260618,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2069,運錩,1,1,2,7,12,20260826,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
-20261021,2444,兆勁,1,1,2,7,9,20260602,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1617,榮星,1,1,3,7,8,20260601,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。
-20261021,1808,潤隆,1,1,3,6,16,20260523,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1316,上曜,1,1,3,6,15,20260523,20261021,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1597,直得,1,1,4,6,13,20260523,20261021,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2884,玉山金,1,1,3,6,12,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6133,金橋,1,1,2,6,12,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3008,大立光,1,1,3,6,10,20260602,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6443,元晶,1,1,2,6,8,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3491,昇達科,1,1,2,5,15,20260523,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,7795,長廣,1,1,3,5,13,20260622,20261021,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,4961,天鈺,1,1,3,5,9,20260523,20261021,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。
-20261021,2014,中鴻,1,1,3,5,5,20260525,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3147,大綜,1,1,4,5,5,20260626,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,5009,榮剛,1,1,3,5,5,20260523,20261021,pattern,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。
-20261021,6620,漢達,1,1,3,4,12,20260618,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,8064,東捷,1,1,1,4,12,20260524,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2882,國泰金,1,1,3,4,10,20260523,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。
-20261021,6789,采鈺,1,1,2,4,10,20260526,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1409,新纖,1,1,3,4,9,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3363,上詮,1,1,2,3,12,20260715,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6706,惠特,1,1,2,3,11,20260526,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2883,凱基金,1,1,1,3,10,20260523,20261021,pattern,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。
-20261021,4938,和碩,1,1,2,3,7,20260523,20261021,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3653,健策,1,1,1,3,6,20260527,20261021,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2393,億光,1,1,2,3,4,20260602,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6902,GOGOLOOK,1,1,1,3,3,20260622,20261021,range_rebound,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。
-20261021,8074,鉅橡,1,1,3,3,3,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,2845,遠東銀,1,1,2,2,9,20260523,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,3163,波若威,1,1,2,2,8,20260706,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,6221,晉泰,1,1,1,2,6,20260916,20261021,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1319,東陽,1,1,2,2,3,20260526,20261021,pattern,first_seen,首次上榜或資料有限，需後續確認。
-20261021,4157,太景*-KY,1,1,2,2,3,20260702,20261021,pattern|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
-20261021,4924,欣厚-KY,1,1,1,2,3,20260916,20261021,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
-20261021,3010,華立,1,1,2,2,2,20260523,20261021,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
-20261021,3059,華晶科,1,1,1,2,2,20260523,20261021,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
-20261021,9103,美德醫療-DR,1,1,2,2,2,20260525,20261021,pattern,first_seen,首次上榜或資料有限，需後續確認。
-20261021,4510,高鋒,1,1,1,1,5,20260523,20261021,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20261021,1504,東元,1,1,1,1,3,20260523,20261021,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
-20261021,4949,有成精密,1,1,1,1,3,20260523,20261021,pullback_rebound|range_rebound|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
-20261021,6164,華興,1,1,1,1,3,20260523,20261021,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
-20261021,5871,中租-KY,1,1,1,1,2,20260523,20261021,pattern,first_seen,首次上榜或資料有限，需後續確認。
-20261021,1722,台肥,1,1,1,1,1,20260523,20261021,pattern,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
-20261021,4909,新復興,1,1,1,1,1,20260827,20261021,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
-20261021,5210,寶碩,1,1,1,1,1,20260528,20261021,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
-20261021,6491,晶碩,1,1,1,1,1,20260526,20261021,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
-20261021,6751,智聯服務,1,1,1,1,1,20261021,20261021,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
-20261021,6909,創控,1,1,1,1,1,20260623,20261021,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
-20261021,9802,鈺齊-KY,1,1,1,1,1,20260601,20261021,revenue_pullback,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,3264,欣銓,52,4,5,10,20,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2027,大成鋼,51,5,5,10,20,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6285,啟碁,44,4,5,10,20,20260529,20261027,revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,6770,力積電,44,3,5,10,20,20260523,20261027,pullback_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2376,技嘉,39,4,5,10,20,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2347,聯強,35,4,5,10,20,20260523,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,3260,威剛,35,4,5,10,20,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4989,榮科,35,4,5,10,20,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6274,台燿,35,4,5,10,20,20260528,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8299,群聯,35,4,5,10,20,20260524,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2451,創見,34,4,5,10,20,20260523,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,3036,文曄,34,4,5,10,20,20260526,20261027,pattern|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,1802,台玻,33,1,5,10,20,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2609,陽明,33,5,5,10,20,20260526,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3715,定穎投控,33,3,5,10,20,20260523,20261027,revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,3231,緯創,32,4,5,10,20,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2383,台光電,30,3,5,10,20,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,3094,聯傑,29,3,5,10,20,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5351,鈺創,29,4,5,10,20,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,2464,盟立,27,4,5,10,20,20260525,20261027,pullback_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5475,德宏,27,2,5,10,20,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2103,台橡,26,3,5,10,20,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,8046,南電,26,5,5,10,20,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2330,台積電,22,4,5,10,20,20260526,20261027,pullback_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2368,金像電,22,6,5,10,20,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2618,長榮航,22,3,5,10,20,20260526,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,3044,健鼎,22,3,5,10,20,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3081,聯亞,22,4,5,10,20,20260524,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3498,陽程,22,4,5,10,20,20260528,20261027,pullback_rebound|range_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,6415,矽力*-KY,22,3,5,10,20,20260523,20261027,pattern|pullback_rebound|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,2615,萬海,21,4,5,10,20,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 20 次，但尚未有效突破，需等待攻擊確認。
+20261027,4958,臻鼎-KY,20,1,5,10,20,20260601,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2489,瑞軒,19,3,5,10,19,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6190,萬泰科,18,4,5,10,19,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2855,統一證,17,3,5,10,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6547,高端疫苗,17,4,5,10,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1312,國喬,17,4,5,10,18,20260528,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2030,彰源,17,4,5,10,18,20260525,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5864,致和證,17,4,5,10,18,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8358,金居,17,4,5,10,17,20260618,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6141,柏承,16,2,5,10,18,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6015,宏遠證,16,4,5,10,17,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6016,康和證,16,4,5,10,17,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3234,光環,16,4,5,10,16,20260618,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4991,環宇-KY,16,4,5,10,16,20260528,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2254,巨鎧精密-創,15,4,5,10,19,20260904,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
+20261027,2061,風青,15,4,5,10,16,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3707,漢磊,15,4,5,10,15,20260528,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6187,萬潤,12,4,5,10,18,20260524,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6179,亞通,11,4,5,10,19,20260523,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
+20261027,1727,中華化,11,3,5,10,18,20260601,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1101,台泥,11,5,5,10,13,20260529,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。
+20261027,4566,時碩工業,10,2,5,10,11,20260528,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,3673,TPK-KY,9,3,5,9,14,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1434,福懋,9,4,5,9,13,20260529,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6155,鈞寶,9,4,5,9,12,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8050,廣積,9,7,5,9,12,20260524,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4977,眾達-KY,8,3,5,9,17,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8096,擎亞,8,8,5,9,17,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6191,精成科,8,3,5,9,13,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2484,希華,8,4,5,9,10,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2892,第一金,8,1,5,8,15,20260523,20261027,true_breakout,continued_many_days,連續 8 日上榜，需區分醞釀延續或訊號鈍化。
+20261027,1785,光洋科,8,4,5,8,11,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6173,信昌電,8,4,5,8,11,20260630,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3189,景碩,7,5,5,9,19,20260525,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
+20261027,8150,南茂,7,3,5,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1102,亞泥,7,5,5,9,17,20260602,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4916,事欣科,7,4,5,9,16,20260526,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6442,光聖,7,3,5,8,18,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6805,富世達,7,3,5,8,14,20260525,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3324,雙鴻,7,4,5,8,13,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6257,矽格,7,3,5,7,17,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2328,廣宇,7,1,5,7,16,20260523,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,6197,佳必琪,7,3,5,7,13,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5469,瀚宇博,7,2,5,7,12,20260526,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8086,宏捷科,7,4,5,7,7,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3045,台灣大,6,1,5,9,19,20260523,20261027,true_breakout,continued_many_days,連續 6 日上榜，需區分醞釀延續或訊號鈍化。
+20261027,8027,鈦昇,6,4,5,9,19,20260528,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2345,智邦,6,3,5,9,18,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6933,AMAX-KY,6,5,5,9,13,20260714,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6548,長科*,6,4,5,8,18,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3624,光頡,6,4,5,8,15,20260618,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3711,日月光投控,6,3,5,7,17,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8021,尖點,6,3,5,7,16,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6152,百一,6,3,5,7,15,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3236,千如,6,4,5,7,10,20260618,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3030,德律,6,3,5,7,7,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,9933,中鼎,6,4,5,6,11,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4906,正文,5,3,5,9,19,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6199,天品,5,4,5,9,19,20260618,20261027,pullback_rebound|range_rebound|revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,5876,上海商銀,5,1,5,9,18,20260526,20261027,true_breakout,continued_many_days,連續 5 日上榜，需區分醞釀延續或訊號鈍化。
+20261027,3661,世芯-KY,5,4,5,9,17,20260526,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6207,雷科,5,4,5,9,17,20260524,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6505,台塑化,5,5,5,9,16,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3105,穩懋,5,4,5,9,15,20260524,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3374,精材,5,5,5,9,14,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1809,中釉,5,1,5,9,13,20260525,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4960,誠美材,5,1,5,8,13,20260526,20261027,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,3031,佰鴻,5,4,5,8,12,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6901,鑽石投資,5,4,5,7,7,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3037,欣興,5,3,5,6,16,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5340,建榮,5,1,5,6,15,20260622,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2603,長榮,5,5,5,6,14,20260523,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。
+20261027,5498,凱崴,5,1,5,6,13,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1718,中纖,5,5,5,6,9,20260529,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2002,中鋼,5,1,5,6,8,20260525,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2023,燁輝,5,5,5,6,8,20260525,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。
+20261027,2356,英業達,4,4,4,9,19,20260523,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2382,廣達,4,4,4,9,19,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2406,國碩,4,4,4,9,19,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2486,一詮,4,3,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2646,星宇航空,4,4,4,9,19,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2885,元大金,4,3,4,9,19,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
+20261027,2890,永豐金,4,3,4,9,19,20260523,20261027,range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3017,奇鋐,4,3,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3033,威健,4,4,4,9,19,20260526,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3702,大聯大,4,4,4,9,19,20260524,20261027,pullback_rebound|revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 19 次，但尚未有效突破，需等待攻擊確認。
+20261027,3706,神達,4,4,4,9,19,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5880,合庫金,4,1,4,9,19,20260523,20261027,true_breakout,continued_many_days,連續 4 日上榜，需區分醞釀延續或訊號鈍化。
+20261027,8112,至上,4,4,4,9,19,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8422,可寧衛*,4,4,4,9,19,20260526,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2889,國票金,4,3,4,9,18,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2515,中工,4,3,4,9,16,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,9105,泰金寶-DR,4,3,4,9,16,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2637,慧洋-KY,4,3,4,8,18,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
+20261027,3016,嘉晶,4,3,4,8,18,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2851,中再保,4,3,4,8,17,20260523,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 17 次，但尚未有效突破，需等待攻擊確認。
+20261027,2323,中環,4,4,4,8,14,20260526,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。
+20261027,3693,營邦,4,4,4,8,14,20260528,20261027,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3717,聯嘉投控,4,4,4,8,12,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6234,高僑,4,1,4,8,11,20260622,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。
+20261027,3034,聯詠,4,1,4,7,17,20260526,20261027,true_breakout,continued_many_days,連續 4 日上榜，需區分醞釀延續或訊號鈍化。
+20261027,6147,頎邦,4,4,4,7,14,20260528,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3048,益登,4,3,4,7,12,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3543,州巧,4,4,4,7,11,20260709,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8028,昇陽半導體,4,3,4,7,11,20260528,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8431,匯鑽科,4,4,4,7,10,20260618,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6532,瑞耘,4,3,4,7,8,20260831,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2834,臺企銀,4,4,4,6,16,20260527,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8996,高力,4,3,4,6,16,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4526,東台,4,2,4,6,13,20260523,20261027,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,1560,中砂,4,3,4,6,11,20260602,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1440,南紡,4,4,4,6,7,20260526,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2105,正新,4,1,4,6,6,20260523,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3605,宏致,4,3,4,5,15,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5388,中磊,4,3,4,5,13,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2305,全友,4,3,4,5,12,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6148,驊宏資,4,1,4,5,10,20260703,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6526,達發,4,3,4,5,8,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4577,達航科技,4,1,4,5,6,20260524,20261027,pattern,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,6449,鈺邦,4,3,4,5,6,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8213,志超,4,1,4,5,5,20260526,20261027,revenue_breakout_low_response,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。
+20261027,3443,創意,4,3,4,4,12,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6218,豪勉,4,4,4,4,12,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1528,恩德,4,1,4,4,11,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2542,興富發,4,4,4,4,10,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3305,昇貿,4,3,4,4,6,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8932,智通*,4,4,4,4,6,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2504,國產,4,1,4,4,5,20260526,20261027,true_breakout,continued_many_days,連續 4 日上榜，需區分醞釀延續或訊號鈍化。
+20261027,2633,台灣高鐵,4,2,4,4,5,20260602,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。
+20261027,2912,統一超,4,3,4,4,5,20260601,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。
+20261027,4167,松瑞藥,4,4,4,4,4,20260528,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6277,宏正,4,1,4,4,4,20260526,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,6756,威鋒電子,4,1,4,4,4,20260525,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。
+20261027,8069,元太,4,1,4,4,4,20260623,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。
+20261027,8089,康全電訊,4,1,4,4,4,20261019,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,1708,東鹼,3,3,4,9,19,20260523,20261027,revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,1714,和桐,3,3,4,9,19,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1717,長興,3,3,4,9,19,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2302,麗正,3,3,4,9,19,20260525,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2327,國巨*,3,3,4,9,19,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2344,華邦電,3,3,4,9,19,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2360,致茂,3,3,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2379,瑞昱,3,3,4,9,19,20260523,20261027,pullback_rebound|range_rebound|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2395,研華,3,3,4,9,19,20260524,20261027,revenue_breakout_low_response|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2441,超豐,3,3,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2610,華航,3,3,4,9,19,20260526,20261027,revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,3006,晶豪科,3,3,4,9,19,20260524,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6005,群益證,3,3,4,9,19,20260523,20261027,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6209,今國光,3,1,4,9,19,20260523,20261027,pattern|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,6239,力成,3,3,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6531,愛普*,3,3,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3450,聯鈞,3,3,4,9,18,20260601,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6834,天二科技,3,3,4,9,18,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1609,大亞,3,3,4,9,17,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1711,永光,3,1,4,9,17,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2369,菱生,3,3,4,9,17,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8103,瀚荃,3,3,4,9,16,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1326,台化,3,3,4,9,15,20260529,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2352,佳世達,3,1,4,9,15,20260523,20261027,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2455,全新,3,3,4,9,15,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2492,華新科,3,3,4,9,14,20260525,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2801,彰銀,3,3,4,9,14,20260601,20261027,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2401,凌陽,3,3,4,9,12,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6282,康舒,3,3,4,9,11,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1909,榮成,3,3,3,8,18,20260601,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2301,光寶科,3,3,3,8,18,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2317,鴻海,3,3,3,8,18,20260523,20261027,pattern|pullback_rebound|revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2337,旺宏,3,3,3,8,18,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2408,南亞科,3,3,3,8,18,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2436,偉詮電,3,3,4,8,18,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2605,新興,3,3,3,8,18,20260601,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6446,藥華藥,3,3,3,8,18,20260523,20261027,revenue_pullback,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2316,楠梓電,3,3,4,8,17,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2351,順德,3,3,3,8,16,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2399,映泰,3,3,4,8,14,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3532,台勝科,3,3,4,8,13,20260526,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2493,揚博,3,3,4,8,12,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3406,玉晶光,3,1,4,8,12,20260523,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,5465,富驊,3,1,3,8,9,20260922,20261027,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,8131,福懋科,3,3,4,7,15,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3026,禾伸堂,3,3,3,7,14,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6426,統新,3,3,3,7,14,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6669,緯穎,3,3,3,7,13,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3090,日電貿,3,3,4,7,11,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6742,澤米,3,3,4,7,11,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2449,京元電子,3,3,3,6,16,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2891,中信金,3,2,3,6,16,20260523,20261027,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2481,強茂,3,3,3,6,14,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2478,大毅,3,3,4,6,11,20260526,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4770,上品,3,1,3,6,11,20260525,20261027,pattern,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,6127,九豪,3,3,4,6,10,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3311,閎暉,3,3,4,6,9,20260526,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2897,王道銀行,3,3,3,5,14,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2606,裕民,3,3,3,5,12,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3005,神基,3,3,3,5,9,20260526,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2375,凱美,3,3,4,5,8,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2303,聯電,3,3,3,4,11,20260525,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5521,工信,3,3,4,4,8,20260612,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4720,德淵,3,2,4,4,5,20260526,20261027,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,5228,鈺鎧,3,1,4,4,4,20260622,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,2324,仁寶,3,3,3,3,7,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2312,金寶,3,1,3,3,3,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3545,敦泰,3,1,3,3,3,20260523,20261027,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,4533,協易機,3,3,3,3,3,20260702,20261027,range_rebound,continued_2_3d,連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,1815,富喬,2,2,4,9,18,20260523,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6672,騰輝電子-KY,2,1,3,8,18,20260523,20261027,revenue_pullback,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,1569,濱川,2,2,4,8,14,20260907,20261027,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,2466,冠西電,2,2,3,8,12,20260622,20261027,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,2049,上銀,2,2,2,7,17,20260528,20261027,pullback_rebound|range_rebound|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2374,佳能,2,2,3,7,17,20260523,20261027,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2101,南港,2,2,3,7,15,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1597,直得,2,2,4,7,13,20260523,20261027,pattern|pullback_rebound|revenue_breakout_low_response|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,2069,運錩,2,2,3,7,13,20260826,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,2884,玉山金,2,1,3,7,13,20260523,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1808,潤隆,2,2,3,6,16,20260523,20261027,pullback_rebound|range_rebound|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,1316,上曜,2,2,3,6,15,20260523,20261027,pullback_rebound|revenue_breakout_low_response|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,6133,金橋,2,2,2,6,13,20260526,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2014,中鴻,2,2,4,6,6,20260525,20261027,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,3491,昇達科,2,2,3,5,15,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6620,漢達,2,2,3,5,12,20260618,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2882,國泰金,2,2,3,5,10,20260523,20261027,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,3653,健策,2,2,2,4,7,20260527,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4938,和碩,2,1,3,4,7,20260523,20261027,revenue_breakout_low_response,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2393,億光,2,2,3,4,5,20260602,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2845,遠東銀,2,1,3,3,10,20260523,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2883,凱基金,2,1,2,3,10,20260523,20261027,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,6221,晉泰,2,1,2,3,7,20260916,20261027,true_breakout,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,6902,GOGOLOOK,2,2,2,3,4,20260622,20261027,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20261027,1319,東陽,2,2,3,3,3,20260526,20261027,pattern,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,9103,美德醫療-DR,2,2,3,3,3,20260525,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4510,高鋒,2,2,2,2,5,20260523,20261027,pullback_rebound|range_rebound|revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,5871,中租-KY,2,1,2,2,3,20260523,20261027,range_rebound,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,9802,鈺齊-KY,2,2,2,2,2,20260601,20261027,revenue_pullback,continued_2_3d,連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。
+20261027,4931,新盛力,1,1,4,9,19,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8042,金山電,1,1,4,9,19,20260626,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,9945,潤泰新,1,1,4,9,15,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4903,聯光通,1,1,4,9,12,20260523,20261027,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3533,嘉澤,1,1,4,9,9,20260523,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。
+20261027,2353,宏碁,1,1,3,8,18,20260523,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
+20261027,5608,四維航,1,1,3,8,18,20260601,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8926,台汽電,1,1,3,8,18,20260525,20261027,pullback_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 18 次，但尚未有效突破，需等待攻擊確認。
+20261027,1310,台苯,1,1,3,8,17,20260602,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1301,台塑,1,1,3,8,15,20260529,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1709,和益,1,1,2,7,17,20260525,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6213,聯茂,1,1,3,7,17,20260526,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4540,全球傳動,1,1,2,7,16,20260523,20261027,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4927,泰鼎-KY,1,1,4,7,14,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1303,南亞,1,1,3,7,13,20260526,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2340,台亞,1,1,2,7,13,20260526,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3580,友威科,1,1,3,7,12,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8033,雷虎,1,1,2,7,11,20260529,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5309,系統電,1,1,3,7,7,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4576,大銀微系統,1,1,2,6,16,20260526,20261027,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4967,十銓,1,1,2,6,16,20260523,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8070,長華*,1,1,4,6,15,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。
+20261027,2006,東和鋼鐵,1,1,4,6,10,20260526,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5230,雷笛克光學,1,1,2,6,10,20260618,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2241,艾姆勒,1,1,1,6,9,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3219,倚強科,1,1,2,6,9,20260827,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,8240,華宏,1,1,2,6,9,20260622,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3691,碩禾,1,1,2,6,8,20260524,20261027,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6925,意藍,1,1,3,6,6,20260924,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。
+20261027,6214,精誠,1,1,1,5,15,20260523,20261027,pullback_rebound|revenue_pullback|true_breakout,first_seen,首次上榜或資料有限，需後續確認。
+20261027,5443,均豪,1,1,3,5,13,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3029,零壹,1,1,1,5,11,20260601,20261027,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
+20261027,3265,台星科,1,1,2,5,10,20260524,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6112,邁達特,1,1,2,5,10,20260601,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6414,樺漢,1,1,2,5,9,20260523,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。
+20261027,3701,大眾控,1,1,3,5,8,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,4707,磐亞,1,1,2,5,8,20260618,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 5 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。
+20261027,2010,春源,1,1,1,5,5,20260529,20261027,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
+20261027,4743,合一,1,1,3,5,5,20260523,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2547,日勝生,1,1,1,4,13,20260603,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2377,微星,1,1,4,4,7,20260523,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2031,新光鋼,1,1,2,4,5,20260525,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。
+20261027,3663,鑫科,1,1,2,4,4,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6715,嘉基,1,1,3,3,10,20260602,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2201,裕隆,1,1,3,3,8,20260526,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。
+20261027,3550,聯穎,1,1,1,3,7,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,5202,力新,1,1,2,3,7,20260528,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。
+20261027,6177,達麗,1,1,3,3,7,20260523,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3312,弘憶股,1,1,1,3,6,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,9910,豐泰,1,1,2,3,6,20260529,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6245,立端,1,1,2,3,5,20260524,20261027,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
+20261027,2355,敬鵬,1,1,3,3,4,20260523,20261027,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。
+20261027,3209,全科,1,1,3,3,4,20260526,20261027,pullback_rebound|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6163,華電網,1,1,3,3,4,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3564,其陽,1,1,3,3,3,20260707,20261027,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,3592,瑞鼎,1,1,1,3,3,20260523,20261027,range_rebound,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。
+20261027,5434,崇越,1,1,2,3,3,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6609,瀧澤科,1,1,3,3,3,20260713,20261027,pullback_rebound|range_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。
+20261027,8271,宇瞻,1,1,1,2,11,20260523,20261027,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,7711,永擎,1,1,1,2,9,20260529,20261027,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 2 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。
+20261027,6668,中揚光,1,1,2,2,8,20260525,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2520,冠德,1,1,1,2,7,20260523,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2476,鉅祥,1,1,2,2,6,20260523,20261027,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6206,飛捷,1,1,1,2,6,20260526,20261027,pullback_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,2534,宏盛,1,1,2,2,2,20260612,20261027,revenue_breakout_low_response,first_seen,首次上榜或資料有限，需後續確認。
+20261027,2607,榮運,1,1,2,2,2,20260820,20261027,pullback_rebound|range_rebound|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,3703,欣陸,1,1,2,2,2,20260526,20261027,revenue_breakout_low_response|true_breakout,first_seen,首次上榜或資料有限，需後續確認。
+20261027,4306,炎洲,1,1,2,2,2,20260523,20261027,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
+20261027,4741,泓瀚,1,1,2,2,2,20260622,20261027,range_rebound,first_seen,首次上榜或資料有限，需後續確認。
+20261027,5426,振發,1,1,2,2,2,20260622,20261027,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
+20261027,2836,高雄銀,1,1,1,1,10,20260526,20261027,pattern,repeated_but_no_breakout,近 10 日上榜 1 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。
+20261027,6140,訊達電腦,1,1,1,1,5,20260916,20261027,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,6538,倉和,1,1,1,1,5,20260524,20261027,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20261027,1590,亞德客-KY,1,1,1,1,4,20260523,20261027,pullback_rebound|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,2543,皇昌,1,1,1,1,4,20260525,20261027,revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,2348,海悅,1,1,1,1,3,20260611,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,1723,中碳,1,1,1,1,2,20260526,20261027,revenue_breakout_low_response|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,3028,增你強,1,1,1,1,2,20260523,20261027,revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,3708,上緯投控,1,1,1,1,2,20260526,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,8390,金益鼎,1,1,1,1,2,20260910,20261027,revenue_pullback,first_seen,首次上榜或資料有限，需後續確認。
+20261027,1215,卜蜂,1,1,1,1,1,20260523,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,1477,聚陽,1,1,1,1,1,20260601,20261027,pattern,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,1907,永豐餘,1,1,1,1,1,20260526,20261027,pattern,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,2204,中華,1,1,1,1,1,20260526,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,2211,長榮鋼,1,1,1,1,1,20260601,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,2431,聯昌,1,1,1,1,1,20260601,20261027,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,2516,新建,1,1,1,1,1,20260527,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,2545,皇翔,1,1,1,1,1,20261027,20261027,revenue_breakout_low_response,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,2597,潤弘,1,1,1,1,1,20260529,20261027,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,4188,安克,1,1,1,1,1,20260828,20261027,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,4953,緯致,1,1,1,1,1,20261027,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,5306,桂盟,1,1,1,1,1,20260716,20261027,revenue_pullback,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,5392,能率,1,1,1,1,1,20260523,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,5522,遠雄,1,1,1,1,1,20260528,20261027,pullback_rebound|range_rebound|revenue_breakout_low_response|revenue_pullback,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,6409,旭隼,1,1,1,1,1,20260602,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,6418,詠昇,1,1,1,1,1,20260828,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,6464,台數科,1,1,1,1,1,20261027,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,6697,東捷資訊,1,1,1,1,1,20261027,20261027,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,6757,台灣虎航,1,1,1,1,1,20260523,20261027,revenue_pullback,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,6949,沛爾生醫*-創,1,1,1,1,1,20261027,20261027,pattern,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,8341,日友,1,1,1,1,1,20261027,20261027,true_breakout,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,9917,中保科,1,1,1,1,1,20260603,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
+20261027,9939,宏全,1,1,1,1,1,20260523,20261027,range_rebound,first_seen,首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。
