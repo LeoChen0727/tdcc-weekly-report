@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 from pathlib import Path
+from datetime import datetime, timedelta
 
 import pytest
 
@@ -302,3 +303,239 @@ def test_checkout_symlink_is_rejected(repo: tuple[Path, str], monkeypatch: pytes
     original = Path.is_symlink
     monkeypatch.setattr(Path, "is_symlink", lambda path: path == root / closure.FRESHNESS_PATH or original(path))
     assert "symlink checkout is forbidden" in _validate(repo)[0]
+
+
+def _scheduled_fixture(repo: tuple[Path, str], *, weekend: bool = False, sunday: bool = False) -> tuple[Path, str]:
+    """Synthetic sealed authority generations test CI inheritance, never readiness."""
+    root, _ = repo
+    session = "20261025" if sunday else "20261024" if weekend else "20261026"
+    generated = f"{session[:4]}-{session[4:6]}-{session[6:]}T20:00:00+08:00"
+    release = f"daily-authority-{session}-39949390425-1"
+    market = json.loads((root / closure.MARKET_PATH).read_bytes())
+    market.update(
+        market_session_date=session,
+        assessment_date=session,
+        generated_at=generated,
+        market_status="closed_scheduled",
+        expected_main_price_date="20261022",
+        reason_code="weekend" if weekend or sunday else "twse_annual_holiday",
+        reason="weekend" if weekend or sunday else "Fixture scheduled holiday",
+        authority_release_id=release,
+        authority_generation_id=release,
+    )
+    market.pop("emergency_notice")
+    for name in ("twse_annual_calendar", "dgpa_emergency_closure"):
+        market["official_sources"][name]["queried_at"] = generated
+    market["official_sources"]["twse_annual_calendar"]["closed_weekday_count"] = 1
+    _write(root, closure.MARKET_PATH, _json(market))
+    rows = list(csv.DictReader(io.StringIO((root / closure.FRESHNESS_PATH).read_text())))
+    freshness = rows[0]
+    note = "market session is not open_confirmed: market_session_status=closed_scheduled"
+    freshness.update(
+        market_session_status="closed_scheduled",
+        market_session_date=session,
+        expected_main_price_date="20261022",
+        market_session_reason_code=market["reason_code"],
+        market_session_generated_at=generated,
+        authority_release_id=release,
+        authority_generation_id=release,
+        report_ready_note=note,
+        daily_pdf_ready_note=f"core daily data not ready: {note}",
+    )
+    _write(root, closure.FRESHNESS_PATH, _csv(rows))
+    _write(root, closure.FRESHNESS_MD_PATH, b"# Synthetic scheduled closure; no report\n")
+    _write(root, closure.SCHEDULED_PATH, _csv([{
+        "date": "20261026", "market": "TWSE_TPEx", "reason": "Fixture holiday",
+        "source_url": "https://www.twse.com.tw/en/trading/holiday.html",
+    }]))
+    manifest = json.loads((root / closure.MANIFEST_PATH).read_bytes())
+    manifest.update(release_id=release, generation_id=release)
+    for field in ("market_session_date", "expected_main_price_date", "generated_at", "market_status", "reason_code"):
+        manifest[field] = market[field]
+    _write(root, closure.MANIFEST_PATH, _json(manifest))
+    _seal(root)
+    return root, _commit(root)
+
+
+@pytest.fixture(params=[False, True], ids=["annual_holiday", "saturday"])
+def scheduled_repo(repo: tuple[Path, str], request: pytest.FixtureRequest) -> tuple[Path, str]:
+    return _scheduled_fixture(repo, weekend=request.param)
+
+
+def test_scheduled_inheritance_preserves_false_readiness_and_every_source_byte(scheduled_repo: tuple[Path, str]) -> None:
+    root, _ = scheduled_repo
+    before = {path: (root / path).read_bytes() for path in closure.INHERITED_SOURCE_PATHS}
+    assert _validate(scheduled_repo) == []
+    assert closure.is_inherited_market_closure_candidate(root / closure.FRESHNESS_PATH)
+    assert {path: (root / path).read_bytes() for path in before} == before
+    freshness = list(csv.DictReader(io.StringIO((root / closure.FRESHNESS_PATH).read_text())))[0]
+    assert freshness["report_ready"] == freshness["daily_pdf_ready"] == "False"
+
+
+def test_scheduled_sunday_and_empty_prior_notice_feed_are_valid(repo: tuple[Path, str]) -> None:
+    root, _ = _scheduled_fixture(repo, sunday=True)
+    _mutate_json(root, closure.MARKET_PATH, ("official_sources", "dgpa_emergency_closure", "taipei_notice_count"), 0)
+    _mutate_json(root, closure.MARKET_PATH, ("official_sources", "dgpa_emergency_closure", "latest_taipei_notice_dates"), [])
+    _seal(root)
+    assert _validate((root, _commit(root))) == []
+
+
+def test_scheduled_prior_notice_count_can_exceed_unique_dates(scheduled_repo: tuple[Path, str]) -> None:
+    root, _ = scheduled_repo
+    _mutate_json(root, closure.MARKET_PATH, ("official_sources", "dgpa_emergency_closure", "taipei_notice_count"), 2)
+    _seal(root)
+    assert _validate((root, _commit(root))) == []
+
+
+@pytest.mark.parametrize("path", closure.INHERITED_SOURCE_PATHS)
+def test_scheduled_every_inherited_dependency_change_is_rejected(scheduled_repo: tuple[Path, str], path: str) -> None:
+    root, _ = scheduled_repo
+    (root / path).write_bytes(b"changed scheduled dependency\n")
+    _commit(root)
+    assert any("changed from base" in error for error in _validate(scheduled_repo))
+
+
+@pytest.mark.parametrize("kind", [
+    "annual_not_ok", "annual_error", "annual_identity", "annual_bad_url", "annual_hash", "annual_bytes_bool",
+    "annual_attempt_zero", "annual_query_time", "annual_year_missing", "annual_year_bool",
+    "annual_year_duplicate", "annual_count_bool", "annual_count_wrong", "feed_not_ok", "feed_error",
+    "feed_hash", "feed_conflict", "feed_notice_count_bool", "feed_notice_count_negative",
+    "feed_zero_count_with_dates", "feed_count_with_empty_dates", "feed_unsorted_dates",
+    "feed_duplicate_dates", "feed_bad_date", "feed_session_notice", "feed_future_notice", "emergency_notice",
+    "weekday_reason_is_weekend", "weekend_reason_is_holiday", "holiday_reason_empty",
+    "calendar_wrong_market", "calendar_bad_url", "calendar_weekend", "calendar_missing_session", "calendar_reason_empty",
+    "readiness_true", "readiness_lowercase", "freshness_note", "authority_identity",
+    "expected_prior_date", "calendar_duplicate", "surface_hash", "two_freshness_rows",
+])
+def test_scheduled_invalid_evidence_fails_closed(repo: tuple[Path, str], kind: str) -> None:
+    weekend = kind in {"weekend_reason_is_holiday", "feed_session_notice"}
+    root, _ = _scheduled_fixture(repo, weekend=weekend)
+    market = json.loads((root / closure.MARKET_PATH).read_bytes())
+    annual = market["official_sources"]["twse_annual_calendar"]
+    feed = market["official_sources"]["dgpa_emergency_closure"]
+    annual_changes = {
+        "annual_not_ok": ("status", "unavailable"), "annual_error": ("error", "source failed despite ok status"),
+        "annual_identity": ("source", "other"),
+        "annual_bad_url": ("url", "https://invalid.example"), "annual_hash": ("sha256", "bad"),
+        "annual_bytes_bool": ("byte_len", True), "annual_attempt_zero": ("attempt_count", 0),
+        "annual_query_time": ("queried_at", "2026-10-23T19:56:51+08:00"),
+        "annual_year_missing": ("covered_years", [2025]), "annual_year_bool": ("covered_years", [True, 2026]),
+        "annual_year_duplicate": ("covered_years", [2026, 2026]),
+        "annual_count_bool": ("closed_weekday_count", True), "annual_count_wrong": ("closed_weekday_count", 2),
+    }
+    feed_changes = {
+        "feed_not_ok": ("status", "unavailable"), "feed_error": ("error", "source failed despite ok status"),
+        "feed_hash": ("sha256", "bad"),
+        "feed_conflict": ("conflict_dates", ["20261023"]),
+        "feed_notice_count_bool": ("taipei_notice_count", True),
+        "feed_notice_count_negative": ("taipei_notice_count", -1),
+        "feed_zero_count_with_dates": ("taipei_notice_count", 0),
+        "feed_count_with_empty_dates": ("latest_taipei_notice_dates", []),
+        "feed_unsorted_dates": ("latest_taipei_notice_dates", ["20261023", "20261022"]),
+        "feed_duplicate_dates": ("latest_taipei_notice_dates", ["20261023", "20261023"]),
+        "feed_bad_date": ("latest_taipei_notice_dates", ["20260230"]),
+        "feed_session_notice": ("latest_taipei_notice_dates", [market["market_session_date"]]),
+        "feed_future_notice": ("latest_taipei_notice_dates", ["20261027"]),
+    }
+    if kind in annual_changes:
+        key, value = annual_changes[kind]
+        annual[key] = value
+    elif kind in feed_changes:
+        key, value = feed_changes[kind]
+        feed[key] = value
+        if kind in {"feed_unsorted_dates", "feed_duplicate_dates"}:
+            feed["taipei_notice_count"] = 2
+    elif kind == "emergency_notice":
+        market["emergency_notice"] = {"scope": "full_day", "date": market["market_session_date"]}
+    elif kind == "weekday_reason_is_weekend":
+        market["reason_code"] = "weekend"
+    elif kind == "weekend_reason_is_holiday":
+        market["reason_code"] = "twse_annual_holiday"
+    elif kind == "holiday_reason_empty":
+        market["reason"] = ""
+    elif kind.startswith("calendar_"):
+        rows = list(csv.DictReader(io.StringIO((root / closure.SCHEDULED_PATH).read_text())))
+        if kind == "calendar_wrong_market":
+            rows[0]["market"] = "other"
+        elif kind == "calendar_bad_url":
+            rows[0]["source_url"] = "https://invalid.example"
+        elif kind == "calendar_weekend":
+            rows[0]["date"] = "20261025"
+            market["scheduled_non_trading_days"] = ["20261025"]
+        elif kind == "calendar_missing_session":
+            rows[0]["date"] = "20261027"
+            market["scheduled_non_trading_days"] = ["20261027"]
+        elif kind == "calendar_reason_empty":
+            rows[0]["reason"] = ""
+        elif kind == "calendar_duplicate":
+            rows *= 2
+        _write(root, closure.SCHEDULED_PATH, _csv(rows))
+    elif kind in {"readiness_true", "readiness_lowercase", "freshness_note", "authority_identity", "expected_prior_date", "two_freshness_rows"}:
+        rows = list(csv.DictReader(io.StringIO((root / closure.FRESHNESS_PATH).read_text())))
+        if kind == "readiness_true":
+            rows[0]["report_ready"] = "True"
+        elif kind == "readiness_lowercase":
+            rows[0]["daily_pdf_ready"] = "false"
+        elif kind == "freshness_note":
+            rows[0]["report_ready_note"] = "ready"
+        elif kind == "authority_identity":
+            rows[0]["authority_release_id"] = "forged"
+        elif kind == "expected_prior_date":
+            market["expected_main_price_date"] = "20261021"
+            rows[0]["expected_main_price_date"] = "20261021"
+        elif kind == "two_freshness_rows":
+            rows *= 2
+        _write(root, closure.FRESHNESS_PATH, _csv(rows))
+    _write(root, closure.MARKET_PATH, _json(market))
+    if kind in {"weekday_reason_is_weekend", "weekend_reason_is_holiday"}:
+        rows = list(csv.DictReader(io.StringIO((root / closure.FRESHNESS_PATH).read_text())))
+        rows[0]["market_session_reason_code"] = market["reason_code"]
+        _write(root, closure.FRESHNESS_PATH, _csv(rows))
+    manifest = json.loads((root / closure.MANIFEST_PATH).read_bytes())
+    for field in ("market_session_date", "expected_main_price_date", "generated_at", "market_status", "reason_code"):
+        manifest[field] = market[field]
+    _write(root, closure.MANIFEST_PATH, _json(manifest))
+    _seal(root)
+    if kind == "surface_hash":
+        _mutate_json(root, closure.MANIFEST_PATH, ("surfaces", closure.MARKET_PATH), "0" * 64)
+    assert closure.validate_inherited_market_closure(_commit(root), repository_root=root)
+
+
+@pytest.mark.parametrize("previous_status", ["open_confirmed", "closed_emergency"])
+def test_scheduled_same_session_terminal_state_cannot_change(scheduled_repo: tuple[Path, str], previous_status: str) -> None:
+    root, _ = scheduled_repo
+    market = json.loads((root / closure.MARKET_PATH).read_bytes())
+    previous = {"market_session_date": market["market_session_date"], "expected_main_price_date": market["expected_main_price_date"], "generated_at": market["generated_at"], "phase": market["phase"], "market_status": previous_status}
+    payloads = {path: (root / path).read_bytes() for path in closure.INHERITED_SOURCE_PATHS}
+    with pytest.raises(closure.ClosureEvidenceError, match="terminal market session changed"):
+        closure._closure_semantics(payloads, previous)
+
+
+def test_scheduled_prior_trading_day_search_is_bounded(repo: tuple[Path, str]) -> None:
+    root, _ = _scheduled_fixture(repo)
+    payloads = {path: (root / path).read_bytes() for path in closure.INHERITED_SOURCE_PATHS}
+    market = json.loads(payloads[closure.MARKET_PATH])
+    session = datetime.strptime(market["market_session_date"], "%Y%m%d")
+    days = sorted({
+        (session - timedelta(days=offset)).strftime("%Y%m%d")
+        for offset in range(63)
+        if (session - timedelta(days=offset)).weekday() < 5
+    })
+    payloads[closure.SCHEDULED_PATH] = _csv([
+        {"date": day, "market": "TWSE_TPEx", "reason": "Synthetic bounded-search fixture",
+         "source_url": "https://www.twse.com.tw/en/trading/holiday.html"}
+        for day in days
+    ])
+    market["scheduled_non_trading_days"] = days
+    market["official_sources"]["twse_annual_calendar"]["closed_weekday_count"] = len(days)
+    payloads[closure.MARKET_PATH] = _json(market)
+    manifest = json.loads(payloads[closure.MANIFEST_PATH])
+    manifest["surfaces"] = {
+        path: hashlib.sha256(payloads[path]).hexdigest()
+        for path in (closure.MARKET_PATH, closure.FRESHNESS_PATH, closure.FRESHNESS_MD_PATH)
+    }
+    payloads[closure.MANIFEST_PATH] = _json(manifest)
+    previous = {"market_session_date": "20261021", "expected_main_price_date": "20261021",
+                "generated_at": "2026-10-21T20:00:00+08:00", "market_status": "open_confirmed", "phase": "confirm"}
+    with pytest.raises(closure.ClosureEvidenceError, match="within 45 days"):
+        closure._closure_semantics(payloads, previous)
