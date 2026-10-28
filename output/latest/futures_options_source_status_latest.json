@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27 19:42:48 Asia/Taipei",
+  "generated_at": "2026-10-28 19:48:06 Asia/Taipei",
   "mode": "open_data_latest",
   "requested_window": {
     "start_date": "",
@@ -9,7 +9,7 @@
     "institutional_fo": {
       "status": "ok",
       "rows": 3,
-      "latest_date": "20261027",
+      "latest_date": "20261028",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -18,7 +18,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDividedByFuturesAndOptionsBytheDate"
         },
-        "fetched_at": "2026-10-27 19:42:48 Asia/Taipei",
+        "fetched_at": "2026-10-28 19:48:07 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -33,7 +33,7 @@
     "futures_contracts": {
       "status": "ok",
       "rows": 66,
-      "latest_date": "20261027",
+      "latest_date": "20261028",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -42,7 +42,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDetailsOfFuturesContractsBytheDate"
         },
-        "fetched_at": "2026-10-27 19:43:29 Asia/Taipei",
+        "fetched_at": "2026-10-28 19:48:07 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -57,7 +57,7 @@
     "options_call_put": {
       "status": "ok",
       "rows": 30,
-      "latest_date": "20261027",
+      "latest_date": "20261028",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -66,7 +66,7 @@
         "params": {
           "data_name": "MarketDataOfMajorInstitutionalTradersDetailsOfCallsAndPutsBytheDate"
         },
-        "fetched_at": "2026-10-27 19:43:30 Asia/Taipei",
+        "fetched_at": "2026-10-28 19:48:07 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
@@ -80,8 +80,8 @@
     },
     "put_call_ratio": {
       "status": "ok",
-      "rows": 18,
-      "latest_date": "20261027",
+      "rows": 19,
+      "latest_date": "20261028",
       "message": "",
       "requested_dates": [],
       "observed_dates": [],
@@ -90,11 +90,11 @@
         "params": {
           "data_name": "PutCallRatio"
         },
-        "fetched_at": "2026-10-27 19:43:30 Asia/Taipei",
+        "fetched_at": "2026-10-28 19:48:08 Asia/Taipei",
         "encoding": "utf-8",
         "raw_sha256": "",
         "normalized_sha256": "",
-        "rows": 18,
+        "rows": 19,
         "attempt_count": 0,
         "attempts": [],
         "parse_metadata": {},
@@ -104,8 +104,8 @@
     },
     "taiwan_vix": {
       "status": "ok",
-      "rows": 79,
-      "latest_date": "20261027",
+      "rows": 80,
+      "latest_date": "20261028",
       "message": "",
       "provenance": {
         "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/{yyyymm}new.txt",
@@ -154,13 +154,13 @@
             "endpoint": "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/202610new.txt",
             "yyyymm": "202610",
             "encoding": "cp950",
-            "raw_sha256": "90979be3fe91192ead6d3f6ec17745a8f3095e71f0485ebd53fb4482d0037475",
-            "normalized_sha256": "86970633a3fff2622f56ed59faf34eb3b155ff1fcd9fafe0b8320b3d487153a6",
-            "rows": 16
+            "raw_sha256": "928a070e0e4833ce53235fe2d13337308fd9b832c1e06a33a34951f8b946dfb9",
+            "normalized_sha256": "ff75e5c94470980c30b85c76ec95e71d869de7c44e76a66f06e1063ad678c5a7",
+            "rows": 17
           }
         ],
-        "source_manifest_sha256": "3e64f618942e316681e5b7a25d90fd61e442222e2bcb4fff67b140687f1c4738",
-        "rows": 79,
+        "source_manifest_sha256": "1f866532f3e02e7934f77a8712e55871529bfb2626870d79b769808139b640fa",
+        "rows": 80,
         "publication_status": "as_published"
       }
     }

@@ -1670,6 +1670,7 @@ stock_id,stock_name,industry,market,industry_source
 6934,心誠鎂,生技醫療業,TWSE,official_twse
 6936,永鴻生技,生技醫療業,TWSE,official_twse
 6937,天虹,半導體業,TWSE,official_twse
+6938,藍新資訊,資訊服務業,TPEX,official_tpex
 6944,兆聯實業,綠能環保,TWSE,official_twse
 6945,圓祥生技,生技醫療業,TPEX,official_tpex
 6947,台鎔科技,綠能環保,TWSE,official_twse
@@ -1707,6 +1708,7 @@ stock_id,stock_name,industry,market,industry_source
 7705,三商餐飲,觀光餐旅,TWSE,official_twse
 7708,全家餐飲,觀光餐旅,TPEX,official_tpex
 7709,榮田,電機機械,TPEX,official_tpex
+7710,東擎科技,電腦及週邊設備業,TWSE,official_twse
 7711,永擎,電腦及週邊設備業,TWSE,official_twse
 7712,博盛半導體,半導體業,TPEX,official_tpex
 7713,威力德生醫,生技醫療業,TPEX,official_tpex

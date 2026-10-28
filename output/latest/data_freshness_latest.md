@@ -1,15 +1,15 @@
 # Data Freshness Status
 
-- generated_at: `2026-10-27 19:43:57` Asia/Taipei
+- generated_at: `2026-10-28 19:49:22` Asia/Taipei
 - market_session_status: `open_confirmed`
-- market_session_date: `20261027`
-- expected_main_price_date: `20261027`
+- market_session_date: `20261028`
+- expected_main_price_date: `20261028`
 - market_session_reason_code: `twse_tpex_target_date_confirmed`
-- main_price_date: `20261027`
+- main_price_date: `20261028`
 - main_price_date_source: `validated_stock_history`
 - historical_replay_main_price_date: ``
 - expected_price_history_high_water_date: ``
-- actual_stock_price_history_date: `20261027`
+- actual_stock_price_history_date: `20261028`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `True`
@@ -28,10 +28,10 @@
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20261027 | 20261027 | ready |
-| official_price_fetch_latest | 20261027 | 20261027 | ready |
-| stock_monitor_latest.md | 20261027 | 20261027 | ready |
-| warrant_flow_latest.csv | 20261027 | 20261027 | ready |
+| all_candidates_latest.csv | 20261028 | 20261028 | ready |
+| official_price_fetch_latest | 20261028 | 20261028 | ready |
+| stock_monitor_latest.md | 20261028 | 20261028 | ready |
+| warrant_flow_latest.csv | 20261028 | 20261028 | ready |
 
 ## Rule
 
@@ -39,10 +39,10 @@ When an upstream daily snapshot has a raw date newer than the latest validated a
 
 ## Daily Authority Release
 
-- release_id: `daily-authority-20261027-40495920812-1`
-- generation_id: `daily-authority-20261027-40495920812-1`
+- release_id: `daily-authority-20261028-40679717427-1`
+- generation_id: `daily-authority-20261028-40679717427-1`
 - producer: `daily_full_pipeline`
-- base_commit_sha: `9c182e861164e4259895956ce6563966be007c02`
-- market_session_date: `20261027`
-- expected_main_price_date: `20261027`
+- base_commit_sha: `4e2675bd5171b7fb95c27f32aea877253ed29017`
+- market_session_date: `20261028`
+- expected_main_price_date: `20261028`
 - market_status: `open_confirmed`
