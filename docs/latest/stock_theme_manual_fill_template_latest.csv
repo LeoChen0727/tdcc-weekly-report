@@ -160,6 +160,8 @@
 009827,玉山未來全球算力,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 009828,中信台日韓PCB,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 009829,大華韓國KOSPI50,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
+009831,FT核心AI電力算力,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
+009832,兆豐美國黃金,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 0200,兆豐半導體氣候N,指數 / ETF / ETN商品,指數 / ETF / ETN商品,非主流,,,,,,
 1101,台泥,水泥工業,水泥工業,非主流,,,,,,provisional_industry_mapping
 1102,亞泥,水泥工業,水泥工業,非主流,,,,,,provisional_industry_mapping
@@ -1596,7 +1598,7 @@
 6456,GIS-KY,光電業,光電業,主流,,,,,,provisional_industry_mapping
 6461,益得,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 6462,神盾,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
-6464,台數科,其他,其他,非主流,,,,,,
+6464,台數科,其他業,其他業,非主流,,,,,,
 6465,威潤,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 6467,泰合,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 6469,大樹,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
