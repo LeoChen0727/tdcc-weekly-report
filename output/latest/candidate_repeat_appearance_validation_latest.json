@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-29 19:40:33 Asia/Taipei",
+  "generated_at": "2026-10-30 19:38:08 Asia/Taipei",
   "status": "pass",
-  "main_price_date": "20261029",
-  "history_available_days": 70,
+  "main_price_date": "20261030",
+  "history_available_days": 71,
   "files": {
     "signal_log": "output/history/daily_signals/daily_candidate_signal_log.csv",
     "signal_log_alias": "output/history/daily_candidates/daily_candidate_signal_log.csv",
@@ -11,10 +11,10 @@
     "all_candidates": "output/latest/all_candidates_latest.csv"
   },
   "row_counts": {
-    "signal_log": 38366,
-    "signal_log_alias": 38366,
-    "repeat_csv": 319,
-    "all_candidates": 440
+    "signal_log": 38765,
+    "signal_log_alias": 38765,
+    "repeat_csv": 304,
+    "all_candidates": 399
   },
   "checks": {
     "signal_log_exists": true,

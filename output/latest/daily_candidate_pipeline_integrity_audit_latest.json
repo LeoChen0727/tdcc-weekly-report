@@ -3,14 +3,14 @@
   "errors": [],
   "warnings": [],
   "details": {
-    "main_price_date": "20261029",
+    "main_price_date": "20261030",
     "selection_audit_status": "pass",
     "selection_audit": {
-      "main_price_date": "20261029",
-      "effective_candidate_signal_date": "20261029",
-      "all_candidates_rows": 440,
-      "raw_model_signal_rows": 169,
-      "report_model_signal_rows": 169,
+      "main_price_date": "20261030",
+      "effective_candidate_signal_date": "20261030",
+      "all_candidates_rows": 399,
+      "raw_model_signal_rows": 161,
+      "report_model_signal_rows": 161,
       "volume_watch_rows": 13,
       "tdcc_short_edge_rows": 34,
       "volume_watch_fresh": true,
@@ -49,14 +49,14 @@
     "summary_expected_model_line_rows": 22,
     "summary_actual_model_line_rows": 22,
     "summary_signal_dates": [
-      "20261029"
+      "20261030"
     ],
     "report_signal_dates": [
-      "20261029"
+      "20261030"
     ],
     "same_report_line_model_stock_duplicates": 0,
     "pdf_facing_text_leak_counts": {},
-    "taxonomy_rows": 2396,
+    "taxonomy_rows": 2398,
     "taxonomy_blank_basic_theme_rows": 0,
     "taxonomy_blank_report_line_memberships": 0
   }
