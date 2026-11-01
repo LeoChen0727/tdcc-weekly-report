@@ -312,9 +312,11 @@ VOLUME_ENTRY_RULE_LABELS = {
 VOLUME_STOP_RULE_LABELS = {
     "signal_low_stop": "跌破停損基準",
     "signal_low_stop_after_confirmation": "尚未確認，不列停損價",
+    "sustained_close_below_lower_ma20_ema23_4pct_4d": "連續4日收盤低於每日均線參考線，次交易日開盤停損",
 }
 VOLUME_EXIT_RULE_LABELS = {
     "signal_low_stop_or_fixed_10d_close": "跌破停損基準，否則最多第 10 個交易日收盤",
+    "ema23_close_stop_or_fixed_15d_close": "四日收盤停損，否則第15個交易日收盤出場",
 }
 
 REQUEST_DATE = ""
@@ -2873,6 +2875,17 @@ def volume_operation_frame(
     } | OPERATION_ROW_METRIC_REQUIRED_COLUMNS
     if frame.empty:
         return pd.DataFrame()
+    if (
+        model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS
+        and "model_id" in frame.columns
+        and frame["model_id"].astype(str).eq(model_id).any()
+    ):
+        required |= {
+            "stop_reference_price", "stop_reference_date", "stop_confirmed_days",
+            "holding_days", "planned_entry_date", "planned_exit_date",
+            "planned_exit_date_status", "next_action_date", "next_action_date_status",
+            "stop_confirmation_date", "next_action_zh",
+        }
     missing = sorted(required - set(frame.columns))
     if missing:
         raise RuntimeError("volume breakout PDF operation adapter missing required columns: " + ",".join(missing))
@@ -3199,9 +3212,12 @@ def selected_volume_operation_rows_for_pdf(
             & ~buy_rank_eligible
         ].copy()
     if pdf_section == "active_operation":
+        allowed_actions = {"active_operation"}
+        if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+            allowed_actions.add("stop_exit_pending_next_open")
         selected = rows[
             row_type.eq("data")
-            & row_action.eq("active_operation")
+            & row_action.isin(allowed_actions)
             & ~buy_rank_eligible
         ].copy()
         return limit_operation_rows_for_pdf_view(selected, pdf_view, pdf_section)
@@ -3341,6 +3357,10 @@ def volume_operation_entry_label(row: pd.Series, status: str) -> str:
     basis = clean(row.get("entry_price_basis"))
     label = VOLUME_ENTRY_RULE_LABELS.get(rule_id, rule_id or basis)
     if status == "confirmed_operation" and rule_id == "confirmation_next_open":
+        if clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+            planned_date = clean(row.get("planned_entry_date"))
+            if planned_date:
+                return f"{label}，排定 {date_slash(planned_date)}，開盤價尚未產生"
         return f"{label}，尚未產生"
     return label or "-"
 
@@ -3348,6 +3368,20 @@ def volume_operation_entry_label(row: pd.Series, status: str) -> str:
 def volume_operation_stop_label(row: pd.Series, status: str) -> str:
     if status == "pending_confirmation":
         return "尚未確認，不列停損價"
+    if clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        parts = []
+        reference = clean(row.get("stop_reference_price"))
+        reference_date = clean(row.get("stop_reference_date"))
+        if reference:
+            date_label = f"{date_slash(reference_date)} " if reference_date else ""
+            parts.append(f"{date_label}動態參考線 {reference}（非成交價）")
+        confirmed_days = clean(row.get("stop_confirmed_days"))
+        if confirmed_days:
+            parts.append(f"連續收盤確認 {confirmed_days} / 4 日")
+        if parts:
+            return "；".join(parts)
+        rule_id = clean(row.get("stop_loss_rule_id"))
+        return VOLUME_STOP_RULE_LABELS.get(rule_id, "停損參考資料未提供")
     label = clean(row.get("stop_loss_label_zh"))
     price = clean(row.get("stop_loss_price"))
     if label and price:
@@ -3359,12 +3393,47 @@ def volume_operation_stop_label(row: pd.Series, status: str) -> str:
 
 
 def volume_operation_exit_label(row: pd.Series) -> str:
+    if clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        if clean(row.get("row_action_status")) == "stop_exit_pending_next_open":
+            return volume_operation_action_label(row)
+        rule_id = clean(row.get("exit_rule_id"))
+        parts = [VOLUME_EXIT_RULE_LABELS.get(rule_id, "出場規則未提供")]
+        planned_date = clean(row.get("planned_exit_date"))
+        if planned_date:
+            parts.append(f"排定 {date_slash(planned_date)} 收盤出場")
+        elif clean(row.get("planned_exit_date_status")):
+            parts.append("排定出場日待確認")
+        return "；".join(parts)
     rule_id = clean(row.get("exit_rule_id"))
     holding_days = clean(row.get("planned_holding_days"))
     label = VOLUME_EXIT_RULE_LABELS.get(rule_id, rule_id)
     if rule_id == "signal_low_stop_or_fixed_10d_close" and holding_days and holding_days != "10":
         return f"跌破停損基準，否則最多第 {holding_days} 個交易日收盤"
     return label or "-"
+
+
+def volume_operation_action_label(row: pd.Series) -> str:
+    if clean(row.get("model_id")) not in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        return ""
+    parts = []
+    if clean(row.get("row_action_status")) == "stop_exit_pending_next_open":
+        confirmation_date = clean(row.get("stop_confirmation_date"))
+        prefix = f"{date_slash(confirmation_date)} " if confirmation_date else ""
+        parts.append(f"{prefix}停損已確認，等待下一交易日開盤執行")
+    action = clean(row.get("next_action_zh"))
+    if action:
+        parts.append(action)
+    action_date = clean(row.get("next_action_date"))
+    if action_date:
+        parts.append(f"排定 {date_slash(action_date)}")
+    return "；".join(parts)
+
+
+def volume_operation_holding_label(row: pd.Series) -> str:
+    field = "holding_days" if clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS else "operation_age_days"
+    age = clean(row.get(field))
+    planned = clean(row.get("planned_holding_days"))
+    return f"{age or '-'} / {planned or '-'}" if age or planned else "-"
 
 
 def w_bottom_operation_signal_label(row: pd.Series) -> str:
@@ -3590,18 +3659,13 @@ def build_volume_active_operation_table(rows: pd.DataFrame, model_id: str) -> Ta
     if rows.empty:
         data.append(["-", "-", "-", "-", "-", "-", "-", OPERATION_ACTIVE_EMPTY_STATE_TEXT])
     for _, row in rows.iterrows():
-        age = clean(row.get("operation_age_days"))
-        planned = clean(row.get("planned_holding_days"))
-        age_text = "-"
-        if age or planned:
-            age_text = f"{age or '-'} / {planned or '-'}"
         data.append(
             [
                 clean(row.get("stock_display"), "目前無資料"),
                 volume_operation_trigger_label(row),
                 volume_operation_entry_label(row, "active_operation"),
                 volume_operation_stop_label(row, "active_operation"),
-                age_text,
+                volume_operation_holding_label(row),
                 volume_operation_exit_label(row),
                 volume_operation_score_label(row),
                 first_text(row.get("rank_reason_zh"), row.get("adapter_note_zh"), row.get("pdf_note_zh"), default=OPERATION_ACTIVE_EMPTY_STATE_TEXT),

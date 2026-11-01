@@ -3705,6 +3705,21 @@ def operation_rows_for_limit_test(
                     else "active_operation"
                 ),
                 "buy_rank_eligible": "True" if pdf_section == "confirmed_operation" else "False",
+                "operation_asof_date": "20260612",
+                "entry_date": "20260611" if pdf_section == "active_operation" else "",
+                "entry_price": "10" if pdf_section == "active_operation" else "",
+                "operation_age_days": "2" if pdf_section == "active_operation" else "",
+                "stop_reference_price": "9.6" if pdf_section != "pending_confirmation" else "",
+                "stop_reference_date": "20260612" if pdf_section != "pending_confirmation" else "",
+                "stop_confirmed_days": "0" if pdf_section == "active_operation" else "",
+                "holding_days": "2" if pdf_section == "active_operation" else "",
+                "planned_entry_date": "",
+                "planned_exit_date": "",
+                "planned_exit_date_status": "unavailable_calendar" if pdf_section != "pending_confirmation" else "",
+                "next_action_date": "",
+                "next_action_date_status": "",
+                "stop_confirmation_date": "",
+                "next_action_zh": "",
                 "row_metric_status": (
                     "" if pdf_section == "pending_confirmation" else "unavailable_no_approved_add_score_metric"
                 ),
@@ -3817,11 +3832,15 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "entry_price_basis": "next_open_after_confirmation",
                 "entry_date": "",
                 "entry_price": "",
-                "stop_loss_rule_id": "signal_low_stop",
-                "stop_loss_price": "10.00",
-                "stop_loss_label_zh": "6/11最低點",
-                "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
-                "planned_holding_days": "10",
+                "stop_loss_rule_id": "sustained_close_below_lower_ma20_ema23_4pct_4d",
+                "stop_loss_price": "",
+                "stop_loss_label_zh": "每日四日收盤停損參考線",
+                "stop_reference_price": "10.00",
+                "stop_reference_date": "20260612",
+                "stop_confirmed_days": "",
+                "holding_days": "",
+                "exit_rule_id": "ema23_close_stop_or_fixed_15d_close",
+                "planned_holding_days": "15",
                 "operation_age_days": "1",
                 "operation_score": "12.3",
                 "tdcc_score": "1.0",
@@ -3890,6 +3909,11 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
         ]
     )
 
+    # These synthetic rows are unentered or empty; management dates stay blank.
+    for column in builder.V2_MANAGEMENT_COLUMNS:
+        if column not in rows:
+            rows[column] = ""
+
     story: list = []
     pdf_generator.render_volume_range_breakout_operation_section(
         story,
@@ -3933,8 +3957,8 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert confirmed[2][2] == pdf_generator.VOLUME_TRIGGER_LABELS["next_day_continuation_confirmed"]
     assert confirmed[2][3] == "2026/6/12"
     assert confirmed[2][4] == "確認後下一交易日開盤，尚未產生"
-    assert confirmed[2][5] == "6/11最低點 10.00"
-    assert confirmed[2][6] == "跌破停損基準，否則最多第 10 個交易日收盤"
+    assert confirmed[2][5] == "2026/6/12 動態參考線 10.00（非成交價）"
+    assert confirmed[2][6] == "四日收盤停損，否則第15個交易日收盤出場"
     assert confirmed[2][7] == "操作 12.30 / 最終 88.80"
     assert confirmed[2][8] == pdf_generator.OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
     assert confirmed[2][9] == "正式分數理由"
@@ -4033,6 +4057,11 @@ def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> No
             },
         ]
     )
+
+    # Unranked and empty rows carry the schema without operation guidance values.
+    for column in builder.V2_MANAGEMENT_COLUMNS:
+        if column not in rows:
+            rows[column] = ""
 
     story: list = []
     pdf_generator.render_volume_range_breakout_operation_section(

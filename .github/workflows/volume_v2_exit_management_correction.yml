@@ -1,0 +1,73 @@
+# One-time 20261030 maintenance package preparation. Future adapter/data changes
+# must not rerun this historical correction; use its explicit dispatch for review.
+name: Volume V2 Exit Management Correction Package
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/volume_v2_exit_management_correction.yml"
+      - "scripts/prepare_volume_v2_exit_management_correction.py"
+      - "tests/test_volume_exit_management_correction.py"
+      - "output/history/daily_model_snapshots/daily_volume_breakout_operation_section_20261030_r2_*.csv"
+      - "output/history/daily_model_snapshots/daily_volume_breakout_operation_evidence_audit_20261030_r2_*.csv"
+  workflow_dispatch:
+    inputs:
+      expected_report_date:
+        description: "One-time committed report date; must be 20261030"
+        required: true
+        default: "20261030"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: volume-v2-exit-management-correction-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prepare-volume-v2-exit-management-correction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CORRECTION_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      CORRECTION_REPORT_DATE: ${{ inputs.expected_report_date || '20261030' }}
+      CORRECTION_OUTPUT_DIR: ${{ runner.temp }}/volume-v2-exit-management-correction-${{ github.run_id }}-${{ github.run_attempt }}
+
+    steps:
+      - name: Checkout immutable source without publication credentials
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install bounded preparation dependencies
+        run: python -m pip install --disable-pip-version-check pandas requests tabulate PyYAML pytest
+
+      - name: Validate correction package preparation behavior
+        run: python -B -m pytest -q -p no:cacheprovider tests/test_volume_exit_management_correction.py
+
+      - name: Prepare reviewable metadata package without publishing
+        run: |
+          python -B scripts/prepare_volume_v2_exit_management_correction.py \
+            --expected-source-sha "$CORRECTION_SOURCE_SHA" \
+            --expected-report-date "$CORRECTION_REPORT_DATE" \
+            --output-dir "$CORRECTION_OUTPUT_DIR" \
+            --include-contract-audit
+
+      - name: Upload correction payload and receipt for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: volume-v2-exit-management-correction-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            ${{ env.CORRECTION_OUTPUT_DIR }}/volume_v2_exit_management_correction_20261030.zip
+            ${{ env.CORRECTION_OUTPUT_DIR }}/volume_v2_exit_management_correction_receipt.json
+            ${{ env.CORRECTION_OUTPUT_DIR }}/model_data_independence_contract_audit_20261030.zip
+            ${{ env.CORRECTION_OUTPUT_DIR }}/model_data_independence_contract_audit_receipt.json
+          if-no-files-found: error

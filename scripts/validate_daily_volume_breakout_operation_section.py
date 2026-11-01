@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timedelta
+import json
+import math
 import re
 from pathlib import Path
 
@@ -73,6 +76,7 @@ DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 DOCS_EVIDENCE_AUDIT_CSV = DOCS_LATEST_DIR / EVIDENCE_AUDIT_CSV.name
 DOCS_EVIDENCE_AUDIT_MD = DOCS_LATEST_DIR / EVIDENCE_AUDIT_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+MARKET_SESSION_STATUS_JSON = LATEST_DIR / "market_session_status_latest.json"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
 
@@ -106,6 +110,22 @@ HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmati
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
 CONFIRMED_QUALITY_STATUS_ZH = "正向證據"
+V2_MANAGEMENT_COLUMNS = {
+    "stop_reference_price",
+    "stop_reference_date",
+    "stop_confirmed_days",
+    "holding_days",
+    "planned_entry_date",
+    "planned_exit_date",
+    "planned_exit_date_status",
+    "next_action_date",
+    "next_action_date_status",
+    "stop_confirmation_date",
+    "next_action_zh",
+}
+V2_MANAGEMENT_AUDIT_COLUMNS = (
+    V2_MANAGEMENT_COLUMNS - {"planned_entry_date", "next_action_zh"}
+) | {"entry_date", "entry_price", "exit_date", "exit_price", "exit_reason", "exit_price_basis"}
 LINEAGE_LOOKBACK_CALENDAR_DAYS = 45
 AUDIT_STATUSES = {
     "candidate_evaluated",
@@ -211,7 +231,7 @@ REQUIRED_COLUMNS = {
     "approval_note_zh",
     "adapter_note_zh",
     "generated_at",
-}
+} | V2_MANAGEMENT_COLUMNS
 
 REQUIRED_AUDIT_COLUMNS = {
     "model_id",
@@ -238,7 +258,7 @@ REQUIRED_AUDIT_COLUMNS = {
     "ranking_research_score",
     "reason",
     "generated_at",
-}
+} | V2_MANAGEMENT_AUDIT_COLUMNS
 
 DISPLAY_COLUMNS = [
     "pdf_section_zh",
@@ -267,7 +287,7 @@ DISPLAY_COLUMNS = [
     "approval_status",
     "approval_version",
     "operation_directive_level",
-    "row_action_status",
+    "next_action_zh",
     "buy_rank_eligible",
     "confidence_zh",
     "pdf_note_zh",
@@ -962,6 +982,201 @@ def validate_active_operation_status_explanation(active_data: pd.DataFrame) -> N
         fail("active_operation data rows must explain operation-in-progress status")
 
 
+def _management_text(value: object) -> str:
+    return "" if value is None or pd.isna(value) else str(value).strip()
+
+
+def _management_date(value: object) -> str:
+    text = _management_text(value)
+    if not re.fullmatch(r"[0-9]{8}", text):
+        return ""
+    try:
+        return datetime.strptime(text, "%Y%m%d").strftime("%Y%m%d")
+    except ValueError:
+        return ""
+
+
+def _management_integer(value: object, field: str) -> int | None:
+    text = _management_text(value)
+    if not text:
+        return None
+    try:
+        number = float(text)
+    except ValueError:
+        fail(f"volume v2 {field} must be a nonnegative integer")
+    if not math.isfinite(number) or not number.is_integer() or number < 0:
+        fail(f"volume v2 {field} must be a nonnegative integer")
+    return int(number)
+
+
+def _management_calendar_date(
+    calendar: dict[str, object], anchor: str, sessions: int, *, include_anchor: bool
+) -> str:
+    """Independently check scheduled dates from the existing official snapshot only."""
+    if not _management_date(anchor):
+        return ""
+    sources = calendar.get("official_sources")
+    annual = sources.get("twse_annual_calendar") if isinstance(sources, dict) else None
+    if not isinstance(annual, dict) or annual.get("status") != "ok":
+        return ""
+    if not re.fullmatch(r"[0-9a-fA-F]{64}", str(annual.get("sha256", ""))):
+        return ""
+    years = annual.get("covered_years")
+    scheduled = calendar.get("scheduled_non_trading_days")
+    exceptional = calendar.get("exceptional_non_trading_days")
+    if not isinstance(years, list) or not years or not isinstance(scheduled, list) or not isinstance(exceptional, list):
+        return ""
+    try:
+        covered = {int(year) for year in years}
+    except (TypeError, ValueError):
+        return ""
+    closed_values = scheduled + exceptional
+    if any(not isinstance(value, str) or not _management_date(value) for value in closed_values):
+        return ""
+    closed = {str(value) for value in closed_values}
+    day = datetime.strptime(anchor, "%Y%m%d")
+    if not include_anchor:
+        day += timedelta(days=1)
+    observed = 0
+    for _ in range(3660):
+        if day.year not in covered:
+            return ""
+        text = day.strftime("%Y%m%d")
+        if day.weekday() < 5 and text not in closed:
+            observed += 1
+            if observed == sessions:
+                return text
+        day += timedelta(days=1)
+    return ""
+
+
+def validate_management_fields(
+    section: pd.DataFrame, *, calendar_status: dict[str, object] | None = None
+) -> None:
+    """Check management-field consistency without importing production business code."""
+    missing = sorted(V2_MANAGEMENT_COLUMNS - set(section.columns))
+    if missing:
+        fail(f"volume v2 management fields missing columns: {missing}")
+    if calendar_status is None:
+        try:
+            loaded = json.loads(MARKET_SESSION_STATUS_JSON.read_text(encoding="utf-8-sig"))
+            calendar_status = loaded if isinstance(loaded, dict) else {}
+        except (OSError, ValueError):
+            calendar_status = {}
+
+    for _, row in section.iterrows():
+        if _management_text(row.get("model_id")) not in FORMAL_MODEL_IDS:
+            continue
+        label = f"volume v2 {stock_id_text(row.get('stock_id'))}"
+        state = _management_text(row.get("pdf_section"))
+        is_data = _management_text(row.get("row_type")) == "data"
+        if not is_data or state not in {"confirmed_operation", "active_operation"}:
+            forbidden = V2_MANAGEMENT_COLUMNS - {"holding_days", "stop_confirmed_days", "next_action_zh"}
+            if any(_management_text(row.get(field)) for field in forbidden):
+                fail(f"{label}: non-operation rows must not carry management prices or dates")
+            if any(_management_integer(row.get(field), field) not in {None, 0} for field in ("holding_days", "stop_confirmed_days")):
+                fail(f"{label}: non-operation rows must not carry holding or stop counts")
+            continue
+
+        asof = _management_date(row.get("operation_asof_date"))
+        if not asof or _management_date(row.get("stop_reference_date")) != asof:
+            fail(f"{label}: stop_reference_date must equal operation_asof_date")
+        holding = _management_integer(row.get("holding_days"), "holding_days")
+        counter = _management_integer(row.get("stop_confirmed_days"), "stop_confirmed_days")
+        action = _management_text(row.get("row_action_status"))
+        stop_pending = action == "stop_exit_pending_next_open"
+        reference_text = _management_text(row.get("stop_reference_price"))
+        if reference_text:
+            try:
+                reference = float(reference_text)
+            except ValueError:
+                fail(f"{label}: stop_reference_price must be finite and positive when available")
+            if not math.isfinite(reference) or reference <= 0:
+                fail(f"{label}: stop_reference_price must be finite and positive when available")
+        elif counter not in {None, 0} or stop_pending:
+            fail(f"{label}: unavailable stop reference must reset the counter and cannot confirm a stop")
+        confirmation = _management_date(row.get("selected_confirmation_date"))
+        if state == "confirmed_operation":
+            if holding not in {None, 0} or counter not in {None, 0} or stop_pending:
+                fail(f"{label}: confirmed rows are not entered positions")
+            planned_entry = _management_calendar_date(calendar_status, confirmation, 1, include_anchor=False)
+            if _management_text(row.get("planned_entry_date")) != planned_entry:
+                fail(f"{label}: planned_entry_date must match the saved official calendar")
+            exit_anchor = planned_entry
+        else:
+            if holding is None or not 1 <= holding < 15 or counter is None or counter > holding:
+                fail(f"{label}: active holding_days/stop_confirmed_days are inconsistent with entry-day D1 and D15 exit")
+            if _management_integer(row.get("operation_age_days"), "operation_age_days") != holding:
+                fail(f"{label}: operation_age_days must equal actual entry-day holding_days")
+            entry = _management_date(row.get("entry_date"))
+            if not entry or entry > asof:
+                fail(f"{label}: active entry_date must be on or before the report date")
+            if _management_text(row.get("planned_entry_date")) not in {"", entry}:
+                fail(f"{label}: active planned_entry_date cannot replace the actual entry")
+            exit_anchor = entry
+            if stop_pending != (counter >= 4):
+                fail(f"{label}: fourth close confirmation must match stop_exit_pending_next_open")
+
+        expected_exit = _management_calendar_date(calendar_status, exit_anchor, 15, include_anchor=True)
+        exit_status = "scheduled_official_calendar" if expected_exit else "unavailable_calendar"
+        if _management_text(row.get("planned_exit_date")) != expected_exit or _management_text(row.get("planned_exit_date_status")) != exit_status:
+            fail(f"{label}: planned_exit_date/status must match the saved official calendar and entry-day D15")
+        if stop_pending:
+            if _management_date(row.get("stop_confirmation_date")) != asof:
+                fail(f"{label}: pending stop_confirmation_date must equal the qualifying report close")
+            next_date = _management_calendar_date(calendar_status, asof, 1, include_anchor=False)
+            next_status = "scheduled_official_calendar" if next_date else "unavailable_calendar"
+            if _management_text(row.get("next_action_date")) != next_date or _management_text(row.get("next_action_date_status")) != next_status:
+                fail(f"{label}: pending stop next_action_date/status must match the saved official calendar")
+            text = _management_text(row.get("next_action_zh"))
+            if "停損" not in text or "開盤" not in text:
+                fail(f"{label}: pending stop must explain the next-open stop action")
+            if any(_management_text(row.get(field)) for field in ("realized_exit_date", "realized_exit_price", "exit_date", "exit_price")):
+                fail(f"{label}: pending stop must not invent a realized exit")
+        elif any(_management_text(row.get(field)) for field in ("stop_confirmation_date", "next_action_date", "next_action_date_status")):
+            fail(f"{label}: only stop-pending rows may carry next-action dates or stop confirmation")
+
+
+def validate_management_audit_fields(audit: pd.DataFrame) -> None:
+    """Current audit metadata cannot turn a future open into an actual exit."""
+    missing = sorted(V2_MANAGEMENT_AUDIT_COLUMNS - set(audit.columns))
+    if missing:
+        fail(f"volume v2 management audit missing columns: {missing}")
+    for _, row in audit.iterrows():
+        if _management_text(row.get("model_id")) not in FORMAL_MODEL_IDS:
+            continue
+        exit_date = _management_text(row.get("exit_date"))
+        exit_fields = ("exit_price", "exit_reason", "exit_price_basis")
+        if not exit_date:
+            if any(_management_text(row.get(field)) for field in exit_fields):
+                fail("volume v2 audit cannot fill actual exit fields without an exit_date")
+            continue
+        entry = _management_date(row.get("entry_date"))
+        asof = _management_date(row.get("operation_asof_date"))
+        if not entry or not asof or _management_date(exit_date) != exit_date or not entry <= exit_date <= asof:
+            fail("volume v2 audit actual exit must be between actual entry and asof")
+        if _management_text(row.get("operation_lifecycle_state")) != "expired" or _management_text(row.get("included_in_daily_adapter")) != "False":
+            fail("volume v2 audit actual exits must remain expired and outside the operation section")
+        try:
+            exit_price = float(_management_text(row.get("exit_price")))
+        except ValueError:
+            fail("volume v2 audit actual exit_price must be finite and positive")
+        if not math.isfinite(exit_price) or exit_price <= 0:
+            fail("volume v2 audit actual exit_price must be finite and positive")
+        basis = _management_text(row.get("exit_price_basis"))
+        reason = _management_text(row.get("exit_reason"))
+        if basis == "fixed_future_close":
+            if reason != "fixed_15d_close" or _management_integer(row.get("holding_days"), "holding_days") != 15:
+                fail("volume v2 audit fixed exit must retain entry-day D15 close")
+        elif basis == "next_trading_day_open":
+            confirmation = _management_date(row.get("stop_confirmation_date"))
+            count = _management_integer(row.get("stop_confirmed_days"), "stop_confirmed_days")
+            if reason != "sustained_close_below_lower_ma20_ema23_4pct_4d" or not confirmation or confirmation >= exit_date or count is None or count < 4:
+                fail("volume v2 audit stop exit requires a prior fourth-close confirmation and next open")
+        else:
+            fail("volume v2 audit actual exit basis must be approved next open or fixed D15 close")
+
+
 def validate_file_presence(*, include_docs_mirrors: bool = True) -> None:
     required_paths = [
         SECTION_CSV,
@@ -1269,8 +1484,8 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         fail("active_operation rows must not be buy_rank_eligible")
     active_data = active[active["row_type"].astype(str).eq("data")].copy()
     if not active_data.empty:
-        if set(active_data["row_action_status"].astype(str)) != {"active_operation"}:
-            fail("active_operation data rows must carry row_action_status=active_operation")
+        if set(active_data["row_action_status"].astype(str)) - {"active_operation", "stop_exit_pending_next_open"}:
+            fail("active_operation data rows must carry an approved active or pending-stop action")
         missing_active_selected = active_data[
             active_data["selected_trigger_id"].astype(str).str.strip().eq("")
             | active_data["selected_confirmation_date"].astype(str).str.strip().eq("")
@@ -1307,6 +1522,7 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
 
     validate_high_position_bonus_metrics(section)
     validate_row_level_evidence(section, formal_summary, audit)
+    validate_management_fields(section)
 
 
 def validate_display_text(section: pd.DataFrame) -> None:
@@ -1409,6 +1625,7 @@ def validate_operation_artifacts(
     validate_shape(section, formal_summary, audit)
     validate_source_gap_audit(audit)
     validate_lifecycle_suppression_audit(audit)
+    validate_management_audit_fields(audit)
     validate_display_text(section)
     for model_id in sorted(FORMAL_MODEL_IDS):
         protected_errors = validate_adapter_frame(section, model_id)

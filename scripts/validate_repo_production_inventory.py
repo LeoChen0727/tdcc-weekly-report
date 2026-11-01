@@ -189,6 +189,7 @@ VALID_OWNERS = {
 }
 
 WORKFLOW_ALLOWED_OWNERS = {
+    ".github/workflows/volume_v2_exit_management_correction.yml": set(),
     TDCC_PRICE_PIT_AUDIT_WORKFLOW: set(),
     TDCC_OPERATION_REPLAY_WORKFLOW: set(),
     TDCC_RECEIPTED_REPLAY_WORKFLOW: set(),
@@ -289,6 +290,10 @@ WORKFLOW_ALLOWED_OWNERS = {
 }
 
 WORKFLOW_EXACT_INVOCATION_ALLOWLIST = {
+    ".github/workflows/volume_v2_exit_management_correction.yml": {
+        "scripts/prepare_volume_v2_exit_management_correction.py",
+        "tests/test_volume_exit_management_correction.py",
+    },
     TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW: {
         "scripts/build_tdcc_stealth_accumulation_corporate_action_ledger.py",
         "scripts/validate_apps_script_workflow_triggers.py",
