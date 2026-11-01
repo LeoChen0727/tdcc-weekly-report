@@ -3372,7 +3372,7 @@ def volume_operation_entry_label(row: pd.Series, status: str) -> str:
         if clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
             planned_date = clean(row.get("planned_entry_date"))
             if planned_date:
-                return f"{label}，排定 {date_slash(planned_date)}，開盤價尚未產生"
+                return f"{label}，排定\n{date_slash(planned_date)}\n開盤價尚未產生"
         return f"{label}，尚未產生"
     return label or "-"
 
@@ -3412,7 +3412,7 @@ def volume_operation_exit_label(row: pd.Series) -> str:
         parts = [VOLUME_EXIT_RULE_LABELS.get(rule_id, "出場規則未提供")]
         planned_date = clean(row.get("planned_exit_date"))
         if planned_date:
-            parts.append(f"排定 {date_slash(planned_date)} 收盤出場")
+            parts.append(f"排定\n{date_slash(planned_date)}\n收盤出場")
         elif clean(row.get("planned_exit_date_status")):
             parts.append("排定出場日待確認")
         return "；".join(parts)
@@ -3437,7 +3437,7 @@ def volume_operation_action_label(row: pd.Series) -> str:
         parts.append(action)
     action_date = clean(row.get("next_action_date"))
     if action_date:
-        parts.append(f"排定 {date_slash(action_date)}")
+        parts.append(f"排定\n{date_slash(action_date)}")
     return "；".join(parts)
 
 

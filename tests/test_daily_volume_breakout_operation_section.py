@@ -3959,7 +3959,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert confirmed[2][4] == "確認後下一交易日開盤，尚未產生"
     assert confirmed[2][5] == "2026/6/12 動態參考線 10.00（非成交價）"
     assert confirmed[2][6] == "四日收盤停損，否則第15個交易日收盤出場"
-    assert confirmed[2][7] == "操作 12.30 / 最終 88.80"
+    assert confirmed[2][7] == "操作\n12.30\n最終\n88.80"
     assert confirmed[2][8] == pdf_generator.OPERATION_ROW_METRIC_UNAVAILABLE_TEXT
     assert confirmed[2][9] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)

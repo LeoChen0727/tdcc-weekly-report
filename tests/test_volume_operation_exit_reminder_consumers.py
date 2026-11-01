@@ -72,7 +72,7 @@ def test_v2_labels_consume_supplied_values_without_recomputing(model_id: str) ->
     assert "4 / 4" in stop
     assert "停損已確認" in action
     assert "等待下一交易日開盤執行" in action
-    assert "排定 2026/11/3" in action
+    assert "排定\n2026/11/3" in action
     assert "尚未產生" in action
     assert "已出場" not in action
     assert renderer.volume_operation_holding_label(row) == "3 / 15"
@@ -93,7 +93,7 @@ def test_v2_confirmed_entry_dates_remain_scheduled_without_a_price(model_id: str
 
     label = renderer.volume_operation_entry_label(row, "confirmed_operation")
 
-    assert "排定 2026/11/2" in label
+    assert "排定\n2026/11/2" in label
     assert "開盤價尚未產生" in label
     assert row["entry_date"] == row["entry_price"] == ""
     assert "排定" in renderer.volume_operation_exit_label(row)
@@ -235,7 +235,7 @@ def test_v2_pdf_csv_roundtrip_formats_nullable_integer_columns(model_id: str) ->
     assert renderer.volume_operation_holding_label(row) == "3 / 15"
     stop = renderer.volume_operation_stop_label(row, "active_operation")
     assert "2026/10/30" in stop and "9.88" in stop and "4 / 4" in stop
-    assert "排定 2026/11/3" in renderer.volume_operation_exit_label(row)
+    assert "排定\n2026/11/3" in renderer.volume_operation_exit_label(row)
     assert "20261030.0" not in stop
     pd.testing.assert_frame_equal(raw, before)
 
@@ -246,6 +246,23 @@ def test_v2_score_numbers_have_their_own_line(model_id: str) -> None:
     assert renderer.volume_operation_score_label(row) == "操作\n4.00\n最終\n93.40"
     row["model_id"] = renderer.LEGACY_VOLUME_BREAKOUT_MODEL_ID
     assert renderer.volume_operation_score_label(row) == "操作 4.00 / 最終 93.40"
+
+
+@pytest.mark.parametrize("model_id", V2_MODELS)
+def test_v2_scheduled_dates_have_their_own_line(model_id: str) -> None:
+    row = operation_row(
+        model_id, row_action_status="active_operation", entry_date="", entry_price="",
+        planned_entry_date="20261120", planned_exit_date="20261120", next_action_date="20261120",
+    )
+    before = row.to_dict()
+    for label in (
+        renderer.volume_operation_entry_label(row, "confirmed_operation"),
+        renderer.volume_operation_exit_label(row),
+        renderer.volume_operation_action_label(row),
+    ):
+        assert "2026/11/20" in label.splitlines()
+        assert "排定\n2026/11/20" in label
+    assert row.to_dict() == before
 
 
 @pytest.mark.parametrize("model_id", V2_MODELS)
