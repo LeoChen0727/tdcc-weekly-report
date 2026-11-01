@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from io import StringIO
+
 import pandas as pd
 import pytest
 
@@ -65,7 +67,7 @@ def test_v2_labels_consume_supplied_values_without_recomputing(model_id: str) ->
     stop = renderer.volume_operation_stop_label(row, "active_operation")
     action = renderer.volume_operation_exit_label(row)
 
-    assert "9.8765" in stop
+    assert "9.88" in stop
     assert "非成交價" in stop
     assert "4 / 4" in stop
     assert "停損已確認" in action
@@ -208,6 +210,42 @@ def pdf_adapter_frame(model_id: str) -> pd.DataFrame:
         if field not in frame:
             frame[field] = ""
     return frame
+
+
+@pytest.mark.parametrize("model_id", V2_MODELS)
+def test_v2_pdf_csv_roundtrip_formats_nullable_integer_columns(model_id: str) -> None:
+    active = pdf_adapter_frame(model_id)
+    empty = active.copy()
+    empty["row_type"] = "empty_state"
+    fields = (
+        "signal_date", "confirmation_date", "selected_confirmation_date", "entry_date",
+        "stop_reference_date", "stop_confirmation_date", "planned_entry_date", "planned_exit_date",
+        "next_action_date", "holding_days", "planned_holding_days", "operation_age_days", "stop_confirmed_days",
+    )
+    for field in fields:
+        if field not in active:
+            active[field] = "20261030" if field.endswith("date") else "3"
+        empty[field] = ""
+    raw = pd.read_csv(StringIO(pd.concat([active, empty], ignore_index=True).to_csv(index=False)))
+    before = raw.copy(deep=True)
+    assert raw.iloc[0]["holding_days"] == 3.0
+    result = renderer.volume_operation_frame({"volume_operation": raw}, model_id, "full", "active_operation")
+    row = result[result["row_type"].eq("data")].iloc[0]
+    assert "2026/10/21" in renderer.volume_operation_entry_label(row, "active_operation")
+    assert renderer.volume_operation_holding_label(row) == "3 / 15"
+    stop = renderer.volume_operation_stop_label(row, "active_operation")
+    assert "2026/10/30" in stop and "9.88" in stop and "4 / 4" in stop
+    assert "排定 2026/11/3" in renderer.volume_operation_exit_label(row)
+    assert "20261030.0" not in stop
+    pd.testing.assert_frame_equal(raw, before)
+
+
+@pytest.mark.parametrize("model_id", V2_MODELS)
+def test_v2_score_numbers_have_their_own_line(model_id: str) -> None:
+    row = operation_row(model_id, operation_score="4", final_rank_score="93.4")
+    assert renderer.volume_operation_score_label(row) == "操作\n4.00\n最終\n93.40"
+    row["model_id"] = renderer.LEGACY_VOLUME_BREAKOUT_MODEL_ID
+    assert renderer.volume_operation_score_label(row) == "操作 4.00 / 最終 93.40"
 
 
 @pytest.mark.parametrize("model_id", V2_MODELS)

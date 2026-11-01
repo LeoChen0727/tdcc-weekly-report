@@ -2896,6 +2896,17 @@ def volume_operation_frame(
     ].copy()
     if frame.empty:
         return frame
+    if model_id in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        # CSV columns containing empty states can be inferred as floats. Restore
+        # integer text for display only; keep the supplied adapter untouched.
+        for field in (
+            "signal_date", "confirmation_date", "selected_confirmation_date", "entry_date",
+            "stop_reference_date", "stop_confirmation_date", "planned_entry_date",
+            "planned_exit_date", "next_action_date", "holding_days", "planned_holding_days",
+            "operation_age_days", "stop_confirmed_days",
+        ):
+            if field in frame:
+                frame[field] = frame[field].map(clean).str.replace(r"^(\d+)\.0+$", r"\1", regex=True)
     frame["_display_order"] = pd.to_numeric(frame["display_order"], errors="coerce").fillna(9999)
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
@@ -3320,12 +3331,13 @@ def volume_operation_date_label(value) -> str:
 def volume_operation_score_label(row: pd.Series) -> str:
     operation_score = num(row.get("operation_score"), 2)
     final_score = num(row.get("final_rank_score"), 2)
+    v2_model = clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS
     parts = []
     if operation_score:
-        parts.append(f"操作 {operation_score}")
+        parts.append(f"操作\n{operation_score}" if v2_model else f"操作 {operation_score}")
     if final_score:
-        parts.append(f"最終 {final_score}")
-    return " / ".join(parts) if parts else "-"
+        parts.append(f"最終\n{final_score}" if v2_model else f"最終 {final_score}")
+    return ("\n" if v2_model else " / ").join(parts) if parts else "-"
 
 
 def volume_operation_trigger_label(row: pd.Series) -> str:
@@ -3370,7 +3382,7 @@ def volume_operation_stop_label(row: pd.Series, status: str) -> str:
         return "尚未確認，不列停損價"
     if clean(row.get("model_id")) in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
         parts = []
-        reference = clean(row.get("stop_reference_price"))
+        reference = num(row.get("stop_reference_price"), 2)
         reference_date = clean(row.get("stop_reference_date"))
         if reference:
             date_label = f"{date_slash(reference_date)} " if reference_date else ""
