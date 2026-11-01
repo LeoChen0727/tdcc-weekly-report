@@ -32,9 +32,12 @@ jobs:
     env:
       CORRECTION_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
       CORRECTION_REPORT_DATE: ${{ inputs.expected_report_date || '20261030' }}
-      CORRECTION_OUTPUT_DIR: ${{ runner.temp }}/volume-v2-exit-management-correction-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
+      - name: Prepare runner-owned package directory
+        shell: bash
+        run: echo "CORRECTION_OUTPUT_DIR=$RUNNER_TEMP/volume-v2-exit-management-correction-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_ENV"
+
       - name: Checkout immutable source without publication credentials
         uses: actions/checkout@v6
         with:

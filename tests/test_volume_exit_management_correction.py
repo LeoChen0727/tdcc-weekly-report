@@ -15,6 +15,17 @@ import yaml
 from scripts import prepare_volume_v2_exit_management_correction as correction
 
 
+def test_workflow_defers_runner_temp_until_step_execution() -> None:
+    import yaml
+
+    workflow = yaml.safe_load((correction.ROOT / ".github/workflows/volume_v2_exit_management_correction.yml").read_text(encoding="utf-8"))
+    job = workflow["jobs"]["prepare-volume-v2-exit-management-correction"]
+    assert not any("runner." in str(value) for value in job["env"].values())
+    prepare = job["steps"][0]
+    assert prepare["shell"] == "bash"
+    assert "$RUNNER_TEMP/" in prepare["run"] and '>> "$GITHUB_ENV"' in prepare["run"]
+
+
 def write_rows(path: Path, headers: list[str], rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as handle:
