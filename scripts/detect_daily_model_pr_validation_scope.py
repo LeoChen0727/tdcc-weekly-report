@@ -93,7 +93,17 @@ INHERITED_MARKET_CLOSURE_VALIDATION_PATHS = (
     "tests/test_repo_production_inventory.py",
 )
 
+VOLUME_OPERATION_REMINDER_PATHS = (
+    ".github/workflows/volume_v2_exit_management_correction.yml",
+    "scripts/prepare_volume_v2_exit_management_correction.py",
+    "tests/test_volume_v2_exit_management.py",
+    "tests/test_volume_v2_management_validation.py",
+    "tests/test_volume_exit_management_correction.py",
+)
+
 WATCHED_PATH_PATTERNS = (
+    *VOLUME_OPERATION_REMINDER_PATHS,
+    "tests/test_volume_operation_exit_reminder_consumers.py",
     *MODEL_EVIDENCE_INTEGRITY_PATHS,
     *INHERITED_MARKET_CLOSURE_VALIDATION_PATHS,
     "scripts/build_revenue_unreacted_range_outcome_unit_reconciliation.py",
@@ -516,6 +526,8 @@ RESEARCH_SAFETY_EXACT_PATHS = frozenset(
     }
 )
 
+VOLUME_OPERATION_REMINDER_EXACT_PATHS = frozenset(VOLUME_OPERATION_REMINDER_PATHS)
+
 MODEL_OWNED_VOLUME_RESEARCH_EXACT_PATHS = frozenset(
     {
         "scripts/build_volume_range_breakout_v2_research.py",
@@ -852,6 +864,10 @@ def is_revenue_registry_row(row: Mapping[str, str]) -> bool:
 def domains_for_path(value: str) -> frozenset[str]:
     path = normalize_path(value)
     lowered = path.lower()
+    if path in VOLUME_OPERATION_REMINDER_EXACT_PATHS:
+        return frozenset({REPO_CURRENT_CONTRACTS, RESEARCH_SAFETY_LITE, VOLUME_V2_RESEARCH})
+    if path == "tests/test_volume_operation_exit_reminder_consumers.py":
+        return frozenset({REPO_CURRENT_CONTRACTS, PRODUCTION_PDF_CONTRACTS})
     if any(matches_pattern(path, pattern) for pattern in TPEX_HISTORY_REPAIR_PATTERNS):
         return frozenset({REPO_CURRENT_CONTRACTS})
     watched = is_watched_path(path)

@@ -232,6 +232,7 @@ jobs:
             tests/test_chatgpt_daily_report_entrypoint.py \
             tests/test_daily_report_source_resolver.py \
             tests/test_chatgpt_side_pdf_contract.py \
+            tests/test_volume_operation_exit_reminder_consumers.py \
             tests/test_catalyst_pages_sync.py \
             tests/test_daily_event_catalyst_formal_sync_scope.py \
             tests/test_daily_warrant_formal_sync_scope.py \
@@ -436,7 +437,10 @@ jobs:
             tests/test_volume_breakout_watch.py \
             tests/test_daily_canonical_field_lineage.py \
             tests/test_volume_v2_warrant_lineage_history_audit.py \
-            tests/test_daily_volume_breakout_operation_section.py
+            tests/test_daily_volume_breakout_operation_section.py \
+            tests/test_volume_v2_exit_management.py \
+            tests/test_volume_v2_management_validation.py \
+            tests/test_volume_exit_management_correction.py
 
   revenue_research:
     name: revenue-research

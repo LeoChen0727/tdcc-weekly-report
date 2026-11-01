@@ -371,6 +371,43 @@ def sort_operation_frame(frame: pd.DataFrame) -> pd.DataFrame:
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
 
+def volume_operation_execution_packet_suffix(row: pd.Series) -> str:
+    if str(row.get("model_id", "")).strip() not in VOLUME_BREAKOUT_OPERATION_MODEL_IDS:
+        return ""
+    if str(row.get("pdf_section", "")).strip() not in {"confirmed_operation", "active_operation"}:
+        return ""
+    parts: list[str] = []
+    fields = [
+        "row_action_status",
+        "entry_date",
+        "entry_price",
+        "holding_days",
+        "planned_holding_days",
+        "stop_reference_price",
+        "stop_reference_date",
+        "stop_confirmed_days",
+        "stop_confirmation_date",
+        "planned_entry_date",
+        "planned_exit_date",
+        "planned_exit_date_status",
+        "next_action_date",
+        "next_action_date_status",
+        "next_action_zh",
+    ]
+    scheduled_dates = {"planned_entry_date", "planned_exit_date", "next_action_date"}
+    for field in fields:
+        raw = row.get(field, "")
+        value = "" if pd.isna(raw) else str(raw).strip()
+        if not value:
+            continue
+        if field in scheduled_dates:
+            value = f"排定 {value}"
+        elif field == "stop_reference_price":
+            value = f"{value}（動態參考線，非成交價）"
+        parts.append(f"{field}={value}")
+    return " | " + " | ".join(parts) if parts else ""
+
+
 def build_volume_operation_packet_lines() -> list[str]:
     section = safe_read_csv(DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV)
     readiness = safe_read_csv(MODEL_OPERATION_READINESS_CSV)
@@ -394,6 +431,20 @@ def build_volume_operation_packet_lines() -> list[str]:
         lines.append("[daily_volume_breakout_operation_section_latest.csv missing or empty]")
         lines.append("")
         return lines
+
+    if (
+        "model_id" in section.columns
+        and section["model_id"].astype(str).isin(VOLUME_BREAKOUT_OPERATION_MODEL_IDS).any()
+    ):
+        required = {
+            "stop_reference_price", "stop_reference_date", "stop_confirmed_days",
+            "holding_days", "planned_entry_date", "planned_exit_date",
+            "planned_exit_date_status", "next_action_date", "next_action_date_status",
+            "stop_confirmation_date", "next_action_zh",
+        }
+        missing = sorted(required - set(section.columns))
+        if missing:
+            raise RuntimeError("volume breakout packet operation adapter missing required management columns: " + ",".join(missing))
 
     section = section[section.get("model_id", pd.Series(dtype=str)).astype(str).isin(VOLUME_BREAKOUT_OPERATION_MODEL_IDS)].copy()
     for view in ["highlight", "full"]:
@@ -437,6 +488,7 @@ def build_volume_operation_packet_lines() -> list[str]:
                         ("confidence", "confidence_zh"),
                     ],
                 )
+                + volume_operation_execution_packet_suffix(row)
             )
         lines.append(f"{view}_pending_confirmation:")
         pending = view_frame[
@@ -477,6 +529,7 @@ def build_volume_operation_packet_lines() -> list[str]:
                         ("note", "adapter_note_zh"),
                     ],
                 )
+                + volume_operation_execution_packet_suffix(row)
             )
     lines.append("")
     return lines

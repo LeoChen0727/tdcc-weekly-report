@@ -27,6 +27,22 @@ MODEL_DATA_AUDIT_STAGE_PATTERNS = (
 BASELINE_ARTIFACT_WRITER_COUNT = 14
 
 
+def test_volume_exit_correction_workflow_is_exact_invocation_only(monkeypatch) -> None:
+    workflow = ".github/workflows/volume_v2_exit_management_correction.yml"
+    assert inventory.WORKFLOW_ALLOWED_OWNERS[workflow] == set()
+    assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[workflow] == {
+        "scripts/prepare_volume_v2_exit_management_correction.py",
+        "tests/test_volume_exit_management_correction.py",
+    }
+    load_errors: list[str] = []
+    rows = inventory.load_inventory(load_errors)
+    assert load_errors == []
+    monkeypatch.setattr(inventory, "workflow_invocations", lambda _path: {"scripts/build_daily_candidate_model_layer.py"})
+    errors: list[str] = []
+    inventory.validate_workflow_invocations(rows, {workflow}, errors)
+    assert any("build_daily_candidate_model_layer.py" in error and "allowed owners are []" in error for error in errors)
+
+
 def assert_transition_safe_artifact_writer_count(
     writer_count: int,
     workflow_paths: set[str],
@@ -59,6 +75,7 @@ def test_daily_full_model_governance_invocation_exception_is_revenue_adapter_onl
         inventory.DAILY_WORKFLOW, inventory.TDCC_PRICE_PIT_AUDIT_WORKFLOW,
         inventory.TDCC_OPERATION_REPLAY_WORKFLOW, inventory.TDCC_RECEIPTED_REPLAY_WORKFLOW,
         inventory.TDCC_CORPORATE_ACTION_LEDGER_WORKFLOW,
+        ".github/workflows/volume_v2_exit_management_correction.yml",
     }
     assert inventory.WORKFLOW_EXACT_INVOCATION_ALLOWLIST[inventory.DAILY_WORKFLOW] == expected_paths
 

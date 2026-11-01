@@ -13,6 +13,20 @@ from scripts import validate_daily_legacy_volume_range_breakout_removed as volum
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.mark.parametrize("path", scope.VOLUME_OPERATION_REMINDER_PATHS)
+def test_volume_exit_management_paths_select_exact_operation_validation_domains(path: str) -> None:
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({
+        scope.REPO_CURRENT_CONTRACTS, scope.RESEARCH_SAFETY_LITE, scope.VOLUME_V2_RESEARCH,
+    })
+
+
+def test_volume_exit_reminder_consumer_test_keeps_production_pdf_validation() -> None:
+    path = "tests/test_volume_operation_exit_reminder_consumers.py"
+    assert scope.is_watched_path(path)
+    assert scope.domains_for_path(path) == frozenset({scope.REPO_CURRENT_CONTRACTS, scope.PRODUCTION_PDF_CONTRACTS})
+
+
 PULLBACK_MATCHED_FEATURE_EXACT_PATHS = frozenset({
     "scripts/build_pullback_short_reclaim_matched_feature_research.py",
     "scripts/validate_pullback_short_reclaim_matched_feature_research.py",

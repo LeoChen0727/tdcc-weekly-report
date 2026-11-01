@@ -1531,6 +1531,90 @@ def test_revenue_formal_price_basis_adapter_family_has_one_writer_and_consumer()
 
 def test_data_contract_baseline_is_immutable_and_covers_every_family() -> None:
     rows = read_csv("config/daily_model_data_sharing_migrations.csv")
+    assert len(rows) == 63
+    calendar = rows[-1]
+    calendar_family = "market_session_status_official_calendar"
+    calendar_models = (
+        "volume_range_breakout_v2_high_position_volume_attack;"
+        "volume_range_breakout_v2_low_position_volume_attack;"
+        "volume_range_breakout_v2_mid_position_momentum_attack"
+    )
+    calendar_digest = "24da2b7d2408d6bd55c7fbb03dc02b44925e8737e956a17403206e0932662df5"
+    calendar_approval = "user_requested_volume_v2_operation_exit_reminder_repair_20261101"
+    assert calendar == {
+        "migration_id": "volume_v2_existing_official_calendar_consumer_20261101",
+        "changed_data_families": calendar_family,
+        "previous_contract_sha256s": "NEW",
+        "new_contract_sha256s": calendar_digest,
+        "affected_models": calendar_models,
+        "validation_commands": (
+            "python scripts/validate_model_data_independence.py;"
+            "python scripts/validate_daily_model_background_data_registry.py --structure-only;"
+            "python scripts/validate_daily_volume_breakout_operation_section.py;"
+            "python -m pytest tests/test_volume_v2_management_validation.py tests/test_volume_v2_exit_management.py"
+        ),
+        "user_approval_reference": calendar_approval,
+        "migration_status": "validated_user_approved_migration",
+        "notes": (
+            "Register the existing market_session_calendar.py single-writer snapshot before the "
+            "user-requested Volume V2 scheduled entry exit and pending-stop date consumer is enabled. "
+            "New family registration only; no existing semantic shared-utility or data hash baseline is changed."
+        ),
+    }
+    calendar_backgrounds = [
+        row for row in read_csv("config/daily_model_background_data_registry.csv")
+        if row["data_family_id"] == calendar_family
+    ]
+    calendar_sharing_rows = [
+        row for row in read_csv("config/daily_model_data_sharing_registry.csv")
+        if row["data_family_id"] == calendar_family
+    ]
+    assert len(calendar_backgrounds) == len(calendar_sharing_rows) == 1
+    calendar_background = calendar_backgrounds[0]
+    calendar_sharing = calendar_sharing_rows[0]
+    # The pinned background digest binds every source/use/retention field, not just its family name.
+    assert data_contract_sha256(calendar_background) == calendar_digest
+    assert calendar_background["scope"] == "latest_only_context"
+    assert calendar_background["owner_lane"] == "official_price_data"
+    assert calendar_background["producer"] == "scripts/market_session_calendar.py"
+    assert calendar_background["artifact_path"] == "output/latest/market_session_status_latest.json"
+    assert calendar_background["consumer_surfaces"] == "daily_production"
+    assert calendar_background["consumer_models"] == calendar_models
+    assert "all_models" not in calendar_background["consumer_models"].split(";")
+    assert calendar_background["point_in_time_status"] == "latest_only_saved_official_calendar_snapshot_not_historical_PIT"
+    assert calendar_background["allowed_use"] == (
+        "Read the existing official snapshot only to label scheduled next-open and entry-day D15 dates "
+        "in the three Volume V2 formal operation adapters; require annual source status=ok SHA256 and "
+        "covered_years; retain unavailable_calendar for missing or uncovered dates."
+    )
+    assert calendar_background["forbidden_use"] == (
+        "No historical signal labeling backtest evidence actual open or fill confirmation model gate "
+        "score rank price estimate new market request new writer or cross-model consumer; do not "
+        "convert scheduled dates into actual entry or exit dates."
+    )
+    assert calendar_background["retention_policy"] == "keep_existing_latest_snapshot_and_bind_used_source_hash_in_runtime_evidence_no_new_archive"
+    assert calendar_background["cleanup_status"] == "active"
+    assert calendar_sharing == {
+        "data_family_id": calendar_family,
+        "ownership_mode": "latest_context_not_historical",
+        "owner_model_or_family": "official_price_data",
+        "registered_producers": calendar_background["producer"],
+        "producer_write_scope": calendar_background["artifact_path"],
+        "consumer_access_mode": "read_only_saved_official_calendar_scheduled_dates_only",
+        "approved_consumer_models": calendar_models,
+        "data_contract_sha256": calendar_digest,
+        "last_migration_id": calendar["migration_id"],
+        "sharing_decision_reference": calendar_approval,
+        "formal_evidence_policy": "scheduled_date_context_only_not_actual_open_fill_historical_PIT_or_promotion_evidence",
+        "new_consumer_policy": "user_approval_and_append_only_registry_migration_required",
+        "notes": (
+            "Only the three named Volume V2 operation adapters may newly read this latest snapshot for "
+            "scheduled dates. The existing official writer and exact artifact scope remain unchanged; "
+            "no fetch price fill research model gate or cross-model sharing is approved."
+        ),
+    }
+    # Preserve the original 62 migration rows and every existing baseline assertion below.
+    rows = rows[:-1]
     assert len(rows) == 62
     activation = rows[-1]
     assert activation["migration_id"] == "price_pullback_23ema_confirmation_history_consumer_activation_20261023"

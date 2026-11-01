@@ -190,3 +190,60 @@ The PDF side should only render rows from this artifact. It must not recalculate
 - median return
 
 If a row has `row_type=empty_state`, the PDF should still render the section heading and an empty table/message.
+
+## Volume V2 操作管理欄位與當日停損提醒（2026-11-01）
+
+本節只適用於 `volume_range_breakout_v2_low_position_volume_attack`、
+`volume_range_breakout_v2_mid_position_momentum_attack` 與
+`volume_range_breakout_v2_high_position_volume_attack`。三者仍使用各自核准的條件、
+排序及統計；本節不沿用上方 legacy v1 的 10 日或訊號低點停損規則。
+
+三個 V2 的既有契約為：確認日收盤成立後下一交易日開盤入場；從實際入場日開始，
+每日以 `close <= 0.96 * min(valid positive MA20, EMA23)` 計數，不成立即歸零。
+連續第 4 日收盤確認後，下一交易日開盤停損；未提前停損則入場日計第 1 日、
+第 15 個股票交易價格列收盤出場。第 14 日首次達第 4 次時在第 15 日開盤停損；
+首次第 4 次落在第 15 日時，維持已核准的第 15 日固定收盤出場，不新增第 16 日退出。
+MA20／EMA23 的來源、精度、缺值處理及價格比較子均維持既有 V2 規則。
+
+正式 adapter 新增以下欄位；renderer 只讀取，不重新計算：
+
+- `stop_reference_price`、`stop_reference_date`：資料日的動態收盤停損參考線及其日期。
+  參考線不是成交價，也不是入場價固定扣 4%；不能固定沿用於未來交易日。
+  依既有規則兩條均線都不可用時，參考價留空、當期計數歸零，不補 0 或宣稱已確認停損。
+- `stop_confirmed_days`：從該筆實際入場日開始的當期連續符合日數。
+- `holding_days`：實際入場日為 1 的持有交易列數；V2 的 `operation_age_days`
+  同步採此口徑，不能再從訊號日或確認日起算。
+- `planned_entry_date`：確認候選的排定入場日期；既有 active 可保留相同實際入場日期。
+- `planned_exit_date`、`planned_exit_date_status`：未提前停損情境的排定 D15 收盤日期與狀態。
+- `next_action_date`、`next_action_date_status`：只供已確認停損、等待下一開盤的列使用。
+- `stop_confirmation_date`、`next_action_zh`：已成立的收盤確認日期與面向使用者的下一動作。
+
+尚未入場的 confirmed 列，其 `holding_days`、`stop_confirmed_days` 保持空白或 0，
+原 `entry_date`、`entry_price` 不填預估值。pending、confirmed-unranked 與 empty-state
+不得取得操作管理價格或排定買賣日期；不得因補欄位而升級為已買入或 active。
+
+第 4 日收盤已成立、但當時尚無下一筆價格列時，adapter 必須保留當期正式追蹤列，
+以 `row_action_status=stop_exit_pending_next_open` 明示等待下一開盤停損。
+其 `pdf_section`、`operation_status` 仍為 `active_operation`，`operation_status_zh`
+仍為 `操作中`、`quality_status_zh` 仍為 `已進場追蹤`，且 `buy_rank_eligible=False`。
+不得重複寫入 protected fields，亦不得新增已出場主 section。實際下一開盤資料存在且
+已在 as-of 範圍內時，才可形成已實際退出的 audit 欄位；pending 不填實際出場價。
+
+排定日期只讀取既存 `output/latest/market_session_status_latest.json`：年度官方來源
+`official_sources.twse_annual_calendar.status=ok`、有效 SHA-256、`covered_years`，
+加上其中 `scheduled_non_trading_days` 與 `exceptional_non_trading_days`。不 fetch、
+不新增行情、不建立另一個年曆 producer。來源缺失、無效或日期年份未涵蓋時，該日期留空，
+對應狀態為 `unavailable_calendar`；可排定時使用 `scheduled_official_calendar`。
+排定不代表未來已開市、個股有可用開盤價或券商已成交；實際日期改變須依原規則重新核算。
+
+既存年曆的單一 writer、精確 artifact 路徑、三個 V2 read-only consumers、latest-only
+限制及禁止歷史 PIT／績效／promotion 用途，登錄於
+`config/daily_model_background_data_registry.csv` 與
+`config/daily_model_data_sharing_registry.csv`，並由
+`config/daily_model_data_sharing_migrations.csv` 的
+`volume_v2_existing_official_calendar_consumer_20261101` 追加核准。
+
+model validator 必須拒絕錯誤參考日期、負數／非整數計數、仍以訊號日起算的持有日數、
+第 4 次卻沒有 pending-stop action、未滿 4 次卻顯示 pending-stop、錯誤排定日期、
+缺年曆卻有日期、以及把尚未發生的開盤填成實際退出。三個 V2 的非空 active 與 pending-stop
+builder rows 都必須通過 model validator 與 protected-field validator。

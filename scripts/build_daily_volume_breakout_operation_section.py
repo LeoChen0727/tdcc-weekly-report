@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from functools import lru_cache
 import hashlib
 import json
@@ -33,7 +33,6 @@ from volume_breakout_operation_utils import (  # noqa: E402
     load_market_regime_map,
     read_tdcc_events,
     signal_low_broken as shared_signal_low_broken,
-    stop_hit_index as shared_stop_hit_index,
 )
 
 
@@ -53,6 +52,7 @@ DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
 MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
 STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
+MARKET_SESSION_STATUS_JSON = LATEST_DIR / "market_session_status_latest.json"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 OUT_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
@@ -147,6 +147,12 @@ EXIT_RULE_ZH = "若未觸發停損，固定第15個交易日收盤出場。"
 STOP_RULE_ID = "sustained_close_below_lower_ma20_ema23_4pct_4d"
 EXIT_RULE_ID = "ema23_close_stop_or_fixed_15d_close"
 PENDING_CONFIRMATION_ZH = "訊號日後等待隔日續攻收盤確認；未確認前不列買入。"
+V2_MANAGEMENT_COLUMNS = (
+    "stop_reference_price", "stop_reference_date", "stop_confirmed_days",
+    "holding_days", "planned_entry_date", "planned_exit_date",
+    "planned_exit_date_status", "next_action_date", "next_action_date_status",
+    "stop_confirmation_date", "next_action_zh",
+)
 
 
 def section_allowed_for_pdf_view(pdf_view: str, pdf_section: str) -> bool:
@@ -207,6 +213,7 @@ OUTPUT_COLUMNS = [
     "exit_rule_id",
     "planned_holding_days",
     "operation_age_days",
+    *V2_MANAGEMENT_COLUMNS,
     "signal_date",
     "confirmation_date",
     "pending_age_zh",
@@ -300,6 +307,8 @@ EVIDENCE_AUDIT_COLUMNS = [
     "evidence_out_of_sample_pass",
     "ranking_research_score",
     "reason",
+    "entry_date", "entry_price", *V2_MANAGEMENT_COLUMNS,
+    "exit_date", "exit_price", "exit_reason", "exit_price_basis",
     "generated_at",
 ]
 
@@ -1553,28 +1562,136 @@ def selected_confirmation(price: pd.DataFrame, signal_idx: int, report_idx: int)
     return selected
 
 
-def stop_hit_index(price: pd.DataFrame, entry_idx: int, through_idx: int, signal_low: float) -> int | None:
+def v2_stop_reference(price_row: pd.Series) -> float:
+    """The approved daily reference, never an execution price."""
+    refs = [price_at(price_row, col) for col in ("ma20", "ema23")]
+    valid = [value for value in refs if not math.isnan(value) and value > 0]
+    return min(valid) * 0.96 if valid else math.nan
+
+
+def v2_management_state(price: pd.DataFrame, entry_idx: int, report_idx: int) -> dict[str, Any]:
+    """Keep close confirmation separate from availability of its next open.
+
+    The approved frozen simulation checks stops on D1--D14 and otherwise exits
+    at D15 close. No future price may turn an as-of pending exit into a fill.
+    """
+    if not (0 <= entry_idx <= report_idx < len(price)):
+        raise ValueError("v2 management requires an observed entry and as-of row")
+    planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
+    result = {
+        "state": "active_operation", "holding_days": report_idx - entry_idx + 1,
+        "stop_confirmed_days": 0, "stop_confirmation_idx": None,
+        "exit_idx": None, "planned_exit_idx": planned_exit_idx,
+        "stop_reference_price": v2_stop_reference(price.iloc[report_idx]),
+    }
     consecutive = 0
-    last_stop_exit_idx: int | None = None
-    latest_idx = min(through_idx, len(price) - 1)
-    for idx in range(entry_idx, latest_idx + 1):
-        row = price.iloc[idx]
-        close = price_at(row, "close")
-        refs = [price_at(row, "ma20"), price_at(row, "ema23")]
-        refs = [value for value in refs if not math.isnan(value) and value > 0]
-        if not refs or math.isnan(close):
-            consecutive = 0
-            continue
-        stop_price = min(refs) * 0.96
-        if close <= stop_price:
-            consecutive += 1
-        else:
-            consecutive = 0
+    for idx in range(entry_idx, min(report_idx, planned_exit_idx - 1) + 1):
+        current = price.iloc[idx]
+        close, reference = price_at(current, "close"), v2_stop_reference(current)
+        consecutive = consecutive + 1 if (
+            not math.isnan(close) and not math.isnan(reference) and close <= reference
+        ) else 0
         if consecutive >= 4:
-            exit_idx = idx + 1
-            last_stop_exit_idx = exit_idx if exit_idx <= latest_idx else None
-            break
-    return last_stop_exit_idx
+            result.update({
+                "state": "stop_exit_pending_next_open" if idx == report_idx else "exited_stop_next_open",
+                "holding_days": min(report_idx, idx + 1) - entry_idx + 1,
+                "stop_confirmed_days": consecutive, "stop_confirmation_idx": idx,
+                "exit_idx": idx + 1 if idx < report_idx else None,
+            })
+            return result
+    result["stop_confirmed_days"] = consecutive
+    if report_idx >= planned_exit_idx:
+        result.update({
+            "state": "exited_fixed_15d_close", "exit_idx": planned_exit_idx,
+            "holding_days": MAX_HOLD_DAYS,
+        })
+    return result
+
+
+def v2_calendar_dates(entry_date: str, confirmation_date: str = "") -> dict[str, str]:
+    """Read the existing official calendar snapshot; never fetch or guess weekdays."""
+    empty = {
+        "planned_entry_date": "", "planned_exit_date": "",
+        "planned_exit_date_status": "unavailable_calendar",
+    }
+    try:
+        payload = json.loads(MARKET_SESSION_STATUS_JSON.read_text(encoding="utf-8-sig"))
+        official = payload["official_sources"]["twse_annual_calendar"]
+        if official.get("status") != "ok" or not re.fullmatch(r"[0-9a-f]{64}", safe_str(official.get("sha256"))):
+            return empty
+        years = {int(year) for year in official["covered_years"]}
+        scheduled = payload["scheduled_non_trading_days"]
+        exceptional = payload["exceptional_non_trading_days"]
+        if not isinstance(scheduled, list) or not isinstance(exceptional, list):
+            return empty
+        closed = set(scheduled) | set(exceptional)
+        for value in closed:
+            datetime.strptime(value, "%Y%m%d")
+
+        def session_after(value: str, offset: int) -> str:
+            current = datetime.strptime(value, "%Y%m%d")
+            remaining = offset
+            for _ in range(400):
+                if current.year not in years:
+                    return ""
+                candidate = current.strftime("%Y%m%d")
+                if current.weekday() < 5 and candidate not in closed:
+                    if remaining == 0:
+                        return candidate
+                    remaining -= 1
+                current += timedelta(days=1)
+            return ""
+
+        actual_entry = normalize_date_text(entry_date)
+        planned_entry = actual_entry or session_after(normalize_date_text(confirmation_date), 1)
+        planned_exit = session_after(planned_entry, MAX_HOLD_DAYS - 1) if planned_entry else ""
+        return {
+            "planned_entry_date": planned_entry,
+            "planned_exit_date": planned_exit,
+            "planned_exit_date_status": "scheduled_official_calendar" if planned_exit else "unavailable_calendar",
+        }
+    except (OSError, ValueError, TypeError, KeyError, AttributeError):
+        return empty
+
+
+def v2_management_fields(
+    price: pd.DataFrame, report_idx: int, confirmation_date: str,
+    *, entry_idx: int | None = None, management: dict[str, Any] | None = None,
+) -> dict[str, str]:
+    current = price.iloc[report_idx]
+    reference = v2_stop_reference(current)
+    entry_date = normalize_date_text(price.iloc[entry_idx].get("date")) if entry_idx is not None else ""
+    dates = v2_calendar_dates(entry_date, confirmation_date)
+    fields = {
+        "stop_reference_price": "" if math.isnan(reference) else format(reference, ".12g"),
+        "stop_reference_date": normalize_date_text(current.get("date")),
+        "stop_confirmed_days": "", "holding_days": "",
+        **dates, "next_action_date": "", "next_action_date_status": "",
+        "stop_confirmation_date": "", "next_action_zh": "確認後下一交易日開盤；實際開盤價待確認。",
+    }
+    if entry_idx is None:
+        return fields
+    state = management if management is not None else v2_management_state(price, entry_idx, report_idx)
+    fields.update({
+        "holding_days": str(state["holding_days"]),
+        "operation_age_days": str(state["holding_days"]),
+        "stop_confirmed_days": str(state["stop_confirmed_days"]),
+        "stop_loss_price": fields["stop_reference_price"],
+        "stop_loss_label_zh": "每日四日收盤停損參考線",
+        "next_action_zh": "每日收盤核對四日停損；未提前停損則第15個交易日收盤出場。",
+    })
+    stop_idx = state["stop_confirmation_idx"]
+    if stop_idx is not None:
+        fields["stop_confirmation_date"] = normalize_date_text(price.iloc[stop_idx].get("date"))
+    if state["state"] == "stop_exit_pending_next_open":
+        stop_date = fields["stop_confirmation_date"]
+        next_dates = v2_calendar_dates("", stop_date)
+        fields.update({
+            "next_action_date": next_dates["planned_entry_date"],
+            "next_action_date_status": "scheduled_official_calendar" if next_dates["planned_entry_date"] else "unavailable_calendar",
+            "next_action_zh": "已連續4日收盤確認；下一交易日開盤停損，實際開盤價待確認。",
+        })
+    return fields
 
 
 def signal_snapshot_paths(report_date: str) -> list[SnapshotRevision]:
@@ -2339,6 +2456,8 @@ def confirmed_record(
     )
     record["entry_price_status_zh"] = CONFIRMED_ENTRY_PRICE_STATUS_ZH
     apply_v2_confirmed_or_active_rules(record)
+    if safe_str(signal.get("model_id")) in FORMAL_MODEL_IDS:
+        record.update(v2_management_fields(price, report_idx, safe_str(selected.get("confirmation_date"))))
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
     apply_high_position_bonus_metric(record, signal, selected, price, signal_idx)
     return record
@@ -2436,6 +2555,10 @@ def active_record(
     entry = price.iloc[entry_idx]
     signal_low = price_at(signal_row, "low")
     signal_date = normalize_date_text(signal_row.get("date"))
+    management = (
+        v2_management_state(price, entry_idx, report_idx)
+        if safe_str(signal.get("model_id")) in FORMAL_MODEL_IDS else None
+    )
     record = lifecycle_base_record(
         signal,
         approval,
@@ -2472,11 +2595,20 @@ def active_record(
             "planned_holding_days": str(MAX_HOLD_DAYS),
             "operation_age_days": str(report_idx - signal_idx),
             "confirmation_date": safe_str(selected.get("confirmation_date")),
-            "row_action_status": "active_operation",
+            "row_action_status": (
+                "stop_exit_pending_next_open"
+                if management is not None and management["state"] == "stop_exit_pending_next_open"
+                else "active_operation"
+            ),
             "buy_rank_eligible": "False",
         }
     )
     apply_v2_confirmed_or_active_rules(record)
+    if management is not None:
+        record.update(v2_management_fields(
+            price, report_idx, safe_str(selected.get("confirmation_date")),
+            entry_idx=entry_idx, management=management,
+        ))
     apply_evidence_fields(record, evidence, context, "positive_model_contract_evidence")
     apply_high_position_bonus_metric(record, signal, selected, price, signal_idx)
     return record
@@ -2765,9 +2897,8 @@ def lifecycle_state_for_signal(
                     audit["reason"] = "confirmed_without_buy_rank_eligibility_not_tracked_active"
             return 90, None, audit_rows
         if entry_idx < len(price) and report_idx >= entry_idx:
-            planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
-            stopped_idx = stop_hit_index(price, entry_idx, report_idx, signal_low)
-            if stopped_idx is None and report_idx <= planned_exit_idx:
+            management = v2_management_state(price, entry_idx, report_idx)
+            if management["state"] in {"active_operation", "stop_exit_pending_next_open"}:
                 record = active_record(
                     signal,
                     selected,
@@ -2787,7 +2918,30 @@ def lifecycle_state_for_signal(
                     audit["operation_asof_date"] = report_date
                     audit["operation_lifecycle_state"] = "active_operation"
                     audit["generated_at"] = generated_at
+                    for column in ("entry_date", "entry_price", *V2_MANAGEMENT_COLUMNS):
+                        audit[column] = record.get(column, "")
                 return 0, record, audit_rows
+            fields = v2_management_fields(
+                price, report_idx, safe_str(selected.get("confirmation_date")),
+                entry_idx=entry_idx, management=management,
+            )
+            exit_idx = int(management["exit_idx"])
+            stopped = management["state"] == "exited_stop_next_open"
+            for audit in audit_rows:
+                audit.update(fields)
+                audit.update({
+                    "operation_asof_date": report_date,
+                    "operation_lifecycle_state": "expired",
+                    "included_in_daily_adapter": "False",
+                    "entry_date": normalize_date_text(price.iloc[entry_idx].get("date")),
+                    "entry_price": format_price(price_at(price.iloc[entry_idx], "open")),
+                    "exit_date": normalize_date_text(price.iloc[exit_idx].get("date")),
+                    "exit_price": format_price(price_at(price.iloc[exit_idx], "open" if stopped else "close")),
+                    "exit_reason": STOP_RULE_ID if stopped else "fixed_15d_close",
+                    "exit_price_basis": "next_trading_day_open" if stopped else "fixed_future_close",
+                    "generated_at": generated_at,
+                })
+            return 90, None, audit_rows
         for audit in audit_rows:
             audit["operation_asof_date"] = report_date
             audit["operation_lifecycle_state"] = "expired"
@@ -3149,6 +3303,7 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
                 "entry_basis_zh",
                 "stop_basis_zh",
                 "exit_rule_zh",
+                *V2_MANAGEMENT_COLUMNS,
                 "pending_age_zh",
                 "sample_size",
                 "win_rate_zh",
@@ -3221,6 +3376,8 @@ def write_evidence_audit(audit: pd.DataFrame) -> None:
             "evidence_out_of_sample_pass",
             "ranking_research_score",
             "reason",
+            "entry_date", "entry_price", *V2_MANAGEMENT_COLUMNS,
+            "exit_date", "exit_price", "exit_reason", "exit_price_basis",
         ]
         try:
             lines.append(audit[display_cols].to_markdown(index=False))
