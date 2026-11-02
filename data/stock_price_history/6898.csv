@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20261028,6898,程曦資訊,TPEx,65.9,65.9,64.0,65.3,267000.0,17375800.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261028.csv,,,,,,-2.8274,,,,,,,,,,,,,,,,,,,,,
 20261029,6898,程曦資訊,TPEx,64.7,65.0,64.1,64.1,122000.0,7851200.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261029.csv,,,,,,-1.8377,,,,,,,,,,,,,,,,,,,,,
 20261030,6898,程曦資訊,TPEx,62.8,65.7,61.2,65.2,194000.0,12267500.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261030.csv,,,,,,1.7161,,,,,,,,,,,,,,,,,,,,,
+20261102,6898,程曦資訊,TPEx,64.1,65.2,64.0,65.1,74000.0,4783100.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261102.csv,65.38,65.38,65.38,65.38,66.5332,-0.1534,,,,,235600.0,0.3141,67.6,67.6,67.6,61.2,61.2,61.2,-0.4283,-0.4283,-0.4283,-2.1541,-3.6982,-3.6982,-3.6982,6.3725,6.3725

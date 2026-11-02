@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20261028,6938,藍新資訊,TPEx,80.1,88.8,80.0,83.0,658000.0,55338400.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261028.csv,,,,,,3.8798,,,,,,,,,,,,,,,,,,,,,
 20261029,6938,藍新資訊,TPEx,80.1,81.0,76.7,79.2,240000.0,18941300.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261029.csv,,,,,,-4.5783,,,,,,,,,,,,,,,,,,,,,
 20261030,6938,藍新資訊,TPEx,78.0,80.0,77.0,80.0,74000.0,5795300.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261030.csv,,,,,,1.0101,,,,,,,,,,,,,,,,,,,,,
+20261102,6938,藍新資訊,TPEx,79.8,80.0,72.0,79.1,89000.0,6948200.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261102.csv,80.24,80.24,80.24,80.24,79.9909,-1.125,,,,,323000.0,0.2755,88.8,88.8,88.8,71.0,71.0,71.0,-1.4207,-1.4207,-1.4207,-1.1138,-10.9234,-10.9234,-10.9234,11.4085,11.4085

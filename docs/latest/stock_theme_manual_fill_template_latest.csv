@@ -227,7 +227,7 @@
 1410,南染,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
 1413,宏洲,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
 1414,東和,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
-1416,廣豐,其他業,其他業,非主流,,,,,,
+1416,廣豐,其他,其他,非主流,,,,,,
 1417,嘉裕,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
 1418,東華,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
 1419,新紡,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
@@ -1414,13 +1414,13 @@
 5906,台南-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 5907,大洋-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 6005,群益證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6015,宏遠證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6015,宏遠證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6016,康和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6023,元大期貨,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6024,群益期,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6026,福邦證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
+6026,福邦證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6028,公勝保經,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6101,寬魚國際,文化創意業,文化創意業,非主流,,,,,,
 6103,合邦,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
@@ -2176,7 +2176,7 @@
 7842,天能綠電,綠能環保,綠能環保,非主流,,,,,,
 7855,和運租車,權證/衍生商品,權證/衍生商品,非主流,,,,,,
 7856,漢測,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
-7867,特力屋,權證/衍生商品,權證/衍生商品,非主流,,,,,,
+7867,特力屋,居家生活,居家生活,非主流,,,,,,
 8011,台通,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8016,矽創,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 8021,尖點,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
