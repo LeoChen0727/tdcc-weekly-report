@@ -1,45 +1,45 @@
 {
   "attempts": [
     {
-      "date": "20261102",
+      "date": "20261103",
       "full_market_ok": true,
-      "total_rows": 2128,
+      "total_rows": 2138,
       "tpex_ok": true,
-      "tpex_rows": 879,
+      "tpex_rows": 892,
       "twse_ok": true,
-      "twse_rows": 1249,
-      "universe_rows": 2140
+      "twse_rows": 1246,
+      "universe_rows": 2128
     }
   ],
   "data_quality_note": "",
   "fetch_markdown_bytes": 2124,
   "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
-  "fetch_markdown_sha256": "541aa9efe1bbb8ffa2bfa01893661f6ff0580d5dd48e3741a7bdab1536df6ecc",
+  "fetch_markdown_sha256": "bfb9d5ad9b1bb2caabf2be1045f2f5aab3a3793190ca75c35bc8c6e45109af7b",
   "full_market_ok": true,
-  "generated_at": "2026-11-02 19:37:25 Asia/Taipei",
+  "generated_at": "2026-11-03 19:32:16 Asia/Taipei",
   "is_target_date": true,
-  "latest_price_bytes": 202355,
+  "latest_price_bytes": 204266,
   "latest_price_path": "output/latest/official_daily_price_latest.csv",
-  "latest_price_sha256": "08c4dfe7c4d1906c90deb35360f637732b305d4c83688088d789b7a2373f9212",
+  "latest_price_sha256": "908e533ad19c09273598405809cfeb14146335217abbd359d8afddb185ebf670",
   "market_same_ratios": {
-    "TPEx": 0.002306805074971165,
+    "TPEx": 0.001152073732718894,
     "TWSE": 0.0
   },
   "paths": {
-    "dated_alt_csv": "data/daily_price/daily_price_20261102.csv",
-    "dated_csv": "data/daily_price/20261102.csv",
+    "dated_alt_csv": "data/daily_price/daily_price_20261103.csv",
+    "dated_csv": "data/daily_price/20261103.csv",
     "latest_csv": "output/latest/official_daily_price_latest.csv"
   },
-  "price_bytes": 202355,
-  "price_path": "data/daily_price/daily_price_20261102.csv",
-  "price_sha256": "08c4dfe7c4d1906c90deb35360f637732b305d4c83688088d789b7a2373f9212",
+  "price_bytes": 204266,
+  "price_path": "data/daily_price/daily_price_20261103.csv",
+  "price_sha256": "908e533ad19c09273598405809cfeb14146335217abbd359d8afddb185ebf670",
   "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
   "result": "success_target_full_market",
-  "saved_price_date": "20261102",
+  "saved_price_date": "20261103",
   "stale_market_rows": 0,
   "stale_markets": [],
-  "target_date": "20261102",
-  "total_rows": 2128,
-  "tpex_rows": 879,
-  "twse_rows": 1249
+  "target_date": "20261103",
+  "total_rows": 2138,
+  "tpex_rows": 892,
+  "twse_rows": 1246
 }

@@ -1,12 +1,12 @@
 # Futures / Options Source Status
 
-- generated_at: `2026-11-02 19:45:25 Asia/Taipei`
+- generated_at: `2026-11-03 19:41:44 Asia/Taipei`
 - overall_status: `ready`
 
 | source | status | rows | latest_date | message |
 | --- | --- | ---: | --- | --- |
-| institutional_fo | ok | 3 | 20261102 |  |
-| futures_contracts | ok | 66 | 20261102 |  |
-| options_call_put | ok | 30 | 20261102 |  |
-| put_call_ratio | ok | 18 | 20261102 |  |
-| taiwan_vix | ok | 61 | 20261102 |  |
+| institutional_fo | ok | 3 | 20261103 |  |
+| futures_contracts | ok | 66 | 20261103 |  |
+| options_call_put | ok | 30 | 20261103 |  |
+| put_call_ratio | ok | 19 | 20261103 |  |
+| taiwan_vix | ok | 62 | 20261103 |  |
