@@ -450,7 +450,7 @@
 2207,和泰車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2208,台船,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2211,長榮鋼,鋼鐵工業,鋼鐵工業,非主流,,,,,,provisional_industry_mapping
-2221,大甲,其他,其他,非主流,,,,,,
+2221,大甲,其他業,其他業,非主流,,,,,,
 2227,裕日車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2228,劍麟,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2230,泰茂,居家生活,居家生活,非主流,,,,,,
@@ -937,7 +937,7 @@
 3483,力致,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 3484,崧騰,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 3485,敘豐,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
-3489,森寶,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
+3489,長耀地產,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 3490,單井,光電業,光電業,主流,,,,,,provisional_industry_mapping
 3491,昇達科,通信網路業,通信網路業,主流,低軌衛星,軍工無人機,,,,user_authorized_seed_20260530
 3492,長盛,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -1844,7 +1844,7 @@
 6952,大武山,其他業,其他業,非主流,,,,,,
 6953,家碩,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6955,邦睿生技-創,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
-6957,裕慶-KY,其他業,其他業,非主流,,,,,,
+6957,裕慶-KY,其他,其他,非主流,,,,,,
 6958,日盛台駿,其他業,其他業,非主流,,,,,,
 6961,旅天下,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 6962,奕力-KY,半導體業,半導體業,主流,,,,,,provisional_industry_mapping

@@ -1,7 +1,7 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-11-03 19:42:01 Asia/Taipei`
-- data_date: `20261103`
+- generated_at: `2026-11-04 19:47:24 Asia/Taipei`
+- data_date: `20261104`
 - market_regime: `high_risk`
 - risk_level: `very_high_risk`
 - risk_score: `11`
@@ -13,42 +13,42 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20261103 |
-| futures_contracts | ok | 66 | 20261103 |
-| options_call_put | ok | 30 | 20261103 |
-| put_call_ratio | ok | 19 | 20261103 |
-| taiwan_vix | ok | 62 | 20261103 |
+| institutional_fo | ok | 3 | 20261104 |
+| futures_contracts | ok | 66 | 20261104 |
+| options_call_put | ok | 30 | 20261104 |
+| put_call_ratio | ok | 20 | 20261104 |
+| taiwan_vix | ok | 63 | 20261104 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 43,307.54 | -6.05% | -10.44% | False | False | high_risk |
-| TPEx | 345.52 | -8.88% | -17.50% | False | False | high_risk |
+| TWSE | 42,948.91 | -8.69% | -11.40% | False | False | high_risk |
+| TPEx | 343.50 | -12.95% | -19.54% | False | False | high_risk |
 
 ## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -91,812 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +3,976 |  |
-| Trust TX futures net OI | +86,998 |  |
-| Retail MTX net OI proxy | +9,469 | neutral |
-| Foreign TXO call net OI | +3,553 |  |
-| Foreign TXO put net OI | +3,241 |  |
-| TXO put/call OI ratio | 47.77% | call_crowded_or_low_hedge |
-| Taiwan VIX | 36.83 | panic_high |
+| Foreign TX futures net OI | -93,647 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +2,961 |  |
+| Trust TX futures net OI | +89,500 |  |
+| Retail MTX net OI proxy | +9,320 | neutral |
+| Foreign TXO call net OI | +737 |  |
+| Foreign TXO put net OI | +2,340 |  |
+| TXO put/call OI ratio | 49.37% | call_crowded_or_low_hedge |
+| Taiwan VIX | 35.64 | panic_high |
 
 ## 近期總經事件日曆
 
-- 20261028 FOMC: FOMC decision (October 27-28, 2026) (days=-6, importance=high)
-- 20261029 US_GDP: GDP (Advance Estimate), 3rd Quarter 2026 (days=-5, importance=medium)
-- 20261029 US_PCE_personal_income: Personal Income and Outlays, September 2026 (days=-5, importance=high)
-- 20261104 US_trade: U.S. International Trade in Goods and Services, September 2026 (days=1, importance=medium)
-- 20261106 US_employment_situation: Employment Situation release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE 2026 JULY 2026 AUGUST 2026 SEPTEMBER 2026 OCTOBER 2026 NOVEMBER 2026 DECEMBER 2026 JANUARY 2027 FEBRUARY 2027 MARCH 2027 APRIL 2027 MAY 2027 JUNE 2027 JULY 2027 AUGUST 2027 SEPTEMBER 2027 OCTOBER 2027 NOVEMBER 2027 DECEMBER 2027 ENTIRE YEAR, 2026 ENTIRE YEAR, 2027 PRIOR YEARS BY NEWS RELEASE BUSINESS EMPLOYMENT DYNAMICS CONSUMER PRICE INDEX COUNTY EMPLOYMENT AND WAGES EMPLOYMENT COST INDEX EMPLOYMENT SITUATION JOB OPENINGS AND LABOR TURNOVER PRODUCER PRICE INDEX PRODUCTIVITY AND COSTS REAL EARNINGS U.S. EXPORT AND IMPORT PRICE INDEXES METROPOLITAN AREA EMPLOYMENT AND UNEMPLOYMENT STATE EMPLOYMENT AND UNEMPLOYMENT (days=3, importance=high)
-- 20261106 US_employment_situation: Employment Situation release schedule: October 2026 (days=3, importance=high)
-- 20261110 US_CPI: CPI release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE 2026 JULY 2026 AUGUST 2026 SEPTEMBER 2026 OCTOBER 2026 NOVEMBER 2026 DECEMBER 2026 JANUARY 2027 FEBRUARY 2027 MARCH 2027 APRIL 2027 MAY 2027 JUNE 2027 JULY 2027 AUGUST 2027 SEPTEMBER 2027 OCTOBER 2027 NOVEMBER 2027 DECEMBER 2027 ENTIRE YEAR, 2026 ENTIRE YEAR, 2027 PRIOR YEARS BY NEWS RELEASE BUSINESS EMPLOYMENT DYNAMICS CONSUMER PRICE INDEX COUNTY EMPLOYMENT AND WAGES EMPLOYMENT COST INDEX EMPLOYMENT SITUATION JOB OPENINGS AND LABOR TURNOVER PRODUCER PRICE INDEX PRODUCTIVITY AND COSTS REAL EARNINGS U.S. EXPORT AND IMPORT PRICE INDEXES METROPOLITAN AREA EMPLOYMENT AND UNEMPLOYMENT STATE EMPLOYMENT AND UNEMPLOYMENT (days=7, importance=high)
-- 20261110 US_CPI: CPI release schedule: October 2026 (days=7, importance=high)
+- 20261028 FOMC: FOMC decision (October 27-28, 2026) (days=-7, importance=high)
+- 20261029 US_GDP: GDP (Advance Estimate), 3rd Quarter 2026 (days=-6, importance=medium)
+- 20261029 US_PCE_personal_income: Personal Income and Outlays, September 2026 (days=-6, importance=high)
+- 20261104 US_trade: U.S. International Trade in Goods and Services, September 2026 (days=0, importance=medium)
+- 20261106 US_employment_situation: Employment Situation release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE 2026 JULY 2026 AUGUST 2026 SEPTEMBER 2026 OCTOBER 2026 NOVEMBER 2026 DECEMBER 2026 JANUARY 2027 FEBRUARY 2027 MARCH 2027 APRIL 2027 MAY 2027 JUNE 2027 JULY 2027 AUGUST 2027 SEPTEMBER 2027 OCTOBER 2027 NOVEMBER 2027 DECEMBER 2027 ENTIRE YEAR, 2026 ENTIRE YEAR, 2027 PRIOR YEARS BY NEWS RELEASE BUSINESS EMPLOYMENT DYNAMICS CONSUMER PRICE INDEX COUNTY EMPLOYMENT AND WAGES EMPLOYMENT COST INDEX EMPLOYMENT SITUATION JOB OPENINGS AND LABOR TURNOVER PRODUCER PRICE INDEX PRODUCTIVITY AND COSTS REAL EARNINGS U.S. EXPORT AND IMPORT PRICE INDEXES METROPOLITAN AREA EMPLOYMENT AND UNEMPLOYMENT STATE EMPLOYMENT AND UNEMPLOYMENT (days=2, importance=high)
+- 20261106 US_employment_situation: Employment Situation release schedule: October 2026 (days=2, importance=high)
+- 20261110 US_CPI: CPI release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE 2026 JULY 2026 AUGUST 2026 SEPTEMBER 2026 OCTOBER 2026 NOVEMBER 2026 DECEMBER 2026 JANUARY 2027 FEBRUARY 2027 MARCH 2027 APRIL 2027 MAY 2027 JUNE 2027 JULY 2027 AUGUST 2027 SEPTEMBER 2027 OCTOBER 2027 NOVEMBER 2027 DECEMBER 2027 ENTIRE YEAR, 2026 ENTIRE YEAR, 2027 PRIOR YEARS BY NEWS RELEASE BUSINESS EMPLOYMENT DYNAMICS CONSUMER PRICE INDEX COUNTY EMPLOYMENT AND WAGES EMPLOYMENT COST INDEX EMPLOYMENT SITUATION JOB OPENINGS AND LABOR TURNOVER PRODUCER PRICE INDEX PRODUCTIVITY AND COSTS REAL EARNINGS U.S. EXPORT AND IMPORT PRICE INDEXES METROPOLITAN AREA EMPLOYMENT AND UNEMPLOYMENT STATE EMPLOYMENT AND UNEMPLOYMENT (days=6, importance=high)
+- 20261110 US_CPI: CPI release schedule: October 2026 (days=6, importance=high)
 
 ## 半年技術圖表
 
@@ -63,13 +63,13 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: high_risk; close 43,307.54; 6M range 39,933.30-49,822.55; distance from 6M high -13.08%; above MA20=False, above MA60=False.
-- TPEx / OTC: high_risk; close 345.52; 6M range 326.23-453.50; distance from 6M high -23.81%; above MA20=False, above MA60=False.
+- TWSE / TAIEX: high_risk; close 42,948.91; 6M range 39,933.30-49,822.55; distance from 6M high -13.80%; above MA20=False, above MA60=False.
+- TPEx / OTC: high_risk; close 343.50; 6M range 326.23-453.50; distance from 6M high -24.26%; above MA20=False, above MA60=False.
 
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+9,469`
+- latest_proxy_value: `+9,320`
 - state: `neutral`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
@@ -90,19 +90,19 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `36.83`
-- 252D high / low / percentile: `44.33` / `21.18` / `72.07%`
+- Taiwan VIX latest: `35.64`
+- 252D high / low / percentile: `44.33` / `21.18` / `59.44%`
 - 504D percentile: `-`
-- z-score: `0.7`
-- vix_return_5d / 10d / 20d: `23.34%` / `39.88%` / `64.05%`
-- TWSE / TPEx position: TWSE dist 60D high `-13.08%`, TPEx dist 60D high `-20.11%`
+- z-score: `0.49`
+- vix_return_5d / 10d / 20d: `29.98%` / `20%` / `62.74%`
+- TWSE / TPEx position: TWSE dist 60D high `-13.8%`, TPEx dist 60D high `-20.57%`
 - vix_index_interpretation: `vix_context_neutral_observe`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `9,469`
+- retail_mtx_net_oi_proxy latest: `9,320`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
-- 252D high / low / percentile: `16,227` / `-3,246` / `70.53%`
+- 252D high / low / percentile: `16,227` / `-3,246` / `69.79%`
 - 504D percentile: `-`
 - retail_mtx_index_interpretation: `retail_positioning_normal`
 
