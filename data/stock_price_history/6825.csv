@@ -3,3 +3,4 @@ date,stock_id,stock_name,market,open,high,low,close,volume,trading_value,source,
 20261102,6825,和暢科技,TPEx,24.25,26.0,23.5,26.0,786000.0,19809800.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261102.csv,,,,,,0.1927,,,,,,,,,,,,,,,,,,,,,
 20261103,6825,和暢科技,TPEx,24.5,25.5,24.15,24.25,292000.0,7214750.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261103.csv,,,,,,-6.7308,,,,,,,,,,,,,,,,,,,,,
 20261104,6825,和暢科技,TPEx,24.35,24.55,22.75,22.9,303000.0,7078550.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261104.csv,,,,,,-5.567,,,,,,,,,,,,,,,,,,,,,
+20261105,6825,和暢科技,TPEx,22.9,23.4,21.85,21.85,220000.0,4946900.0,TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1,data/daily_price/daily_price_20261105.csv,24.19,24.19,24.19,24.19,25.2595,-4.5852,,,,,674200.0,0.3263,26.0,26.0,26.0,21.65,21.65,21.65,-9.6734,-9.6734,-9.6734,-13.498,-15.9615,-15.9615,-15.9615,0.9238,0.9238
