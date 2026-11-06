@@ -1,29 +1,29 @@
 {
   "status": "repaired",
-  "as_of_date": "20261105",
+  "as_of_date": "20261106",
   "date_boundary": "include_as_of_date_if_trading",
-  "target_end_date": "20261105",
+  "target_end_date": "20261106",
   "lookback_days": 7,
   "expected_trading_dates": [
-    "20261029",
     "20261030",
     "20261102",
     "20261103",
     "20261104",
-    "20261105"
+    "20261105",
+    "20261106"
   ],
   "non_trading_days_in_window": [],
   "legacy_only_before": [],
   "missing_before": [
-    "20261105"
+    "20261106"
   ],
   "missing_after": [],
   "actions": [
     {
-      "date": "20261105",
+      "date": "20261106",
       "action": "repair_daily_price_range",
       "return_code": "0",
-      "target": "data/daily_price/daily_price_20261105.csv"
+      "target": "data/daily_price/daily_price_20261106.csv"
     }
   ],
   "rebuild_history_if_repaired": true,
@@ -31,78 +31,78 @@
   "rebuild_history_return_code": "0",
   "current_day_confirmation": {
     "official_price_fetch": {
-      "generated_at": "2026-11-05 20:35:07 Asia/Taipei",
-      "target_date": "20261105",
-      "saved_price_date": "20261105",
+      "generated_at": "2026-11-06 20:35:46 Asia/Taipei",
+      "target_date": "20261106",
+      "saved_price_date": "20261106",
       "is_target_date": true,
       "result": "success_current_day_repair_full_market",
       "reason": "current-day range repair produced date-bound TWSE and TPEx evidence",
-      "twse_rows": 1249,
-      "tpex_rows": 900,
-      "total_rows": 2149,
+      "twse_rows": 1251,
+      "tpex_rows": 895,
+      "total_rows": 2146,
       "full_market_ok": true,
       "attempts": [
         {
-          "date": "20261105",
+          "date": "20261106",
           "status": "repaired",
-          "twse_rows": 1249,
-          "tpex_rows": 900,
-          "total_rows": 2149,
+          "twse_rows": 1251,
+          "tpex_rows": 895,
+          "total_rows": 2146,
           "reason": "full_market_ok",
-          "saved_files": "data/daily_price/20261105.csv;data/daily_price/daily_price_20261105.csv",
-          "price_sha256": "cde7bd2438e6bd1ffda5a70e90558d554e1e28b9151a745c3e1ca163f98d00d0",
+          "saved_files": "data/daily_price/20261106.csv;data/daily_price/daily_price_20261106.csv",
+          "price_sha256": "6759e39191faf8349b8e33a13a113b2ea6ab91e5b297511a1a12ac5e4db83f66",
           "fetch_response_provenance": [
             {
-              "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261105&type=ALLBUT0999&response=json",
+              "endpoint": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261106&type=ALLBUT0999&response=json",
               "source_name": "TWSE_RWD_JSON_MI_INDEX",
               "params": {},
               "status_code": 200,
-              "fetched_at": "2026-11-05 20:34:59 Asia/Taipei",
-              "raw_sha256": "fb4e711cc78e07cf8f699d1f546ae4c645090f3cfe01439a3dd5b81f0aaa4a75",
-              "normalized_sha256": "fb4e711cc78e07cf8f699d1f546ae4c645090f3cfe01439a3dd5b81f0aaa4a75",
+              "fetched_at": "2026-11-06 20:35:32 Asia/Taipei",
+              "raw_sha256": "640803a29e0ec937e96cbcc8b054ba36063f73acb852aa35336bb7ac62c59262",
+              "normalized_sha256": "640803a29e0ec937e96cbcc8b054ba36063f73acb852aa35336bb7ac62c59262",
               "observed_response_dates": [
-                "20261105"
+                "20261106"
               ],
               "expected_response_date": "",
               "exact_date_match": "not_required",
               "attempt": 1
             },
             {
-              "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/11/05&type=EW&response=json",
+              "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/11/06&type=EW&response=json",
               "source_name": "TPEX_NEW_AFTERTRADING_JSON_SHARES_V1",
               "params": {},
               "status_code": 200,
-              "fetched_at": "2026-11-05 20:35:02 Asia/Taipei",
-              "raw_sha256": "c0d91a7b36de2d13c135173ea559a53db822c4994b16ffb07cc0d99596b6f538",
-              "normalized_sha256": "0077a3bdbcde8d4e2d93d2fa7dbfc88ec801f06ae6c647fcd22dc83e1d9366fb",
+              "fetched_at": "2026-11-06 20:35:37 Asia/Taipei",
+              "raw_sha256": "b9302cdbcb9b6cfcfa8099a8fda078c68dde24eabd8e08c8a6ae0b28fe9a1d08",
+              "normalized_sha256": "5c9642fb740f59b99fce7c052b894055232cce87dedcc4ff545671550e338da5",
               "observed_response_dates": [],
               "expected_response_date": "",
               "exact_date_match": "not_required",
               "attempt": 1
             },
             {
-              "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/11/05&type=EW&response=csv",
+              "endpoint": "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/11/06&type=EW&response=csv",
               "source_name": "TPEX_NEW_AFTERTRADING_CSV_SHARES_V1",
               "params": {},
               "status_code": 200,
-              "fetched_at": "2026-11-05 20:35:04 Asia/Taipei",
-              "raw_sha256": "1d304bb0cfcbaa90fc3f97dc187bac41b58af73853a1ca09c266784f6b2fd17c",
-              "normalized_sha256": "75d8c9bc2ab6cb5b63b2b38887037e8771cf867fbf34857c2c7e487982b1bbef",
+              "fetched_at": "2026-11-06 20:35:42 Asia/Taipei",
+              "raw_sha256": "39ae1230966b8b10baad873dbf3158f85a9d5fb260a26d4c35e241fd68bc2ddb",
+              "normalized_sha256": "efd62e2bd05c602fa38123dcab9eb36a06ed245615d2146481a6de3d50d80678",
               "observed_response_dates": [],
               "expected_response_date": "",
               "exact_date_match": "not_required",
               "attempt": 1
             },
             {
-              "endpoint": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/11/05&se=EW",
+              "endpoint": "https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/11/06&se=EW",
               "source_name": "TPEX_OTC_QUOTES_NO1430_JSON_SHARES_V1",
               "params": {},
               "status_code": 200,
-              "fetched_at": "2026-11-05 20:35:05 Asia/Taipei",
-              "raw_sha256": "ea2d530017739aea1a3c0e1185f732ef2d7842c29109c55a2f2b2b3837074ca5",
-              "normalized_sha256": "ea2d530017739aea1a3c0e1185f732ef2d7842c29109c55a2f2b2b3837074ca5",
+              "fetched_at": "2026-11-06 20:35:45 Asia/Taipei",
+              "raw_sha256": "d0fe8b6b45851d843415879a160515d1e28c5e1cc17082ea97676cb44ce91974",
+              "normalized_sha256": "d0fe8b6b45851d843415879a160515d1e28c5e1cc17082ea97676cb44ce91974",
               "observed_response_dates": [
-                "20261105"
+                "20261106"
               ],
               "expected_response_date": "",
               "exact_date_match": "not_required",
@@ -112,28 +112,28 @@
         }
       ],
       "paths": {
-        "dated_csv": "data/daily_price/20261105.csv",
-        "dated_alt_csv": "data/daily_price/daily_price_20261105.csv",
+        "dated_csv": "data/daily_price/20261106.csv",
+        "dated_alt_csv": "data/daily_price/daily_price_20261106.csv",
         "latest_csv": "output/latest/official_daily_price_latest.csv"
       },
-      "price_path": "data/daily_price/daily_price_20261105.csv",
-      "price_bytes": 205207,
-      "price_sha256": "cde7bd2438e6bd1ffda5a70e90558d554e1e28b9151a745c3e1ca163f98d00d0",
+      "price_path": "data/daily_price/daily_price_20261106.csv",
+      "price_bytes": 205670,
+      "price_sha256": "6759e39191faf8349b8e33a13a113b2ea6ab91e5b297511a1a12ac5e4db83f66",
       "latest_price_path": "output/latest/official_daily_price_latest.csv",
-      "latest_price_bytes": 205207,
-      "latest_price_sha256": "cde7bd2438e6bd1ffda5a70e90558d554e1e28b9151a745c3e1ca163f98d00d0",
+      "latest_price_bytes": 205670,
+      "latest_price_sha256": "6759e39191faf8349b8e33a13a113b2ea6ab91e5b297511a1a12ac5e4db83f66",
       "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
       "fetch_markdown_bytes": 717,
-      "fetch_markdown_sha256": "0d305f7b862dc97813fd81bc088198b2b5c2f39ccbf44cba39563b7f9687d549"
+      "fetch_markdown_sha256": "4b2021c8c9f8342b25cab5207947baf6b40019029a2df950e6503d1d2fa0e63f"
     },
     "market_session": {
       "schema_version": 1,
-      "generated_at": "2026-11-05T20:35:07+08:00",
+      "generated_at": "2026-11-06T20:35:46+08:00",
       "phase": "confirm",
-      "assessment_date": "20261105",
-      "market_session_date": "20261105",
+      "assessment_date": "20261106",
+      "market_session_date": "20261106",
       "market_status": "open_confirmed",
-      "expected_main_price_date": "20261105",
+      "expected_main_price_date": "20261106",
       "should_run_daily_pipeline": true,
       "reason_code": "twse_tpex_target_date_confirmed",
       "reason": "TWSE and TPEx target-date prices confirmed",
@@ -141,7 +141,7 @@
         "twse_annual_calendar": {
           "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule",
           "status": "ok",
-          "queried_at": "2026-11-05T20:35:07+08:00",
+          "queried_at": "2026-11-06T20:35:46+08:00",
           "source": "twse_annual_calendar",
           "attempt_count": 1,
           "byte_len": 3774,
@@ -154,11 +154,11 @@
         "dgpa_emergency_closure": {
           "url": "https://www.dgpa.gov.tw/typh/daily/nds.html",
           "status": "ok",
-          "queried_at": "2026-11-05T20:35:07+08:00",
+          "queried_at": "2026-11-06T20:35:46+08:00",
           "source": "dgpa_emergency_closure",
           "attempt_count": 1,
           "byte_len": 15036,
-          "sha256": "a5b3834972ea401cc7bb7ae410db6afd02cd2deb0e81c7e2543a6c298c96b325",
+          "sha256": "a319ad962e7144de0764e04abd81558d3c85ea3625edfcb5e9f53508ca05d8d2",
           "taipei_notice_count": 0,
           "latest_taipei_notice_dates": [],
           "conflict_dates": []
@@ -193,20 +193,20 @@
         "20261023"
       ],
       "price_confirmation": {
-        "path": "data/daily_price/daily_price_20261105.csv",
-        "price_bytes": 205207,
-        "price_sha256": "cde7bd2438e6bd1ffda5a70e90558d554e1e28b9151a745c3e1ca163f98d00d0",
-        "twse_rows": 1249,
-        "tpex_rows": 900,
-        "total_rows": 2149,
+        "path": "data/daily_price/daily_price_20261106.csv",
+        "price_bytes": 205670,
+        "price_sha256": "6759e39191faf8349b8e33a13a113b2ea6ab91e5b297511a1a12ac5e4db83f66",
+        "twse_rows": 1251,
+        "tpex_rows": 895,
+        "total_rows": 2146,
         "wrong_date_rows": 0,
         "fetch_result": "success_current_day_repair_full_market",
         "fetch_status_path": "output/latest/official_price_fetch_latest.json",
         "fetch_status_bytes": 4299,
-        "fetch_status_sha256": "44e646d63743655a992b0c73bec454afae8f0d030b255efee00fa12758738ff0",
+        "fetch_status_sha256": "a80046b8e520abf0748c001b85cdafb351c291590748f6c1c30d88499bd08ae5",
         "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
         "fetch_markdown_bytes": 717,
-        "fetch_markdown_sha256": "0d305f7b862dc97813fd81bc088198b2b5c2f39ccbf44cba39563b7f9687d549"
+        "fetch_markdown_sha256": "4b2021c8c9f8342b25cab5207947baf6b40019029a2df950e6503d1d2fa0e63f"
       }
     }
   },
