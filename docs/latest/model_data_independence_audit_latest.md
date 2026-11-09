@@ -1,6 +1,6 @@
 # 每日股票模型與資料獨立性稽核
 
-- 產生時間：`2026-11-07 04:27:57 Asia/Taipei`
+- 產生時間：`2026-11-10 07:29:36 Asia/Taipei`
 - 結果：`CONTAINED=24, DISCLOSED_NOT_INDEPENDENT=4, PASS=138`
 - 原則：新模型與新資料 family 預設獨立；跨模型共用商業語意必須先有使用者核准與 migration evidence。
 - `CONTAINED` 代表既有共用已被凍結與精確盤點，不代表已物理拆分。
