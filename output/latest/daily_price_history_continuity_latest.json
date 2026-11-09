@@ -1,8 +1,10 @@
 {
   "status": "pass",
-  "main_price_date": "20261106",
+  "main_price_date": "20261104",
   "lookback_days": 20,
   "expected_trading_dates": [
+    "20261015",
+    "20261016",
     "20261019",
     "20261020",
     "20261021",
@@ -13,15 +15,37 @@
     "20261030",
     "20261102",
     "20261103",
-    "20261104",
-    "20261105",
-    "20261106"
+    "20261104"
   ],
   "non_trading_days_in_window": [
     "20261023",
     "20261026"
   ],
   "daily_price_files": {
+    "20261015": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20261015.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2131,
+      "date_rows": 2131,
+      "stock_rows": 2115,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
+    "20261016": {
+      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20261016.csv",
+      "exists": true,
+      "legacy_exists": true,
+      "rows": 2126,
+      "date_rows": 2126,
+      "stock_rows": 2106,
+      "markets": [
+        "TPEx",
+        "TWSE"
+      ]
+    },
     "20261019": {
       "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20261019.csv",
       "exists": true,
@@ -149,30 +173,6 @@
       "rows": 2154,
       "date_rows": 2154,
       "stock_rows": 2135,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20261105": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20261105.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2149,
-      "date_rows": 2149,
-      "stock_rows": 2133,
-      "markets": [
-        "TPEx",
-        "TWSE"
-      ]
-    },
-    "20261106": {
-      "path": "/home/runner/work/tdcc-weekly-report/tdcc-weekly-report/data/daily_price/daily_price_20261106.csv",
-      "exists": true,
-      "legacy_exists": true,
-      "rows": 2146,
-      "date_rows": 2146,
-      "stock_rows": 2126,
       "markets": [
         "TPEx",
         "TWSE"
