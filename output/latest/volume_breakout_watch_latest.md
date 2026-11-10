@@ -1,12 +1,12 @@
 # Volume Attack Watch
 
-- generated_at: `2026-11-09 19:44:45 Asia/Taipei`
-- main_price_date: `20261109`
-- total_watch_rows: `6`
-- priority_distribution: `{'A_bottom_volume_attack': 6}`
-- type_distribution: `{'bottom_volume_attack': 6}`
-- scope_distribution: `{'bottom_volume_attack': 6}`
-- selection_status_distribution: `{'selected': 6}`
+- generated_at: `2026-11-10 19:41:34 Asia/Taipei`
+- main_price_date: `20261110`
+- total_watch_rows: `5`
+- priority_distribution: `{'A_bottom_volume_attack': 5}`
+- type_distribution: `{'bottom_volume_attack': 5}`
+- scope_distribution: `{'bottom_volume_attack': 5}`
+- selection_status_distribution: `{'selected': 5}`
 
 ## Interpretation
 
@@ -21,10 +21,9 @@
 
 | advisory_volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | repeat_appear_label | volume_ratio | return_5d | return_20d | distance_to_ma20_pct | risk_flags | next_volume_breakout_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1416 | 廣豐 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | breakout_confirmed | continued_overheated | 5.4104 | 32.4723 | 51.4768 | 31.42961742632253 | continued_overheated | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-| 2 | 3703 | 欣陸 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | breakout_confirmed | continued_2_3d | 2.9219 | 6.9048 | 16.0207 | 8.50652489125181 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-| 3 | 4741 | 泓瀚 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | breakout_confirmed | continued_overheated | 3.2945 | 12.0996 | 55.1724 | 30.286423327473912 | continued_overheated | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-| 4 | 3287 | 廣寰科 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected |  |  |  | 0.3244 | 36.379 | 104.0506 | 29.311727899887696 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-| 5 | 6446 | 藥華藥 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | range_rebound | neckline_breakout | repeated_but_no_breakout | 2.199 | 15.1261 | 13.6929 | 13.410596026490062 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-| 6 | 4155 | 訊映 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | platform_breakout | first_seen | 2.5843 | 6.9364 | 24.5791 | 14.056720098643648 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 1 | 6757 | 台灣虎航 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | breakout_confirmed | continued_many_days | 4.7154 | 8.4095 | 11.257 | 10.428305400372428 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 2 | 6708 | 天擎 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | platform_right_side | first_seen | 1.4519 | 30.9524 | 19.2197 | 25.675984461878286 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 3 | 2465 | 麗臺 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout |  | first_seen | 0.5154 | 19.2982 | 58.6931 | 33.78584427721214 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 4 | 3703 | 欣陸 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | platform_breakout | continued_many_days | 3.5551 | 14.3198 | 22.8205 | 14.524805738194857 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 5 | 2610 | 華航 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | true_breakout | breakout_confirmed | continued_many_days | 3.3517 | 10.1449 | 13.1514 | 9.800144473874317 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 

@@ -1,6 +1,6 @@
 # Market Index Source Status
 
-- generated_at: `2026-11-09 19:50:12 Asia/Taipei`
+- generated_at: `2026-11-10 19:47:53 Asia/Taipei`
 - mode: `latest_refresh`
 - requested_date: ``
 - observed_dates: `{"TPEX": "", "TWSE": ""}`

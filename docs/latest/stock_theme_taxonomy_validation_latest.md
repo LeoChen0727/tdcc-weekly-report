@@ -1,16 +1,16 @@
 # Stock Theme Taxonomy Validation
 
-- generated_at: 2026-11-09 19:44:01 Asia/Taipei
+- generated_at: 2026-11-10 19:40:48 Asia/Taipei
 - total_rows: 2398
 - mainstream_count: 1079
-- non_mainstream_count: 900
+- non_mainstream_count: 901
 - effective_mainstream_count: 1079
 - effective_non_mainstream_count: 1319
 - mainstream_conflict_count: 9
 - dual_report_membership_count: 9
 - mainstream_report_eligible_count: 1079
 - non_mainstream_report_eligible_count: 1328
-- unknown_count: 419
+- unknown_count: 418
 - duplicate_stock_ids: 0
 - missing_stock_name_count: 0
 - missing_primary_theme_count: 0

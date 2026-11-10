@@ -1,45 +1,45 @@
 {
   "attempts": [
     {
-      "date": "20261109",
+      "date": "20261110",
       "full_market_ok": true,
-      "total_rows": 2155,
+      "total_rows": 2137,
       "tpex_ok": true,
-      "tpex_rows": 901,
+      "tpex_rows": 888,
       "twse_ok": true,
-      "twse_rows": 1254,
-      "universe_rows": 2146
+      "twse_rows": 1249,
+      "universe_rows": 2155
     }
   ],
   "data_quality_note": "",
   "fetch_markdown_bytes": 2124,
   "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
-  "fetch_markdown_sha256": "9bf38e0eea05bfdee2b09a5a5d551238352421ee0483964a9e6c5774e08adf3b",
+  "fetch_markdown_sha256": "fd47618f6d5e7a39f4f80dba1e041b7634123775eb3fa95270fbae0ec96b4c5f",
   "full_market_ok": true,
-  "generated_at": "2026-11-09 19:35:50 Asia/Taipei",
+  "generated_at": "2026-11-10 19:32:35 Asia/Taipei",
   "is_target_date": true,
-  "latest_price_bytes": 205635,
+  "latest_price_bytes": 203961,
   "latest_price_path": "output/latest/official_daily_price_latest.csv",
-  "latest_price_sha256": "fae8a51bfd8d4ddf3f0959cd2177f50c147fab3429a7633d0f89ef51057a6c5c",
+  "latest_price_sha256": "8bf3316782ff736a658821ac7ed811d26b51b92e3f240afbfaf883b28a0d5844",
   "market_same_ratios": {
     "TPEx": 0.0,
     "TWSE": 0.0
   },
   "paths": {
-    "dated_alt_csv": "data/daily_price/daily_price_20261109.csv",
-    "dated_csv": "data/daily_price/20261109.csv",
+    "dated_alt_csv": "data/daily_price/daily_price_20261110.csv",
+    "dated_csv": "data/daily_price/20261110.csv",
     "latest_csv": "output/latest/official_daily_price_latest.csv"
   },
-  "price_bytes": 205635,
-  "price_path": "data/daily_price/daily_price_20261109.csv",
-  "price_sha256": "fae8a51bfd8d4ddf3f0959cd2177f50c147fab3429a7633d0f89ef51057a6c5c",
+  "price_bytes": 203961,
+  "price_path": "data/daily_price/daily_price_20261110.csv",
+  "price_sha256": "8bf3316782ff736a658821ac7ed811d26b51b92e3f240afbfaf883b28a0d5844",
   "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
   "result": "success_target_full_market",
-  "saved_price_date": "20261109",
+  "saved_price_date": "20261110",
   "stale_market_rows": 0,
   "stale_markets": [],
-  "target_date": "20261109",
-  "total_rows": 2155,
-  "tpex_rows": 901,
-  "twse_rows": 1254
+  "target_date": "20261110",
+  "total_rows": 2137,
+  "tpex_rows": 888,
+  "twse_rows": 1249
 }
