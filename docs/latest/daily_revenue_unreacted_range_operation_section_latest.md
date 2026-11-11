@@ -19,9 +19,9 @@
 | full | 操作中 | data | non_mainstream | 2027 大成鋼 | 操作中 | 20261016 | 20261019 | 20261020 | active_operation | False |
 | full | 操作中 | data | non_mainstream | 2465 麗臺 | 操作中 | 20261028 | 20261029 | 20261030 | active_operation | False |
 | full | 操作中 | data | non_mainstream | 4967 十銓 | 操作中 | 20261028 | 20261029 | 20261030 | active_operation | False |
-| full | 本日可買 / 已確認買入候選 | empty_state | non_mainstream |  | 本日無股票推薦 |  |  |  | empty_state | False |
+| full | 本日可買 / 已確認買入候選 | data | non_mainstream | 3141 晶宏 | 已確認買入候選 | 20261110 | 20261111 |  | confirmed_buy_candidate | True |
 | full | 已確認但未列買入 | empty_state | non_mainstream |  | 目前無已確認但未列入買進排序列 |  |  |  | empty_state | False |
-| full | 待確認 | data | non_mainstream | 3141 晶宏 | 待確認 | 20261110 |  |  | pending_confirmation | False |
+| full | 待確認 | data | non_mainstream | 4207 環泰 | 待確認 | 20261111 |  |  | pending_confirmation | False |
 | highlight | 操作中 | data | mainstream | 3042 晶技 | 操作中 | 20260923 | 20260924 | 20260929 | active_operation | False |
 | highlight | 操作中 | data | mainstream | 8046 南電 | 操作中 | 20260929 | 20260930 | 20261001 | active_operation | False |
 | highlight | 操作中 | data | mainstream | 6274 台燿 | 操作中 | 20260930 | 20261001 | 20261002 | active_operation | False |
@@ -32,4 +32,4 @@
 | highlight | 操作中 | data | non_mainstream | 2027 大成鋼 | 操作中 | 20261016 | 20261019 | 20261020 | active_operation | False |
 | highlight | 操作中 | data | non_mainstream | 2465 麗臺 | 操作中 | 20261028 | 20261029 | 20261030 | active_operation | False |
 | highlight | 操作中 | data | non_mainstream | 4967 十銓 | 操作中 | 20261028 | 20261029 | 20261030 | active_operation | False |
-| highlight | 本日可買 / 已確認買入候選 | empty_state | non_mainstream |  | 本日無股票推薦 |  |  |  | empty_state | False |
+| highlight | 本日可買 / 已確認買入候選 | data | non_mainstream | 3141 晶宏 | 已確認買入候選 | 20261110 | 20261111 |  | confirmed_buy_candidate | True |

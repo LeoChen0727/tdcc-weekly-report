@@ -1318,7 +1318,7 @@
 5309,系統電,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 5310,天剛,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
 5312,寶島科,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
-5314,世紀*,其他業,其他業,非主流,,,,,,
+5314,世紀*,其他,其他,非主流,,,,,,
 5315,光聯,光電業,光電業,主流,,,,,,provisional_industry_mapping
 5321,美而快,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5324,士開,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
@@ -1414,8 +1414,8 @@
 5906,台南-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 5907,大洋-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 6005,群益證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-6015,宏遠證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
-6016,康和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+6015,宏遠證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
+6016,康和證,金融業,金融業,非主流,,,,,,provisional_industry_mapping
 6020,大展證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6021,美好證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 6023,元大期貨,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -1844,7 +1844,7 @@
 6952,大武山,其他業,其他業,非主流,,,,,,
 6953,家碩,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6955,邦睿生技-創,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
-6957,裕慶-KY,其他,其他,非主流,,,,,,
+6957,裕慶-KY,其他業,其他業,非主流,,,,,,
 6958,日盛台駿,其他業,其他業,非主流,,,,,,
 6961,旅天下,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 6962,奕力-KY,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
@@ -2184,7 +2184,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2346,7 +2346,7 @@
 8996,高力,電機機械,電機機械,主流,散熱液冷,,,,,user_authorized_seed_20260530
 9103,美德醫療-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 910322,康師傅-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
-9105,泰金寶-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
+9105,泰金寶-DR,存託憑證,存託憑證,非主流,,,,,,
 910861,神州-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 9110,越南控-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping
 911608,明輝-DR,DR / 外國上市,DR / 外國上市,非主流,,,,,,provisional_industry_mapping

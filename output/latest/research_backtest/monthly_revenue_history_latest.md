@@ -1,15 +1,15 @@
 # Monthly Revenue History Data Layer
 
-- generated_at: `2026-11-10 19:32:26 Asia/Taipei`
+- generated_at: `2026-11-11 19:33:26 Asia/Taipei`
 - history_id: `monthly_revenue_history`
 - history_version: `official_mops_monthly_revenue_v1`
 - source_kind: `official_mops_current_monthly_revenue_openapi;official_mops_static_monthly_revenue_html_conservative_available_date_v1`
 - source_fetch_mode: `official_current_sources`
-- latest_build_rows: `1981`
-- total_history_rows: `56933`
-- unique_stocks: `1986`
+- latest_build_rows: `1973`
+- total_history_rows: `58906`
+- unique_stocks: `1993`
 - revenue_period_min: `202405`
-- revenue_period_max: `202609`
+- revenue_period_max: `202610`
 - allowed_use: save full-market official monthly revenue rows and join research rows where `source_table_date <= signal_date`.
 - forbidden_use: do not label older historical signals with the latest saved revenue period; formal model gates require sufficient coverage audit and promotion.
 - current_limitation: the current official OpenAPI returns the latest available revenue period only; older periods require validated historical backfill or accumulation over future runs.
@@ -20,8 +20,8 @@
 
 | market | source_market_name | raw_rows | standardized_rows | status |
 | --- | --- | --- | --- | --- |
-| listed | TWSE | 1088 | 1088 | ok |
-| otc | TPEX | 893 | 893 | ok |
+| listed | TWSE | 1076 | 1076 | ok |
+| otc | TPEX | 897 | 897 | ok |
 
 ## Period Coverage
 
@@ -56,6 +56,7 @@
 | 202607 | 1975 | 1975 | 20260817 |
 | 202608 | 1978 | 1978 | 20260917 |
 | 202609 | 1981 | 1981 | 20261017 |
+| 202610 | 1973 | 1973 | 20261111 |
 
 ## Market Coverage
 
@@ -119,16 +120,18 @@
 | 202608 | otc | 892 | 892 |
 | 202609 | listed | 1088 | 1088 |
 | 202609 | otc | 893 | 893 |
+| 202610 | listed | 1076 | 1076 |
+| 202610 | otc | 897 | 897 |
 
 ## Numerical Anomaly Labels
 
 | revenue_numerical_anomaly_reason | rows |
 | --- | --- |
-| latest_revenue_yoy_abs_ge_300pct | 814 |
-| latest_revenue_yoy_abs_ge_300pct;cumulative_revenue_yoy_abs_ge_500pct | 415 |
-| cumulative_revenue_yoy_abs_ge_500pct | 158 |
-| monthly_revenue_negative | 64 |
-| latest_revenue_yoy_abs_ge_300pct;monthly_revenue_negative | 8 |
+| latest_revenue_yoy_abs_ge_300pct | 853 |
+| latest_revenue_yoy_abs_ge_300pct;cumulative_revenue_yoy_abs_ge_500pct | 428 |
+| cumulative_revenue_yoy_abs_ge_500pct | 166 |
+| monthly_revenue_negative | 68 |
+| latest_revenue_yoy_abs_ge_300pct;monthly_revenue_negative | 11 |
 | cumulative_revenue_yoy_abs_ge_500pct;monthly_revenue_negative | 5 |
 | latest_revenue_yoy_abs_ge_300pct;cumulative_revenue_yoy_abs_ge_500pct;monthly_revenue_negative | 5 |
 
@@ -136,33 +139,33 @@
 
 | market | stock_id | stock_name | revenue_period | source_table_date | latest_revenue_yoy_pct | cumulative_revenue_yoy_pct | revenue_strong_flag | allowed_for_formal_historical_model_use |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| listed | 1101 | 台泥 | 202609 | 20261017 | 7.626848 | 3.298871 | False | False |
-| listed | 1102 | 亞泥 | 202609 | 20261017 | 5.180647 | -5.145623 | False | False |
-| listed | 1103 | 嘉泥 | 202609 | 20261017 | 6.0338 | -7.426 | False | False |
-| listed | 1104 | 環泥 | 202609 | 20261017 | -12.900636 | -7.380784 | False | False |
-| listed | 1108 | 幸福 | 202609 | 20261017 | -13.852373 | -18.086386 | False | False |
-| listed | 1109 | 信大 | 202609 | 20261017 | -25.756107 | -19.03068 | False | False |
-| listed | 1110 | 東泥 | 202609 | 20261017 | -13.219309 | -11.564033 | False | False |
-| listed | 1201 | 味全 | 202609 | 20261017 | -12.34113 | -2.30957 | False | False |
-| listed | 1203 | 味王 | 202609 | 20261017 | 0.555465 | -8.113007 | False | False |
-| listed | 1210 | 大成 | 202609 | 20261017 | 13.154914 | 9.524322 | False | False |
-| listed | 1213 | 大飲 | 202609 | 20261017 | -8.728647 | 12.14195 | True | False |
-| listed | 1215 | 卜蜂 | 202609 | 20261017 | 6.245093 | 4.864147 | False | False |
-| listed | 1216 | 統一 | 202609 | 20261017 | 5.803451 | 4.248855 | False | False |
-| listed | 1217 | 愛之味 | 202609 | 20261017 | 2.269817 | 1.11022 | False | False |
-| listed | 1218 | 泰山 | 202609 | 20261017 | -43.850392 | -14.379089 | False | False |
-| listed | 1219 | 福壽 | 202609 | 20261017 | -28.488153 | -7.502533 | False | False |
-| listed | 1220 | 台榮 | 202609 | 20261017 | 17.693814 | 3.561629 | False | False |
-| listed | 1225 | 福懋油 | 202609 | 20261017 | -9.763937 | -2.418346 | False | False |
-| listed | 1227 | 佳格 | 202609 | 20261017 | 8.665462 | 7.573325 | False | False |
-| listed | 1229 | 聯華 | 202609 | 20261017 | 2.130978 | -4.908445 | False | False |
-| listed | 1231 | 聯華食 | 202609 | 20261017 | -7.68312 | 2.733662 | False | False |
-| listed | 1232 | 大統益 | 202609 | 20261017 | 32.882645 | 18.417291 | True | False |
-| listed | 1233 | 天仁 | 202609 | 20261017 | 5.124572 | 5.183393 | False | False |
-| listed | 1234 | 黑松 | 202609 | 20261017 | 6.316727 | -2.441295 | False | False |
-| listed | 1235 | 興泰 | 202609 | 20261017 | -52.656783 | -3.901921 | False | False |
-| listed | 1236 | 宏亞 | 202609 | 20261017 | -1.628445 | 4.787249 | False | False |
-| listed | 1256 | 鮮活果汁-KY | 202609 | 20261017 | 33.804864 | 38.128156 | True | False |
-| listed | 1301 | 台塑 | 202609 | 20261017 | 7.138175 | -0.568499 | False | False |
-| listed | 1303 | 南亞 | 202609 | 20261017 | 55.258572 | 26.808141 | True | False |
-| listed | 1304 | 台聚 | 202609 | 20261017 | 3.890561 | -4.965893 | False | False |
+| listed | 1101 | 台泥 | 202610 | 20261111 | 17.828006 | 4.934422 | False | False |
+| listed | 1102 | 亞泥 | 202610 | 20261111 | -6.903679 | -5.319492 | False | False |
+| listed | 1103 | 嘉泥 | 202610 | 20261111 | -5.221173 | -7.207669 | False | False |
+| listed | 1104 | 環泥 | 202610 | 20261111 | -11.234365 | -7.809065 | False | False |
+| listed | 1108 | 幸福 | 202610 | 20261111 | -4.477177 | -16.903699 | False | False |
+| listed | 1109 | 信大 | 202610 | 20261111 | -18.638988 | -18.995804 | False | False |
+| listed | 1110 | 東泥 | 202610 | 20261111 | 12.459846 | -8.936733 | False | False |
+| listed | 1201 | 味全 | 202610 | 20261111 | 4.430719 | -1.653794 | False | False |
+| listed | 1203 | 味王 | 202610 | 20261111 | -3.27594 | -7.656322 | False | False |
+| listed | 1210 | 大成 | 202610 | 20261111 | 14.580437 | 10.03117 | True | False |
+| listed | 1213 | 大飲 | 202610 | 20261111 | -1.290771 | 10.766247 | True | False |
+| listed | 1215 | 卜蜂 | 202610 | 20261111 | 13.354623 | 5.723204 | False | False |
+| listed | 1216 | 統一 | 202610 | 20261111 | 5.296872 | 4.348664 | False | False |
+| listed | 1217 | 愛之味 | 202610 | 20261111 | 9.039001 | 1.767747 | False | False |
+| listed | 1218 | 泰山 | 202610 | 20261111 | -28.839791 | -15.721247 | False | False |
+| listed | 1219 | 福壽 | 202610 | 20261111 | -24.001601 | -9.262818 | False | False |
+| listed | 1220 | 台榮 | 202610 | 20261111 | -14.912877 | -0.382589 | False | False |
+| listed | 1225 | 福懋油 | 202610 | 20261111 | -20.127223 | -4.120214 | False | False |
+| listed | 1227 | 佳格 | 202610 | 20261111 | -3.516646 | 6.510943 | False | False |
+| listed | 1229 | 聯華 | 202610 | 20261111 | 8.009832 | -3.69149 | False | False |
+| listed | 1231 | 聯華食 | 202610 | 20261111 | 1.620634 | 2.621951 | False | False |
+| listed | 1232 | 大統益 | 202610 | 20261111 | 33.415192 | 19.994366 | True | False |
+| listed | 1233 | 天仁 | 202610 | 20261111 | 2.888286 | 4.950846 | False | False |
+| listed | 1234 | 黑松 | 202610 | 20261111 | -15.19062 | -3.808644 | False | False |
+| listed | 1235 | 興泰 | 202610 | 20261111 | -69.252545 | -13.314591 | False | False |
+| listed | 1236 | 宏亞 | 202610 | 20261111 | -1.546374 | 4.294905 | False | False |
+| listed | 1256 | 鮮活果汁-KY | 202610 | 20261111 | 37.513998 | 38.087108 | True | False |
+| listed | 1301 | 台塑 | 202610 | 20261111 | 16.21025 | 0.954703 | False | False |
+| listed | 1303 | 南亞 | 202610 | 20261111 | 64.595095 | 30.510435 | True | False |
+| listed | 1304 | 台聚 | 202610 | 20261111 | 29.876508 | -1.931798 | True | False |
