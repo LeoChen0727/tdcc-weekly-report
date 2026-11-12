@@ -1,29 +1,28 @@
 # Upcoming Macro Event Calendar
 
-- generated_at: `2026-11-11 19:41:18 Asia/Taipei`
-- rows: `19`
+- generated_at: `2026-11-12 19:38:28 Asia/Taipei`
+- rows: `18`
 - note: Macro events are market-risk reminders for the market dashboard. They are not individual stock catalysts by themselves.
 
 ## Macro Calendar
 
 | event_date | event_name | event_type | region | importance | days_to_event | proximity_bucket | related_themes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20261104 | U.S. International Trade in Goods and Services, September 2026 | US_trade | US | medium | -7 | recent | US_trade;export_cycle;global_growth |
-| 20261106 | Employment Situation release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2... | US_employment_situation | US | high | -5 | recent | US_jobs;Fed_policy;global_growth;global_risk |
-| 20261106 | Employment Situation release schedule: October 2026 | US_employment_situation | US | high | -5 | recent | US_jobs;Fed_policy;global_growth;global_risk |
-| 20261110 | CPI release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE... | US_CPI | US | high | -1 | recent | US_CPI;inflation;Fed_policy;global_risk |
-| 20261110 | CPI release schedule: October 2026 | US_CPI | US | high | -1 | recent | US_CPI;inflation;Fed_policy;global_risk |
-| 20261125 | GDP (Second Estimate) and Corporate Profits, 3rd Quarter 2026 | US_GDP | US | medium | 14 | within_14d | US_GDP;global_growth;global_risk |
-| 20261125 | Personal Income and Outlays, October 2026 | US_PCE_personal_income | US | high | 14 | within_14d | US_PCE;inflation;consumption;global_risk |
-| 20261202 | GDP by County and Personal Income by County, 2025 | US_PCE_personal_income | US | high | 21 | within_30d | US_PCE;inflation;consumption;global_risk |
-| 20261204 | Employment Situation release schedule: November 2026 | US_employment_situation | US | high | 23 | within_30d | US_jobs;Fed_policy;global_growth;global_risk |
-| 20261208 | U.S. International Trade in Goods and Services, October 2026 | US_trade | US | medium | 27 | within_30d | US_trade;export_cycle;global_growth |
-| 20261209 | FOMC decision (December 8-9, 2026) | FOMC | US | high | 28 | within_30d | macro_liquidity;USD_rates;global_risk |
-| 20261210 | CPI release schedule: November 2026 | US_CPI | US | high | 29 | within_30d | US_CPI;inflation;Fed_policy;global_risk |
-| 20261210 | Real Personal Consumption Expenditures by State and Real Personal Income by Stat... | US_PCE_personal_income | US | high | 29 | within_30d | US_PCE;inflation;consumption;global_risk |
-| 20261223 | GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Person... | US_PCE_personal_income | US | high | 42 | within_60d | US_PCE;inflation;consumption;global_risk |
-| 20261223 | Personal Income and Outlays, November 2026 | US_PCE_personal_income | US | high | 42 | within_60d | US_PCE;inflation;consumption;global_risk |
-| 20270108 | Employment Situation release schedule: December 2026 | US_employment_situation | US | high | 58 | within_60d | US_jobs;Fed_policy;global_growth;global_risk |
-| 20270113 | CPI release schedule: December 2026 | US_CPI | US | high | 63 | future | US_CPI;inflation;Fed_policy;global_risk |
-| 20270127 | FOMC decision (January 26-27, 2027) | FOMC | US | high | 77 | future | macro_liquidity;USD_rates;global_risk |
-| 20270205 | Employment Situation release schedule: January 2027 | US_employment_situation | US | high | 86 | future | US_jobs;Fed_policy;global_growth;global_risk |
+| 20261106 | Employment Situation release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2... | US_employment_situation | US | high | -6 | recent | US_jobs;Fed_policy;global_growth;global_risk |
+| 20261106 | Employment Situation release schedule: October 2026 | US_employment_situation | US | high | -6 | recent | US_jobs;Fed_policy;global_growth;global_risk |
+| 20261110 | CPI release schedule: BY MONTH FEBRUARY 2026 MARCH 2026 APRIL 2026 MAY 2026 JUNE... | US_CPI | US | high | -2 | recent | US_CPI;inflation;Fed_policy;global_risk |
+| 20261110 | CPI release schedule: October 2026 | US_CPI | US | high | -2 | recent | US_CPI;inflation;Fed_policy;global_risk |
+| 20261125 | GDP (Second Estimate) and Corporate Profits, 3rd Quarter 2026 | US_GDP | US | medium | 13 | within_14d | US_GDP;global_growth;global_risk |
+| 20261125 | Personal Income and Outlays, October 2026 | US_PCE_personal_income | US | high | 13 | within_14d | US_PCE;inflation;consumption;global_risk |
+| 20261202 | GDP by County and Personal Income by County, 2025 | US_PCE_personal_income | US | high | 20 | within_30d | US_PCE;inflation;consumption;global_risk |
+| 20261204 | Employment Situation release schedule: November 2026 | US_employment_situation | US | high | 22 | within_30d | US_jobs;Fed_policy;global_growth;global_risk |
+| 20261208 | U.S. International Trade in Goods and Services, October 2026 | US_trade | US | medium | 26 | within_30d | US_trade;export_cycle;global_growth |
+| 20261209 | FOMC decision (December 8-9, 2026) | FOMC | US | high | 27 | within_30d | macro_liquidity;USD_rates;global_risk |
+| 20261210 | CPI release schedule: November 2026 | US_CPI | US | high | 28 | within_30d | US_CPI;inflation;Fed_policy;global_risk |
+| 20261210 | Real Personal Consumption Expenditures by State and Real Personal Income by Stat... | US_PCE_personal_income | US | high | 28 | within_30d | US_PCE;inflation;consumption;global_risk |
+| 20261223 | GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Person... | US_PCE_personal_income | US | high | 41 | within_60d | US_PCE;inflation;consumption;global_risk |
+| 20261223 | Personal Income and Outlays, November 2026 | US_PCE_personal_income | US | high | 41 | within_60d | US_PCE;inflation;consumption;global_risk |
+| 20270108 | Employment Situation release schedule: December 2026 | US_employment_situation | US | high | 57 | within_60d | US_jobs;Fed_policy;global_growth;global_risk |
+| 20270113 | CPI release schedule: December 2026 | US_CPI | US | high | 62 | future | US_CPI;inflation;Fed_policy;global_risk |
+| 20270127 | FOMC decision (January 26-27, 2027) | FOMC | US | high | 76 | future | macro_liquidity;USD_rates;global_risk |
+| 20270205 | Employment Situation release schedule: January 2027 | US_employment_situation | US | high | 85 | future | US_jobs;Fed_policy;global_growth;global_risk |

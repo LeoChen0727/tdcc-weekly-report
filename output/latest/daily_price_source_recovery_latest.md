@@ -1,7 +1,7 @@
 # Daily Price Source Recovery
 
 - status: `pass`
-- required_end_date: `20261111`
+- required_end_date: `20261112`
 - lookback_days: `20`
 - expected_trading_date_count: `13`
 - legacy_only_before: ``
@@ -10,9 +10,9 @@
 
 ## Date Candidates
 
-- main_price_date: `20261110`
-- official_fetch_saved_price_date: `20261111`
-- latest_daily_price_file_date: `20261111`
+- main_price_date: `20261111`
+- official_fetch_saved_price_date: `20261112`
+- latest_daily_price_file_date: `20261112`
 
 ## Actions
 
