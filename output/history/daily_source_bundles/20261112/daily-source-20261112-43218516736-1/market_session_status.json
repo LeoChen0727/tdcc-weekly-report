@@ -1,0 +1,83 @@
+{
+  "assessment_date": "20261112",
+  "exceptional_non_trading_days": [
+    "20260710",
+    "20261023"
+  ],
+  "expected_main_price_date": "20261112",
+  "generated_at": "2026-11-12T20:35:02+08:00",
+  "market_session_date": "20261112",
+  "market_status": "open_confirmed",
+  "official_sources": {
+    "dgpa_emergency_closure": {
+      "attempt_count": 1,
+      "byte_len": 15037,
+      "conflict_dates": [],
+      "latest_taipei_notice_dates": [],
+      "queried_at": "2026-11-12T20:35:02+08:00",
+      "sha256": "27126aacd95afaf0588e3404434ef22d4f192224711aee1757e50c287ea60f11",
+      "source": "dgpa_emergency_closure",
+      "status": "ok",
+      "taipei_notice_count": 0,
+      "url": "https://www.dgpa.gov.tw/typh/daily/nds.html"
+    },
+    "twse_annual_calendar": {
+      "attempt_count": 1,
+      "byte_len": 3774,
+      "closed_weekday_count": 18,
+      "covered_years": [
+        2026
+      ],
+      "queried_at": "2026-11-12T20:35:02+08:00",
+      "sha256": "7644c1a8af784c09f54670fd7413f536b13eb76c54d658058e8873d1aee32117",
+      "source": "twse_annual_calendar",
+      "status": "ok",
+      "url": "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule"
+    },
+    "twse_emergency_rule": {
+      "status": "reference",
+      "url": "https://www.twse.com.tw/zh/about/suspended_faq.html"
+    }
+  },
+  "phase": "confirm",
+  "price_confirmation": {
+    "fetch_markdown_bytes": 2124,
+    "fetch_markdown_path": "output/latest/official_price_fetch_latest.md",
+    "fetch_markdown_sha256": "f22429c4a1222d0dcff53ea063669574f8e3ea250d721f35adfd935b018d045a",
+    "fetch_result": "success_target_full_market",
+    "fetch_status_bytes": 1494,
+    "fetch_status_path": "output/latest/official_price_fetch_latest.json",
+    "fetch_status_sha256": "bf3d8a7189e509c67b4902d75cd15c4e128665e6e457df3da2154a16a49db856",
+    "path": "data/daily_price/daily_price_20261112.csv",
+    "price_bytes": 204122,
+    "price_sha256": "876728918c67c01232a8f23ae8ec3458712da93207e449a37a2dc96f9ac30e3c",
+    "total_rows": 2139,
+    "tpex_rows": 889,
+    "twse_rows": 1250,
+    "wrong_date_rows": 0
+  },
+  "reason": "TWSE and TPEx target-date prices confirmed",
+  "reason_code": "twse_tpex_target_date_confirmed",
+  "scheduled_non_trading_days": [
+    "20260101",
+    "20260212",
+    "20260213",
+    "20260216",
+    "20260217",
+    "20260218",
+    "20260219",
+    "20260220",
+    "20260227",
+    "20260403",
+    "20260406",
+    "20260501",
+    "20260619",
+    "20260925",
+    "20260928",
+    "20261009",
+    "20261026",
+    "20261225"
+  ],
+  "schema_version": 1,
+  "should_run_daily_pipeline": true
+}
